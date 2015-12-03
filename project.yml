@@ -1,0 +1,34 @@
+project:
+  # The acquia_subname value is the machine name of your subscription on Acquia
+  # Cloud. E.g., if your dev env URL on Acquia Cloud is
+  # http://psprojectdev.prod.acquia-sites.com/ then your acquia_subname is
+  # "psproject". This value is used to correctly configure settings in
+  # settings.php includes. This will also determine the the directory name
+  # of the new repository.
+  acquia_subname: 'tatelyle'
+  # Used for enforcing correct git commit msg syntax.
+  prefix: 'TL'
+  human_name: 'Tate & Lyle'
+  # This is the default makefile that will be used to build dependencies.
+  # It should live in the project root.
+  make_file: 'make.yml'
+  # Please ensure your profile is also in your make file.
+  install_profile: '${project.acquia_subname}'
+  # This is used to build front end artifacts. E.g., SASS compilation.
+  theme_name: 'thunder'
+  # These are random strings used to configure the hash salt.
+  hash_salt: E7gZ18p7d9aMmSUrncIAkvHoxBasgFkJBcHEX5nznH1YmkUlBPYVV3M
+
+# Drush settings. These are used for deployment tasks.
+drush:
+  aliases:
+    default: ${project.acquia_subname}.dev
+    dev: ${project.acquia_subname}.dev
+    test: ${project.acquia_subname}.test
+
+# Configuration settings for new git repository.
+git:
+  default_branch: develop
+  remotes:
+    # Defining git remotes allows builds deployed via CI.
+    - tatelyle@svn-3394.prod.hosting.acquia.com:tatelyle.git

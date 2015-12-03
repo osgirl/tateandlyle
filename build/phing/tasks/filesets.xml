@@ -1,0 +1,33 @@
+<!-- This defines generic, reusable file sets that are used by other targets -->
+<project name="filesets" default="build">
+  <patternset id="files.php">
+    <include name="**/*.inc"/>
+    <include name="**/*.php"/>
+    <include name="**/*.module"/>
+    <include name="**/*.install"/>
+    <include name="**/*.profile"/>
+    <include name="**/*.test"/>
+    <include name="**/*.theme"/>
+    <exclude name="**/vendor/**/*"/>
+  </patternset>
+
+  <fileset dir="${repo.root}" id="files.php.all">
+    <patternset refid="files.php"/>
+  </fileset>
+
+  <fileset dir="${repo.root}/modules/custom" id="files.php.custom.modules">
+    <patternset refid="files.php"/>
+  </fileset>
+
+  <fileset dir="${repo.root}/sites/default/settings" id="files.php.custom.settings">
+    <patternset refid="files.php"/>
+  </fileset>
+
+  <fileset dir="${repo.root}/tests" id="files.tests" expandsymboliclinks="true">
+    <patternset refid="files.php"/>
+  </fileset>
+
+  <fileset dir="${repo.root}" id="custom.themes">
+    <include name="themes/custom/**"/>
+  </fileset>
+</project>
