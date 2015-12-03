@@ -25,3 +25,6 @@ projects:
     version: "1.0-alpha1"
   security_review:
     version: ~
+  paragraphs:
+    type: module
+    version: "1.0-rc4"
