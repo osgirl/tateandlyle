@@ -16,6 +16,6 @@ projects:
     revision: "f88c7ca372c96506ba31365d17e97455c072214b"
   google_analytics:
     type: module
-    version: "8.x-2.0-rc1"
+    version: "2.0-rc1"
   security_review:
     version: ~
