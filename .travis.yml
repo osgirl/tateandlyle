@@ -45,6 +45,7 @@ install:
 before_script:
   # Clear drush release history cache, to pick up new releases.
   - rm -f ~/.drush/cache/download/*---updates.drupal.org-release-history-*
+  - echo -e "Host svn-3394.prod.hosting.acquia.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 
 script:
   - ./task.sh -Dbehat:run-server=true $TEST_SUITE
