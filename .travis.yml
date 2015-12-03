@@ -21,7 +21,7 @@ env:
 
 addons:
   ssh_known_hosts:
-  # - svn-4786.devcloud.hosting.acquia.com
+    - svn-3394.devcloud.hosting.acquia.com
 
 notifications:
   # Replace this with project slack token.
@@ -45,7 +45,6 @@ install:
 before_script:
   # Clear drush release history cache, to pick up new releases.
   - rm -f ~/.drush/cache/download/*---updates.drupal.org-release-history-*
-  - echo -e "Host svn-3394.prod.hosting.acquia.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 
 script:
   - ./task.sh -Dbehat:run-server=true $TEST_SUITE
