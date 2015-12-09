@@ -1,0 +1,40 @@
+name: Tate & Lyle Multisite
+type: profile
+description: 'Tate & Lyle Multisite Profile.'
+core: '8.x'
+
+dependencies:
+  - node
+  - block
+  - breakpoint
+  - ckeditor
+  - config
+  - contextual
+  - contact
+  - menu_link_content
+  - datetime
+  - block_content
+  - quickedit
+  - editor
+  - entity_reference
+  - help
+  - image
+  - menu_ui
+  - options
+  - path
+  - page_cache
+  - taxonomy
+  - dblog
+  - search
+  - shortcut
+  - toolbar
+  - field_ui
+  - file
+  - views
+  - views_ui
+  - language
+  - paragraphs
+  - entity_reference_revisions
+themes:
+  - bartik
+  - seven
