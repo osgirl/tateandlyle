@@ -1,0 +1,45 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.page.field_footer_image
+    - field.field.node.page.field_main_content
+    - field.field.node.page.field_touts
+    - node.type.page
+  module:
+    - entity_reference_revisions
+    - image
+    - user
+id: node.page.default
+targetEntityType: node
+bundle: page
+mode: default
+content:
+  field_footer_image:
+    weight: 104
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+  field_main_content:
+    type: entity_reference_revisions_entity_view
+    weight: 102
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+  field_touts:
+    type: entity_reference_revisions_entity_view
+    weight: 103
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+  links:
+    weight: 101
+hidden:
+  langcode: true
