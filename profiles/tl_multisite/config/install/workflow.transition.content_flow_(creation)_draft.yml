@@ -1,0 +1,12 @@
+langcode: en
+status: true
+dependencies: {  }
+id: content_flow_(creation)_draft
+label: 'Create new content'
+module: null
+from_sid: content_flow_(creation)
+to_sid: content_flow_draft
+roles:
+  workflow_author: workflow_author
+  site_admin: site_admin
+  content_approver: 0

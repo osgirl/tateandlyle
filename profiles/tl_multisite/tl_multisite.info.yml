@@ -37,6 +37,8 @@ dependencies:
   - entity_reference_revisions
   - field_collection
   - content_translation
+  - google_analytics
+  -workflow
 themes:
   - bartik
   - seven

@@ -34,3 +34,6 @@ projects:
   field_collection:
     type: module
     version: ~
+  workflow:
+    type: module
+    version: ~
