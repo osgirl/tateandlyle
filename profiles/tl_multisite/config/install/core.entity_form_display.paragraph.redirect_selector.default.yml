@@ -1,0 +1,23 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.redirect_selector.field_link
+    - paragraphs.paragraphs_type.redirect_selector
+  module:
+    - link
+id: paragraph.redirect_selector.default
+targetEntityType: paragraph
+bundle: redirect_selector
+mode: default
+content:
+  field_link:
+    weight: 0
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+hidden:
+  created: true
+  uid: true
