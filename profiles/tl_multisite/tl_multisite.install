@@ -1,11 +1,12 @@
 <?php
 /**
  * @file
- * Install, update and uninstall functions for the Tatelyle installation profile.
+ * Install, update & uninstall functions for the Tatelyle installation profile.
  */
 
 use Drupal\user\Entity\User;
 use Drupal\user\RoleInterface;
+use Drupal\taxonomy\Entity\Term;
 
 /**
  * Implements hook_install().
@@ -22,7 +23,7 @@ function tl_multisite_install() {
   $user = User::load(1);
   $user->roles[] = 'administrator';
   $user->save();
-  
+
   // Allow authenticated users to use shortcuts.
   user_role_grant_permissions(RoleInterface::AUTHENTICATED_ID, array('access shortcuts'));
   // Populate the default shortcut set.
@@ -48,4 +49,43 @@ function tl_multisite_install() {
 
   // Enable the admin theme.
   \Drupal::configFactory()->getEditable('node.settings')->set('use_admin_theme', TRUE)->save(TRUE);
+
+  $term = Term::create([
+  'vid' => 'file_types',
+  'langcode' => 'en',
+  'name' => 'Factsheets',
+  'description' => [
+    'value' => '',
+    'format' => 'full_html',
+  ],
+  'weight' => -1,
+  'parent' => '',
+  ]);
+  $term->save();
+
+  $term = Term::create([
+  'vid' => 'file_types',
+  'langcode' => 'en',
+  'name' => 'Photos',
+  'description' => [
+    'value' => '',
+    'format' => 'full_html',
+  ],
+  'weight' => -1,
+  'parent' => '',
+  ]);
+  $term->save();
+
+  $term = Term::create([
+  'vid' => 'file_types',
+  'langcode' => 'en',
+  'name' => 'Logos',
+  'description' => [
+    'value' => '',
+    'format' => 'full_html',
+  ],
+  'weight' => -1,
+  'parent' => '',
+  ]);
+  $term->save();
 }
