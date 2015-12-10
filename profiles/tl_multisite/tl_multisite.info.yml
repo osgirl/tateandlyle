@@ -35,6 +35,8 @@ dependencies:
   - language
   - paragraphs
   - entity_reference_revisions
+  - field_collection
+  - content_translation
 themes:
   - bartik
   - seven
