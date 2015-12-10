@@ -37,6 +37,7 @@ dependencies:
   - entity_reference_revisions
   - field_collection
   - content_translation
+  - mollom
 themes:
   - bartik
   - seven
