@@ -31,3 +31,6 @@ projects:
   entity_reference_revisions:
     type: module
     version: ~
+  field_collection:
+    type: module
+    version: ~
