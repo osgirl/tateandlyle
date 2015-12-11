@@ -40,3 +40,6 @@ projects:
   google_analytics:
     type: module
     version: ~
+  workflow:
+    type: module
+    version: ~
