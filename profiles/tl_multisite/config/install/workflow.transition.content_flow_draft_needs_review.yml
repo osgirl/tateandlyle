@@ -1,0 +1,12 @@
+langcode: en
+status: true
+dependencies: {  }
+id: content_flow_draft_needs_review
+label: 'Send for review'
+module: null
+from_sid: content_flow_draft
+to_sid: content_flow_needs_review
+roles:
+  workflow_author: workflow_author
+  site_admin: site_admin
+  content_approver: 0

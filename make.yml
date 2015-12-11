@@ -31,9 +31,15 @@ projects:
   entity_reference_revisions:
     type: module
     version: ~
+  mollom:
+    type: module
+    version: "1.1"
   field_collection:
     type: module
     version: ~
   google_analytics:
     type: module
-    version: ~
+    version: "2.0-rc1"
+  workflow:
+    type: module
+    version: "1.0-beta3"

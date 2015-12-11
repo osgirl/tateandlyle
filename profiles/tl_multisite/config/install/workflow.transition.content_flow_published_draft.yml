@@ -1,0 +1,12 @@
+langcode: en
+status: true
+dependencies: {  }
+id: content_flow_published_draft
+label: ''
+module: null
+from_sid: content_flow_published
+to_sid: content_flow_draft
+roles:
+  site_admin: site_admin
+  workflow_author: 0
+  content_approver: 0
