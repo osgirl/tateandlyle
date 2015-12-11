@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+id: form_analyst
+label: 'Form analyst'
+weight: 6
+is_admin: null
+permissions: {  }
