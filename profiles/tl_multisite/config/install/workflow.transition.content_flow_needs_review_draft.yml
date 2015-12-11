@@ -1,0 +1,12 @@
+langcode: en
+status: true
+dependencies: {  }
+id: content_flow_needs_review_draft
+label: Reject
+module: null
+from_sid: content_flow_needs_review
+to_sid: content_flow_draft
+roles:
+  site_admin: site_admin
+  content_approver: content_approver
+  workflow_author: 0
