@@ -38,6 +38,7 @@ dependencies:
   - field_collection
   - content_translation
   - google_analytics
+  - mollom
 themes:
   - bartik
   - seven
