@@ -3,6 +3,9 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.page.field_footer_image
+    - field.field.node.page.field_main_content
+    - field.field.node.page.field_touts
     - node.type.page
   module:
     - user
@@ -14,4 +17,7 @@ content:
   links:
     weight: 101
 hidden:
+  field_footer_image: true
+  field_main_content: true
+  field_touts: true
   langcode: true

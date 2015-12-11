@@ -5,6 +5,7 @@ dependencies:
     - field.field.node.form.field_form
     - field.field.node.form.field_layout
     - field.field.node.form.field_main_content
+    - field.field.node.form.field_workflow
     - node.type.form
   module:
     - entity_reference_revisions
@@ -36,6 +37,12 @@ content:
       link: ''
     third_party_settings: {  }
     type: entity_reference_revisions_entity_view
+  field_workflow:
+    weight: 107
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
   links:
     weight: 100
 hidden:
