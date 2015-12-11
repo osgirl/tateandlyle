@@ -49,6 +49,10 @@ function tl_multisite_install() {
 
   // Enable the admin theme.
   \Drupal::configFactory()->getEditable('node.settings')->set('use_admin_theme', TRUE)->save(TRUE);
+  $config = \Drupal::configFactory()->getEditable('system.theme');
+  $config->set('admin', 'seven');
+  $config->set('default', 'bartik');
+  $config->save();
 
   $term = Term::create([
   'vid' => 'file_types',

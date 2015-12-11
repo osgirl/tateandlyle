@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies: {  }
+id: content_flow_draft_draft
+label: ''
+module: null
+from_sid: content_flow_draft
+to_sid: content_flow_draft
+roles: {  }

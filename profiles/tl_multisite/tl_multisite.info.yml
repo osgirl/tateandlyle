@@ -39,6 +39,7 @@ dependencies:
   - content_translation
   - google_analytics
   - mollom
+  - workflow
 themes:
   - bartik
   - seven
