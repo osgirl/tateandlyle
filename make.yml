@@ -31,9 +31,9 @@ projects:
   entity_reference_revisions:
     type: module
     version: ~
-  field_collection:
+  mollom:
     type: module
     version: ~
-  mollom:
+  field_collection:
     type: module
     version: ~
