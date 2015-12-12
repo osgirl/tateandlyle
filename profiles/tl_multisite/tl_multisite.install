@@ -7,6 +7,7 @@
 use Drupal\user\Entity\User;
 use Drupal\user\RoleInterface;
 use Drupal\taxonomy\Entity\Term;
+use Drupal\node\Entity\Node;
 
 /**
  * Implements hook_install().
@@ -92,4 +93,38 @@ function tl_multisite_install() {
   'parent' => '',
   ]);
   $term->save();
+
+  $node = Node::create([
+  'type' => 'page',
+  'langcode' => 'en',
+  'created' => REQUEST_TIME,
+  'changed' => REQUEST_TIME,
+  'uid' => 1,
+  'title' => '404',
+  'field_tags' => [2],
+  'body' => [
+    'summary' => '',
+    'value' => 'Page not found.',
+    'format' => 'full_html',
+  ],
+  ]);
+  $node->save();
+  \Drupal::service('path.alias_storage')->save("/node/" . $node->id(), "/404", "en");
+
+  $node = Node::create([
+  'type' => 'page',
+  'langcode' => 'en',
+  'created' => REQUEST_TIME,
+  'changed' => REQUEST_TIME,
+  'uid' => 1,
+  'title' => '403',
+  'field_tags' => [2],
+  'body' => [
+    'summary' => '',
+    'value' => 'Access denied.',
+    'format' => 'full_html',
+  ],
+  ]);
+  $node->save();
+  \Drupal::service('path.alias_storage')->save("/node/" . $node->id(), "/403", "en");
 }
