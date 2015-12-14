@@ -6,7 +6,7 @@
 
   <!-- This is run when a project is cloned to a new environment. -->
   <target name="setup:build:all" description="Generates all required files for a full build. E.g., removes docroot, builds via `drush make`, restores symlinks, etc."
-      depends="setup:behat, setup:build:make, setup:build:symlinks, setup:build:permissions, frontend:build">
+      depends="setup:behat, setup:build:make, setup:build:symlinks, frontend:build">
   </target>
 
   <!-- Delete the docroot directory. Used prior to running Drush make. -->
@@ -66,10 +66,6 @@
     <exec dir="${repo.root}" command="ln -s ../../../sites/default/settings docroot/sites/default/settings"/>
     <exec dir="${repo.root}" command="ln -s ../../../sites/default/settings.php docroot/sites/default/settings.php"/>
     <exec dir="${repo.root}" command="ln -s ../../../sites/default/files docroot/sites/default/files"/>
-  </target>
-
-  <target name="setup:build:permissions" description="Sets the required permissions on pre-created folders.">
-    <chmod file="${docroot}/sites/default/files" mode="0777" />
   </target>
 
   <target name="setup:drupal:install"
