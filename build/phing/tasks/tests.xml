@@ -88,13 +88,14 @@
       <then>
         <echo message="Using drush runserver for executing subsequent tests." />
         <!-- Note that Behat's base_url must match php-server-url. -->
-        <property name="behat:server-url" value="http://127.0.0.1:8080/" />
+        <property name="behat:server-url" value="127.0.0.1" />
+        <property name="behat:server-port" value="8080" />
 
         <exec executable="${repo.root}/bin/drush" dir="${docroot}" spawn="true">
-          <arg line="runserver ${behat:server-url}"/>
+          <arg line="runserver ${behat:server-port}" />
         </exec>
         <waitfor maxwait="10" maxwaitunit="second" checkevery="1" checkeveryunit="second">
-          <http url="${behat:server-url}"/>
+          <http url="http://${behat:server-url}:${behat:server-port}/" />
         </waitfor>
       </then>
     </if>
