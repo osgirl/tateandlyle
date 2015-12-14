@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_template
+    - node.type.page
+  module:
+    - options
+id: node.page.field_template
+field_name: field_template
+entity_type: node
+bundle: page
+label: Template
+description: 'Choose a template.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_integer
+
