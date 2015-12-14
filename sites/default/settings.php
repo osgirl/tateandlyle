@@ -266,7 +266,7 @@ $config_directories = array();
  *
  * @see install_select_profile()
  */
-$settings['install_profile'] = 'tatelyle';
+$settings['install_profile'] = 'tl_multisite';
 
 /**
  * Salt for one-time login links, cancel links, form tokens, etc.
