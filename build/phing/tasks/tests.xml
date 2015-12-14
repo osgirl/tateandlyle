@@ -95,7 +95,7 @@
           <arg line="runserver ${behat:server-port}" />
         </exec>
 
-        <echo message="Waiting until the server responts." />
+        <echo message="Waiting until the server responds." />
         <waitfor maxwait="10" maxwaitunit="second" checkevery="1" checkeveryunit="second">
           <http url="http://${behat:server-url}:${behat:server-port}" />
         </waitfor>
