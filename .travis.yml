@@ -48,7 +48,7 @@ before_script:
   - ssh-keyscan -H -t rsa,dsa svn-3394.prod.hosting.acquia.com >> ~/.ssh/known_hosts
 
 script:
-#  - ./task.sh -Dbehat:run-server=true $TEST_SUITE
+  - ./task.sh -Dbehat:run-server=true $TEST_SUITE
 
 after_success:
   # Watch for successful `build:validate:test` build job on `master` branch; deploy to `master-build`.
