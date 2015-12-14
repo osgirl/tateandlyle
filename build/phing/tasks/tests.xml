@@ -95,9 +95,9 @@
           <arg line="runserver ${behat:server-port}" />
         </exec>
 
-<!--        <waitfor maxwait="10" maxwaitunit="second" checkevery="1" checkeveryunit="second">
-          <http url="http://${behat:server-url}:${behat:server-port}/" />
-        </waitfor>-->
+        <waitfor maxwait="10" maxwaitunit="second" checkevery="1" checkeveryunit="second">
+          <http url="http://${behat:server-url}:${behat:server-port}" />
+        </waitfor>
       </then>
     </if>
   </target>
