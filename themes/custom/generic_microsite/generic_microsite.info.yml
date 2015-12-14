@@ -1,0 +1,24 @@
+core: 8.x
+type: theme
+version: VERSION
+base theme: bootstrap
+
+name: 'Generic Microsite'
+description: 'Subtheme based on Bootstrap 3.'
+package: 'Bootstrap'
+
+regions:
+  navigation: 'Navigation'
+  header: 'Top Bar'
+  highlighted: 'Highlighted'
+  help: 'Help'
+  content: 'Content'
+  sidebar_first: 'Primary'
+  sidebar_second: 'Secondary'
+  footer: 'Footer'
+  page_top: 'Page top'
+  page_bottom: 'Page bottom'
+
+libraries:
+  - 'generic_microsite/global-styling'
+  - 'generic_microsite/bootstrap-scripts'
