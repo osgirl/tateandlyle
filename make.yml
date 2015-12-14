@@ -43,3 +43,6 @@ projects:
   workflow:
     type: module
     version: "1.0-beta3"
+  bootstrap:
+    type: theme
+    version: "3.0-alpha1"

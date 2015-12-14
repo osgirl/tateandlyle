@@ -40,6 +40,9 @@ dependencies:
   - google_analytics
   - mollom
   - workflow
+  - workflow_ui
+  - workflowfield
+  - workflow_access
 themes:
   - bartik
   - seven

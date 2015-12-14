@@ -106,6 +106,9 @@ fi
 
 for file in $LIST
 do
+    if [ $file = "sites/default/settings.php" ]; then
+      continue;
+    fi
 
     PHPL_RESULT=$(php -l $file)
     SYNTAX_CODE=$?
