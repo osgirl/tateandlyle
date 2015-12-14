@@ -1,7 +1,7 @@
 <project name="tests" default="tests:all">
 
   <target name="tests:all" description="Runs all tests, including Behat, PHPUnit, and Security Update check."
-          depends="tests:security-updates, tests:behat, tests:phpunit"/>
+          depends="tests:security-updates, tests:phpunit"/>
 
   <!-- If you experience 'Maximum function nesting level' errors in your PHP
        error log, set 'xdebug.max_nesting_level=1000' in php.ini. -->
