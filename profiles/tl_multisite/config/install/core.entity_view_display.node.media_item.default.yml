@@ -4,9 +4,11 @@ dependencies:
   config:
     - field.field.node.media_item.field_file
     - field.field.node.media_item.field_media_category
+    - field.field.node.media_item.field_workflow
     - node.type.media_item
   module:
     - file
+    - options
     - user
 id: node.media_item.default
 targetEntityType: node
@@ -26,6 +28,12 @@ content:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
+  field_workflow:
+    weight: 105
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
   links:
     weight: 100
 hidden:

@@ -4,6 +4,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.media_item.field_file
+    - field.field.node.media_item.field_media_category
     - node.type.media_item
   module:
     - user
@@ -16,4 +17,5 @@ content:
     weight: 100
 hidden:
   field_file: true
+  field_media_category: true
   langcode: true
