@@ -1,0 +1,4 @@
+# Schema for the configuration files for the THEMENAME theme.
+dolciaprima.settings:
+  type: theme_settings
+  label: 'Bootstrap Sub-Theme Settings'
