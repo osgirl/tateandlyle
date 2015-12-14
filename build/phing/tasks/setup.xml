@@ -69,8 +69,7 @@
   </target>
 
   <target name="setup:build:permissions" description="Sets the required permissions on pre-created folders.">
-    <chmod file="${repo.root}/sites/default/files" mode="0777" />
-    <chmod file="${repo.root}/config/default" mode="0777" />
+    <chmod file="${docroot}/sites/default/files" mode="0777" />
   </target>
 
   <target name="setup:drupal:install"
