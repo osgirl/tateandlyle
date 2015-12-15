@@ -17,7 +17,7 @@ function tl_multisite_install_tasks(&$install_state) {
   // Add extra install task steps for custom configuration.
   $tasks = array();
   // Add custom configuration form to the install tasks.
-  $tasks['Drupal\tl_multisite\Form\CustomConfigForm'] = array(
+  $tasks['Drupal\tl_multisite\Form\ThemeSelectionForm'] = array(
     'title' => t('Theme Selection'),
     'display_name' => t('Theme Selection'),
     'type' => 'form',

@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Contains \Drupal\tl_multisite\Form\CustomConfigForm.
+ * Contains \Drupal\tl_multisite\Form\ThemeSelectionForm.
  */
 
 namespace Drupal\tl_multisite\Form;
@@ -11,7 +11,7 @@ use Drupal\Core\Form\FormStateInterface;
 /**
  * Implements custom config form for tl_multisite.
  */
-class CustomConfigForm extends FormBase {
+class ThemeSelectionForm extends FormBase {
 
   /**
    * Custom config form for tl_multisite.
