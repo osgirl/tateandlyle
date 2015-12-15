@@ -39,7 +39,7 @@ class ThemeSelectionForm extends FormBase {
       '#type' => 'select',
       '#title' => t('Select frontend theme'),
       '#options' => $themes_list,
-      '#default_value' => 0,
+      '#default_value' => 'generic_microsite',
       '#description' => t('Set the frontend theme for your site.'),
     );
     $form['submit'] = array(
