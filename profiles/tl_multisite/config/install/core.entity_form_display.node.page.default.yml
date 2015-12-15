@@ -5,6 +5,7 @@ dependencies:
     - field.field.node.page.body
     - field.field.node.page.field_footer_image
     - field.field.node.page.field_main_content
+    - field.field.node.page.field_template
     - field.field.node.page.field_touts
     - field.field.node.page.field_workflow
     - node.type.page
@@ -20,7 +21,7 @@ bundle: page
 mode: default
 content:
   body:
-    weight: 26
+    weight: 11
     settings:
       rows: 9
       summary_rows: 3
@@ -29,11 +30,11 @@ content:
     type: text_textarea_with_summary
   created:
     type: datetime_timestamp
-    weight: 6
+    weight: 7
     settings: {  }
     third_party_settings: {  }
   field_footer_image:
-    weight: 3
+    weight: 4
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
@@ -49,6 +50,11 @@ content:
       add_mode: dropdown
       form_display_mode: default
     third_party_settings: {  }
+  field_template:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
   field_touts:
     type: entity_reference_paragraphs
     weight: 2
@@ -60,31 +66,31 @@ content:
       form_display_mode: default
     third_party_settings: {  }
   field_workflow:
-    weight: 27
+    weight: 12
     settings: {  }
     third_party_settings: {  }
     type: workflow_default
   langcode:
     type: language_select
-    weight: 4
+    weight: 5
     settings: {  }
     third_party_settings: {  }
   path:
     type: path
-    weight: 9
+    weight: 10
     settings: {  }
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 7
+    weight: 8
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 8
+    weight: 9
     third_party_settings: {  }
   title:
     type: string_textfield
@@ -95,7 +101,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 5
+    weight: 6
     settings:
       match_operator: CONTAINS
       size: 60
