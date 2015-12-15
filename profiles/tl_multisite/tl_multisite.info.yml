@@ -43,7 +43,7 @@ dependencies:
   - workflow_ui
   - workflowfield
   - workflow_access
-  - acquia_search
+  # - acquia_search
 themes:
   - bartik
   - seven
