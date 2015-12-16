@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies: {  }
+id: get_the_white_paper
+label: 'Get the white paper'
+recipients:
+  - bogdan.stamate@softescu.ro
+reply: ''
+weight: 0
