@@ -20,33 +20,37 @@ settings:
   handler: 'default:paragraph'
   handler_settings:
     target_bundles:
-      main_content: main_content
+      image: image
+      text: text
     target_bundles_drag_drop:
       image:
+        enabled: true
         weight: 9
-        enabled: false
-      image_text:
-        weight: 10
-        enabled: false
-      images:
+      accordion:
         weight: 11
         enabled: false
       main_content:
-        enabled: true
         weight: 12
-      nested_paragraph:
+        enabled: false
+      contact:
+        weight: 12
+        enabled: false
+      country_contact:
         weight: 13
         enabled: false
       text:
+        enabled: true
         weight: 14
-        enabled: false
-      text_image:
-        weight: 15
-        enabled: false
-      user:
+      redirect_selector:
         weight: 16
         enabled: false
       tout:
         weight: 17
+        enabled: false
+      slide:
+        weight: 17
+        enabled: false
+      tabs:
+        weight: 18
         enabled: false
 field_type: entity_reference_revisions

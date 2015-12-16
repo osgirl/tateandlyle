@@ -10,6 +10,22 @@ use Drupal\taxonomy\Entity\Term;
 use Drupal\node\Entity\Node;
 
 /**
+ * Implements hook_install_tasks().
+ */
+function tl_multisite_install_tasks(&$install_state) {
+  $install_state['#title'] = t('Theme Selection');
+  // Add extra install task steps for custom configuration.
+  $tasks = array();
+  // Add custom configuration form to the install tasks.
+  $tasks['Drupal\tl_multisite\Form\ThemeSelectionForm'] = array(
+    'title' => t('Theme Selection'),
+    'display_name' => t('Theme Selection'),
+    'type' => 'form',
+  );
+  return $tasks;
+}
+
+/**
  * Implements hook_install().
  *
  * Perform actions to set up the site for this profile.
@@ -56,74 +72,74 @@ function tl_multisite_install() {
   $config->save();
 
   $term = Term::create([
-  'vid' => 'file_types',
-  'langcode' => 'en',
-  'name' => 'Factsheets',
-  'description' => [
-    'value' => '',
-    'format' => 'full_html',
-  ],
-  'weight' => -1,
-  'parent' => '',
+    'vid' => 'file_types',
+    'langcode' => 'en',
+    'name' => 'Factsheets',
+    'description' => [
+      'value' => '',
+      'format' => 'full_html',
+    ],
+    'weight' => -1,
+    'parent' => '',
+    ]);
+  $term->save();
+
+  $term = Term::create([
+    'vid' => 'file_types',
+    'langcode' => 'en',
+    'name' => 'Photos',
+    'description' => [
+      'value' => '',
+      'format' => 'full_html',
+    ],
+    'weight' => -1,
+    'parent' => '',
   ]);
   $term->save();
 
   $term = Term::create([
-  'vid' => 'file_types',
-  'langcode' => 'en',
-  'name' => 'Photos',
-  'description' => [
-    'value' => '',
-    'format' => 'full_html',
-  ],
-  'weight' => -1,
-  'parent' => '',
-  ]);
-  $term->save();
-
-  $term = Term::create([
-  'vid' => 'file_types',
-  'langcode' => 'en',
-  'name' => 'Logos',
-  'description' => [
-    'value' => '',
-    'format' => 'full_html',
-  ],
-  'weight' => -1,
-  'parent' => '',
+    'vid' => 'file_types',
+    'langcode' => 'en',
+    'name' => 'Logos',
+    'description' => [
+      'value' => '',
+      'format' => 'full_html',
+    ],
+    'weight' => -1,
+    'parent' => '',
   ]);
   $term->save();
 
   $node = Node::create([
-  'type' => 'page',
-  'langcode' => 'en',
-  'created' => REQUEST_TIME,
-  'changed' => REQUEST_TIME,
-  'uid' => 1,
-  'title' => '404',
-  'field_tags' => [2],
-  'body' => [
-    'summary' => '',
-    'value' => 'Page not found.',
-    'format' => 'full_html',
-  ],
+    'type' => 'page',
+    'langcode' => 'en',
+    'created' => REQUEST_TIME,
+    'changed' => REQUEST_TIME,
+    'uid' => 1,
+    'title' => '404',
+    'field_tags' => [2],
+    'body' => [
+      'summary' => '',
+      'value' => 'Page not found.',
+      'format' => 'full_html',
+    ],
   ]);
   $node->save();
   \Drupal::service('path.alias_storage')->save("/node/" . $node->id(), "/404", "en");
 
   $node = Node::create([
-  'type' => 'page',
-  'langcode' => 'en',
-  'created' => REQUEST_TIME,
-  'changed' => REQUEST_TIME,
-  'uid' => 1,
-  'title' => '403',
-  'field_tags' => [2],
-  'body' => [
-    'summary' => '',
-    'value' => 'Access denied.',
-    'format' => 'full_html',
-  ],
+    'type' => 'page',
+    'langcode' => 'en',
+    'created' => REQUEST_TIME,
+    'changed' => REQUEST_TIME,
+    'uid' => 1,
+    'title' => '403',
+    'field_tags' => [2],
+    'body' => [
+      'summary' => '',
+      'value' => 'Access denied.',
+      'format' => 'full_html',
+    ],
   ]);
   $node->save();
   \Drupal::service('path.alias_storage')->save("/node/" . $node->id(), "/403", "en");

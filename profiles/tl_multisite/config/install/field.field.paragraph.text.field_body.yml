@@ -3,17 +3,17 @@ status: true
 dependencies:
   config:
     - field.storage.paragraph.field_body
-    - paragraphs.paragraphs_type.main_content
+    - paragraphs.paragraphs_type.text
   module:
     - text
-id: paragraph.main_content.field_body
+id: paragraph.text.field_body
 field_name: field_body
 entity_type: paragraph
-bundle: main_content
+bundle: text
 label: Body
-description: 'Enter content in the textarea. You can format the text, add images or links using the custom buttons.'
+description: ''
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
