@@ -3,21 +3,28 @@ status: true
 dependencies:
   config:
     - field.storage.paragraph.field_image
-    - paragraphs.paragraphs_type.main_content
+    - paragraphs.paragraphs_type.image
   module:
+    - content_translation
     - image
-id: paragraph.main_content.field_image
+third_party_settings:
+  content_translation:
+    translation_sync:
+      alt: alt
+      title: title
+      file: '0'
+id: paragraph.image.field_image
 field_name: field_image
 entity_type: paragraph
-bundle: main_content
+bundle: image
 label: Image
-description: 'Upload a image by clicking the "Choose File" button.'
+description: 'Add a image.'
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
-  file_directory: main-content/image
+  file_directory: images
   file_extensions: 'png gif jpg jpeg'
   max_filesize: '16 MB'
   max_resolution: ''
