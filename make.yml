@@ -14,6 +14,9 @@ projects:
   acquia_connector:
     type: module
     revision: "f88c7ca372c96506ba31365d17e97455c072214b"
+  contact_storage:
+    type: module
+    version: "1.0-beta1"
   google_analytics:
     type: module
     version: "2.0-rc1"
@@ -37,9 +40,6 @@ projects:
   field_collection:
     type: module
     version: ~
-  google_analytics:
-    type: module
-    version: "2.0-rc1"
   workflow:
     type: module
     version: "1.0-beta3"
