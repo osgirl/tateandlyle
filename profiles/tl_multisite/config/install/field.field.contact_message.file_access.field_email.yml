@@ -2,12 +2,12 @@ langcode: en
 status: true
 dependencies:
   config:
-    - contact.form.get_the_white_paper
+    - contact.form.file_access
     - field.storage.contact_message.field_email
-id: contact_message.get_the_white_paper.field_email
+id: contact_message.file_access.field_email
 field_name: field_email
 entity_type: contact_message
-bundle: get_the_white_paper
+bundle: file_access
 label: 'Email Address'
 description: ''
 required: true

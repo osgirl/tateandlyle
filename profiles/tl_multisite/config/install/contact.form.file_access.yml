@@ -1,8 +1,8 @@
 langcode: en
 status: true
 dependencies: {  }
-id: get_the_white_paper
-label: 'Get the white paper'
+id: file_access
+label: 'File access'
 recipients:
   - bogdan.stamate@softescu.ro
 reply: ''

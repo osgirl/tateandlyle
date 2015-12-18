@@ -2,14 +2,14 @@ langcode: en
 status: true
 dependencies:
   config:
-    - contact.form.get_the_white_paper
+    - contact.form.file_access
     - field.storage.contact_message.field_region
   module:
     - options
-id: contact_message.get_the_white_paper.field_region
+id: contact_message.file_access.field_region
 field_name: field_region
 entity_type: contact_message
-bundle: get_the_white_paper
+bundle: file_access
 label: Region
 description: ''
 required: true

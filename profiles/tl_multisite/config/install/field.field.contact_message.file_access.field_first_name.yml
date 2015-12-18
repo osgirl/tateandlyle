@@ -2,12 +2,12 @@ langcode: en
 status: true
 dependencies:
   config:
-    - contact.form.get_the_white_paper
+    - contact.form.file_access
     - field.storage.contact_message.field_first_name
-id: contact_message.get_the_white_paper.field_first_name
+id: contact_message.file_access.field_first_name
 field_name: field_first_name
 entity_type: contact_message
-bundle: get_the_white_paper
+bundle: file_access
 label: 'First Name'
 description: ''
 required: true

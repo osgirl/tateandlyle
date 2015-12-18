@@ -2,12 +2,12 @@ langcode: en
 status: true
 dependencies:
   config:
-    - contact.form.get_the_white_paper
+    - contact.form.file_access
     - field.storage.contact_message.field_subscribe
-id: contact_message.get_the_white_paper.field_subscribe
+id: contact_message.file_access.field_subscribe
 field_name: field_subscribe
 entity_type: contact_message
-bundle: get_the_white_paper
+bundle: file_access
 label: Subscribe
 description: ''
 required: false

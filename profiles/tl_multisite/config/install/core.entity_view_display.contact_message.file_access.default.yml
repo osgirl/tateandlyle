@@ -2,19 +2,19 @@ langcode: en
 status: true
 dependencies:
   config:
-    - contact.form.get_the_white_paper
-    - field.field.contact_message.get_the_white_paper.field_company_name
-    - field.field.contact_message.get_the_white_paper.field_email
-    - field.field.contact_message.get_the_white_paper.field_first_name
-    - field.field.contact_message.get_the_white_paper.field_last_name
-    - field.field.contact_message.get_the_white_paper.field_region
-    - field.field.contact_message.get_the_white_paper.field_subscribe
-    - field.field.contact_message.get_the_white_paper.field_telephone_number
+    - contact.form.file_access
+    - field.field.contact_message.file_access.field_company_name
+    - field.field.contact_message.file_access.field_email
+    - field.field.contact_message.file_access.field_first_name
+    - field.field.contact_message.file_access.field_last_name
+    - field.field.contact_message.file_access.field_region
+    - field.field.contact_message.file_access.field_subscribe
+    - field.field.contact_message.file_access.field_telephone_number
   module:
     - options
-id: contact_message.get_the_white_paper.default
+id: contact_message.file_access.default
 targetEntityType: contact_message
-bundle: get_the_white_paper
+bundle: file_access
 mode: default
 content:
   field_company_name:

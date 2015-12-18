@@ -2,14 +2,14 @@ langcode: en
 status: true
 dependencies:
   config:
-    - contact.form.get_the_white_paper
+    - contact.form.file_access
     - field.storage.contact_message.field_telephone_number
   module:
     - telephone
-id: contact_message.get_the_white_paper.field_telephone_number
+id: contact_message.file_access.field_telephone_number
 field_name: field_telephone_number
 entity_type: contact_message
-bundle: get_the_white_paper
+bundle: file_access
 label: 'Telephone number'
 description: ''
 required: false
