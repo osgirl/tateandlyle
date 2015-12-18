@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file
  * Custom theme settings for the Generic Microsites sub-theme.
@@ -65,13 +64,22 @@ function generic_microsite_form_system_theme_settings_alter(&$form, FormStateInt
     ),
   );
 
-  $form['style']['bg_value'] = array(
+  $form['style']['bg_value1'] = array(
     '#type' => 'textfield',
-    '#title' => t('Background color'),
-    '#default_value' => theme_get_setting('bg_value'),
-    '#size' => 6,
-    '#maxlength' => 6,
-    '#description' => t('Specify the background color for the site.'),
+    '#title' => t('Primary background color'),
+    '#default_value' => empty(theme_get_setting('bg_value2')) ? '#b5cbe6' : theme_get_setting('bg_value2'),
+    '#size' => 7,
+    '#maxlength' => 7,
+    '#description' => t('Specify the first background color for the site - default: #b5cbe6.'),
+  );
+
+  $form['style']['bg_value2'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Secondary background color'),
+    '#default_value' => empty(theme_get_setting('bg_value2')) ? '#ffffff' : theme_get_setting('bg_value2'),
+    '#size' => 7,
+    '#maxlength' => 7,
+    '#description' => t('Specify the second background color for the site (gradient) - default: #ffffff.'),
   );
 
   $form['style']['bg_image'] = array(
