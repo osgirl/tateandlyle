@@ -11,7 +11,6 @@ dependencies:
   module:
     - entity_reference_revisions
     - image
-    - options
     - user
 id: node.page.default
 targetEntityType: node
@@ -28,35 +27,30 @@ content:
     type: image
   field_main_content:
     type: entity_reference_revisions_entity_view
-    weight: 1
+    weight: 2
     label: hidden
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
-  field_template:
-    weight: 3
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: list_default
   field_touts:
     type: entity_reference_revisions_entity_view
-    weight: 2
+    weight: 3
     label: above
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
   links:
-    weight: 0
+    weight: 1
     settings: {  }
     third_party_settings: {  }
   moderation_state:
     label: hidden
     type: entity_reference_entity_id
-    weight: -5
+    weight: 0
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_template: true
   langcode: true
