@@ -1,0 +1,11 @@
+uuid: fc8342a4-ae25-4bf9-8c00-fa87cf1995d3
+langcode: en
+status: true
+dependencies:
+  config:
+    - moderation_state.moderation_state.needs_review
+    - moderation_state.moderation_state.published
+id: needs_review_published
+label: 'Needs review » Published'
+stateFrom: needs_review
+stateTo: published

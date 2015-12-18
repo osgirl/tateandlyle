@@ -1,0 +1,7 @@
+uuid: 6fd9cae0-ea8d-4682-be00-b1f22402f237
+langcode: en
+status: true
+dependencies: {  }
+id: published
+label: Published
+published: true
