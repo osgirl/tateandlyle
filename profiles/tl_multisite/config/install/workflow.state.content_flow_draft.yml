@@ -1,9 +1,0 @@
-langcode: en
-status: '1'
-dependencies: {  }
-id: content_flow_draft
-label: Draft
-module: null
-wid: content_flow
-weight: '-8'
-sysid: 0

@@ -1,9 +1,0 @@
-langcode: en
-status: true
-dependencies: {  }
-id: content_flow_unpublished_unpublished
-label: ''
-module: null
-from_sid: content_flow_unpublished
-to_sid: content_flow_unpublished
-roles: {  }
