@@ -1,0 +1,11 @@
+uuid: 9888f203-841e-4287-b501-1dec6c9d1643
+langcode: en
+status: true
+dependencies:
+  config:
+    - moderation_state.moderation_state.draft
+    - moderation_state.moderation_state.needs_review
+id: draft_needs_review
+label: 'Draft » Needs review'
+stateFrom: draft
+stateTo: needs_review

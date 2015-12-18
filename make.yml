@@ -40,9 +40,16 @@ projects:
   field_collection:
     type: module
     version: ~
-  workflow:
-    type: module
-    version: "1.0-beta3"
   bootstrap:
     type: theme
     version: "3.0-alpha1"
+  moderation_state:
+    type: module
+    download:
+      url: http://git.drupal.org/sandbox/larowlan/2624238.git
+      revision: "8.x-1.x"
+    patch:
+#      - "https://www.drupal.org/files/issues/stet-transitions.patch"
+      - "https://www.drupal.org/files/issues/moderation_state-validator_error.2636920-2.patch"
+#        - "https://www.drupal.org/files/issues/entity-specifics_1.patch"
+

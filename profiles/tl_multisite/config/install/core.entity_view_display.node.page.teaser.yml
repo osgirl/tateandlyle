@@ -1,14 +1,13 @@
+uuid: 7bc86e96-e398-4e48-8100-e76bb98c4a45
 langcode: en
 status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.field.node.page.body
     - field.field.node.page.field_footer_image
     - field.field.node.page.field_main_content
     - field.field.node.page.field_template
     - field.field.node.page.field_touts
-    - field.field.node.page.field_workflow
     - node.type.page
   module:
     - user
@@ -19,11 +18,16 @@ mode: teaser
 content:
   links:
     weight: 101
+  moderation_state:
+    label: hidden
+    type: string
+    weight: -5
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
 hidden:
-  body: true
   field_footer_image: true
   field_main_content: true
   field_template: true
   field_touts: true
-  field_workflow: true
   langcode: true
