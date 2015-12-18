@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @file
  * Custom theme settings for the Generic Microsites sub-theme.
  */
 
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\file\Entity\File;
 use Drupal\image\Entity\ImageStyle;
 
@@ -22,7 +24,15 @@ function generic_microsite_form_system_theme_settings_alter(&$form, FormStateInt
   define('FRONTPAGE_ONECOLUMN', 1);
   define('FRONTPAGE_TWOCOLUMN', 2);
   $fid = theme_get_setting('bg_image');
-  $file = File::load($fid);
+
+  if ($fid) {
+    $file = File::load($fid);
+    $file_uri = $file->getFileUri();
+    $image = '<img src="' . ImageStyle::load('medium')->buildUrl($file_uri) . '" /><br />';
+  }
+  else {
+    $image = "";
+  }
 
   $form['style'] = array(
     '#type' => 'details',
@@ -72,7 +82,7 @@ function generic_microsite_form_system_theme_settings_alter(&$form, FormStateInt
     '#default_value' => theme_get_setting('bg_image'),
     '#description' => t('Use this field to upload your background image. Uploads limited to .png .gif .jpg .jpeg .apng .svg extensions'),
     '#element_validate' => array('generic_microsite_bg_validate'),
-    '#suffix' => '<img src="' . ImageStyle::load('medium')->buildUrl($file->getFileUri()) . '" /><br />',
+    '#suffix' => $image,
   );
 
   $form['style']['custom_css'] = array(
