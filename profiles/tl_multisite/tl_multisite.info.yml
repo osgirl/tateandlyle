@@ -41,10 +41,7 @@ dependencies:
   - content_translation
   - google_analytics
   - mollom
-  - workflow
-  - workflow_ui
-  - workflowfield
-  - workflow_access
+  - moderation_state
   # - acquia_search
 themes:
   - bartik
