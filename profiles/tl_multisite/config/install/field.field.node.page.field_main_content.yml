@@ -21,36 +21,39 @@ settings:
   handler_settings:
     target_bundles:
       image: image
+      accordion: accordion
+      contact: contact
+      country_contact: country_contact
       text: text
+      redirect_selector: redirect_selector
+      slide: slide
+      tabs: tabs
     target_bundles_drag_drop:
       image:
         enabled: true
         weight: 9
       accordion:
+        enabled: true
         weight: 11
-        enabled: false
-      main_content:
-        weight: 12
-        enabled: false
       contact:
+        enabled: true
         weight: 12
-        enabled: false
       country_contact:
+        enabled: true
         weight: 13
-        enabled: false
       text:
         enabled: true
         weight: 14
       redirect_selector:
+        enabled: true
         weight: 16
-        enabled: false
       tout:
         weight: 17
         enabled: false
       slide:
+        enabled: true
         weight: 17
-        enabled: false
       tabs:
+        enabled: true
         weight: 18
-        enabled: false
 field_type: entity_reference_revisions
