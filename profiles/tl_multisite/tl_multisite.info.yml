@@ -44,5 +44,5 @@ dependencies:
   - moderation_state
   # - acquia_search
 themes:
-  - bartik
+  - generic_microsite
   - seven
