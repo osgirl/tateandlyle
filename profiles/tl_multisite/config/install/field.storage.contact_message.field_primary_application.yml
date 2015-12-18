@@ -1,0 +1,53 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - contact
+    - options
+id: contact_message.field_primary_application
+field_name: field_primary_application
+entity_type: contact_message
+type: list_integer
+settings:
+  allowed_values:
+    -
+      value: 0
+      label: 'Carbonated Beverages'
+    -
+      value: 1
+      label: 'Non-Carbonated Beverages'
+    -
+      value: 2
+      label: Bakery/Snacks
+    -
+      value: 3
+      label: Dairy
+    -
+      value: 4
+      label: 'Ice Cream/Frozen Novelty'
+    -
+      value: 5
+      label: 'Confectionery/Chewing Gum'
+    -
+      value: 6
+      label: Jams/Jellies/Fruit
+    -
+      value: 7
+      label: Dressings/Condiments
+    -
+      value: 8
+      label: Sauces/Syrups
+    -
+      value: 9
+      label: Gelatins/Puddings/Fillings
+    -
+      value: 10
+      label: 'Other (please specify)'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

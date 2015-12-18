@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.marketing
+    - field.storage.contact_message.field_first_name
+id: contact_message.marketing.field_first_name
+field_name: field_first_name
+entity_type: contact_message
+bundle: marketing
+label: 'First Name'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
