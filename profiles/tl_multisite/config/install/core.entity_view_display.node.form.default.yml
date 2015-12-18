@@ -22,7 +22,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    type: entity_reference_label
+    type: entity_reference_entity_id
   field_layout:
     weight: 103
     label: above
