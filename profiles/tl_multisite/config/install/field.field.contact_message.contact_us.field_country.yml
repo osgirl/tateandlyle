@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.contact_us
+    - field.storage.contact_message.field_country
+  module:
+    - text
+id: contact_message.contact_us.field_country
+field_name: field_country
+entity_type: contact_message
+bundle: contact_us
+label: Country
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

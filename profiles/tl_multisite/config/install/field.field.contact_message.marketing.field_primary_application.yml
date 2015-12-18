@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.marketing
+    - field.storage.contact_message.field_primary_application
+  module:
+    - options
+id: contact_message.marketing.field_primary_application
+field_name: field_primary_application
+entity_type: contact_message
+bundle: marketing
+label: 'Primary Application'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_integer
