@@ -1,8 +1,8 @@
+uuid: cc160124-36e4-4f45-915f-95902bd84d99
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.page.body
     - field.field.node.page.field_footer_image
     - field.field.node.page.field_main_content
     - field.field.node.page.field_template
@@ -10,22 +10,14 @@ dependencies:
     - node.type.page
   module:
     - image
+    - moderation_state
     - paragraphs
     - path
-    - text
 id: node.page.default
 targetEntityType: node
 bundle: page
 mode: default
 content:
-  body:
-    weight: 11
-    settings:
-      rows: 9
-      summary_rows: 3
-      placeholder: ''
-    third_party_settings: {  }
-    type: text_textarea_with_summary
   created:
     type: datetime_timestamp
     weight: 7
