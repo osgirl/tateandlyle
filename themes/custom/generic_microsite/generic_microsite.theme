@@ -63,10 +63,12 @@ function generic_microsite_theme_suggestions_page_alter(array &$suggestions, arr
   }
 }
 
-
 /**
- * Implements hook_preprocess_page(&$variables)().
+ * Implements hook_theme_preprocess_page(&$variables)().
  */
 function generic_microsite_preprocess_page(&$variables){
-  dpm($variables);
+  $variables['global_style'] = theme_get_setting('global_style', 'generic_microsite');
+  $variables['bg_value'] = theme_get_setting('bg_value', 'generic_microsite');
+  $variables['bg_image'] = theme_get_setting('bg_image', 'generic_microsite');
+  $variables['custom_css'] = theme_get_setting('custom_css', 'generic_microsite');
 }
