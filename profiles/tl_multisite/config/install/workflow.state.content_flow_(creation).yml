@@ -1,9 +1,0 @@
-langcode: en
-status: true
-dependencies: {  }
-id: content_flow_(creation)
-label: (creation)
-module: null
-wid: content_flow
-weight: -11
-sysid: 1

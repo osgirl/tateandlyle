@@ -1,3 +1,4 @@
+uuid: 22306442-a473-4e3a-ab1b-27cdb04b9209
 langcode: en
 status: true
 dependencies: {  }
@@ -5,4 +6,9 @@ id: content_approver
 label: 'Content Approver'
 weight: 5
 is_admin: null
-permissions: {  }
+permissions:
+  - 'create content_flow workflow_transition'
+  - 'use needs_review_published transition'
+  - 'use published_draft transition'
+  - 'edit any page content'
+  - 'view all revisions'

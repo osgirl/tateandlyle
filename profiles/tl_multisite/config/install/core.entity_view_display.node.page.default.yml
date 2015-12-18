@@ -1,3 +1,4 @@
+uuid: 9e130b60-a6e7-4961-8108-8e7fe40af2ee
 langcode: en
 status: true
 dependencies:
@@ -7,7 +8,6 @@ dependencies:
     - field.field.node.page.field_main_content
     - field.field.node.page.field_template
     - field.field.node.page.field_touts
-    - field.field.node.page.field_workflow
     - node.type.page
   module:
     - entity_reference_revisions
@@ -56,15 +56,16 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
-  field_workflow:
-    weight: 6
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: list_default
   links:
     weight: 0
     settings: {  }
+    third_party_settings: {  }
+  moderation_state:
+    label: hidden
+    type: string
+    weight: -5
+    settings:
+      link_to_entity: false
     third_party_settings: {  }
 hidden:
   langcode: true

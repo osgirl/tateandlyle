@@ -1,3 +1,4 @@
+uuid: cf547011-1dfa-4dac-8100-d8e51489f374
 langcode: en
 status: true
 dependencies:
@@ -5,7 +6,6 @@ dependencies:
     - field.field.node.form.field_form
     - field.field.node.form.field_layout
     - field.field.node.form.field_main_content
-    - field.field.node.form.field_workflow
     - node.type.form
   module:
     - entity_reference_revisions
@@ -37,13 +37,14 @@ content:
       link: ''
     third_party_settings: {  }
     type: entity_reference_revisions_entity_view
-  field_workflow:
-    weight: 107
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: list_default
   links:
     weight: 100
+  moderation_state:
+    label: hidden
+    type: string
+    weight: -5
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
 hidden:
   langcode: true

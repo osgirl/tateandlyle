@@ -7,14 +7,12 @@ dependencies:
     - field.field.node.page.field_main_content
     - field.field.node.page.field_template
     - field.field.node.page.field_touts
-    - field.field.node.page.field_workflow
     - node.type.page
   module:
     - image
     - paragraphs
     - path
     - text
-    - workflowfield
 id: node.page.default
 targetEntityType: node
 bundle: page
@@ -65,11 +63,6 @@ content:
       add_mode: dropdown
       form_display_mode: default
     third_party_settings: {  }
-  field_workflow:
-    weight: 12
-    settings: {  }
-    third_party_settings: {  }
-    type: workflow_default
   langcode:
     type: language_select
     weight: 5
