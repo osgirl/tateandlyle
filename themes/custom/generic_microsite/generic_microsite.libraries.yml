@@ -1,8 +1,38 @@
-global-styling:
+global-styling1:
   version: VERSION
   css:
     theme:
-      css/style.css: {}
+      css/style1.css: {}
+ 
+global-styling2:
+  version: VERSION
+  css:
+    theme:
+      css/style2.css: {}
+
+global-styling3:
+  version: VERSION
+  css:
+    theme:
+      css/style3.css: {}
+
+global-styling4:
+  version: VERSION
+  css:
+    theme:
+      css/style4.css: {}
+
+global-styling5:
+  version: VERSION
+  css:
+    theme:
+      css/style5.css: {}
+
+global-styling6:
+  version: VERSION
+  css:
+    theme:
+      css/style6.css: {}
 
 bootstrap-scripts:
   version: VERSION

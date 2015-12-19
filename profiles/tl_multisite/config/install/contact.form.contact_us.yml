@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies: {  }
+id: contact_us
+label: 'Contact us'
+recipients:
+  - bogdan.stamate@softescu.ro
+reply: ''
+weight: 0
