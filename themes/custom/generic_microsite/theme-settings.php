@@ -4,6 +4,7 @@
  * Custom theme settings for the Generic Microsites sub-theme.
  */
 
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\file\Entity\File;
 use Drupal\image\Entity\ImageStyle;
 
@@ -22,7 +23,15 @@ function generic_microsite_form_system_theme_settings_alter(&$form, FormStateInt
   define('FRONTPAGE_ONECOLUMN', 1);
   define('FRONTPAGE_TWOCOLUMN', 2);
   $fid = theme_get_setting('bg_image');
-  $file = File::load($fid);
+
+  if ($fid) {
+    $file = File::load($fid);
+    $file_uri = $file->getFileUri();
+    $image = '<img src="' . ImageStyle::load('medium')->buildUrl($file_uri) . '" /><br />';
+  }
+  else {
+    $image = "";
+  }
 
   $form['style'] = array(
     '#type' => 'details',
@@ -55,13 +64,22 @@ function generic_microsite_form_system_theme_settings_alter(&$form, FormStateInt
     ),
   );
 
-  $form['style']['bg_value'] = array(
+  $form['style']['bg_value1'] = array(
     '#type' => 'textfield',
-    '#title' => t('Background color'),
-    '#default_value' => theme_get_setting('bg_value'),
-    '#size' => 6,
-    '#maxlength' => 6,
-    '#description' => t('Specify the background color for the site.'),
+    '#title' => t('Primary background color'),
+    '#default_value' => empty(theme_get_setting('bg_value2')) ? '#b5cbe6' : theme_get_setting('bg_value2'),
+    '#size' => 7,
+    '#maxlength' => 7,
+    '#description' => t('Specify the first background color for the site - default: #b5cbe6.'),
+  );
+
+  $form['style']['bg_value2'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Secondary background color'),
+    '#default_value' => empty(theme_get_setting('bg_value2')) ? '#ffffff' : theme_get_setting('bg_value2'),
+    '#size' => 7,
+    '#maxlength' => 7,
+    '#description' => t('Specify the second background color for the site (gradient) - default: #ffffff.'),
   );
 
   $form['style']['bg_image'] = array(
@@ -72,7 +90,7 @@ function generic_microsite_form_system_theme_settings_alter(&$form, FormStateInt
     '#default_value' => theme_get_setting('bg_image'),
     '#description' => t('Use this field to upload your background image. Uploads limited to .png .gif .jpg .jpeg .apng .svg extensions'),
     '#element_validate' => array('generic_microsite_bg_validate'),
-    '#suffix' => '<img src="' . ImageStyle::load('medium')->buildUrl($file->getFileUri()) . '" /><br />',
+    '#suffix' => $image,
   );
 
   $form['style']['custom_css'] = array(

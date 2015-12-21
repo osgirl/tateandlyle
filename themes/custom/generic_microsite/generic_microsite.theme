@@ -64,11 +64,14 @@ function generic_microsite_theme_suggestions_page_alter(array &$suggestions, arr
 }
 
 /**
- * Implements hook_theme_preprocess_page(&$variables)().
+ * Implements hook_theme_preprocess_page(&$variables).
  */
 function generic_microsite_preprocess_page(&$variables){
+  $variables['#attached']['library'][] = 'generic_microsite/global-styling' . theme_get_setting('global_style', 'generic_microsite');
   $variables['global_style'] = theme_get_setting('global_style', 'generic_microsite');
-  $variables['bg_value'] = theme_get_setting('bg_value', 'generic_microsite');
+  $variables['bg_value1'] = theme_get_setting('bg_value1', 'generic_microsite');
+  $variables['bg_value2'] = theme_get_setting('bg_value2', 'generic_microsite');
   $variables['bg_image'] = theme_get_setting('bg_image', 'generic_microsite');
   $variables['custom_css'] = theme_get_setting('custom_css', 'generic_microsite');
+  $variables['gradient_bg'] = 'background: -webkit-gradient(linear,left top,left bottom,from(' . theme_get_setting('bg_value1', 'generic_microsite') . '),to(' . theme_get_setting('bg_value2', 'generic_microsite') . ')); background: -webkit-linear-gradient(top,' . theme_get_setting('bg_value1', 'generic_microsite') . ',' . theme_get_setting('bg_value2', 'generic_microsite') . '); background: -moz-linear-gradient(top,' . theme_get_setting('bg_value1', 'generic_microsite') . ',' . theme_get_setting('bg_value2', 'generic_microsite') . '); background: -ms-linear-gradient(top,' . theme_get_setting('bg_value1', 'generic_microsite') . ',' . theme_get_setting('bg_value2', 'generic_microsite') . '); background: -o-linear-gradient(top,' . theme_get_setting('bg_value1', 'generic_microsite') . ',' . theme_get_setting('bg_value2', 'generic_microsite') . ');';
 }
