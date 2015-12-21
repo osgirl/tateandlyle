@@ -34,7 +34,7 @@ function generic_microsite_preprocess_field(&$variables, $hook) {
  */
 function generic_microsite_theme_suggestions_alter(array &$suggestions, array $variables, $hook) {
 $is_front = \Drupal::service('path.matcher')->isFrontPage();
-  if ($is_front) {
+  if (($is_front) && in_array($hook, array('page'))) {
     if (theme_get_setting('frontpage_template', 'generic_microsite') == 1) {
       $suggestions[] = 'page__front__onecolumn';
     }
@@ -67,11 +67,9 @@ function generic_microsite_theme_suggestions_page_alter(array &$suggestions, arr
  * Implements hook_theme_preprocess_page(&$variables).
  */
 function generic_microsite_preprocess_page(&$variables){
-  $variables['#attached']['library'][] = 'generic_microsite/global-styling' . theme_get_setting('global_style', 'generic_microsite');
-  $variables['global_style'] = theme_get_setting('global_style', 'generic_microsite');
-  $variables['bg_value1'] = theme_get_setting('bg_value1', 'generic_microsite');
-  $variables['bg_value2'] = theme_get_setting('bg_value2', 'generic_microsite');
-  $variables['bg_image'] = theme_get_setting('bg_image', 'generic_microsite');
-  $variables['custom_css'] = theme_get_setting('custom_css', 'generic_microsite');
-  $variables['gradient_bg'] = 'background: -webkit-gradient(linear,left top,left bottom,from(' . theme_get_setting('bg_value1', 'generic_microsite') . '),to(' . theme_get_setting('bg_value2', 'generic_microsite') . ')); background: -webkit-linear-gradient(top,' . theme_get_setting('bg_value1', 'generic_microsite') . ',' . theme_get_setting('bg_value2', 'generic_microsite') . '); background: -moz-linear-gradient(top,' . theme_get_setting('bg_value1', 'generic_microsite') . ',' . theme_get_setting('bg_value2', 'generic_microsite') . '); background: -ms-linear-gradient(top,' . theme_get_setting('bg_value1', 'generic_microsite') . ',' . theme_get_setting('bg_value2', 'generic_microsite') . '); background: -o-linear-gradient(top,' . theme_get_setting('bg_value1', 'generic_microsite') . ',' . theme_get_setting('bg_value2', 'generic_microsite') . ');';
+  if ($variables['is_front'] == TRUE) {
+    if (theme_get_setting('frontpage_template', 'generic_microsite') == 2) {   
+      $variables['content_column_attributes']->setAttribute('class', 'col-sm-12');
+    }
+  }
 }
