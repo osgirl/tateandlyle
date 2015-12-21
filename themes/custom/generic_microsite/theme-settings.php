@@ -67,7 +67,7 @@ function generic_microsite_form_system_theme_settings_alter(&$form, FormStateInt
   $form['style']['bg_value1'] = array(
     '#type' => 'textfield',
     '#title' => t('Primary background color'),
-    '#default_value' => empty(theme_get_setting('bg_value2')) ? '#b5cbe6' : theme_get_setting('bg_value2'),
+    '#default_value' => empty(theme_get_setting('bg_value2')) ? '#b5cbe6' : theme_get_setting('bg_value1'),
     '#size' => 7,
     '#maxlength' => 7,
     '#description' => t('Specify the first background color for the site - default: #b5cbe6.'),
@@ -76,7 +76,7 @@ function generic_microsite_form_system_theme_settings_alter(&$form, FormStateInt
   $form['style']['bg_value2'] = array(
     '#type' => 'textfield',
     '#title' => t('Secondary background color'),
-    '#default_value' => empty(theme_get_setting('bg_value2')) ? '#ffffff' : theme_get_setting('bg_value2'),
+    '#default_value' => '',
     '#size' => 7,
     '#maxlength' => 7,
     '#description' => t('Specify the second background color for the site (gradient) - default: #ffffff.'),
