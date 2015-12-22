@@ -45,4 +45,3 @@ hidden:
   field_template: true
   langcode: true
   links: true
-  moderation_state: true

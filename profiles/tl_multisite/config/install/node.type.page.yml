@@ -1,17 +1,6 @@
 uuid: 8e15ca9f-5353-45f3-8d14-2092da5ca74d
 langcode: en
 status: true
-dependencies:
-  module:
-    - moderation_state
-third_party_settings:
-  moderation_state:
-    enabled: true
-    allowed_moderation_states:
-      - draft
-      - needs_review
-      - published
-    default_moderation_state: draft
 name: 'Basic page'
 type: page
 description: 'Use <em>basic pages</em> for your static content, such as an ''About us'' page.'
