@@ -4,6 +4,7 @@ description: 'Tate & Lyle Multisite Profile.'
 core: '8.x'
 
 dependencies:
+  - system
   - node
   - block
   - breakpoint
@@ -40,6 +41,7 @@ dependencies:
   - content_translation
   - google_analytics
   - mollom
+  - tl_block
 #  - moderation_state
   # - acquia_search
 themes:
