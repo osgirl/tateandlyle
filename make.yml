@@ -48,8 +48,3 @@ projects:
     download:
       url: http://git.drupal.org/sandbox/larowlan/2624238.git
       revision: "8.x-1.x"
-    patch:
-#      - "https://www.drupal.org/files/issues/stet-transitions.patch"
-      - "https://www.drupal.org/files/issues/moderation_state-validator_error.2636920-2.patch"
-#        - "https://www.drupal.org/files/issues/entity-specifics_1.patch"
-
