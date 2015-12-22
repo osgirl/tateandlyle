@@ -43,8 +43,8 @@ projects:
   bootstrap:
     type: theme
     version: "3.0-alpha1"
-  moderation_state:
+  workbench_moderation:
     type: module
     download:
-      url: http://git.drupal.org/sandbox/larowlan/2624238.git
+      url: http://git.drupal.org/project/workbench_moderation.git
       revision: "8.x-1.x"
