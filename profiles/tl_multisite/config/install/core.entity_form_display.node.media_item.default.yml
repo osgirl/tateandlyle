@@ -4,12 +4,10 @@ dependencies:
   config:
     - field.field.node.media_item.field_file
     - field.field.node.media_item.field_media_category
-    - field.field.node.media_item.field_workflow
     - node.type.media_item
   module:
     - file
     - path
-    - workflowfield
 id: node.media_item.default
 targetEntityType: node
 bundle: media_item
@@ -31,11 +29,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: options_select
-  field_workflow:
-    weight: 26
-    settings: {  }
-    third_party_settings: {  }
-    type: workflow_default
   langcode:
     type: language_select
     weight: 3

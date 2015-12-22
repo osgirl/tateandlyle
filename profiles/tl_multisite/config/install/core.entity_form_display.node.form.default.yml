@@ -5,12 +5,10 @@ dependencies:
     - field.field.node.form.field_form
     - field.field.node.form.field_layout
     - field.field.node.form.field_main_content
-    - field.field.node.form.field_workflow
     - node.type.form
   module:
     - paragraphs
     - path
-    - workflowfield
 id: node.form.default
 targetEntityType: node
 bundle: form
@@ -41,11 +39,6 @@ content:
       form_display_mode: default
     third_party_settings: {  }
     type: entity_reference_paragraphs
-  field_workflow:
-    weight: 26
-    settings: {  }
-    third_party_settings: {  }
-    type: workflow_default
   langcode:
     type: language_select
     weight: 4

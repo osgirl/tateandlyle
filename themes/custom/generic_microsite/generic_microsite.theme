@@ -5,3 +5,71 @@
  *
  * Place your custom PHP code in this file.
  */
+
+/**
+ * Implements TEMPLATE_preprocess_field().
+ */
+function generic_microsite_preprocess_field(&$variables, $hook) {
+  if ($variables['field_name'] == 'field_form') {
+  $id = $variables['items'][0]['content']['#plain_text'];
+  $contact_form = \Drupal::entityManager()
+    ->getStorage('contact_form')
+    ->load($id);
+
+  $message = \Drupal::entityManager()
+    ->getStorage('contact_message')
+    ->create(array(
+      'contact_form' => $id
+    ));
+
+  $form = \Drupal::service('entity.form_builder')->getForm($message);
+  
+  unset($variables['items'][0]['content']['#plain_text']);
+  $variables['items'][0]['content']['#suffix'] = drupal_render($form);
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_alter.
+ */
+function generic_microsite_theme_suggestions_alter(array &$suggestions, array $variables, $hook) {
+$is_front = \Drupal::service('path.matcher')->isFrontPage();
+  if (($is_front) && in_array($hook, array('page'))) {
+    if (theme_get_setting('frontpage_template', 'generic_microsite') == 1) {
+      $suggestions[] = 'page__front__onecolumn';
+    }
+    else {
+      $suggestions[] = 'page__front__twocolumn';		
+    }
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function generic_microsite_theme_suggestions_page_alter(array &$suggestions, array $variables) {
+  if ($node = \Drupal::routeMatch()->getParameter('node')) {
+    $content_type = $node->bundle();
+    if ($content_type == 'form') {
+      $id = $node->id();
+      $layout = $node->field_layout->value;
+      if ($layout == 0) {
+        $suggestions[] = 'page__form__landingform';
+      }
+      else {
+        $suggestions[] = 'page__form__contactform';	  
+      } 
+    }
+  }
+}
+
+/**
+ * Implements hook_theme_preprocess_page(&$variables).
+ */
+function generic_microsite_preprocess_page(&$variables){
+  if ($variables['is_front'] == TRUE) {
+    if (theme_get_setting('frontpage_template', 'generic_microsite') == 2) {   
+      $variables['content_column_attributes']->setAttribute('class', 'col-sm-12');
+    }
+  }
+}
