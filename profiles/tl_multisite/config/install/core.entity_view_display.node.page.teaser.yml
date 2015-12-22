@@ -6,7 +6,6 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.page.field_footer_image
     - field.field.node.page.field_main_content
-    - field.field.node.page.field_template
     - field.field.node.page.field_touts
     - node.type.page
   module:
@@ -21,6 +20,5 @@ content:
 hidden:
   field_footer_image: true
   field_main_content: true
-  field_template: true
   field_touts: true
   langcode: true
