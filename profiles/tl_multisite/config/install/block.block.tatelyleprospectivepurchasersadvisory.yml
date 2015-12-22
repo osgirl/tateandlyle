@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - tl_block
+  theme:
+    - generic_microsite
+id: tatelyleprospectivepurchasersadvisory
+theme: generic_microsite
+region: footer
+weight: -1
+provider: null
+plugin: tl_advisory_block
+settings:
+  id: tl_advisory_block
+  label: 'Tate & Lyle Prospective purchasers Advisory'
+  provider: tl_block
+  label_display: '0'
+visibility: {  }
