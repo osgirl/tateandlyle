@@ -52,6 +52,7 @@ function generic_microsite_form_system_theme_settings_alter(&$form, FormStateInt
       constant('CSS5') => t('Global Style Sheet 5.'),
       constant('CSS6') => t('Global Style Sheet 6.'),
     ),
+    '#description' => t('Specify the global stylesheet you wish to use for the site.'),
   );
 
   $form['style']['frontpage_template'] = array(
@@ -62,12 +63,13 @@ function generic_microsite_form_system_theme_settings_alter(&$form, FormStateInt
       constant('FRONTPAGE_ONECOLUMN') => t('One column.'),
       constant('FRONTPAGE_TWOCOLUMN') => t('Two columns.'),
     ),
+    '#description' => t('Specify the frontpage template you wish to use for the site.'),
   );
 
   $form['style']['bg_value1'] = array(
     '#type' => 'textfield',
     '#title' => t('Primary background color'),
-    '#default_value' => empty(theme_get_setting('bg_value2')) ? '#b5cbe6' : theme_get_setting('bg_value2'),
+    '#default_value' => empty(theme_get_setting('bg_value1')) ? '#b5cbe6' : theme_get_setting('bg_value1'),
     '#size' => 7,
     '#maxlength' => 7,
     '#description' => t('Specify the first background color for the site - default: #b5cbe6.'),
@@ -76,47 +78,16 @@ function generic_microsite_form_system_theme_settings_alter(&$form, FormStateInt
   $form['style']['bg_value2'] = array(
     '#type' => 'textfield',
     '#title' => t('Secondary background color'),
-    '#default_value' => empty(theme_get_setting('bg_value2')) ? '#ffffff' : theme_get_setting('bg_value2'),
+    '#default_value' => empty(theme_get_setting('bg_value2')) ? '' : theme_get_setting('bg_value2'),
     '#size' => 7,
     '#maxlength' => 7,
     '#description' => t('Specify the second background color for the site (gradient) - default: #ffffff.'),
-  );
-
-  $form['style']['bg_image'] = array(
-    '#type' => 'file',
-    '#title' => t('Upload background image'),
-    '#size' => 40,
-    '#attributes' => array('enctype' => 'multipart/form-data'),
-    '#default_value' => theme_get_setting('bg_image'),
-    '#description' => t('Use this field to upload your background image. Uploads limited to .png .gif .jpg .jpeg .apng .svg extensions'),
-    '#element_validate' => array('generic_microsite_bg_validate'),
-    '#suffix' => $image,
   );
 
   $form['style']['custom_css'] = array(
     '#type' => 'textarea',
     '#title' => t('Custom CSS'),
     '#default_value' => theme_get_setting('custom_css'),
-    '#description' => t('Specify the background color for the site.'),
+    '#description' => t('Specify custom CSS.'),
   );
-}
-
-/**
- * Check and save the uploaded background image.
- */
-function generic_microsite_bg_validate($element, FormStateInterface $form_state) {
-  global $base_url;
-
-  $validators = array('file_validate_extensions' => array('png gif jpg jpeg apng svg'));
-  $file = file_save_upload('bg_image', $validators, "public://", NULL, FILE_EXISTS_REPLACE);
-  if (!empty($file)) {
-    if ((is_object($file[0]) == 1)) {
-      $file[0]->status = FILE_STATUS_PERMANENT;
-      $file[0]->save();
-      $uri = $file[0]->getFileUri();
-      $file_url = file_create_url($uri);
-      $file_url = str_ireplace($base_url, '', $file_url);
-      $form_state->setValue('bg_image', $file[0]->id());
-    }
-  }
 }

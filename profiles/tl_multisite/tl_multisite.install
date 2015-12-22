@@ -125,7 +125,9 @@ function tl_multisite_install() {
     ],
   ]);
   $node->save();
-  \Drupal::service('path.alias_storage')->save("/node/" . $node->id(), "/404", "en");
+  $path = '/node/' . $node->id();
+  \Drupal::service('path.alias_storage')->save($path, "/404", "en");
+  \Drupal::configFactory()->getEditable('system.site')->set('page.404', $path)->save(TRUE);
 
   $node = Node::create([
     'type' => 'page',
@@ -142,5 +144,7 @@ function tl_multisite_install() {
     ],
   ]);
   $node->save();
-  \Drupal::service('path.alias_storage')->save("/node/" . $node->id(), "/403", "en");
+  $path = '/node/' . $node->id();
+  \Drupal::service('path.alias_storage')->save("/node/" . $path, "/403", "en");
+  \Drupal::configFactory()->getEditable('system.site')->set('page.403', $path)->save(TRUE);
 }
