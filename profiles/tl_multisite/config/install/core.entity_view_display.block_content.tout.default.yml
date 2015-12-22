@@ -1,0 +1,30 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.tout
+    - field.field.block_content.tout.field_tout
+  module:
+    - entity_reference_revisions
+id: block_content.tout.default
+targetEntityType: block_content
+bundle: tout
+mode: default
+content:
+  field_tout:
+    weight: -4
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+  moderation_state:
+    label: hidden
+    type: string
+    weight: -5
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+hidden:
+  langcode: true
