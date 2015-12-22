@@ -1,0 +1,37 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.tout
+    - field.field.block_content.tout.field_tout
+  module:
+    - moderation_state
+    - paragraphs
+id: block_content.tout.default
+targetEntityType: block_content
+bundle: tout
+mode: default
+content:
+  field_tout:
+    weight: 6
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+    third_party_settings: {  }
+    type: entity_reference_paragraphs
+  info:
+    type: string_textfield
+    weight: -5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }
