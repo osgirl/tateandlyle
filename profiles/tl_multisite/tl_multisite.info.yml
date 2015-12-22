@@ -40,7 +40,7 @@ dependencies:
   - content_translation
   - google_analytics
   - mollom
-  - moderation_state
+#  - moderation_state
   # - acquia_search
 themes:
   - generic_microsite
