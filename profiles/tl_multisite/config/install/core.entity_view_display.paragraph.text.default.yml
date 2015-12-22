@@ -18,12 +18,6 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-  moderation_state:
-    label: hidden
-    type: entity_reference_entity_id
-    weight: 1
-    settings: {  }
-    third_party_settings: {  }
 hidden:
   created: true
   uid: true

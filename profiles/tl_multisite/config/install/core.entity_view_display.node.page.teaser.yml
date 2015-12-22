@@ -18,13 +18,6 @@ mode: teaser
 content:
   links:
     weight: 101
-  moderation_state:
-    label: hidden
-    type: string
-    weight: -5
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
 hidden:
   field_footer_image: true
   field_main_content: true

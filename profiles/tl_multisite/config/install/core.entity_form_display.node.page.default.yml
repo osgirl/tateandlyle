@@ -10,7 +10,6 @@ dependencies:
     - node.type.page
   module:
     - image
-    - moderation_state
     - paragraphs
     - path
 id: node.page.default

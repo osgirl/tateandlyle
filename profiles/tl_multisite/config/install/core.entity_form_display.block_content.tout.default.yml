@@ -5,7 +5,6 @@ dependencies:
     - block_content.type.tout
     - field.field.block_content.tout.field_tout
   module:
-    - moderation_state
     - paragraphs
 id: block_content.tout.default
 targetEntityType: block_content
