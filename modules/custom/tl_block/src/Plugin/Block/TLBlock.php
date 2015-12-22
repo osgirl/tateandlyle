@@ -1,12 +1,11 @@
 <?php
 /**
  * @file
- * A custom block with Tate & Lyle logo
+ * A custom block with Tate & Lyle logo.
  */
 
 namespace Drupal\tl_block\Plugin\Block;
 use Drupal\Core\Block\BlockBase;
-use Drupal\Core\Url;
 
 /**
  * Provides a custom block with the T&L logo.
@@ -17,9 +16,15 @@ use Drupal\Core\Url;
  *   category = @Translation("Blocks")
  * )
  */
-class TL_Block extends BlockBase {
+class TLBlock extends BlockBase {
+  /**
+   * Provides block content.
+   */
   public function build() {
     $image_path = base_path() . drupal_get_path('module', 'tl_block') . '/images/tateandlyle.png';
-    return array('#markup' => '<a href="http://www.tateandlyle.com" target="_blank"><img src="' . $image_path . '" /></a>');
+    return array(
+      '#markup' => '<a href="http://www.tateandlyle.com" target="_blank"><img src="' . $image_path . '" /></a>',
+    );
   }
+
 }
