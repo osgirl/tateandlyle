@@ -68,7 +68,6 @@ function tl_multisite_install() {
   \Drupal::configFactory()->getEditable('node.settings')->set('use_admin_theme', TRUE)->save(TRUE);
   $config = \Drupal::configFactory()->getEditable('system.theme');
   $config->set('admin', 'seven');
-  $config->set('default', 'bartik');
   $config->save();
 
   $term = Term::create([
