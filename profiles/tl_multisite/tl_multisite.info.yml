@@ -4,7 +4,9 @@ description: 'Tate & Lyle Multisite Profile.'
 core: '8.x'
 
 dependencies:
+  - system
   - node
+  - user 
   - block
   - breakpoint
   - ckeditor
@@ -12,6 +14,7 @@ dependencies:
   - contextual
   - contact
   - contact_storage
+  - field_formatter_class
   - menu_link_content
   - datetime
   - block_content
@@ -40,7 +43,8 @@ dependencies:
   - content_translation
   - google_analytics
   - mollom
-  - moderation_state
+  - tl_block
+#  - moderation_state
   # - acquia_search
 themes:
   - generic_microsite

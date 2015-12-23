@@ -4,19 +4,11 @@ status: true
 dependencies:
   module:
     - menu_ui
-    - moderation_state
 third_party_settings:
   menu_ui:
     available_menus:
       - main
     parent: 'main:'
-  moderation_state:
-    enabled: true
-    allowed_moderation_states:
-      - draft
-      - needs_review
-      - published
-    default_moderation_state: published
 name: Form
 type: form
 description: 'Create custom forms.'
