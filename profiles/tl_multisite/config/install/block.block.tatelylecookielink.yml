@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - tl_block
+  theme:
+    - generic_microsite
+id: tatelylecookielink
+theme: generic_microsite
+region: footer
+weight: -2
+provider: null
+plugin: tl_cookie_block
+settings:
+  id: tl_cookie_block
+  label: 'Tate & Lyle Cookie link'
+  provider: tl_block
+  label_display: '0'
+visibility: {  }

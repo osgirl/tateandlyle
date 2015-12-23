@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - tl_block
+  theme:
+    - generic_microsite
+id: tatelylelogo
+theme: generic_microsite
+region: header_right
+weight: -3
+provider: null
+plugin: tl_block
+settings:
+  id: tl_block
+  label: 'Tate & Lyle Logo'
+  provider: tl_block
+  label_display: '0'
+visibility: {  }
