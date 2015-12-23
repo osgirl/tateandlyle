@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_show_arrows
+    - paragraphs.paragraphs_type.slide
+id: paragraph.slide.field_show_arrows
+field_name: field_show_arrows
+entity_type: paragraph
+bundle: slide
+label: 'Show arrows'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Show arrows'
+  off_label: 'Hide arrows'
+field_type: boolean
