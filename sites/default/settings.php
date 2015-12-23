@@ -707,7 +707,10 @@ require DRUPAL_ROOT . '/sites/default/settings/base.settings.php';
  */
 if ($is_ah_env && file_exists('/var/www/site-php')) {
   $default_settings = "/var/www/site-php/{$_ENV['AH_SITE_GROUP']}/{$_ENV['AH_SITE_GROUP']}-settings.inc";
+  require $default_settings;
+}
 
+/*
   // Grab the first bit from the domain and try to find a matching, environment
   // specific database.
   // @TODO implementation to map when there is a full domain name.
@@ -724,6 +727,7 @@ if ($is_ah_env && file_exists('/var/www/site-php')) {
     require $default_settings;
   }
 }
+*/
 
 /**
  * Load local development override configuration, if available.
