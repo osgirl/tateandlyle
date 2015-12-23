@@ -36,6 +36,10 @@ settings:
           name: Tools
           items:
             - Source
+        -
+          name: Table
+          items:
+            - Table
   plugins:
     stylescombo:
       styles: ''
