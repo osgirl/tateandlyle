@@ -708,31 +708,18 @@ require DRUPAL_ROOT . '/sites/default/settings/base.settings.php';
 if ($is_ah_env && file_exists('/var/www/site-php')) {
   require "/var/www/site-php/{$_ENV['AH_SITE_GROUP']}/{$_ENV['AH_SITE_GROUP']}-settings.inc";
 
-  // The database suffixes do not follow the domains necessarily, so adjust for that.
-  switch ($_ENV['AH_SITE_ENVIRONMENT']) {
-    case 'prod':
-      $suffix = '';
-    break;
-    case 'test':
-      $suffix = 'stg';
-    break;
-    case 'dev':
-      $suffix = 'dev';
-    break;
-    default:
-      $suffix = '';
-  }
-
   // Grab the first bit from the domain and try to find a matching, environment
   // specific database.
   // @TODO implementation to map when there is a full domain name.
   $host = explode('.', $_SERVER['HTTP_HOST']);
 
   if (is_array($host)) {
-    $host_database = $host[0];
+    $host_database = filter_input(INPUT_GET, $host[0]);
+    $environment_config = "/var/www/site-php/D8-{$_ENV['AH_SITE_ENVIRONMENT']}-{$host_database}-settings.inc";
 
-    if (!empty($host_database)) {
-      $databases['default']['default']['database'] = filter_input(INPUT_GET, $host_database) . $suffix;
+    if (!empty($host_database) && file_exists($environment_config)) {
+      // Include the database specific settings file.
+      require $environment_config;
     }
   }
 }
