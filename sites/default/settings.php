@@ -706,7 +706,7 @@ require DRUPAL_ROOT . '/sites/default/settings/base.settings.php';
  * Acquia Cloud settings.
  */
 if ($is_ah_env && file_exists('/var/www/site-php')) {
-  require "/var/www/site-php/{$_ENV['AH_SITE_GROUP']}/{$_ENV['AH_SITE_GROUP']}-settings.inc";
+  $default_settings = "/var/www/site-php/{$_ENV['AH_SITE_GROUP']}/{$_ENV['AH_SITE_GROUP']}-settings.inc";
 
   // Grab the first bit from the domain and try to find a matching, environment
   // specific database.
@@ -715,11 +715,16 @@ if ($is_ah_env && file_exists('/var/www/site-php')) {
 
   if (is_array($host)) {
     $host_database = filter_input(INPUT_GET, $host[0]);
-
-    // Change the default database to connect to based on the domain.
-    if (isset($databases[$host_database])) {
-      $databases['default'] = $databases[$host_database];
+    $environment_settings = "/var/www/site-php/{$_ENV['AH_SITE_GROUP']}/{$host_database}-settings.inc";
+    if (file_exists($environment_settings)) {
+      require $environment_settings;
     }
+    else {
+      require $default_settings;
+    }
+  }
+  else {
+    require $default_settings;
   }
 }
 
