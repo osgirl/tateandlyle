@@ -706,34 +706,22 @@ require DRUPAL_ROOT . '/sites/default/settings/base.settings.php';
  * Acquia Cloud settings.
  */
 if ($is_ah_env && file_exists('/var/www/site-php')) {
-  require "/var/www/site-php/{$_ENV['AH_SITE_GROUP']}/{$_ENV['AH_SITE_GROUP']}-settings.inc";
-
-  // The database suffixes do not follow the domains necessarily, so adjust for that.
-  switch ($_ENV['AH_SITE_ENVIRONMENT']) {
-    case 'prod':
-      $suffix = '';
-    break;
-    case 'test':
-      $suffix = 'stg';
-    break;
-    case 'dev':
-      $suffix = 'dev';
-    break;
-    default:
-      $suffix = '';
-  }
+  $default_settings = "/var/www/site-php/{$_ENV['AH_SITE_GROUP']}/{$_ENV['AH_SITE_GROUP']}-settings.inc";
 
   // Grab the first bit from the domain and try to find a matching, environment
   // specific database.
   // @TODO implementation to map when there is a full domain name.
-  $host = explode('.', $_SERVER['HTTP_HOST']);
+  $url = $_SERVER['HTTP_HOST'];
+  $url_elements = explode('.', $url);
+  $domain_prefix = array_shift($url_elements);
 
-  if (is_array($host)) {
-    $host_database = $host[0];
+  $environment_settings = "/var/www/site-php/{$_ENV['AH_SITE_GROUP']}/{$domain_prefix}-settings.inc";
 
-    if (!empty($host_database)) {
-      $databases['default']['default']['database'] = filter_input(INPUT_GET, $host_database) . $suffix;
-    }
+  if (file_exists($environment_settings)) {
+    require $environment_settings;
+  }
+  else {
+    require $default_settings;
   }
 }
 
