@@ -715,11 +715,10 @@ if ($is_ah_env && file_exists('/var/www/site-php')) {
 
   if (is_array($host)) {
     $host_database = filter_input(INPUT_GET, $host[0]);
-    $environment_config = "/var/www/site-php/D8-{$_ENV['AH_SITE_ENVIRONMENT']}-{$host_database}-settings.inc";
 
-    if (!empty($host_database) && file_exists($environment_config)) {
-      // Include the database specific settings file.
-      require $environment_config;
+    // Change the default database to connect to based on the domain.
+    if (isset($databases[$host_database])) {
+      $databases['default'] = $databases[$host_database];
     }
   }
 }
