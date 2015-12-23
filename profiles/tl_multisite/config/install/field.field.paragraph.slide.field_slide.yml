@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_slide
+    - paragraphs.paragraphs_type.slide
+  module:
+    - field_collection
+id: paragraph.slide.field_slide
+field_name: field_slide
+entity_type: paragraph
+bundle: slide
+label: Slide
+description: ''
+required: false
+translatable: false
+default_value:
+  - {  }
+  - {  }
+default_value_callback: ''
+settings: {  }
+field_type: field_collection
