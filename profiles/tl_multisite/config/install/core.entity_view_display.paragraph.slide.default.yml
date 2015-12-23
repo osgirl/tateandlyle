@@ -2,36 +2,39 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.slide.field_image
-    - field.field.paragraph.slide.field_link
+    - field.field.paragraph.slide.field_show_arrows
+    - field.field.paragraph.slide.field_slide
+    - field.field.paragraph.slide.field_timeout
     - paragraphs.paragraphs_type.slide
   module:
-    - image
-    - link
+    - field_collection
 id: paragraph.slide.default
 targetEntityType: paragraph
 bundle: slide
 mode: default
 content:
-  field_image:
-    weight: 0
+  field_show_arrows:
+    weight: 3
     label: above
     settings:
-      image_style: ''
-      image_link: ''
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
     third_party_settings: {  }
-    type: image
-  field_link:
-    weight: 1
+    type: boolean
+  field_slide:
+    weight: 2
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: field_collection_list
+  field_timeout:
+    weight: 4
     label: above
     settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
+      link_to_entity: false
     third_party_settings: {  }
-    type: link
+    type: string
 hidden:
   created: true
   uid: true

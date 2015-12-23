@@ -4,14 +4,14 @@ dependencies:
   module:
     - field_collection
     - paragraphs
-id: paragraph.field_more_information
-field_name: field_more_information
+id: paragraph.field_slide
+field_name: field_slide
 entity_type: paragraph
 type: field_collection
 settings: {  }
 module: field_collection
 locked: false
-cardinality: 1
+cardinality: -1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false

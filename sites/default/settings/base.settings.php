@@ -1,4 +1,8 @@
 <?php
+/**
+ * @file
+ * Environment related configuration.
+ */
 
 /**
  * Host detection.
@@ -6,7 +10,7 @@
 if (!empty($_SERVER['HTTP_X_FORWARDED_HOST'])) {
   $forwarded_host = $_SERVER['HTTP_X_FORWARDED_HOST'];
 }
-elseif(!empty($_SERVER['HTTP_HOST'])) {
+elseif (!empty($_SERVER['HTTP_HOST'])) {
   $forwarded_host = $_SERVER['HTTP_HOST'];
 }
 else {
@@ -32,6 +36,9 @@ $is_local_env = !$is_ah_env;
 
 if ($ah_env) {
   switch ($_ENV['AH_SITE_ENVIRONMENT']) {
+    case 'prod':
+    case 'test':
+    case 'dev':
     default:
       // Dynamically set base url based on Acquia environment variable.
       $domain_prefix = $is_ah_free_tier ? 'devcloud' : 'prod';
@@ -45,7 +52,8 @@ if ($ah_env) {
    * If Drupal is generating incorrect URLs on your site, which could
    * be in HTML headers (links to CSS and JS files) or visible links on pages
    * (such as in menus), uncomment the Base URL statement below (remove the
-   * leading hash sign) and fill in the absolute URL to your Drupal installation.
+   * leading hash sign) and fill in the absolute URL to your Drupal
+  *  installation.
    *
    * You might also want to force users to use a given domain.
    * See the .htaccess file for more information.

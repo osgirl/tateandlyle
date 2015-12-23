@@ -3,15 +3,15 @@ status: true
 dependencies:
   module:
     - field_collection
-    - paragraphs
-id: paragraph.field_accordion_item
-field_name: field_accordion_item
-entity_type: paragraph
-type: field_collection
+    - text
+id: field_collection_item.field_slide_text
+field_name: field_slide_text
+entity_type: field_collection_item
+type: text_long
 settings: {  }
-module: field_collection
+module: text
 locked: false
-cardinality: -1
+cardinality: 1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false
