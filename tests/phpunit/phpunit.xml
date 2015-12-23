@@ -3,6 +3,6 @@
   xsi:noNamespaceSchemaLocation="http://schema.phpunit.de/4.6/phpunit.xsd"
   bootstrap="../../vendor/autoload.php">
   <php>
-    <server name="HTTP_HOST" value="http://tatelyletest.dev.cloud.tateandlyle.com" />
+    <server name="HTTP_HOST" value="http://tatelyle.dev.cloud.tateandlyle.com" />
   </php>
 </phpunit>
