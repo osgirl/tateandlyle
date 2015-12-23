@@ -711,11 +711,11 @@ if ($is_ah_env && file_exists('/var/www/site-php')) {
   // Grab the first bit from the domain and try to find a matching, environment
   // specific database.
   // @TODO implementation to map when there is a full domain name.
-  $url = parse_url();
-  $domain_prefix = array_shift(explode('.', $url));
+  $url = $_SERVER['HTTP_HOST'];
+  $url_elements = explode('.', $url);
+  $domain_prefix = array_shift($url_elements);
 
-  $active_database = filter_input(INPUT_GET, $domain_prefix);
-  $environment_settings = "/var/www/site-php/{$_ENV['AH_SITE_GROUP']}/{$active_database}-settings.inc";
+  $environment_settings = "/var/www/site-php/{$_ENV['AH_SITE_GROUP']}/{$domain_prefix}-settings.inc";
 
   if (file_exists($environment_settings)) {
     require $environment_settings;
