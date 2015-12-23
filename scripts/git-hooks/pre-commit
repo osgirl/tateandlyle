@@ -109,7 +109,7 @@ do
     if [ $file = "sites/default/settings.php" ]; then
       continue;
     fi
-    if [ $file = "sites/default/base.settings.php" ]; then
+    if [ $file = "sites/default/settings/base.settings.php" ]; then
       continue;
     fi
 
