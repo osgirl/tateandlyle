@@ -4,8 +4,8 @@ dependencies:
   module:
     - field_collection
     - paragraphs
-id: paragraph.field_accordion_item
-field_name: field_accordion_item
+id: paragraph.field_slide
+field_name: field_slide
 entity_type: paragraph
 type: field_collection
 settings: {  }

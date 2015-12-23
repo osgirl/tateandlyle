@@ -2,8 +2,8 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_image
-    - paragraphs.paragraphs_type.slide
+    - field.storage.field_collection_item.field_image
+    - field_collection.field_collection.field_slide
   module:
     - content_translation
     - image
@@ -13,12 +13,12 @@ third_party_settings:
       alt: alt
       title: title
       file: '0'
-id: paragraph.slide.field_image
+id: field_collection_item.field_slide.field_image
 field_name: field_image
-entity_type: paragraph
-bundle: slide
+entity_type: field_collection_item
+bundle: field_slide
 label: Image
-description: 'Add a image to the slide.'
+description: ''
 required: false
 translatable: true
 default_value: {  }
@@ -26,7 +26,7 @@ default_value_callback: ''
 settings:
   file_directory: '[date:custom:Y]-[date:custom:m]'
   file_extensions: 'png gif jpg jpeg'
-  max_filesize: '128 KB'
+  max_filesize: ''
   max_resolution: ''
   min_resolution: ''
   alt_field: true

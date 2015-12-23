@@ -8,6 +8,7 @@ use Drupal\user\Entity\User;
 use Drupal\user\RoleInterface;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\node\Entity\Node;
+use Drupal\shortcut\Entity\Shortcut;
 
 /**
  * Implements hook_install_tasks().
@@ -44,7 +45,7 @@ function tl_multisite_install() {
   // Allow authenticated users to use shortcuts.
   user_role_grant_permissions(RoleInterface::AUTHENTICATED_ID, array('access shortcuts'));
   // Populate the default shortcut set.
-  $shortcut = entity_create('shortcut', array(
+  $shortcut = Shortcut::create(array(
     'shortcut_set' => 'default',
     'title' => t('Add content'),
     'weight' => -20,
@@ -52,7 +53,7 @@ function tl_multisite_install() {
   ));
   $shortcut->save();
 
-  $shortcut = entity_create('shortcut', array(
+  $shortcut = Shortcut::create(array(
     'shortcut_set' => 'default',
     'title' => t('All content'),
     'weight' => -19,
@@ -68,7 +69,6 @@ function tl_multisite_install() {
   \Drupal::configFactory()->getEditable('node.settings')->set('use_admin_theme', TRUE)->save(TRUE);
   $config = \Drupal::configFactory()->getEditable('system.theme');
   $config->set('admin', 'seven');
-  $config->set('default', 'bartik');
   $config->save();
 
   $term = Term::create([
