@@ -59,7 +59,7 @@
     <copy todir="${deploy.dir}/hooks" overwrite="true">
       <fileset dir="${repo.root}/hooks"/>
     </copy>
-    <!-- Copy the multisite subsites. -->s
+    <!-- Copy the multisite subsites. -->
     <copy todir="${deploy.dir}/docroot/sites" overwrite="true">
       <fileset dir="${repo.root}/sites">
         <exclude name="default"></exclude>
