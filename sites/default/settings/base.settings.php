@@ -43,16 +43,6 @@ if ($ah_env) {
       // Dynamically set base url based on Acquia environment variable.
       $domain_prefix = $is_ah_free_tier ? 'devcloud' : 'prod';
       $domain = "{$_ENV['AH_SITE_NAME']}.$domain_prefix.acquia-sites.com";
-
-      // Detect the database to connect to via the domain.
-      // @TODO implementation and mapping for the full domain name.
-      $host = explode('.', $_SERVER['HTTP_HOST']);
-      if (is_array($host)) {
-        $host_database = $host[0];
-        if (!empty($host_database)) {
-          $databases['default']['default']['database'] = filter_input(INPUT_GET, $host_database);
-        }
-      }
       break;
   }
 

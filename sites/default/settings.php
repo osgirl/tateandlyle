@@ -707,6 +707,16 @@ require DRUPAL_ROOT . '/sites/default/settings/base.settings.php';
  */
 if ($is_ah_env && file_exists('/var/www/site-php')) {
   require "/var/www/site-php/{$_ENV['AH_SITE_GROUP']}/{$_ENV['AH_SITE_GROUP']}-settings.inc";
+
+  // Detect the database to connect to via the domain.
+  // @TODO implementation and mapping for the full domain name.
+  $host = explode('.', $_SERVER['HTTP_HOST']);
+  if (is_array($host)) {
+    $host_database = $host[0];
+    if (!empty($host_database)) {
+      $databases['default']['default']['database'] = filter_input(INPUT_GET, $host_database);
+    }
+  }
 }
 
 /**
