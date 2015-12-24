@@ -48,7 +48,7 @@ projects:
     version: "1.0-rc2"
   imce:
     type: module
-    version: "8.x-1.0-beta2"
+    version: "1.0-beta2"
   bootstrap:
     type: theme
     version: "3.0-alpha1"
