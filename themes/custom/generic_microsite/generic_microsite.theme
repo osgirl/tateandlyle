@@ -126,7 +126,7 @@ function generic_microsite_theme_suggestions_page_alter(array &$suggestions, arr
  */
 function generic_microsite_preprocess_page(&$variables){
   if ($variables['is_front'] == TRUE) {
-    if (theme_get_setting('frontpage_template', 'generic_microsite') == 2) {   
+    if (theme_get_setting('frontpage_template', 'generic_microsite') == 1) {   
       $variables['content_column_attributes']->setAttribute('class', 'col-sm-12');
     }
   }
