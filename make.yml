@@ -17,6 +17,9 @@ projects:
   contact_storage:
     type: module
     version: "1.0-beta1"
+  csv_serialization:
+    type: module
+    version: ~
   google_analytics:
     type: module
     version: "2.0-rc1"
