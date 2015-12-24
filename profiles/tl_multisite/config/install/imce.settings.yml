@@ -1,0 +1,7 @@
+abs_urls: false
+roles_profiles:
+  site_admin:
+    public: admin
+  authenticated:
+    public: admin
+abs_url: null
