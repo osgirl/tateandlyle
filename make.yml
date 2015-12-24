@@ -46,6 +46,9 @@ projects:
   field_formatter_class:
     type: module
     version: "1.0-rc2"
+  imce:
+    type: module
+    version: "8.x-1.0-beta2+2-dev"
   bootstrap:
     type: theme
     version: "3.0-alpha1"

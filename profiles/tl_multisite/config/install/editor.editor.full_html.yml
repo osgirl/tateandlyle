@@ -2,10 +2,10 @@ langcode: en
 status: true
 dependencies:
   config:
-    - filter.format.filtered_html
+    - filter.format.full_html
   module:
     - ckeditor
-format: filtered_html
+format: full_html
 editor: ckeditor
 settings:
   toolbar:
@@ -14,7 +14,6 @@ settings:
         -
           name: Formatting
           items:
-            - Format
             - Bold
             - Italic
         -
@@ -36,15 +35,11 @@ settings:
           name: Tools
           items:
             - Source
-        -
-          name: Table
-          items:
-            - Table
   plugins:
     stylescombo:
       styles: ''
 image_upload:
-  status: true
+  status: false
   scheme: public
   directory: inline-images
   max_size: ''
