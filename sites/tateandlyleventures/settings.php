@@ -700,7 +700,7 @@ $settings['container_yamls'][] = __DIR__ . '/services.yml';
  */
 
 // Includes required Acquia configuration and set $base_url correctly.
-require DRUPAL_ROOT . '/sites/default/settings/base.settings.php';
+//require DRUPAL_ROOT . '/sites/default/settings/base.settings.php';
 
 /**
  * Acquia Cloud settings.
