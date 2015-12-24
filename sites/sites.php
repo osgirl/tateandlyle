@@ -55,8 +55,8 @@
  * @see https://www.drupal.org/documentation/install/multi-site
  */
 
-$wildcard_domain_dev = '.dev.cloud.tateandlyle.com';
-$wildcard_domain_test = '.test.cloud.tateandlyle.com';
+$wildcard_domain = 'cloud.tateandlyle.com';
+$envs = ['dev', 'test', 'prod'];
 
 $microsites = [
   'avenacare',
@@ -66,7 +66,9 @@ $microsites = [
 ];
 
 $sites = [];
-foreach ($microsites as $site_name) {
-  $sites[$site_name . $wildcard_domain_dev] = $site_name;
-  $sites[$site_name . $wildcard_domain_test] = $site_name;
+foreach ($envs as $env) {
+  foreach ($microsites as $site_name) {
+    $full_domain = $site_name . '.' . $env . '.' . $wildcard_domain;
+    $sites[$full_domain] = $site_name;
+  }
 }
