@@ -47,6 +47,7 @@ class MultisiteTest extends PHPUnit_Framework_TestCase
         foreach ($this->sites as $site_name) {
             $internal_domain = $site_name . $this->url_pattern;
             $this->assertArrayHasKey($internal_domain, $sites);
+            $this->assertFileExists($this->drupalRoot . '/sites/' . $site_name);
         }
     }
 
@@ -61,6 +62,7 @@ class MultisiteTest extends PHPUnit_Framework_TestCase
         foreach ($this->sites as $site_name) {
             $internal_domain = $site_name . $this->url_pattern;
             $this->assertArrayHasKey($internal_domain, $sites);
+            $this->assertFileExists($this->drupalRoot . '/sites/' . $site_name);
         }
     }
 
@@ -75,6 +77,7 @@ class MultisiteTest extends PHPUnit_Framework_TestCase
         foreach ($this->sites as $site_name) {
             $internal_domain = $site_name . $this->url_pattern;
             $this->assertArrayHasKey($internal_domain, $sites);
+            $this->assertFileExists($this->drupalRoot . '/sites/' . $site_name);
         }
     }
 }
