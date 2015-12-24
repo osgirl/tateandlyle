@@ -6,7 +6,7 @@
 
   <!-- This is run when a project is cloned to a new environment. -->
   <target name="setup:build:all" description="Generates all required files for a full build. E.g., removes docroot, builds via `drush make`, restores symlinks, etc."
-      depends="setup:behat, setup:build:make, setup:build:symlinks, frontend:build">
+      depends="setup:behat, setup:build:make, setup:build:composer, setup:build:symlinks, frontend:build">
   </target>
 
   <!-- Delete the docroot directory. Used prior to running Drush make. -->
@@ -30,6 +30,19 @@
       <option name="no-gitinfofile"></option>
     </drush>
 
+  </target>
+
+  <target name="setup:build:composer" description="Run composer install for each downloaded contributed module." depends="setup:build:make">
+    <foreach param="dirname" absparam="absname" target="setup:build:composer:install">
+      <fileset dir="${docroot}/modules/contrib">
+        <type type="dir" />
+        <depth max="0" min="0" />
+      </fileset>
+    </foreach>
+  </target>
+
+  <target name="setup:build:composer:install">
+    <exec dir="${absname}" command="composer install" />
   </target>
 
   <!-- Check for docroot. -->
