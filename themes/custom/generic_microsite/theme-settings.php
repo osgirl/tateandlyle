@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * Custom theme settings for the Generic Microsites sub-theme.
@@ -43,7 +44,7 @@ function generic_microsite_form_system_theme_settings_alter(&$form, FormStateInt
   $form['style']['global_style'] = array(
     '#type' => 'radios',
     '#title' => t('Global style sheet'),
-    '#default_value' => empty(theme_get_setting('global_style')) ? '1' : theme_get_setting('global_style'),
+    '#default_value' => theme_get_setting('global_style'),
     '#options' => array(
       constant('CSS1') => t('Global Style Sheet 1.'),
       constant('CSS2') => t('Global Style Sheet 2.'),
@@ -58,7 +59,7 @@ function generic_microsite_form_system_theme_settings_alter(&$form, FormStateInt
   $form['style']['frontpage_template'] = array(
     '#type' => 'radios',
     '#title' => t('Frontpage template'),
-    '#default_value' => empty(theme_get_setting('frontpage_template')) ? '1' : theme_get_setting('frontpage_template'),
+    '#default_value' => theme_get_setting('frontpage_template'),
     '#options' => array(
       constant('FRONTPAGE_ONECOLUMN') => t('One column.'),
       constant('FRONTPAGE_TWOCOLUMN') => t('Two columns.'),

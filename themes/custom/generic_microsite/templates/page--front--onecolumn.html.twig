@@ -112,6 +112,9 @@
     </section>
 
   </div>
+    {% set footer_image = node.field_footer_image.value %}
+    {% set footer_image_id = footer_image['0']['target_id'] %}
+    <img src={{ footer_background_image[footer_image_id] }} />
 </div>
 
 {% if page.footer %}

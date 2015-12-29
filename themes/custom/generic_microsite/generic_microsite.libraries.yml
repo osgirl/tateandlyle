@@ -3,7 +3,7 @@ global-styling1:
   css:
     theme:
       css/style1.css: {}
- 
+
 global-styling2:
   version: VERSION
   css:
