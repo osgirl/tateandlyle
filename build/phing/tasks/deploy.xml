@@ -59,6 +59,12 @@
     <copy todir="${deploy.dir}/hooks" overwrite="true">
       <fileset dir="${repo.root}/hooks"/>
     </copy>
+    <!-- Copy the multisite subsites. -->
+    <copy todir="${deploy.dir}/docroot/sites" overwrite="true">
+      <fileset dir="${repo.root}/sites">
+        <exclude name="default"></exclude>
+      </fileset>
+    </copy>
   </target>
 
   <target name="deploy:artifact:push" description="Commits and pushes the deploy artifact to git.remotes defined in project.yml.">
