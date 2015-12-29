@@ -150,11 +150,13 @@ function generic_microsite_preprocess_page(&$variables) {
     }
   }
   if (isset($variables['node'])) {
-    $footer_image = $variables['node']->get('field_footer_image')->getValue();
-    if (isset($footer_image[0])) {
-      $file_id = $footer_image[0]['target_id'];
-      $file = File::load($file_id);
-      $variables['footer_background_image'][$file_id] = ImageStyle::load('footer_image')->buildUrl($file->getFileUri());
+    if ($variables['node']->type == 'page') {
+      $footer_image = $variables['node']->get('field_footer_image')->getValue();
+      if (isset($footer_image[0])) {
+        $file_id = $footer_image[0]['target_id'];
+        $file = File::load($file_id);
+        $variables['footer_background_image'][$file_id] = ImageStyle::load('footer_image')->buildUrl($file->getFileUri());
+      }
     }
   }
 }
