@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies: {  }
+name: accordion_image
+label: 'Accordion image (100x80)'
+effects:
+  0726bf01-24ea-4b78-b900-ed11e06b6e8c:
+    uuid: 0726bf01-24ea-4b78-b900-ed11e06b6e8c
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 100
+      height: 80
