@@ -44,6 +44,9 @@ dependencies:
   - google_analytics
   - mollom
   - tl_block
+  - imce
+  - token
+  - pathauto
 #  - moderation_state
   # - acquia_search
 themes:

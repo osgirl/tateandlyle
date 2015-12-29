@@ -700,34 +700,14 @@ $settings['container_yamls'][] = __DIR__ . '/services.yml';
  */
 
 // Includes required Acquia configuration and set $base_url correctly.
-require DRUPAL_ROOT . '/sites/default/settings/base.settings.php';
+//require DRUPAL_ROOT . '/sites/default/settings/base.settings.php';
 
 /**
  * Acquia Cloud settings.
  */
 if ($is_ah_env && file_exists('/var/www/site-php')) {
-  $default_settings = "/var/www/site-php/{$_ENV['AH_SITE_GROUP']}/{$_ENV['AH_SITE_GROUP']}-settings.inc";
-  require $default_settings;
+  require "/var/www/site-php/{$_ENV['AH_SITE_GROUP']}/proatein-settings.inc";
 }
-
-/*
-  // Grab the first bit from the domain and try to find a matching, environment
-  // specific database.
-  // @TODO implementation to map when there is a full domain name.
-  $url = $_SERVER['HTTP_HOST'];
-  $url_elements = explode('.', $url);
-  $domain_prefix = array_shift($url_elements);
-
-  $environment_settings = "/var/www/site-php/{$_ENV['AH_SITE_GROUP']}/{$domain_prefix}-settings.inc";
-
-  if (file_exists($environment_settings)) {
-    require $environment_settings;
-  }
-  else {
-    require $default_settings;
-  }
-}
-*/
 
 /**
  * Load local development override configuration, if available.

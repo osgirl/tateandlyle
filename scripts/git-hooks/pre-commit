@@ -106,7 +106,10 @@ fi
 
 for file in $LIST
 do
-    if [ $file = "sites/default/settings.php" ]; then
+    if [ $(basename $file) = "settings.php" ]; then
+      continue;
+    fi
+    if [ $(basename $file) = "sites.php" ]; then
       continue;
     fi
     if [ $file = "sites/default/settings/base.settings.php" ]; then
