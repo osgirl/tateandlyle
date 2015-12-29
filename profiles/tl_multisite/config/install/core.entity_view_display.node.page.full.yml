@@ -10,21 +10,12 @@ dependencies:
   module:
     - entity_reference_revisions
     - field_formatter_class
-    - image
     - user
 id: node.page.full
 targetEntityType: node
 bundle: page
 mode: full
 content:
-  field_footer_image:
-    weight: 2
-    label: hidden
-    settings:
-      image_style: ''
-      image_link: ''
-    third_party_settings: {  }
-    type: image
   field_main_content:
     type: entity_reference_revisions_entity_view
     weight: 0
@@ -44,6 +35,7 @@ content:
       field_formatter_class:
         class: tout
 hidden:
+  field_footer_image: true
   langcode: true
   links: true
   moderation_state: true
