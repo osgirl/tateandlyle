@@ -3,7 +3,7 @@ global-styling1:
   css:
     theme:
       css/style1.css: {}
- 
+
 global-styling2:
   version: VERSION
   css:
@@ -33,6 +33,11 @@ global-styling6:
   css:
     theme:
       css/style6.css: {}
+
+custom-js:
+  version: VERSION
+  js:
+    js/custom.js: {}
 
 bootstrap-scripts:
   version: VERSION

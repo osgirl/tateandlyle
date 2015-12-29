@@ -11,12 +11,11 @@ article{
   padding-bottom:45px;
 }
 
-body {
-  .gradient(#B5CBE6, #FFF);
-  background-repeat:repeat-x;
-}
-
-header {
+.navbar.container {
+  border-radius: 0;
+  margin-top: 0;
+  max-width: 960px;
+  padding-bottom: 35px;
   .container {
     padding-top: 35px;
   }
@@ -45,6 +44,8 @@ header {
   }
 }
 
+
+
 .navbar-default {
   background-color: transparent;
   border: 0;
@@ -69,6 +70,10 @@ header {
   }
 }
 
+.main-container {
+  border-radius: 0 0 35px 0;
+}
+
 .container {
   .constrained;
 }
@@ -77,7 +82,7 @@ header {
 	padding-right:0;
 }
 
-#block-cookiepolicy {
+#block-tatelylecookielink {
   clear:both;
   line-height:12px;
   a {
@@ -95,7 +100,7 @@ header {
   }
 }
 
-#block-prospectivepurchasersadvisory {
+#block-tatelyleprospectivepurchasersadvisory {
   color:#7d6a57;
   font-size:11px;
   line-height:12px;
@@ -104,20 +109,30 @@ header {
 .footer {
   background:transparent;
   border:none;
+  color: #7d6a57;
   padding-top:20px;
   padding-bottom:50px;
-  .region-footer {
-    .menu {
-      li:first-child a{
-        padding:0 5px 0 0;
-        border-left:none;
-      }
-      li a {
-        color:#7d6a57;
-        font-size:11px;
-        padding:0 5px;
-        border-left:1px solid #7d6a57;
-        line-height:11px;
+  a {
+    color: #7d6a57;
+  }
+}
+
+.region-footer {
+  .menu {
+    li:first-child a{
+      padding:0 5px 0 0;
+      border-left:none;
+    }
+    li a {
+      color:#7d6a57;
+      font-size:11px;
+      padding:0 5px;
+      border-left:1px solid #7d6a57;
+      line-height:11px;
+      &:focus,
+      &:hover {
+        background-color: transparent;
+        text-decoration: underline;
       }
     }
   }
@@ -157,18 +172,18 @@ header {
   ul {
     list-style-type:none;
     display:table-row;
-    li a {
-      background-image: url("../images/bullet-link.gif");
-      background-position: 0 5px;
-      background-repeat: no-repeat;
-      color: #7d6a57;
-      display: block;
-      float: left;
-      font-weight: bold;
-      margin-bottom: 4px;
-      padding: 0 0 0 10px;
-      font-size:12px;
-    }
+  }
+  a {
+    background-image: url("../images/bullet-link.gif");
+    background-position: 0 5px;
+    background-repeat: no-repeat;
+    color: #7d6a57;
+    display: block;
+    float: left;
+    font-weight: bold;
+    margin-bottom: 4px;
+    padding: 0 0 0 10px;
+    font-size:12px;
   }
   p {
     font-size: 12px;
@@ -202,4 +217,3 @@ header {
     padding-top: 5px;
   }
 }
-
