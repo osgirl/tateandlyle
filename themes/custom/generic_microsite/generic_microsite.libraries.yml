@@ -34,11 +34,6 @@ global-styling6:
     theme:
       css/style6.css: {}
 
-custom-js:
-  version: VERSION
-  js:
-    js/custom.js: {}
-
 bootstrap-scripts:
   version: VERSION
   js:
