@@ -2,4 +2,4 @@ langcode: en
 status: true
 dependencies: {  }
 id: slide
-label: Slide
+label: Slideshow
