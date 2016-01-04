@@ -28,23 +28,43 @@ function generic_microsite_preprocess_html(&$variables) {
   else {
     $variables['attributes']['class'][] = 'tl-no-sidebars';
   }
-
-  if (\Drupal::request()->getPathInfo() == '/') {
-    if (theme_get_setting('frontpage_template', 'generic_microsite') == 1) {
-      $variables['attributes']['class'][] = 'homepage-one-column';
-    } else {
-      $variables['attributes']['class'][] = 'homepage-two-column';
-    }
+  
+  if (theme_get_setting('global_style', 'generic_microsite') != NULL) {
+    $variables['#attached']['library'][] = 'generic_microsite/global-styling' . theme_get_setting('global_style', 'generic_microsite');
+    $variables['global_style'] = theme_get_setting('global_style', 'generic_microsite');
+  }
+  else {
+    $variables['#attached']['library'][] = 'generic_microsite/global-styling1';
+    $variables['global_style'] = 1;
   }
 
-  $variables['#attached']['library'][] = 'generic_microsite/global-styling' . theme_get_setting('global_style', 'generic_microsite');
-  $variables['global_style'] = theme_get_setting('global_style', 'generic_microsite');
-  $variables['bg_value1'] = theme_get_setting('bg_value1', 'generic_microsite');
-  $variables['bg_value2'] = theme_get_setting('bg_value2', 'generic_microsite');
-  $variables['bg_image'] = theme_get_setting('bg_image', 'generic_microsite');
-  $variables['custom_css'] = theme_get_setting('custom_css', 'generic_microsite');
-  $variables['gradient_bg'] = 'background: -webkit-gradient(linear,left top,left bottom,from(' . theme_get_setting('bg_value1', 'generic_microsite') . '),to(' . theme_get_setting('bg_value2', 'generic_microsite') . ')) no-repeat; background: -webkit-linear-gradient(top,' . theme_get_setting('bg_value1', 'generic_microsite') . ',' . theme_get_setting('bg_value2', 'generic_microsite') . ') no-repeat; background: -moz-linear-gradient(top,' . theme_get_setting('bg_value1', 'generic_microsite') . ',' . theme_get_setting('bg_value2', 'generic_microsite') . ') no-repeat; background: -ms-linear-gradient(top,' . theme_get_setting('bg_value1', 'generic_microsite') . ',' . theme_get_setting('bg_value2', 'generic_microsite') . ') no-repeat; background: -o-linear-gradient(top,' . theme_get_setting('bg_value1', 'generic_microsite') . ',' . theme_get_setting('bg_value2', 'generic_microsite') . ') no-repeat;';
+  if (theme_get_setting('frontpage_template', 'generic_microsite') != NULL) {
+    $variables['frontpage_template'] = theme_get_setting('frontpage_template', 'generic_microsite');
+  }
+  else {
+    $variables['frontpage_template'] = 1;
+  }
 
+  if (theme_get_setting('bg_value1', 'generic_microsite') != NULL) {
+    $variables['bg_value1'] = theme_get_setting('bg_value1', 'generic_microsite');
+  }
+  else {
+    $variables['bg_value1'] = '#b5cbe6';
+  }
+
+  $variables['bg_value2'] = theme_get_setting('bg_value2', 'generic_microsite');
+
+  $variables['custom_css'] = theme_get_setting('custom_css', 'generic_microsite');
+
+  if (theme_get_setting('bg_value2', 'generic_microsite') != NULL) {
+   $variables['gradient_bg'] = 'background: -webkit-gradient(linear,left top,left bottom,from(' . theme_get_setting('bg_value1', 'generic_microsite') . '),to(' . theme_get_setting('bg_value2', 'generic_microsite') . ')) no-repeat; background: -webkit-linear-gradient(top,' . theme_get_setting('bg_value1', 'generic_microsite') . ',' . theme_get_setting('bg_value2', 'generic_microsite') . ') no-repeat; background: -moz-linear-gradient(top,' . theme_get_setting('bg_value1', 'generic_microsite') . ',' . theme_get_setting('bg_value2', 'generic_microsite') . ') no-repeat; background: -ms-linear-gradient(top,' . theme_get_setting('bg_value1', 'generic_microsite') . ',' . theme_get_setting('bg_value2', 'generic_microsite') . ') no-repeat; background: -o-linear-gradient(top,' . theme_get_setting('bg_value1', 'generic_microsite') . ',' . theme_get_setting('bg_value2', 'generic_microsite') . ') no-repeat;';
+  }
+  else if (theme_get_setting('bg_value1', 'generic_microsite') != NULL) {
+    $variables['gradient_bg'] = 'background-color: ' . theme_get_setting('bg_value1', 'generic_microsite') . ';';
+  }
+  else {
+    $variables['gradient_bg'] = 'background-color: #b5cbe6;';
+  }
 }
 
 /**
@@ -150,7 +170,8 @@ function generic_microsite_preprocess_page(&$variables) {
     }
   }
   if (isset($variables['node'])) {
-    if ($variables['node']->type == 'page') {
+    $node_type = $variables['node']->get('type')->getValue();
+    if ($node_type[0]['target_id'] == 'page') {
       $footer_image = $variables['node']->get('field_footer_image')->getValue();
       if (isset($footer_image[0])) {
         $file_id = $footer_image[0]['target_id'];
