@@ -1,0 +1,19 @@
+patterns:
+  node:
+    default: '/[node:title]'
+    bundles:
+      form:
+        default: ''
+      media_item:
+        default: ''
+      page:
+        default: ''
+  taxonomy_term:
+    default: '/[term:vocabulary]/[term:name]'
+    bundles:
+      file_types:
+        default: ''
+  forum:
+    default: '/[term:vocabulary]/[term:name]'
+  user:
+    default: '/users/[user:name]'
