@@ -29,6 +29,7 @@ dependencies:
   - taxonomy
   - telephone
   - dblog
+  - syslog
   - search
   - shortcut
   - toolbar
@@ -47,7 +48,6 @@ dependencies:
   - imce
   - token
   - pathauto
-#  - moderation_state
   # - acquia_search
 themes:
   - generic_microsite
