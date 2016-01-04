@@ -13,6 +13,7 @@ use Drupal\image\Entity\ImageStyle;
  * Implements TEMPLATE_preprocess_html().
  */
 function generic_microsite_preprocess_html(&$variables) {
+  $variables['site_name'] = strtolower(str_replace(" ", "-", $variables['head_title_array']['name']));
   // Add information about the number of sidebars.
   if (!empty($variables['page']['sidebar_first']) && !empty($variables['page']['sidebar_second'])) {
     $variables['attributes']['class'][] = 'tl-two-sidebars';
