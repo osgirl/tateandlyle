@@ -72,19 +72,3 @@ foreach ($envs as $env) {
     $sites[$full_domain] = $site_name;
   }
 }
-
-$sites['avenacare.dev.cloud.tateandlyle.com'] = 'avenacare';
-$sites['avenacare.test.cloud.tateandlyle.com'] = 'avenacare';
-$sites['avenacare.prod.cloud.tateandlyle.com'] = 'avenacare';
-
-$sites['proatein.dev.cloud.tateandlyle.com'] = 'proatein';
-$sites['proatein.dev.cloud.tateandlyle.com'] = 'proatein';
-$sites['proatein.dev.cloud.tateandlyle.com'] = 'proatein';
-
-$sites['clariastarch.dev.cloud.tateandlyle.com'] = 'clariastarch';
-$sites['clariastarch.dev.cloud.tateandlyle.com'] = 'clariastarch';
-$sites['clariastarch.dev.cloud.tateandlyle.com'] = 'clariastarch';
-
-$sites['tateandlyleventures.dev.cloud.tateandlyle.com'] = 'tateandlyleventures';
-$sites['tateandlyleventures.test.cloud.tateandlyle.com'] = 'tateandlyleventures';
-$sites['tateandlyleventures.prod.cloud.tateandlyle.com'] = 'tateandlyleventures';
