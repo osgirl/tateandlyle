@@ -150,7 +150,8 @@ function generic_microsite_preprocess_page(&$variables) {
     }
   }
   if (isset($variables['node'])) {
-    if ($variables['node']->type == 'page') {
+    $node_type = $variables['node']->get('type')->getValue();
+    if ($node_type[0]['target_id'] == 'page') {
       $footer_image = $variables['node']->get('field_footer_image')->getValue();
       if (isset($footer_image[0])) {
         $file_id = $footer_image[0]['target_id'];
