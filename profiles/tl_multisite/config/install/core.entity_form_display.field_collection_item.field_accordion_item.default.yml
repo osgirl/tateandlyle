@@ -4,6 +4,7 @@ dependencies:
   config:
     - field.field.field_collection_item.field_accordion_item.field_body
     - field.field.field_collection_item.field_accordion_item.field_image
+    - field.field.field_collection_item.field_accordion_item.field_subtitle
     - field.field.field_collection_item.field_accordion_item.field_title
     - field_collection.field_collection.field_accordion_item
   module:
@@ -15,19 +16,26 @@ bundle: field_accordion_item
 mode: default
 content:
   field_body:
-    weight: 2
+    weight: 3
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
     type: text_textarea
   field_image:
-    weight: 1
+    weight: 2
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
     type: image_image
+  field_subtitle:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
   field_title:
     weight: 0
     settings:

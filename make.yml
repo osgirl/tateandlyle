@@ -49,6 +49,14 @@ projects:
   imce:
     type: module
     version: "1.0-beta2"
+  token:
+    type: module
+    version: "1.0-alpha1"
+  pathauto:
+    type: module
+    download:
+      url: https://github.com/md-systems/pathauto.git
+      revision: "8.x-1.x"
   bootstrap:
     type: theme
     version: "3.0-alpha1"

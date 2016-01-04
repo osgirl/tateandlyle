@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies: {  }
+name: footer_image
+label: 'Footer image (600×290)'
+effects:
+  965c4bfc-bc4d-4986-9800-b8933e9f6ed8:
+    uuid: 965c4bfc-bc4d-4986-9800-b8933e9f6ed8
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 600
+      height: 290

@@ -65,6 +65,7 @@
 <header{{ navbar_attributes }} id="navbar" role="banner">
   <div class="container">
     <div class="navbar-header">
+      {{ page.header }}
       <div class="header-left">
         {{ page.header_left }}
       </div>
@@ -94,13 +95,13 @@
 <div role="main" class="main-container container js-quickedit-main-content">
   <div class="row">
 
-    {% if page.sidebar_first %}
+    {#{% if page.sidebar_first %}#}
       <aside class="col-sm-3" role="complementary">
         {{ page.sidebar_first }}
       </aside>  <!-- End first aside. -->
-    {% endif %}
+  {#  {% endif %} #}
 
-    <section{{ content_column_attributes }}>
+    <section class="col-sm-6 middle-content" {#{{ content_column_attributes }}#}>
       {% if page.highlighted %}
         <div class="highlighted">{{ page.highlighted }}</div>
       {% endif %}
@@ -124,8 +125,13 @@
     {% endif %}
 
   </div>
+  {% set footer_image = node.field_footer_image.value %}
+  {% set footer_image_id = footer_image['0']['target_id'] %}
+  {% if footer_image %} 
+    <img class="footer-image" src={{ footer_background_image[footer_image_id] }} />
+  {% endif %}
 </div>
-
+ 
 {% if page.footer %}
   <footer class="footer container" role="contentinfo">
     {{ page.footer }}

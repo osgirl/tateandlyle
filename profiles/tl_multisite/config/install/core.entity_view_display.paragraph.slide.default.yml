@@ -15,7 +15,7 @@ mode: default
 content:
   field_show_arrows:
     weight: 3
-    label: above
+    label: hidden
     settings:
       format: default
       format_custom_false: ''
@@ -24,13 +24,13 @@ content:
     type: boolean
   field_slide:
     weight: 2
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: field_collection_list
+    type: field_collection_items
   field_timeout:
     weight: 4
-    label: above
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }

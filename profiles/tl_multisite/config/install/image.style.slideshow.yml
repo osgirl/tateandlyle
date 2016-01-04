@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies: {  }
+name: slideshow
+label: 'Slideshow (670×270)'
+effects:
+  2a794499-fcd9-4ba4-8763-99f964e9365f:
+    uuid: 2a794499-fcd9-4ba4-8763-99f964e9365f
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 670
+      height: 270

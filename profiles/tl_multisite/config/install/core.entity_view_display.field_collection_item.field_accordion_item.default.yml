@@ -4,6 +4,7 @@ dependencies:
   config:
     - field.field.field_collection_item.field_accordion_item.field_body
     - field.field.field_collection_item.field_accordion_item.field_image
+    - field.field.field_collection_item.field_accordion_item.field_subtitle
     - field.field.field_collection_item.field_accordion_item.field_title
     - field_collection.field_collection.field_accordion_item
   module:
@@ -15,22 +16,29 @@ bundle: field_accordion_item
 mode: default
 content:
   field_body:
-    weight: 2
-    label: above
+    weight: 3
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: text_default
   field_image:
-    weight: 1
-    label: above
+    weight: 2
+    label: hidden
     settings:
       image_style: ''
       image_link: ''
     third_party_settings: {  }
     type: image
+  field_subtitle:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
   field_title:
     weight: 0
-    label: above
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
