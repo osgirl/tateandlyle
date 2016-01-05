@@ -10,6 +10,7 @@ package: 'Bootstrap'
 regions:
   header_left: 'Header Left'
   header_right: 'Header Right'
+  breadcrumb: 'Breadcrumb'
   highlighted: 'Highlighted'
   help: 'Help'
   content: 'Content'
