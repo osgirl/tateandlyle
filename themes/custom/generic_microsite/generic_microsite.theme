@@ -67,7 +67,6 @@ function generic_microsite_preprocess_field(&$variables, $hook) {
   if ($variables['field_name'] == 'field_accordion_item') { 
     $variables['attributes']['id'][]='accordion';
     foreach ($variables['items'] as $key => $item) {
-     // kint($item['content']['#field_collection_item'].field_body);
       $image = $item['content']['#field_collection_item']->get('field_image')->getValue();
       if(isset($image['0'])) {
         $file_id = $image['0']['target_id'];
@@ -96,7 +95,8 @@ function generic_microsite_preprocess_field(&$variables, $hook) {
       <a class="right carousel-control" href="#slideshow" role="button" data-slide="next">
       <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
       </a>';
-
+    } else {
+      $variables['items'][0]['content']['#markup'] = '';
     }
   }
 
