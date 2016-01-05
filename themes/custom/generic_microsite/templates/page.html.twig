@@ -96,9 +96,9 @@
   <div class="row">
   
   {#{% if page.breadcrumb %}#}
-      <aside class="col-sm-12" role="complementary">
+      <section class="col-sm-12" role="complementary">
         {{ page.breadcrumb }}
-      </aside>  <!-- End first aside. -->
+      </section>  <!-- End first aside. -->
   {#  {% endif %} #}
   
   {#{% if page.sidebar_first %}#}
@@ -124,11 +124,11 @@
       {{ page.content }}
     </section>
 
-    {% if page.sidebar_second %}
+    {# {% if page.sidebar_second %} #}
       <aside class="col-sm-3" role="complementary">
         {{ page.sidebar_second }}
       </aside> <!-- End second aside. -->
-    {% endif %}
+    {# {% endif %} #}
 
   </div>
   {% set footer_image = node.field_footer_image.value %}
