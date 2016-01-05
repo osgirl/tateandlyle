@@ -63,6 +63,7 @@ $microsites = [
   'proatein',
   'clariastarch',
   'tateandlyleventures',
+  'industrialstarches',
 ];
 
 $sites = [];
