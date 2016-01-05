@@ -9,9 +9,7 @@
 
 
 /*General*/
-div[role="main"] {
-  padding-bottom: 45px;
-}
+
 
 /*Header*/
 .navbar.container {
@@ -143,16 +141,21 @@ div[role="main"] {
 }
 
 aside {
+  &:first-of-type {
+    padding-right: 20px;
+    max-width: 215px;
+  }
+  &:last-of-type {
+    padding-left: 28px;
+    padding-right: 0;
+    width: 245px;
+    max-width: 245px;
+  }
   .block {
     padding-bottom: 30px;
   }
   .tout-title {
-     color: #7373a8;
-    float: left;
-    font-weight: normal;
-    padding: 5px 0 4px;
-    width: 100%;
-    font-size: 15px;
+    display:none;
   } 
 }
 
@@ -197,12 +200,17 @@ aside {
 }
 
 /*Main content*/
+div[role="main"] > .row {
+  padding-bottom: 45px;
+}
+
 .main-container {
   border-radius: 0 0 35px 0;
 }
 
 .middle-content {
-  padding:0;
+  padding-right:0px;
+  padding-left:5px;
   position: relative;
   &:before {
     background-image: url(../images/col.gif);
@@ -210,7 +218,7 @@ aside {
     background-repeat: repeat-y;
     content: "";
     height: 100%;
-    margin-left: -30px;
+    margin-left: -15px;
     position: absolute;
     top: 0;
     width: 4px;
@@ -221,7 +229,7 @@ aside {
     background-repeat: repeat-y;
     content: "";
     height: 100%;
-    margin-right: -30px;
+    margin-right: -18px;
     position: absolute;
     right: 0;
     top: 0;
