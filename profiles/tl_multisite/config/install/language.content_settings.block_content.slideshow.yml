@@ -1,0 +1,11 @@
+uuid: d9237d58-dd9b-47b7-ad3e-62130c398222
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.slideshow
+id: block_content.slideshow
+target_entity_type_id: block_content
+target_bundle: slideshow
+default_langcode: site_default
+language_alterable: false
