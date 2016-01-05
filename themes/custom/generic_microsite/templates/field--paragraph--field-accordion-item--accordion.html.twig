@@ -42,7 +42,7 @@
      {% set image = item.content['#field_collection_item'].field_image.value %}
       {% set image_id = image['0']['target_id'] %}
      {% set accordion_id = item['content']['#field_collection_item'].id %}
-    <div class="accordion-set" data-toggle="collapse" data-parent="#accordion" href="#{{ accordion_id }}" {{ item.attributes }}> 
+    <div class="accordion-set collapsed" data-toggle="collapse" data-parent="#accordion" href="#{{ accordion_id }}" {{ item.attributes }}> 
       <div class="image-accordion">
         <img src={{ accordeon_image[image_id] }}>
       </div>
@@ -53,7 +53,10 @@
         {{ item.content['#field_collection_item'].field_subtitle.value }}
       </div>
       <div id="{{ accordion_id }}" class="panel-collapse collapse">
-        {{ item.content['#field_collection_item'].field_body.value | raw }} </div>
+        <div class="accordion-content">
+          {{ item.content['#field_collection_item'].field_body.value | raw }}
+        </div>
+      </div>
       </div>
     {% endfor %}
   </div>
