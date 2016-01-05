@@ -1,0 +1,14 @@
+uuid: a31049bf-a81d-4430-9f08-8adfba8cb61a
+langcode: en
+status: true
+dependencies: {  }
+name: slideshow_block
+label: 'Slideshow block (210 x 205)'
+effects:
+  e09f85e4-926c-4156-955d-934df2d4f05c:
+    uuid: e09f85e4-926c-4156-955d-934df2d4f05c
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 210
+      height: 205
