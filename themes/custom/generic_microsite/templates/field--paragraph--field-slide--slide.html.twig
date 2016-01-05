@@ -50,17 +50,27 @@
         {% set slideshow_link_title = item.content['#field_collection_item'].field_link.value[0]['title'] %}
         {% if i == 0 %}
           <div class="item active">
+            {% if slideshow_link %}
             <a href="{{ slideshow_link }}" title="{{ slideshow_link_title }}">
               <img class="slideshow-image" src="{{ slideshow_image_path[slideshow_image_id] }}"/>
               <div class="slideshow-text"> {{ slideshow_text | raw }}</div>
             </a>
+            {% else %}
+              <img class="slideshow-image" src="{{ slideshow_image_path[slideshow_image_id] }}"/>
+              <div class="slideshow-text"> {{ slideshow_text | raw }}</div>
+            {% endif %}
           </div>
         {% else %}
           <div class="item">
+            {% if slideshow_link %}
             <a href="{{ slideshow_link }}" title="{{ slideshow_link_title }}">
               <img class="slideshow-image" src="{{ slideshow_image_path[slideshow_image_id] }}"/>
               <div class="slideshow-text">{{ slideshow_text | raw }}</div>
             </a>
+            {% else %}
+              <img class="slideshow-image" src="{{ slideshow_image_path[slideshow_image_id] }}"/>
+              <div class="slideshow-text"> {{ slideshow_text | raw }}</div>
+            {% endif %}
           </div>
         {% endif %}
         {% set i = i+1 %}
