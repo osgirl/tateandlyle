@@ -65,6 +65,7 @@ $microsites = [
   'tateandlyleventures',
   'industrialstarches',
   'purefruit',
+  'tateandlyleopeninnovation',
 ];
 
 $sites = [];
