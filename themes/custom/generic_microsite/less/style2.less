@@ -128,35 +128,32 @@
 
 .path-frontpage {
   aside {
+    padding-left:10px;
     .tout-title {
-      color: #7373a8;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 15px;
-      padding-top: 5px;
-      margin-top: 4px;
-      padding-bottom: 4px;
-      font-weight: bold;
+      display:none;
     } 
   }
 }
 
-aside {
-  &:first-of-type {
-    padding-right: 20px;
-    max-width: 215px;
+.path-node {
+  aside {
+    &:first-of-type {
+      padding-right: 20px;
+      max-width: 215px;
+    }
+    &:last-of-type {
+      padding-left: 28px;
+      padding-right: 0;
+      width: 245px;
+      max-width: 245px;
+    }
+    .block {
+      padding-bottom: 30px;
+    }
+    .tout-title {
+      display:none;
+    } 
   }
-  &:last-of-type {
-    padding-left: 28px;
-    padding-right: 0;
-    width: 245px;
-    max-width: 245px;
-  }
-  .block {
-    padding-bottom: 30px;
-  }
-  .tout-title {
-    display:none;
-  } 
 }
 
 
