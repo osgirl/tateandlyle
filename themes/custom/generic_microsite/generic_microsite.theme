@@ -182,3 +182,8 @@ function generic_microsite_preprocess_paragraph(&$variables) {
   $is_front = \Drupal::service('path.matcher')->isFrontPage();
   $variables['is_front'] = $is_front;
 }
+
+function generic_microsite_preprocess_breadcrumb(&$variables){
+  $site_name = \Drupal::configFactory()->getEditable('system.site')->get('name');
+  $variables['breadcrumb'][0]['text'] = $site_name;
+}
