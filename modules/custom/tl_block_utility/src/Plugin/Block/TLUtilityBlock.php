@@ -29,12 +29,12 @@ class TLUtilityBlock extends BlockBase {
       ),
       '#markup' => '<div id="utilitynavigation">
                       <ul class="utility-navigation">
-                        <li class="print"><a title="Print" href="javascript:print();">Print</a></li>
-                        <li class="email"><a title="Email" href="mailto:">Email</a></li>
+                        <li class="print"><a title="Print" href="#"></a></li>
+                        <li class="email"><a title="Email" href="mailto:"></a></li>
                         <li class="contrast"><a title="High-contrast version" href="#">C</a></li>
-                        <li class="large-text"><a title="Large text size" onclick="javascript:changeFont("large");" href="#">Large text size</a></li>
-                        <li class="medium-text"><a title="Medium text size" onclick="javascript:changeFont("medium");" href="#">Medium text size</a></li>
-                        <li class="small-text"><a title="Small text size" onclick="javascript:changeFont("");" href="#">Small text size</a></li>
+                        <li class="large-text"><a title="Large text size" onclick="" href="#"></a></li>
+                        <li class="medium-text"><a title="Medium text size" onclick="" href="#"></a></li>
+                        <li class="small-text"><a title="Small text size" onclick="" href="#"></a></li>
                       </ul>
                     </div>',
     );
