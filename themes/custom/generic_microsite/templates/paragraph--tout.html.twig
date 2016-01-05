@@ -45,15 +45,23 @@ view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
 %}
 <div{{ attributes.addClass(classes) }}>
     {% set modal_id = content.field_image[0]['#item'].value['target_id'] %}
+    {% if is_front %} 
     <div class="tout-image">
       {{ content.field_image }}
       {% if content.field_popup['#entity_type'] is defined %} 
-        <span class="open-modal" data-toggle="modal" data-target="#modal-{{modal_id}}">+</span>
+        <span class="open-modal" data-toggle="modal" data-target="#modal-{{modal_id}}"></span>
       {% endif %}
     </div>
-    <div class="tout-title">
-      {{ content.field_title }}
+    {{ content.field_title }}
+    {% else %} 
+    {{ content.field_title }}
+    <div class="tout-image">
+      {{ content.field_image }}
+      {% if content.field_popup['#entity_type'] is defined %} 
+        <span class="open-modal" data-toggle="modal" data-target="#modal-{{modal_id}}"></span>
+      {% endif %}
     </div>
+    {% endif %}
     <div class="tout-text">
       {{ content.field_text }}
     </div>
