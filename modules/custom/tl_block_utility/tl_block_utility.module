@@ -1,0 +1,12 @@
+<?php
+/**
+ * @file
+ * Code for the T&L Utility Block module.
+ */
+
+/**
+ * Implements block_utility_element_info_alter().
+ */
+function tl_block_utility_element_info_alter(array &$types) {
+  $types['table']['#attached']['library'][] = 'tl_block_utility/tl_block_utility';
+}
