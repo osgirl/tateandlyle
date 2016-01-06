@@ -62,7 +62,7 @@ projects:
       revision: "8.x-1.x"
   bootstrap:
     type: theme
-    version: "3.0-alpha1"
+    version: "3.0-beta2"
   workbench_moderation:
     type: module
     download:
