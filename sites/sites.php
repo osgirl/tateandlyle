@@ -64,6 +64,8 @@ $microsites = [
   'clariastarch',
   'tateandlyleventures',
   'industrialstarches',
+  'purefruit',
+  'tateandlyleopeninnovation',
 ];
 
 $sites = [];
@@ -72,4 +74,12 @@ foreach ($envs as $env) {
     $full_domain = $site_name . '.' . $env . '.' . $wildcard_domain;
     $sites[$full_domain] = $site_name;
   }
+}
+
+// The domain pattern for "soda-lo" is diffent from the database name.
+// We use soda_lo internally, and here we map it to the soda-lo namespace.
+// Note: soda-lo is *only* used in the domain.
+foreach ($envs as $env) {
+  $full_domain = 'soda-lo' . '.' . $env . '.' . $wildcard_domain;
+  $sites[$full_domain] = 'soda_lo';
 }

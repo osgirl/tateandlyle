@@ -14,22 +14,7 @@ use Drupal\image\Entity\ImageStyle;
  */
 function generic_microsite_preprocess_html(&$variables) {
   $variables['site_name'] = strtolower(str_replace(" ", "-", $variables['head_title_array']['name']));
-  // Add information about the number of sidebars.
-  if (!empty($variables['page']['sidebar_first']) && !empty($variables['page']['sidebar_second'])) {
-    $variables['attributes']['class'][] = 'tl-two-sidebars';
-  }
-  elseif (!empty($variables['page']['sidebar_first'])) {
-    $variables['attributes']['class'][] = 'tl-one-sidebar';
-    $variables['attributes']['class'][] = 'tl-sidebar-first';
-  }
-  elseif (!empty($variables['page']['sidebar_second'])) {
-    $variables['attributes']['class'][] = 'tl-one-sidebar';
-    $variables['attributes']['class'][] = 'tl-sidebar-second';
-  }
-  else {
-    $variables['attributes']['class'][] = 'tl-no-sidebars';
-  }
-  
+
   if (theme_get_setting('global_style', 'generic_microsite') != NULL) {
     $variables['#attached']['library'][] = 'generic_microsite/global-styling' . theme_get_setting('global_style', 'generic_microsite');
     $variables['global_style'] = theme_get_setting('global_style', 'generic_microsite');
@@ -45,6 +30,13 @@ function generic_microsite_preprocess_html(&$variables) {
   else {
     $variables['frontpage_template'] = 1;
   }
+
+   if (theme_get_setting('frontpage_template', 'generic_microsite') == 2) {
+     $variables['attributes']['class'][] = 'tl-one-sidebar';
+   }
+   else {
+    $variables['attributes']['class'][] = 'tl-no-sidebars';
+   }
 
   if (theme_get_setting('bg_value1', 'generic_microsite') != NULL) {
     $variables['bg_value1'] = theme_get_setting('bg_value1', 'generic_microsite');
@@ -75,7 +67,6 @@ function generic_microsite_preprocess_field(&$variables, $hook) {
   if ($variables['field_name'] == 'field_accordion_item') { 
     $variables['attributes']['id'][]='accordion';
     foreach ($variables['items'] as $key => $item) {
-     // kint($item['content']['#field_collection_item'].field_body);
       $image = $item['content']['#field_collection_item']->get('field_image')->getValue();
       if(isset($image['0'])) {
         $file_id = $image['0']['target_id'];
@@ -104,7 +95,8 @@ function generic_microsite_preprocess_field(&$variables, $hook) {
       <a class="right carousel-control" href="#slideshow" role="button" data-slide="next">
       <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
       </a>';
-
+    } else {
+      $variables['items'][0]['content']['#markup'] = '';
     }
   }
 
@@ -169,6 +161,9 @@ function generic_microsite_preprocess_page(&$variables) {
     if (theme_get_setting('frontpage_template', 'generic_microsite') == 1) {
       $variables['content_column_attributes']->setAttribute('class', 'col-sm-12');
     }
+     else {
+      $variables['content_column_attributes']->setAttribute('class', 'col-sm-9');
+    }
   }
   if (isset($variables['node'])) {
     $node_type = $variables['node']->get('type')->getValue();
@@ -181,4 +176,14 @@ function generic_microsite_preprocess_page(&$variables) {
       }
     }
   }
+}
+
+function generic_microsite_preprocess_paragraph(&$variables) {
+  $is_front = \Drupal::service('path.matcher')->isFrontPage();
+  $variables['is_front'] = $is_front;
+}
+
+function generic_microsite_preprocess_breadcrumb(&$variables){
+  $site_name = \Drupal::configFactory()->getEditable('system.site')->get('name');
+  $variables['breadcrumb'][0]['text'] = $site_name;
 }
