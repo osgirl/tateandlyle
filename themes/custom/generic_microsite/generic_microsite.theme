@@ -8,7 +8,7 @@
 
 use Drupal\file\Entity\File;
 use Drupal\image\Entity\ImageStyle;
-use Drupal\bootstrap\Utility\DrupalAttributes;
+use Drupal\Core\Template\Attribute;
 
 /**
  * Implements TEMPLATE_preprocess_html().
@@ -160,10 +160,10 @@ function generic_microsite_theme_suggestions_page_alter(array &$suggestions, arr
 function generic_microsite_preprocess_page(&$variables) {
   if ($variables['is_front'] == TRUE) {
     if (theme_get_setting('frontpage_template', 'generic_microsite') == 1) {
-      $variables['content_column_attributes']->setAttribute('class', 'col-sm-12');
+      $variables['content_column_attributes'] = new Attribute(array('class' => 'col-sm-12'));
     }
      else {
-      $variables['content_column_attributes']->setAttribute('class', 'col-sm-9');
+       $variables['content_column_attributes'] = new Attribute(array('class' => 'col-sm-9'));
     }
   }
   if (isset($variables['node'])) {
