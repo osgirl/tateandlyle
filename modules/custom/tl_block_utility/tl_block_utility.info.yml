@@ -1,0 +1,5 @@
+name: "T&L Utility Navigation"
+description: "Provides the Tate&Lyle Utility Navigation Block"
+core: 8.x
+package: Custom
+type: module
