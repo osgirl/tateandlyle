@@ -8,6 +8,7 @@
 
 use Drupal\file\Entity\File;
 use Drupal\image\Entity\ImageStyle;
+use Drupal\bootstrap\Utility\DrupalAttributes;
 
 /**
  * Implements TEMPLATE_preprocess_html().
@@ -64,7 +65,7 @@ function generic_microsite_preprocess_html(&$variables) {
  * Implements TEMPLATE_preprocess_field().
  */
 function generic_microsite_preprocess_field(&$variables, $hook) {
-  if ($variables['field_name'] == 'field_accordion_item') { 
+  if ($variables['field_name'] == 'field_accordion_item') {
     $variables['attributes']['id'][]='accordion';
     foreach ($variables['items'] as $key => $item) {
       $image = $item['content']['#field_collection_item']->get('field_image')->getValue();
@@ -75,7 +76,7 @@ function generic_microsite_preprocess_field(&$variables, $hook) {
       }
     }
   }
-  
+
   if ($variables['field_name'] == 'field_slide') {
     foreach ($variables['items'] as $key => $item) {
       $image = $item['content']['#field_collection_item']->get('field_image')->getValue();
@@ -113,7 +114,7 @@ function generic_microsite_preprocess_field(&$variables, $hook) {
       ));
 
     $form = \Drupal::service('entity.form_builder')->getForm($message);
-    
+
     unset($variables['items'][0]['content']['#plain_text']);
     $variables['items'][0]['content']['#suffix'] = drupal_render($form);
   }
@@ -129,7 +130,7 @@ $is_front = \Drupal::service('path.matcher')->isFrontPage();
       $suggestions[] = 'page__front__onecolumn';
     }
     else {
-      $suggestions[] = 'page__front__twocolumn';		
+      $suggestions[] = 'page__front__twocolumn';
     }
   }
 }
@@ -147,8 +148,8 @@ function generic_microsite_theme_suggestions_page_alter(array &$suggestions, arr
         $suggestions[] = 'page__form__landingform';
       }
       else {
-        $suggestions[] = 'page__form__contactform';	  
-      } 
+        $suggestions[] = 'page__form__contactform';
+      }
     }
   }
 }
