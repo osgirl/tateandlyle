@@ -66,6 +66,9 @@ $microsites = [
   'industrialstarches',
   'purefruit',
   'tateandlyleopeninnovation',
+  'dolciaprima',
+  'yourbakerysnacksolutions',
+  'foodnutritionknowledge',
 ];
 
 $sites = [];
