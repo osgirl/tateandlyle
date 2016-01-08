@@ -54,13 +54,15 @@ view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
     </div>
     {{ content.field_title }}
     {% else %} 
-    {{ content.field_title }}
-    <div class="tout-image">
-      {{ content.field_image }}
-      {% if content.field_popup['#entity_type'] is defined %} 
-        <span class="open-modal" data-toggle="modal" data-target="#modal-{{modal_id}}"></span>
+      {{ content.field_title }}
+      {% if content.field_image[0] %}
+        <div class="tout-image">
+          {{ content.field_image }}
+          {% if content.field_popup['#entity_type'] is defined %} 
+            <span class="open-modal" data-toggle="modal" data-target="#modal-{{modal_id}}"></span>
+          {% endif %}
+        </div>
       {% endif %}
-    </div>
     {% endif %}
     <div class="tout-text">
       {{ content.field_text }}
