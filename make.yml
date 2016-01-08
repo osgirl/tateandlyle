@@ -8,7 +8,7 @@ defaults:
 projects:
   drupal:
     type: core
-    version: 8.0.1
+    version: 8.0.2
   # For all projects, always specify the exact version that is to be used.
   # For any project using a dev branch, always specify the revision id.
   acquia_connector:
