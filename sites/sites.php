@@ -69,6 +69,12 @@ $microsites = [
   'dolciaprima',
   'yourbakerysnacksolutions',
   'foodnutritionknowledge',
+  'tastevasweetener',
+  'tateandlyleprocurement',
+  'yourfoodsystems',
+  'tateandlylefibres',
+  'tateandlylejp',
+  'sucralose'
 ];
 
 $sites = [];
@@ -79,7 +85,7 @@ foreach ($envs as $env) {
   }
 }
 
-// The domain pattern for "soda-lo" is diffent from the database name.
+// The domain pattern for "soda-lo" is different from the database name.
 // We use soda_lo internally, and here we map it to the soda-lo namespace.
 // Note: soda-lo is *only* used in the domain.
 foreach ($envs as $env) {
