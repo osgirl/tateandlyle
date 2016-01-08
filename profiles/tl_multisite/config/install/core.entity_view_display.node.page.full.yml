@@ -6,7 +6,6 @@ dependencies:
     - core.entity_view_mode.node.full
     - field.field.node.page.field_footer_image
     - field.field.node.page.field_main_content
-    - field.field.node.page.field_template
     - field.field.node.page.field_touts
     - node.type.page
   module:
@@ -40,7 +39,6 @@ content:
         class: tout
 hidden:
   field_footer_image: true
-  field_template: true
   langcode: true
   links: true
   moderation_state: true
