@@ -1,0 +1,24 @@
+uuid: 810dbf60-5aca-4951-a80c-126977e584c7
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - generic_microsite
+id: mainnavigation_2
+theme: generic_microsite
+region: navigation
+weight: -4
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Main navigation'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+visibility: {  }

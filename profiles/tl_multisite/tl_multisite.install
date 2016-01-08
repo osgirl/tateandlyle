@@ -147,4 +147,5 @@ function tl_multisite_install() {
   $path = '/node/' . $node->id();
   \Drupal::service('path.alias_storage')->save("/node/" . $path, "/403", "en");
   \Drupal::configFactory()->getEditable('system.site')->set('page.403', $path)->save(TRUE);
+  \Drupal::service('entity.definition_update_manager')->applyUpdates();
 }

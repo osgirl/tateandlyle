@@ -1,20 +1,19 @@
+uuid: 55d75feb-cd44-42dc-8f00-cf67585b75e3
 langcode: en
 status: true
 dependencies:
   config:
     - contact.form.contact_us
     - field.storage.contact_message.field_country
-  module:
-    - text
 id: contact_message.contact_us.field_country
 field_name: field_country
 entity_type: contact_message
 bundle: contact_us
 label: Country
 description: ''
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }
-field_type: text_long
+field_type: string

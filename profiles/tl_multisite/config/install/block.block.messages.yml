@@ -1,0 +1,20 @@
+uuid: b5d84445-07d3-4657-8801-1b7fd68d5146
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - generic_microsite
+id: messages
+theme: generic_microsite
+region: highlighted
+weight: -7
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: Messages
+  provider: system
+  label_display: '0'
+visibility: {  }

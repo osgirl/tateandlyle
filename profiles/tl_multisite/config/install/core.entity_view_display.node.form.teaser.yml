@@ -1,9 +1,12 @@
+uuid: 066ac5a2-6e78-4c42-a500-d8603f02ee6e
 langcode: en
 status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.form.field_footer_image
     - field.field.node.form.field_form
+    - field.field.node.form.field_form_header
     - field.field.node.form.field_layout
     - field.field.node.form.field_main_content
     - node.type.form
@@ -17,7 +20,9 @@ content:
   links:
     weight: 100
 hidden:
+  field_footer_image: true
   field_form: true
+  field_form_header: true
   field_layout: true
   field_main_content: true
   langcode: true

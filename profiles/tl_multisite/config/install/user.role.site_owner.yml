@@ -1,6 +1,9 @@
+uuid: e48e4db2-da8d-41fd-9400-b5019b38ffd1
 langcode: en
 status: true
 dependencies: {  }
+_core:
+  default_config_hash: u9ipiufNo0aVF1Fd7J5yWaOZ7w_IaH-CZiGI_IbMMOY
 id: site_owner
 label: 'Site owner'
 weight: 3
