@@ -1,0 +1,21 @@
+uuid: 69eb8ab7-51ed-4a77-8e00-ecae22387b68
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_form_header
+    - node.type.form
+  module:
+    - text
+id: node.form.field_form_header
+field_name: field_form_header
+entity_type: node
+bundle: form
+label: 'Form header'
+description: 'Add the text that''s displayed before the form.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

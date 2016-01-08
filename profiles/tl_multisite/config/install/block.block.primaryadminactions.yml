@@ -1,0 +1,18 @@
+uuid: 03d2c980-395c-4bb3-ae04-4fb78f828207
+langcode: en
+status: true
+dependencies:
+  theme:
+    - generic_microsite
+id: primaryadminactions
+theme: generic_microsite
+region: content
+weight: -7
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  provider: core
+  label_display: '0'
+visibility: {  }

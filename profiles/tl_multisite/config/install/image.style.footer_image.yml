@@ -1,6 +1,9 @@
+uuid: d03d8dbd-318c-42e6-994d-775648801856
 langcode: en
 status: true
 dependencies: {  }
+_core:
+  default_config_hash: iQhC6YVlaQ4fBLkwtC0TVVB-7AkQPgQo0d_BD5E0tk4
 name: footer_image
 label: 'Footer image (600×290)'
 effects:

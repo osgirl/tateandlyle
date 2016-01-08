@@ -1,3 +1,4 @@
+uuid: da8354e8-8e7e-470b-bd57-8714f51eb310
 langcode: en
 status: true
 dependencies:
@@ -14,13 +15,13 @@ dependencies:
     - field.field.contact_message.marketing.field_message
     - field.field.contact_message.marketing.field_primary_application
     - field.field.contact_message.marketing.field_region_marketing
+_core:
+  default_config_hash: F6prtNKgSWnydmqXI6idF5pSZeI5C2iwdlZCVUAio6Y
 id: contact_message.marketing.default
 targetEntityType: contact_message
 bundle: marketing
 mode: default
 content:
-  copy:
-    weight: 50
   field_company_name:
     weight: 53
     settings:
@@ -86,27 +87,10 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: options_select
-  langcode:
-    type: language_select
-    weight: 2
-    settings: {  }
-    third_party_settings: {  }
-  mail:
-    weight: -40
-  message:
-    type: string_textarea
-    weight: 0
-    settings:
-      rows: 12
-      placeholder: ''
-    third_party_settings: {  }
-  name:
-    weight: -50
-  subject:
-    type: string_textfield
-    weight: -10
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-hidden: {  }
+hidden:
+  copy: true
+  langcode: true
+  mail: true
+  message: true
+  name: true
+  subject: true

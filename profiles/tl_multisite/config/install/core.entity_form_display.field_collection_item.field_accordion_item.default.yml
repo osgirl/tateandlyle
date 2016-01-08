@@ -1,3 +1,4 @@
+uuid: 1cf5f81d-fcb2-4684-b400-0eb7acf3255a
 langcode: en
 status: true
 dependencies:
@@ -10,6 +11,8 @@ dependencies:
   module:
     - image
     - text
+_core:
+  default_config_hash: 1HaNMZ43lXa7NPGEboR8PC9zUc-hf_PQ4s51H3PvfYc
 id: field_collection_item.field_accordion_item.default
 targetEntityType: field_collection_item
 bundle: field_accordion_item
@@ -32,10 +35,10 @@ content:
   field_subtitle:
     weight: 1
     settings:
-      size: 60
+      rows: 5
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
+    type: string_textarea
   field_title:
     weight: 0
     settings:

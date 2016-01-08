@@ -1,3 +1,4 @@
+uuid: 9a3b04c6-a8c2-4be7-8407-073d3f583ef1
 langcode: en
 status: true
 dependencies:
@@ -12,19 +13,21 @@ dependencies:
     - entity_reference_revisions
     - field_formatter_class
     - image
-    - options
     - text
+_core:
+  default_config_hash: SqiYGyI5-jq79stIsBBVRaWzsP1eJaWMXqJiT0xOiEo
 id: paragraph.tout.default
 targetEntityType: paragraph
 bundle: tout
 mode: default
 content:
   field_background_color:
-    weight: 3
+    weight: 5
     label: hidden
-    settings: {  }
+    settings:
+      link_to_entity: false
     third_party_settings: {  }
-    type: list_default
+    type: string
   field_image:
     weight: 0
     label: hidden

@@ -80,4 +80,33 @@ class MultisiteTest extends PHPUnit_Framework_TestCase
             $this->assertFileExists($this->drupalRoot . '/sites/' . $site_name);
         }
     }
+    /**
+     * Test if each sites folder has an entry in the sites.php.
+     */
+    public function testSites()
+    {
+        $this->setupParams('dev');
+        require $this->drupalRoot . '/sites/sites.php';
+        // Test if each folder has an entry in the sites.php.
+        $sites_folder = new \DirectoryIterator($this->drupalRoot . '/sites');
+
+        $sites_name_list = array_flip(array_values($sites));
+        foreach ($sites_folder as $folder) {
+            if ($folder->isDir() && !$folder->isDot() && $folder->getFilename() != 'default') {
+                $this->assertArrayHasKey(
+                    $folder->getFileName(),
+                    $sites_name_list,
+                    'Settings folder does not have associated sites.php entry.'
+                );
+            }
+        }
+
+        // Test if each site entry has a folder.
+        foreach ($sites as $domain => $site_name) {
+            $this->assertFileExists(
+                $this->drupalRoot . '/sites/' . $site_name,
+                'Site defined in sites.php does not have a settings folder.'
+            );
+        }
+    }
 }
