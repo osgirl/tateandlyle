@@ -1,0 +1,20 @@
+uuid: 52465474-a23c-490c-8500-001388dd256c
+langcode: en
+status: true
+dependencies:
+  module:
+    - tl_block_utility
+  theme:
+    - generic_microsite
+id: tatelyleutilitynavigation
+theme: generic_microsite
+region: breadcrumb
+weight: -4
+provider: null
+plugin: tl_utility_block
+settings:
+  id: tl_utility_block
+  label: 'Tate & Lyle Utility Navigation'
+  provider: tl_block_utility
+  label_display: '0'
+visibility: {  }

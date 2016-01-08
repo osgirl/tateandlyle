@@ -1,23 +1,18 @@
+uuid: 4ecbbdb5-144e-4dc6-9e0e-14808e5add31
 langcode: en
 status: true
 dependencies:
   module:
-    - options
     - paragraphs
 id: paragraph.field_background_color
 field_name: field_background_color
 entity_type: paragraph
-type: list_string
+type: string
 settings:
-  allowed_values:
-    -
-      value: '#000099'
-      label: Blue
-    -
-      value: '#990000'
-      label: Red
-  allowed_values_function: ''
-module: options
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
 locked: false
 cardinality: 1
 translatable: true

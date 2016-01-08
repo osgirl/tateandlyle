@@ -1,3 +1,4 @@
+uuid: 340887ac-aa8e-46c6-aa05-5e9fd98a0291
 langcode: en
 status: true
 dependencies:
@@ -12,13 +13,13 @@ dependencies:
     - field.field.contact_message.file_access.field_telephone_number
   module:
     - telephone
+_core:
+  default_config_hash: bDC4ZWoThl9-XXLWVgST9KJdXIC01p9z1Qq4r37rJG0
 id: contact_message.file_access.default
 targetEntityType: contact_message
 bundle: file_access
 mode: default
 content:
-  copy:
-    weight: 50
   field_company_name:
     weight: 55
     settings:
@@ -63,27 +64,10 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: telephone_default
-  langcode:
-    type: language_select
-    weight: 2
-    settings: {  }
-    third_party_settings: {  }
-  mail:
-    weight: -40
-  message:
-    type: string_textarea
-    weight: 0
-    settings:
-      rows: 12
-      placeholder: ''
-    third_party_settings: {  }
-  name:
-    weight: -50
-  subject:
-    type: string_textfield
-    weight: -10
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-hidden: {  }
+hidden:
+  copy: true
+  langcode: true
+  mail: true
+  message: true
+  name: true
+  subject: true

@@ -1,16 +1,20 @@
+uuid: c32db450-179d-43dd-ba09-9f94645f7b5e
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - core.entity_view_mode.node.full
     - field.field.node.page.field_footer_image
     - field.field.node.page.field_main_content
+    - field.field.node.page.field_template
     - field.field.node.page.field_touts
     - node.type.page
   module:
     - entity_reference_revisions
     - field_formatter_class
     - user
+_core:
+  default_config_hash: kKatvwe7-6o7ln-9j1WphNfBMpdWHByUcSUpRE1d0N8
 id: node.page.full
 targetEntityType: node
 bundle: page
@@ -36,6 +40,7 @@ content:
         class: tout
 hidden:
   field_footer_image: true
+  field_template: true
   langcode: true
   links: true
   moderation_state: true
