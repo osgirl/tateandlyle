@@ -10,6 +10,8 @@ package: 'Bootstrap'
 regions:
   header_left: 'Header Left'
   header_right: 'Header Right'
+  navigation: 'Navigation'
+  navigation_collapsible: 'Navigation (Collapsible)'
   breadcrumb: 'Breadcrumb'
   highlighted: 'Highlighted'
   help: 'Help'
@@ -23,3 +25,4 @@ regions:
 libraries:
   - 'generic_microsite/global-styling'
   - 'generic_microsite/bootstrap-scripts'
+  - 'generic_microsite/custom-js'
