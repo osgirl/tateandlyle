@@ -1,0 +1,20 @@
+uuid: 7b123363-cbfc-4d68-a34e-782330010a75
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - generic_microsite
+id: help
+theme: generic_microsite
+region: help
+weight: -8
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  provider: help
+  label_display: '0'
+visibility: {  }

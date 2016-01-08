@@ -1,14 +1,21 @@
+uuid: 7448a3cb-7fa1-48cf-8300-ecfcbf0c8e38
 langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.form.field_footer_image
     - field.field.node.form.field_form
+    - field.field.node.form.field_form_header
     - field.field.node.form.field_layout
     - field.field.node.form.field_main_content
     - node.type.form
   module:
+    - image
     - paragraphs
     - path
+    - text
+_core:
+  default_config_hash: lueE3a8UhsC2CurTdRmFzLv3fmzdqqLEbNOO52728OI
 id: node.form.default
 targetEntityType: node
 bundle: form
@@ -16,16 +23,30 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 6
+    weight: 7
     settings: {  }
     third_party_settings: {  }
+  field_footer_image:
+    weight: 12
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
   field_form:
-    weight: 2
+    weight: 3
     settings: {  }
     third_party_settings: {  }
     type: options_select
+  field_form_header:
+    weight: 2
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
   field_layout:
-    weight: 3
+    weight: 4
     settings: {  }
     third_party_settings: {  }
     type: options_select
@@ -41,25 +62,25 @@ content:
     type: entity_reference_paragraphs
   langcode:
     type: language_select
-    weight: 4
+    weight: 5
     settings: {  }
     third_party_settings: {  }
   path:
     type: path
-    weight: 9
+    weight: 10
     settings: {  }
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 7
+    weight: 8
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 8
+    weight: 9
     third_party_settings: {  }
   title:
     type: string_textfield
@@ -68,9 +89,13 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  translation:
+    weight: 11
+    settings: {  }
+    third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 5
+    weight: 6
     settings:
       match_operator: CONTAINS
       size: 60

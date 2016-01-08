@@ -1,4 +1,4 @@
-uuid: 0b3816f7-16aa-4e77-b326-383a552a83b6
+
 langcode: en
 status: true
 dependencies:
@@ -7,7 +7,7 @@ dependencies:
 id: tabs
 theme: generic_microsite
 region: content
-weight: -2
+weight: -8
 provider: null
 plugin: local_tasks_block
 settings:

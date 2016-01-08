@@ -1,0 +1,18 @@
+uuid: 49629613-8f17-40db-8d49-733081cab008
+langcode: en
+status: true
+dependencies:
+  theme:
+    - generic_microsite
+id: pagetitle
+theme: generic_microsite
+region: content
+weight: -6
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  provider: core
+  label_display: '0'
+visibility: {  }

@@ -1,3 +1,4 @@
+uuid: 311870be-0366-43b2-ad04-4e29668f77a0
 langcode: en
 status: true
 dependencies:
@@ -11,7 +12,8 @@ dependencies:
     - field.field.contact_message.contact_us.field_region_contact
   module:
     - options
-    - text
+_core:
+  default_config_hash: _DFE9Btm3Ha0vnA-vgFF1kYcnAh5LXUHQfoY6t2dEhU
 id: contact_message.contact_us.default
 targetEntityType: contact_message
 bundle: contact_us
@@ -27,9 +29,10 @@ content:
   field_country:
     weight: 4
     label: above
-    settings: {  }
+    settings:
+      link_to_entity: false
     third_party_settings: {  }
-    type: text_default
+    type: string
   field_email:
     weight: 3
     label: above
@@ -56,10 +59,9 @@ content:
     third_party_settings: {  }
     type: list_default
   message:
-    type: string
+    type: basic_string
     weight: 0
     label: above
-    settings:
-      link_to_entity: false
+    settings: {  }
     third_party_settings: {  }
 hidden: {  }

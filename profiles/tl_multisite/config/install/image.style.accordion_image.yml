@@ -1,6 +1,9 @@
+uuid: b2f3ada1-9248-4f89-ab00-bbd147e1bd40
 langcode: en
 status: true
 dependencies: {  }
+_core:
+  default_config_hash: cAsI-UCx3wkQUZuwS5QmDTwNLYl49XdtY4xXkvZQxd4
 name: accordion_image
 label: 'Accordion image (100x80)'
 effects:

@@ -42,7 +42,6 @@
     <div class="carousel-inner">
       {% set i = 0 %}
       {% for item in items %}
-        {#{ kint(item.content['#field_collection_item'].field_link.value) }#}
         {% set slideshow_image = item.content['#field_collection_item'].field_image.value %}
         {% set slideshow_image_id = slideshow_image[0]['target_id'] %}
         {% set slideshow_text = item.content['#field_collection_item'].field_slide_text.value %}
