@@ -319,11 +319,6 @@ li.dropdown:hover {
     display:none;
   } 
 }
-.page-node-type-form {
-  .page-header{
-    display:none;
-  }
-}
 
 /* Other pages */
 body:not(.path-frontpage) {
@@ -340,8 +335,8 @@ body:not(.path-frontpage) {
     }
     .block {
       border-bottom: 1px solid #E5E5E5;
-      padding-bottom: 10px;
-      margin-bottom: 5px;
+      padding-bottom: 5px;
+      margin-bottom: 10px;
     }
     .field--name-field-title {
       display: none;
@@ -360,7 +355,6 @@ body:not(.path-frontpage) {
         padding: 0;
          &:hover {
           background: transparent;
-          color: #4E8ABE;
         }
       }
     }
@@ -370,7 +364,7 @@ body:not(.path-frontpage) {
 aside {
   .tout-image{
     float:none;
-    padding-bottom: initial;
+    padding-bottom: 15px;
     margin-right: initial;
     max-width: initial;
     width: initial;
@@ -379,7 +373,12 @@ aside {
     h3 {
       font-size:14.5px;
       font-weight: bold;
+      margin-bottom:5px;
       margin-top:10px;
+    }
+    h4 {
+      font-size:15px;
+      margin-bottom:5px;
     }
   }
 }
@@ -422,6 +421,15 @@ div[role="main"] > .row {
   }
 }
 
+.page-node-type-form .middle-content {
+  &:before {
+    background:none;
+  }
+  &:after {
+    background:none;
+  }
+}
+
 .container {
   .constrained;
 }
@@ -454,6 +462,8 @@ div[role="main"] > .row {
       background-position: 0 5px;
       background-repeat: no-repeat;
       display: block;
+      font-size: 12px;
+      line-height: 14px;
       margin-bottom: 5px;
       padding-left: 10px;
     }
@@ -461,6 +471,11 @@ div[role="main"] > .row {
   img {
     height: auto;
     width: 100%;
+  }
+  p {
+    font-size: 12px;
+    line-height: 14px;
+    margin-bottom: 12px;
   }
 }
 
@@ -498,9 +513,8 @@ div[role="main"] > .row {
   background-color: #FFFFFF;
   background-repeat: repeat-y;
 }
-
+  
 .field--name-field-title {
-  color: #4E8ABE;
   font-family: Arial,Helvetica,sans-serif;
   font-size: 17px;
   font-weight: 600;
@@ -603,13 +617,6 @@ div[role="main"] > .row {
   margin-top:15px;
   a {
     color: #7D6A57;
-  }
-  .accordion-title-group {
-    color: #4E8ABE;
-    font-size: 1.25em;
-    font-weight: 600;
-    margin: 0;
-    padding: 12px 0;
   }
   #accordion {
     border-top: 1px solid #E5E5E5;
@@ -742,9 +749,12 @@ div[role="main"] > .row {
         line-height: 22px;
       }
       ul {
-        font-size: 17px;
-        line-height: 22px;
         padding: 10px 0;
+        li {
+          font-size: 17px;
+          line-height: 22px;
+          background-position: 0 8px;
+        }
       }
     }
     & > div:first-of-type {
@@ -827,6 +837,7 @@ div[role="main"] > .row {
 .region-footer {
   .menu {
     float: none;
+    padding-bottom:2px;
     li:first-child a {
       border-left: none;
       padding: 0 5px 0 0;
@@ -834,7 +845,7 @@ div[role="main"] > .row {
     a {
       border-left: 1px solid #7D6A57;
       padding: 0 5px;
-      line-height: 12px;
+      line-height: 10px;
       &:focus,
       &:hover {
         background-color: transparent;
@@ -865,10 +876,11 @@ div[role="main"] > .row {
   h1, h2, h3, h4,
   .field--name-field-touts .field--name-field-title,
   .navbar-brand,
-  a.is-active, a:active, a:focus, a:hover,
+  .navbar-header .navbar-nav a.is-active, a:active, a:focus, a:hover,
   #accordion .accordion-set.collapsed:hover .accordion-title,
   #accordion .accordion-set .accordion-title,
-  .paragraph--type--accordion a:hover {
+  .paragraph--type--accordion a:hover, .paragraph--type--accordion .field--name-field-title,
+  aside .menu.nav a:hover {
     color: @green-light;
   }
   .navbar-nav.nav {
@@ -901,10 +913,11 @@ div[role="main"] > .row {
   h1, h2, h3, h4,
   .field--name-field-touts .field--name-field-title,
   .navbar-brand,
-  a.is-active, a:active, a:focus, a:hover,
+  .navbar-header .navbar-nav a.is-active, a:active, a:focus, a:hover,
   #accordion .accordion-set.collapsed:hover .accordion-title,
   #accordion .accordion-set .accordion-title,
-  .paragraph--type--accordion a:hover {
+  .paragraph--type--accordion a:hover, .paragraph--type--accordion .field--name-field-title,
+  aside .menu.nav a:hover {
     color: @green-dark;
   }
   .navbar-nav.nav {
@@ -937,10 +950,11 @@ div[role="main"] > .row {
   h1, h2, h3, h4,
   .field--name-field-touts .field--name-field-title,
   .navbar-brand,
-  a.is-active, a:active, a:focus, a:hover,
+  .navbar-header .navbar-nav a.is-active, a:active, a:focus, a:hover,
   #accordion .accordion-set.collapsed:hover .accordion-title,
   #accordion .accordion-set .accordion-title,
-  .paragraph--type--accordion a:hover {
+  .paragraph--type--accordion a:hover, .paragraph--type--accordion .field--name-field-title,
+  aside .menu.nav a:hover {
     color: @blue-dark;
   }
   .navbar-nav.nav {
@@ -971,10 +985,11 @@ div[role="main"] > .row {
   h1, h2, h3, h4,
   .field--name-field-touts .field--name-field-title,
   .navbar-brand,
-  a.is-active, a:active, a:focus, a:hover,
+  .navbar-header .navbar-nav a.is-active, a:active, a:focus, a:hover,
   #accordion .accordion-set.collapsed:hover .accordion-title,
   #accordion .accordion-set .accordion-title,
-  .paragraph--type--accordion a:hover {
+  .paragraph--type--accordion a:hover, .paragraph--type--accordion .field--name-field-title,
+  aside .menu.nav a:hover {
     color: @orange;
   }
   .navbar-nav.nav {
@@ -1004,10 +1019,11 @@ div[role="main"] > .row {
   h1, h2, h3, h4,
   .field--name-field-touts .field--name-field-title,
   .navbar-brand,
-  a.is-active, a:active, a:focus, a:hover,
+  .navbar-header .navbar-header .navbar-nav a.is-active, a:active, a:focus, a:hover,
   #accordion .accordion-set.collapsed:hover .accordion-title,
   #accordion .accordion-set .accordion-title,
-  .paragraph--type--accordion a:hover {
+  .paragraph--type--accordion a:hover, .paragraph--type--accordion .field--name-field-title,
+  aside .menu.nav a:hover {
     color: @blue-light;
   }
   .navbar-nav.nav {
@@ -1040,15 +1056,58 @@ div[role="main"] > .row {
   h1, h2, h3, h4,
   .field--name-field-touts .field--name-field-title,
   .navbar-brand,
-  a.is-active, a:active, a:focus, a:hover,
+  .navbar-header .navbar-nav a.is-active, a:active, a:focus, a:hover,
   #accordion .accordion-set.collapsed:hover .accordion-title,
   #accordion .accordion-set .accordion-title,
-  .paragraph--type--accordion a:hover {
+  .paragraph--type--accordion a:hover, .paragraph--type--accordion .field--name-field-title,
+  aside .menu.nav a:hover {
     color: @purple;
   }
   .navbar-nav.nav {
     li a:hover, li a:focus {
       color: @purple;
+    }
+  }
+  .header-left {
+    padding-top: 55px;
+    .navbar-brand {
+      padding-left:0;
+    }
+  }
+  .breadcrumb {
+    li {
+      &:last-of-type { 
+        color: @purple;
+      }
+      a:hover {
+        color: @purple;
+      }
+    }
+  }
+}
+
+.your-bakery-and-snack-solutions {
+  .header-top {
+    .horizontal-gradient (@startColor: #DEDBD6, @endColor: #FFF);
+  }
+  a {
+    color: #7D6A57;
+  }
+  .navbar-brand {
+    color: #9C6D2F;
+  }
+  h1, h2, h3, h4,
+  .field--name-field-touts .field--name-field-title,
+  .navbar-header .navbar-nav a.is-active, a:active, a:focus, a:hover,
+  #accordion .accordion-set.collapsed:hover .accordion-title,
+  #accordion .accordion-set .accordion-title,
+  .paragraph--type--accordion a:hover, .paragraph--type--accordion .field--name-field-title,
+  aside .menu.nav a:hover {
+    color: @bakery;
+  }
+  .navbar-nav.nav {
+    li a:hover, li a:focus {
+      color: @bakery;
     }
   }
   .header-left {

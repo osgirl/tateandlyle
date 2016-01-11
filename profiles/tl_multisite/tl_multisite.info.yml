@@ -47,11 +47,13 @@ dependencies:
   - content_translation
   - google_analytics
   - mollom
+  - metatag
   - tl_block
   - tl_block_utility
   - imce
   - token
   - pathauto
+  - composer_manager
   # - acquia_search
 themes:
   - generic_microsite
