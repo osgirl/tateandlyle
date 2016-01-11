@@ -68,3 +68,6 @@ projects:
     download:
       url: http://git.drupal.org/project/workbench_moderation.git
       revision: "8.x-1.x"
+  metatag:
+    type: module
+    version: "1.0-beta3"
