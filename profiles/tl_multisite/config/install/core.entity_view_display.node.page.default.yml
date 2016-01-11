@@ -1,23 +1,28 @@
-uuid: 9e130b60-a6e7-4961-8108-8e7fe40af2ee
 langcode: en
 status: true
 dependencies:
   config:
     - field.field.node.page.field_footer_image
     - field.field.node.page.field_main_content
-    - field.field.node.page.field_template
     - field.field.node.page.field_touts
     - node.type.page
   module:
     - entity_reference_revisions
+    - image
     - user
-_core:
-  default_config_hash: HG8DZG2ZyU12uZNA3g8mFUGd11T0ufFidnjFB0H7F5c
 id: node.page.default
 targetEntityType: node
 bundle: page
 mode: default
 content:
+  field_footer_image:
+    type: image
+    weight: 2
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
   field_main_content:
     type: entity_reference_revisions_entity_view
     weight: 0
@@ -35,7 +40,5 @@ content:
       link: ''
     third_party_settings: {  }
 hidden:
-  field_footer_image: true
-  field_template: true
   langcode: true
   links: true
