@@ -47,6 +47,7 @@ dependencies:
   - content_translation
   - google_analytics
   - mollom
+  - metatag
   - tl_block
   - tl_block_utility
   - imce
