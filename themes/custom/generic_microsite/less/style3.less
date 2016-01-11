@@ -319,11 +319,6 @@ li.dropdown:hover {
     display:none;
   } 
 }
-.page-node-type-form {
-  .page-header{
-    display:none;
-  }
-}
 
 /* Other pages */
 body:not(.path-frontpage) {
@@ -424,6 +419,15 @@ div[role="main"] > .row {
     right: 0;
     top: 0;
     width: 4px;
+  }
+}
+
+.page-node-type-form .middle-content {
+  &:before {
+    background:none;
+  }
+  &:after {
+    background:none;
   }
 }
 
@@ -754,9 +758,12 @@ div[role="main"] > .row {
         line-height: 22px;
       }
       ul {
-        font-size: 17px;
-        line-height: 22px;
         padding: 10px 0;
+        li {
+          font-size: 17px;
+          line-height: 22px;
+          background-position: 0 8px;
+        }
       }
     }
     & > div:first-of-type {
