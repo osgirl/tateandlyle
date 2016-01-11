@@ -1,30 +1,22 @@
+uuid: 8aec82fa-2564-482a-8a00-d1fd8f52508e
 langcode: en
 status: true
 dependencies:
   module:
-    - node
     - options
-id: node.field_template
-field_name: field_template
-entity_type: node
+    - paragraphs
+id: paragraph.field_slide_type
+field_name: field_slide_type
+entity_type: paragraph
 type: list_integer
 settings:
   allowed_values:
     -
       value: 0
-      label: 'Template 1'
+      label: Content
     -
       value: 1
-      label: 'Template 2'
-    -
-      value: 2
-      label: 'Template 3'
-    -
-      value: 3
-      label: 'Template 4'
-    -
-      value: 4
-      label: 'Template 5'
+      label: Sidebar
   allowed_values_function: ''
 module: options
 locked: false

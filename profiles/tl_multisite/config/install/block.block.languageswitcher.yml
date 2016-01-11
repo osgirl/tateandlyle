@@ -1,0 +1,20 @@
+uuid: 754f76e6-8b6b-4173-9f62-98300654fe2d
+langcode: en
+status: true
+dependencies:
+  module:
+    - language
+  theme:
+    - generic_microsite
+id: languageswitcher
+theme: generic_microsite
+region: header_right
+weight: -8
+provider: null
+plugin: 'language_block:language_interface'
+settings:
+  id: 'language_block:language_interface'
+  label: 'Language switcher'
+  provider: language
+  label_display: '0'
+visibility: {  }

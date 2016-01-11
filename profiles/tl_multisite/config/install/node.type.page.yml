@@ -1,6 +1,14 @@
 uuid: 8e15ca9f-5353-45f3-8d14-2092da5ca74d
 langcode: en
 status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
 name: 'Basic page'
 type: page
 description: 'Use <em>basic pages</em> for your static content, such as an ''About us'' page.'

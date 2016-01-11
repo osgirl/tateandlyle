@@ -1,5 +1,6 @@
+uuid: c32db450-179d-43dd-ba09-9f94645f7b5e
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - core.entity_view_mode.node.full
@@ -11,6 +12,8 @@ dependencies:
     - entity_reference_revisions
     - field_formatter_class
     - user
+_core:
+  default_config_hash: kKatvwe7-6o7ln-9j1WphNfBMpdWHByUcSUpRE1d0N8
 id: node.page.full
 targetEntityType: node
 bundle: page

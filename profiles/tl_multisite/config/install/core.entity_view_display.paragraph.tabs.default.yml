@@ -1,3 +1,4 @@
+uuid: 9a36e6a1-65d4-4fa8-bf00-f00f595489b0
 langcode: en
 status: true
 dependencies:
@@ -7,6 +8,8 @@ dependencies:
     - paragraphs.paragraphs_type.tabs
   module:
     - field_collection
+_core:
+  default_config_hash: k0N-qLbfhrooo1RxWHPoqV9XZOh41I7TMfIHLc_Vp0M
 id: paragraph.tabs.default
 targetEntityType: paragraph
 bundle: tabs

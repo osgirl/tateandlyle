@@ -9,10 +9,12 @@ third_party_settings:
     available_menus:
       - main
     parent: 'main:'
+_core:
+  default_config_hash: GArwZaFctVd2yjt7m0e1X9M4dnMv37hkkqyQiPEHNbo
 name: 'Media item'
 type: media_item
-description: 'Add media items.'
+description: 'Add media items that provide a link to the file.'
 help: ''
 new_revision: false
 preview_mode: 1
-display_submitted: true
+display_submitted: false

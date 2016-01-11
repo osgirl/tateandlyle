@@ -1,13 +1,14 @@
-uuid: 102eaede-4608-405a-8c1f-3184f3b8933d
 langcode: en
 status: true
 dependencies:
   config:
     - field.field.node.media_item.field_file
     - field.field.node.media_item.field_media_category
+    - field.field.node.media_item.field_media_item_image
     - node.type.media_item
   module:
     - file
+    - image
     - user
 id: node.media_item.default
 targetEntityType: node
@@ -15,19 +16,26 @@ bundle: media_item
 mode: default
 content:
   field_file:
-    weight: 103
-    label: above
+    weight: 2
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: file_default
   field_media_category:
-    weight: 104
-    label: above
+    weight: 0
+    label: hidden
     settings:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
-  links:
-    weight: 100
+  field_media_item_image:
+    weight: 1
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
 hidden:
   langcode: true
+  links: true

@@ -9,10 +9,12 @@ third_party_settings:
     available_menus:
       - main
     parent: 'main:'
+_core:
+  default_config_hash: DF-H_pUpf8QPIDSzc890EmANeSyuPmraW-bs-5R0DGs
 name: Form
 type: form
-description: 'Create custom forms.'
+description: 'Create a new form or questionnaire accessible to users. Submission results and statistics are recorded and accessible to privileged users.'
 help: ''
 new_revision: false
 preview_mode: 1
-display_submitted: true
+display_submitted: false
