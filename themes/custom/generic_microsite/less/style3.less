@@ -392,6 +392,10 @@ div[role="main"] > .row {
   border-radius: 0 0 35px 0;
 }
 
+ h1, h2, h3 {
+  margin-top: 10px;
+ }
+
 .middle-content {
   padding-left: 5px;
   padding-right: 0px;
@@ -514,7 +518,8 @@ div[role="main"] > .row {
   background-repeat: repeat-y;
 }
   
-.field--name-field-title {
+.field--name-field-title,
+.field--name-field-title-tab {
   font-family: Arial,Helvetica,sans-serif;
   font-size: 17px;
   font-weight: 600;
@@ -614,7 +619,7 @@ div[role="main"] > .row {
 
 /* Accordion */
 .paragraph--type--accordion {
-  margin-top:15px;
+  padding-bottom:15px;
   a {
     color: #7D6A57;
   }
@@ -678,6 +683,75 @@ div[role="main"] > .row {
     }
   }
 }
+.paragraph--type--image  {
+  padding-bottom:10px;
+}
+ 
+/* Tabs */
+.paragraph--type--tabs {
+  .nav-tabs {
+      margin-bottom:0;
+      li.active > a, li.active > a:focus, li.active > a:hover{
+        background-color: #d4cec6;
+        border-radius:0;
+        color: #fff;
+        cursor: pointer;
+        margin-right:2px;
+      }
+
+      li > a {
+        background-color: #f1f0ed;
+        border-radius:0;
+        font-size:12px;
+        font-weight: bold;
+        padding: 7px 15px;
+        &:hover {
+          background-color: #d4cec6;
+          text-decoration: underline;
+        }
+      }
+  }
+  .tab-pane {
+    table {
+      width:100%;
+      tr:first-child {
+        background:red;
+        th {
+          color: #fff;
+          border-right:1px solid;
+          font-size: 11px; 
+          text-align:center;
+          padding:5px 0;
+          &:first-child {
+            padding-left:10px;
+            text-align: left;
+          }
+        }
+      }
+      tr {
+        p {
+          font-size:12px;
+        }
+        td:first-child {
+          background-color: #f1f0ed;
+          border-left: 1px solid #dcd9d5;
+          border-right: 1px solid #dcd9d5;
+          border-bottom: 1px solid #dcd9d5;
+          p {
+            padding-left:10px;
+          }
+          width:20%;
+        }
+        td {
+          border-bottom: 1px solid #dcd9d5;
+          border-right: 1px solid #dcd9d5;
+          padding:5px 10px;
+        }
+      }
+    }
+  }
+}
+
 
 /* Forms */
 .contact-form {
@@ -879,8 +953,9 @@ div[role="main"] > .row {
   .navbar-header .navbar-nav a.is-active, a:active, a:focus, a:hover,
   #accordion .accordion-set.collapsed:hover .accordion-title,
   #accordion .accordion-set .accordion-title,
-  .paragraph--type--accordion a:hover, .paragraph--type--accordion .field--name-field-title,
-  aside .menu.nav a:hover {
+  .paragraph--type--accordion a:hover, .paragraph--type--accordion .field--name-field-title, .field--name-field-title-tab,
+  aside .menu.nav a:hover,
+  .paragraph--type--tabs .nav-tabs li.active > a:hover {
     color: @green-light;
   }
   .navbar-nav.nav {
@@ -890,6 +965,9 @@ div[role="main"] > .row {
   }
   .header-left {
     padding-top:10px;
+  }
+  .tab-pane table tr:first-child {
+    background-color: @green-light;
   }
   .breadcrumb {
     li {
@@ -916,8 +994,9 @@ div[role="main"] > .row {
   .navbar-header .navbar-nav a.is-active, a:active, a:focus, a:hover,
   #accordion .accordion-set.collapsed:hover .accordion-title,
   #accordion .accordion-set .accordion-title,
-  .paragraph--type--accordion a:hover, .paragraph--type--accordion .field--name-field-title,
-  aside .menu.nav a:hover {
+  .paragraph--type--accordion a:hover, .paragraph--type--accordion .field--name-field-title, .field--name-field-title-tab,
+  aside .menu.nav a:hover,
+  .paragraph--type--tabs .nav-tabs li.active > a:hover {
     color: @green-dark;
   }
   .navbar-nav.nav {
@@ -927,6 +1006,9 @@ div[role="main"] > .row {
   }
   .header-left {
     padding-top: 10px;
+  }
+  .tab-pane table tr:first-child {
+    background-color: @green-dark;
   }
   .breadcrumb {
     li {
@@ -953,8 +1035,9 @@ div[role="main"] > .row {
   .navbar-header .navbar-nav a.is-active, a:active, a:focus, a:hover,
   #accordion .accordion-set.collapsed:hover .accordion-title,
   #accordion .accordion-set .accordion-title,
-  .paragraph--type--accordion a:hover, .paragraph--type--accordion .field--name-field-title,
-  aside .menu.nav a:hover {
+  .paragraph--type--accordion a:hover, .paragraph--type--accordion .field--name-field-title, .field--name-field-title-tab,
+  aside .menu.nav a:hover,
+  .paragraph--type--tabs .nav-tabs li.active > a:hover {
     color: @blue-dark;
   }
   .navbar-nav.nav {
@@ -965,6 +1048,9 @@ div[role="main"] > .row {
   .header-left {
     margin-top: -18px;
     padding-top: 0px;
+  }
+  .tab-pane table tr:first-child {
+    background-color: @green-dark;
   }
   .breadcrumb {
     li {
@@ -988,8 +1074,9 @@ div[role="main"] > .row {
   .navbar-header .navbar-nav a.is-active, a:active, a:focus, a:hover,
   #accordion .accordion-set.collapsed:hover .accordion-title,
   #accordion .accordion-set .accordion-title,
-  .paragraph--type--accordion a:hover, .paragraph--type--accordion .field--name-field-title,
-  aside .menu.nav a:hover {
+  .paragraph--type--accordion a:hover, .paragraph--type--accordion .field--name-field-title, .field--name-field-title-tab,
+  aside .menu.nav a:hover,
+  .paragraph--type--tabs .nav-tabs li.active > a:hover {
     color: @orange;
   }
   .navbar-nav.nav {
@@ -999,6 +1086,9 @@ div[role="main"] > .row {
   }
   .header-left {
     padding-top:20px;
+  }
+  .tab-pane table tr:first-child {
+    background-color: @orange;
   }
   .breadcrumb {
     li {
@@ -1022,8 +1112,9 @@ div[role="main"] > .row {
   .navbar-header .navbar-header .navbar-nav a.is-active, a:active, a:focus, a:hover,
   #accordion .accordion-set.collapsed:hover .accordion-title,
   #accordion .accordion-set .accordion-title,
-  .paragraph--type--accordion a:hover, .paragraph--type--accordion .field--name-field-title,
-  aside .menu.nav a:hover {
+  .paragraph--type--accordion a:hover, .paragraph--type--accordion .field--name-field-title, .field--name-field-title-tab,
+  aside .menu.nav a:hover,
+  .paragraph--type--tabs .nav-tabs li.active > a:hover {
     color: @blue-light;
   }
   .navbar-nav.nav {
@@ -1033,6 +1124,9 @@ div[role="main"] > .row {
   }
   .header-left {
     padding-top: 30px;
+  }
+  .tab-pane table tr:first-child {
+    background-color: @blue-light;
   }
   .breadcrumb {
     li {
@@ -1059,14 +1153,18 @@ div[role="main"] > .row {
   .navbar-header .navbar-nav a.is-active, a:active, a:focus, a:hover,
   #accordion .accordion-set.collapsed:hover .accordion-title,
   #accordion .accordion-set .accordion-title,
-  .paragraph--type--accordion a:hover, .paragraph--type--accordion .field--name-field-title,
-  aside .menu.nav a:hover {
+  .paragraph--type--accordion a:hover, .paragraph--type--accordion .field--name-field-title, .field--name-field-title-tab,
+  aside .menu.nav a:hover,
+  .paragraph--type--tabs .nav-tabs li.active > a:hover {
     color: @purple;
   }
   .navbar-nav.nav {
     li a:hover, li a:focus {
       color: @purple;
     }
+  }
+  .tab-pane table tr:first-child {
+    background-color: @purple;
   }
   .header-left {
     padding-top: 55px;
@@ -1101,8 +1199,9 @@ div[role="main"] > .row {
   .navbar-header .navbar-nav a.is-active, a:active, a:focus, a:hover,
   #accordion .accordion-set.collapsed:hover .accordion-title,
   #accordion .accordion-set .accordion-title,
-  .paragraph--type--accordion a:hover, .paragraph--type--accordion .field--name-field-title,
-  aside .menu.nav a:hover {
+  .paragraph--type--accordion a:hover, .paragraph--type--accordion .field--name-field-title, .field--name-field-title-tab,
+  aside .menu.nav a:hover,
+  .paragraph--type--tabs .nav-tabs li.active > a:hover {
     color: @bakery;
   }
   .navbar-nav.nav {
@@ -1116,13 +1215,56 @@ div[role="main"] > .row {
       padding-left:0;
     }
   }
+  .tab-pane table tr:first-child {
+    background-color: @bakery;
+  }
   .breadcrumb {
     li {
       &:last-of-type { 
-        color: @purple;
+        color: @bakery;
       }
       a:hover {
-        color: @purple;
+        color: @bakery;
+      }
+    }
+  }
+}
+
+.feed-them-better{
+  a {
+    color: #7D6A57;
+  }
+  h1, h2, h3, h4,
+  .field--name-field-touts .field--name-field-title,
+  .navbar-header .navbar-nav a.is-active, a:active, a:focus, a:hover,
+  #accordion .accordion-set.collapsed:hover .accordion-title,
+  #accordion .accordion-set .accordion-title,
+  .paragraph--type--accordion a:hover, .paragraph--type--accordion .field--name-field-title, .field--name-field-title-tab,
+  aside .menu.nav a:hover,
+  .paragraph--type--tabs .nav-tabs li.active > a:hover {
+    color: @blue-light;
+  }
+  .navbar-nav.nav {
+    li a:hover, li a:focus {
+      color: @blue-light;
+    }
+  }
+  .header-left {
+    padding-top: 22px;
+    .navbar-brand {
+      padding-left:0;
+    }
+  }
+  .tab-pane table tr:first-child {
+    background-color: @blue-light;
+  }
+  .breadcrumb {
+    li {
+      &:last-of-type { 
+        color: @blue-light;
+      }
+      a:hover {
+        color: @blue-light;
       }
     }
   }
