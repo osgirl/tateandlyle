@@ -17,6 +17,9 @@ projects:
   contact_storage:
     type: module
     version: "1.0-beta1"
+  composer_manager:
+    type: module
+    version: "1.0-rc1"
   csv_serialization:
     type: module
     version: ~

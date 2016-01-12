@@ -11,6 +11,22 @@ use PHPUnit_Framework_TestCase;
 
 class MultisiteTest extends PHPUnit_Framework_TestCase
 {
+    public function setUp()
+    {
+        $this->projectRoot = dirname(dirname(__DIR__));
+        $this->drupalRoot = $this->projectRoot . '/docroot';
+        $_ENV['AH_SITE_NAME'] = $_ENV['AH_SITE_GROUP'] = 'tatelyle';
+        $_SERVER['REMOTE_ADDR'] = '127.0.0.1';
+        if (!defined('DRUPAL_ROOT')) {
+            define('DRUPAL_ROOT', $this->drupalRoot);
+        }
+        $this->sites = [
+          'avenacare',
+          'clariastarch',
+          'proatein',
+          'tateandlyleventures',
+        ];
+    }
     /**
      * Sets up require parameters for tests to run.
      *
@@ -19,20 +35,8 @@ class MultisiteTest extends PHPUnit_Framework_TestCase
      */
     public function setupParams($env)
     {
-        $this->projectRoot = dirname(dirname(__DIR__));
-        $this->drupalRoot = $this->projectRoot . '/docroot';
+
         $_ENV['AH_SITE_ENVIRONMENT'] = $env;
-        $_ENV['AH_SITE_NAME'] = $_ENV['AH_SITE_GROUP'] = 'tatelyle';
-        $_SERVER['REMOTE_ADDR'] = '127.0.0.1';
-        if (!defined('DRUPAL_ROOT')) {
-            define('DRUPAL_ROOT', $this->drupalRoot);
-        }
-        $this->sites = [
-            'avenacare',
-            'clariastarch',
-            'proatein',
-            'tateandlyleventures',
-        ];
         $this->url_pattern = '.' . $env . '.cloud.tateandlyle.com';
     }
 
@@ -47,7 +51,6 @@ class MultisiteTest extends PHPUnit_Framework_TestCase
         foreach ($this->sites as $site_name) {
             $internal_domain = $site_name . $this->url_pattern;
             $this->assertArrayHasKey($internal_domain, $sites);
-            $this->assertFileExists($this->drupalRoot . '/sites/' . $site_name);
         }
     }
 
@@ -62,7 +65,6 @@ class MultisiteTest extends PHPUnit_Framework_TestCase
         foreach ($this->sites as $site_name) {
             $internal_domain = $site_name . $this->url_pattern;
             $this->assertArrayHasKey($internal_domain, $sites);
-            $this->assertFileExists($this->drupalRoot . '/sites/' . $site_name);
         }
     }
 
@@ -80,12 +82,12 @@ class MultisiteTest extends PHPUnit_Framework_TestCase
             $this->assertFileExists($this->drupalRoot . '/sites/' . $site_name);
         }
     }
+
     /**
      * Test if each sites folder has an entry in the sites.php.
      */
     public function testSites()
     {
-        $this->setupParams('dev');
         require $this->drupalRoot . '/sites/sites.php';
         // Test if each folder has an entry in the sites.php.
         $sites_folder = new \DirectoryIterator($this->drupalRoot . '/sites');
