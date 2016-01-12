@@ -54,10 +54,16 @@
       {% set i = i+1 %}
     {% endfor %}
     </ul>
+    {% set i = 0 %}
     <div class="tab-content">
       {% for item in items %}
         {% set tab_id = item.content['#field_collection_item'].item_id.value %}
-        <div id="{{ tab_id }}" class="tab-pane fade in active">
+        {% if i == 0 %}
+          <div id="{{ tab_id }}" class="tab-pane fade in active">
+        {% else %} 
+          <div id="{{ tab_id }}" class="tab-pane fade in">
+        {% endif %}
+        {% set i = i+1 %}
           {{ item.content['#field_collection_item'].field_body.value | raw }}
         </div>
       {% endfor %}
