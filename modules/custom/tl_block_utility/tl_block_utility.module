@@ -5,8 +5,8 @@
  */
 
 /**
- * Implements block_utility_element_info_alter().
+ * Implements hook_page_attachments_alter().
  */
-function tl_block_utility_element_info_alter(array &$types) {
-  $types['table']['#attached']['library'][] = 'tl_block_utility/tl_block_utility';
+function tl_block_utility_page_attachments_alter(&$page) {
+  $page['#attached']['library'][] = 'tl_block_utility/tl_block_utility';
 }
