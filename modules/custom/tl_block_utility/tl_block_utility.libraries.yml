@@ -1,5 +1,8 @@
 tl_block_utility:
   version: 1.x
+  #header: true  
   css:
     theme:
       css/tl_block_utility.css: {}
+  js:
+    js/tl_block_utility.js: {}
