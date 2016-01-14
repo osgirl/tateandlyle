@@ -46,12 +46,14 @@ view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
 <div{{ attributes.addClass(classes) }}>
     {% set modal_id = content.field_image[0]['#item'].value['target_id'] %}
     {% if is_front %} 
-    <div class="tout-image">
-      {{ content.field_image }}
-      {% if content.field_popup['#entity_type'] is defined %} 
-        <span class="open-modal" data-toggle="modal" data-target="#modal-{{modal_id}}"></span>
+      {% if content.field_image[0] %}
+        <div class="tout-image">
+          {{ content.field_image }}
+          {% if content.field_popup['#entity_type'] is defined %} 
+            <span class="open-modal" data-toggle="modal" data-target="#modal-{{modal_id}}"></span>
+          {% endif %}
+        </div>
       {% endif %}
-    </div>
     {{ content.field_title }}
     {% else %} 
       {{ content.field_title }}
@@ -70,6 +72,7 @@ view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
     <div class="modal fade" id="modal-{{modal_id}}">
       <div class="modal-dialog">
         <div class="modal-content">
+          <button type="button" class="btn btn-default" data-dismiss="modal"></button>
           {{ content.field_popup }}
         </div>
       </div>
