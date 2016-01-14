@@ -10,7 +10,6 @@ dependencies:
     - node.type.form
   module:
     - entity_reference_revisions
-    - image
     - text
     - user
 id: node.form.default
@@ -18,14 +17,6 @@ targetEntityType: node
 bundle: form
 mode: default
 content:
-  field_footer_image:
-    type: image
-    weight: 3
-    label: hidden
-    settings:
-      image_style: ''
-      image_link: ''
-    third_party_settings: {  }
   field_form:
     weight: 2
     label: hidden
@@ -47,6 +38,7 @@ content:
     third_party_settings: {  }
     type: entity_reference_revisions_entity_view
 hidden:
+  field_footer_image: true
   field_layout: true
   langcode: true
   links: true
