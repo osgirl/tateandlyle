@@ -1,3 +1,10 @@
+# Global styling #
+global-styling:
+  version: VERSION
+  css:
+    theme:
+      css/style.css: {}
+
 global-styling1:
   version: VERSION
   css:
@@ -34,6 +41,23 @@ global-styling6:
     theme:
       css/style6.css: {}
 
+# Menu sidebar scripts #
+classie:
+  version: VERSION
+  js:
+    js/classie.js: {}
+
+menu-sidebar-effects:
+  version: VERSION
+  js:
+    js/sidebarEffects.js: {}
+
+custom:
+  version: VERSION
+  js:
+    js/custom.js: {}
+
+# Bootstrap scripts #
 bootstrap-scripts:
   version: VERSION
   js:
@@ -49,7 +73,3 @@ bootstrap-scripts:
     bootstrap/js/scrollspy.js: {}
     bootstrap/js/tab.js: {}
     bootstrap/js/transition.js: {}
-custom-js:
-  version: VERSION
-  js:
-    js/custom.js: {}
