@@ -62,100 +62,115 @@
  */
 #}
 
-{% set container = theme.settings.fluid_container ? 'container-fluid' : 'container' %}
-<header class="header-top {{ container }}" >
-  <section class="header-left">
-    {{ page.header_left }} 
-  </section>
-  <section class="header-right">
-    {{ page.header_right }}
-  </section>
-</header>
-{% if page.navigation %}
-  {% block navbar %}
-    {%
-      set navbar_classes = [
-        'navbar',
-        theme.settings.navbar_inverse ? 'navbar-inverse' : 'navbar-default',
-        theme.settings.navbar_position ? 'navbar-' ~ theme.settings.navbar_position|clean_class : container,
-      ]
-    %}
-    <nav{{ navbar_attributes.addClass(navbar_classes) }} id="navbar" role="banner">
-      <div class="navbar-header">
-        {{ page.navigation }}
-        {# .btn-navbar is used as the toggle for collapsed navbar content #}
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-          <span class="sr-only">{{ 'Toggle navigation'|t }}</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-      </div>
+<div id="st-container" class="st-container">
+  <div class="st-pusher" style="{{ gradient_bg }}">
+    <div class="st-content"><!-- this is the wrapper for the content -->
+      <div class="st-content-inner">
+        {% set container = theme.settings.fluid_container ? 'container-fluid' : 'container' %}
+        <header class="{{ container }}" >
+          <section class="header-top">
+            {{ page.header_top }} 
+          </section>
+          <section class="header-left">
+            {{ page.header_left }} 
+          </section>
+          <section class="header-right">
+            {{ page.header_right }}
+            {# .btn-navbar is used as the toggle for collapsed navbar content #}
+            <div id="st-trigger-effects" class="column">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" data-effect="st-effect-2">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+          </section>
+        </header>
+        {% if page.navigation %}
+          {% block navbar %}
+            {%
+              set navbar_classes = [
+                'navbar',
+                theme.settings.navbar_inverse ? 'navbar-inverse' : 'navbar-default',
+                theme.settings.navbar_position ? 'navbar-' ~ theme.settings.navbar_position|clean_class : container,
+              ]
+            %}
+            <nav{{ navbar_attributes.addClass(navbar_classes) }} id="navbar" role="banner">
+              <div class="navbar-header">
+                {{ page.navigation }}
+              </div>
 
-      {# Navigation (collapsible) #}
-      {% if page.navigation_collapsible %}
-        <div class="navbar-collapse collapse">
-          {{ page.navigation_collapsible }}
+            </nav>
+          {% endblock %}
+        {% endif %}
+
+        <div role="main" class="main-container {{ container }} js-quickedit-main-content">
+          <div class="row">
+          
+            {% if page.breadcrumb %}
+                <section class="col-sm-12" role="complementary">
+                  {{ page.breadcrumb }}
+                </section>  <!-- End first aside. -->
+            {% endif %} 
+          
+            <section class="col-sm-12">
+              {% if page.highlighted %}
+                <div class="highlighted">{{ page.highlighted }}</div>
+              {% endif %}
+              {{ breadcrumb }}
+              <a id="main-content"></a>
+
+              {# Messages #}
+              {% if messages %}
+                {{ messages }}
+              {% endif %}
+
+              {# Action Links #}
+              {% if action_links %}
+                {% block action_links %}
+                  <ul class="action-links">{{ action_links }}</ul>
+                {% endblock %}
+              {% endif %}
+
+              {# Help #}
+              {% if page.help %}
+                {% block help %}
+                  {{ page.help }}
+                {% endblock %}
+              {% endif %}
+
+              {% block content %}
+                <a id="main-content"></a>
+                {{ page.content }}
+              {% endblock %}
+
+            </section>
+
+          </div>
+          {% set footer_image = node.field_footer_image.value %}
+          {% set footer_image_id = footer_image['0']['target_id'] %}
+          {% if footer_image %} 
+            <img class="footer-image" src={{ footer_background_image[footer_image_id] }} />
+          {% endif %}
         </div>
-      {% endif %}
-    </nav>
-  {% endblock %}
-{% endif %}
-
-<div role="main" class="main-container {{ container }} js-quickedit-main-content">
-  <div class="row">
-  
-  {#{% if page.breadcrumb %}#}
-      <section class="col-sm-12" role="complementary">
-        {{ page.breadcrumb }}
-      </section>  <!-- End first aside. -->
-  {#  {% endif %} #}
-  
-    <section class="col-sm-12">
-      {% if page.highlighted %}
-        <div class="highlighted">{{ page.highlighted }}</div>
-      {% endif %}
-      {{ breadcrumb }}
-      <a id="main-content"></a>
-
-      {# Messages #}
-      {% if messages %}
-        {{ messages }}
-      {% endif %}
-
-      {# Action Links #}
-      {% if action_links %}
-        {% block action_links %}
-          <ul class="action-links">{{ action_links }}</ul>
-        {% endblock %}
-      {% endif %}
-
-      {# Help #}
-      {% if page.help %}
-        {% block help %}
-          {{ page.help }}
-        {% endblock %}
-      {% endif %}
-
-      {% block content %}
-        <a id="main-content"></a>
-        {{ page.content }}
-      {% endblock %}
-
-    </section>
-
+ 
+     {% if page.footer %}
+          {% block footer %}
+            <footer class="footer {{ container }}" role="contentinfo">
+              {{ page.footer }}
+            </footer>
+          {% endblock %}
+        {% endif %}
+      </div>
+    </div>
   </div>
-  {% set footer_image = node.field_footer_image.value %}
-  {% set footer_image_id = footer_image['0']['target_id'] %}
-  {% if footer_image %} 
-    <img class="footer-image" src={{ footer_background_image[footer_image_id] }} />
+
+  {# Navigation (collapsible) #}
+  {% if page.navigation_collapsible %}
+    <div class="navbar-collapse">
+      <nav class="st-menu st-effect-2" id="menu-2">
+        {{ page.navigation_collapsible }}
+      </nav>
+    </div>
   {% endif %}
 </div>
- 
-{% if page.footer %}
-  {% block footer %}
-    <footer class="footer {{ container }}" role="contentinfo">
-      {{ page.footer }}
-    </footer>
-  {% endblock %}
-{% endif %}

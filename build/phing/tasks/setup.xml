@@ -6,7 +6,7 @@
 
   <!-- This is run when a project is cloned to a new environment. -->
   <target name="setup:build:all" description="Generates all required files for a full build. E.g., removes docroot, builds via `drush make`, restores symlinks, etc."
-      depends="setup:behat, setup:build:make, setup:build:composer, setup:build:symlinks, frontend:build">
+      depends="setup:behat, setup:build:make, setup:build:symlinks, frontend:build">
   </target>
 
   <!-- Delete the docroot directory. Used prior to running Drush make. -->
@@ -32,17 +32,15 @@
 
   </target>
 
-  <target name="setup:build:composer" description="Run composer install for each downloaded contributed module." depends="setup:build:make">
-    <foreach param="dirname" absparam="absname" target="setup:build:composer:install">
-      <fileset dir="${docroot}/modules/contrib">
-        <type type="dir" />
-        <depth max="0" min="0" />
-      </fileset>
-    </foreach>
+  <target name="setup:composer:init" description="Initializes composer_manager by modifying Drupal core's composer.json.">
+    <exec dir="${docroot}" command="php modules/contrib/composer_manager/scripts/init.php" logoutput="true" />
+    <echo message="${docroot}/composer.json has been modified for composer_manager integration."/>
   </target>
 
-  <target name="setup:build:composer:install">
-    <exec dir="${absname}" command="composer install" />
+  <target name="setup:composer:update" description="Updates composer dependencies via Composer Manager.">
+    <echo message="Updating contrib module library dependencies via Composer Manager."/>
+    <exec dir="${docroot}" command="composer drupal-rebuild" logoutput="true"/>
+    <exec dir="${docroot}" command="composer update --prefer-source" logoutput="true"/>
   </target>
 
   <!-- Check for docroot. -->

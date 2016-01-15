@@ -13,7 +13,8 @@ use Drupal\image\Entity\ImageStyle;
  * Implements TEMPLATE_preprocess_html().
  */
 function generic_microsite_preprocess_html(&$variables) {
-  $variables['site_name'] = strtolower(str_replace(" ", "-", $variables['head_title_array']['name']));
+  $site_name = preg_replace('/[^A-Za-z0-9\-]/', ' ', $variables['head_title_array']['name']);
+  $variables['site_name'] = strtolower(str_replace(" ", "-", $site_name));
 
   if (theme_get_setting('global_style', 'generic_microsite') != NULL) {
     $variables['#attached']['library'][] = 'generic_microsite/global-styling' . theme_get_setting('global_style', 'generic_microsite');

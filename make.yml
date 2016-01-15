@@ -17,6 +17,9 @@ projects:
   contact_storage:
     type: module
     version: "1.0-beta1"
+  composer_manager:
+    type: module
+    version: "1.0-rc1"
   csv_serialization:
     type: module
     version: ~
@@ -51,7 +54,7 @@ projects:
     version: "1.0-beta2"
   ctools:
     type: module
-    version: "3.0-alpha20"
+    version: "3.0-alpha21"
   token:
     type: module
     version: "1.x-dev"

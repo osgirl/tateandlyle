@@ -8,6 +8,7 @@ description: 'Subtheme based on Bootstrap 3.'
 package: 'Bootstrap'
 
 regions:
+  header_top: 'Header Top'
   header_left: 'Header Left'
   header_right: 'Header Right'
   navigation: 'Navigation'
@@ -25,4 +26,10 @@ regions:
 libraries:
   - 'generic_microsite/global-styling'
   - 'generic_microsite/bootstrap-scripts'
-  - 'generic_microsite/custom-js'
+  
+
+  # Menu sidebar scripts #
+  - 'generic_microsite/classie'
+  - 'generic_microsite/menu-sidebar-effects'
+  - 'generic_microsite/custom'
+

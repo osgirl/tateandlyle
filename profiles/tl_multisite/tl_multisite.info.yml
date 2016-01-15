@@ -53,6 +53,7 @@ dependencies:
   - imce
   - token
   - pathauto
+  - composer_manager
   # - acquia_search
 themes:
   - generic_microsite

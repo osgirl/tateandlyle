@@ -76,6 +76,8 @@ $microsites = [
   'tateandlylejp',
   'sucralose',
   'feedthembetter',
+  'tateandlylecn',
+  'yourdrinksolutions',
 ];
 
 $sites = [];

@@ -71,6 +71,17 @@ function tl_multisite_install() {
   $config->set('admin', 'seven');
   $config->save();
 
+  tl_multisite_create_terms();
+  tl_multisite_create_nodes();
+  tl_multisite_set_timezone();
+
+  \Drupal::service('entity.definition_update_manager')->applyUpdates();
+}
+
+/**
+ * Helper function to create the taxonomy terms during install.
+ */
+function tl_multisite_create_terms() {
   $term = Term::create([
     'vid' => 'file_types',
     'langcode' => 'en',
@@ -81,7 +92,7 @@ function tl_multisite_install() {
     ],
     'weight' => -1,
     'parent' => '',
-    ]);
+  ]);
   $term->save();
 
   $term = Term::create([
@@ -109,7 +120,12 @@ function tl_multisite_install() {
     'parent' => '',
   ]);
   $term->save();
+}
 
+/**
+ * Helper function to create the basic pages during install.
+ */
+function tl_multisite_create_nodes() {
   $node = Node::create([
     'type' => 'page',
     'langcode' => 'en',
@@ -147,5 +163,11 @@ function tl_multisite_install() {
   $path = '/node/' . $node->id();
   \Drupal::service('path.alias_storage')->save("/node/" . $path, "/403", "en");
   \Drupal::configFactory()->getEditable('system.site')->set('page.403', $path)->save(TRUE);
-  \Drupal::service('entity.definition_update_manager')->applyUpdates();
+}
+
+/**
+ * Helper function to set the timezone during install.
+ */
+function tl_multisite_set_timezone() {
+  date_default_timezone_set("Europe/London");
 }
