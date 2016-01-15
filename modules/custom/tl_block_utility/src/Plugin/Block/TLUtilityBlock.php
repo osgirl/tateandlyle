@@ -6,6 +6,7 @@
 
 namespace Drupal\tl_block_utility\Plugin\Block;
 use Drupal\Core\Block\BlockBase;
+use Drupal\Core\Url;
 
 /**
  * Provides a custom block with the T&L Utility Navigation links..
@@ -21,22 +22,51 @@ class TLUtilityBlock extends BlockBase {
    * Provides block content.
    */
   public function build() {
+    $list = [
+      '#theme' => 'links',
+      '#attributes' => ['class' => ['utility-navigation']],
+      '#links' => [
+
+        'print' => [
+          'title' => t('Print Link'),
+          'url' => Url::fromUserInput('#'),
+        ],
+
+        'email' => [
+          'title' => t('Email Link'),
+          'url' => Url::fromUri('mailto:'),
+        ],
+
+        'contrast' => [
+          'title' => t('C'),
+          'url' => Url::fromUserInput('#'),
+        ],
+
+        'large-text' => [
+          'title' => t('Large Text Link'),
+          'url' => Url::fromUserInput('#'),
+        ],
+
+        'medium-text' => [
+          'title' => t('Medium Text Link'),
+          'url' => Url::fromUserInput('#'),
+        ],
+
+        'small-text' => [
+          'title' => t('Small Text Link'),
+          'url' => Url::fromUserInput('#'),
+        ],
+
+      ],
+    ];
+
     return array(
       '#attached' => array(
         'library' => array(
           'tl_block_utility/tl_block_utility',
         ),
       ),
-      '#markup' => '<div id="utilitynavigation">
-                      <ul class="utility-navigation">
-                        <li class="print"><a title="Print" href="#"></a></li>
-                        <li class="email"><a title="Email" href="mailto:"></a></li>
-                        <li class="contrast"><a title="High-contrast version" href="#">C</a></li>
-                        <li class="large-text"><a title="Large text size" href="#"></a></li>
-                        <li class="medium-text"><a title="Medium text size" href="#"></a></li>
-                        <li class="small-text"><a title="Small text size" href="#"></a></li>
-                      </ul>
-                    </div>',
+      '#markup' => render($list),
     );
   }
 
