@@ -46,12 +46,12 @@ function generic_microsite_form_system_theme_settings_alter(&$form, FormStateInt
     '#title' => t('Global style sheet'),
     '#default_value' => empty(theme_get_setting('global_style')) ? '1' : theme_get_setting('global_style'),
     '#options' => array(
-      constant('CSS1') => t('Global Style Sheet 1.'),
-      constant('CSS2') => t('Global Style Sheet 2.'),
-      constant('CSS3') => t('Global Style Sheet 3.'),
-      constant('CSS4') => t('Global Style Sheet 4.'),
-      constant('CSS5') => t('Global Style Sheet 5.'),
-      constant('CSS6') => t('Global Style Sheet 6.'),
+      constant('CSS1') => t('Blue Dark'),
+      constant('CSS2') => t('Blue Light'),
+      constant('CSS3') => t('Green Dark'),
+      constant('CSS4') => t('Green Light'),
+      constant('CSS5') => t('Orange'),
+      constant('CSS6') => t('Purple'),
     ),
     '#description' => t('Specify the global stylesheet you wish to use for the site.'),
   );
