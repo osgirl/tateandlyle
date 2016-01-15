@@ -6,7 +6,7 @@
 
   <!-- This is run when a project is cloned to a new environment. -->
   <target name="setup:build:all" description="Generates all required files for a full build. E.g., removes docroot, builds via `drush make`, restores symlinks, etc."
-      depends="setup:behat, setup:build:make, setup:build:symlinks, frontend:build">
+      depends="setup:behat, setup:build:make, setup:build:symlinks, setup:composer:update, frontend:build">
   </target>
 
   <!-- Delete the docroot directory. Used prior to running Drush make. -->
@@ -37,7 +37,7 @@
     <echo message="${docroot}/composer.json has been modified for composer_manager integration."/>
   </target>
 
-  <target name="setup:composer:update" description="Updates composer dependencies via Composer Manager.">
+  <target name="setup:composer:update" description="Updates composer dependencies via Composer Manager." depends="setup:composer:init">
     <echo message="Updating contrib module library dependencies via Composer Manager."/>
     <exec dir="${docroot}" command="composer drupal-rebuild" logoutput="true"/>
     <exec dir="${docroot}" command="composer update --prefer-source" logoutput="true"/>
@@ -82,6 +82,7 @@
     <exec dir="${repo.root}" command="ln -s ../../sites/sites.php docroot/sites/sites.php" />
     <foreach param="dirname" absparam="absname" target="setup:build:symlinks:settings">
       <fileset dir="${repo.root}/sites/">
+        <exclude name="all"></exclude>
         <exclude name="default"></exclude>
         <type type="dir" />
         <depth max="0" min="0" />
