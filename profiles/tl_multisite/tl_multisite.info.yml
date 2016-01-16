@@ -16,7 +16,6 @@ dependencies:
   - contact_storage
   - config_translation
   - ctools
-  - field_formatter_class
   - menu_link_content
   - datetime
   - block_content

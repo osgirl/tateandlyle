@@ -46,9 +46,6 @@ projects:
   field_collection:
     type: module
     version: ~
-  field_formatter_class:
-    type: module
-    version: "1.0-rc2"
   imce:
     type: module
     version: "1.0-beta2"
