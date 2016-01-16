@@ -14,54 +14,57 @@ function getCookie(cname) {
     return "";
 }
  
-jQuery(document).ready(function () {
+(function ($) {
+  Drupal.behaviors.tl_block_utility = {
+    attach: function (context, settings) {
 
-  jQuery(".print a").click(function(){
-    javascript:window.print();
-    return false;
-  });
+      $(".print a").click(function(){
+        javascript:window.print();
+        return false;
+      });
 
-  jQuery(".contrast a").click(function(){
-    jQuery('body').toggleClass('contrast');
-    if (getCookie('contrast') == 'true') {
-      document.cookie ='contrast=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/'; 
-    } else {
-      document.cookie ='contrast=true; path=/';  
+      $(".contrast a").click(function(){
+        $('body').toggleClass('contrast');
+        if (getCookie('contrast') == 'true') {
+          document.cookie ='contrast=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/'; 
+        } else {
+          document.cookie ='contrast=true; path=/';  
+        }
+        return false;
+      });
+
+      $(".large-text a").click(function(){
+        document.cookie ='medium-text=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/';
+        document.cookie ='small-text=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/';  
+        document.cookie ='large-text=true; path=/';
+        $('body').removeClass( "medium-text" ).addClass( "large-text" );
+        return false;
+      });
+
+      $(".medium-text a").click(function(){
+        document.cookie ='large-text=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/';
+        document.cookie ='small-text=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/';
+        document.cookie ='medium-text=true; path=/';
+        $('body').removeClass( "large-text" ).addClass( "medium-text" );
+        return false;
+      }); 
+
+      $(".small-text a").click(function(){
+        document.cookie ='large-text=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/';
+        document.cookie ='medium-text=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/';
+	    $('body').removeClass( "medium-text large-text" );
+        return false;
+      });
+  
+      if (getCookie('contrast') == 'true') {
+        $('body').addClass('contrast');
+      }
+      if (getCookie('large-text') == 'true') {
+	    $('body').addClass('large-text');
+      }
+      if (getCookie('medium-text') == 'true') {
+	    $('body').addClass('medium-text');
+      } 
     }
-    return false;
-  });
-
-  jQuery(".large-text a").click(function(){
-    document.cookie ='medium-text=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/';
-    document.cookie ='small-text=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/';  
-    document.cookie ='large-text=true; path=/';
-	jQuery('body').removeClass( "medium-text" ).addClass( "large-text" );
-    return false;
-  });
-
-  jQuery(".medium-text a").click(function(){
-    document.cookie ='large-text=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/';
-    document.cookie ='small-text=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/';
-    document.cookie ='medium-text=true; path=/';
-	jQuery('body').removeClass( "large-text" ).addClass( "medium-text" );
-    return false;
-  }); 
-
-  jQuery(".small-text a").click(function(){
-    document.cookie ='large-text=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/';
-    document.cookie ='medium-text=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/';
-	jQuery('body').removeClass( "medium-text large-text" );
-    return false;
-  });
-  
-  if (getCookie('contrast') == 'true') {
-	jQuery('body').addClass('contrast');
   }
-  if (getCookie('large-text') == 'true') {
-	jQuery('body').addClass('large-text');
-  }
-  if (getCookie('medium-text') == 'true') {
-	jQuery('body').addClass('medium-text');
-  }
-  
-});
+})(jQuery);
