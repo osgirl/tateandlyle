@@ -1,95 +1,74 @@
 (function($) {
-  // Show language block on click
-  Drupal.behaviors.toggleLanguageblock = {
+  // Show language block on click.
+  Drupal.behaviors.toggleSearchLanguage = {
     attach: function (context, settings) {
-      // Clickable parent menu dropdown link
-       $('a.dropdown-toggle').addClass('disabled');
-       
-      // Language switcher functionality settings
-      $('.language-switcher-language-url').click(function() {
-        if ($('#search-block-form').is(':visible')) {
-          $('#search-block-form').hide();
-        }
-        $('header .links').fadeToggle('slow', 'linear');
-      });
+      // Set variables.
+      var language_icon = $('.language-switcher-language-url');
+      var language_contents = $('.language-switcher-language-url').contents();
+      var search_icon = $('.search-block-form');
+      var search_contents = $('.search-block-form').contents();
 
-       // Functionality settings
-      $('.search-block-form').click(function() {
-        if ($('header .links').is(':visible')) {
-          $('header .links').hide()
-        }
-        $('#search-block-form').fadeToggle('slow', 'linear');
-      });
-
-      // Page load on mobile
+      // Page load on mobile.
       if ($(window).outerWidth() <= 767) {
-     /* Language block
-        Visibility settings */
-        if ($('.language-switcher-language-url .links').is(':visible')) {
-          $('.language-switcher-language-url .links').hide();
-        }
-        // Position settings
-        if ($('.header-right').next() != '.links') {
-          $('.language-switcher-language-url .links').insertAfter('.header-right');
-        }
+        // Place Search mobile section in the Header Bottom section.
+        search_contents.insertAfter('.header-right');
+        search_contents.wrapAll('<section class="header-bottom"></section>');
+        search_contents.wrapAll('<section class="search-mobile"></section>');
 
-     /* Search block
-        Visibility settings */
-        if ($('.search-block-form form').is(':visible')) {
-          $('.search-block-form form').hide();
-        }
-
-        // Position settings
-        if ($('.header-right').next().next() != '#search-block-form') {
-          $('#search-block-form').insertAfter('.header-right');
-        }
+        // Place Language mobile section in the Header Bottom section.
+        language_contents.insertAfter('.search-mobile');
+        language_contents.wrapAll('<section class="language-mobile"></section>');
       }
 
-      // Resize window
-      $(window).resize(function(){
+      // Window resize.
+      $(window).resize(function() {
+        var language_contents_mobile = $('.language-mobile').contents();
+        var search_contents_mobile = $('.search-mobile').contents();
         if ($(window).outerWidth() <= 767) {
-       /* Language block
-          Visibility settings */
-          if ($('.language-switcher-language-url .links').is(':visible')) {
-            $('.language-switcher-language-url .links').hide();
-          }
-          // Position settings
-          if ($('.header-right').next() != '.links') {
-            $('.language-switcher-language-url .links').insertAfter('.header-right');
+          // Place Search mobile section in the Header Bottom section.
+          if (search_contents.parent().hasClass('search-block-form')) {
+            search_contents.insertAfter('.header-right');
+            search_contents.wrapAll('<section class="header-bottom"></section>');
+            search_contents.wrapAll('<section class="search-mobile"></section>');
           }
 
-       /* Search block
-          Visibility settings */
-          if ($('#search-block-form').is(':visible')) {
-            $('#search-block-form').hide();
-          }
-          // Position settings
-          if ($('.header-right').next().next() != '#search-block-form') {
-            $('#search-block-form').insertAfter('.header-right');
+          // Place Language mobile section in the Header Bottom section.
+          if (language_contents.parent().hasClass('language-switcher-language-url')) {
+            language_contents.insertAfter('.search-mobile');
+            language_contents.wrapAll('<section class="language-mobile"></section>');
           }
         }
         else {
-        /* Language block
-           Position settings */
-          if ($('.language-switcher-language-url div').next() != '.links') {
-            $('header > .links').insertAfter('.language-switcher-language-url div');
-          }
-          // Visibility settings
-          if (!$('.language-switcher-language-url .links').is(':visible')) {
-            $('.language-switcher-language-url .links').show();
-          }
-
-        /* Search block
-           Position settings */
-          if ($('.search-block-form div').next() != '#search-block-form') {
-            $('#search-block-form').insertAfter('.search-block-form > div');
-          }
-          // Visibility settings
-          if (!$('#search-block-form').is(':visible')) {
-            $('#search-block-form').show();
-          }
+          // Place Search and Language in the Header Right section.
+          $('.header-bottom').remove();
+          search_contents_mobile.appendTo('.search-block-form');
+          language_contents_mobile.appendTo('.language-switcher-language-url');
         }
-      })
+      });
+
+      // Search block fade effect.
+      search_icon.click(function() {
+        var language_mobile = $('.language-mobile');
+        var search_mobile = $('.search-mobile');
+        if ($(window).outerWidth() <= 767) {
+          language_icon.removeClass('active');
+          $(this).toggleClass('active');
+          language_mobile.hide();
+          search_mobile.slideToggle();
+        }
+      });
+
+      // Language block fade effect.
+      language_icon.click(function() {
+        var language_mobile = $('.language-mobile');
+        var search_mobile = $('.search-mobile');
+        if ($(window).outerWidth() <= 767) {
+          search_icon.removeClass('active');
+          $(this).toggleClass('active');
+          search_mobile.hide();
+          language_mobile.slideToggle();
+        }
+      });
     }
   };
 
