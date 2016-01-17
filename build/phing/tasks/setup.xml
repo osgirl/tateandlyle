@@ -6,7 +6,7 @@
 
   <!-- This is run when a project is cloned to a new environment. -->
   <target name="setup:build:all" description="Generates all required files for a full build. E.g., removes docroot, builds via `drush make`, restores symlinks, etc."
-      depends="setup:behat, setup:build:make, setup:build:symlinks, setup:composer:update, frontend:build">
+      depends="setup:behat, setup:build:make, setup:build:symlinks, setup:tatelyle, frontend:build">
   </target>
 
   <!-- Delete the docroot directory. Used prior to running Drush make. -->
@@ -30,6 +30,11 @@
       <option name="no-gitinfofile"></option>
     </drush>
 
+  </target>
+
+  <target name="setup:tatelyle" description="Set up custom composer dependencies until automatic generation is fixed.">
+    <exec dir="${docroot}" command="composer require league/csv ^7.1" />
+    <exec dir="${docroot}" command="composer update" />
   </target>
 
   <target name="setup:composer:init" description="Initializes composer_manager by modifying Drupal core's composer.json.">
