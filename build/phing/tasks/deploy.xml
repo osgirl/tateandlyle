@@ -10,7 +10,7 @@
   </target>
 
   <target name="deploy:artifact:build" description="Generates a deploy-ready build in deploy.dir."
-          depends="deploy:artifact:make, deploy:artifact:composer, deploy:artifact:sanitize, frontend:build, deploy:artifact:copy">
+          depends="deploy:artifact:make, deploy:artifact:sanitize, frontend:build, deploy:artifact:copy">
   </target>
 
   <target name="deploy:artifact:make" description="Downloads core and contrib to deploy folder." depends="deploy:artifact:rm-docroot">
@@ -21,14 +21,6 @@
       <option name="no-gitinfofile"/>
       <option name="no-patch-txt"/>
     </drush>
-  </target>
-
-  <target name="deploy:artifact:composer" description="Install the vendor directory." depends="deploy:artifact:make">
-      <exec dir="${docroot}" command="php modules/contrib/composer_manager/scripts/init.php" logoutput="true" />
-      <echo message="${docroot}/composer.json has been modified for composer_manager integration."/>
-      <echo message="Updating contrib module library dependencies via Composer Manager."/>
-      <exec dir="${docroot}" command="composer drupal-rebuild" logoutput="true"/>
-      <exec dir="${docroot}" command="composer update --prefer-source" logoutput="true"/>
   </target>
 
   <target name="deploy:artifact:rm-docroot" description="Removes the deploy docroot.">
