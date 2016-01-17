@@ -74,6 +74,7 @@
     <delete dir="${docroot}/themes/custom" quiet="true"/>
     <delete dir="${docroot}/profiles" quiet="true"/>
     <exec dir="${repo.root}" command="ln -s ../../modules/custom docroot/modules/custom"/>
+    <exec dir="${repo.root}" command="ln -s ../../modules/features docroot/modules/features"/>
     <exec dir="${repo.root}" command="ln -s ../../themes/custom docroot/themes/custom"/>
     <exec dir="${repo.root}" command="ln -s ../profiles docroot/profiles"/>
 
