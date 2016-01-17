@@ -20,12 +20,18 @@ projects:
   composer_manager:
     type: module
     version: ~
+  config_update:
+    type: module
+    version: ~
   csv_serialization:
     type: module
     version: ~
   google_analytics:
     type: module
     version: "2.0-rc1"
+  features:
+    type: module
+    version: ~
   search_api:
     type: module
     version: "1.0-alpha10"
