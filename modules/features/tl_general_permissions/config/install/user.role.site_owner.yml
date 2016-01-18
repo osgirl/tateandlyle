@@ -1,0 +1,14 @@
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: RvdSyXvA85XPpW7V6sRuE1Sm1cks4k4pM6mZL77EsKk
+id: site_owner
+label: 'Site owner'
+weight: 3
+is_admin: null
+permissions:
+  - 'administer blocks'
+  - 'administer contact forms'
+  - 'administer themes'
+  - 'access toolbar'
