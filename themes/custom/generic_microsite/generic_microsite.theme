@@ -13,7 +13,8 @@ use Drupal\image\Entity\ImageStyle;
  * Implements TEMPLATE_preprocess_html().
  */
 function generic_microsite_preprocess_html(&$variables) {
-  $site_name = preg_replace('/[^A-Za-z0-9\-]/', ' ', $variables['head_title_array']['name']);
+  $site_name_raw = \Drupal::configFactory()->getEditable('system.site')->get('name');
+  $site_name = preg_replace('/[^A-Za-z0-9\-]/', ' ', $site_name_raw);
   $variables['site_name'] = strtolower(str_replace(" ", "-", $site_name));
 
   if (theme_get_setting('global_style', 'generic_microsite') != NULL) {
@@ -38,27 +39,6 @@ function generic_microsite_preprocess_html(&$variables) {
    else {
     $variables['attributes']['class'][] = 'tl-no-sidebars';
    }
-
-  if (theme_get_setting('bg_value1', 'generic_microsite') != NULL) {
-    $variables['bg_value1'] = theme_get_setting('bg_value1', 'generic_microsite');
-  }
-  else {
-    $variables['bg_value1'] = '#b5cbe6';
-  }
-
-  $variables['bg_value2'] = theme_get_setting('bg_value2', 'generic_microsite');
-
-  $variables['custom_css'] = theme_get_setting('custom_css', 'generic_microsite');
-
-  if (theme_get_setting('bg_value2', 'generic_microsite') != NULL) {
-   $variables['gradient_bg'] = 'background: -webkit-gradient(linear,left top,left bottom,from(' . theme_get_setting('bg_value1', 'generic_microsite') . '),to(' . theme_get_setting('bg_value2', 'generic_microsite') . ')) no-repeat; background: -webkit-linear-gradient(top,' . theme_get_setting('bg_value1', 'generic_microsite') . ',' . theme_get_setting('bg_value2', 'generic_microsite') . ') no-repeat; background: -moz-linear-gradient(top,' . theme_get_setting('bg_value1', 'generic_microsite') . ',' . theme_get_setting('bg_value2', 'generic_microsite') . ') no-repeat; background: -ms-linear-gradient(top,' . theme_get_setting('bg_value1', 'generic_microsite') . ',' . theme_get_setting('bg_value2', 'generic_microsite') . ') no-repeat; background: -o-linear-gradient(top,' . theme_get_setting('bg_value1', 'generic_microsite') . ',' . theme_get_setting('bg_value2', 'generic_microsite') . ') no-repeat;';
-  }
-  else if (theme_get_setting('bg_value1', 'generic_microsite') != NULL) {
-    $variables['gradient_bg'] = 'background-color: ' . theme_get_setting('bg_value1', 'generic_microsite') . ';';
-  }
-  else {
-    $variables['gradient_bg'] = 'background-color: #b5cbe6;';
-  }
 }
 
 /**
@@ -171,7 +151,7 @@ function generic_microsite_theme_suggestions_page_alter(array &$suggestions, arr
 }
 
 /**
- * Implements hook_theme_preprocess_page(&$variables).
+ * Implements hook_theme_preprocess_page().
  */
 function generic_microsite_preprocess_page(&$variables) {
   if (isset($variables['node'])) {
@@ -185,6 +165,28 @@ function generic_microsite_preprocess_page(&$variables) {
       }
     }
   }
+
+  // Set gradient background colors
+  if (theme_get_setting('bg_value1', 'generic_microsite') != NULL) {
+    $variables['bg_value1'] = theme_get_setting('bg_value1', 'generic_microsite');
+  }
+  else {
+    $variables['bg_value1'] = '#b5cbe6';
+  }
+
+  $variables['bg_value2'] = theme_get_setting('bg_value2', 'generic_microsite');
+
+  $variables['custom_css'] = theme_get_setting('custom_css', 'generic_microsite');
+
+  if (theme_get_setting('bg_value2', 'generic_microsite') != NULL) {
+   $variables['gradient_bg'] = 'background: -webkit-gradient(linear,left top,left bottom,from(' . theme_get_setting('bg_value1', 'generic_microsite') . '),to(' . theme_get_setting('bg_value2', 'generic_microsite') . ')) no-repeat; background: -webkit-linear-gradient(top,' . theme_get_setting('bg_value1', 'generic_microsite') . ',' . theme_get_setting('bg_value2', 'generic_microsite') . ') no-repeat; background: -moz-linear-gradient(top,' . theme_get_setting('bg_value1', 'generic_microsite') . ',' . theme_get_setting('bg_value2', 'generic_microsite') . ') no-repeat; background: -ms-linear-gradient(top,' . theme_get_setting('bg_value1', 'generic_microsite') . ',' . theme_get_setting('bg_value2', 'generic_microsite') . ') no-repeat; background: -o-linear-gradient(top,' . theme_get_setting('bg_value1', 'generic_microsite') . ',' . theme_get_setting('bg_value2', 'generic_microsite') . ') no-repeat;';
+  }
+  else if (theme_get_setting('bg_value1', 'generic_microsite') != NULL) {
+    $variables['gradient_bg'] = 'background-color: ' . theme_get_setting('bg_value1', 'generic_microsite') . ';';
+  }
+  else {
+    $variables['gradient_bg'] = 'background-color: #b5cbe6;';
+  }
 }
 
 function generic_microsite_preprocess_paragraph(&$variables) {
@@ -192,10 +194,26 @@ function generic_microsite_preprocess_paragraph(&$variables) {
   $variables['is_front'] = $is_front;
 }
 
-function generic_microsite_preprocess_breadcrumb(&$variables){
+function generic_microsite_preprocess_breadcrumb(&$variables) {
   $site_name = \Drupal::configFactory()->getEditable('system.site')->get('name');
   $variables['breadcrumb'][0]['text'] = $site_name;
   $variables['breadcrumb']['custom']['text'] = 'You are here : ';
   array_unshift($variables['breadcrumb'],$variables['breadcrumb']['custom']);
   unset($variables['breadcrumb']['custom']);
+}
+
+/**
+ * Implements template_preprocess_block().
+ */
+function generic_microsite_preprocess_block(&$variables) {
+  if ($variables['base_plugin_id'] == 'language_block') {
+    $variables['label'] = t('Pick your language');
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_form_alter().
+ */
+function generic_microsite_form_search_block_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  $form['#suffix'] = '<a href="search" class="advanced-search">' . t('Advanced search'). '</a>';
 }

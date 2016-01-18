@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: N-dytVgrgj5FSpwGharhTXOdRcyjeLdy3LYW-AdCpXs
+id: content_approver
+label: 'Content Approver'
+weight: 5
+is_admin: null
+permissions: {  }

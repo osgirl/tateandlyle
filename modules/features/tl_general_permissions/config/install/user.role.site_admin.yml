@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 34Hkrh-AfqxivrW_Ti4zQyPKl6t6uiykVP0KRpBKXdw
+id: site_admin
+label: 'Site admin'
+weight: 2
+is_admin: null
+permissions: {  }
