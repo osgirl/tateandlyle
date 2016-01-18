@@ -36,7 +36,6 @@ header.container {
   -moz-box-shadow: 0 1px 10px 0 rgba(100,100,100,.5);
   box-shadow: 0 1px 10px 0 rgba(100,100,100,.5);
   background-color: #FFF;
-  margin-bottom: 12px;
   padding: 20px 20px 22px;
   @media (min-width: @screen-sm) {
     display: none;
@@ -45,10 +44,15 @@ header.container {
 
 .header-left {
   float: left;
+  padding-left: 20px;
   @media (max-width: @screen-sm) {
-    padding-left: 20px;
-    padding-top: 0 !important;
+    margin: 12px 0;
+    padding-top: : 0 !important;
   }
+}
+
+.logo {
+  margin: 0;
 }
 
 .navbar-brand{
@@ -61,18 +65,20 @@ header.container {
 }
 
 .header-right {
-  float: right;
-  margin-bottom: 17px;
-  margin-right: 20px;
+  bottom: 10px;
+  position: absolute;
+  right: 20px;
   @media (min-width: @screen-sm) {
+    float: right;
     margin-bottom: 0;
     margin-right: 0;
     padding-top: 35px;
+    position: relative;
     width: 166px;
   }
   .search-block-form {
     display: inline-block;
-    margin: 16px 7px 0 15px;
+    margin: 0 10px;
     @media (min-width: @screen-sm) {
       margin: 22px 0 0;
     }
@@ -94,10 +100,10 @@ header.container {
   &:before {
     content: "\e135";
     cursor: pointer;
+    display: inline-block;
     font-family: 'Glyphicons Halflings';
-    font-size: 36px;
-    position: relative;
-    top: 1px;
+    font-size: 22px;
+    height: 22px;
     @media (min-width: @screen-sm) {
       content: none;
     }
@@ -152,10 +158,9 @@ header.container {
 .search-block-form {
   &:before {
     content: "\e003";
+    cursor: pointer;
     font-family: 'Glyphicons Halflings';
-    font-size: 36px;
-    position: relative;
-    top: -6px;
+    font-size: 22px;
     @media (min-width: @screen-sm) {
       content: none;
     }
@@ -173,21 +178,22 @@ header.container {
 }
 
 .advanced-search {
-  font-size: 28px;
+  font-size: 16px;
   font-weight: bold;
   display: inline-block;
-  margin-top: 10px;
+  position: relative;
   text-decoration: none;
+  top: 10px;
   &:before {
     content: "";
-    width: 12px;
-    height: 12px;
+    width: 7px;
+    height: 7px;
     border: 1px solid;
     display: inline-block;
     position: relative;
-    top: -5px;
-    margin-right: 5px;
-    border-radius: 2px;
+    top: -3px;
+    margin-right: 3px;
+    border-radius: 1px;
   }
   @media (min-width: @screen-sm) {
     display: none;
@@ -196,12 +202,6 @@ header.container {
 
 #search-block-form {
   .form-control {
-    border:none;
-    box-shadow:none;
-    border-radius:0;
-    background: #DEDEDE;
-    border: none;
-    line-height: 19px;
     @media (min-width: @screen-sm) {
       background: #eeeae6;
       float:right;
@@ -213,17 +213,29 @@ header.container {
     }
   }
   button.btn {
-    background:#B9B3AC;
-    border:none;
-    border-radius:0;
-    font-size:20px;
-    padding:5px 9px 1px;
     @media (min-width: @screen-sm) {
       font-size:12px;
       height: 19px;
       padding:3px 5px;
       width: 20px;
     }
+  }
+}
+
+.js-form-type-search {
+  .form-control {
+    border:none;
+    box-shadow:none;
+    border-radius:0;
+    background: #eeeae6;
+    border: none;
+  }
+  button.btn {
+    background:#B9B3AC;
+    border:none;
+    border-radius:0;
+    font-size:20px;
+    padding:5px 9px 1px;
   }
 }
 
@@ -245,19 +257,12 @@ header.container {
   padding: 25px 20px;
   border-top: 1px solid #DDD;
   #search-block-form .form-control {
-    font-size: 28px;
-    line-height: 32px;
-    padding: 15px;
-    height: 60px;
+    font-size: 16px;
     background: #EEEAE6;
     color: black;
   }
-  #search-block-form button.btn {
-    font-size: 20px;
-    padding: 10px 15px 6px;
-  }
   .glyphicon-search:before {
-    font-size: 38px;
+    font-size: 18px;
   }
 }
 
@@ -267,9 +272,9 @@ header.container {
   border-top: 1px solid #DDD;
   .block-title {
     color: #000;
-    font-size: 30px;
+    font-size: 16px;
     font-weight: 700;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     margin-top: 0;
   }
   ul {
@@ -277,20 +282,19 @@ header.container {
   }
   li {
     list-style: none;
-    margin-left: 17px;
-    padding-bottom: 10px;
+    margin-left: 11px;
+    padding-bottom: 5px;
     &.is-active {
       margin-left: 0;
       &:before {
         content: "";
-        width: 12px;
-        height: 12px;
-        border: 1px solid;
+        width: 7px;
+        height: 7px;
         display: inline-block;
         position: relative;
-        top: -4px;
-        margin-right: 5px;
-        border-radius: 2px;
+        top: -3px;
+        margin-right: 3px;
+        border-radius: 1px;
       }
     }
     &:last-child {
@@ -299,7 +303,7 @@ header.container {
   }
   a {
     color: #000 !important;
-    font-size: 28px;
+    font-size: 16px;
   }
 }
 
@@ -443,16 +447,18 @@ body,
   }
   button {
     border: 0;
-    margin: 0 -8px -3px 0;
+    margin: 0;
+    padding: 0;
     @media (min-width: @screen-sm) {
       margin: 0 15px 0 0;
+      padding: 9px 10px;
     }
     span {
-      height: 8px;
-      width: 35px;
+      height: 5px;
+      width: 25px;
     }
     .icon-bar+.icon-bar {
-      margin-top: 6px;
+      margin-top: 3px;
     }
   }
 }
@@ -616,7 +622,11 @@ body,
 
 .region-breadcrumb {
   display: inline-block;
+  margin-top: 10px;
   width: 100%;
+  @media (min-width: @screen-sm-min) {
+    margin-top: 0;
+  }
 }
 
 #utilitynavigation {

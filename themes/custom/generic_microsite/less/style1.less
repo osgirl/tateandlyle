@@ -2,38 +2,43 @@
 @import 'variable-overrides.less';
 
  h1, h2, h3, h4,
-  .field--name-field-touts .field--name-field-title,
-  .navbar-brand,
-  .navbar-nav a.is-active, a:active, a:focus, a:hover,
-  #accordion .accordion-set.collapsed:hover .accordion-title,
-  #accordion .accordion-set .accordion-title,
-  .paragraph--type--accordion a:hover, .paragraph--type--accordion .field--name-field-title, .field--name-field-title-tab,
-  aside .menu.nav a:hover,
-  .paragraph--type--tabs .nav-tabs li.active > a:hover,
-  .search-block-form:before,
-  .language-switcher-language-url:before, 
-  body:not(.path-frontpage) aside .menu.nav .dropdown-menu li a.is-active {
+.field--name-field-touts .field--name-field-title,
+.navbar-brand,
+.navbar-nav a.is-active, a:active, a:focus, a:hover,
+#accordion .accordion-set.collapsed:hover .accordion-title,
+#accordion .accordion-set .accordion-title,
+.paragraph--type--accordion a:hover, .paragraph--type--accordion .field--name-field-title, .field--name-field-title-tab,
+aside .menu.nav a:hover,
+.paragraph--type--tabs .nav-tabs li.active > a:hover,
+.search-block-form:before,
+.language-switcher-language-url:before, 
+body:not(.path-frontpage) aside .menu.nav .dropdown-menu li a.is-active {
+  color: @blue-dark;
+}
+.navbar-nav.nav {
+  li a:hover, li a:focus {
     color: @blue-dark;
   }
-  .navbar-nav.nav {
-    li a:hover, li a:focus {
+}
+
+.tab-pane table tr:first-child {
+  background-color: @blue-dark;
+}
+.breadcrumb {
+  li {
+    &:last-of-type { 
+      color: @blue-dark;
+    }
+    a:hover {
       color: @blue-dark;
     }
   }
-
-  .tab-pane table tr:first-child {
-    background-color: @blue-dark;
-  }
-  .breadcrumb {
-    li {
-      &:last-of-type { 
-        color: @blue-dark;
-      }
-      a:hover {
-        color: @blue-dark;
-      }
-    }
-  }
-  #st-trigger-effects .icon-bar {
-    background-color: @blue-dark;
-  }
+}
+#st-trigger-effects .icon-bar {
+  background-color: @blue-dark;
+}
+.st-menu nav .nav li a:focus,
+.st-menu nav .nav li a:hover {
+  background: @blue-dark;
+  color: #FFF;
+}
