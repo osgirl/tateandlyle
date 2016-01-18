@@ -7,4 +7,8 @@ id: site_owner
 label: 'Site owner'
 weight: 3
 is_admin: null
-permissions: {  }
+permissions:
+  - 'administer blocks'
+  - 'administer contact forms'
+  - 'administer themes'
+  - 'access toolbar'

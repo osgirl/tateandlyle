@@ -7,4 +7,9 @@ id: authenticated
 label: 'Authenticated user'
 weight: 1
 is_admin: false
-permissions: {  }
+permissions:
+  - 'access content'
+  - 'access shortcuts'
+  - 'search content'
+  - 'access site-wide contact form'
+  - 'view own unpublished content'
