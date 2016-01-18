@@ -1,6 +1,6 @@
 (function($) {
   // Show language block on click.
-  Drupal.behaviors.toggleSearchLanguage = {
+  Drupal.behaviors.headerMobile = {
     attach: function (context, settings) {
       // Set variables.
       var language_icon = $('.language-switcher-language-url');
@@ -71,5 +71,11 @@
       });
     }
   };
+
+  Drupal.behaviors.disableDropdowntoggle = {
+    attach: function (context, settings) {
+      $('a.dropdown-toggle').addClass('disabled');
+    }
+  }
 
 })(jQuery);
