@@ -2,10 +2,12 @@
 
 
 
-sites=( avenacare clariastarch dolciaprima feedthembetter foodnutritionknowledge industrialstarches proatein purefruit soda_lo sucralose tastevasweetener tateandlylefibres tateandlylejp tateandlyleopeninnovation tateandlyleprocurement tateandlyleventures tatelyle yourbakerysnacksolutions yourfoodsystems )
+sites=( avenacare clariastarch dolciaprima feedthembetter foodnutritionknowledge industrialstarches proatein purefruit soda-lo sucralose tastevasweetener tateandlylecn tateandlylefibres tateandlylejp tateandlyleopeninnovation tateandlyleprocurement tateandlyleventures yourbakerysnacksolutions yourdrinksolutions yourfoodsystems )
+
+env="dev"
 
 for site in "${sites[@]}"
 do
-  domain="$site.test.cloud.tateandlyle.com"
-  aht @tatelyle.test drush8 @tatelyle.test cr -l $domain
+  domain="$site.$env.cloud.tateandlyle.com"
+  aht @tatelyle.$env drush8 @tatelyle.$env cr -l $domain
 done
