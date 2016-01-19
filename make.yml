@@ -45,7 +45,7 @@ projects:
     version: "1.0-rc4"
   entity_reference_revisions:
     type: module
-    version: ~
+    version: "1.0-rc4"
   mollom:
     type: module
     version: "1.1"
