@@ -1,0 +1,30 @@
+<?php
+/**
+ * @file
+ * Code for the T&L Tweaks module.
+ */
+
+use Drupal\Core\Url;
+
+/**
+ * Implements hook_form_alter().
+ */
+function tl_tweaks_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  foreach (entity_get_bundles()['contact_message'] as $key => $contact_message) {
+    $form_id = 'contact_message_' . $key . '_form';
+    if ($contact_message['label'] != 'Personal contact form') {
+      if ($form['#form_id'] == $form_id) {
+        $url = Url::fromUserInput('/');
+        $form['actions']['submit']['#suffix'] = \Drupal::l(t('Cancel'), $url);
+        unset($form['actions']['preview']);
+        if (!empty(theme_get_setting($key, 'generic_microsite'))) {
+          $form['actions']['submit']['#value'] = theme_get_setting($key, 'generic_microsite');
+        }
+      }
+    }
+  }
+
+  if (($form['#form_id'] == 'node_form_edit_form') || ($form['#form_id'] == 'node_form_form')) {
+    unset($form['field_form']['widget']['#options']['personal']);
+  }
+}
