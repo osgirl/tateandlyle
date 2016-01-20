@@ -72,8 +72,6 @@ projects:
   workbench_moderation:
     type: module
     revision: "1.x-dev"
-    patch:
-      - "https://www.drupal.org/files/issues/workbench_moderation-bug-2650388-8.patch"
   metatag:
     type: module
     version: "1.0-beta3"
