@@ -13,7 +13,7 @@ projects:
   # For any project using a dev branch, always specify the revision id.
   acquia_connector:
     type: module
-    revision: "f88c7ca372c96506ba31365d17e97455c072214b"
+    version: "1.0"
   contact_storage:
     type: module
     version: "1.0-beta1"
@@ -45,7 +45,7 @@ projects:
     version: "1.0-rc4"
   entity_reference_revisions:
     type: module
-    version: ~
+    version: "1.0-rc4"
   mollom:
     type: module
     version: "1.1"
