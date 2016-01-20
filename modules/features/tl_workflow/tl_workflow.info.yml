@@ -16,3 +16,6 @@ features:
     - workbench_moderation.moderation_state_transition.published_archived
     - workbench_moderation.moderation_state_transition.published_draft
     - workbench_moderation.moderation_state_transition.published_published
+    - node.type.form
+    - node.type.media_item
+    - node.type.page
