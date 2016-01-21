@@ -186,6 +186,7 @@ function tl_multisite_create_nodes() {
     'field_main_content' => $paragraph,
   ]);
   $node->save();
+  $path = '/node/' . $node->id();
   \Drupal::service('path.alias_storage')->save($path, "/thank you", "en");
 }
 
