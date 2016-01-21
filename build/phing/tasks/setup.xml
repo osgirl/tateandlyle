@@ -34,7 +34,7 @@
 
   <target name="setup:tatelyle" description="Set up custom composer dependencies until automatic generation is fixed.">
     <exec dir="${docroot}" command="composer require league/csv ^7.1" />
-    <exec dir="${docroot}" command="composer update league/csv" />
+    <exec dir="${docroot}" command="composer require solarium/solarium ^3.5" />
   </target>
 
   <target name="setup:composer:init" description="Initializes composer_manager by modifying Drupal core's composer.json.">
