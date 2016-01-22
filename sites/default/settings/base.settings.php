@@ -40,5 +40,5 @@ $is_local_env = !$is_ah_env;
 if ($ah_env) {
   // @see @SearchApiSolrAcquiaBackend.
   // The backend class is grabbing the identifier for constructing the path, so we have no choice, but to override the identifier.
-  $conf['acquia_search.settings']['identifier'] = 'CMQY-94994.' . $_ENV['AH_SITE_ENVIRONMENT'] . '.tatelyle';
+  $config['acquia_search.settings']['identifier'] = 'CMQY-94994.' . $_ENV['AH_SITE_ENVIRONMENT'] . '.tatelyle';
 }
