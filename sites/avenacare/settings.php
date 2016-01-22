@@ -710,6 +710,7 @@ $is_local_env = !$is_ah_env;
  * Acquia Cloud settings.
  */
 if ($is_ah_env && file_exists('/var/www/site-php')) {
+  include "../default/settings/base.settings.php";
   require "/var/www/site-php/{$_ENV['AH_SITE_GROUP']}/avenacare-settings.inc";
 }
 
