@@ -39,6 +39,11 @@ function generic_microsite_preprocess_html(&$variables) {
    else {
     $variables['attributes']['class'][] = 'tl-no-sidebars';
    }
+  $path = \Drupal::service('path.current')->getPath();
+  $path = explode("/", substr($path, 1));
+  if (($path[0] == 'node') && (is_numeric($path[1]))) {
+    $variables['node_id'] = "node-id-" . $path[1];
+  }
 }
 
 /**
