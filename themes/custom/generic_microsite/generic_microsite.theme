@@ -39,6 +39,8 @@ function generic_microsite_preprocess_html(&$variables) {
    else {
     $variables['attributes']['class'][] = 'tl-no-sidebars';
    }
+  $id = \Drupal::routeMatch()->getParameter('node')->id();
+  $variables['node_id'] = "node-id-" . $id;
 }
 
 /**
