@@ -1,0 +1,5 @@
+name: "T&L Dolciaprima Contact Form"
+description: "Provides the Dolciaprima Contact Form"
+core: 8.x
+package: Custom
+type: module

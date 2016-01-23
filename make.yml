@@ -75,3 +75,6 @@ projects:
   metatag:
     type: module
     version: "1.0-beta3"
+  youtube:
+    type: module
+    version: "1.0-beta2"
