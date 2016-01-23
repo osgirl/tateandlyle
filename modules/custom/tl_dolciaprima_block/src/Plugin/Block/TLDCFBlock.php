@@ -21,20 +21,19 @@ class TLDCFBlock extends BlockBase {
    * Provides block content.
    */
   public function build() {
-      $contact_form = \Drupal::entityManager()
-        ->getStorage('contact_form')
-        ->load('marketing');
+    $contact_form = \Drupal::entityManager()
+      ->getStorage('contact_form')
+      ->load('marketing');
 
-      $message = \Drupal::entityManager()
-        ->getStorage('contact_message')
-        ->create(array(
+    $message = \Drupal::entityManager()
+      ->getStorage('contact_message')
+      ->create(array(
         'contact_form' => 'marketing'
       ));
 
-      $form = \Drupal::service('entity.form_builder')->getForm($message);
+    $form = \Drupal::service('entity.form_builder')->getForm($message);
     return array(
       '#markup' => drupal_render($form),
     );
   }
-
 }
