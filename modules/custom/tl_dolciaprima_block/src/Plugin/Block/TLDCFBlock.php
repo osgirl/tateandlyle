@@ -28,7 +28,7 @@ class TLDCFBlock extends BlockBase {
     $message = \Drupal::entityManager()
       ->getStorage('contact_message')
       ->create(array(
-        'contact_form' => 'marketing'
+        'contact_form' => 'marketing',
       ));
 
     $form = \Drupal::service('entity.form_builder')->getForm($message);
@@ -36,4 +36,5 @@ class TLDCFBlock extends BlockBase {
       '#markup' => drupal_render($form),
     );
   }
+
 }
