@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: I5B7fmyC0SPCrzxvPYIx-pNcrTMkAgIpaG7uDbEoRIU
+id: form_analyst
+label: 'Form analyst'
+weight: 6
+is_admin: null
+permissions: {  }

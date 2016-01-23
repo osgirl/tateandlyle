@@ -52,6 +52,7 @@
     db_offline ? 'db-offline',
     site_name,
     theme.settings.navbar_position ? 'navbar-is-' ~ theme.settings.navbar_position,
+	node_id,
   ]
 %}
 <!DOCTYPE html>
@@ -67,7 +68,7 @@
     <js-placeholder token="{{ placeholder_token|raw }}">
     <style media="all">{{ custom_css }}</style>
   </head>
-  <body{{ attributes.addClass(body_classes) }} style="{{ gradient_bg }}">
+  <body{{ attributes.addClass(body_classes) }}>
     <a href="#main-content" class="visually-hidden focusable skip-link">
       {{ 'Skip to main content'|t }}
     </a>

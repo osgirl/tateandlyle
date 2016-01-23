@@ -13,25 +13,31 @@ projects:
   # For any project using a dev branch, always specify the revision id.
   acquia_connector:
     type: module
-    revision: "f88c7ca372c96506ba31365d17e97455c072214b"
+    version: "1.0"
   contact_storage:
     type: module
     version: "1.0-beta1"
   composer_manager:
     type: module
-    version: "1.0-rc1"
+    version: ~
+  config_update:
+    type: module
+    version: ~
   csv_serialization:
     type: module
     version: ~
   google_analytics:
     type: module
     version: "2.0-rc1"
+  features:
+    type: module
+    version: ~
   search_api:
     type: module
-    version: "1.0-alpha10"
+    version: "1.0-alpha11"
   search_api_solr:
     type: module
-    version: "1.0-alpha1"
+    version: "1.0-alpha2"
   security_review:
     version: ~
   paragraphs:
@@ -39,16 +45,13 @@ projects:
     version: "1.0-rc4"
   entity_reference_revisions:
     type: module
-    version: ~
+    version: "1.0-rc4"
   mollom:
     type: module
     version: "1.1"
   field_collection:
     type: module
     version: ~
-  field_formatter_class:
-    type: module
-    version: "1.0-rc2"
   imce:
     type: module
     version: "1.0-beta2"
@@ -68,9 +71,7 @@ projects:
     version: "3.0-beta2"
   workbench_moderation:
     type: module
-    download:
-      url: http://git.drupal.org/project/workbench_moderation.git
-      revision: "8.x-1.x"
+    revision: "1.x-dev"
   metatag:
     type: module
     version: "1.0-beta3"

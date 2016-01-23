@@ -10,7 +10,6 @@ dependencies:
     - node.type.page
   module:
     - entity_reference_revisions
-    - field_formatter_class
     - user
 _core:
   default_config_hash: kKatvwe7-6o7ln-9j1WphNfBMpdWHByUcSUpRE1d0N8
@@ -34,9 +33,6 @@ content:
     settings:
       view_mode: default
       link: ''
-    third_party_settings:
-      field_formatter_class:
-        class: tout
 hidden:
   field_footer_image: true
   langcode: true

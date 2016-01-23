@@ -6,7 +6,7 @@
 
   <!-- This is run when a project is cloned to a new environment. -->
   <target name="setup:build:all" description="Generates all required files for a full build. E.g., removes docroot, builds via `drush make`, restores symlinks, etc."
-      depends="setup:behat, setup:build:make, setup:build:symlinks, setup:composer:update, frontend:build">
+      depends="setup:behat, setup:build:make, setup:build:symlinks, setup:tatelyle, frontend:build">
   </target>
 
   <!-- Delete the docroot directory. Used prior to running Drush make. -->
@@ -30,6 +30,13 @@
       <option name="no-gitinfofile"></option>
     </drush>
 
+  </target>
+
+  <target name="setup:tatelyle" description="Set up custom composer dependencies until automatic generation is fixed.">
+    <exec dir="${docroot}" command="composer require league/csv ^7.1" />
+    <exec dir="${docroot}" command="composer update league/csv" />
+    <exec dir="${docroot}" command="composer require solarium/solarium ^3.5" />
+    <exec dir="${docroot}" command="composer update solarium/solarium" />
   </target>
 
   <target name="setup:composer:init" description="Initializes composer_manager by modifying Drupal core's composer.json.">
@@ -69,6 +76,7 @@
     <delete dir="${docroot}/themes/custom" quiet="true"/>
     <delete dir="${docroot}/profiles" quiet="true"/>
     <exec dir="${repo.root}" command="ln -s ../../modules/custom docroot/modules/custom"/>
+    <exec dir="${repo.root}" command="ln -s ../../modules/features docroot/modules/features"/>
     <exec dir="${repo.root}" command="ln -s ../../themes/custom docroot/themes/custom"/>
     <exec dir="${repo.root}" command="ln -s ../profiles docroot/profiles"/>
 

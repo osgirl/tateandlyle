@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: N-dytVgrgj5FSpwGharhTXOdRcyjeLdy3LYW-AdCpXs
+id: content_approver
+label: 'Content Approver'
+weight: 5
+is_admin: null
+permissions:
+  - 'create content_flow workflow_transition'
+  - 'use needs_review_published transition'
+  - 'use published_draft transition'
+  - 'edit any page content'
+  - 'view all revisions'
+  - 'create content translations'
+  - 'update content translations'
+  - 'translate page node'
+  - 'translate form node'
+  - 'translate media_item node'
+  - 'view own unpublished content'
+

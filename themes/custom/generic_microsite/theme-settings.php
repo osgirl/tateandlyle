@@ -91,4 +91,17 @@ function generic_microsite_form_system_theme_settings_alter(&$form, FormStateInt
     '#default_value' => theme_get_setting('custom_css'),
     '#description' => t('Specify custom CSS.'),
   );
+
+  foreach (entity_get_bundles()['contact_message'] as $key => $contact_message) {
+    if ($contact_message['label'] != 'Personal contact form') {
+      $form['style'][$key] = array(
+        '#type' => 'textfield',
+        '#title' => t("@form form submit button text.", array('@form' => $contact_message['label'])),
+        '#default_value' => empty(theme_get_setting($key)) ? '' : theme_get_setting($key),
+        '#size' => 75,
+        '#maxlength' => 75,
+        '#description' => t('Specify the submit button text for the @form form.', array('@form' => $contact_message['label'])),
+      );
+    }
+  }
 }

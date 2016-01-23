@@ -11,7 +11,10 @@ h1, h2, h3, h4,
 aside .menu.nav a:hover,
 .paragraph--type--tabs .nav-tabs li.active > a:hover,
 .search-block-form:before,
-.language-switcher-language-url:before {
+.language-switcher-language-url:before,
+body:not(.path-frontpage) aside .menu.nav .dropdown-menu a.is-active,
+body:not(.path-frontpage) aside .menu.nav .dropdown-menu a:focus,
+body:not(.path-frontpage) aside .menu.nav .dropdown-menu a:hover   {
   color: @purple;
 }
 .navbar-nav.nav {
@@ -34,4 +37,27 @@ aside .menu.nav a:hover,
 }
 #st-trigger-effects .icon-bar {
   background-color: @purple;
+}
+
+.language-mobile {
+  li {
+  list-style: none;
+    &:before {
+      background-color: @purple;
+      border-color: @purple;
+    }
+  }
+}
+
+.advanced-search {
+  &:before {
+    background-color: @purple;
+    border-color: @purple;
+  }
+}
+
+.st-menu nav .nav li a:focus,
+.st-menu nav .nav li a:hover {
+  background: @purple;
+  color: #FFF;
 }
