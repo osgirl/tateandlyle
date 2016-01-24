@@ -60,7 +60,7 @@ projects:
     version: "3.0-alpha21"
   token:
     type: module
-    version: "1.x-dev"
+    version: "1.0-alpha2"
   pathauto:
     type: module
     download:
