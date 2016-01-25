@@ -4,7 +4,7 @@
  * Install, update & uninstall functions for the Tatelyle installation profile.
  */
 
-namespace Drupal\paragraphs\Entity;
+use Drupal\paragraphs\Entity\Paragraph;
 use Drupal\user\Entity\User;
 use Drupal\user\RoleInterface;
 use Drupal\taxonomy\Entity\Term;

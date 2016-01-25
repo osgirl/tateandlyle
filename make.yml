@@ -34,10 +34,10 @@ projects:
     version: ~
   search_api:
     type: module
-    version: "1.0-alpha10"
+    version: "1.0-alpha11"
   search_api_solr:
     type: module
-    version: "1.0-alpha1"
+    version: "1.0-alpha2"
   security_review:
     version: ~
   paragraphs:
@@ -60,7 +60,7 @@ projects:
     version: "3.0-alpha21"
   token:
     type: module
-    version: "1.x-dev"
+    version: "1.0-alpha2"
   pathauto:
     type: module
     download:
@@ -75,3 +75,6 @@ projects:
   metatag:
     type: module
     version: "1.0-beta3"
+  youtube:
+    type: module
+    version: "1.0-beta2"
