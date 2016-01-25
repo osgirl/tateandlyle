@@ -8,6 +8,7 @@
 use Drupal\bootstrap\Bootstrap;
 use Drupal\file\Entity\File;
 use Drupal\image\Entity\ImageStyle;
+use Drupal\Core\Url; 
 
 function dolciaprima_preprocess_page(&$variables) {
   if($variables['node'] && $variables['node']->getType() == 'page') {
@@ -155,8 +156,24 @@ function dolciaprima_form_contact_message_technical_data_sheets_form_alter(&$for
 }
 
 
-function dolciaprima_preprocess_views_view_unformatted($variables) {
+function dolciaprima_preprocess_views_view_unformatted(&$variables) {
     foreach ($variables['rows'] as $key => $item) {
-
+      $object = $item['content']['#row']->_entity;
+      $video = $object->get('field_youtube_video')->getValue();
+      $file_download = $object->get('field_file')->getValue();
+      if($video[0]) {
+        $video_id = $video[0]['video_id'];
+        $video_url = str_replace("watch?v=", "v/", $video[0]['input']);
+        $video_image = $object->get('field_media_item_image')->getValue();
+        $video_image_id = $video_image[0]['target_id'];  
+        $file = File::load($video_image_id);
+        $variables['video_image_modal'][$video_id] = ImageStyle::load('media_item')->buildUrl($file->getFileUri());
+        $variables['video_url'][$video_id] = $video_url;
+        if($file_download[0]) {
+          $file_donwload_id = $file_download[0]['target_id'];
+          $download = File::load($file_donwload_id);
+          $variables['download_url'][$video_id] = $download->url($rel = canonical, $options = array());
+        }
+      }
     }
 }
