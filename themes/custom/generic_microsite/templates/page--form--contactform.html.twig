@@ -68,9 +68,11 @@
       <div class="st-content-inner">
         {% set container = theme.settings.fluid_container ? 'container-fluid' : 'container' %}
         <header class="{{ container }}" >
-          <section class="header-top">
-            {{ page.header_top }} 
-          </section>
+          {% if page.header_top %}
+            <section class="header-top">
+              {{ page.header_top }} 
+            </section>
+          {% endif %}
           <section class="header-left">
             {{ page.header_left }} 
           </section>
