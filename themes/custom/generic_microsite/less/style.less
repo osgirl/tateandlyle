@@ -26,8 +26,9 @@
 header.container {
   padding: 0;
   position: relative;
+  .valign-parent;
   @media (min-width: @screen-sm) {
-    padding: 0 20px;
+    transform: none;
   }
 }
 
@@ -65,15 +66,16 @@ header.container {
 }
 
 .header-right {
-  bottom: 10px;
-  position: absolute;
-  right: 20px;
+  float: right;
+  margin-right: 20px;
+  .valign-child;
+  transform: translateY(100%);
   @media (min-width: @screen-sm) {
     float: right;
     margin-bottom: 0;
-    margin-right: 0;
     padding-top: 35px;
     position: relative;
+    transform: none;
     width: 166px;
   }
   .search-block-form {
@@ -240,12 +242,10 @@ header.container {
 }
 
 .header-bottom {
-  border-bottom: 1px solid #DDD;
-  position: absolute;
-  top: 11em;
-  width: 100%;
   background: #FFF;
-  z-index: 99;
+  border-bottom: 1px solid #DDD;
+  clear: both;
+  width: 100%;
   ul,
   .form-group {
     margin: 0;
@@ -583,9 +583,6 @@ body,
   float: left;
   font-weight: bold;
   line-height: 11px;
-  @media (max-width: @screen-xs-min) {
-    padding: 0 15px;
-  }
   padding: 0;
   li {
     font-size: 11px;
@@ -622,14 +619,15 @@ body,
 
 .region-breadcrumb {
   display: inline-block;
-  margin-top: 10px;
+  margin-top: 2em;
   width: 100%;
   @media (min-width: @screen-sm-min) {
     margin-top: 0;
   }
 }
 
-#utilitynavigation {
+#utilitynavigation,
+#block-tatelyleutilitynavigation {
   display: none;
   @media (min-width: @screen-sm-min) {
     display: inline-block;
@@ -1015,19 +1013,6 @@ div[role="main"] > .row {
 
 .main-container {
   border-radius: 0 0 35px 0;
-  @media(max-width: @screen-xs-min ) {
-    padding:0;
-    .row {
-      margin: 0;
-    }
-    .col-sm-12, .col-sm-9, aside.col-sm-3{
-      padding: 0;
-    }
-    .middle-content {
-      padding-left: 0;
-      padding-right: 0;
-    }
-  }
 }
 
 .page-header {
@@ -1035,10 +1020,6 @@ div[role="main"] > .row {
   font-size:20px;
   font-weight: bold;
   margin-bottom:10px;
-  @media(max-width: @screen-xs-min) {
-    padding-left:15px;
-    padding-right: 15px;
-  }
 }
 
 /* Text */
@@ -1379,12 +1360,6 @@ div[role="main"] > .row {
   @media(min-width: @screen-xs-min) {
     padding-left:0;
     padding-right: 0;
-  }
-  .field--name-field-title-tab {
-    @media(max-width: @screen-xs-min) {
-      padding-left:0;
-      padding-right: 0;
-    }
   }
   .nav-tabs {
       margin-bottom:0;
