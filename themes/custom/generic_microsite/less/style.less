@@ -45,15 +45,24 @@ header.container {
 
 .header-left {
   float: left;
+  max-width: 65%;
   padding-left: 20px;
+  @media (min-width: @screen-xs) {
+    max-width: none;
+  }
   @media (max-width: @screen-sm) {
     margin: 12px 0;
     padding-top: : 0 !important;
   }
 }
-
 .logo {
   margin: 0;
+  img {
+    width: 100%;
+    @media (min-width: @screen-xs) {
+      width: auto;
+    }
+  }
 }
 
 .navbar-brand{
@@ -69,7 +78,10 @@ header.container {
   float: right;
   margin-right: 20px;
   .valign-child;
-  transform: translateY(100%);
+  transform: translateY(50%);
+  @media (min-width: @screen-xs) {
+    transform: translateY(100%);
+  }
   @media (min-width: @screen-sm) {
     float: right;
     margin-bottom: 0;
@@ -712,11 +724,7 @@ body,
         font-family: Arial,Helvetica,sans-serif;
         font-size: 13px;
         margin-top: 4px;
-        padding: 4px 15px 5px 15px;
-        @media(min-width: @screen-xs-min) {
-          padding-left: 0;
-          padding-right: 0;
-        }
+        padding: 4px 0 5px;
       }
       .tout-text {
         h2 {
@@ -1127,10 +1135,7 @@ div[role="main"] > .row {
 }
 
 .tout-text {
-  padding: 0 15px;
-  @media(min-width: @screen-xs-min) {
-    padding: 0;
-  }
+  padding: 0;
 }
 
 .tout-image {
