@@ -43,7 +43,16 @@ set classes = [
 view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
 ]
 %}
-<div{{ attributes.addClass(classes) }}>
+
+{#  Set the background color of the tout #}
+{% set bg_color = content['field_text']['#object'].field_background_color.value %}
+
+{#  Check if the tout has a background color #}
+{% if bg_color %}
+  <div{{ attributes.addClass(classes) }} style="background-color:{{ bg_color }}">
+{% else %}
+  <div{{ attributes.addClass(classes) }}>
+{% endif %}
     {% set modal_id = content.field_image[0]['#item'].value['target_id'] %}
     {% if is_front %} 
       {% if content.field_image[0] %}
