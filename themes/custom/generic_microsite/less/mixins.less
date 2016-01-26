@@ -1,5 +1,4 @@
-// Custom mixins
-
+// Constrained
 .constrained {
   background-color: #FFF;
   margin: 0 auto;
@@ -8,6 +7,7 @@
   width: 100%;
 }
 
+// Gradient
 .gradient (@startColor: #eee, @endColor: white) {
   background-color: @startColor;
   background: -webkit-gradient(linear, left top, left bottom, from(@startColor), to(@endColor));
@@ -24,4 +24,17 @@
   background-image: -moz-linear-gradient(left, @startColor 0%, @endColor 80%);
   background-image: -ms-linear-gradient(left, @startColor 0%, @endColor 80%);
   background-image: -o-linear-gradient(left, @startColor 0%, @endColor 80%);
+}
+
+// Vertical align
+.valign-parent {
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+.valign-child {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }
