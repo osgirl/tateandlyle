@@ -9,6 +9,10 @@
 
 
 /* General */
+a {
+  color: #7D6A57;
+}
+
 .caret {
   display: none
 }
@@ -45,15 +49,24 @@ header.container {
 
 .header-left {
   float: left;
+  max-width: 65%;
   padding-left: 20px;
+  @media (min-width: @screen-xs) {
+    max-width: none;
+  }
   @media (max-width: @screen-sm) {
     margin: 12px 0;
     padding-top: : 0 !important;
   }
 }
-
 .logo {
   margin: 0;
+  img {
+    width: 100%;
+    @media (min-width: @screen-xs) {
+      width: auto;
+    }
+  }
 }
 
 .navbar-brand{
@@ -69,7 +82,10 @@ header.container {
   float: right;
   margin-right: 20px;
   .valign-child;
-  transform: translateY(100%);
+  transform: translateY(50%);
+  @media (min-width: @screen-xs) {
+    transform: translateY(100%);
+  }
   @media (min-width: @screen-sm) {
     float: right;
     margin-bottom: 0;
@@ -712,11 +728,7 @@ body,
         font-family: Arial,Helvetica,sans-serif;
         font-size: 13px;
         margin-top: 4px;
-        padding: 4px 15px 5px 15px;
-        @media(min-width: @screen-xs-min) {
-          padding-left: 0;
-          padding-right: 0;
-        }
+        padding: 4px 0 5px;
       }
       .tout-text {
         h2 {
@@ -1024,11 +1036,7 @@ div[role="main"] > .row {
 
 /* Text */
 .paragraph--type--text {
-  padding: 0 15px 10px ;
-  @media(min-width: @screen-xs-min) {
-    padding-left : 0;
-    padding-right: 0;
-  }
+  padding-bottom: 10px;
   h2 {
     font-size: 20px;
     font-weight: bold;
@@ -1127,10 +1135,7 @@ div[role="main"] > .row {
 }
 
 .tout-text {
-  padding: 0 15px;
-  @media(min-width: @screen-xs-min) {
-    padding: 0;
-  }
+  padding: 0;
 }
 
 .tout-image {
@@ -1690,9 +1695,6 @@ div[role="main"] > .row {
   header {
     .horizontal-gradient (@startColor: #4DC0AF, @endColor: #FFF);
   }
-  a {
-    color: #7D6A57;
-  }
   .header-left {
     padding-top:10px;
   }
@@ -1701,9 +1703,6 @@ div[role="main"] > .row {
 .purefruit, .tate---lyle-procurement {
  header {
     .horizontal-gradient (@startColor: #D2E0BB, @endColor: #FFF);
-  }
-  a {
-    color: #7D6A57;
   }
   .header-left {
     padding-top: 10px;
@@ -1714,9 +1713,6 @@ div[role="main"] > .row {
 .soda-lo {
   header {
     .horizontal-gradient (@startColor: #DEDBD5, @endColor: #FFF);
-  }
-  a {
-    color: #7D6A57;
   }
   .header-left {
     margin-top: -18px;
@@ -1733,10 +1729,7 @@ div[role="main"] > .row {
   }
 }
 
-.avenacare{
-  a {
-    color: #7D6A57;
-  }
+.avenacare {
   .header-left {
     padding-top: 30px;
   }
@@ -1745,9 +1738,6 @@ div[role="main"] > .row {
 .open-innovation, .global-industrial-starches, .food-and-nutrition-science-centre {
   header {
     .horizontal-gradient (@startColor: #D6D2DE, @endColor: #FFF);
-  }
-  a {
-    color: #7D6A57;
   }
   .header-left {
     padding-top: 55px;
@@ -1781,9 +1771,6 @@ div[role="main"] > .row {
   header {
     .horizontal-gradient (@startColor: #DEDBD6, @endColor: #FFF);
   }
-  a {
-    color: #7D6A57;
-  }
   .navbar-brand {
     color: #9C6D2F;
   }
@@ -1796,9 +1783,6 @@ div[role="main"] > .row {
 }
 
 .feed-them-better{
-  a {
-    color: #7D6A57;
-  }
   .header-left {
     padding-top: 22px;
     .navbar-brand {
