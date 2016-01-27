@@ -4,6 +4,7 @@ global-styling:
   css:
     theme:
       css/style.css: {}
+      css/print.css: { media: print }
 
 global-styling1:
   version: VERSION
