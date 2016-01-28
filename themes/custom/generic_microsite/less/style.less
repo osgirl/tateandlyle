@@ -566,9 +566,6 @@ body,
 .navbar-default.container {
   border: 0;
   border-radius: 0;
-  @media screen\0 { /* IE 8+ styling only */
-    margin-bottom: -1px;
-  }
   .constrained;
   padding: 0;
   .region-navigation {
@@ -2066,7 +2063,10 @@ body {
 
   &.tl-no-sidebars.path-frontpage .field--name-field-touts>div {
     background-color: transparent;
-    background-image: url('../images/high_contrast/cp-bg-hc.gif');
+    &:after {
+      background-image: url('../images/high_contrast/cp-bg-hc.gif');
+      right: -17px;
+    }
   }
 
   &.tl-no-sidebars.path-frontpage .field--name-field-touts>div:last-child {
@@ -2098,7 +2098,8 @@ body {
     background-image: url('../images/high_contrast/cp-bg-hc.gif');
   }
 
-  .paragraph--type--tout li {
+  .paragraph--type--tout li,
+  .paragraph--type--text ul li {
     background-image: url('../images/high_contrast/bullet-link-hc.gif');
   }
 
