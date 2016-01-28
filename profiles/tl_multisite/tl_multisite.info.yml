@@ -53,6 +53,9 @@ dependencies:
   - token
   - pathauto
   - composer_manager
+  - rest
+  - serialization
+  - csv_serialization
   # - acquia_search
 themes:
   - generic_microsite
