@@ -65,9 +65,7 @@ projects:
     version: "1.0-alpha2"
   pathauto:
     type: module
-    download:
-      url: https://github.com/md-systems/pathauto.git
-      revision: "8.x-1.x"
+    version: "1.0-alpha1"
   bootstrap:
     type: theme
     version: "3.0-beta2"
