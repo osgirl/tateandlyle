@@ -45,7 +45,7 @@
     list-style: none;
 }
 
-#utilitynavigation ul li.print a, ul.utility-navigation li.print a {
+body #utilitynavigation ul li.print a, ul.utility-navigation li.print a {
     background: rgba(0, 0, 0, 0) url("../images/icon-print.gif") no-repeat scroll 0 0;
     height: 15px;
     width: 14px;
@@ -55,7 +55,7 @@
     background: rgba(0, 0, 0, 0) url("../images/icon-print-hc.gif") no-repeat scroll 0 0;
 }
 
-#utilitynavigation ul li.email a, ul.utility-navigation li.email a {
+body #utilitynavigation ul li.email a, ul.utility-navigation li.email a {
     background: rgba(0, 0, 0, 0) url("../images/icon-email.gif") no-repeat scroll 0 0;
     height: 15px;
     width: 11px;
@@ -65,7 +65,7 @@
     background: rgba(0, 0, 0, 0) url("../images/icon-email-hc.gif") no-repeat scroll 0 0;
 }
 
-#utilitynavigation ul li.contrast a, ul.utility-navigation li.contrast a:hover {
+body #utilitynavigation ul li.contrast a, ul.utility-navigation li.contrast a:hover {
     color: #7d6a57 !important;
 }
 
@@ -73,7 +73,7 @@
     color: #00FFFF !important;
 }
 
-#utilitynavigation ul li.large-text a, ul.utility-navigation li.large-text a {
+body #utilitynavigation ul li.large-text a, ul.utility-navigation li.large-text a {
     background: rgba(0, 0, 0, 0) url("../images/icon-large-text.gif") no-repeat scroll 0 0;
     height: 15px;
     width: 9px;
@@ -83,7 +83,7 @@
     background: rgba(0, 0, 0, 0) url("../images/icon-large-text-hc.gif") no-repeat scroll 0 0;
 }
 
-#utilitynavigation ul li.medium-text a, ul.utility-navigation li.medium-text a {
+body #utilitynavigation ul li.medium-text a, ul.utility-navigation li.medium-text a {
     background: rgba(0, 0, 0, 0) url("../images/icon-medium-text.gif") no-repeat scroll 0 0;
     height: 15px;
     width: 7px;
@@ -93,7 +93,7 @@
     background: rgba(0, 0, 0, 0) url("../images/icon-medium-text-hc.gif") no-repeat scroll 0 0;
 }
 
-#utilitynavigation ul li.small-text a, ul.utility-navigation li.small-text a {
+body #utilitynavigation ul li.small-text a, ul.utility-navigation li.small-text a {
     background: rgba(0, 0, 0, 0) url("../images/icon-small-text.gif") no-repeat scroll 0 0;
     height: 15px;
     width: 7px;
