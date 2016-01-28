@@ -1,26 +1,43 @@
-ul.utility-navigation li.print {
+#utilitynavigation {
+    display: inline-block;
+    float: right;
+    padding: 0;
+}
+
+#utilitynavigation ul {
+    display: inline-block;
+    float: right;
+    margin-left: 20px;
+    width: auto;
+    padding-left: 0;
+}
+
+#utilitynavigation ul li.print, ul.utility-navigation li.print {
     padding: 0 0 0 2px;
 }
 
-ul.utility-navigation li.email {
+#utilitynavigation ul li.email, ul.utility-navigation li.email {
     padding: 0 1px 0 5px;
 }
 
-ul.utility-navigation li.contrast {
+#utilitynavigation ul li.contrast, ul.utility-navigation li.contrast {
     border-left: 1px solid #7d6a57;
     border-right: 1px solid #7d6a57;
     margin: 0 0 0 3px;
     padding: 0 3px;
 }
 
-ul.utility-navigation li.contrast a {
+.contrast #utilitynavigation ul li.contrast, ul.utility-navigation li.contrast {
+    border-color: #00FFFF;
+}
+
+#utilitynavigation ul li.contrast a, ul.utility-navigation li.contrast a {
     font-size: 1em;
     font-weight: normal;
     text-indent: 0;
-    color: #7d6a57;
 }
 
-ul.utility-navigation li {
+#utilitynavigation ul li, ul.utility-navigation li {
     background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
     float: right;
     padding: 2px 1px;
@@ -28,47 +45,70 @@ ul.utility-navigation li {
     list-style: none;
 }
 
-ul.utility-navigation li.print a {
+#utilitynavigation ul li.print a, ul.utility-navigation li.print a {
     background: rgba(0, 0, 0, 0) url("../images/icon-print.gif") no-repeat scroll 0 0;
     height: 15px;
     width: 14px;
 }
 
-ul.utility-navigation li.email a {
+.contrast #utilitynavigation ul li.print a, ul.utility-navigation li.print a {
+    background: rgba(0, 0, 0, 0) url("../images/icon-print-hc.gif") no-repeat scroll 0 0;
+}
+
+#utilitynavigation ul li.email a, ul.utility-navigation li.email a {
     background: rgba(0, 0, 0, 0) url("../images/icon-email.gif") no-repeat scroll 0 0;
     height: 15px;
     width: 11px;
 }
 
-ul.utility-navigation li.contrast a:hover {
-    color: #7d6a57 !important;
-    text-decoration: none;
+.contrast #utilitynavigation ul li.email a, ul.utility-navigation li.email a {
+    background: rgba(0, 0, 0, 0) url("../images/icon-email-hc.gif") no-repeat scroll 0 0;
 }
 
-ul.utility-navigation li.large-text a {
+#utilitynavigation ul li.contrast a, ul.utility-navigation li.contrast a:hover {
+    color: #7d6a57 !important;
+}
+
+.contrast #utilitynavigation ul li.contrast a, ul.utility-navigation li.contrast a:hover {
+    color: #00FFFF !important;
+}
+
+#utilitynavigation ul li.large-text a, ul.utility-navigation li.large-text a {
     background: rgba(0, 0, 0, 0) url("../images/icon-large-text.gif") no-repeat scroll 0 0;
     height: 15px;
     width: 9px;
 }
 
-ul.utility-navigation li.medium-text a {
+.contrast #utilitynavigation ul li.large-text a, ul.utility-navigation li.large-text a {
+    background: rgba(0, 0, 0, 0) url("../images/icon-large-text-hc.gif") no-repeat scroll 0 0;
+}
+
+#utilitynavigation ul li.medium-text a, ul.utility-navigation li.medium-text a {
     background: rgba(0, 0, 0, 0) url("../images/icon-medium-text.gif") no-repeat scroll 0 0;
     height: 15px;
     width: 7px;
 }
 
-ul.utility-navigation li.small-text a {
+.contrast #utilitynavigation ul li.medium-text a, ul.utility-navigation li.medium-text a {
+    background: rgba(0, 0, 0, 0) url("../images/icon-medium-text-hc.gif") no-repeat scroll 0 0;
+}
+
+#utilitynavigation ul li.small-text a, ul.utility-navigation li.small-text a {
     background: rgba(0, 0, 0, 0) url("../images/icon-small-text.gif") no-repeat scroll 0 0;
     height: 15px;
     width: 7px;
 }
 
-ul.utility-navigation li.last span.text {
+.contrast #utilitynavigation ul li.small-text a, ul.utility-navigation li.small-text a {
+    background: rgba(0, 0, 0, 0) url("../images/icon-small-text-hc.gif") no-repeat scroll 0 0;
+}
+
+#utilitynavigation ul li a, #utilitynavigation ul li.last span.text, ul.utility-navigation li.last span.text {
     color: #7d6a57;
     float: left;
 }
 
-ul.utility-navigation li a {
+#utilitynavigation ul li a, ul.utility-navigation li a {
     display: block;
     overflow: hidden;
     text-indent: -999em;

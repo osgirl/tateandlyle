@@ -72,6 +72,7 @@
     }
   };
 
+  // Disable dropdown toggle.
   Drupal.behaviors.disableDropdowntoggle = {
     attach: function (context, settings) {
       $('a.dropdown-toggle').addClass('disabled');

@@ -1,0 +1,8 @@
+name: Youtube CKEditor 
+type: module
+description: Inserts a youtube video.
+core: 8.x
+package: CKEditor
+version: 8.x-1.x
+dependencies:
+  - ckeditor
