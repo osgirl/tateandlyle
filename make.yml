@@ -48,6 +48,9 @@ projects:
   entity_reference_revisions:
     type: module
     version: "1.0-rc4"
+    patch:
+      - "https://www.drupal.org/files/issues/fix_target_revision_id_property.patch"
+      - "https://www.drupal.org/files/issues/incorrect_documentation-2658178-2.patch"
   mollom:
     type: module
     version: "1.1"
