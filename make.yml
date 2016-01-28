@@ -80,3 +80,6 @@ projects:
   youtube:
     type: module
     version: "1.0-beta2"
+  sharethis:
+    type: module
+    version: "2.0-beta1"
