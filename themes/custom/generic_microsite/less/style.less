@@ -566,9 +566,6 @@ body,
 .navbar-default.container {
   border: 0;
   border-radius: 0;
-  @media screen\0 { /* IE 8+ styling only */
-    margin-bottom: -1px;
-  }
   .constrained;
   padding: 0;
   .region-navigation {
@@ -1073,12 +1070,11 @@ body {
 aside {
   .tout-image{
     max-width: 210px;
-    width: 210px;
     position:relative;
     @media (min-width: @screen-sm-min) {
       float:none;
-      max-width: initial;
-      width: auto;
+      max-width: none;
+      width: 100%;
       margin-right: initial;
     }
     padding-bottom: 10px;
@@ -1395,6 +1391,11 @@ body {
 /* Modal */
 .modal-backdrop {
   position: initial;
+  z-index: 0;
+}
+.modal-backdrop.in,
+.modal-backdrop.fade {
+  opacity: 0;
 }
 .modal {
   background-color: rgba(0,0,0,0.7);
@@ -1885,9 +1886,13 @@ body {
 }
 
 .footer-image {
+  display: none;
   margin-left: -20px;
   max-width: 600px;
   width: 100%;
+  @media (min-width: @screen-xs) {
+    display: block;
+  }
 }
 
 /* Custom sites */
@@ -2066,7 +2071,10 @@ body {
 
   &.tl-no-sidebars.path-frontpage .field--name-field-touts>div {
     background-color: transparent;
-    background-image: url('../images/high_contrast/cp-bg-hc.gif');
+    &:after {
+      background-image: url('../images/high_contrast/cp-bg-hc.gif');
+      right: -17px;
+    }
   }
 
   &.tl-no-sidebars.path-frontpage .field--name-field-touts>div:last-child {
@@ -2098,7 +2106,8 @@ body {
     background-image: url('../images/high_contrast/cp-bg-hc.gif');
   }
 
-  .paragraph--type--tout li {
+  .paragraph--type--tout li,
+  .paragraph--type--text ul li {
     background-image: url('../images/high_contrast/bullet-link-hc.gif');
   }
 
