@@ -1005,7 +1005,7 @@ header {
     display: none;
     @media(min-width: @screen-sm-min){
       display:inline-block;
-      padding-bottom: 10px;
+      padding: 0 15px 10px;
     }
   }
   .nav {
@@ -1017,6 +1017,7 @@ header {
         font-weight: bold;
         padding: 0;
         text-transform: capitalize;
+        text-align: left;
         &:hover,
         &:focus {
           background: transparent;
@@ -2244,3 +2245,44 @@ button[type="submit"] {
     }
   }
 }
+
+/*Share this*/
+ #block-sharethis {
+  display: inline-block;
+  vertical-align: top;
+  padding: 5px 10px 15px;
+  .block-title {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #40184b;
+    vertical-align: text-bottom;
+    padding: 0 0 0.4em;
+  }
+  .st_facebook_large .stLarge {
+    width: 23px;
+    height: 23px;
+    background-image: url('../images/icons-social-sprite@2x.png') !important;
+    background-size: 87px 23px !important;
+    background-repeat: no-repeat !important;
+    background-position: 0 0!important;
+  }
+  .st_twitter_large .stLarge {
+    width: 23px;
+    height: 23px;
+    background-image: url('../images/icons-social-sprite@2x.png') !important;
+    background-size: 87px 23px !important;
+    background-repeat: no-repeat !important;
+    background-position: -32px 0!important;
+  }
+    .st_linkedin_large .stLarge {
+    width: 23px;
+    height: 23px;
+    background-image: url('../images/icons-social-sprite@2x.png') !important;
+    background-size: 87px 23px !important;
+    background-repeat: no-repeat !important;
+    background-position: -65px 0!important;
+  }
+ }
