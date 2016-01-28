@@ -1070,12 +1070,11 @@ body {
 aside {
   .tout-image{
     max-width: 210px;
-    width: 210px;
     position:relative;
     @media (min-width: @screen-sm-min) {
       float:none;
-      max-width: initial;
-      width: auto;
+      max-width: none;
+      width: 100%;
       margin-right: initial;
     }
     padding-bottom: 10px;
@@ -1392,6 +1391,11 @@ body {
 /* Modal */
 .modal-backdrop {
   position: initial;
+  z-index: 0;
+}
+.modal-backdrop.in,
+.modal-backdrop.fade {
+  opacity: 0;
 }
 .modal {
   background-color: rgba(0,0,0,0.7);
@@ -1882,9 +1886,13 @@ body {
 }
 
 .footer-image {
+  display: none;
   margin-left: -20px;
   max-width: 600px;
   width: 100%;
+  @media (min-width: @screen-xs) {
+    display: block;
+  }
 }
 
 /* Custom sites */
