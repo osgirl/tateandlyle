@@ -50,6 +50,8 @@ dependencies:
   - tl_block
   - tl_block_utility
   - imce
+  - text
+  - youtube
   - token
   - pathauto
   - composer_manager
