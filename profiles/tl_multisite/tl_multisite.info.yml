@@ -50,10 +50,15 @@ dependencies:
   - tl_block
   - tl_block_utility
   - imce
+  - text
+  - youtube
   - token
   - pathauto
   - composer_manager
-  # - acquia_search
+  - rest
+  - serialization
+  - csv_serialization
+ # - acquia_search
 themes:
   - generic_microsite
   - seven

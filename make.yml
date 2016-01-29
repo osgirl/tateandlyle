@@ -48,6 +48,9 @@ projects:
   entity_reference_revisions:
     type: module
     version: "1.0-rc4"
+    patch:
+      - "https://www.drupal.org/files/issues/fix_target_revision_id_property.patch"
+      - "https://www.drupal.org/files/issues/incorrect_documentation-2658178-2.patch"
   mollom:
     type: module
     version: "1.1"
@@ -65,9 +68,7 @@ projects:
     version: "1.0-alpha2"
   pathauto:
     type: module
-    download:
-      url: https://github.com/md-systems/pathauto.git
-      revision: "8.x-1.x"
+    version: "1.0-alpha1"
   bootstrap:
     type: theme
     version: "3.0-beta2"
@@ -80,3 +81,10 @@ projects:
   youtube:
     type: module
     version: "1.0-beta2"
+  sharethis:
+    type: module
+    version: "2.0-beta1"
+  simplesamlphp_auth:
+    type: module
+    version: "3.0-alpha3"
+    
