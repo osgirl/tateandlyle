@@ -159,7 +159,7 @@ function generic_microsite_theme_suggestions_page_alter(array &$suggestions, arr
 function generic_microsite_preprocess_page(&$variables) {
   if (isset($variables['node'])) {
     $node_type = $variables['node']->get('type')->getValue();
-    if ($node_type[0]['target_id'] == 'page') {
+    if (($node_type[0]['target_id'] == 'page') && ($node_type[0]['target_id'] == 'form')) {
       $footer_image = $variables['node']->get('field_footer_image')->getValue();
       if (isset($footer_image[0])) {
         $file_id = $footer_image[0]['target_id'];
