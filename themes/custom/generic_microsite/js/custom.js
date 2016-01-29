@@ -9,7 +9,7 @@
       var search_contents = $('.search-block-form').contents();
 
       // Page load on mobile.
-      if ($(window).outerWidth() <= 767) {
+      if ($(window).outerWidth() <= 750) {
         // Place Search mobile section in the Header Bottom section.
         search_contents.insertAfter('.header-right');
         search_contents.wrapAll('<section class="header-bottom"></section>');
@@ -24,7 +24,7 @@
       $(window).resize(function() {
         var language_contents_mobile = $('.language-mobile').contents();
         var search_contents_mobile = $('.search-mobile').contents();
-        if ($(window).outerWidth() <= 767) {
+        if ($(window).outerWidth() <= 750) {
           // Place Search mobile section in the Header Bottom section.
           if (search_contents.parent().hasClass('search-block-form')) {
             search_contents.insertAfter('.header-right');
@@ -50,7 +50,7 @@
       search_icon.click(function() {
         var language_mobile = $('.language-mobile');
         var search_mobile = $('.search-mobile');
-        if ($(window).outerWidth() <= 767) {
+        if ($(window).outerWidth() <= 750) {
           language_icon.removeClass('active');
           $(this).toggleClass('active');
           language_mobile.hide();
@@ -62,7 +62,7 @@
       language_icon.click(function() {
         var language_mobile = $('.language-mobile');
         var search_mobile = $('.search-mobile');
-        if ($(window).outerWidth() <= 767) {
+        if ($(window).outerWidth() <= 750) {
           search_icon.removeClass('active');
           $(this).toggleClass('active');
           search_mobile.hide();
