@@ -5,3 +5,122 @@
  *
  * Place your custom PHP code in this file.
  */
+
+use Drupal\bootstrap\Bootstrap;
+use Drupal\file\Entity\File;
+use Drupal\image\Entity\ImageStyle;
+
+function tateandlylefibres_preprocess_page(&$variables) {
+  if ($variables['node'] && $variables['node']->getType() == 'page') {
+    // Header backgroud image
+    $background_image = $variables['node']->get('field_background_image')->getValue();
+    if ($background_image[0]) {
+      $background_image_id = $background_image[0]['target_id'];
+      $file = File::load($background_image_id);
+      $variables['background_image'] = 'background-image:url("'.ImageStyle::load('original')->buildUrl($file->getFileUri()).'")';
+    }
+
+    // Subtitle
+    $subtitle = $variables['node']->get('field_subtitle')->getValue();
+    $variables['subtitle'] = $subtitle[0]['value'];
+
+    // Title image
+    $title_image = $variables['node']->get('field_title_image')->getValue();
+    if ($title_image[0]) {
+      $title_image_id = $title_image[0]['target_id'];
+      $title_image_alt = $title_image[0]['alt'];
+      $file_title_image = $file = File::load($title_image_id);
+      $variables['title_image'] = ImageStyle::load('original')->buildUrl($file_title_image->getFileUri());
+      $variables['title_image_alt'] = $title_image_alt;
+    }
+  }
+   // Title class
+  if($variables['node']) {
+    $node_fields = $variables['node']->toArray();
+    $node_title = $node_fields['title'][0]['value'];
+    $node_title = preg_replace('/[^A-Za-z0-9\-]/', ' ', $node_title);
+    $variables['title_name'] = strtolower(str_replace(" ", "-", $node_title));
+  }
+  if ($variables['node'] && $variables['node']->getType() == 'form') { 
+    $variables['is_form'] = 'is-form';
+    $subtitle = $variables['node']->get('field_subtitle')->getValue();
+    $variables['subtitle'] = $subtitle[0]['value'];
+  }
+}
+
+function tateandlylefibres_preprocess_field(&$variables) {
+  if ($variables['field_name'] == 'field_touts') { 
+    foreach ($variables['items'] as $key => $item) {
+      $paragraph = $item['content']['#paragraph']->toArray();
+      $paragraph_id = $paragraph['id'][0]['value'];  
+      if(isset($paragraph['field_tout_background_image'][0])) {
+        $field_image_id = $paragraph['field_tout_background_image'][0]['target_id'];
+        $file = File::load($field_image_id);
+        $variables['background_image_tout'][$field_image_id] = 'background-image:url("'.ImageStyle::load('original')->buildUrl($file->getFileUri()).'")';
+      }
+    }
+  }
+  if($variables['field_name'] == 'field_video_text') {
+    $video = $variables['element']['#object']->get('field_video_url')->getValue();
+    $video_url = str_replace("watch?v=", "v/", $video[0]['input']);
+    $video_id = $video[0]['video_id'];
+    $variables['items'][0]['content']['#text'] = $variables['items'][0]['content']['#text'].'<a class="video-button" data-toggle="modal" data-target="#'.$video_id.'" data-theVideo="'.$video_url.'"></a>';
+  }
+  if($variables['field_name'] == 'field_block_color') {
+    $variables['items'][0]['content']['#markup'] = '';
+  }
+  if($variables['field_name'] == 'field_title' && $variables['element']['#object']->getType() == 'accordion') { 
+    if($variables['items'][0]) {
+       $accordion_name = preg_replace('/[^A-Za-z0-9\-]/', ' ', $variables['items'][0]['content']['#context']['value']);
+       $accordion_id = strtolower(str_replace(" ", "-",$accordion_name));
+      $variables['attributes']['id'][] = $accordion_id;
+    }
+  }
+
+  // Render contact form
+    if ($variables['field_name'] == 'field_form') {
+    $id = $variables['items'][0]['content']['#plain_text'];
+    $contact_form = \Drupal::entityManager()
+      ->getStorage('contact_form')
+      ->load($id);
+
+    $message = \Drupal::entityManager()
+      ->getStorage('contact_message')
+      ->create(array(
+        'contact_form' => $id
+      ));
+
+    $form = \Drupal::service('entity.form_builder')->getForm($message);
+    
+    unset($variables['items'][0]['content']['#plain_text']);
+    $variables['items'][0]['content']['#suffix'] = drupal_render($form);
+  }
+}
+
+function tateandlylefibres_preprocess_paragraph(&$variables) {
+  if ($variables['paragraph']->getType() == 'video') {
+    $video = $variables['paragraph']->get('field_video_url')->getValue();
+    if($video[0]) {
+      $video_url = str_replace("watch?v=", "v/", $video[0]['input']);
+      $variables['video_url'] = $video_url;
+    }  
+  }
+}
+
+function tateandlylefibres_preprocess_menu(&$variables) {
+  if($variables['menu_name'] == 'main') {
+    foreach ($variables['items'] as $key => $item) {
+      if ($item['in_active_trail'] == TRUE) {
+        $additional_class = '';
+        foreach ($item['below'] as $key => $sub_item) {
+          if ($sub_item['in_active_trail'] == TRUE) {
+            $sub_item['attributes']->addClass('active');
+            $additional_class = ' has-child-active';
+          }
+        }
+        $classes = 'active'.$additional_class;
+        $item['attributes']->addClass($classes);
+      }
+    }
+  }
+}
