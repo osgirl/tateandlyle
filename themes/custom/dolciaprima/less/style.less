@@ -2302,17 +2302,23 @@ button[type="submit"] {
 }
 
 #back-to-top {
-  background: url('../images/back-to-top.png') no-repeat center center;
-  color: @purple;
-  cursor: pointer;
-  display: block;
-  font-size: 11px;
-  margin-bottom: 1em;
-  padding-top: 90px;
-  text-align: center;
-  text-decoration: none;
-  text-transform: lowercase;
-  @media(min-width: @screen-sm) {
-    display: none;
+  
+  a {
+    color: @purple;
+    text-decoration: none;
+    background: url('../images/back-to-top.png') no-repeat center center;
+    color: @purple;
+    cursor: pointer;
+    display: block;
+    font-size: 11px;
+    margin: 0 auto 2em;
+    padding-top: 90px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: lowercase;
+    width: 6em;
+    @media(min-width: @screen-sm) {
+      display: none;
+    }
   }
 }
