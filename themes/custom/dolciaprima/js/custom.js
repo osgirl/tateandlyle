@@ -193,7 +193,7 @@
     }
   }
 
-  Drupal.behaviors.SmoothScrolling = {
+  Drupal.behaviors.BacktoTop = {
     attach: function (context, settings) {
       // Smooth scrolling on click menu items
       $('#back-to-top').on('click', function(e) {
