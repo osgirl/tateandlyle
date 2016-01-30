@@ -61,6 +61,7 @@ view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
           {% if content.field_popup['#entity_type'] is defined %} 
             <span class="open-modal" data-toggle="modal" data-target="#modal-{{modal_id}}"></span>
           {% endif %}
+          {{ content.field_image_text }}
         </div>
       {% endif %}
     {{ content.field_title }}
@@ -72,6 +73,7 @@ view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
           {% if content.field_popup['#entity_type'] is defined %} 
             <span class="open-modal" data-toggle="modal" data-target="#modal-{{modal_id}}"></span>
           {% endif %}
+          {{ content.field_image_text }}
         </div>
       {% endif %}
     {% endif %}
