@@ -1068,8 +1068,14 @@ body {
 }
 
 aside {
+  .field--name-field-tout {
+    img {
+      padding-bottom: 10px;
+    } 
+  }
   .tout-image{
     max-width: 210px;
+    padding-bottom: 0;
     position:relative;
     @media (min-width: @screen-sm-min) {
       float:none;
@@ -1251,8 +1257,8 @@ body {
   max-width: 100%;
   @media(min-width: @screen-sm-min) {
     img {
-      height: auto;
-      width: 100%;
+      height: auto !important;
+      width: 100% !important;
     }
   }
   ul {
@@ -1336,8 +1342,16 @@ body {
   @media (min-width: @screen-xs-min) {
     float:left;
     margin-right:30px;
-    padding-bottom:20px; 
-  } 
+    padding-bottom:2.5em; 
+  }
+  .field--name-field-image-text {
+    background: #e8eaeb;
+    padding: 8px 10px 8px 10px;
+    p {
+      font-size: 10px;
+      margin: 0;
+    }
+  }
 }
 
 /* Slideshow */
