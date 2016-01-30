@@ -131,14 +131,14 @@ img {
   background: #a448c6;
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  height: 550px;
+  min-height: 550px;
   position: absolute;
   top: 0;
   width: 100%;
   overflow: hidden;
   @media (min-width: @screen-xs-min) {
     background-image: url('../images/bg-form-area.jpg');
-    height: 460px;
+    min-height: 460px;
   }
   .region-pre-header {
     margin: 0 auto;
@@ -146,7 +146,7 @@ img {
     @media (min-width: @screen-xs-min) {
       background: transparent url('../images/bg-form-fields.png') no-repeat center center;
       background-size: contain;
-      height: 460px;
+      min-height: 460px;
       max-width: 48em;
       margin: 0 auto;
       margin-top: -6px;
@@ -294,21 +294,6 @@ img {
 /* Contact reveal */
 .st-content {
   background: #FFF;
-  -webkit-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
-}
-
-.show-contact {
-  .st-content {
-    -webkit-transform: translate3d(0, 550px, 0);
-    transform: translate3d(0, 550px, 0);
-    @media (min-width: @screen-xs-min) {
-      -webkit-transform: translate3d(0, 460px, 0);
-      transform: translate3d(0, 460px, 0);
-    }
-  }
 }
 
 /* Chosen */
@@ -521,6 +506,14 @@ body,
 .st-content,
 .st-content-inner {
   position: relative;
+}
+
+.st-content {
+  background: #D3D3D3;
+}
+
+.st-content-inner {
+  background: #FFF;
 }
 
 .st-container {
@@ -2247,7 +2240,7 @@ button[type="submit"] {
 }
 
 /*Share this*/
- #block-sharethis {
+#block-sharethis {
   display: inline-block;
   vertical-align: top;
   padding: 5px 10px 15px;
@@ -2277,7 +2270,7 @@ button[type="submit"] {
     background-repeat: no-repeat !important;
     background-position: -32px 0!important;
   }
-    .st_linkedin_large .stLarge {
+  .st_linkedin_large .stLarge {
     width: 23px;
     height: 23px;
     background-image: url('../images/icons-social-sprite@2x.png') !important;
@@ -2285,4 +2278,20 @@ button[type="submit"] {
     background-repeat: no-repeat !important;
     background-position: -65px 0!important;
   }
- }
+}
+
+#back-to-top {
+  background: url('../images/back-to-top.png') no-repeat center center;
+  color: @purple;
+  cursor: pointer;
+  display: block;
+  font-size: 11px;
+  margin-bottom: 1em;
+  padding-top: 90px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: lowercase;
+  @media(min-width: @screen-sm) {
+    display: none;
+  }
+}
