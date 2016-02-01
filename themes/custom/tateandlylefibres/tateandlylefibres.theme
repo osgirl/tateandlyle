@@ -102,6 +102,8 @@ function tateandlylefibres_preprocess_paragraph(&$variables) {
     $video = $variables['paragraph']->get('field_video_url')->getValue();
     if($video[0]) {
       $video_url = str_replace("watch?v=", "v/", $video[0]['input']);
+      $video_id = $video[0]['video_id'];
+      $video_url = "http://youtube.com/embed/" . $video_id;
       $variables['video_url'] = $video_url;
     }  
   }
@@ -123,4 +125,18 @@ function tateandlylefibres_preprocess_menu(&$variables) {
       }
     }
   }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter.
+ */
+function tateandlylefibres_form_contact_message_marketing_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  // Add required text to message field.
+  $form['field_first_name']['#prefix'] = '<div class="required-field"><span class="form-required">*</span>' . ' ' . '<p>' . t('Required field') . '</p></div>';
+
+  // Change Submit value
+  $form['actions']['submit']['#value'] = t('Send now');
+
+  // Disable preview button
+  unset($form['actions']['preview']);
 }
