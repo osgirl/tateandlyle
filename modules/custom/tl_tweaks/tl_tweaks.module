@@ -20,6 +20,11 @@ function tl_tweaks_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form
         if (!empty(theme_get_setting($key, 'generic_microsite'))) {
           $form['actions']['submit']['#value'] = theme_get_setting($key, 'generic_microsite');
         }
+        if (isset($_GET['sub'])) {
+          if (isset($form['field_message'])) {
+            $form['field_message']['widget']['0']['value']['#default_value'] = $_GET['sub'];
+          }
+        }
       }
     }
   }
