@@ -7,8 +7,8 @@
     attach: function (context, settings) {
       $('.field--name-field-text img').unwrap();
       
-      $('.field--name-field-video-text a.video-button').unwrap();  
-      $('a.video-button').insertAfter('.field--name-field-video-text h2');
+ /*     $('.field--name-field-video-text a.video-button').unwrap();  
+      $('a.video-button').insertAfter('.field--name-field-video-text h2');*/
 
       $(".products .tout-container").click(function() {
         window.location = $(this).find("a").attr("href"); 
@@ -41,6 +41,7 @@
     attach: function (context, settings) {
       var trigger = $("body").find('[data-toggle="modal"]');
       trigger.click(function () {
+        console.log('play video')
         var theModal = $(this).data("target"),
         videoSRC = $(this).attr("data-theVideo"),
         videoSRCauto = videoSRC + "?autoplay=1";
@@ -75,9 +76,22 @@
     }
   }
 
+  Drupal.behaviors.BacktoTop = {
+    attach: function (context, settings) {
+      // Smooth scrolling on click menu items
+      $('#back-to-top').on('click', function(e) {
+        e.preventDefault();
+        $('html,body').animate({
+          scrollTop: 0
+        }, 600);
+      });
+    }
+  };
+ 
+
   Drupal.behaviors.chosen = {
     attach: function (context, settings) {
-      $('.field--name-field-primary-application select').chosen({
+      $('.field--name-field-primary-application select, .field--name-field-interests select').chosen({
         placeholder_text_multiple: "(Select up to 3)",
         max_selected_options: 3,
       });
