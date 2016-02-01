@@ -57,10 +57,11 @@ view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
     {% if is_front %} 
       {% if content.field_image[0] %}
         <div class="tout-image">
-          {{ content.field_image }}
+          <a title="{{ image_link }}" href= "{{ image_link }}">{{ content.field_image }}</a>
           {% if content.field_popup['#entity_type'] is defined %} 
             <span class="open-modal" data-toggle="modal" data-target="#modal-{{modal_id}}"></span>
           {% endif %}
+          {{ content.field_image_text }}
         </div>
       {% endif %}
     {{ content.field_title }}
@@ -68,10 +69,11 @@ view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
       {{ content.field_title }}
       {% if content.field_image[0] %}
         <div class="tout-image">
-          {{ content.field_image }}
+          <a title="{{ image_link }}" href= "{{ image_link }}">{{ content.field_image }}</a>
           {% if content.field_popup['#entity_type'] is defined %} 
             <span class="open-modal" data-toggle="modal" data-target="#modal-{{modal_id}}"></span>
           {% endif %}
+          {{ content.field_image_text }}
         </div>
       {% endif %}
     {% endif %}
