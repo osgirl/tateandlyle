@@ -44,48 +44,22 @@ view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
 ]
 %}
 
-{#  Set the background color of the tout #}
-{% set bg_color = content['field_text']['#object'].field_background_color.value %}
-
-{#  Check if the tout has a background color #}
-{% if bg_color %}
-  <div{{ attributes.addClass(classes) }} style="background-color:{{ bg_color }}">
-{% else %}
-  <div{{ attributes.addClass(classes) }}>
-{% endif %}
-    {% set modal_id = content.field_image[0]['#item'].value['target_id'] %}
-    {% if is_front %} 
-      {% if content.field_image[0] %}
-        <div class="tout-image">
-          <a title="{{ image_link }}" href= "{{ image_link }}">{{ content.field_image }}</a>
-          {% if content.field_popup['#entity_type'] is defined %} 
-            <span class="open-modal" data-toggle="modal" data-target="#modal-{{modal_id}}"></span>
-          {% endif %}
-          {{ content.field_image_text }}
-        </div>
-      {% endif %}
-    {{ content.field_title }}
-    {% else %} 
-      {{ content.field_title }}
-      {% if content.field_image[0] %}
-        <div class="tout-image">
-          <a title="{{ image_link }}" href= "{{ image_link }}">{{ content.field_image }}</a>
-          {% if content.field_popup['#entity_type'] is defined %} 
-            <span class="open-modal" data-toggle="modal" data-target="#modal-{{modal_id}}"></span>
-          {% endif %}
-          {{ content.field_image_text }}
-        </div>
-      {% endif %}
-    {% endif %}
-    <div class="tout-text">
-      {{ content.field_text }}
-    </div>
-    <div class="modal fade" id="modal-{{modal_id}}">
-      <div class="modal-dialog">
+{% set paragraph_video = paragraph.field_video_url.value %}
+{% set video_id = paragraph_video[0]['video_id'] %}
+<div class ="bg"></div>
+<div{{ attributes.addClass(classes) }}>
+    {{ content.field_video_text[0]['#text'] | raw }}
+    <a data-toggle="modal" data-target="#{{ video_id }}" data-theVideo="{{ video_url }}"><i class = "video-button"></i> {{ 'Watch the video' | t }}</a>
+</div>
+<div class="modal fade" id="{{ video_id }}" tabindex="-1" role="dialog" aria-labelledby="videoModal" aria-hidden="true">
+    <div class="modal-dialog">
         <div class="modal-content">
-          <button type="button" class="btn btn-default" data-dismiss="modal"></button>
-          {{ content.field_popup }}
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+                <div>
+                    <iframe width="100%" height="550" src="" allowfullscreen></iframe>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
 </div>

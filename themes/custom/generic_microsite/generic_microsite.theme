@@ -195,6 +195,20 @@ function generic_microsite_preprocess_page(&$variables) {
 function generic_microsite_preprocess_paragraph(&$variables) {
   $is_front = \Drupal::service('path.matcher')->isFrontPage();
   $variables['is_front'] = $is_front;
+  
+  if ($variables['paragraph']->getType() == 'tout') {
+    if ($variables['content']['field_text'][0]) {
+      $html = $variables['content']['field_text'][0]['#text'];
+      $hrefs = array();
+      $dom = new DOMDocument();
+      $dom->loadHTML($html);
+      $tags = $dom->getElementsByTagName('a');
+      foreach ($tags as $tag) {
+        $hrefs[] =  $tag->getAttribute('href');
+      }
+      $variables['image_link'] = $hrefs[0];
+    }
+  }
 }
 
 function generic_microsite_preprocess_breadcrumb(&$variables) {

@@ -152,12 +152,31 @@
   // Contact form reveal.
   Drupal.behaviors.toggleContact = {
     attach: function (context, settings) {
-      $('.menu.nav > li:last-child a, a[href="#contact-us"], .bt-close-form').click(function(e) {
+      var contactHeight = $('.pre-header').height();
+      $('.menu.nav > li:last-child a, a[href="#contact-us"]').click(function(e) {
         e.preventDefault();
-        $('.st-pusher').toggleClass('show-contact');
-        if ($('#st-container').hasClass('st-menu-open')) {
+        $('.st-content').toggleClass('contact-reveal');
+        if ($('.st-content').hasClass('contact-reveal')) {
           $('#st-container').removeClass('st-menu-open');
+          $('.st-content').css({
+            "transform": "translate3d(0px, " + contactHeight + "px, 0px)",
+            'transition': 'all 0.3s',
+          });
+        } else {
+          $('#st-container').removeClass('st-menu-open');
+          $('.st-content').css({
+            "transform": "translate3d(0px, 0px, 0px)",
+            'transition': 'all 0.3s',
+          });
         }
+      });
+      $('.bt-close-form').click(function(e) {
+        e.preventDefault();
+        $('.st-content').removeClass('contact-reveal');
+          $('.st-content').css({
+            "transform": "translate3d(0px, 0px, 0px)",
+            'transition': 'all 0.8s',
+          });
       });
     }
   }
@@ -173,6 +192,18 @@
       });
     }
   }
+
+  Drupal.behaviors.BacktoTop = {
+    attach: function (context, settings) {
+      // Smooth scrolling on click menu items
+      $('#back-to-top').on('click', function(e) {
+        e.preventDefault();
+        $('html,body').animate({
+            scrollTop: 0
+        }, 600);
+      });
+    }
+  };
 
   Drupal.behaviors.chosen = {
     attach: function (context, settings) {

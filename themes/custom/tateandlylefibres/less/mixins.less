@@ -1,0 +1,35 @@
+/*.font {
+  @font-face{
+    font-family: 'BaronNeue';
+    src:url('../fonts/baron.eot');
+    src:url('../fonts/baron.eot?#iefix') format('embedded-opentype');
+    src:url('../fonts/baron.woff') format('woff');
+    src:url('../fonts/baron.ttf') format('truetype');
+    src:url('../fonts/baron.svg#icon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
+}*/
+
+
+// Transform
+.transform(@transform) {
+  -webkit-transform: @transform;
+  -moz-transform: @transform;
+  -ms-transform: @transform; /* note that you have @trasnform here */
+  -o-transform: @transform;
+  transform: @transform; 
+}
+
+// Vertical align
+.valign-parent {
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+.valign-child {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}

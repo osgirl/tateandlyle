@@ -1,337 +1,219 @@
-/* ========================================================================
- * Bootstrap: modal.js v3.3.6
- * http://getbootstrap.com/javascript/#modals
- * ========================================================================
- * Copyright 2011-2015 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- * ======================================================================== */
+/**
+ * @file
+ * Bootstrap Modals.
+ */
+(function ($, Drupal, Bootstrap) {
+  "use strict";
 
+  /**
+   * Extend the Bootstrap Modal plugin constructor class.
+   */
+  Bootstrap.extendPlugin('modal', function (settings) {
+    return {
+      DEFAULTS: {
+        animation: !!settings.modal_animation,
+        backdrop: settings.modal_backdrop === 'static' ? 'static' : !!settings.modal_backdrop,
+        keyboard: !!settings.modal_keyboard,
+        show: !!settings.modal_show,
+        size: settings.modal_size
+      }
+    };
+  });
 
-+function ($) {
-  'use strict';
+  /**
+   * Replace the Bootstrap Modal jQuery plugin definition.
+   *
+   * Replacing this is needed so that the "option" method can return values.
+   */
+  Bootstrap.replacePlugin('modal', function () {
+    var Modal = this;
 
-  // MODAL CLASS DEFINITION
-  // ======================
+    // Extract the arguments.
+    var args = Array.prototype.slice.call(arguments, 1);
 
-  var Modal = function (element, options) {
-    this.options             = options
-    this.$body               = $(document.body)
-    this.$element            = $(element)
-    this.$dialog             = this.$element.find('.modal-dialog')
-    this.$backdrop           = null
-    this.isShown             = null
-    this.originalBodyPad     = null
-    this.scrollbarWidth      = 0
-    this.ignoreBackdropClick = false
+    // Modal jQuery Plugin Definition.
+    return function (option, _relatedTarget) {
+      var ret = void(0);
+      this.each(function () {
+        var $this   = $(this);
+        var data    = $this.data('bs.modal');
+        var options = $.extend({}, Modal.DEFAULTS, $this.data(), typeof option == 'object' && option);
 
-    if (this.options.remote) {
-      this.$element
-        .find('.modal-content')
-        .load(this.options.remote, $.proxy(function () {
-          this.$element.trigger('loaded.bs.modal')
-        }, this))
+        if (!data) $this.data('bs.modal', (data = new Modal(this, options)));
+        if (typeof option == 'string') ret = data[option].apply(data, args);
+        else if (options.show) data.show(_relatedTarget);
+      });
+
+      // If just one element and there was a result returned for the option passed,
+      // then return the result. Otherwise, just return the jQuery object.
+      return this.length === 1 && ret !== void(0) ? ret : this;
     }
-  }
+  });
 
-  Modal.VERSION  = '3.3.6'
+  /**
+   * Extend Drupal theming functions.
+   */
+  $.extend(Drupal.theme, /** @lend Drupal.theme */ {
+    /**
+     * Theme function for a Bootstrap Modal.
+     *
+     * @param {object}[variables]
+     *   An object with the following keys:
+     *   - title: The name of the tab.
+     *
+     * @return {string}
+     *   The HTML for the modal.
+     */
+    bootstrapModal: function (variables) {
+      var settings = drupalSettings.bootstrap || {};
+      var defaults = {
+        body: '',
+        closeButton: true,
+        description: {
+          content: null,
+          position: 'before'
+        },
+        footer: '',
+        id: 'drupal-modal',
+        size: settings.modal_size ? settings.modal_size : '',
+        title: Drupal.t('Loading...')
+      };
+      variables = $.extend(true, {}, defaults, variables);
+      var output = '';
 
-  Modal.TRANSITION_DURATION = 300
-  Modal.BACKDROP_TRANSITION_DURATION = 150
-
-  Modal.DEFAULTS = {
-    backdrop: true,
-    keyboard: true,
-    show: true
-  }
-
-  Modal.prototype.toggle = function (_relatedTarget) {
-    return this.isShown ? this.hide() : this.show(_relatedTarget)
-  }
-
-  Modal.prototype.show = function (_relatedTarget) {
-    var that = this
-    var e    = $.Event('show.bs.modal', { relatedTarget: _relatedTarget })
-
-    this.$element.trigger(e)
-
-    if (this.isShown || e.isDefaultPrevented()) return
-
-    this.isShown = true
-
-    this.checkScrollbar()
-    this.setScrollbar()
-    this.$body.addClass('modal-open')
-
-    this.escape()
-    this.resize()
-
-    this.$element.on('click.dismiss.bs.modal', '[data-dismiss="modal"]', $.proxy(this.hide, this))
-
-    this.$dialog.on('mousedown.dismiss.bs.modal', function () {
-      that.$element.one('mouseup.dismiss.bs.modal', function (e) {
-        if ($(e.target).is(that.$element)) that.ignoreBackdropClick = true
-      })
-    })
-
-    this.backdrop(function () {
-      var transition = $.support.transition && that.$element.hasClass('fade')
-
-      if (!that.$element.parent().length) {
-        that.$element.appendTo(that.$body) // don't move modals dom position
+      // Build the modal wrapper.
+      var classes = ['modal'];
+      if (settings.modal_animation) {
+        classes.push('fade');
       }
+      output += '<div id="' + variables.id + '" class="' + classes.join(' ') + '" tabindex="-1" role="dialog">';
 
-      that.$element
-        .show()
-        .scrollTop(0)
-
-      that.adjustDialog()
-
-      if (transition) {
-        that.$element[0].offsetWidth // force reflow
+      // Build the modal-dialog wrapper.
+      var dialogClasses = ['modal-dialog'];
+      if (variables.size) {
+        // @todo This should really be a clean CSS class method instead.
+        dialogClasses.push(Drupal.checkPlain(variables.size));
       }
+      output += '<div class="' + dialogClasses.join(' ') + '" role="document">';
 
-      that.$element.addClass('in')
+      // Build the modal-content wrapper.
+      output += '<div class="modal-content">';
 
-      that.enforceFocus()
+      // Build the header wrapper and title.
+      output += Drupal.theme.bootstrapModalHeader(variables.title, variables.closeButton);
 
-      var e = $.Event('shown.bs.modal', { relatedTarget: _relatedTarget })
+      // Build the body.
+      output += Drupal.theme.bootstrapModalBody(variables.id + '--body', variables.body, variables.description);
 
-      transition ?
-        that.$dialog // wait for modal to slide in
-          .one('bsTransitionEnd', function () {
-            that.$element.trigger('focus').trigger(e)
-          })
-          .emulateTransitionEnd(Modal.TRANSITION_DURATION) :
-        that.$element.trigger('focus').trigger(e)
-    })
-  }
+      // Build the footer.
+      output += Drupal.theme.bootstrapModalFooter(variables.footer);
 
-  Modal.prototype.hide = function (e) {
-    if (e) e.preventDefault()
+      // Close the modal-content wrapper.
+      output += '</div>';
 
-    e = $.Event('hide.bs.modal')
+      // Close the modal-dialog wrapper.
+      output += '</div>';
 
-    this.$element.trigger(e)
+      // Close the modal wrapper.
+      output += '</div>';
 
-    if (!this.isShown || e.isDefaultPrevented()) return
+      // Return the constructed modal.
+      return output;
+    },
 
-    this.isShown = false
+    /**
+     * Theme function for a Bootstrap Modal body markup.
+     *
+     * @param {string} id
+     *   A unique ID for the modal body div.
+     * @param {string} body
+     *   The HTML markup to place in the body.
+     * @param {string|object} description
+     *   A description to show. Can either be a string or an object with the
+     *   following key/value pairs:
+     *   - content: The description value.
+     *   - position: (optional) A display setting that can have these values:
+     *     - before: The description is displayed before the body. This is the
+     *       default value.
+     *     - after: The description is display after the body.
+     *     - invisible: The description is displayed after the element, hidden
+     *       visually but available to screen readers.
+     *
+     * @return {string}
+     *   The HTML for the modal close button.
+     */
+    bootstrapModalBody: function (id, body, description) {
+      var output = '';
+      output += '<div id="' + id + '" class="modal-body">';
+      if (!description || !$.isPlainObject(description)) {
+        description = { content: description};
+      }
+      description = $.extend({ position: 'before' }, description);
 
-    this.escape()
-    this.resize()
+      var descriptionClasses = ['help-block'];
+      if (description.content && description.position === 'invisible') {
+        descriptionClasses.push('sr-only');
+      }
+      if (description.content && description.position === 'before') {
+        output += '<p class="' + descriptionClasses.join(' ') + '">' + description.content + '</p>';
+      }
+      output += body;
+      if (description.content && (description.position === 'after' || description.position === 'invisible')) {
+        output += '<p class="' + descriptionClasses.join(' ') + '">' + description.content + '</p>';
+      }
+      output += '</div>';
+      return output;
+    },
 
-    $(document).off('focusin.bs.modal')
+    /**
+     * Theme function for a Bootstrap Modal close button.
+     *
+     * @return {string}
+     *   The HTML for the modal close button.
+     */
+    bootstrapModalClose: function () {
+      return '<button type="button" class="close" data-dismiss="modal" aria-label="' + Drupal.t('Close') + '"><span aria-hidden="true">&times;</span></button>';
+    },
 
-    this.$element
-      .removeClass('in')
-      .off('click.dismiss.bs.modal')
-      .off('mouseup.dismiss.bs.modal')
+    /**
+     * Theme function for a Bootstrap Modal footer.
+     *
+     * @param {string} [footer]
+     *   The HTML markup to place in the footer.
+     * @param {boolean} [force]
+     *   Flag to force the rendering of the footer.
+     *
+     * @return {string}
+     *   The HTML for the modal footer.
+     */
+    bootstrapModalFooter: function (footer, force) {
+      return footer || force ? '<div class="modal-footer">' + (footer || '') + '</div>' : '';
+    },
 
-    this.$dialog.off('mousedown.dismiss.bs.modal')
-
-    $.support.transition && this.$element.hasClass('fade') ?
-      this.$element
-        .one('bsTransitionEnd', $.proxy(this.hideModal, this))
-        .emulateTransitionEnd(Modal.TRANSITION_DURATION) :
-      this.hideModal()
-  }
-
-  Modal.prototype.enforceFocus = function () {
-    $(document)
-      .off('focusin.bs.modal') // guard against infinite focus loop
-      .on('focusin.bs.modal', $.proxy(function (e) {
-        if (this.$element[0] !== e.target && !this.$element.has(e.target).length) {
-          this.$element.trigger('focus')
+    /**
+     * Theme function for a Bootstrap Modal header.
+     *
+     * @param {string} [title]
+     *   The title for the header.
+     * @param {boolean} [closeButton]
+     *   Flag indicating whether or not to show the close button in the header.
+     *
+     * @return {string}
+     *   The HTML for the modal header.
+     */
+    bootstrapModalHeader: function (title, closeButton) {
+      var output = '';
+      if (title) {
+        closeButton = closeButton !== void(0) ? closeButton : true;
+        output += '<div class="modal-header">';
+        if (closeButton) {
+          output += Drupal.theme.bootstrapModalClose();
         }
-      }, this))
-  }
-
-  Modal.prototype.escape = function () {
-    if (this.isShown && this.options.keyboard) {
-      this.$element.on('keydown.dismiss.bs.modal', $.proxy(function (e) {
-        e.which == 27 && this.hide()
-      }, this))
-    } else if (!this.isShown) {
-      this.$element.off('keydown.dismiss.bs.modal')
-    }
-  }
-
-  Modal.prototype.resize = function () {
-    if (this.isShown) {
-      $(window).on('resize.bs.modal', $.proxy(this.handleUpdate, this))
-    } else {
-      $(window).off('resize.bs.modal')
-    }
-  }
-
-  Modal.prototype.hideModal = function () {
-    var that = this
-    this.$element.hide()
-    this.backdrop(function () {
-      that.$body.removeClass('modal-open')
-      that.resetAdjustments()
-      that.resetScrollbar()
-      that.$element.trigger('hidden.bs.modal')
-    })
-  }
-
-  Modal.prototype.removeBackdrop = function () {
-    this.$backdrop && this.$backdrop.remove()
-    this.$backdrop = null
-  }
-
-  Modal.prototype.backdrop = function (callback) {
-    var that = this
-    var animate = this.$element.hasClass('fade') ? 'fade' : ''
-
-    if (this.isShown && this.options.backdrop) {
-      var doAnimate = $.support.transition && animate
-
-      this.$backdrop = $(document.createElement('div'))
-        .addClass('modal-backdrop ' + animate)
-        .appendTo(this.$body)
-
-      this.$element.on('click.dismiss.bs.modal', $.proxy(function (e) {
-        if (this.ignoreBackdropClick) {
-          this.ignoreBackdropClick = false
-          return
-        }
-        if (e.target !== e.currentTarget) return
-        this.options.backdrop == 'static'
-          ? this.$element[0].focus()
-          : this.hide()
-      }, this))
-
-      if (doAnimate) this.$backdrop[0].offsetWidth // force reflow
-
-      this.$backdrop.addClass('in')
-
-      if (!callback) return
-
-      doAnimate ?
-        this.$backdrop
-          .one('bsTransitionEnd', callback)
-          .emulateTransitionEnd(Modal.BACKDROP_TRANSITION_DURATION) :
-        callback()
-
-    } else if (!this.isShown && this.$backdrop) {
-      this.$backdrop.removeClass('in')
-
-      var callbackRemove = function () {
-        that.removeBackdrop()
-        callback && callback()
+        output += '<h4 class="modal-title">' + Drupal.checkPlain(title) + '</h4>';
+        output += '</div>';
       }
-      $.support.transition && this.$element.hasClass('fade') ?
-        this.$backdrop
-          .one('bsTransitionEnd', callbackRemove)
-          .emulateTransitionEnd(Modal.BACKDROP_TRANSITION_DURATION) :
-        callbackRemove()
-
-    } else if (callback) {
-      callback()
+      return output;
     }
-  }
-
-  // these following methods are used to handle overflowing modals
-
-  Modal.prototype.handleUpdate = function () {
-    this.adjustDialog()
-  }
-
-  Modal.prototype.adjustDialog = function () {
-    var modalIsOverflowing = this.$element[0].scrollHeight > document.documentElement.clientHeight
-
-    this.$element.css({
-      paddingLeft:  !this.bodyIsOverflowing && modalIsOverflowing ? this.scrollbarWidth : '',
-      paddingRight: this.bodyIsOverflowing && !modalIsOverflowing ? this.scrollbarWidth : ''
-    })
-  }
-
-  Modal.prototype.resetAdjustments = function () {
-    this.$element.css({
-      paddingLeft: '',
-      paddingRight: ''
-    })
-  }
-
-  Modal.prototype.checkScrollbar = function () {
-    var fullWindowWidth = window.innerWidth
-    if (!fullWindowWidth) { // workaround for missing window.innerWidth in IE8
-      var documentElementRect = document.documentElement.getBoundingClientRect()
-      fullWindowWidth = documentElementRect.right - Math.abs(documentElementRect.left)
-    }
-    this.bodyIsOverflowing = document.body.clientWidth < fullWindowWidth
-    this.scrollbarWidth = this.measureScrollbar()
-  }
-
-  Modal.prototype.setScrollbar = function () {
-    var bodyPad = parseInt((this.$body.css('padding-right') || 0), 10)
-    this.originalBodyPad = document.body.style.paddingRight || ''
-    if (this.bodyIsOverflowing) this.$body.css('padding-right', bodyPad + this.scrollbarWidth)
-  }
-
-  Modal.prototype.resetScrollbar = function () {
-    this.$body.css('padding-right', this.originalBodyPad)
-  }
-
-  Modal.prototype.measureScrollbar = function () { // thx walsh
-    var scrollDiv = document.createElement('div')
-    scrollDiv.className = 'modal-scrollbar-measure'
-    this.$body.append(scrollDiv)
-    var scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth
-    this.$body[0].removeChild(scrollDiv)
-    return scrollbarWidth
-  }
-
-
-  // MODAL PLUGIN DEFINITION
-  // =======================
-
-  function Plugin(option, _relatedTarget) {
-    return this.each(function () {
-      var $this   = $(this)
-      var data    = $this.data('bs.modal')
-      var options = $.extend({}, Modal.DEFAULTS, $this.data(), typeof option == 'object' && option)
-
-      if (!data) $this.data('bs.modal', (data = new Modal(this, options)))
-      if (typeof option == 'string') data[option](_relatedTarget)
-      else if (options.show) data.show(_relatedTarget)
-    })
-  }
-
-  var old = $.fn.modal
-
-  $.fn.modal             = Plugin
-  $.fn.modal.Constructor = Modal
-
-
-  // MODAL NO CONFLICT
-  // =================
-
-  $.fn.modal.noConflict = function () {
-    $.fn.modal = old
-    return this
-  }
-
-
-  // MODAL DATA-API
-  // ==============
-
-  $(document).on('click.bs.modal.data-api', '[data-toggle="modal"]', function (e) {
-    var $this   = $(this)
-    var href    = $this.attr('href')
-    var $target = $($this.attr('data-target') || (href && href.replace(/.*(?=#[^\s]+$)/, ''))) // strip for ie7
-    var option  = $target.data('bs.modal') ? 'toggle' : $.extend({ remote: !/#/.test(href) && href }, $target.data(), $this.data())
-
-    if ($this.is('a')) e.preventDefault()
-
-    $target.one('show.bs.modal', function (showEvent) {
-      if (showEvent.isDefaultPrevented()) return // only register focus restorer if modal will actually get shown
-      $target.one('hidden.bs.modal', function () {
-        $this.is(':visible') && $this.trigger('focus')
-      })
-    })
-    Plugin.call($target, option, this)
   })
 
-}(jQuery);
+})(jQuery, Drupal, Drupal.Bootstrap);
