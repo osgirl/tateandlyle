@@ -1,0 +1,5 @@
+name: "T&L Tweaks Dolciaprima"
+description: "Tweaks to the Dolciaprima site"
+core: 8.x
+package: Custom T&L Tweaks
+type: module
