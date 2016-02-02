@@ -1,28 +1,26 @@
-uuid: b6bb9357-8d51-47db-ab00-c8e07a5b2289
+uuid: 627cc55e-8404-4f03-b346-70c3b875b93a
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_media_item_image
-    - node.type.media_item
+    - field.storage.paragraph.field_tout_background_image
+    - paragraphs.paragraphs_type.tout
   module:
     - image
-_core:
-  default_config_hash: MyiivRyxS_Joof5vOvoso8z5HADUksm2DL8a3J4lazU
-id: node.media_item.field_media_item_image
-field_name: field_media_item_image
-entity_type: node
-bundle: media_item
-label: 'Media item image'
-description: 'Add the image that will be used as preview for the media item.'
+id: paragraph.tout.field_tout_background_image
+field_name: field_tout_background_image
+entity_type: paragraph
+bundle: tout
+label: 'Tout background image'
+description: ''
 required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  file_directory: media-item/image
+  file_directory: '[current-date:custom:Y]-[current-date:custom:m]'
   file_extensions: 'png gif jpg jpeg'
-  max_filesize: '16 MB'
+  max_filesize: ''
   max_resolution: ''
   min_resolution: ''
   alt_field: true
