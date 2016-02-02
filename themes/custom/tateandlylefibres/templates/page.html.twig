@@ -62,12 +62,10 @@
  */
 #}
 
-
 <div id="st-container" class="st-container">
   {# Back to top link #}
   <a name="top"></a>
-
-  {# Navigation (collapsible) #}
+    {# Navigation (collapsible) #}
   {% if page.navigation_collapsible %}
     <div class="navbar-collapse">
       <nav class="st-menu st-effect-2" id="menu-2">
@@ -75,10 +73,9 @@
       </nav>
     </div>
   {% endif %}
- <div class="{{ title_name }} st-pusher">
-   <div class="st-content"><!-- this is the wrapper for the content -->
+  <div class="st-pusher  {{ title_name }}">
+    <div class="st-content"><!-- this is the wrapper for the content -->
       <div class="st-content-inner">
-
         {# Navigation - LEFT SIDE #}
         {% if page.navigation %}
           {% block navbar %}
@@ -114,26 +111,24 @@
           {% endblock %}
         {% endif %}
 
-        {# CONTENT  - RIGHT SIDE #}
         <div role="main" class="col-md-10 main-container {{ is_form }} {{ title_name }} js-quickedit-main-content">
           <div class="highlighted">{{ page.highlighted }}</div>
           <div class="header-container" style="{{ background_image }}">
             <header class="container">
               {% if title_image %}
                <div class="title-image">
-                      <img alt="{{ title_image_alt }}" src="{{ title_image }}" />                
-                    </div>
+                  <img alt="{{ title_image_alt }}" src="{{ title_image }}" />                
+                </div>
               {% else %} 
-                     {{ page.header }} 
-                  {% endif %}
-                  <div class="subtitle">
-                    {{ subtitle | raw }}
-                  </div>
+                 {{ page.header }} 
+              {% endif %}
+              <div class="subtitle">
+                {{ subtitle | raw }}
+              </div>
             </header>
           </div>
-
-            {# Content #}
-              {%
+          {# Content #}
+           {%
                 set content_classes = [
                   page.sidebar_second ? 'col-sm-8',
                   page.sidebar_second is empty ? 'col-sm-12',
@@ -147,58 +142,59 @@
                 is_form ? 'col-sm-8'
                 ] 
               %}
-              <section {{ content_attributes.addClass(content_classes).removeClass(remove_classes) }}>
-                {% if page.highlighted %}
-                {% endif %}
-                {{ breadcrumb }}
-                <a id="main-content"></a>
-
-                {# Messages #}
-                {% if messages %}
-                  {{ messages }}
-                {% endif %}
-
-                {# Action Links #}
-                {% if action_links %}
-                  {% block action_links %}
-                    <ul class="action-links">{{ action_links }}</ul>
-                  {% endblock %}
-                {% endif %}
-
-                {# Help #}
-                {% if page.help %}
-                  {% block help %}
-                    {{ page.help }}
-                  {% endblock %}
-                {% endif %}
-
-                {% block content %}
-                  <a id="main-content"></a>
-                  {{ page.content }}
-                {% endblock %}
-              </section>
-            {# Sidebar Second #}
-            {% if is_form != 1 %}
-              {% if page.sidebar_second %}
-                {% block sidebar_second %}
-                  <aside class="col-sm-4" role="complementary">
-                    {{ page.sidebar_second }}
-                  </aside>
-                {% endblock %}
-              {% endif %}
+           <section {{ content_attributes.addClass(content_classes).removeClass(remove_classes) }}>
+            {% if page.highlighted %}
             {% endif %}
-      {# Footer on mobile #}
-        <div class="full-footer">
-          <footer class="footer {{ container }}" role="contentinfo">
-            <section id="back-to-top">
-              <a href="#top">
-                <div class="icon">↑</div>
-                <div class="text">Back to top</div>
-              </a>
-            </section>
-            {{ page.footer }}
-          </footer>
-        </div>
+            {{ breadcrumb }}
+            <a id="main-content"></a>
+
+            {# Messages #}
+            {% if messages %}
+              {{ messages }}
+            {% endif %}
+
+            {# Action Links #}
+            {% if action_links %}
+              {% block action_links %}
+                <ul class="action-links">{{ action_links }}</ul>
+              {% endblock %}
+            {% endif %}
+
+            {# Help #}
+            {% if page.help %}
+              {% block help %}
+                {{ page.help }}
+              {% endblock %}
+            {% endif %}
+
+            {% block content %}
+              <a id="main-content"></a>
+              {{ page.content }}
+            {% endblock %}
+          </section>
+          {# Sidebar Second #}
+          {% if is_form != 1 %}
+            {% if page.sidebar_second %}
+              {% block sidebar_second %}
+                <aside class="col-sm-4" role="complementary">
+                  {{ page.sidebar_second }}
+                </aside>
+              {% endblock %}
+            {% endif %}
+          {% endif %}
+        {# Footer on mobile #}
+          <div class="full-footer">
+            <footer class="footer {{ container }}" role="contentinfo">
+              <section id="back-to-top">
+                <a href="#top">
+                  <div class="icon">↑</div>
+                  <div class="text">Back to top</div>
+                </a>
+              </section>
+              {{ page.footer }}
+            </footer>
+          </div>
+        </div>  
       </div>
     </div>
   </div>
