@@ -1,0 +1,5 @@
+name: 'T&L Dolcia Prima Multimedia'
+description: 'Provides a view that lists all the media items on Dolcia Prima filtered by their type.'
+type: module
+core: 8.x
+version: 8.x
