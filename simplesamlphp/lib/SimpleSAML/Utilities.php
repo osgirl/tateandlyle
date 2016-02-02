@@ -5,6 +5,7 @@
  *
  * @author Andreas Åkre Solberg, UNINETT AS. <andreas.solberg@uninett.no>
  * @package simpleSAMLphp
+ * @version $Id: Utilities.php 3362 2014-02-09 17:11:23Z jaimepc@gmail.com $
  */
 class SimpleSAML_Utilities {
 
@@ -309,10 +310,12 @@ class SimpleSAML_Utilities {
 	 * allowed by configuration.
 	 */
 	public static function checkURLAllowed($url, array $trustedSites = NULL) {
-		if (empty($url)) {
-			return '';
-		}
 		$url = self::normalizeURL($url);
+
+		// verify that the URL points to an http or https site
+		if (!preg_match('@^https?://@i', $url)) {
+			throw new SimpleSAML_Error_Exception('Invalid URL: '.$url);
+		}
 
 		// get the white list of domains
 		if ($trustedSites === NULL) {
@@ -650,10 +653,9 @@ class SimpleSAML_Utilities {
 		assert(strlen($url) > 0);
 		assert(is_array($parameters));
 
+		$url = self::normalizeURL($url);
 		if ($allowed_redirect_hosts !== NULL) {
-			$url = self::checkURLAllowed($url, $allowed_redirect_hosts);
-		} else {
-			$url = self::normalizeURL($url);
+			$url = self::checkURLAllowed($url, $allowed_redirect_hosts);	
 		}
 		self::_doRedirect($url, $parameters);
 	}
@@ -937,7 +939,6 @@ class SimpleSAML_Utilities {
 	 * @param $schema  The schema which should be used.
 	 * @return Returns a string with the errors if validation fails. An empty string is
 	 *         returned if validation passes.
-	 * @deprecated
 	 */
 	public static function validateXML($xml, $schema) {
 		assert('is_string($xml) || $xml instanceof DOMDocument');
@@ -983,7 +984,6 @@ class SimpleSAML_Utilities {
 	 *
 	 * @param $message  The message which should be validated, as a string.
 	 * @param $type     The type of document - can be either 'saml20', 'saml11' or 'saml-meta'.
-	 * @deprecated
 	 */
 	public static function validateXMLDocument($message, $type) {
 		assert('is_string($message)');
@@ -1622,7 +1622,7 @@ class SimpleSAML_Utilities {
 	 */
 	public static function isAdmin() {
 
-		$session = SimpleSAML_Session::getSessionFromRequest();
+		$session = SimpleSAML_Session::getInstance();
 
 		return $session->isValid('admin') || $session->isValid('login-admin');
 	}
@@ -1726,7 +1726,7 @@ class SimpleSAML_Utilities {
 				'url' => $destination,
 			);
 
-			$session = SimpleSAML_Session::getSessionFromRequest();
+			$session = SimpleSAML_Session::getInstance();
 			$session->setData('core_postdatalink', $postId, $postData);
 
 			$url = SimpleSAML_Module::getModuleURL('core/postredirect.php', array('RedirId' => $postId));
@@ -1753,7 +1753,7 @@ class SimpleSAML_Utilities {
 			'url' => $destination,
 		);
 
-		$session = SimpleSAML_Session::getSessionFromRequest();
+		$session = SimpleSAML_Session::getInstance();
 		$session->setData('core_postdatalink', $postId, $postData);
 
 		$redirInfo = base64_encode(self::aesEncrypt($session->getSessionId() . ':' . $postId));
@@ -1772,7 +1772,6 @@ class SimpleSAML_Utilities {
 	 * @param string $certificate  The certificate, in PEM format.
 	 * @param string $caFile  File with trusted certificates, in PEM-format.
 	 * @return boolean|string TRUE on success, or a string with error messages if it failed.
-	 * @deprecated
 	 */
 	private static function validateCABuiltIn($certificate, $caFile) {
 		assert('is_string($certificate)');
@@ -1807,7 +1806,6 @@ class SimpleSAML_Utilities {
 	 * @param string $certificate  The certificate, in PEM format.
 	 * @param string $caFile  File with trusted certificates, in PEM-format.
 	 * @return boolean|string TRUE on success, a string with error messages on failure.
-	 * @deprecated
 	 */
 	private static function validateCAExec($certificate, $caFile) {
 		assert('is_string($certificate)');
@@ -1864,7 +1862,6 @@ class SimpleSAML_Utilities {
 	 *
 	 * @param string $certificate  The certificate, in PEM format.
 	 * @param string $caFile  File with trusted certificates, in PEM-format.
-	 * @deprecated
 	 */
 	public static function validateCA($certificate, $caFile) {
 		assert('is_string($certificate)');
@@ -2108,7 +2105,7 @@ class SimpleSAML_Utilities {
 	public static function checkCookie($retryURL = NULL) {
 		assert('is_string($retryURL) || is_null($retryURL)');
 
-		$session = SimpleSAML_Session::getSessionFromRequest();
+		$session = SimpleSAML_Session::getInstance();
 		if ($session->hasSessionCookie()) {
 			return;
 		}

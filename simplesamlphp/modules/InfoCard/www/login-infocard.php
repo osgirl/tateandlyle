@@ -26,7 +26,7 @@ $contact_info_URL = $autoconfig->getValue('contact_info_URL');
 
 
 /* Load the session of the current user. */
-$session = SimpleSAML_Session::getSessionFromRequest();
+$session = SimpleSAML_Session::getInstance();
 
 
 if (!array_key_exists('AuthState', $_REQUEST)) {

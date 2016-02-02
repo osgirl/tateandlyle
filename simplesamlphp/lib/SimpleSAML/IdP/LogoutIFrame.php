@@ -4,6 +4,7 @@
  * Class which handles iframe logout.
  *
  * @package simpleSAMLphp
+ * @version $Id$
  */
 class SimpleSAML_IdP_LogoutIFrame extends SimpleSAML_IdP_LogoutHandler {
 

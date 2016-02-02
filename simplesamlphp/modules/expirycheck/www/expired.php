@@ -4,6 +4,7 @@
  * about2expire.php
  *
  * @package simpleSAMLphp
+ * @version $Id$
  */
 
 SimpleSAML_Logger::info('expirycheck - User has been warned that NetID is near to expirational date.');

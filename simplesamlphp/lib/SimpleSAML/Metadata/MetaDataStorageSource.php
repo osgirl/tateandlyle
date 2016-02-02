@@ -10,6 +10,7 @@
  * @author Olav Morken, UNINETT AS.
  * @author Andreas Aakre Solberg, UNINETT AS.
  * @package simpleSAMLphp
+ * @version $Id$
  */
 abstract class SimpleSAML_Metadata_MetaDataStorageSource {
 

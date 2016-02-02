@@ -26,7 +26,7 @@ try {
 
 
 	$config = SimpleSAML_Configuration::getInstance();
-	$session = SimpleSAML_Session::getSessionFromRequest();
+	$session = SimpleSAML_Session::getInstance();
 
 	$as = $oauthconfig->getString('auth');
 	if (!$session->isValid($as)) {

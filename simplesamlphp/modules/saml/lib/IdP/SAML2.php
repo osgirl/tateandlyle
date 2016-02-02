@@ -4,6 +4,7 @@
  * IdP implementation for SAML 2.0 protocol.
  *
  * @package simpleSAMLphp
+ * @version $Id$
  */
 class sspmod_saml_IdP_SAML2 {
 
@@ -63,15 +64,11 @@ class sspmod_saml_IdP_SAML2 {
 		/* Register the session association with the IdP. */
 		$idp->addAssociation($association);
 
-		$statsData = array(
+		SimpleSAML_Stats::log('saml:idp:Response', array(
 			'spEntityID' => $spEntityId,
 			'idpEntityID' => $idpMetadata->getString('entityid'),
 			'protocol' => 'saml2',
-		);
-		if (isset($state['saml:AuthnRequestReceivedAt'])) {
-			$statsData['logintime'] = microtime(TRUE) - $state['saml:AuthnRequestReceivedAt'];
-		}
-		SimpleSAML_Stats::log('saml:idp:Response', $statsData);
+		));
 
 		/* Send the response. */
 		$binding = SAML2_Binding::getBinding($protocolBinding);
@@ -121,16 +118,12 @@ class sspmod_saml_IdP_SAML2 {
 		);
 		$ar->setStatus($status);
 
-		$statsData = array(
+		SimpleSAML_Stats::log('saml:idp:Response:error', array(
 			'spEntityID' => $spEntityId,
 			'idpEntityID' => $idpMetadata->getString('entityid'),
 			'protocol' => 'saml2',
 			'error' => $status,
-		);
-		if (isset($state['saml:AuthnRequestReceivedAt'])) {
-			$statsData['logintime'] = microtime(TRUE) - $state['saml:AuthnRequestReceivedAt'];
-		}
-		SimpleSAML_Stats::log('saml:idp:Response:error', $statsData);
+		));
 
 		$binding = SAML2_Binding::getBinding($protocolBinding);
 		$binding->send($ar);
@@ -383,7 +376,6 @@ class sspmod_saml_IdP_SAML2 {
 			'saml:NameIDFormat' => $nameIDFormat,
 			'saml:AllowCreate' => $allowCreate,
 			'saml:Extensions' => $extensions,
-			'saml:AuthnRequestReceivedAt' => microtime(TRUE),
 		);
 
 		$idp->handleAuthenticationRequest($state);
@@ -806,7 +798,7 @@ class sspmod_saml_IdP_SAML2 {
 			$a->setAuthnInstant($state['AuthnInstant']);
 		} else {
 			/* For backwards compatibility. Remove in version 1.8. */
-			$session = SimpleSAML_Session::getSessionFromRequest();
+			$session = SimpleSAML_Session::getInstance();
 			$a->setAuthnInstant($session->getAuthnInstant());
 		}
 

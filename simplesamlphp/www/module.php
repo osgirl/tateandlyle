@@ -7,6 +7,7 @@
  *
  * @author Olav Morken, UNINETT AS.
  * @package simpleSAMLphp
+ * @version $Id$
  */
 
 require_once('_include.php');

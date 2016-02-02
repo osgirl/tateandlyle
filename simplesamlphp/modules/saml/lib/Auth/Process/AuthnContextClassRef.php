@@ -4,6 +4,7 @@
  * Filter for setting the AuthnContextClassRef in the response.
  *
  * @package simpleSAMLphp
+ * @version $Id$
  */
 class sspmod_saml_Auth_Process_AuthnContextClassRef extends SimpleSAML_Auth_ProcessingFilter {
 

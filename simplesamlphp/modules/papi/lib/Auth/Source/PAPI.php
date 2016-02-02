@@ -5,6 +5,7 @@
  *
  * @author Jaime Perez, RedIRIS
  * @package simpleSAMLphp
+ * @version $Id$
  */
 include("poa2/PoA.php");
 

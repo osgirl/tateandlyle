@@ -150,14 +150,6 @@ try {
 		$metaArray['RegistrationInfo'] = $idpmeta->getArray('RegistrationInfo');
 	}
 
-	if ($idpmeta->hasValue('validate.authnrequest')) {
-		$metaArray['sign.authnrequest'] = $idpmeta->getBoolean('validate.authnrequest');
-	}
-
-	if ($idpmeta->hasValue('redirect.validate')) {
-		$metaArray['redirect.sign'] = $idpmeta->getBoolean('redirect.validate');
-	}
-
 	$metaflat = '$metadata[' . var_export($idpentityid, TRUE) . '] = ' . var_export($metaArray, TRUE) . ';';
 
 	$metaBuilder = new SimpleSAML_Metadata_SAMLBuilder($idpentityid);

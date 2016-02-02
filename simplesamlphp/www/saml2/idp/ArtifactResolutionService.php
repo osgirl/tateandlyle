@@ -6,6 +6,7 @@
  *
  * @author Danny Bollaert, UGent AS. <danny.bollaert@ugent.be>
  * @package simpleSAMLphp
+ * @version $Id$
  */
 
 require_once('../../_include.php');

@@ -6,6 +6,7 @@
  *
  * @author Andreas Åkre Solberg, UNINETT AS. <andreas.solberg@uninett.no>
  * @package simpleSAMLphp
+ * @version $Id: SSOService.php 2817 2011-04-14 06:40:04Z olavmrk $
  */
 
 require_once('../../_include.php');

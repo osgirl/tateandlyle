@@ -7,6 +7,7 @@
  * @author Andreas Åkre Solberg, UNINETT AS.
  * @author Olav Morken, UNINETT AS.
  * @package simpleSAMLphp
+ * @version $Id$
  */
 class SimpleSAML_Metadata_MetaDataStorageHandlerDynamicXML extends SimpleSAML_Metadata_MetaDataStorageSource {
 

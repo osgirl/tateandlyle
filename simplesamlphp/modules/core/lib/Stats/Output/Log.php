@@ -4,6 +4,7 @@
  * Statistics logger that writes to the default logging handler.
  *
  * @package simpleSAMLphp
+ * @version $Id$
  */
 class sspmod_core_Stats_Output_Log extends SimpleSAML_Stats_Output {
 

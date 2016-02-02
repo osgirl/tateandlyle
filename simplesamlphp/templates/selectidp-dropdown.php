@@ -10,18 +10,14 @@ $this->data['autofocus'] = 'dropdownlist';
 $this->includeAtTemplateBase('includes/header.php');
 
 foreach ($this->data['idplist'] AS $idpentry) {
-	if (!empty($idpentry['UIInfo']['DisplayName'])) {
-		/* TODO: remove this branch, If ['UIInfo']['DisplayName'] is available, it will get through to 'name' in the
-		 * metadata parsed with SSP >= 1.13.0, so this code is no longer necessary. Keep it now to avoid breaking
-		 * metadata parsed with previous versions.
-		 */
+	if (isset($idpentry['UIInfo']['DisplayName'])) {
 		$this->includeInlineTranslation('idpname_' . $idpentry['entityid'], $idpentry['UIInfo']['DisplayName']);
-	} elseif (!empty($idpentry['name'])) {
+	} elseif (isset($idpentry['name'])) {
 		$this->includeInlineTranslation('idpname_' . $idpentry['entityid'], $idpentry['name']);
-	} elseif (!empty($idpentry['OrganizationDisplayName'])) {
+	} elseif (isset($idpentry['OrganizationDisplayName'])) {
 		$this->includeInlineTranslation('idpname_' . $idpentry['entityid'], $idpentry['OrganizationDisplayName']);
 	}
-	if (!empty($idpentry['description']))
+	if (isset($idpentry['description']))
 		$this->includeInlineTranslation('idpdesc_' . $idpentry['entityid'], $idpentry['description']);
 }
 

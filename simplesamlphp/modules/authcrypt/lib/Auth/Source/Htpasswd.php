@@ -5,6 +5,7 @@
  *
  * @author Dyonisius (Dick) Visser, TERENA.
  * @package simpleSAMLphp
+ * @version $Id$
  */
 class sspmod_authcrypt_Auth_Source_Htpasswd extends sspmod_core_Auth_UserPassBase {
 

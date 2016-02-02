@@ -3,7 +3,7 @@
 
 /* Load simpleSAMLphp, configuration */
 $config = SimpleSAML_Configuration::getInstance();
-$session = SimpleSAML_Session::getSessionFromRequest();
+$session = SimpleSAML_Session::getInstance();
 
 /* Check if valid local session exists.. */
 if ($config->getBoolean('admin.protectindexpage', false)) {
@@ -33,7 +33,7 @@ $allLinks = array(
 );
 
 $links_welcome[] = array(
-	'href' => 'https://simplesamlphp.org/docs/stable/',
+	'href' => 'https://rnd.feide.no/view/simplesamlphpdocs',
 	'text' => '{core:frontpage:doc_header}',
 );
 
