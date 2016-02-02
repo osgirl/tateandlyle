@@ -60,12 +60,7 @@ function tateandlylefibres_preprocess_field(&$variables) {
       }
     }
   }
-  if($variables['field_name'] == 'field_video_text') {
-    $video = $variables['element']['#object']->get('field_video_url')->getValue();
-    $video_url = str_replace("watch?v=", "v/", $video[0]['input']);
-    $video_id = $video[0]['video_id'];
-    $variables['items'][0]['content']['#text'] = $variables['items'][0]['content']['#text'].'<a class="video-button" data-toggle="modal" data-target="#'.$video_id.'" data-theVideo="'.$video_url.'"></a>';
-  }
+
   if($variables['field_name'] == 'field_block_color') {
     $variables['items'][0]['content']['#markup'] = '';
   }
@@ -101,11 +96,16 @@ function tateandlylefibres_preprocess_paragraph(&$variables) {
   if ($variables['paragraph']->getType() == 'video') {
     $video = $variables['paragraph']->get('field_video_url')->getValue();
     if($video[0]) {
-      $video_url = str_replace("watch?v=", "v/", $video[0]['input']);
       $video_id = $video[0]['video_id'];
       $video_url = "http://youtube.com/embed/" . $video_id;
       $variables['video_url'] = $video_url;
     }  
+  }
+  if ($variables['paragraph']->getType() == 'tout') { 
+    if ($variables['content']['field_text'][0]) {
+      $text = $variables['content']['field_text'][0]['#text'];
+      $variables['content']['field_text'][0]['#text'] = preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $text);
+    }
   }
 }
 
