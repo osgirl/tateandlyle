@@ -10,7 +10,6 @@ dependencies:
     - node.type.page
   module:
     - entity_reference_revisions
-    - field_formatter_class
     - user
 _core:
   default_config_hash: kKatvwe7-6o7ln-9j1WphNfBMpdWHByUcSUpRE1d0N8

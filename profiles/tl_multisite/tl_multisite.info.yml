@@ -49,6 +49,7 @@ dependencies:
   - google_analytics
   - mollom
   - metatag
+  - rest
   - tl_block
   - tl_block_utility
   - tl_dolcia_prima_multimedia
