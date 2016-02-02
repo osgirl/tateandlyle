@@ -1,0 +1,15 @@
+uuid: 4c2932a6-cc7e-4c60-ba00-d5f0609c3fb0
+langcode: en
+status: true
+dependencies:
+  module:
+    - contact_storage
+third_party_settings:
+  contact_storage:
+    redirect_uri: ''
+id: technical_data_sheets
+label: 'Technical data sheets'
+recipients:
+  - webmaster@tateandlyle.com
+reply: ''
+weight: 0
