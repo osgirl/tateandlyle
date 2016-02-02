@@ -4,6 +4,7 @@
  * Session storage in the datastore.
  *
  * @package simpleSAMLphp
+ * @version $Id$
  */
 class SimpleSAML_SessionHandlerStore extends SimpleSAML_SessionHandlerCookie {
 

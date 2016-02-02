@@ -7,5 +7,6 @@
  * It simply passes control back to the class.
  *
  * @package simpleSAMLphp
+ * @version $Id$
  */
 sspmod_exampleauth_Auth_Source_External::resume();

@@ -10,6 +10,7 @@
  * @author Olav Morken, UNINETT AS.
  * @author Andreas Åkre Solberg <andreas@uninett.no>, UNINETT AS.
  * @package simpleSAMLphp
+ * @version $Id$
  */
 class SimpleSAML_XHTML_IdPDisco {
 
@@ -97,7 +98,7 @@ class SimpleSAML_XHTML_IdPDisco {
 		/* Initialize standard classes. */
 		$this->config = SimpleSAML_Configuration::getInstance();
 		$this->metadata = SimpleSAML_Metadata_MetaDataStorageHandler::getMetadataHandler();
-		$this->session = SimpleSAML_Session::getSessionFromRequest();
+		$this->session = SimpleSAML_Session::getInstance();
 		$this->instance = $instance;
 		$this->metadataSets = $metadataSets;
 

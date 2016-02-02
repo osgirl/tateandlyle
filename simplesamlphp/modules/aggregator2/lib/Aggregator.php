@@ -4,6 +4,7 @@
  * Class which implements a basic metadata aggregator.
  *
  * @package simpleSAMLphp
+ * @version $Id$
  */
 class sspmod_aggregator2_Aggregator {
 

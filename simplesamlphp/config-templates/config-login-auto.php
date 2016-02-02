@@ -1,6 +1,8 @@
 <?php
 /* 
  * The configuration of the login-auto authentication module.
+ * 
+ * $Id: config.php 451 2008-03-27 15:33:34Z olavmrk $
  */
 
 $config = array (

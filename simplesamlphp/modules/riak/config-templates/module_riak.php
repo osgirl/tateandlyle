@@ -2,6 +2,7 @@
 /*
  * The configuration of the riak Store module
  *
+ * $Id$
  */
 
 $config = array (

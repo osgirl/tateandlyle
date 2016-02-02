@@ -4,6 +4,7 @@
  * Authproc filter to generate a persistent NameID.
  *
  * @package simpleSAMLphp
+ * @version $Id$
  */
 class sspmod_saml_Auth_Process_PersistentNameID extends sspmod_saml_BaseNameIDGenerator {
 

@@ -1,22 +1,12 @@
 <?php
 
-/**
- * WARNING:
- *
- * THIS FILE IS DEPRECATED AND WILL BE REMOVED IN FUTURE VERSIONS
- *
- * @deprecated
- */
-
 require_once('../../_include.php');
 
 $config = SimpleSAML_Configuration::getInstance();
 $metadata = SimpleSAML_Metadata_MetaDataStorageHandler::getMetadataHandler();
 
-SimpleSAML_Logger::warning('The file saml2/sp/SingleLogoutService.php is deprecated and will be removed in future versions.');
-
 // Get the local session
-$session = SimpleSAML_Session::getSessionFromRequest();
+$session = SimpleSAML_Session::getInstance();
 
 
 SimpleSAML_Logger::info('SAML2.0 - SP.SingleLogoutService: Accessing SAML 2.0 SP endpoint SingleLogoutService');

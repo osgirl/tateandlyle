@@ -8,6 +8,7 @@
  *
  * @author Olav Morken, UNINETT AS.
  * @package simpleSAMLphp
+ * @version $Id$
  */
 class SimpleSAML_Auth_Default {
 
@@ -123,7 +124,7 @@ class SimpleSAML_Auth_Default {
 		$return = $state['SimpleSAML_Auth_Default.Return'];
 
 		/* Save session state. */
-		$session = SimpleSAML_Session::getSessionFromRequest();
+		$session = SimpleSAML_Session::getInstance();
 		$session->doLogin($state['SimpleSAML_Auth_Default.id'], self::extractPersistentAuthState($state));
 
 		if (is_string($return)) {
@@ -154,7 +155,7 @@ class SimpleSAML_Auth_Default {
 		assert('is_string($returnURL)');
 		assert('is_string($authority) || is_null($authority)');
 
-		$session = SimpleSAML_Session::getSessionFromRequest();
+		$session = SimpleSAML_Session::getInstance();
 
 		if ($authority === NULL) {
 			$authority = $session->getAuthority();
@@ -234,7 +235,7 @@ class SimpleSAML_Auth_Default {
 
 		$source = $state['SimpleSAML_Auth_Default.logoutSource'];
 
-		$session = SimpleSAML_Session::getSessionFromRequest();
+		$session = SimpleSAML_Session::getInstance();
 		$authId = $session->getAuthority();
 
 		if ($authId !== $source) {
@@ -269,7 +270,7 @@ class SimpleSAML_Auth_Default {
 		assert('is_string($authId)');
 		assert('is_string($redirectTo)');
 
-		$session = SimpleSAML_Session::getSessionFromRequest();
+		$session = SimpleSAML_Session::getInstance();
 		$session->doLogin($authId, self::extractPersistentAuthState($state));
 
 		SimpleSAML_Utilities::redirectUntrustedURL($redirectTo);

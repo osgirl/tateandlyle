@@ -4,6 +4,7 @@
  * Authproc filter to generate a transient NameID.
  *
  * @package simpleSAMLphp
+ * @version $Id$
  */
 class sspmod_saml_Auth_Process_TransientNameID extends sspmod_saml_BaseNameIDGenerator {
 

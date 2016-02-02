@@ -3,6 +3,7 @@
  * Class representing SecurityTokenServiceType RoleDescriptor.
  *
  * @package simpleSAMLphp
+ * @version $Id$
  */
 class sspmod_adfs_SAML2_XML_fed_SecurityTokenServiceType extends SAML2_XML_md_RoleDescriptor {
 

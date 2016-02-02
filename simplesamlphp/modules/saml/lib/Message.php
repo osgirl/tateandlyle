@@ -6,6 +6,7 @@
  * available metadata.
  *
  * @package simpleSAMLphp
+ * @version $Id$
  */
 class sspmod_saml_Message {
 
@@ -315,7 +316,7 @@ class sspmod_saml_Message {
 
 		$blacklist = $srcMetadata->getArray('encryption.blacklisted-algorithms', NULL);
 		if ($blacklist === NULL) {
-			$blacklist = $dstMetadata->getArray('encryption.blacklisted-algorithms', array(XMLSecurityKey::RSA_1_5));
+			$blacklist = $dstMetadata->getArray('encryption.blacklisted-algorithms', array());
 		}
 		return $blacklist;
 	}
@@ -614,9 +615,8 @@ class sspmod_saml_Message {
 				/* Extract certificate data (if this is a certificate). */
 				$clientCert = $_SERVER['SSL_CLIENT_CERT'];
 				$pattern = '/^-----BEGIN CERTIFICATE-----([^-]*)^-----END CERTIFICATE-----/m';
-				if (!preg_match($pattern, $clientCert, $matches)) {
-				    $lastError = 'Error while looking for client certificate during TLS handshake with SP, the client certificate does not '
-				                 . 'have the expected structure';
+				if (preg_match($pattern, $clientCert, $matches) === FALSE) {
+				    $lastError = 'No valid client certificate provided during TLS Handshake with SP';
 				    continue;
 				}
 				/* We have a valid client certificate from the browser. */

@@ -26,6 +26,7 @@
  *
  * @author Olav Morken, UNINETT AS.
  * @package simpleSAMLphp
+ * @version $Id$
  */
 class SimpleSAML_Auth_State {
 
@@ -159,7 +160,7 @@ class SimpleSAML_Auth_State {
 
 		/* Save state. */
 		$serializedState = serialize($state);
-		$session = SimpleSAML_Session::getSessionFromRequest();
+		$session = SimpleSAML_Session::getInstance();
 		$session->setData('SimpleSAML_Auth_State', $id, $serializedState, self::getStateTimeout());
 
 		SimpleSAML_Logger::debug('Saved state: ' . var_export($return, TRUE));
@@ -212,7 +213,7 @@ class SimpleSAML_Auth_State {
 
 		$sid = SimpleSAML_Utilities::parseStateID($id);
 
-		$session = SimpleSAML_Session::getSessionFromRequest();
+		$session = SimpleSAML_Session::getInstance();
 		$state = $session->getData('SimpleSAML_Auth_State', $sid['id']);
 
 		if ($state === NULL) {
@@ -241,7 +242,7 @@ class SimpleSAML_Auth_State {
 			 */
 
 			$msg = 'Wrong stage in state. Was \'' . $state[self::STAGE] .
-				'\', should be \'' . $stage . '\'.';
+				'\', shoud be \'' . $stage . '\'.';
 
 			SimpleSAML_Logger::warning($msg);
 
@@ -273,7 +274,7 @@ class SimpleSAML_Auth_State {
 
 		SimpleSAML_Logger::debug('Deleting state: ' . var_export($state[self::ID], TRUE));
 
-		$session = SimpleSAML_Session::getSessionFromRequest();
+		$session = SimpleSAML_Session::getInstance();
 		$session->deleteData('SimpleSAML_Auth_State', $state[self::ID]);
 	}
 

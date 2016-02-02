@@ -5,6 +5,7 @@
  *
  * @author Boy Baukema, SURFnet
  * @package simpleSAMLphp
+ * @version $Id$
  */
 
 /**

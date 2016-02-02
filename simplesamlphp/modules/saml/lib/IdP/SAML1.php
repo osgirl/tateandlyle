@@ -4,6 +4,7 @@
  * IdP implementation for SAML 1.1 protocol.
  *
  * @package simpleSAMLphp
+ * @version $Id$
  */
 class sspmod_saml_IdP_SAML1 {
 
@@ -36,15 +37,11 @@ class sspmod_saml_IdP_SAML1 {
 		$config = SimpleSAML_Configuration::getInstance();
 		$metadata = SimpleSAML_Metadata_MetaDataStorageHandler::getMetadataHandler();
 
-		$statsData = array(
+		SimpleSAML_Stats::log('saml:idp:Response', array(
 			'spEntityID' => $spEntityId,
 			'idpEntityID' => $idpMetadata->getString('entityid'),
 			'protocol' => 'saml1',
-		);
-		if (isset($state['saml:AuthnRequestReceivedAt'])) {
-			$statsData['logintime'] = microtime(TRUE) - $state['saml:AuthnRequestReceivedAt'];
-		}
-		SimpleSAML_Stats::log('saml:idp:Response', $statsData);
+		));
 
 		/* Generate and send response. */
 		$ar = new SimpleSAML_XML_Shib13_AuthnResponse();
@@ -125,7 +122,6 @@ class sspmod_saml_IdP_SAML1 {
 
 			'saml:shire' => $shire,
 			'saml:target' => $target,
-			'saml:AuthnRequestReceivedAt' => microtime(TRUE),
 		);
 
 		$idp->handleAuthenticationRequest($state);

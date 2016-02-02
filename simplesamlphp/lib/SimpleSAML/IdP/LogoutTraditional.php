@@ -4,6 +4,7 @@
  * Class which handles traditional logout.
  *
  * @package simpleSAMLphp
+ * @version $Id$
  */
 class SimpleSAML_IdP_LogoutTraditional extends SimpleSAML_IdP_LogoutHandler {
 

@@ -7,6 +7,7 @@
  * Auth_OpenID_Consumer class.
  *
  * @package simpleSAMLphp
+ * @version $Id$
  */
 class sspmod_openid_SessionStore {
 
@@ -19,7 +20,7 @@ class sspmod_openid_SessionStore {
 	public function get($key) {
 		assert('is_string($key)');
 
-		$session = SimpleSAML_Session::getSessionFromRequest();
+		$session = SimpleSAML_Session::getInstance();
 		return $session->getData('openid.session', $key);
 	}
 
@@ -33,7 +34,7 @@ class sspmod_openid_SessionStore {
 	public function set($key, $value) {
 		assert('is_string($key)');
 
-		$session = SimpleSAML_Session::getSessionFromRequest();
+		$session = SimpleSAML_Session::getInstance();
 		$session->setData('openid.session', $key, $value);
 	}
 
@@ -46,7 +47,7 @@ class sspmod_openid_SessionStore {
 	public function del($key) {
 		assert('is_string($key)');
 
-		$session = SimpleSAML_Session::getSessionFromRequest();
+		$session = SimpleSAML_Session::getInstance();
 		$session->deleteData('openid.session', $key);
 	}
 

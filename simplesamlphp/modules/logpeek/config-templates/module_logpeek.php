@@ -1,6 +1,8 @@
 <?php
 /* 
  * Configuration for the module logpeek.
+ * 
+ * $Id $
  */
 
 $config = array (
