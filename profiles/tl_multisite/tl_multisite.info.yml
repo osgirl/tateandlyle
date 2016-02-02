@@ -17,6 +17,7 @@ dependencies:
   - config_translation
   - ctools
   - features
+  - features_ui
   - menu_link_content
   - datetime
   - block_content
