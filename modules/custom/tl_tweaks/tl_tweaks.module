@@ -33,3 +33,39 @@ function tl_tweaks_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form
     unset($form['field_form']['widget']['#options']['personal']);
   }
 }
+
+/**
+ * Implements hook_page_attachments_alter().
+ */
+function tl_tweaks_page_attachments_alter(&$page) {
+  $page['#attached']['library'][] = 'tl_tweaks/tl_tweaks';
+}
+
+/**
+ * Implements hook_page_attachments().
+ */
+function tl_tweaks_page_attachments(array &$attachments) {
+  global $base_url;
+  $page_path = \Drupal::service('path.current')->getPath();
+  $page_alias = \Drupal::service('path.alias_manager')->getAliasByPath($page_path);
+  if ($page_alias == "/thank-you") {
+    if (isset($_SERVER['HTTP_REFERER'])) {
+      $alias = str_replace($base_url, "", $_SERVER['HTTP_REFERER']);
+      $path = Url::fromUserInput($alias)->getInternalPath();
+      $node_id = str_replace("node/", "", $path);
+      if (is_numeric($node_id)) {
+        $node = node_load($node_id);
+        if ($node->getType() == "form") {
+          if ($node->get('field_form')->getValue()[0]['target_id'] == "file_access") {
+            if ($node->get('field_file')->isEmpty() != "1'") {
+              $file_id = $node->get('field_file')->getValue()[0]['target_id'];
+              $file = file_load($file_id);
+              $file_path = $file->url($rel = canonical, $options = array());
+              print '<a href="' . $file_path . '" download id="download" hidden></a>';
+            }
+          }
+        }
+      }
+    }
+  }
+}

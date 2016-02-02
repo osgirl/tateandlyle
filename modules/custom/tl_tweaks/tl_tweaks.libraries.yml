@@ -1,0 +1,4 @@
+tl_tweaks:
+  version: 1.x
+  js:
+    js/tl_tweaks.js: {}

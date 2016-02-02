@@ -4,11 +4,7 @@
 
   // Unwrap html tags.
   Drupal.behaviors.overrideHTML = {
-    attach: function (context, settings) {
-      $('.field--name-field-text img').unwrap();
-      
- /*     $('.field--name-field-video-text a.video-button').unwrap();  
-      $('a.video-button').insertAfter('.field--name-field-video-text h2');*/
+    attach: function (context, settings) {    
 
       $(".products .tout-container").click(function() {
         window.location = $(this).find("a").attr("href"); 
@@ -41,7 +37,6 @@
     attach: function (context, settings) {
       var trigger = $("body").find('[data-toggle="modal"]');
       trigger.click(function () {
-        console.log('play video')
         var theModal = $(this).data("target"),
         videoSRC = $(this).attr("data-theVideo"),
         videoSRCauto = videoSRC + "?autoplay=1";
@@ -55,7 +50,7 @@
       });
     }
   }
-
+  
   // Disable dropdown toggle.
   Drupal.behaviors.disableDropdowntoggle = {
     attach: function (context, settings) {
