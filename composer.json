@@ -28,8 +28,7 @@
     "phpmd/phpmd":                  "1.*",
     "drush/drush":                  "~8.0-rc3",
     "pear-pear.php.net/VersionControl_Git": "0.4.*",
-    "jarnaiz/behat-junit-formatter": "^1.2",
-    "simplesamlphp/simplesamlphp": "1.13.2"
+    "jarnaiz/behat-junit-formatter": "^1.2"
   },
   "config": {
     "bin-dir": "bin"
