@@ -4,7 +4,6 @@
  * Install, update & uninstall functions for the Tatelyle installation profile.
  */
 
-use Drupal\paragraphs\Entity\Paragraph;
 use Drupal\user\Entity\User;
 use Drupal\user\RoleInterface;
 use Drupal\taxonomy\Entity\Term;
@@ -86,12 +85,12 @@ function tl_multisite_create_terms() {
   $term = Term::create([
     'vid' => 'file_types',
     'langcode' => 'en',
-    'name' => 'Factsheets',
+    'name' => 'Video',
     'description' => [
       'value' => '',
       'format' => 'full_html',
     ],
-    'weight' => -1,
+    'weight' => 0,
     'parent' => '',
   ]);
   $term->save();
@@ -99,12 +98,51 @@ function tl_multisite_create_terms() {
   $term = Term::create([
     'vid' => 'file_types',
     'langcode' => 'en',
-    'name' => 'Photos',
+    'name' => 'Baked goods',
     'description' => [
       'value' => '',
       'format' => 'full_html',
     ],
-    'weight' => -1,
+    'weight' => 1,
+    'parent' => '',
+  ]);
+  $term->save();
+
+  $term = Term::create([
+    'vid' => 'file_types',
+    'langcode' => 'en',
+    'name' => 'Beverages',
+    'description' => [
+      'value' => '',
+      'format' => 'full_html',
+    ],
+    'weight' => 2,
+    'parent' => '',
+  ]);
+  $term->save();
+
+  $term = Term::create([
+    'vid' => 'file_types',
+    'langcode' => 'en',
+    'name' => 'Dairy',
+    'description' => [
+      'value' => '',
+      'format' => 'full_html',
+    ],
+    'weight' => 3,
+    'parent' => '',
+  ]);
+  $term->save();
+
+  $term = Term::create([
+    'vid' => 'file_types',
+    'langcode' => 'en',
+    'name' => 'General',
+    'description' => [
+      'value' => '',
+      'format' => 'full_html',
+    ],
+    'weight' => 4,
     'parent' => '',
   ]);
   $term->save();
@@ -117,7 +155,46 @@ function tl_multisite_create_terms() {
       'value' => '',
       'format' => 'full_html',
     ],
-    'weight' => -1,
+    'weight' => 5,
+    'parent' => '',
+  ]);
+  $term->save();
+
+  $term = Term::create([
+    'vid' => 'file_types',
+    'langcode' => 'en',
+    'name' => 'Factsheets',
+    'description' => [
+      'value' => '',
+      'format' => 'full_html',
+    ],
+    'weight' => 6,
+    'parent' => '',
+  ]);
+  $term->save();
+
+  $term = Term::create([
+    'vid' => 'file_types',
+    'langcode' => 'en',
+    'name' => 'Photos',
+    'description' => [
+      'value' => '',
+      'format' => 'full_html',
+    ],
+    'weight' => 7,
+    'parent' => '',
+  ]);
+  $term->save();
+
+  $term = Term::create([
+    'vid' => 'file_types',
+    'langcode' => 'en',
+    'name' => 'Infographic',
+    'description' => [
+      'value' => '',
+      'format' => 'full_html',
+    ],
+    'weight' => 8,
     'parent' => '',
   ]);
   $term->save();
@@ -127,12 +204,6 @@ function tl_multisite_create_terms() {
  * Helper function to create the basic pages during install.
  */
 function tl_multisite_create_nodes() {
-  $paragraph = Paragraph::create([
-    'type' => 'text',
-    'field_body' => 'Page not found.',
-  ]);
-  $paragraph->save();
-
   $node = Node::create([
     'type' => 'page',
     'langcode' => 'en',
@@ -141,18 +212,16 @@ function tl_multisite_create_nodes() {
     'uid' => 1,
     'title' => '404',
     'field_tags' => [2],
-    'field_main_content' => $paragraph,
+    'body' => [
+      'summary' => '',
+      'value' => 'Page not found.',
+      'format' => 'full_html',
+    ],
   ]);
   $node->save();
   $path = '/node/' . $node->id();
   \Drupal::service('path.alias_storage')->save($path, "/404", "en");
   \Drupal::configFactory()->getEditable('system.site')->set('page.404', $path)->save(TRUE);
-
-  $paragraph = Paragraph::create([
-    'type' => 'text',
-    'field_body' => 'Access denied.',
-  ]);
-  $paragraph->save();
 
   $node = Node::create([
     'type' => 'page',
@@ -162,32 +231,16 @@ function tl_multisite_create_nodes() {
     'uid' => 1,
     'title' => '403',
     'field_tags' => [2],
-    'field_main_content' => $paragraph,
+    'body' => [
+      'summary' => '',
+      'value' => 'Access denied.',
+      'format' => 'full_html',
+    ],
   ]);
   $node->save();
   $path = '/node/' . $node->id();
-  \Drupal::service('path.alias_storage')->save($path, "/403", "en");
+  \Drupal::service('path.alias_storage')->save("/node/" . $path, "/403", "en");
   \Drupal::configFactory()->getEditable('system.site')->set('page.403', $path)->save(TRUE);
-
-  $paragraph = Paragraph::create([
-    'type' => 'text',
-    'field_body' => 'Thank you for your interest.',
-  ]);
-  $paragraph->save();
-
-  $node = Node::create([
-    'type' => 'page',
-    'langcode' => 'en',
-    'created' => REQUEST_TIME,
-    'changed' => REQUEST_TIME,
-    'uid' => 1,
-    'title' => 'Thank you',
-    'field_tags' => [2],
-    'field_main_content' => $paragraph,
-  ]);
-  $node->save();
-  $path = '/node/' . $node->id();
-  \Drupal::service('path.alias_storage')->save($path, "/thank you", "en");
 }
 
 /**
