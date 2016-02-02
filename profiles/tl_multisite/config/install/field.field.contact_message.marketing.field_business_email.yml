@@ -1,0 +1,19 @@
+uuid: 2ce8a7ff-3113-4e35-813a-588af1ef4dac
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.marketing
+    - field.storage.contact_message.field_business_email
+id: contact_message.marketing.field_business_email
+field_name: field_business_email
+entity_type: contact_message
+bundle: marketing
+label: 'Business email'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

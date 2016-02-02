@@ -1,14 +1,17 @@
+uuid: 29a4de41-3d74-4790-8b00-a9b75035760a
 langcode: en
 status: true
 dependencies:
   config:
     - contact.form.marketing
     - field.storage.contact_message.field_email
+_core:
+  default_config_hash: zevaHB2DTgeUGBqZipDyjifGLGBsYt-2-Ba7xVYJEks
 id: contact_message.marketing.field_email
 field_name: field_email
 entity_type: contact_message
 bundle: marketing
-label: 'Business Email'
+label: Email
 description: ''
 required: true
 translatable: true
