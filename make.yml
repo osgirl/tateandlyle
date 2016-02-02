@@ -89,4 +89,6 @@ projects:
   simplesamlphp_auth:
     type: module
     version: "3.0-alpha3"
-    
+  externalauth:
+    type: module
+    version: "1.0-alpha3"
