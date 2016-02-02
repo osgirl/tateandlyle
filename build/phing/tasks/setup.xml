@@ -43,7 +43,7 @@
     <exec dir="${docroot}" command="cp -r ./vendor/simplesamlphp/simplesamlphp/config-templates ./vendor/simplesamlphp/simplesamlphp/config" />
     <exec dir="${docroot}" command="cp -r ./vendor/simplesamlphp/simplesamlphp/metadata-templates ./vendor/simplesamlphp/simplesamlphp/metadata" />
     <exec dir="${docroot}" command="cp ../simplesamlphp/config/config.php ./vendor/simplesamlphp/simplesamlphp/config/" />
-    <exec dir="${docroot}" command="cp ../simplesamlphp/config/authsource.php ./vendor/simplesamlphp/simplesamlphp/config/" />
+    <exec dir="${docroot}" command="cp ../simplesamlphp/config/authsources.php ./vendor/simplesamlphp/simplesamlphp/config/" />
   </target>
 
   <target name="setup:composer:init" description="Initializes composer_manager by modifying Drupal core's composer.json.">
