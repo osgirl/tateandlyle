@@ -40,8 +40,8 @@
     <exec dir="${docroot}" command="composer require simplesamlphp/simplesamlphp 1.13.2" />
     <!--<exec dir="${docroot}" command="ln -s ../simplesamlphp/www ./simplesaml" />-->
     <exec dir="${docroot}" command="ln -s ./vendor/simplesamlphp/simplesamlphp/www ./simplesaml" />
-    <exec dir="${docroot}" command="cp -r ./vendor/simplesamlphp/simplesamlphp/config-templates config/" />
-    <exec dir="${docroot}" command="cp -r ./vendor/simplesamlphp/simplesamlphp/metadata-templates metadata/" />
+    <exec dir="${docroot}" command="cp -r ./vendor/simplesamlphp/simplesamlphp/config-templates ./vendor/simplesamlphp/simplesamlphp/config" />
+    <exec dir="${docroot}" command="cp -r ./vendor/simplesamlphp/simplesamlphp/metadata-templates ./vendor/simplesamlphp/simplesamlphp/metadata" />
     <exec dir="${docroot}" command="cp ../simplesamlphp/config/config.php ./vendor/simplesamlphp/simplesamlphp/config/" />
     <exec dir="${docroot}" command="cp ../simplesamlphp/config/metadata.php ./vendor/simplesamlphp/simplesamlphp/config/" />
   </target>
