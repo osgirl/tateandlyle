@@ -1,3 +1,4 @@
+uuid: ffc835c0-bd5a-490e-a208-8ec10ea21ec0
 langcode: en
 status: true
 dependencies:
@@ -5,11 +6,15 @@ dependencies:
     - field.field.node.media_item.field_file
     - field.field.node.media_item.field_media_category
     - field.field.node.media_item.field_media_item_image
+    - field.field.node.media_item.field_youtube_video
     - node.type.media_item
   module:
     - file
     - image
     - path
+    - youtube
+_core:
+  default_config_hash: QO7AcB2fvlVEAoIJ66oJ2ucWkru3SpSx3O0Wiie-fm4
 id: node.media_item.default
 targetEntityType: node
 bundle: media_item
@@ -38,6 +43,11 @@ content:
       preview_image_style: thumbnail
     third_party_settings: {  }
     type: image_image
+  field_youtube_video:
+    weight: 26
+    settings: {  }
+    third_party_settings: {  }
+    type: youtube
   langcode:
     type: language_select
     weight: 0
