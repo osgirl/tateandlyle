@@ -4,6 +4,8 @@ status: true
 dependencies:
   module:
     - paragraphs
+_core:
+  default_config_hash: Rv3hoQDWkJSLtbAwDAwlysKiKmRJwFIoOeTkeeY-Vq4
 id: paragraph.field_background_color
 field_name: field_background_color
 entity_type: paragraph

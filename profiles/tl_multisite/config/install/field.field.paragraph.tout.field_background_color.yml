@@ -5,6 +5,8 @@ dependencies:
   config:
     - field.storage.paragraph.field_background_color
     - paragraphs.paragraphs_type.tout
+_core:
+  default_config_hash: M-KiQVe5yAh5w_Amy19JZi4aPDIDWZcwFYi8oalBzMA
 id: paragraph.tout.field_background_color
 field_name: field_background_color
 entity_type: paragraph
