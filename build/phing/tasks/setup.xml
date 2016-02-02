@@ -38,7 +38,10 @@
     <exec dir="${docroot}" command="composer require solarium/solarium ^3.5" />
     <exec dir="${docroot}" command="composer update solarium/solarium" />
     <exec dir="${docroot}" command="composer require simplesamlphp/simplesamlphp 1.13.2" />
-    <exec dir="${docroot}" command="ln -s ../simplesamlphp/www ./simplesaml" />
+    <!--<exec dir="${docroot}" command="ln -s ../simplesamlphp/www ./simplesaml" />-->
+    <exec dir="${docroot}" command="ln -s ./vendor/simplesamlphp/simplesamlphp/www ./simplesaml" />
+    <exec dir="${docroot}" command="cp ../simplesamlphp/config/config.php ./vendor/simplesamlphp/simplesamlphp/config/" />
+    <exec dir="${docroot}" command="cp ../simplesamlphp/config/metadata.php ./vendor/simplesamlphp/simplesamlphp/config/" />
   </target>
 
   <target name="setup:composer:init" description="Initializes composer_manager by modifying Drupal core's composer.json.">
