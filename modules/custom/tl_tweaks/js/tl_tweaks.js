@@ -1,0 +1,12 @@
+/**
+ * @file
+ * Attaches several functionalities to the dolciaprima tweaks.
+ */
+
+(function ($) {
+  Drupal.behaviors.tl_tweaks = {
+    attach: function (context, settings) {
+      document.getElementById('download').click();
+    }
+  };
+})(jQuery);
