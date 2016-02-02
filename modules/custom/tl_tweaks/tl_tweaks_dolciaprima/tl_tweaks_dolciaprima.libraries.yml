@@ -1,0 +1,7 @@
+tl_tweaks_dolciaprima:
+  version: 1.x
+  css:
+    theme:
+      css/tl_tweaks_dolciaprima.css: {}
+  js:
+    js/tl_tweaks_dolciaprima.js: {}
