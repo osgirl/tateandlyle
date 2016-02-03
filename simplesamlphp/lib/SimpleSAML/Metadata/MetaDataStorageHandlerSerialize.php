@@ -4,6 +4,7 @@
  * Class for handling metadata files in serialized format.
  *
  * @package simpleSAMLphp
+ * @version $Id$
  */
 class SimpleSAML_Metadata_MetaDataStorageHandlerSerialize extends SimpleSAML_Metadata_MetaDataStorageSource {
 

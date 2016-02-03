@@ -4,6 +4,7 @@
  * CDC server class.
  *
  * @package simpleSAMLphp
+ * @version $Id$
  */
 class sspmod_cdc_Server {
 

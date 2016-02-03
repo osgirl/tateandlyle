@@ -3,7 +3,7 @@
 
 /* Load simpleSAMLphp, configuration */
 $config = SimpleSAML_Configuration::getInstance();
-$session = SimpleSAML_Session::getSessionFromRequest();
+$session = SimpleSAML_Session::getInstance();
 
 /* Check if valid local session exists.. */
 if ($config->getBoolean('admin.protectindexpage', false)) {

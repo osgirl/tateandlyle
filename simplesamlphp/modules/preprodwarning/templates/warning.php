@@ -14,6 +14,7 @@
  * - 'sppp': URL to the privacy policy of the destination, or FALSE.
  *
  * @package simpleSAMLphp
+ * @version $Id$
  */
 
 

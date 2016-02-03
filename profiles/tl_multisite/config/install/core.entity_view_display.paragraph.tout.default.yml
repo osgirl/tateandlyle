@@ -54,6 +54,9 @@ content:
     label: hidden
     settings:
       link_to_entity: false
+    third_party_settings:
+      field_formatter_class:
+        class: tout-title
     type: string
   moderation_state:
     label: hidden

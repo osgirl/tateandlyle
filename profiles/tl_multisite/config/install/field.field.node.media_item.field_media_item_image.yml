@@ -7,6 +7,8 @@ dependencies:
     - node.type.media_item
   module:
     - image
+_core:
+  default_config_hash: MyiivRyxS_Joof5vOvoso8z5HADUksm2DL8a3J4lazU
 id: node.media_item.field_media_item_image
 field_name: field_media_item_image
 entity_type: node

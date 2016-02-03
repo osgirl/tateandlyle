@@ -4,11 +4,12 @@
  * This page provides a way to create a redirect to a POST request.
  *
  * @package simpleSAMLphp
+ * @version $Id$
  */
 
 if (array_key_exists('RedirId', $_REQUEST)) {
 	$postId = $_REQUEST['RedirId'];
-	$session = SimpleSAML_Session::getSessionFromRequest();
+	$session = SimpleSAML_Session::getInstance();
 } elseif (array_key_exists('RedirInfo', $_REQUEST)) {
 	$encData = base64_decode($_REQUEST['RedirInfo']);
 

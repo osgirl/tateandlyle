@@ -10,7 +10,7 @@ third_party_settings:
       - main
     parent: 'main:'
 _core:
-  default_config_hash: GArwZaFctVd2yjt7m0e1X9M4dnMv37hkkqyQiPEHNbo
+  default_config_hash: B6qj9yYg7eeKMUktWcz1W1cuFuFohq5tV_lQD-uolkc
 name: 'Media item'
 type: media_item
 description: 'Add media items that provide a link to the file.'

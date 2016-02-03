@@ -2,6 +2,7 @@
 /*
  * @author Andreas Åkre Solberg <andreas.solberg@uninett.no>
  * @package simpleSAMLphp
+ * @version $Id$
  */
 class sspmod_metarefresh_ARP {
 

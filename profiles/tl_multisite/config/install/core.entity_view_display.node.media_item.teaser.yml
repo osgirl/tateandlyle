@@ -11,7 +11,7 @@ dependencies:
   module:
     - user
 _core:
-  default_config_hash: NFSVQlOOJ_U4jdu9WTaw7eQ39-6wnBQyhpC5pDSFo1w
+  default_config_hash: Yi3FDxV6hGhFEJ1frsw7JN3SmShDba0E7mtWnL9CPVM
 id: node.media_item.teaser
 targetEntityType: node
 bundle: media_item

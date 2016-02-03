@@ -6,6 +6,7 @@
  * This class builds SAML 2.0 metadata for an entity by examining the metadata for the entity.
  *
  * @package simpleSAMLphp
+ * @version $Id$
  */
 class SimpleSAML_Metadata_SAMLBuilder {
 
@@ -369,12 +370,9 @@ class SimpleSAML_Metadata_SAMLBuilder {
 		$attributeconsumer->ServiceDescription = $metadata->getLocalizedString('description', array());
 
 		$nameFormat = $metadata->getString('attributes.NameFormat', SAML2_Const::NAMEFORMAT_UNSPECIFIED);
-		foreach ($attributes as $friendlyName => $attribute) {
+		foreach ($attributes as $attribute) {
 			$t = new SAML2_XML_md_RequestedAttribute();
 			$t->Name = $attribute;
-			if (!is_int($friendlyName)) {
-				$t->FriendlyName = $friendlyName;
-			}
 			if ($nameFormat !== SAML2_Const::NAMEFORMAT_UNSPECIFIED) {
 				$t->NameFormat = $nameFormat;
 			}
@@ -487,10 +485,8 @@ class SimpleSAML_Metadata_SAMLBuilder {
 		$e = new SAML2_XML_md_IDPSSODescriptor();
 		$e->protocolSupportEnumeration[] = 'urn:oasis:names:tc:SAML:2.0:protocol';
 
-		if ($metadata->hasValue('sign.authnrequest')) {
-			$e->WantAuthnRequestsSigned = $metadata->getBoolean('sign.authnrequest');
-		} elseif ($metadata->hasValue('redirect.sign')) {
-			$e->WantAuthnRequestsSigned = $metadata->getBoolean('redirect.sign');
+		if ($metadata->getBoolean('redirect.sign', FALSE)) {
+			$e->WantAuthnRequestSigned = TRUE;
 		}
 
 		$this->addExtensions($metadata, $e);

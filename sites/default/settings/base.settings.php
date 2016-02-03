@@ -42,3 +42,5 @@ if ($ah_env) {
   // The backend class is grabbing the identifier for constructing the path, so we have no choice, but to override the identifier.
   $config['acquia_search.settings']['identifier'] = 'CMQY-94994.' . $_ENV['AH_SITE_ENVIRONMENT'] . '.tatelyle';
 }
+
+$settings['simplesamlphp_dir'] = DRUPAL_ROOT . '/../simplesamlphp';

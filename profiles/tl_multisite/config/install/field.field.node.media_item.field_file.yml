@@ -1,3 +1,4 @@
+uuid: a4cdd11a-7ff6-4919-b400-b001f3d16475
 langcode: en
 status: true
 dependencies:
@@ -6,6 +7,8 @@ dependencies:
     - node.type.media_item
   module:
     - file
+_core:
+  default_config_hash: h1Fit-F0-AUyRhhV1SKslpMMHqGb9OstD3CFdLwhzu8
 id: node.media_item.field_file
 field_name: field_file
 entity_type: node
@@ -18,8 +21,8 @@ default_value: {  }
 default_value_callback: ''
 settings:
   file_directory: file
-  file_extensions: 'txt pdf doc docx'
-  max_filesize: '50 MB'
+  file_extensions: 'txt pdf doc docx mp4'
+  max_filesize: '128 MB'
   description_field: false
   handler: 'default:file'
   handler_settings: {  }

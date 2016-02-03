@@ -9,6 +9,12 @@ $config = array(
 
         'core:AdminPassword',
     ),
+    'tatelyle-sp' => array(
+        'saml:SP',
+        'entityID' => NULL,
+        'idp' => NULL,
+        'discoURL' => NULL,
+    ),
 
 
     // An authentication source which can authenticate against both SAML 2.0

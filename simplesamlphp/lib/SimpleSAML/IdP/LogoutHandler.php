@@ -4,6 +4,7 @@
  * Base class for logout handlers.
  *
  * @package simpleSAMLphp
+ * @version $Id$
  */
 abstract class SimpleSAML_IdP_LogoutHandler {
 

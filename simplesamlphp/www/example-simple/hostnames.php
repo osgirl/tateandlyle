@@ -4,7 +4,7 @@ require_once('../_include.php');
 
 /* Load simpleSAMLphp, configuration */
 $config = SimpleSAML_Configuration::getInstance();
-$session = SimpleSAML_Session::getSessionFromRequest();
+$session = SimpleSAML_Session::getInstance();
 
 /* Check if valid local session exists.. */
 SimpleSAML_Utilities::requireAdmin();

@@ -14,6 +14,8 @@ third_party_settings:
       alt: alt
       title: title
       file: '0'
+_core:
+  default_config_hash: Xiue6Y7MFNrTIe3e03vIeDL-xs7C8jy4SU-AUmMxNwM
 id: node.form.field_footer_image
 field_name: field_footer_image
 entity_type: node

@@ -5,6 +5,7 @@
  *
  * @author Andreas Åkre Solberg <andreas.solberg@uninett.no>
  * @package simpleSAMLphp
+ * @version $Id: Aggregator.php 3344 2014-01-29 16:17:36Z jaimepc@gmail.com $
  */
 
 class sspmod_aggregator_Aggregator {
@@ -238,7 +239,7 @@ class sspmod_aggregator_Aggregator {
 					$orgmeta = $metadata;
 				}
 				$tmp->addOrganizationInfo($orgmeta);
-				$entitiesDescriptor->children[] = new SAML2_XML_md_EntityDescriptor($tmp->getEntityDescriptor());
+				$entitiesDescriptor->children[] = $tmp->getEntityDescriptor();
 			}
 		}
 		

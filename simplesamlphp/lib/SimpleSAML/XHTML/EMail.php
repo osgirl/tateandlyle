@@ -5,6 +5,7 @@
  *
  * @author Andreas kre Solberg, UNINETT AS. <andreas.solberg@uninett.no>
  * @package simpleSAMLphp
+ * @version $Id$
  */
 class SimpleSAML_XHTML_EMail {
 

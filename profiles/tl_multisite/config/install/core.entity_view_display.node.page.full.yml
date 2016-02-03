@@ -33,6 +33,9 @@ content:
     settings:
       view_mode: default
       link: ''
+    third_party_settings:
+      field_formatter_class:
+        class: tout
 hidden:
   field_footer_image: true
   langcode: true

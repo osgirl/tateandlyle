@@ -6,6 +6,7 @@
  *
  * @author Andreas Åkre Solberg, UNINETT AS. <andreas.solberg@uninett.no>
  * @package simpleSAMLphp
+ * @version $Id: SingleLogoutService.php 3332 2014-01-24 16:36:54Z jaimepc@gmail.com $
  */
 
 require_once('../../_include.php');

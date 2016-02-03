@@ -4,6 +4,7 @@
  * Error for missing metadata.
  *
  * @package simpleSAMLphp
+ * @version $Id$
  */
 class SimpleSAML_Error_MetadataNotFound extends SimpleSAML_Error_Error {
 
