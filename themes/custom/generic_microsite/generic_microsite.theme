@@ -48,6 +48,21 @@ function generic_microsite_preprocess_html(&$variables) {
  * Implements TEMPLATE_preprocess_field().
  */
 function generic_microsite_preprocess_field(&$variables, $hook) {
+  /* Redirect selector */
+  global $base_url;
+  if ($variables['element']['#bundle'] == 'redirect_selector') {
+    foreach ($variables['items'] as $key => $item) {
+      $variables['redirect_title'] = $item['content']['#title'];
+      if ($item['content']['#url']->isExternal() == 1) {
+        $link = $item['content']['#url']->getUri();
+      } else  {
+        $link = $base_url  . '/' . $item['content']['#url']->getInternalPath();
+      };
+      $variables['redirect_url'][$key] = $link; 
+    }
+  }
+
+  /* Accordion */
   if ($variables['field_name'] == 'field_accordion_item') { 
     $variables['attributes']['id'][]='accordion';
     foreach ($variables['items'] as $key => $item) {

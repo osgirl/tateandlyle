@@ -79,4 +79,16 @@
     }
   }
 
+  // Redirect selector.
+  Drupal.behaviors.redirectSelector = {
+    attach: function (context, settings) {
+      var redirect_link = $('#redirect_selector option:selected').val();
+      $('#redirect_selector').attr("action", redirect_link);
+      $( '#redirect_selector').change(function() {
+        var redirect_link = $('#redirect_selector option:selected').val();
+        $('#redirect_selector').attr("action", redirect_link);
+      });
+    }
+  }
+
 })(jQuery);

@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - contact.form.marketing
+    - field.field.contact_message.marketing.field_business_email
     - field.field.contact_message.marketing.field_company_name
     - field.field.contact_message.marketing.field_contact
     - field.field.contact_message.marketing.field_email
@@ -13,82 +14,71 @@ dependencies:
     - field.field.contact_message.marketing.field_job_title
     - field.field.contact_message.marketing.field_last_name
     - field.field.contact_message.marketing.field_message
+    - field.field.contact_message.marketing.field_name
     - field.field.contact_message.marketing.field_primary_application
     - field.field.contact_message.marketing.field_region_marketing
 _core:
-  default_config_hash: F6prtNKgSWnydmqXI6idF5pSZeI5C2iwdlZCVUAio6Y
+  default_config_hash: RkeIR13oOpvNhIhMBaEgWKofHd45uY338l3BkijuIDk
 id: contact_message.marketing.default
 targetEntityType: contact_message
 bundle: marketing
 mode: default
 content:
-  field_company_name:
-    weight: 53
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
-  field_contact:
-    weight: 61
-    settings:
-      display_label: false
-    third_party_settings: {  }
-    type: boolean_checkbox
-  field_email:
-    weight: 55
+  field_business_email:
+    weight: 3
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: email_default
-  field_first_name:
-    weight: 51
+  field_company_name:
+    weight: 2
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
-  field_industry:
-    weight: 57
-    settings: {  }
+  field_email:
+    weight: 0
+    settings:
+      placeholder: ''
     third_party_settings: {  }
-    type: options_select
-  field_interests:
-    weight: 59
+    type: email_default
+  field_industry:
+    weight: 5
     settings: {  }
     third_party_settings: {  }
     type: options_select
   field_job_title:
-    weight: 56
+    weight: 4
     settings: {  }
     third_party_settings: {  }
     type: options_select
-  field_last_name:
-    weight: 52
+  field_message:
+    weight: 7
+    settings:
+      rows: 2
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+  field_name:
+    weight: 1
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
-  field_message:
-    weight: 60
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textarea
   field_primary_application:
-    weight: 58
-    settings: {  }
-    third_party_settings: {  }
-    type: options_select
-  field_region_marketing:
-    weight: 54
+    weight: 6
     settings: {  }
     third_party_settings: {  }
     type: options_select
 hidden:
   copy: true
+  field_contact: true
+  field_first_name: true
+  field_interests: true
+  field_last_name: true
+  field_region_marketing: true
   langcode: true
   mail: true
   message: true

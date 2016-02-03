@@ -1,0 +1,21 @@
+uuid: c504719f-63ae-426f-9400-f36894502504
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.technical_data_sheets
+    - field.storage.contact_message.field_telephone_number
+  module:
+    - telephone
+id: contact_message.technical_data_sheets.field_telephone_number
+field_name: field_telephone_number
+entity_type: contact_message
+bundle: technical_data_sheets
+label: 'Phone number'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: telephone

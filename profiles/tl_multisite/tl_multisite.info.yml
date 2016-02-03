@@ -16,6 +16,8 @@ dependencies:
   - contact_storage
   - config_translation
   - ctools
+  - features
+  - features_ui
   - menu_link_content
   - datetime
   - block_content
@@ -47,18 +49,17 @@ dependencies:
   - google_analytics
   - mollom
   - metatag
+  - rest
   - tl_block
   - tl_block_utility
-  - imce
-  - text
+  - tl_dolcia_prima_multimedia
+  - tl_fibres_media_centre
   - youtube
+  - imce
   - token
   - pathauto
   - composer_manager
-  - rest
-  - serialization
-  - csv_serialization
- # - acquia_search
+  # - acquia_search
 themes:
   - generic_microsite
   - seven
