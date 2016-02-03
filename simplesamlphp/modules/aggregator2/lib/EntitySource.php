@@ -4,6 +4,7 @@
  * Class for loading metadata from files and URLs.
  *
  * @package simpleSAMLphp
+ * @version $Id$
  */
 class sspmod_aggregator2_EntitySource {
 

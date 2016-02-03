@@ -42,4 +42,7 @@ echo '</div>';
 }
 ?>
 
+
+</div>
+
 <?php $this->includeAtTemplateBase('includes/footer.php'); ?>

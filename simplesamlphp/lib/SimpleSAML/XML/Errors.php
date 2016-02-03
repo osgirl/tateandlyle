@@ -8,6 +8,7 @@
  *
  * @author Olav Morken, UNINETT AS.
  * @package simpleSAMLphp
+ * @version $Id$
  */
 class SimpleSAML_XML_Errors {
 

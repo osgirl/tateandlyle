@@ -4,6 +4,7 @@
  * Base filter for generating NameID values.
  *
  * @package simpleSAMLphp
+ * @version $Id$
  */
 abstract class sspmod_saml_BaseNameIDGenerator extends SimpleSAML_Auth_ProcessingFilter {
 

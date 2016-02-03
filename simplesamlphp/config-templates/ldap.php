@@ -1,6 +1,8 @@
 <?php
 /* 
  * Configuration for the LDAP authentication module.
+ * 
+ * $Id: $
  */
 
 $config = array (

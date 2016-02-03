@@ -1,20 +1,11 @@
 <?php
 
-/**
- * WARNING:
- *
- * THIS FILE IS DEPRECATED AND WILL BE REMOVED IN FUTURE VERSIONS
- *
- * @deprecated
- */
 
 require_once('../_include.php');
 
 $config = SimpleSAML_Configuration::getInstance();
 $metadata = SimpleSAML_Metadata_MetaDataStorageHandler::getMetadataHandler();
-$session = SimpleSAML_Session::getSessionFromRequest();
-
-SimpleSAML_Logger::warning('The file auth/login-ldapmulti.php is deprecated and will be removed in future versions.');
+$session = SimpleSAML_Session::getInstance();
 
 $ldapconfigfile = $config->getBaseDir() . 'config/ldapmulti.php';
 require_once($ldapconfigfile);

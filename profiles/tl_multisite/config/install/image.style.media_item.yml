@@ -1,0 +1,14 @@
+uuid: ef93db49-597b-4795-9100-b1f22fee66d9
+langcode: en
+status: true
+dependencies: {  }
+name: media_item
+label: 'Media item (190x190)'
+effects:
+  c1f036ef-fe15-4de4-9d00-ce2f10bd9b8c:
+    uuid: c1f036ef-fe15-4de4-9d00-ce2f10bd9b8c
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 190
+      height: 190

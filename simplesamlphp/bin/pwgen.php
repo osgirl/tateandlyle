@@ -1,6 +1,7 @@
 #!/usr/bin/env php
 <?php
 /*
+ * $Id$
  * Interactive script to generate password hashes.
  *
  */

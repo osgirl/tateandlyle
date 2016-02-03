@@ -4,6 +4,7 @@
  * Base class for datastores.
  *
  * @package simpleSAMLphp
+ * @version $Id$
  */
 abstract class SimpleSAML_Store {
 

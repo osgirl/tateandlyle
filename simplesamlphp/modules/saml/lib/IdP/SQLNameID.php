@@ -4,6 +4,7 @@
  * Helper class for working with persistent NameIDs stored in SQL datastore.
  *
  * @package simpleSAMLphp
+ * @version $Id$
  */
 class sspmod_saml_IdP_SQLNameID  {
 

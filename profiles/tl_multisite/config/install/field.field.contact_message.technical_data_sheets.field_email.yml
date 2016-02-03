@@ -1,0 +1,19 @@
+uuid: 992753bf-3d19-4486-9623-3522c9d5b77e
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.technical_data_sheets
+    - field.storage.contact_message.field_email
+id: contact_message.technical_data_sheets.field_email
+field_name: field_email
+entity_type: contact_message
+bundle: technical_data_sheets
+label: Email
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

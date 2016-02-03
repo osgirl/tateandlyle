@@ -6,6 +6,7 @@
  * This class is responsible for taking a statistics event and logging it.
  *
  * @package simpleSAMLphp
+ * @version $Id$
  */
 class SimpleSAML_Stats {
 

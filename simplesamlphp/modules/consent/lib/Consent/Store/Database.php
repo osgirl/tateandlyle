@@ -15,6 +15,7 @@
  *
  * @author  Olav Morken <olav.morken@uninett.no>
  * @package simpleSAMLphp
+ * @version $Id$
  */
 class sspmod_consent_Consent_Store_Database extends sspmod_consent_Store
 {

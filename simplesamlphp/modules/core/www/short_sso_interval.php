@@ -4,6 +4,7 @@
  * doing it previously.
  *
  * @package simpleSAMLphp
+ * @version $Id$
  */
 
 if (!array_key_exists('StateId', $_REQUEST)) {

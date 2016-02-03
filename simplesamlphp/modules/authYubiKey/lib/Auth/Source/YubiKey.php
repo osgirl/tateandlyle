@@ -38,6 +38,7 @@
  * go to http://yubico.com/developers/api/
  *
  * @package simpleSAMLphp
+ * @version $Id$
  */
 class sspmod_authYubiKey_Auth_Source_YubiKey extends SimpleSAML_Auth_Source {
 

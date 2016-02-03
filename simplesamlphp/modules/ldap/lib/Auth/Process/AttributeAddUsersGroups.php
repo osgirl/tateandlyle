@@ -7,6 +7,7 @@
  *
  * @author Ryan Panning <panman@traileyes.com>
  * @package simpleSAMLphp
+ * @version $Id$
  */
 class sspmod_ldap_Auth_Process_AttributeAddUsersGroups extends sspmod_ldap_Auth_Process_BaseFilter {
 

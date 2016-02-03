@@ -10,7 +10,7 @@ third_party_settings:
   content_translation:
     enabled: true
 _core:
-  default_config_hash: g-ejP-hN717Y5YQylw00GqqT57Y2vyGVDw7vRWbbGMY
+  default_config_hash: wAEsTlg0p81xsvlvcAsmHUlj-l0iwzQnY0DZ2-e1-5s
 id: node.media_item
 target_entity_type_id: node
 target_bundle: media_item

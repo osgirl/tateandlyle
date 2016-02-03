@@ -7,6 +7,7 @@
  * just serves to make the example work out of the box.
  *
  * @package simpleSAMLphp
+ * @version $Id$
  */
 
 if (!isset($_REQUEST['ReturnTo'])) {

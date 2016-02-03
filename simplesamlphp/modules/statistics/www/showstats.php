@@ -2,7 +2,7 @@
 
 $config = SimpleSAML_Configuration::getInstance();
 $statconfig = SimpleSAML_Configuration::getConfig('module_statistics.php');
-$session = SimpleSAML_Session::getSessionFromRequest();
+$session = SimpleSAML_Session::getInstance();
 
 
 sspmod_statistics_AccessCheck::checkAccess($statconfig);

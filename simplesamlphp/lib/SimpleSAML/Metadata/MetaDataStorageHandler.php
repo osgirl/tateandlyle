@@ -5,6 +5,7 @@
  *
  * @author Andreas Åkre Solberg, UNINETT AS. <andreas.solberg@uninett.no>
  * @package simpleSAMLphp
+ * @version $Id: MetaDataStorageHandler.php 3263 2013-08-22 10:09:15Z jaimepc@gmail.com $
  */ 
 class SimpleSAML_Metadata_MetaDataStorageHandler {
 
