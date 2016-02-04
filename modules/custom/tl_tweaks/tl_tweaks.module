@@ -10,6 +10,19 @@ use Drupal\Core\Url;
  * Implements hook_form_alter().
  */
 function tl_tweaks_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+
+  if (($form_id == "node_page_edit_form") || ($form_id == "node_form_edit_form")) {
+    if (isset($form['field_main_content'])) {
+      $form['field_main_content']['widget']['add_more']['#access'] = TRUE;
+    }
+    if (isset($form['field_touts'])) {
+      $form['field_touts']['widget']['add_more']['#access'] = TRUE;
+    }
+    if (isset($form['field_sidebar'])) {
+      $form['field_sidebar']['widget']['add_more']['#access'] = TRUE;
+    }
+  }
+
   foreach (entity_get_bundles()['contact_message'] as $key => $contact_message) {
     $form_id = 'contact_message_' . $key . '_form';
     if ($contact_message['label'] != 'Personal contact form') {
