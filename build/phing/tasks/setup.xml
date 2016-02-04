@@ -38,12 +38,12 @@
     <exec dir="${docroot}" command="composer require solarium/solarium ^3.5" />
     <exec dir="${docroot}" command="composer update solarium/solarium" />
     <exec dir="${docroot}" command="composer require simplesamlphp/simplesamlphp 1.13.2" />
-    <!--<exec dir="${docroot}" command="ln -s ../simplesamlphp/www ./simplesaml" />-->
     <exec dir="${docroot}" command="ln -s ./vendor/simplesamlphp/simplesamlphp/www ./simplesaml" />
     <exec dir="${docroot}" command="cp -r ./vendor/simplesamlphp/simplesamlphp/config-templates ./vendor/simplesamlphp/simplesamlphp/config" />
     <exec dir="${docroot}" command="cp -r ./vendor/simplesamlphp/simplesamlphp/metadata-templates ./vendor/simplesamlphp/simplesamlphp/metadata" />
     <exec dir="${docroot}" command="cp ../simplesamlphp/config/config.php ./vendor/simplesamlphp/simplesamlphp/config/" />
     <exec dir="${docroot}" command="cp ../simplesamlphp/config/authsources.php ./vendor/simplesamlphp/simplesamlphp/config/" />
+    <exec dir="${docroot}" command="cp ../simplesamlphp/metadata/saml20-idp-remote.php ./vendor/simplesamlphp/simplesamlphp/metadata" />
   </target>
 
   <target name="setup:composer:init" description="Initializes composer_manager by modifying Drupal core's composer.json.">

@@ -49,7 +49,7 @@ view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
 
 {#  Check if the tout has a background color #}
 {% if bg_color %}
-  <div{{ attributes.addClass(classes) }} style="background-color:{{ bg_color }}">
+  <div{{ attributes.addClass(classes) }} style="background-color:{{ bg_color }}; padding: 8px">
 {% else %}
   <div{{ attributes.addClass(classes) }}>
 {% endif %}

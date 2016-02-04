@@ -102,7 +102,8 @@ header.container {
     padding-top: 35px;
     position: relative;
     transform: none;
-    width: 166px;
+    width: 50%;
+    text-align:right;
   }
   .search-block-form {
     display: inline-block;
@@ -115,6 +116,7 @@ header.container {
     display: none;
     @media (min-width: @screen-sm) {
       display: block;
+      text-align: right;
     }
   }
 }
@@ -1095,6 +1097,38 @@ aside {
       margin-top: 0;
       margin-bottom:10px;
     }
+  }
+}
+
+/* Redirect selector */
+#redirect_selector {
+  select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url('../images/arrow-down.gif');
+    background-position: 98% center;
+    background-repeat: no-repeat;
+    border: 1px solid #A9A9A9;
+    float: left;
+    height: 24px;
+    padding: 0 5px;
+    width: 85%;
+    @media(min-width: @screen-sm-min) {
+      width: 84%;
+    }
+    @media(min-width: @screen-md-min) {
+      width: 87%;
+    }
+  }
+  input[type="submit"] {
+    background-image: url('../images/bg-button.gif');
+    background-repeat: no-repeat;
+    border: 0;
+    float: right;
+    height: 24px;
+    text-indent: 99999em;
+    width: 24px;
   }
 }
 
