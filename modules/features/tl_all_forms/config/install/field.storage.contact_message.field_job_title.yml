@@ -1,0 +1,40 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - contact
+    - options
+_core:
+  default_config_hash: DQ2KpGFN-dJydHrBcVaPgb_d8fL4_6iVKh56BrNIC4A
+id: contact_message.field_job_title
+field_name: field_job_title
+entity_type: contact_message
+type: list_integer
+settings:
+  allowed_values:
+    -
+      value: 0
+      label: President/CEO/Owner
+    -
+      value: 1
+      label: VP/SVP
+    -
+      value: 2
+      label: Director
+    -
+      value: 3
+      label: Manager
+    -
+      value: 4
+      label: Technician
+    -
+      value: 5
+      label: 'Other (please specify)'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

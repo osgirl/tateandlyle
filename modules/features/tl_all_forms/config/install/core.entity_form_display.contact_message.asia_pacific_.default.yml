@@ -1,0 +1,227 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.asia_pacific_
+    - field.field.contact_message.asia_pacific_.field_acc_receivable_cont_email
+    - field.field.contact_message.asia_pacific_.field_acc_receivable_cont_name
+    - field.field.contact_message.asia_pacific_.field_acc_receivable_cont_phone
+    - field.field.contact_message.asia_pacific_.field_area_of_specialty_list
+    - field.field.contact_message.asia_pacific_.field_bank_inf_contact_email
+    - field.field.contact_message.asia_pacific_.field_bank_inf_contact_name
+    - field.field.contact_message.asia_pacific_.field_bank_inf_contact_phone
+    - field.field.contact_message.asia_pacific_.field_business_city
+    - field.field.contact_message.asia_pacific_.field_business_country
+    - field.field.contact_message.asia_pacific_.field_business_house_number
+    - field.field.contact_message.asia_pacific_.field_business_postal_code
+    - field.field.contact_message.asia_pacific_.field_business_state_region
+    - field.field.contact_message.asia_pacific_.field_business_street
+    - field.field.contact_message.asia_pacific_.field_currency
+    - field.field.contact_message.asia_pacific_.field_doing_business_as
+    - field.field.contact_message.asia_pacific_.field_duns_number
+    - field.field.contact_message.asia_pacific_.field_language
+    - field.field.contact_message.asia_pacific_.field_legal_company_name
+    - field.field.contact_message.asia_pacific_.field_main_contact_name_email
+    - field.field.contact_message.asia_pacific_.field_main_contact_phone_number
+    - field.field.contact_message.asia_pacific_.field_member_of_sedex
+    - field.field.contact_message.asia_pacific_.field_remit_to_address_if_differ
+    - field.field.contact_message.asia_pacific_.field_sedex_reference_number
+    - field.field.contact_message.asia_pacific_.field_tate_lyle_contact_name
+    - field.field.contact_message.asia_pacific_.field_tax_id_number
+    - field.field.contact_message.asia_pacific_.field_tax_office_name
+    - field.field.contact_message.asia_pacific_.field_type_of_business
+  module:
+    - text
+id: contact_message.asia_pacific_.default
+targetEntityType: contact_message
+bundle: asia_pacific_
+mode: default
+content:
+  field_acc_receivable_cont_email:
+    weight: 22
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_acc_receivable_cont_name:
+    weight: 21
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_acc_receivable_cont_phone:
+    weight: 23
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_area_of_specialty_list:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+  field_bank_inf_contact_email:
+    weight: 19
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_bank_inf_contact_name:
+    weight: 18
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_bank_inf_contact_phone:
+    weight: 20
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_business_city:
+    weight: 6
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_business_country:
+    weight: 9
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_business_house_number:
+    weight: 4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_business_postal_code:
+    weight: 8
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_business_state_region:
+    weight: 7
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_business_street:
+    weight: 5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_currency:
+    weight: 13
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+  field_doing_business_as:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_duns_number:
+    weight: 16
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_language:
+    weight: 10
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_legal_company_name:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_main_contact_name_email:
+    weight: 11
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+  field_main_contact_phone_number:
+    weight: 12
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_member_of_sedex:
+    weight: 24
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+  field_remit_to_address_if_differ:
+    weight: 17
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+  field_sedex_reference_number:
+    weight: 25
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_tate_lyle_contact_name:
+    weight: 26
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_tax_id_number:
+    weight: 15
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_tax_office_name:
+    weight: 14
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_type_of_business:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+hidden:
+  copy: true
+  langcode: true
+  mail: true
+  message: true
+  name: true
+  subject: true

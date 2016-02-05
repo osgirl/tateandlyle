@@ -18,6 +18,7 @@ function tl_tweaks_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form
           $form['field_contact_identifier']['widget']['0']['value']['#default_value'] .= $id . '|';
         }
       }
+      $form['field_contact_identifier']['#attributes']['class'][] = 'hidden';
     }
   }
 

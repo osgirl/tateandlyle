@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.latin_america
+    - field.storage.contact_message.field_bank_inf_contact_email
+id: contact_message.latin_america.field_bank_inf_contact_email
+field_name: field_bank_inf_contact_email
+entity_type: contact_message
+bundle: latin_america
+label: 'Bank Information Contact Email'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.new_supplier_submission_form
+    - field.storage.contact_message.field_accounts_receivable_cont
+  module:
+    - text
+id: contact_message.new_supplier_submission_form.field_accounts_receivable_cont
+field_name: field_accounts_receivable_cont
+entity_type: contact_message
+bundle: new_supplier_submission_form
+label: 'Accounts Receivable Contact Information'
+description: '<a href="">Click for help about adding basic HTML formatting. </a>'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

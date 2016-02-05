@@ -1,0 +1,120 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.marketing
+    - field.field.contact_message.marketing.field_business_email
+    - field.field.contact_message.marketing.field_company_name
+    - field.field.contact_message.marketing.field_contact
+    - field.field.contact_message.marketing.field_email
+    - field.field.contact_message.marketing.field_first_name
+    - field.field.contact_message.marketing.field_industry
+    - field.field.contact_message.marketing.field_interests
+    - field.field.contact_message.marketing.field_job_title
+    - field.field.contact_message.marketing.field_last_name
+    - field.field.contact_message.marketing.field_message
+    - field.field.contact_message.marketing.field_name
+    - field.field.contact_message.marketing.field_primary_application
+    - field.field.contact_message.marketing.field_region_marketing
+  module:
+    - options
+_core:
+  default_config_hash: PGEj_iT6W7PBPOtOiCbFlQyXO21fp6WdrNcxjVPWltI
+id: contact_message.marketing.default
+targetEntityType: contact_message
+bundle: marketing
+mode: default
+content:
+  field_business_email:
+    weight: 12
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_company_name:
+    weight: 3
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_contact:
+    weight: 11
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+  field_email:
+    weight: 5
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_first_name:
+    weight: 1
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_industry:
+    weight: 7
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+  field_interests:
+    weight: 9
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+  field_job_title:
+    weight: 6
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+  field_last_name:
+    weight: 2
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_message:
+    weight: 10
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_name:
+    weight: 13
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_primary_application:
+    weight: 8
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+  field_region_marketing:
+    weight: 4
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+  message:
+    type: string
+    weight: 0
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+hidden: {  }

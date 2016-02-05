@@ -1,0 +1,110 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.marketing
+    - field.field.contact_message.marketing.field_business_email
+    - field.field.contact_message.marketing.field_company_name
+    - field.field.contact_message.marketing.field_contact
+    - field.field.contact_message.marketing.field_email
+    - field.field.contact_message.marketing.field_first_name
+    - field.field.contact_message.marketing.field_industry
+    - field.field.contact_message.marketing.field_interests
+    - field.field.contact_message.marketing.field_job_title
+    - field.field.contact_message.marketing.field_last_name
+    - field.field.contact_message.marketing.field_message
+    - field.field.contact_message.marketing.field_name
+    - field.field.contact_message.marketing.field_primary_application
+    - field.field.contact_message.marketing.field_region_marketing
+_core:
+  default_config_hash: RkeIR13oOpvNhIhMBaEgWKofHd45uY338l3BkijuIDk
+id: contact_message.marketing.default
+targetEntityType: contact_message
+bundle: marketing
+mode: default
+content:
+  field_business_email:
+    weight: 62
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: email_default
+  field_company_name:
+    weight: 53
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_contact:
+    weight: 61
+    settings:
+      display_label: false
+    third_party_settings: {  }
+    type: boolean_checkbox
+  field_email:
+    weight: 55
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: email_default
+  field_first_name:
+    weight: 51
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_industry:
+    weight: 57
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+  field_interests:
+    weight: 59
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+  field_job_title:
+    weight: 56
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+  field_last_name:
+    weight: 52
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_message:
+    weight: 60
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+  field_name:
+    weight: 63
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_primary_application:
+    weight: 58
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+  field_region_marketing:
+    weight: 54
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+hidden:
+  copy: true
+  langcode: true
+  mail: true
+  message: true
+  name: true
+  subject: true

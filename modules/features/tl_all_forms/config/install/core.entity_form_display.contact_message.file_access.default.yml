@@ -1,0 +1,72 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.file_access
+    - field.field.contact_message.file_access.field_company_name
+    - field.field.contact_message.file_access.field_email
+    - field.field.contact_message.file_access.field_first_name
+    - field.field.contact_message.file_access.field_last_name
+    - field.field.contact_message.file_access.field_region
+    - field.field.contact_message.file_access.field_subscribe
+    - field.field.contact_message.file_access.field_telephone_number
+  module:
+    - telephone
+_core:
+  default_config_hash: CF3H52gJ4yFwSlWRRXXvEgj0CzWAdArzj27Qu1w1pN8
+id: contact_message.file_access.default
+targetEntityType: contact_message
+bundle: file_access
+mode: default
+content:
+  field_company_name:
+    weight: 55
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_email:
+    weight: 53
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: email_default
+  field_first_name:
+    weight: 51
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_last_name:
+    weight: 52
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_region:
+    weight: 54
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+  field_subscribe:
+    weight: 57
+    settings:
+      display_label: false
+    third_party_settings: {  }
+    type: boolean_checkbox
+  field_telephone_number:
+    weight: 56
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: telephone_default
+hidden:
+  copy: true
+  langcode: true
+  mail: true
+  message: true
+  name: true
+  subject: true
