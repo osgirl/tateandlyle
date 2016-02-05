@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.asia_pacific_
+    - field.storage.contact_message.field_sedex_reference_number
+id: contact_message.asia_pacific_.field_sedex_reference_number
+field_name: field_sedex_reference_number
+entity_type: contact_message
+bundle: asia_pacific_
+label: 'Sedex Reference Number (if member)'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

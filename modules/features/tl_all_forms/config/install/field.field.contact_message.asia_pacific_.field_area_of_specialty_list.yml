@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.asia_pacific_
+    - field.storage.contact_message.field_area_of_specialty_list
+  module:
+    - options
+id: contact_message.asia_pacific_.field_area_of_specialty_list
+field_name: field_area_of_specialty_list
+entity_type: contact_message
+bundle: asia_pacific_
+label: 'Area of Specialty'
+description: ''
+required: true
+translatable: true
+default_value:
+  -
+    value: 'CHPA - Chemicals'
+default_value_callback: ''
+settings: {  }
+field_type: list_string
