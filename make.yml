@@ -39,12 +39,21 @@ projects:
   field_formatter_class:
     type: module
     version: 1.0-rc2
+  acquia_search_multi_subs:
+    type: module
+    download:
+      type: git
+      url: "https://git.drupal.org/project/acquia_search_multi_subs.git"
+      revision: "8.x-1.x"
   search_api:
     type: module
-    version: "1.0-alpha11"
+    version: "1.0-alpha12"
   search_api_solr:
     type: module
     version: "1.0-alpha2"
+    patch:
+      - "https://www.drupal.org/files/issues/support_stats_jsp-2662644-2_3.patch"
+      - "https://www.drupal.org/files/issues/support_the_core-2662662-2_2.patch"
   security_review:
     version: ~
   paragraphs:
