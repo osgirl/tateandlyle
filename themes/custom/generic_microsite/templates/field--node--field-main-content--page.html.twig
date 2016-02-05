@@ -1,0 +1,155 @@
+{#
+/**
+ * @file
+ * Theme override for a field.
+ *
+ * To override output, copy the "field.html.twig" from the templates directory
+ * to your theme's directory and customize it, just like customizing other
+ * Drupal templates such as page.html.twig or node.html.twig.
+ *
+ * Instead of overriding the theming for all fields, you can also just override
+ * theming for a subset of fields using
+ * @link themeable Theme hook suggestions. @endlink For example,
+ * here are some theme hook suggestions that can be used for a field_foo field
+ * on an article node type:
+ * - field--node--field-foo--article.html.twig
+ * - field--node--field-foo.html.twig
+ * - field--node--article.html.twig
+ * - field--field-foo.html.twig
+ * - field--text-with-summary.html.twig
+ * - field.html.twig
+ *
+ * Available variables:
+ * - attributes: HTML attributes for the containing element.
+ * - label_hidden: Whether to show the field label or not.
+ * - title_attributes: HTML attributes for the title.
+ * - label: The label for the field.
+ * - multiple: TRUE if a field can contain multiple items.
+ * - items: List of all the field items. Each item contains:
+ *   - attributes: List of HTML attributes for each item.
+ *   - content: The field item's content.
+ * - entity_type: The entity type to which the field belongs.
+ * - field_name: The name of the field.
+ * - field_type: The type of the field.
+ * - label_display: The display settings for the label.
+ *
+ *
+ * @see template_preprocess_field()
+ */
+#}
+{%
+  set classes = [
+    'field',
+    'field--name-' ~ field_name|clean_class,
+    'field--type-' ~ field_type|clean_class,
+    'field--label-' ~ label_display,
+  ]
+%}
+{%
+  set title_classes = [
+    'field--label',
+    label_display == 'visually_hidden' ? 'sr-only',
+  ]
+%}
+
+{% if label_hidden %}
+  {% if multiple %}
+    <div{{ attributes.addClass(classes, 'field--items') }}>
+	{% for item in items %}
+		{% set type = item['content']['#paragraph'].type.value %}
+		{% if type[0]['target_id'] != 'country_contact' %}
+			<div{{ attributes.addClass(classes, 'field--item') }}>{{ item.content }}</div>
+		{% endif %}
+	 {% endfor %}
+	{% if tl_country_contact %}
+	<ul class="nav nav-tabs">
+	  {% set i = 0 %}
+      {% for item in items %}
+		{% set type = item['content']['#paragraph'].type.value %}
+		{% if type[0]['target_id'] == 'country_contact' %}
+			{% set tab_id = item.content['#paragraph'].id.value %}
+			{% if i == 0 %}
+				<li class="active" >
+					<a data-toggle="tab" href="#{{ tab_id }}">{{ item['content']['#paragraph'].field_title.value }} </a>
+				</li>
+				{% else %}
+				<li>
+					<a data-toggle="tab" href="#{{ tab_id}}">{{ item['content']['#paragraph'].field_title.value }} </a>
+				</li>
+			{% endif %}
+			{% set i = i+1 %}
+		{% endif %}
+      {% endfor %}
+	  </ul>
+	  <div class="tab-content">
+	  {% set j =0 %}
+	  {% for item in items %}
+		{% set type = item['content']['#paragraph'].type.value %}
+		{% if type[0]['target_id'] == 'country_contact' %}
+			{% set tab_id = item.content['#paragraph'].id.value %}
+			{% if j == 0 %}
+			<div id="{{ tab_id }}" class="tab-pane fade in active">
+			 <form action="{{ redirect[tab_id] }}" method="get|post">
+              <table border="1">
+			    <thead>	
+				  <tr>
+				  <td>{{ 'Where / What' | t}}</td><td>{{ 'Further details' | t}}</td><td></td>
+				  </tr>
+				</thead>				
+			  {% for tab in tl_tab_forms[tab_id] %} 
+			  <tr>
+			  <td>{{ tab['field_country'] }}</td>
+			  <td>{{ tab['field_address'] }}</td>
+			  <td><input type="checkbox" name="field_identifier[]" value="{{ tab['field_identifier'] }}"></td>
+			  </tr>
+			  {% endfor %}
+			  </table>
+			<input type="submit" value="Submit">
+            </form>
+			</div>
+			{% else %}
+			<div id="{{ tab_id }}" class="tab-pane fade in">
+			 <form action="{{ redirect[tab_id] }}" method="get|post">
+              <table border="1">
+			    <thead>	
+				  <tr>
+				  <td>{{ 'Where / What' | t}}</td><td>{{ 'Further details' | t}}</td><td></td>
+				  </tr>
+				</thead>				
+			  {% for tab in tl_tab_forms[tab_id] %} 
+			  <tr>
+			  <td>{{ tab['field_country'] }}</td>
+			  <td>{{ tab['field_address'] }}</td>
+			  <td><input type="checkbox" name="field_identifier[]" value="{{ tab['field_identifier'] }}"></td>  
+			  </tr>
+			  {% endfor %}
+			  </table>
+			<input type="submit" value="Submit">
+            </form>
+			</div>
+			{% endif %}
+			{% set j = j+1 %}
+		{% endif %}
+	  {% endfor %}
+	  </div>
+	 {% endif %}
+    </div>
+  {% else %}
+    {% for item in items %}
+      <div{{ attributes.addClass(classes, 'field--item') }}>{{ item.content }}</div>
+    {% endfor %}
+  {% endif %}
+{% else %}
+  <div{{ attributes.addClass(classes) }}>
+    <div{{ title_attributes.addClass(title_classes) }}>{{ label }}</div>
+    {% if multiple %}
+      <div class="field__items">
+    {% endif %}
+    {% for item in items %}
+      <div{{ item.attributes.addClass('field--item') }}>{{ item.content }}</div>
+    {% endfor %}
+    {% if multiple %}
+      </div>
+    {% endif %}
+  </div>
+{% endif %}
