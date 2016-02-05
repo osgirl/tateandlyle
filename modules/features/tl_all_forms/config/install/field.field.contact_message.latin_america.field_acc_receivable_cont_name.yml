@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.latin_america
+    - field.storage.contact_message.field_acc_receivable_cont_name
+id: contact_message.latin_america.field_acc_receivable_cont_name
+field_name: field_acc_receivable_cont_name
+entity_type: contact_message
+bundle: latin_america
+label: 'Accounts Receivable Contact Name'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

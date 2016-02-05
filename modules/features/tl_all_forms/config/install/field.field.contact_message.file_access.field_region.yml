@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.file_access
+    - field.storage.contact_message.field_region
+  module:
+    - options
+_core:
+  default_config_hash: nJyhHGxsJVlkH5i-rGJua8x-NmTO-y80Wa55Z5_YdlE
+id: contact_message.file_access.field_region
+field_name: field_region
+entity_type: contact_message
+bundle: file_access
+label: Region
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_integer

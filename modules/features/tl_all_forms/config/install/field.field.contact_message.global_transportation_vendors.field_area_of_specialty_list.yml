@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.global_transportation_vendors
+    - field.storage.contact_message.field_area_of_specialty_list
+  module:
+    - options
+id: contact_message.global_transportation_vendors.field_area_of_specialty_list
+field_name: field_area_of_specialty_list
+entity_type: contact_message
+bundle: global_transportation_vendors
+label: 'Area of Specialty'
+description: ''
+required: true
+translatable: true
+default_value:
+  -
+    value: 'PFRT - Logistics'
+default_value_callback: ''
+settings: {  }
+field_type: list_string

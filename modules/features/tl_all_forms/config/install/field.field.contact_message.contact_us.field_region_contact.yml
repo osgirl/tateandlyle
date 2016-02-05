@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.contact_us
+    - field.storage.contact_message.field_region_contact
+  module:
+    - options
+_core:
+  default_config_hash: y_0gPpPs2TZHyoHw0-FnoAQRUyPkHKCBR-ZIDVfi_Qk
+id: contact_message.contact_us.field_region_contact
+field_name: field_region_contact
+entity_type: contact_message
+bundle: contact_us
+label: 'Region contact'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_integer

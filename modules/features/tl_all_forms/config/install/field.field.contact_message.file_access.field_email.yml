@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.file_access
+    - field.storage.contact_message.field_email
+_core:
+  default_config_hash: D3scwD6D98ziVKXTZ-VmlbZl9DefZGahUxO8h5HNFD4
+id: contact_message.file_access.field_email
+field_name: field_email
+entity_type: contact_message
+bundle: file_access
+label: 'Email Address'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

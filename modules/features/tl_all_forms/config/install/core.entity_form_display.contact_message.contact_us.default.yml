@@ -1,0 +1,64 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.contact_us
+    - field.field.contact_message.contact_us.field_company_name
+    - field.field.contact_message.contact_us.field_country
+    - field.field.contact_message.contact_us.field_email
+    - field.field.contact_message.contact_us.field_message
+    - field.field.contact_message.contact_us.field_name
+    - field.field.contact_message.contact_us.field_region_contact
+_core:
+  default_config_hash: MdIhr3WXDqO1-Hcy9k5PxzfJi8ftx2qaVY7v1MO-MY8
+id: contact_message.contact_us.default
+targetEntityType: contact_message
+bundle: contact_us
+mode: default
+content:
+  field_company_name:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_country:
+    weight: 5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_email:
+    weight: 4
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: email_default
+  field_message:
+    weight: 7
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+  field_name:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_region_contact:
+    weight: 6
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+hidden:
+  copy: true
+  langcode: true
+  mail: true
+  message: true
+  name: true
+  subject: true
