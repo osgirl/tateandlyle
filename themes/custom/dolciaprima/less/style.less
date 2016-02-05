@@ -1135,9 +1135,11 @@ header {
       background-size: cover;
       padding: 0;
       position: relative;
-      min-height: 250px;
       display: inline-block;
       width: 100%;
+      @media(min-width: @screen-sm-min) {
+         min-height: 500px;
+      }
       .field--name-field-video-image {
         img {
           width: auto;
@@ -1203,13 +1205,13 @@ header {
       .field--name-field-video-url {
         display: none;
       }
-      @media (min-width: @screen-sm-min) {
-        height:500px;
-      }
-      @media (min-width: @screen-md-min) {
-        width: 58.33333%;
-        float:left;
-      }
+    }
+    @media (min-width: @screen-sm-min) {
+      height:500px;
+    }
+    @media (min-width: @screen-md-min) {
+      width: 58.33333%;
+      float:left;
     }
   }
 
@@ -2320,5 +2322,38 @@ button[type="submit"] {
     @media(min-width: @screen-sm) {
       display: none;
     }
+  }
+}
+
+/*User login*/
+.user-login-form {
+  .form-text {
+    width: 100%;
+    display: inline-block;
+  }
+}
+.user-register-form, .user-pass, .user-login-form {
+  margin-top: 30px;
+  @media(min-width: @screen-md-min) {
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 30px;
+  }
+}
+
+.path-user {
+  .tabs {
+    margin-top: 30px;
+    @media(min-width: @screen-md-min) {
+      width: 50%;
+      margin: 0 auto;
+      margin-top: 30px;
+    }
+  } 
+}
+.user-logged-in.path-user {
+  .tabs {
+    width: 100%;
+    margin: inital;
   }
 }
