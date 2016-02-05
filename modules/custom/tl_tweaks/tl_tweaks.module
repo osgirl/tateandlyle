@@ -11,6 +11,16 @@ use Drupal\Core\Url;
  */
 function tl_tweaks_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
 
+  if ($form_id == "contact_message_contact_us_form") {
+    if (isset($_GET['field_identifier'])) {
+      if (isset($form['field_contact_identifier'])) {
+        foreach ($_GET['field_identifier'] as $id) {
+          $form['field_contact_identifier']['widget']['0']['value']['#default_value'] .= $id . '|';
+        }
+      }
+    }
+  }
+
   if (($form_id == "node_page_edit_form") || ($form_id == "node_form_edit_form")) {
     if (isset($form['field_main_content'])) {
       $form['field_main_content']['widget']['add_more']['#access'] = TRUE;
