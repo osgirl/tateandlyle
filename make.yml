@@ -50,7 +50,10 @@ projects:
     version: "1.0-alpha12"
   search_api_solr:
     type: module
-    version: ~
+    download:
+      type: git
+      url: "https://git.drupal.org/project/search_api_solr.git"
+      revision: "8.x-1.x"
     patch:
       - "https://www.drupal.org/files/issues/support_the_core-2662662-2_2.patch"
   security_review:
