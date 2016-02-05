@@ -50,11 +50,9 @@ projects:
     version: "1.0-alpha12"
   search_api_solr:
     type: module
-    version: "1.0-alpha2"
+    version: ~
     patch:
-      - "https://www.drupal.org/files/issues/support_stats_jsp-2662644-2_3.patch"
       - "https://www.drupal.org/files/issues/support_the_core-2662662-2_2.patch"
-      - "https://www.drupal.org/files/issues/node-2659236-search_api_solr.patch"
   security_review:
     version: ~
   paragraphs:
