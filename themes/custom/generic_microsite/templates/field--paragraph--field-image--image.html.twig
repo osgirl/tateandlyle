@@ -61,10 +61,12 @@
     </div>
   {% else %}
     {% for item in items %}
-      {% if is_front %}
-      {% endif %}
       <div{{ attributes.addClass(classes, 'field--item') }}>
-        <img class="img-responsive" alt ="{{ landing_image_alt }}" src ="{{ landing_image }}">
+        {% if is_front %}
+          <img class="img-responsive" alt ="{{ landing_image_alt }}" src ="{{ landing_image }}">
+        {% else %}
+          {{ item.content }}
+        {% endif %}
       </div>
     {% endfor %}
   {% endif %}
