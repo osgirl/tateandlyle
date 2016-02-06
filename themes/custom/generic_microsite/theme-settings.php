@@ -21,6 +21,7 @@ function generic_microsite_form_system_theme_settings_alter(&$form, FormStateInt
   define('CSS4', 4);
   define('CSS5', 5);
   define('CSS6', 6);
+  define('CSS7', 7);
   define('FRONTPAGE_ONECOLUMN', 1);
   define('FRONTPAGE_TWOCOLUMN', 2);
   $fid = theme_get_setting('bg_image');
@@ -50,7 +51,8 @@ function generic_microsite_form_system_theme_settings_alter(&$form, FormStateInt
       constant('CSS2') => t('Blue Light'),
       constant('CSS3') => t('Green Dark'),
       constant('CSS4') => t('Green Light'),
-      constant('CSS5') => t('Orange'),
+      constant('CSS7') => t('Orange Dark'),
+      constant('CSS5') => t('Orange Light'),
       constant('CSS6') => t('Purple'),
     ),
     '#description' => t('Specify the global stylesheet you wish to use for the site.'),

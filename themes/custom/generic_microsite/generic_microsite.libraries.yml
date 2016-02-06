@@ -42,6 +42,12 @@ global-styling6:
     theme:
       css/style6.css: {}
 
+global-styling7:
+  version: VERSION
+  css:
+    theme:
+      css/style7.css: {}
+
 # Menu sidebar scripts #
 classie:
   version: VERSION
