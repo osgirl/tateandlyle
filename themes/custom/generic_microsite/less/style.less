@@ -626,8 +626,8 @@ body,
     background-image: url(../images/menu.gif);
     background-position: bottom;
     background-repeat: repeat-x;
-    padding: 8px 0 12px;
-    margin-bottom: 10px;
+    padding: 15px 0 12px;
+    margin-bottom: 5px;
     width: 100%;
     li:first-child a{
       border-left: none;
@@ -708,6 +708,7 @@ body {
 
 .region-breadcrumb {
   display: inline-block;
+  margin-bottom: 6px;
   margin-top: 2em;
   width: 100%;
   @media (min-width: @screen-sm-min) {
@@ -870,7 +871,7 @@ body {
     margin-bottom: 15px;
     min-height: initial;
     @media(min-width: @screen-xs-min) {
-      margin-top: 24px;
+      margin-top: 15px;
       margin-bottom: 0;
     }
     > div {
@@ -916,7 +917,7 @@ body {
       }
     }
     .field--name-field-title {
-     font-family: Arial,Helvetica,sans-serif;
+      font-family: Arial,Helvetica,sans-serif;
       font-size: 14.5px;
       padding: 0 15px 4px 15px;
       @media(min-width: @screen-sm-min) { 
@@ -1419,7 +1420,10 @@ body {
 
 .paragraph--type--slide:hover {
   .carousel-control {
-    opacity: 1;
+    opacity: 0.3;
+    &:hover {
+      opacity: 1;
+    }
   }
 }
 
@@ -1701,7 +1705,7 @@ body {
 /* Forms */
 .contact-form {
   .gradient (@startColor: #E4E0DB, @endColor: #FFF);
-  padding: 25px;
+  padding: 12px 35px 35px;
 
   label {
     color: #525252;
@@ -1712,9 +1716,13 @@ body {
 
   span.form-required {
     color: #948671;
+    font-size: 18px;
+    position: relative;
+    top: 3px;
   }
 
   .form-control {
+    background: #FFF;
     border-radius: 0;
     height: 24px;
     padding: 0;
@@ -1724,6 +1732,7 @@ body {
     text-align: right;
     button {
       background: #B9B3AC;
+      border: 0;
       border-radius: 0;
       color: #FFF;
       font-size: 12px;
@@ -1740,11 +1749,12 @@ body {
 
 /* Form landing */
 .form-landing {
+  margin-top: 1.5em;
   .field--name-field-form {
     @media(min-width: @screen-sm-min) {
       float: right;
-      margin-right: 3%;
-      width: 35%;
+      margin-right: 5%;
+      width: 37%;
     }
   }
   .field--name-field-main-content {
@@ -1829,7 +1839,6 @@ body {
     }
     label {
       font-size: 17px;
-      margin: 0;
       padding: 2px 0;
     }
     .form-control {
@@ -1844,16 +1853,23 @@ body {
     }
     #edit-submit {
       font-size: 17px;
+      height: auto;
       text-transform: capitalize;
+      padding: 5px 5px 3px;
+      .glyphicon {
+        display: none;
+      }
     }
   }
   .field--name-field-form-header {
     background: #E4E0DB;
     display: inline-block;
     margin-top: 30px;
-    padding: 0 30px;
+    padding: 13px 35px 0 35px;
     @media(min-width: @screen-sm-min) {
-      width: 35%;
+      width: 37%;
+      float: right;
+      margin-right: 5%;
     }
     h3 {
       color: #4D4D4F;
@@ -2278,6 +2294,9 @@ body {
   .form-landing .field--name-field-form-header {
     background: transparent;
   }
+  .contact-form span.form-required {
+    color: #FFF;
+  }
   .contact-form label {
     color: @yellow;
   }
@@ -2287,6 +2306,10 @@ body {
   }
   .form-landing .field--name-field-main-content>div:nth-child(3):after {
     background: url('../images/high_contrast/separator.png') repeat-x;
+  }
+  .form-landing .contact-form #edit-submit {
+    background: @azure;
+    color: #000;
   }
   .middle-content:before,
   .middle-content:after {
@@ -2303,8 +2326,11 @@ body {
   .tl-no-sidebars.path-frontpage.contrast .field--name-field-touts>div {
     background-color: transparent !important;
   }
-
   .footer {
+    border-top: 1px solid #e5e5e5;
     color: @azure;
+  }
+  .region-footer .menu a {
+    border-color: @azure;
   }
 }
