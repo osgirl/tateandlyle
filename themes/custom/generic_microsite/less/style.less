@@ -1948,6 +1948,79 @@ body {
   }
 }
 
+/*Form tabs*/
+.tab-pane {
+  .form-tabs {
+    table {
+      thead {
+        color:#fff;
+        font-weight: bold;
+        font-size: 11px;
+        td {
+          padding: 6px 10px;
+          &:last-child {
+          }
+        }
+      }
+      tbody tr {
+        background: transparent;
+        td {
+          &:last-child {
+            text-align:center;
+            padding: 10px;
+          }
+          &:first-child {
+            background-color: #f1f0ed;
+            font-weight: 700;
+          }
+          padding:10px;
+          padding-right:5px;
+        }
+        input {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+    input.submit {
+      float: right;
+      margin-top: 20px;
+      background: #b9b3ac;
+      color: #fff;
+      border: none;
+      font: bold 12px Arial;
+      padding: 3px 0;
+      width: 65px;
+      cursor: pointer;
+    }
+  }
+}
+.nav-tabs.forms {
+  margin-bottom: 0;
+  .active a {
+    background-color: #d4cec6;
+    color:#fff;
+    cursor: pointer;
+    border-radius: 0;
+    &:hover, &:focus {
+      cursor:pointer;
+      background-color: #d4cec6; 
+      color:#fff;
+    }
+  }
+  a {
+    padding: 7px 15px;
+    background-color: #f1f0ed;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 0;
+    &:hover, &:focus { 
+      background-color: #d4cec6; 
+    }
+  }
+}
+
 #block-termsandconditions {
   li {
     display: inline-block;
