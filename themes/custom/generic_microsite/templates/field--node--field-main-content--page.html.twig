@@ -62,7 +62,7 @@
 		{% endif %}
 	 {% endfor %}
 	{% if tl_country_contact %}
-	<ul class="nav nav-tabs">
+	<ul class="nav nav-tabs forms">
 	  {% set i = 0 %}
       {% for item in items %}
 		{% set type = item['content']['#paragraph'].type.value %}
@@ -89,8 +89,8 @@
 			{% set tab_id = item.content['#paragraph'].id.value %}
 			{% if j == 0 %}
 			<div id="{{ tab_id }}" class="tab-pane fade in active">
-			 <form action="{{ redirect[tab_id] }}" method="get|post">
-              <table border="1">
+			 <form class = "form-tabs" action="{{ redirect[tab_id] }}" method="get|post">
+        <table border="1">
 			    <thead>	
 				  <tr>
 				  <td>{{ 'Where / What' | t}}</td><td>{{ 'Further details' | t}}</td><td></td>
@@ -104,13 +104,13 @@
 			  </tr>
 			  {% endfor %}
 			  </table>
-			<input type="submit" value="Submit">
+			<input class="submit" type="submit" value="Submit">
             </form>
 			</div>
 			{% else %}
 			<div id="{{ tab_id }}" class="tab-pane fade in">
-			 <form action="{{ redirect[tab_id] }}" method="get|post">
-              <table border="1">
+			 <form class="form-tabs" action="{{ redirect[tab_id] }}" method="get|post">
+        <table border="1">
 			    <thead>	
 				  <tr>
 				  <td>{{ 'Where / What' | t}}</td><td>{{ 'Further details' | t}}</td><td></td>
@@ -124,7 +124,7 @@
 			  </tr>
 			  {% endfor %}
 			  </table>
-			<input type="submit" value="Submit">
+			<input class="submit" type="submit" value="Submit">
             </form>
 			</div>
 			{% endif %}

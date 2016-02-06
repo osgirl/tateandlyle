@@ -295,6 +295,10 @@ body {
   border: none;
 }
 
+.form-inline .form-control {
+  width: 100%;
+}
+
 .js-form-type-search {
   button.btn {
     background:#B9B3AC;
@@ -1032,6 +1036,10 @@ body:not(.path-frontpage) {
   }
 }
 
+.dropdown-menu>li>a {
+  white-space: normal;
+}
+
 body {
   aside {
   .tout-text {
@@ -1391,17 +1399,30 @@ body {
 }
 
 /* Slideshow */
-.paragraph--type--slide {
-  position: relative;
-  overflow: hidden;
-  .carousel {
-    margin-left: -100px;
-    margin-right: -100px;
-    @media(min-width: @screen-xs-min) {
-      margin: 0;
+.path-frontpage {
+  .paragraph--type--slide {
+    position: relative;
+    overflow: hidden;
+    .carousel {
+      margin-left: -100px;
+      margin-right: -100px;
+      @media(min-width: @screen-xs-min) {
+        margin: 0;
+      }
     }
   }
 }
+
+.carousel-control {
+  opacity: 0;
+}
+
+.paragraph--type--slide:hover {
+  .carousel-control {
+    opacity: 1;
+  }
+}
+
 
 .carousel-inner>.item>a>img,
 .carousel-inner>.item>img,
@@ -1585,25 +1606,27 @@ body {
     }
   }
 }
-.paragraph--type--image  {
-  overflow: hidden;
-  padding-bottom:10px;
-  .field--name-field-image {
-    @media(max-width: @screen-xs-min) {
-      margin-right: -150px;
-      margin-left: -150px;
+
+.path-frontpage {
+  .paragraph--type--image  {
+    overflow: hidden;
+    padding: 0;
+    .field--name-field-image {
+      @media(max-width: @screen-xs-min) {
+        margin-right: -150px;
+        margin-left: -150px;
+      }
     }
-  }
-  @media(min-width: @screen-xs-min) {
-    overflow:initial; 
+    @media(min-width: @screen-xs-min) {
+      overflow:initial; 
+    }
   }
 }
 
-.path-frontpage {
-  .paragraph--type--image {
-    padding: 0;
-  }
+.paragraph--type--image {
+  padding-bottom:10px;
 }
+
  
 /* Tabs */
 .paragraph--type--tabs {
@@ -1689,7 +1712,6 @@ body {
 
   span.form-required {
     color: #948671;
-    margin-left: -3px;
   }
 
   .form-control {
@@ -1820,6 +1842,10 @@ body {
     .form-item-field-subscribe-value {
       margin: 0 22px;
     }
+    #edit-submit {
+      font-size: 17px;
+      text-transform: capitalize;
+    }
   }
   .field--name-field-form-header {
     background: #E4E0DB;
@@ -1918,6 +1944,79 @@ body {
           padding: 0 5px 0 0;
         }
       }
+    }
+  }
+}
+
+/*Form tabs*/
+.tab-pane {
+  .form-tabs {
+    table {
+      thead {
+        color:#fff;
+        font-weight: bold;
+        font-size: 11px;
+        td {
+          padding: 6px 10px;
+          &:last-child {
+          }
+        }
+      }
+      tbody tr {
+        background: transparent;
+        td {
+          &:last-child {
+            text-align:center;
+            padding: 10px;
+          }
+          &:first-child {
+            background-color: #f1f0ed;
+            font-weight: 700;
+          }
+          padding:10px;
+          padding-right:5px;
+        }
+        input {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+    input.submit {
+      float: right;
+      margin-top: 20px;
+      background: #b9b3ac;
+      color: #fff;
+      border: none;
+      font: bold 12px Arial;
+      padding: 3px 0;
+      width: 65px;
+      cursor: pointer;
+    }
+  }
+}
+.nav-tabs.forms {
+  margin-bottom: 0;
+  .active a {
+    background-color: #d4cec6;
+    color:#fff;
+    cursor: pointer;
+    border-radius: 0;
+    &:hover, &:focus {
+      cursor:pointer;
+      background-color: #d4cec6; 
+      color:#fff;
+    }
+  }
+  a {
+    padding: 7px 15px;
+    background-color: #f1f0ed;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 0;
+    &:hover, &:focus { 
+      background-color: #d4cec6; 
     }
   }
 }
@@ -2119,7 +2218,7 @@ body {
     }
   }
   .container {
-    background-color: transparent;
+    background: transparent;
   }
   .navbar-default.container {
     .menu {
@@ -2129,6 +2228,8 @@ body {
   #block-tatelylelogo,
   #block-generic-microsite-tatelylelogo {
     background: url('../images/high_contrast/tateandlyle-hc.jpg');
+    background-position: right;
+    background-repeat: no-repeat;
     img {
       opacity: 0;
     }
@@ -2173,12 +2274,24 @@ body {
   h1, h2, h3, h4 {
     color: @yellow !important;
   }
-
+  .contact-form,
+  .form-landing .field--name-field-form-header {
+    background: transparent;
+  }
+  .contact-form label {
+    color: @yellow;
+  }
+  .contact-form label[for="edit-field-subscribe-value"],
+  .form-landing .field--name-field-form-header p {
+    color: #FFF;
+  }
+  .form-landing .field--name-field-main-content>div:nth-child(3):after {
+    background: url('../images/high_contrast/separator.png') repeat-x;
+  }
   .middle-content:before,
   .middle-content:after {
     background-image: url('../images/high_contrast/cp-bg-hc.gif');
   }
-
   .paragraph--type--tout li,
   .paragraph--type--text ul li {
     background-image: url('../images/high_contrast/bullet-link-hc.gif');
