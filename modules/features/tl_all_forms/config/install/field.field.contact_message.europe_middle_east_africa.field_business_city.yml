@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.europe_middle_east_africa
+    - field.storage.contact_message.field_business_city
+id: contact_message.europe_middle_east_africa.field_business_city
+field_name: field_business_city
+entity_type: contact_message
+bundle: europe_middle_east_africa
+label: 'Business City'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

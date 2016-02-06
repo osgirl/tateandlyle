@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.innovation_submission
+    - field.storage.contact_message.field_ingredient_category
+  module:
+    - options
+id: contact_message.innovation_submission.field_ingredient_category
+field_name: field_ingredient_category
+entity_type: contact_message
+bundle: innovation_submission
+label: 'Ingredient category'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_integer

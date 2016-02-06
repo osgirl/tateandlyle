@@ -1,0 +1,113 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.innovation_submission
+    - field.field.contact_message.innovation_submission.field_contact_name
+    - field.field.contact_message.innovation_submission.field_country
+    - field.field.contact_message.innovation_submission.field_development_stage
+    - field.field.contact_message.innovation_submission.field_email
+    - field.field.contact_message.innovation_submission.field_ingredient_category
+    - field.field.contact_message.innovation_submission.field_innovation_overview
+    - field.field.contact_message.innovation_submission.field_innovation_title
+    - field.field.contact_message.innovation_submission.field_no_patent_protection
+    - field.field.contact_message.innovation_submission.field_organisation
+    - field.field.contact_message.innovation_submission.field_patent_granted
+    - field.field.contact_message.innovation_submission.field_patent_under_application
+    - field.field.contact_message.innovation_submission.field_please_include
+    - field.field.contact_message.innovation_submission.field_where_did_you_learn_about
+id: contact_message.innovation_submission.default
+targetEntityType: contact_message
+bundle: innovation_submission
+mode: default
+content:
+  field_contact_name:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_country:
+    weight: 5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_development_stage:
+    weight: 6
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+  field_email:
+    weight: 4
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: email_default
+  field_ingredient_category:
+    weight: 7
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+  field_innovation_overview:
+    weight: 8
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+  field_innovation_title:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_no_patent_protection:
+    weight: 11
+    settings:
+      display_label: false
+    third_party_settings: {  }
+    type: boolean_checkbox
+  field_organisation:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_patent_granted:
+    weight: 9
+    settings:
+      display_label: false
+    third_party_settings: {  }
+    type: boolean_checkbox
+  field_patent_under_application:
+    weight: 10
+    settings:
+      display_label: false
+    third_party_settings: {  }
+    type: boolean_checkbox
+  field_please_include:
+    weight: 1
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+  field_where_did_you_learn_about:
+    weight: 12
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+hidden:
+  copy: true
+  langcode: true
+  mail: true
+  message: true
+  name: true
+  subject: true

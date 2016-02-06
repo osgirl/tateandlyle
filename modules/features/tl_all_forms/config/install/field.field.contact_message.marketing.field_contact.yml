@@ -1,0 +1,24 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.marketing
+    - field.storage.contact_message.field_contact
+_core:
+  default_config_hash: e3GzuCx2MBLNx9wZ6Yxggc-chd_l0SdmBNmElKS6QrQ
+id: contact_message.marketing.field_contact
+field_name: field_contact
+entity_type: contact_message
+bundle: marketing
+label: Contact
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes, I''d like someone to contact me.'
+  off_label: 'Off'
+field_type: boolean

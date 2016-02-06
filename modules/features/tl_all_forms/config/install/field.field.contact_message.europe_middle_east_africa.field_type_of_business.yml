@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.europe_middle_east_africa
+    - field.storage.contact_message.field_type_of_business
+  module:
+    - options
+id: contact_message.europe_middle_east_africa.field_type_of_business
+field_name: field_type_of_business
+entity_type: contact_message
+bundle: europe_middle_east_africa
+label: 'Type of Business'
+description: ''
+required: true
+translatable: true
+default_value:
+  -
+    value: Corporation
+default_value_callback: ''
+settings: {  }
+field_type: list_string

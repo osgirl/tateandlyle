@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.latin_america
+    - field.storage.contact_message.field_business_street
+id: contact_message.latin_america.field_business_street
+field_name: field_business_street
+entity_type: contact_message
+bundle: latin_america
+label: 'Business Street'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

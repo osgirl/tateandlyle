@@ -1,0 +1,34 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - contact
+    - options
+_core:
+  default_config_hash: Ii0T9RaOciYjs5AezXjgXQ_YLSkG04o-YirkDumoRNE
+id: contact_message.field_region_contact
+field_name: field_region_contact
+entity_type: contact_message
+type: list_integer
+settings:
+  allowed_values:
+    -
+      value: 0
+      label: 'North America'
+    -
+      value: 1
+      label: 'Latin America'
+    -
+      value: 2
+      label: EMEA
+    -
+      value: 3
+      label: 'Asia Pacific'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.new_supplier_submission_form
+    - field.storage.contact_message.field_terms
+  module:
+    - options
+id: contact_message.new_supplier_submission_form.field_terms
+field_name: field_terms
+entity_type: contact_message
+bundle: new_supplier_submission_form
+label: Terms
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: 'Net 30'
+default_value_callback: ''
+settings: {  }
+field_type: list_string

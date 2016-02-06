@@ -44,3 +44,4 @@ if ($ah_env) {
 }
 
 $settings['simplesamlphp_dir'] = DRUPAL_ROOT . '/../simplesamlphp';
+$settings['cache']['default'] = 'cache.backend.database';

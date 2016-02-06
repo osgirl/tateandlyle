@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.latin_america
+    - field.storage.contact_message.field_remit_to_address_if_differ
+  module:
+    - text
+id: contact_message.latin_america.field_remit_to_address_if_differ
+field_name: field_remit_to_address_if_differ
+entity_type: contact_message
+bundle: latin_america
+label: 'Remit to Address (if different)'
+description: '<a href = "">Click for help about adding basic HTML formatting.</a>'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

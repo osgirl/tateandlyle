@@ -1,0 +1,40 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - contact
+    - options
+_core:
+  default_config_hash: YKHswsWkzRPJLwqQC7gJh4SCgj-SoH3o7cDY_V4pVa0
+id: contact_message.field_industry
+field_name: field_industry
+entity_type: contact_message
+type: list_integer
+settings:
+  allowed_values:
+    -
+      value: 0
+      label: 'Food/Beverage Manufacturer'
+    -
+      value: 1
+      label: 'Food/Beverage Distributor'
+    -
+      value: 2
+      label: Analytics/Research
+    -
+      value: 3
+      label: College/University
+    -
+      value: 4
+      label: Media
+    -
+      value: 5
+      label: 'Other (please specify)'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

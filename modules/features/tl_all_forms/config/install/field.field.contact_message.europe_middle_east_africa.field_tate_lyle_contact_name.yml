@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.europe_middle_east_africa
+    - field.storage.contact_message.field_tate_lyle_contact_name
+id: contact_message.europe_middle_east_africa.field_tate_lyle_contact_name
+field_name: field_tate_lyle_contact_name
+entity_type: contact_message
+bundle: europe_middle_east_africa
+label: 'Tate & Lyle Contact Name'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

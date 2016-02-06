@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.asia_pacific_
+    - field.storage.contact_message.field_business_postal_code
+id: contact_message.asia_pacific_.field_business_postal_code
+field_name: field_business_postal_code
+entity_type: contact_message
+bundle: asia_pacific_
+label: 'Business Postal Code'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

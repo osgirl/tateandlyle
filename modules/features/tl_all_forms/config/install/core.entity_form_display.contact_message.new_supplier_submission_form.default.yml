@@ -1,0 +1,168 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.new_supplier_submission_form
+    - field.field.contact_message.new_supplier_submission_form.field_accounts_receivable_cont
+    - field.field.contact_message.new_supplier_submission_form.field_area_of_specialty
+    - field.field.contact_message.new_supplier_submission_form.field_bank_account_number
+    - field.field.contact_message.new_supplier_submission_form.field_bank_name
+    - field.field.contact_message.new_supplier_submission_form.field_bank_routing_number
+    - field.field.contact_message.new_supplier_submission_form.field_business_street_address
+    - field.field.contact_message.new_supplier_submission_form.field_country
+    - field.field.contact_message.new_supplier_submission_form.field_currency
+    - field.field.contact_message.new_supplier_submission_form.field_email_sales_customer_serv
+    - field.field.contact_message.new_supplier_submission_form.field_legal_company_name
+    - field.field.contact_message.new_supplier_submission_form.field_member_of_sedex
+    - field.field.contact_message.new_supplier_submission_form.field_minority_owned_business
+    - field.field.contact_message.new_supplier_submission_form.field_remit_to_address_if_differ
+    - field.field.contact_message.new_supplier_submission_form.field_sedex_reference_number
+    - field.field.contact_message.new_supplier_submission_form.field_tax_id_number
+    - field.field.contact_message.new_supplier_submission_form.field_telephone_number
+    - field.field.contact_message.new_supplier_submission_form.field_terms
+    - field.field.contact_message.new_supplier_submission_form.field_type_of_business
+    - field.field.contact_message.new_supplier_submission_form.field_type_of_minority_owned_cer
+    - field.field.contact_message.new_supplier_submission_form.field_vat_number
+  module:
+    - telephone
+    - text
+id: contact_message.new_supplier_submission_form.default
+targetEntityType: contact_message
+bundle: new_supplier_submission_form
+mode: default
+content:
+  field_accounts_receivable_cont:
+    weight: 62
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+  field_area_of_specialty:
+    weight: 52
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_bank_account_number:
+    weight: 65
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_bank_name:
+    weight: 63
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_bank_routing_number:
+    weight: 64
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_business_street_address:
+    weight: 54
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+  field_country:
+    weight: 55
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_currency:
+    weight: 57
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+  field_email_sales_customer_serv:
+    weight: 53
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: email_default
+  field_legal_company_name:
+    weight: 51
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_member_of_sedex:
+    weight: 69
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+  field_minority_owned_business:
+    weight: 67
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+  field_remit_to_address_if_differ:
+    weight: 66
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+  field_sedex_reference_number:
+    weight: 70
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_tax_id_number:
+    weight: 59
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_telephone_number:
+    weight: 56
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: telephone_default
+  field_terms:
+    weight: 58
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+  field_type_of_business:
+    weight: 60
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+  field_type_of_minority_owned_cer:
+    weight: 68
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_vat_number:
+    weight: 61
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+hidden:
+  copy: true
+  langcode: true
+  mail: true
+  message: true
+  name: true
+  subject: true
