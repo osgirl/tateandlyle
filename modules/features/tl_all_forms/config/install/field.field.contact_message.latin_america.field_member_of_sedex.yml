@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.latin_america
+    - field.storage.contact_message.field_member_of_sedex
+  module:
+    - options
+id: contact_message.latin_america.field_member_of_sedex
+field_name: field_member_of_sedex
+entity_type: contact_message
+bundle: latin_america
+label: 'Member of Sedex (http://www.sedexglobal.com)?'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_integer

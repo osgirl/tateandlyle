@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.north_america
+    - field.storage.contact_message.field_minority_owned_business
+  module:
+    - options
+id: contact_message.north_america.field_minority_owned_business
+field_name: field_minority_owned_business
+entity_type: contact_message
+bundle: north_america
+label: 'Minority Owned Business'
+description: ''
+required: true
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings: {  }
+field_type: list_integer

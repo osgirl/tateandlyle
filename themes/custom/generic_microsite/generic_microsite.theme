@@ -115,6 +115,23 @@ function generic_microsite_preprocess_field(&$variables, $hook) {
     }
   }
 
+  /* Image style frontpage */
+  $is_front = \Drupal::service('path.matcher')->isFrontPage();
+  if ($variables['entity_type'] == 'paragraph' && $variables['element']['#object']->getType() == 'image' && $is_front == 1) {
+    $landing_image = $variables['element']['#object']->get('field_image')->getValue();
+    if(isset($landing_image['0'])) {
+      $file_id = $landing_image['0']['target_id'];
+      $file = File::load($file_id);
+      if (theme_get_setting('frontpage_template', 'generic_microsite') == 1) {
+        $variables['landing_image'] = ImageStyle::load('homepage_full')->buildUrl($file->getFileUri());
+      } else {
+        $variables['landing_image'] = ImageStyle::load('slideshow')->buildUrl($file->getFileUri());
+      }
+      $variables['landing_image_alt'] = $landing_image[0]['alt']; 
+    }
+    $variables['is_front'] = $is_front;
+  }
+
   if ($variables['field_name'] == 'field_form') {
     $id = $variables['items'][0]['content']['#plain_text'];
     $contact_form = \Drupal::entityManager()
@@ -132,6 +149,28 @@ function generic_microsite_preprocess_field(&$variables, $hook) {
     unset($variables['items'][0]['content']['#plain_text']);
     $variables['items'][0]['content']['#suffix'] = drupal_render($form);
   }
+
+  if ($variables['field_name'] == 'field_main_content') {
+    $forms = array();
+	foreach ($variables['items'] as $key => $item) {
+	  if ($item['content']['#paragraph']->getType() == 'country_contact') {
+	    $paragraph_id = $item['content']['#paragraph']->id();
+		$values = $item['content']['#paragraph']->field_contact->getValue($include_computed = false);
+		$redirect_node_id = $item['content']['#paragraph']->field_redirect->getValue($include_computed = false);
+		$form_fields = array();
+		foreach ($values as $key => $value) {
+		  $contact = entity_load('paragraph', $value['target_id']);
+          $form_fields[$key]['field_address'] = $contact->get('field_address')->getValue()[0]['value'];
+          $form_fields[$key]['field_country'] = $contact->get('field_country')->getValue()[0]['value'];
+          $form_fields[$key]['field_identifier'] = $contact->get('field_identifier')->getValue()[0]['value'];
+		}
+	    $variables['tl_tab_forms'][$paragraph_id] = $form_fields;
+        $variables['redirect'][$paragraph_id] = 'node/' . $redirect_node_id[0]['target_id'];
+		$variables['tl_country_contact'] = TRUE;
+	  }
+	}
+  }
+
 }
 
 /**

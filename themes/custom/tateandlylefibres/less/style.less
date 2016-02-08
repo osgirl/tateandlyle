@@ -1769,3 +1769,49 @@ aside {
     }
   }
 }
+
+
+/*User login */
+.path-user {
+  .header-container {
+    background: url(../images/background-login.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    header {
+      padding-bottom: 0;
+    }
+  }
+  .highlighted {
+    position: absolute;
+    z-index: 1;
+    margin-top: 36px;
+    .tabs  {
+      a {
+        color: #fff;
+        &:hover {
+          background-color:transparent;
+          border-color:transparent;
+        }
+      }
+      .active a {
+        color:#000;
+        border-radius: 0;
+        &:hover {
+          background-color:#fff;
+        }
+      }
+    }
+  }
+  .user-login-form {
+    .form-text {
+      width: 100%;
+      display: inline-block;
+    }
+  }
+  .user-login-form, .user-register-form, .user-pass  {
+    margin: 48px 48px 0;
+    @media(min-width: @screen-md-min) {
+      width: 50%;
+    }
+  }
+}
