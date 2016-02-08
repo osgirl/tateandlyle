@@ -13,7 +13,6 @@ regions:
   navigation: 'Navigation'
   navigation_collapsible: 'Navigation (Collapsible)'
   breadcrumb: 'Breadcrumb'
-  pre_content: 'Pre-Content'
   highlighted: 'Highlighted'
   help: 'Help'
   content: 'Content'
