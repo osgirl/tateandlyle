@@ -6,12 +6,23 @@
 (function ($) {
   Drupal.behaviors.tl_tweaks_dolciaprima = {
     attach: function (context, settings) {
+    var contactHeight = $('.pre-header').height();
     $('.tds_contact').click(function(e) {
       e.preventDefault();
-      $('.st-pusher').toggleClass('show-contact');
-      if ($('#st-container').hasClass('st-menu-open')) {
+      $('.st-content').toggleClass('contact-reveal');
+      if ($('.st-content').hasClass('contact-reveal')) {
         $('#st-container').removeClass('st-menu-open');
-      }
+        $('.st-content').css({
+          "transform": "translate3d(0px, " + contactHeight + "px, 0px)",
+          'transition': 'all 0.3s',
+        });
+      } else {
+        $('#st-container').removeClass('st-menu-open');
+        $('.st-content').css({
+          "transform": "translate3d(0px, 0px, 0px)",
+          'transition': 'all 0.3s',
+        });
+      }	  
     });
 	
 	var Submitted = location.search.split('submitted=')[1]
