@@ -75,6 +75,7 @@ function generic_microsite_preprocess_field(&$variables, $hook) {
     }
   }
   
+  /* Slideshow */
   if ($variables['field_name'] == 'field_slide') {
     $slide_type = $variables['element']['#object']->get('field_slide_type')->getValue();
     if($slide_type[0]['value'] == 0) {
@@ -102,12 +103,21 @@ function generic_microsite_preprocess_field(&$variables, $hook) {
     $variables['items'][0]['content']['#markup'] = '';
   }
 
+    if ($variables['field_name'] == 'field_slide') {
+      $slide = $variables['element']['#object']->toArray();
+      $slide_id = $slide['id'][0]['value'];
+      $variables['slide_id'] = $slide['id'][0]['value'];
+    }
+
   if ($variables['field_name'] == 'field_show_arrows') {
+    $slide = $variables['element']['#object']->toArray();
+    $slide_id = $slide['id'][0]['value'];
+    $variables['slide_id'] = $slide['id'][0]['value'];
     if ($variables['element'][0]['#markup'] == 'Show arrows') {
-      $variables['items'][0]['content']['#markup'] = '<a class="left carousel-control" href="#slideshow" role="button" data-slide="prev">
+      $variables['items'][0]['content']['#markup'] = '<a class="left carousel-control" href="#slideshow'.'-'. $slide_id . '" role="button" data-slide="prev">
       <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
       </a>
-      <a class="right carousel-control" href="#slideshow" role="button" data-slide="next">
+      <a class="right carousel-control" href="#slideshow'.'-'. $slide_id . '" role="button" data-slide="next">
       <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
       </a>';
     } else {

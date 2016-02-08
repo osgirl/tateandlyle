@@ -91,4 +91,13 @@
     }
   }
 
+  Drupal.behaviors.carouselOptions = {
+    attach: function (context, settings) {
+      $('.field--name-field-timeout').hide();
+      $('.carousel').each(function() {
+         $(this).attr('data-interval', $(this).closest('.paragraph--type--slide').find('.field--name-field-timeout').text())
+      });
+    }
+  }
+
 })(jQuery);
