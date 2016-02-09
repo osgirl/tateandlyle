@@ -11,6 +11,15 @@ use Drupal\image\Entity\ImageStyle;
 use Drupal\Core\Url; 
 
 function dolciaprima_preprocess_page(&$variables) {
+
+  $route = explode('/', \Drupal::service('path.current')->getPath());
+  if($variables['page'] && $route[1] != 'user' ) {
+    $variables['page_title'] =$variables['page']['#title']->__toString();
+  }
+  else {
+    $variables['page_title'] = $variables['page']['#title'];
+  }
+
   if($variables['node'] && $variables['node']->getType() == 'page') {
     $field_template = $variables['node']->get('field_template')->getValue();
     if (isset($field_template[0])) {
@@ -18,6 +27,7 @@ function dolciaprima_preprocess_page(&$variables) {
     }  
     if ($field_template_value == 0) {
       $variables['template_style'] = 'container-fluid';
+      $variables['not_title'] = 'not';
     } else {
       $variables['template_style'] = 'container';
     }
@@ -39,6 +49,37 @@ function dolciaprima_preprocess_page(&$variables) {
       $variables['form_page_layout'] = 'contact-form';
     }
   } 
+
+  if($variables['node'] && $variables['node']->getType() == 'page') {
+    $paragraphs = $variables['node']->get('field_intro_area')->getValue();
+    foreach ($paragraphs as $key => $paragraph) {
+      $id = $paragraph['target_id'];
+      $paragraph_type = entity_load('paragraph', $id);
+      if($paragraph_type->getType() == 'text') {
+        $paragraph_body = $paragraph_type->get('field_body')->getValue();
+        if($paragraph_body[0]) {
+          $variables['intro_text'] = $paragraph_body[0]['value'];
+        }
+      }
+      if($paragraph_type->getType() == 'image') { 
+        $paragraphs_image = $paragraph_type->get('field_image')->getValue();
+        foreach ($paragraphs_image as $key => $paragraph_image) {
+          if($paragraph_image) {
+            $file = File::load($paragraph_image['target_id']);
+            $variables['intro_images'][$paragraph_image['target_id']]['img'] = ImageStyle::load('original')->buildUrl($file->getFileUri());
+            $variables['intro_images'][$paragraph_image['target_id']]['alt'] =  $paragraph_image['alt'];
+          }   
+        }
+      }     
+    }   
+  }
+  if($variables['node']) {
+    $variables['page_title'] = $variables['node']->getTitle();
+  }
+
+  if ($variables['node'] && $variables['node']->get('field_sidebar')->getValue()) {
+    $variables['is_sidebar'] = TRUE;
+  }
 }
 
 function dolciaprima_preprocess_paragraph(&$variables) {
@@ -161,8 +202,8 @@ function dolciaprima_form_contact_message_technical_data_sheets_form_alter(&$for
 }
 
 
-function dolciaprima_preprocess_views_view_unformatted(&$variables) {
-    foreach ($variables['rows'] as $key => $item) {
+function dolciaprima_preprocess_views_view_unformatted__multimedia(&$variables) {
+   foreach ($variables['rows'] as $key => $item) {
       $object = $item['content']['#row']->_entity;
       $video = $object->get('field_youtube_video')->getValue();
       $file_download = $object->get('field_file')->getValue();

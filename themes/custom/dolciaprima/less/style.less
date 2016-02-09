@@ -47,11 +47,18 @@ h1 {
   text-transform: uppercase;
   &.page-header{
     border:none;
-    margin: 0;
   }
   @media(min-width: @screen-sm-min) {
     font-size: 48px;
     line-height: 62px;
+  }
+}
+
+.page-header.container {
+  padding: 0 15px;
+  margin:30px auto;
+  &.not {
+    display:none;
   }
 }
 
@@ -852,6 +859,12 @@ header {
 /* FAQs */
 .faqs.pre-content {
   height: 350px;
+  .intro-text {
+    display: none;
+  }
+  .intro-image {
+    width: 100%;
+  }
 }
 .faqs.main-container {
   .row {
@@ -1077,44 +1090,57 @@ header {
   min-height: 270px;
   margin-bottom: 40px;
   width: 100%;
-  .field--item {
-    &:last-child .paragraph--type--image {
-      display:none;
-      @media(min-width: @screen-sm-min) {
-        float:right;
-        display: block;
+  position: relative;
+  .intro-image {
+    position: absolute;
+    bottom: 0;
+    height: 100%; 
+    @media(min-width: @screen-xs-min) {
+      width: 25%;
+    } 
+    &:last-child {
+      right:0;
+      img {
+        right: 0;
+      }
+      @media(max-width: @screen-sm-max) {
+        width:0;
       }
     }
-    &:first-child .paragraph--type--image {
-      float: left;
+    &:first-of-type{
+      left: 0;
+      img {
+        left: 0;
+      }
+    }
+    img {
+      position: absolute;
+      bottom: 0;
+      max-height: 270px;
+      width: auto;
     }
   }
-  img {
-    float: left;
-    max-height: 270px;
-    width: auto;
-  }
-  .paragraph--type--text {
-    float: left;
-    margin-left: 16%;
-    max-width: 720px;
-    padding-top: 48px;
-    padding-bottom: 60px;
-    h2 {
-      color:#fff;
-      letter-spacing: 10px;
-      line-height: 62.5px;
-      font-size: 48px;
-      font-weight: 300;
-      margin-bottom: 38.5px;
-      margin-top: 0;
-      font-style: italic;
-      text-transform: uppercase;
+  .intro-text {
+    max-width: 790px;
+    margin:0 5%;
+    padding: 48px 0;
+    @media(min-width: @screen-xs-min) {
+      margin-left: 27%;
     }
+    @media(min-width: @screen-md-min) {
+      margin: 0 27%;
+    } 
     p {
       color:#fff;
-      font-size: 17.5px;
-      line-height: 26.5px;
+      font-size: 14.5px;
+      line-height: 21.6px;
+      @media(min-width: @screen-sm-min) {
+        font-size: 17.5px;
+        line-height: 26.5px;
+      }
+    }
+    h1 {
+      color:#fff;
     }
   }
 }
@@ -1344,10 +1370,11 @@ aside {
       padding-left: 17.5%;
     } 
   }
-  .field--name-field-block-text {
+  .paragraph--type--text {
     padding: 5px 10px 20px 10px;
     border: 2px solid #cf36c3;
     text-align: center;
+    margin-bottom: 35px;
     a {
       text-transform: uppercase;
       color: #cf36c3;
@@ -1359,12 +1386,13 @@ aside {
     }
   
   }
-  .field--name-field-tout {
-     .field--name-field-image {
-        margin: 20px auto 0;
-        max-width: 12em;
-     }
-     .field--name-field-text {
+  .paragraph--type--tout {
+    margin-bottom: 35px;
+   .field--name-field-image {
+      margin: 20px auto 0;
+      max-width: 12em;
+   }
+   .field--name-field-text {
       background-color: #e6e6e6;
       padding: 75px 1em 1em;
       text-align: center;
@@ -2168,7 +2196,7 @@ button[type="submit"] {
 /* News POST CONTENT */
 .news {
   aside {
-    margin-top: 6em;
+    margin-top: 25px;
     padding-left: 4%;
     h4 {
       font-weight: 400;
@@ -2178,6 +2206,7 @@ button[type="submit"] {
       margin: 0 0 0.6em;
       font-family: 'Open Sans', sans-serif;
       text-transform: none;
+      letter-spacing: 0;
     }
     h2 {
       font-size: 22px;
@@ -2190,10 +2219,15 @@ button[type="submit"] {
       font-size: 16px;
       color: #721f82;
     }
-    .field--name-field-block-text {
+    .paragraph--type--text {
       padding:0;
       border:none;
       text-align: left;
+      &:first-of-type{
+        a {
+          .btn;
+        }
+      }
     }
   }
   #block-mediacentercontact,
