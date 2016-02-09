@@ -1,0 +1,21 @@
+uuid: d939ff08-3003-450e-9e23-35d12c61bfc8
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.asia_pacific_
+    - field.storage.contact_message.field_business_street
+_core:
+  default_config_hash: bhfN6CKU4Dy5-KiNu6abXYZJG1UoF8zklCe5u3dXNzc
+id: contact_message.asia_pacific_.field_business_street
+field_name: field_business_street
+entity_type: contact_message
+bundle: asia_pacific_
+label: 'Business Street'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

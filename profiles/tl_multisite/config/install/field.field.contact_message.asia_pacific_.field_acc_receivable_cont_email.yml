@@ -1,0 +1,21 @@
+uuid: a1208c1d-a88a-4424-9100-a427c79c1ea7
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.asia_pacific_
+    - field.storage.contact_message.field_acc_receivable_cont_email
+_core:
+  default_config_hash: xtHaUjuBtzS2CJj_hi-L9ONPi9vXxbppePTdzGUPG8Y
+id: contact_message.asia_pacific_.field_acc_receivable_cont_email
+field_name: field_acc_receivable_cont_email
+entity_type: contact_message
+bundle: asia_pacific_
+label: 'Accounts Receivable Contact Email'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
