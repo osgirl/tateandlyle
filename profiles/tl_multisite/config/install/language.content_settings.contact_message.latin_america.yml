@@ -1,0 +1,11 @@
+uuid: 981a236f-ced1-4a05-9a00-ea184ec4f251
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.latin_america
+id: contact_message.latin_america
+target_entity_type_id: contact_message
+target_bundle: latin_america
+default_langcode: site_default
+language_alterable: false
