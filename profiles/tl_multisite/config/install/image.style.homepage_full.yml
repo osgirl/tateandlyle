@@ -1,0 +1,14 @@
+uuid: 43dae407-a80d-496c-bf00-d5080c6a74b9
+langcode: en
+status: true
+dependencies: {  }
+name: homepage_full
+label: 'Homepage full (920x290) '
+effects:
+  3d067b8d-cef5-40ba-8400-a1e91b2ae37e:
+    uuid: 3d067b8d-cef5-40ba-8400-a1e91b2ae37e
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 920
+      height: 290
