@@ -1,5 +1,8 @@
+uuid: a2fbcba1-44b6-49a3-ab00-d3c664ae2321
 langcode: en
 status: true
 dependencies: {  }
+_core:
+  default_config_hash: YhIsm_OrTz_1VPy1RRnZNKCI4Ody_q5OW-ic_kZiBoc
 id: tabs
 label: Tabs
