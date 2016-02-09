@@ -13,7 +13,7 @@ dependencies:
   module:
     - options
 _core:
-  default_config_hash: _DFE9Btm3Ha0vnA-vgFF1kYcnAh5LXUHQfoY6t2dEhU
+  default_config_hash: FW-d6606cjmnvepfN31BOf_IitXCedaZjKhErQpgBic
 id: contact_message.contact_us.default
 targetEntityType: contact_message
 bundle: contact_us
