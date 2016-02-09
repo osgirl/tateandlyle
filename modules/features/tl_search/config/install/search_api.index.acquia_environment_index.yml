@@ -1,0 +1,72 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - search_api.server.acquia_env_specific
+  module:
+    - search_api
+    - node
+id: acquia_environment_index
+name: 'Acquia Environment Index'
+description: ''
+read_only: false
+field_settings:
+  search_api_language:
+    label: 'Item language'
+    datasource_id: null
+    property_path: search_api_language
+    type: string
+    indexed_locked: true
+    type_locked: true
+  title:
+    label: Title
+    datasource_id: 'entity:node'
+    property_path: title
+    type: string
+  rendered_item:
+    label: 'Rendered HTML output'
+    datasource_id: null
+    property_path: rendered_item
+    type: text
+    indexed_locked: true
+processor_settings:
+  add_url:
+    plugin_id: add_url
+    settings:
+      weights:
+        preprocess_index: -30
+  language:
+    plugin_id: language
+    settings:
+      weights:
+        preprocess_index: -30
+  rendered_item:
+    plugin_id: rendered_item
+    settings:
+      roles:
+        anonymous: anonymous
+      view_mode:
+        'entity:node':
+          form: default
+          media_item: default
+          page: default
+      weights:
+        preprocess_index: -10
+options:
+  index_directly: true
+  cron_limit: 50
+datasource_settings:
+  'entity:node':
+    plugin_id: 'entity:node'
+    settings:
+      default: '1'
+      bundles:
+        form: '0'
+        media_item: '0'
+        page: '0'
+      languages: {  }
+tracker_settings:
+  default:
+    plugin_id: default
+    settings: {  }
+server: acquia_env_specific
