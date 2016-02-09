@@ -1,0 +1,21 @@
+uuid: ca4faa30-5f55-458b-8c03-3e161e938c4b
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.innovation_submission
+    - field.storage.contact_message.field_contact_name
+_core:
+  default_config_hash: fAvVnvmIxk3nRyIxx2ZeSkNmHUvb9JUqE3KQrl_8aKc
+id: contact_message.innovation_submission.field_contact_name
+field_name: field_contact_name
+entity_type: contact_message
+bundle: innovation_submission
+label: 'Contact name'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
