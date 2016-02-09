@@ -107,19 +107,38 @@
           {% endif %}
           </header>
         </div>
-
-        {% if page.pre_content %}
-             <section class="pre-content {{ title_name }}">
-          {{ page.pre_content }}
-            </section>
-        {% endif %}
+        {% if intro_text or intro_images %}
+          <section class="pre-content {{ title_name }}">
+            <div class = "intro-text">
+              <h1 class="page-header">
+                {{ page_title }}
+              </h1>
+             {{ intro_text | raw }}
+            </div>
+          {% if intro_images %}
+            {% set img_number = 1 %}
+            {% for intro_image in intro_images %}
+              {% if img_number < 3 %}
+                <div class="intro-image">
+                  <img alt="{{ intro_image['alt'] }}" src="{{ intro_image['img'] }}">
+                </div>
+              {% endif %}
+              {% set img_number = img_number + 1 %}
+            {% endfor %}
+          {% endif %}
+         </section>
+        {% else %}
+         <h1 class="page-header container {{ not_title }} ">
+              {{ page_title }}
+         </h1>
+       {% endif %}
 
         <div role="main" class="main-container {{ template_style }} {{ title_name }} js-quickedit-main-content">
           <div class="row">
           {# Content #}
             {%
               set content_classes = [
-                page.sidebar_second ? 'col-md-7 col-sm-6',
+                page.sidebar_second and is_sidebar == TRUE ? 'col-md-7 col-sm-6',
                 page.sidebar_second is empty ? 'col-sm-12',
                 is_form ? 'col-sm-12',
                 form_page_layout,
@@ -164,7 +183,7 @@
             </section>
           {# Sidebar Second #}
           {% if is_form != 1 %}
-            {% if page.sidebar_second %}
+            {% if page.sidebar_second and is_sidebar == TRUE %}
               {% block sidebar_second %}
                 <aside class="col-md-5 col-sm-6" role="complementary">
                   {{ page.sidebar_second }}
