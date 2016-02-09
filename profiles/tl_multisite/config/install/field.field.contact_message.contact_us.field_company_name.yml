@@ -1,9 +1,12 @@
+uuid: 27045cbd-8542-4fb9-9200-af8a58cc408a
 langcode: en
 status: true
 dependencies:
   config:
     - contact.form.contact_us
     - field.storage.contact_message.field_company_name
+_core:
+  default_config_hash: miPYfEw-kwlJ3hiqkgRCHwoYpTn7Nyr68WfhR3YK2F8
 id: contact_message.contact_us.field_company_name
 field_name: field_company_name
 entity_type: contact_message

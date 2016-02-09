@@ -5,6 +5,8 @@ dependencies:
   config:
     - contact.form.contact_us
     - field.storage.contact_message.field_country
+_core:
+  default_config_hash: Gvr8GUc2q8gpGH_0lq5lCyU315qFZaEdu5EBACVwcVQ
 id: contact_message.contact_us.field_country
 field_name: field_country
 entity_type: contact_message
