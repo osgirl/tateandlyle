@@ -54,6 +54,9 @@ projects:
       type: git
       url: "https://git.drupal.org/project/search_api_solr.git"
       revision: "8.x-1.x"
+  search_api_attachments:
+    type: module
+    version: "1.0-alpha2"
   security_review:
     version: ~
   paragraphs:
