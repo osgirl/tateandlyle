@@ -40,12 +40,22 @@ function tateandlylefibres_preprocess_page(&$variables) {
     $node_title = $node_fields['title'][0]['value'];
     $node_title = preg_replace('/[^A-Za-z0-9\-]/', ' ', $node_title);
     $variables['title_name'] = strtolower(str_replace(" ", "-", $node_title));
+    if($variables['node']->get('field_sidebar_color')->getValue()[0]['value'] == 0) {
+      $variables['sidebar_color'] = 'color-block';
+    } else {
+      $variables['sidebar_color'] = 'no-color-block';
+    }
   }
   if ($variables['node'] && $variables['node']->getType() == 'form') { 
     $variables['is_form'] = 'is-form';
     $subtitle = $variables['node']->get('field_subtitle')->getValue();
     $variables['subtitle'] = $subtitle[0]['value'];
   }
+
+    if ($variables['node'] && $variables['node']->get('field_sidebar')->getValue()) {
+    $variables['is_sidebar'] = TRUE;
+  }
+
 }
 
 function tateandlylefibres_preprocess_field(&$variables) {
