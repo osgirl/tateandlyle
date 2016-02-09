@@ -1,0 +1,25 @@
+uuid: ecc87d2d-e4fc-4142-8500-adfb9a7703be
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.new_supplier_submission_form
+    - field.storage.contact_message.field_currency
+  module:
+    - options
+_core:
+  default_config_hash: FmC6kYUzOEvgIuxm7VyQQl7Kks1WrRlx0OSnJBcQBoY
+id: contact_message.new_supplier_submission_form.field_currency
+field_name: field_currency
+entity_type: contact_message
+bundle: new_supplier_submission_form
+label: Currency
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: USD
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,25 @@
+uuid: 9c7a72a9-f34a-45a8-a108-8ad3724ce312
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.new_supplier_submission_form
+    - field.storage.contact_message.field_minority_owned_business
+  module:
+    - options
+_core:
+  default_config_hash: JlvumtCHKSJ0WMksT8cJi8JuvOuaw7KBMQD-cgj3M4o
+id: contact_message.new_supplier_submission_form.field_minority_owned_business
+field_name: field_minority_owned_business
+entity_type: contact_message
+bundle: new_supplier_submission_form
+label: 'Minority Owned Business'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings: {  }
+field_type: list_integer

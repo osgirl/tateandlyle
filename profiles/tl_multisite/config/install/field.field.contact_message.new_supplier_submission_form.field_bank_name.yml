@@ -1,0 +1,21 @@
+uuid: 79b6db23-78d3-450f-805e-948ea2ea3c0e
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.new_supplier_submission_form
+    - field.storage.contact_message.field_bank_name
+_core:
+  default_config_hash: yLxKVT0SHYpadMsTdxuyKcntUCFMA6-OLfkooZhN8XM
+id: contact_message.new_supplier_submission_form.field_bank_name
+field_name: field_bank_name
+entity_type: contact_message
+bundle: new_supplier_submission_form
+label: 'Bank Name'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
