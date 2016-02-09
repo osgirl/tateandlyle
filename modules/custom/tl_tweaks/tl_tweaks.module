@@ -44,7 +44,7 @@ function tl_tweaks_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form
     if ($contact_message['label'] != 'Personal contact form') {
       if ($form['#form_id'] == $form_id) {
         $url = Url::fromUserInput('/');
-        $form['actions']['submit']['#suffix'] = \Drupal::l(t('Cancel'), $url);
+        $form['actions']['submit']['#suffix'] = "<span class='cancel_button'>" . \Drupal::l(t('Cancel'), $url) . "</span>";
         unset($form['actions']['preview']);
         if (!empty(theme_get_setting($key, 'generic_microsite'))) {
           $form['actions']['submit']['#value'] = theme_get_setting($key, 'generic_microsite');
