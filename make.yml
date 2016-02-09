@@ -116,10 +116,10 @@ projects:
     download:
       type: git
       url: "https://github.com/wwalc/colorbutton.git"
-      version: ~
+      revision: "3003e13ae522affda431f6d615a9d0beb77af5ba"
   panelbutton:
     type: module
     download:
       type: git
       url: "https://github.com/wwalc/panelbutton.git"
-      version: ~
+      revision: "bf17c0a672887a2a0dc199f643296a0d4297f4c3"
