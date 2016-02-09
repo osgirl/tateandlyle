@@ -1,0 +1,17 @@
+uuid: e881db60-c2c2-4e6f-9d01-1a99dac4b677
+langcode: en
+status: true
+dependencies:
+  module:
+    - contact_storage
+third_party_settings:
+  contact_storage:
+    redirect_uri: 'entity:node/31'
+_core:
+  default_config_hash: D0nyObWGOluHRMjq8f3Xc4VzhWOthB9zeykysdBzoI8
+id: confirmation
+label: Confirmation
+recipients:
+  - webmaster@tateandlyle.com
+reply: ''
+weight: 0
