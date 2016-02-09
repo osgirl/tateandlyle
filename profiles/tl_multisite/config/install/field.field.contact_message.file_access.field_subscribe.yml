@@ -1,9 +1,12 @@
+uuid: 42e5fc9f-e95f-40d3-9407-7e9b768e9af9
 langcode: en
 status: true
 dependencies:
   config:
     - contact.form.file_access
     - field.storage.contact_message.field_subscribe
+_core:
+  default_config_hash: FO1GQVLF3xSsmmZvZ7kGE_r2vVSuCt9T1kS5KBay_g0
 id: contact_message.file_access.field_subscribe
 field_name: field_subscribe
 entity_type: contact_message
