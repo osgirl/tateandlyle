@@ -111,3 +111,15 @@ projects:
   externalauth:
     type: module
     version: "1.0-alpha3"
+  colorbutton:
+    type: module
+    download:
+      type: git
+      url: "https://github.com/wwalc/colorbutton.git"
+      version: ~
+  panelbutton:
+    type: module
+    download:
+      type: git
+      url: "https://github.com/wwalc/panelbutton.git"
+      version: ~
