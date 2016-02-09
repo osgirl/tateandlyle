@@ -1,0 +1,23 @@
+uuid: af8f3619-9d46-41d4-8405-5cd53943d398
+langcode: en
+status: true
+dependencies:
+  module:
+    - contact
+_core:
+  default_config_hash: X6TsEW0vHjbm9RJ0GxzA49zpH5c8QHt5hVq32tMi25A
+id: contact_message.field_business_street
+field_name: field_business_street
+entity_type: contact_message
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,23 @@
+uuid: d153ce33-0fa2-48f1-ac62-9831c77383fa
+langcode: en
+status: true
+dependencies:
+  module:
+    - contact
+_core:
+  default_config_hash: fEmDlA4B3GgMXKVfvbHqKaTi9YFyO_FTsuijLwV59Jc
+id: contact_message.field_bank_inf_contact_email
+field_name: field_bank_inf_contact_email
+entity_type: contact_message
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,23 @@
+uuid: ed119450-088d-490d-a108-8e9193b6e3a7
+langcode: en
+status: true
+dependencies:
+  module:
+    - contact
+_core:
+  default_config_hash: N8ma_sq5TiklLUzZo59zKiGySNodOA1wQ_QGTDdS_nM
+id: contact_message.field_tate_lyle_contact_name
+field_name: field_tate_lyle_contact_name
+entity_type: contact_message
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

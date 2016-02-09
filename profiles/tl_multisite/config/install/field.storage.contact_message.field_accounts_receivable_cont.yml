@@ -1,0 +1,21 @@
+uuid: bc50b01a-49c6-40ad-a600-ceafa0322883
+langcode: en
+status: true
+dependencies:
+  module:
+    - contact
+    - text
+_core:
+  default_config_hash: kTfCmBSHulQTpvD0A1vVgCDJlrCrsdr23D-Sj1uUPjI
+id: contact_message.field_accounts_receivable_cont
+field_name: field_accounts_receivable_cont
+entity_type: contact_message
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
