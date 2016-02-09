@@ -91,6 +91,7 @@
     }
   }
 
+
     //Modal video
   Drupal.behaviors.modalVideo = {
     attach: function (context, settings) {
@@ -106,6 +107,12 @@
         $('.modal').click(function () {
           $(theModal + ' iframe').attr('src', videoSRC);
         });
+        
+  Drupal.behaviors.carouselOptions = {
+    attach: function (context, settings) {
+      $('.field--name-field-timeout').hide();
+      $('.carousel').each(function() {
+         $(this).attr('data-interval', $(this).closest('.paragraph--type--slide').find('.field--name-field-timeout').text())
       });
     }
   }
