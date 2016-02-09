@@ -1,0 +1,26 @@
+uuid: 4e700e92-80a8-4243-ac25-37c9d1c9644d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_redirect
+    - node.type.form
+    - paragraphs.paragraphs_type.country_contact
+id: paragraph.country_contact.field_redirect
+field_name: field_redirect
+entity_type: paragraph
+bundle: country_contact
+label: Redirect
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      form: form
+    sort:
+      field: _none
+field_type: entity_reference
