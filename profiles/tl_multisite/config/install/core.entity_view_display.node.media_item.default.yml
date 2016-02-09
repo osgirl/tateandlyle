@@ -14,7 +14,7 @@ dependencies:
     - user
     - youtube
 _core:
-  default_config_hash: P5Q16z2sUOhvcxFa7tVvgjRnYDT_h9e2vXLh864dUzs
+  default_config_hash: SSt-dxotFDdoaYBuymv7kHGdTHDWWYx9yVilPouAcuQ
 id: node.media_item.default
 targetEntityType: node
 bundle: media_item
@@ -43,7 +43,7 @@ content:
     type: image
   field_youtube_video:
     weight: 3
-    label: above
+    label: hidden
     settings:
       youtube_size: 450x315
       youtube_width: ''
@@ -59,3 +59,4 @@ content:
 hidden:
   langcode: true
   links: true
+  moderation_state: true
