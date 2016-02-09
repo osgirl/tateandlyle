@@ -14,7 +14,7 @@ dependencies:
   module:
     - telephone
 _core:
-  default_config_hash: bDC4ZWoThl9-XXLWVgST9KJdXIC01p9z1Qq4r37rJG0
+  default_config_hash: CF3H52gJ4yFwSlWRRXXvEgj0CzWAdArzj27Qu1w1pN8
 id: contact_message.file_access.default
 targetEntityType: contact_message
 bundle: file_access
