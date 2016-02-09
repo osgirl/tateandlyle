@@ -1,0 +1,21 @@
+uuid: 23bd4b71-b0d2-4515-b504-4f29ca3dd3ab
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.europe_middle_east_africa
+    - field.storage.contact_message.field_tax_office_name
+_core:
+  default_config_hash: ZmWVzGyaafqc6nJ72gwPH1HDPmHfdD_WxVT5rxM-1do
+id: contact_message.europe_middle_east_africa.field_tax_office_name
+field_name: field_tax_office_name
+entity_type: contact_message
+bundle: europe_middle_east_africa
+label: 'Tax Office Name (Turkey Only)'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
