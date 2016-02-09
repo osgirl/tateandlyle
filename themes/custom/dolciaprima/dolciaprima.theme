@@ -11,7 +11,8 @@ use Drupal\image\Entity\ImageStyle;
 use Drupal\Core\Url; 
 
 function dolciaprima_preprocess_page(&$variables) {
-
+  
+  /*Set page title user */
   $route = explode('/', \Drupal::service('path.current')->getPath());
   if($variables['page'] && $route[1] != 'user' ) {
     $variables['page_title'] =$variables['page']['#title']->__toString();
@@ -20,6 +21,7 @@ function dolciaprima_preprocess_page(&$variables) {
     $variables['page_title'] = $variables['page']['#title'];
   }
 
+  /* Set template style variable */
   if($variables['node'] && $variables['node']->getType() == 'page') {
     $field_template = $variables['node']->get('field_template')->getValue();
     if (isset($field_template[0])) {
@@ -34,12 +36,16 @@ function dolciaprima_preprocess_page(&$variables) {
   } else {
     $variables['template_style'] = 'container';
   }
+
+  /* Set variable with which will be used as class for special customizations */
   if($variables['node']) {
     $node_fields = $variables['node']->toArray();
     $node_title = $node_fields['title'][0]['value'];
     $node_title = preg_replace('/[^A-Za-z0-9\-]/', ' ', $node_title);
     $variables['title_name'] = strtolower(str_replace(" ", "-", $node_title));
   }
+
+  /* Set variables form layout */
   if($variables['node'] && $variables['node']->getType() == 'form'){
     $variables['is_form'] = TRUE;
     $form_page_layout = $variables['node']->get('field_layout')->getValue();
@@ -51,6 +57,8 @@ function dolciaprima_preprocess_page(&$variables) {
   } 
 
   if($variables['node'] && $variables['node']->getType() == 'page') {
+
+    /*Set variables for page from intro area */
     $paragraphs = $variables['node']->get('field_intro_area')->getValue();
     foreach ($paragraphs as $key => $paragraph) {
       $id = $paragraph['target_id'];
@@ -71,14 +79,15 @@ function dolciaprima_preprocess_page(&$variables) {
           }   
         }
       }     
-    }   
+    }
+    /*Check if page has sidebar*/
+    if($variables['node']->get('field_sidebar')->getValue()) {
+      $variables['is_sidebar'] = TRUE;
+    }
   }
+  /*Set page title*/
   if($variables['node']) {
     $variables['page_title'] = $variables['node']->getTitle();
-  }
-
-  if ($variables['node'] && $variables['node']->get('field_sidebar')->getValue()) {
-    $variables['is_sidebar'] = TRUE;
   }
 }
 
