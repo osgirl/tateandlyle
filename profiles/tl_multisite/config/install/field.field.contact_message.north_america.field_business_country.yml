@@ -1,0 +1,21 @@
+uuid: caaccc13-2079-4b24-a143-670c77cd8217
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.north_america
+    - field.storage.contact_message.field_business_country
+_core:
+  default_config_hash: rD0d8n-vcWUKyNXXno3RaLnoyRz88-YszXHolkStgQ8
+id: contact_message.north_america.field_business_country
+field_name: field_business_country
+entity_type: contact_message
+bundle: north_america
+label: 'Business Country'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

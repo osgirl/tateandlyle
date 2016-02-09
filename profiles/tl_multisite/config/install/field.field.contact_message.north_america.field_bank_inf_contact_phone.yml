@@ -1,0 +1,21 @@
+uuid: 8080fc6e-5bc9-4819-b700-df474d791c77
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.north_america
+    - field.storage.contact_message.field_bank_inf_contact_phone
+_core:
+  default_config_hash: k1x3IMFDi7yX1d-LRjWc1sEkQ-aDfDRyEMboym6FdtI
+id: contact_message.north_america.field_bank_inf_contact_phone
+field_name: field_bank_inf_contact_phone
+entity_type: contact_message
+bundle: north_america
+label: 'Bank Information Contact Phone Number'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

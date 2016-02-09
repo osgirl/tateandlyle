@@ -1,0 +1,21 @@
+uuid: 20de0022-540d-44d7-bb00-e58847f5e7d5
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.north_america
+    - field.storage.contact_message.field_acc_receivable_cont_name
+_core:
+  default_config_hash: cJfNeUQjJ8Dj6Gu6SszRh4D5RD9Keku160jX0CSoILg
+id: contact_message.north_america.field_acc_receivable_cont_name
+field_name: field_acc_receivable_cont_name
+entity_type: contact_message
+bundle: north_america
+label: 'Accounts Receivable Contact Name'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,21 @@
+uuid: 4bdb8d12-c9c1-4695-8425-37ee33133fa5
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.north_america
+    - field.storage.contact_message.field_doing_business_as
+_core:
+  default_config_hash: o5UKb2t5h7Rmem9OayxILAuX-agA2gLHxsqdzA5Jugg
+id: contact_message.north_america.field_doing_business_as
+field_name: field_doing_business_as
+entity_type: contact_message
+bundle: north_america
+label: 'Doing business as (if different)'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
