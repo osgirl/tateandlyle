@@ -6,7 +6,7 @@ dependencies:
     - contact.form.marketing
     - field.storage.contact_message.field_email
 _core:
-  default_config_hash: zevaHB2DTgeUGBqZipDyjifGLGBsYt-2-Ba7xVYJEks
+  default_config_hash: 66etvEykYmNQoT63OF3gfUfbRlozkt6oOWNz7LEeK6s
 id: contact_message.marketing.field_email
 field_name: field_email
 entity_type: contact_message
