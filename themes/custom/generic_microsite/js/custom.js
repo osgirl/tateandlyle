@@ -107,6 +107,9 @@
         $('.modal').click(function () {
           $(theModal + ' iframe').attr('src', videoSRC);
         });
+      });
+    }
+  }
         
   Drupal.behaviors.carouselOptions = {
     attach: function (context, settings) {
