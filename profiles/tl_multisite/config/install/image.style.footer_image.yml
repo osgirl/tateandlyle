@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: iQhC6YVlaQ4fBLkwtC0TVVB-7AkQPgQo0d_BD5E0tk4
+  default_config_hash: ocIzGpVmrNYXViA0oG0iewDQCGqkoaSi9ICKlMcFWPc
 name: footer_image
 label: 'Footer image (600×290)'
 effects:
