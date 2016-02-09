@@ -1,0 +1,25 @@
+uuid: 2b9fcc2b-9487-4326-a200-ba52bcbf4170
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.global_transportation_vendors
+    - field.storage.contact_message.field_type_of_business
+  module:
+    - options
+_core:
+  default_config_hash: rA4qQn8k_2umfhjSdSMfJSQZSoUqHv3C_0LbLhM4j2Q
+id: contact_message.global_transportation_vendors.field_type_of_business
+field_name: field_type_of_business
+entity_type: contact_message
+bundle: global_transportation_vendors
+label: 'Type of Business'
+description: ''
+required: true
+translatable: true
+default_value:
+  -
+    value: Corporation
+default_value_callback: ''
+settings: {  }
+field_type: list_string
