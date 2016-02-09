@@ -1,0 +1,21 @@
+uuid: ce2e1c1c-2f6a-43bf-b303-0353eb25bee0
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.latin_america
+    - field.storage.contact_message.field_duns_number
+_core:
+  default_config_hash: fIZclhPLC8Yxq2J4dx1ra_cXvJnPdlVghWyjk-jUGzg
+id: contact_message.latin_america.field_duns_number
+field_name: field_duns_number
+entity_type: contact_message
+bundle: latin_america
+label: 'DUNS Number'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

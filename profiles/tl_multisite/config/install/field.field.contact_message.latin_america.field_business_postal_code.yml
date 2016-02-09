@@ -1,0 +1,21 @@
+uuid: f3ff8b44-2398-4e28-9a0a-1093215c44db
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.latin_america
+    - field.storage.contact_message.field_business_postal_code
+_core:
+  default_config_hash: qoWtwrAFLFMSx5fGkE6m0ANW2D2LEL_r3GkrjUAYVkM
+id: contact_message.latin_america.field_business_postal_code
+field_name: field_business_postal_code
+entity_type: contact_message
+bundle: latin_america
+label: 'Business Postal Code'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
