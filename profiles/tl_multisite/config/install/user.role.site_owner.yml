@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: 4-4AFw6p_QE9Eb24nSPst4OuI1TKVtqbrlsK-CAmxjg
+  default_config_hash: 8XMyJ-5SU8kOD76YyxDLKLwQyHBM4GV5nWXz8EGphm4
 id: site_owner
 label: 'Site owner'
 weight: 3
@@ -66,6 +66,5 @@ permissions:
   61: 'translate menu_link_content'
   62: 'use draft_needs_review transition'
   63: 'use needs_review_needs_review transition'
-  68: 'administer contact forms'
   69: 'administer contact_message fields'
   70: 'administer contact_message form display'
