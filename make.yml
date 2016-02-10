@@ -69,7 +69,12 @@ projects:
       - "https://www.drupal.org/files/issues/fix_target_revision_id_property.patch"
   mollom:
     type: module
-    version: "1.1"
+    download:
+      type: git
+      url: "https://git.drupal.org/project/mollom.git"
+      revision: "87e19dcb801d15114a0900c4d51cc996435d5717"
+    patch:
+      - "https://www.drupal.org/files/issues/support_custom_contact-2659536-6.patch"
   field_collection:
     type: module
     version: ~
