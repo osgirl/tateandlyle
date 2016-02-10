@@ -1,8 +1,9 @@
+uuid: bb62aecb-cace-4f61-b300-aca52536b721
 langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: N-dytVgrgj5FSpwGharhTXOdRcyjeLdy3LYW-AdCpXs
+  default_config_hash: cjhl3yPjBy9Cvy6LXKmXPpg50UwbMtz65n5AwDJLILo
 id: content_approver
 label: 'Content Approver'
 weight: 5
@@ -27,3 +28,12 @@ permissions:
   - 'use draft_needs_review transition'
   - 'use needs_review_needs_review transition'
   - 'use published_published transition'
+  - 'use text format filtered_html'
+  - 'view any unpublished content'
+  - 'use draft_published transition'
+  - 'use published_archived transition'
+  - 'update content translations'
+  - 'view own unpublished content'
+  - 'view page revisions'
+  - 'view form revisions'
+  - 'view media_item revisions'
