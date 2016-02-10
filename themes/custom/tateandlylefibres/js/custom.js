@@ -27,8 +27,12 @@
            $('.field--name-field-main-content').css('height', $height_form )
          }
       })
-    
-
+    //$('.field--name-field-title').html($('.field--name-field-title').text().replace('®', '<sup>®</sup>'));
+      $('.field--name-field-title, h1, h2, h3, a, p ').each(function(i, elem) {
+            $(elem).html(function(i, html) {
+                return html.replace('®', "<sup>&reg;</sup>");
+            });
+        });
     }
   };
 
@@ -94,9 +98,6 @@
       $('select').chosen({
         disable_search: true,
       });
-
-      // Add empty option value
-      //$(".chosen-container-single ul").prepend("<li class='active-result result-selected' data-option-array-index="0"></li>");
     }
   }
 

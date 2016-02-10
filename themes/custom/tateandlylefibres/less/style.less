@@ -99,7 +99,10 @@ img {
     }
   }
 }
-.path-frontpage .middle-content.col-sm-12 {
+.path-frontpage .middle-content {
+  padding: 0;
+}
+.is-form .middle-content {
   padding: 0;
 }
 
@@ -989,7 +992,7 @@ header.container {
   .header-container {
     display: none;
   }
-  .main-container {
+  .middle-content {
     padding: 0;
   }
   .tout-container {
@@ -1102,6 +1105,9 @@ aside {
         font-size: 12px;
         margin-bottom: 20px;
         display: inline-block;
+        &:hover {
+          box-shadow: 0 0 10px rgba(0,0,0,.75);
+        }
       }
     }
      .paragraph--type--text:nth-child(2n){
@@ -1710,7 +1716,7 @@ aside {
   .modal-dialog {
     margin: 0 auto;
     transform: none;
-    max-width: 1200px;
+    max-width: 1155px;
     width: 100%;
     top: 50%;
     left: 50%;
