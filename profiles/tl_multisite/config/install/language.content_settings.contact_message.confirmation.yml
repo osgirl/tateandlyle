@@ -1,0 +1,11 @@
+uuid: f767afa7-0d10-4223-af00-f22ca67e057d
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.confirmation
+id: contact_message.confirmation
+target_entity_type_id: contact_message
+target_bundle: confirmation
+default_langcode: site_default
+language_alterable: false

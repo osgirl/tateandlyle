@@ -8,7 +8,7 @@ dependencies:
   module:
     - text
 _core:
-  default_config_hash: HbRk11ZIoPcLN61EJJ14xEMhfAnjHyTAFBPAcMwwnGY
+  default_config_hash: BK9lZed5SyBsUVfFzDyWUySofTHT8Rmf5ojHysVK3lo
 id: paragraph.text.default
 targetEntityType: paragraph
 bundle: text
@@ -22,4 +22,5 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
+  moderation_state: true
   uid: true

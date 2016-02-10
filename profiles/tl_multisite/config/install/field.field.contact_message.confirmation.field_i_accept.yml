@@ -1,0 +1,25 @@
+uuid: 11b38d3f-b13c-43ea-9e59-89236eb27ab5
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.confirmation
+    - field.storage.contact_message.field_i_accept
+_core:
+  default_config_hash: lySQ7Pg8mwbJmWTf9h81t7HfkZUwqQ-iqoGUDMaDMoY
+id: contact_message.confirmation.field_i_accept
+field_name: field_i_accept
+entity_type: contact_message
+bundle: confirmation
+label: 'I accept the terms and conditions'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'I accept the terms and conditions'
+  off_label: 'I accept the terms and conditions'
+field_type: boolean

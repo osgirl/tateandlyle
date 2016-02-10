@@ -7,6 +7,8 @@ dependencies:
     - node.type.form
   module:
     - text
+_core:
+  default_config_hash: W83MlBp7ptxI0HIbFM0o-DNZdQYsQd92AHAknGzCAMk
 id: node.form.field_form_header
 field_name: field_form_header
 entity_type: node
@@ -14,7 +16,7 @@ bundle: form
 label: 'Form header'
 description: 'Add the text that''s displayed before the form.'
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }

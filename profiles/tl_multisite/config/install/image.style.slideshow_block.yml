@@ -2,6 +2,8 @@ uuid: a31049bf-a81d-4430-9f08-8adfba8cb61a
 langcode: en
 status: true
 dependencies: {  }
+_core:
+  default_config_hash: RcZ-EFt9aGnPxeH8FmcpU3AeVB7w21ClePYFpPXt72w
 name: slideshow_block
 label: 'Slideshow block (210 x 205)'
 effects:

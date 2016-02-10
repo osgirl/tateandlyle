@@ -1,0 +1,29 @@
+uuid: 5f1986b8-c2a4-4ba3-ba03-3b9dd1e73898
+langcode: en
+status: true
+dependencies:
+  module:
+    - contact
+    - options
+_core:
+  default_config_hash: Yc0oZVQY7zdqId8QUtFmtmsMpC8yEpp1ydMFTfMGA2I
+id: contact_message.field_minority_owned_business
+field_name: field_minority_owned_business
+entity_type: contact_message
+type: list_integer
+settings:
+  allowed_values:
+    -
+      value: 0
+      label: 'No'
+    -
+      value: 1
+      label: 'Yes'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

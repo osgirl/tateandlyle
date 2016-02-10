@@ -1,0 +1,21 @@
+uuid: f38ea4e7-9985-4fb9-9b00-cceb3d304367
+langcode: en
+status: true
+dependencies:
+  module:
+    - contact
+    - text
+_core:
+  default_config_hash: VlG0noy2JvXyZvAY2GxLyAYRLqqqDn5y-j_HdMCak4k
+id: contact_message.field_main_contact_name_email
+field_name: field_main_contact_name_email
+entity_type: contact_message
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -12,7 +12,7 @@ dependencies:
     - image
     - text
 _core:
-  default_config_hash: 1TDvOSQO7XwOiGxB_5gNyXfZ-dcDP_0tGEuZJxguCzI
+  default_config_hash: xbTmoE-396XNty0ihLsAfPgQkuz6c-wEHR_SnSgEwZw
 id: field_collection_item.field_accordion_item.default
 targetEntityType: field_collection_item
 bundle: field_accordion_item
@@ -45,4 +45,5 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
-hidden: {  }
+hidden:
+  moderation_state: true

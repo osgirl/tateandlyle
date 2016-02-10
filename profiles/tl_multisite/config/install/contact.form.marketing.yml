@@ -1,9 +1,17 @@
+uuid: 0e21e628-b711-4d24-9c04-4cc039b419df
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - contact_storage
+third_party_settings:
+  contact_storage:
+    redirect_uri: 'entity:node/31'
+_core:
+  default_config_hash: HQSRlIspManeMHJd3cYrtRJetGz5NTjzSiDndRDIgd0
 id: marketing
 label: Marketing
 recipients:
-  - bogdan.stamate@softescu.ro
+  - webmaster@tateandlyle.com
 reply: ''
 weight: 0

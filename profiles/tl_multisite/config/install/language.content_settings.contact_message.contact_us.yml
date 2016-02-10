@@ -1,0 +1,11 @@
+uuid: f9ac3ef6-30a2-495a-9209-9c02b3d4ce61
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.contact_us
+id: contact_message.contact_us
+target_entity_type_id: contact_message
+target_bundle: contact_us
+default_langcode: site_default
+language_alterable: false

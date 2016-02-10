@@ -1,0 +1,11 @@
+uuid: 90943fd6-575c-43f1-8014-200d4ed3a3f1
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.europe_middle_east_africa
+id: contact_message.europe_middle_east_africa
+target_entity_type_id: contact_message
+target_bundle: europe_middle_east_africa
+default_langcode: site_default
+language_alterable: false

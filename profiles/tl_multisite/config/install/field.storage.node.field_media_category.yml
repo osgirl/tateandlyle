@@ -1,12 +1,9 @@
-uuid: 31e54df1-4e70-4caf-8400-d38d5e78f98f
 langcode: en
 status: true
 dependencies:
   module:
     - node
     - taxonomy
-_core:
-  default_config_hash: xGLoZqXFiImnGKKJ9iE9l8WxrN4pxa0Bnj43T5MWNWw
 id: node.field_media_category
 field_name: field_media_category
 entity_type: node

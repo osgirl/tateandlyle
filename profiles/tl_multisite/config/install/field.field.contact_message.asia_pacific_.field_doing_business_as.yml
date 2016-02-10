@@ -1,0 +1,21 @@
+uuid: 6d0adece-1171-4e6f-9318-2469d926f7c6
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.asia_pacific_
+    - field.storage.contact_message.field_doing_business_as
+_core:
+  default_config_hash: TuKci3kilW2hisGlGj6swOl0TAcfdiWbQSMFvGp35TY
+id: contact_message.asia_pacific_.field_doing_business_as
+field_name: field_doing_business_as
+entity_type: contact_message
+bundle: asia_pacific_
+label: 'Doing business as (if different)'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

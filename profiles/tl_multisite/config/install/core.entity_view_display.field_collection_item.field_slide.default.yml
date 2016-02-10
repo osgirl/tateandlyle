@@ -11,6 +11,8 @@ dependencies:
     - image
     - link
     - text
+_core:
+  default_config_hash: i0DK5jmyXBqcQNC22B4Mdm3zFISh6DeEhNngqRuj5mY
 id: field_collection_item.field_slide.default
 targetEntityType: field_collection_item
 bundle: field_slide
@@ -41,4 +43,5 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: text_default
-hidden: {  }
+hidden:
+  moderation_state: true

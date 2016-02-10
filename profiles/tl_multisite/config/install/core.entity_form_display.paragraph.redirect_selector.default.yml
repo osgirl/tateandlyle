@@ -1,3 +1,4 @@
+uuid: 606a1b2c-7689-4d85-9b01-01bbec357751
 langcode: en
 status: true
 dependencies:
@@ -6,6 +7,8 @@ dependencies:
     - paragraphs.paragraphs_type.redirect_selector
   module:
     - link
+_core:
+  default_config_hash: Qk8DNZYrWwXwT9ddvX9EHqrOYDgqnpfmhj3dH8I5RCk
 id: paragraph.redirect_selector.default
 targetEntityType: paragraph
 bundle: redirect_selector

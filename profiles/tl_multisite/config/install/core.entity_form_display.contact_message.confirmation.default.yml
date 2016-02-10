@@ -1,0 +1,27 @@
+uuid: 38b46bc8-23f0-4abf-bc00-ddf2545bcc8d
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.confirmation
+    - field.field.contact_message.confirmation.field_i_accept
+_core:
+  default_config_hash: Pfyi-DCk6RduRCWEtlRSlJSWCnrpFHT_ZMEUyZvmPlg
+id: contact_message.confirmation.default
+targetEntityType: contact_message
+bundle: confirmation
+mode: default
+content:
+  field_i_accept:
+    weight: 51
+    settings:
+      display_label: false
+    third_party_settings: {  }
+    type: boolean_checkbox
+hidden:
+  copy: true
+  langcode: true
+  mail: true
+  message: true
+  name: true
+  subject: true

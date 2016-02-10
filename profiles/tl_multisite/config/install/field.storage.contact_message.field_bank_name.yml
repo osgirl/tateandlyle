@@ -1,0 +1,23 @@
+uuid: adfd48bc-3c1a-48d3-825e-94c523e86ddb
+langcode: en
+status: true
+dependencies:
+  module:
+    - contact
+_core:
+  default_config_hash: 4p_j_zLs-Quj-rH_Nl1alfBk3K_lUM5W4eLD7lU4Sck
+id: contact_message.field_bank_name
+field_name: field_bank_name
+entity_type: contact_message
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

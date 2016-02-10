@@ -1,0 +1,21 @@
+uuid: 1c9ac10e-e9af-434b-a900-ac2130c8eae3
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.europe_middle_east_africa
+    - field.storage.contact_message.field_business_state_region
+_core:
+  default_config_hash: Mx5qjr4PMqOxfpuSXnUXqdweQLtTfY0Ctgr7MwsVtrY
+id: contact_message.europe_middle_east_africa.field_business_state_region
+field_name: field_business_state_region
+entity_type: contact_message
+bundle: europe_middle_east_africa
+label: 'Business State/Region'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

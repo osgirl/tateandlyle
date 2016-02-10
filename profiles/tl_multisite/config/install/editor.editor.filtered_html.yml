@@ -1,3 +1,4 @@
+uuid: 3447105f-7811-4178-aa00-e0ed61dcfe7b
 langcode: en
 status: true
 dependencies:
@@ -5,6 +6,8 @@ dependencies:
     - filter.format.filtered_html
   module:
     - ckeditor
+_core:
+  default_config_hash: '-Uh5KTnN2gHq5sQnmvfOejHECpMBTVX7m4PCUwB1cpI'
 format: filtered_html
 editor: ckeditor
 settings:
@@ -17,6 +20,14 @@ settings:
             - Format
             - Bold
             - Italic
+            - Underline
+            - Superscript
+            - Subscript
+            - JustifyLeft
+            - JustifyCenter
+            - JustifyRight
+            - JustifyBlock
+            - SpecialChar
         -
           name: Links
           items:
@@ -40,6 +51,10 @@ settings:
           name: Table
           items:
             - Table
+        -
+          name: Youtube
+          items:
+            - Youtube
   plugins:
     stylescombo:
       styles: ''

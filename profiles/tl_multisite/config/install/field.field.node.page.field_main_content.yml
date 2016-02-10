@@ -7,6 +7,8 @@ dependencies:
     - node.type.page
   module:
     - entity_reference_revisions
+_core:
+  default_config_hash: Ebh-eXYNW5QKQdcoKhhbpV69TX15aQ35STGeMNxc0gc
 id: node.page.field_main_content
 field_name: field_main_content
 entity_type: node
@@ -23,12 +25,12 @@ settings:
     target_bundles:
       image: image
       accordion: accordion
-      contact: contact
       country_contact: country_contact
       text: text
       redirect_selector: redirect_selector
       slide: slide
       tabs: tabs
+      video: video
     target_bundles_drag_drop:
       image:
         enabled: true
@@ -37,8 +39,8 @@ settings:
         enabled: true
         weight: 11
       contact:
-        enabled: true
         weight: 12
+        enabled: false
       country_contact:
         enabled: true
         weight: 13
@@ -57,4 +59,7 @@ settings:
       tabs:
         enabled: true
         weight: 18
+      video:
+        enabled: true
+        weight: 20
 field_type: entity_reference_revisions

@@ -4,6 +4,8 @@ status: true
 dependencies:
   module:
     - contact
+_core:
+  default_config_hash: gG8AYPoiQOs4qC7OlWKJULnEggrLHhoCGLxXagp3lAk
 id: contact_message.field_business_email
 field_name: field_business_email
 entity_type: contact_message

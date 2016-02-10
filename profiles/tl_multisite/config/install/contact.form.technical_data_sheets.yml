@@ -6,7 +6,9 @@ dependencies:
     - contact_storage
 third_party_settings:
   contact_storage:
-    redirect_uri: ''
+    redirect_uri: 'entity:node/14?submitted=true'
+_core:
+  default_config_hash: KmzewFnzVVG5l6KB1qCM9ItT2GTog91wAJEnWnoKs-4
 id: technical_data_sheets
 label: 'Technical data sheets'
 recipients:

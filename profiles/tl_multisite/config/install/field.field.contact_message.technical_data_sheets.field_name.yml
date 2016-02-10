@@ -5,13 +5,15 @@ dependencies:
   config:
     - contact.form.technical_data_sheets
     - field.storage.contact_message.field_name
+_core:
+  default_config_hash: 0p0-CEq0bRUU5zHLVKD4xek2eVNmGIes-r3KAvFHSNA
 id: contact_message.technical_data_sheets.field_name
 field_name: field_name
 entity_type: contact_message
 bundle: technical_data_sheets
 label: Name
 description: ''
-required: false
+required: true
 translatable: true
 default_value: {  }
 default_value_callback: ''

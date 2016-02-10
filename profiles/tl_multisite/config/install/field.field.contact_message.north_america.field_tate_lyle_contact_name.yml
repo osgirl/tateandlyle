@@ -1,0 +1,21 @@
+uuid: 84207805-dbb0-48ed-8648-7291e12314c7
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.north_america
+    - field.storage.contact_message.field_tate_lyle_contact_name
+_core:
+  default_config_hash: 9nsmZX2NCI-DsqVxR87GVaSy5EdIYAS53qR6LUc7ix8
+id: contact_message.north_america.field_tate_lyle_contact_name
+field_name: field_tate_lyle_contact_name
+entity_type: contact_message
+bundle: north_america
+label: 'Tate & Lyle Contact Name'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

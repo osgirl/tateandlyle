@@ -8,7 +8,7 @@ dependencies:
   module:
     - link
 _core:
-  default_config_hash: FgfAaBmnxY-VhtaTk8SbrQA082UFq2rBPBfLXLQNl0I
+  default_config_hash: _Scv1UJhUh6YA8uWNmLgugAoPkr59EgrbcUFCXl6iR8
 id: paragraph.redirect_selector.default
 targetEntityType: paragraph
 bundle: redirect_selector
@@ -27,4 +27,5 @@ content:
     type: link
 hidden:
   created: true
+  moderation_state: true
   uid: true

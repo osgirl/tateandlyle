@@ -1,0 +1,21 @@
+uuid: aea4a735-d573-461d-8f00-c0fd692d1252
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.north_america
+    - field.storage.contact_message.field_cert_expiration_date
+_core:
+  default_config_hash: iD-P97W9M5NAOYWUYAAq3AKGtBHh6orx7widsjxdDzI
+id: contact_message.north_america.field_cert_expiration_date
+field_name: field_cert_expiration_date
+entity_type: contact_message
+bundle: north_america
+label: 'Certification Expiration Date'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

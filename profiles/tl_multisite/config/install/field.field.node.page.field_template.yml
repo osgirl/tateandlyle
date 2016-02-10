@@ -12,9 +12,9 @@ field_name: field_template
 entity_type: node
 bundle: page
 label: 'Page layout'
-description: 'Choose the layout type for the page.'
+description: 'Used only for Dolcia Prima theme.'
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }

@@ -7,11 +7,12 @@ dependencies:
     - field.field.node.media_item.field_file
     - field.field.node.media_item.field_media_category
     - field.field.node.media_item.field_media_item_image
+    - field.field.node.media_item.field_youtube_video
     - node.type.media_item
   module:
     - user
 _core:
-  default_config_hash: Yi3FDxV6hGhFEJ1frsw7JN3SmShDba0E7mtWnL9CPVM
+  default_config_hash: YCFot9Q1t_JBrLZw5N6xctZR8aZ7GK3EMEVSS8wIEUw
 id: node.media_item.teaser
 targetEntityType: node
 bundle: media_item
@@ -19,8 +20,12 @@ mode: teaser
 content:
   links:
     weight: 100
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   field_file: true
   field_media_category: true
   field_media_item_image: true
+  field_youtube_video: true
   langcode: true
+  moderation_state: true

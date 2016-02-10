@@ -11,7 +11,7 @@ dependencies:
     - field.field.contact_message.contact_us.field_name
     - field.field.contact_message.contact_us.field_region_contact
 _core:
-  default_config_hash: 4JJORUE7hRzUBNbZ826oZnGDNWsY0vBhNrVkSMExhjM
+  default_config_hash: MdIhr3WXDqO1-Hcy9k5PxzfJi8ftx2qaVY7v1MO-MY8
 id: contact_message.contact_us.default
 targetEntityType: contact_message
 bundle: contact_us

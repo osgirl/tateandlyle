@@ -1,9 +1,12 @@
+uuid: 930bd5f1-ded2-4d77-9e09-09164594b289
 langcode: en
 status: true
 dependencies:
   module:
     - entity_reference_revisions
     - paragraphs
+_core:
+  default_config_hash: Tqk2R2Te5Qr9bnv_mxtZPx-oluAFjKrtm7AcFKZhGgs
 id: paragraph.field_contact
 field_name: field_contact
 entity_type: paragraph

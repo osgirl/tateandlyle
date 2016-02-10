@@ -1,0 +1,23 @@
+uuid: 22837ff7-1f6b-41f0-bc03-3f3ff2ae0c39
+langcode: en
+status: true
+dependencies:
+  module:
+    - contact
+_core:
+  default_config_hash: ghkLrBR9x7q5iIKPe66kjKOK-c_VmLZAIzfzEnuRLSs
+id: contact_message.field_business_postal_code
+field_name: field_business_postal_code
+entity_type: contact_message
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
