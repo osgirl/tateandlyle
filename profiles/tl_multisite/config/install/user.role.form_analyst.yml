@@ -1,8 +1,9 @@
+uuid: 57dd3ad5-0657-4367-ab3a-58b602dbf976
 langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: I5B7fmyC0SPCrzxvPYIx-pNcrTMkAgIpaG7uDbEoRIU
+  default_config_hash: kP2POS0v0bDm9nUds2tljNgD-_cw3YyXsIYVI3wwWY8
 id: form_analyst
 label: 'Form analyst'
 weight: 6
