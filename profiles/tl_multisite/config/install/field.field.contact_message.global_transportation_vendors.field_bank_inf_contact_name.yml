@@ -1,0 +1,21 @@
+uuid: 54995332-b162-4f44-ad00-d14a1acace0d
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.global_transportation_vendors
+    - field.storage.contact_message.field_bank_inf_contact_name
+_core:
+  default_config_hash: M_uzplggypvA-LyQkUVVBxHXSGgp74TITpzAoqmgqQw
+id: contact_message.global_transportation_vendors.field_bank_inf_contact_name
+field_name: field_bank_inf_contact_name
+entity_type: contact_message
+bundle: global_transportation_vendors
+label: 'Bank Information Contact Name - Confirmation of Bank Details'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

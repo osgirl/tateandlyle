@@ -9,7 +9,7 @@ dependencies:
   module:
     - field_collection
 _core:
-  default_config_hash: k0N-qLbfhrooo1RxWHPoqV9XZOh41I7TMfIHLc_Vp0M
+  default_config_hash: jlEvhi1fvSeckA4E2L6DuC-zQoA0TEpqqPrgY0z8ky0
 id: paragraph.tabs.default
 targetEntityType: paragraph
 bundle: tabs
@@ -30,4 +30,5 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
+  moderation_state: true
   uid: true

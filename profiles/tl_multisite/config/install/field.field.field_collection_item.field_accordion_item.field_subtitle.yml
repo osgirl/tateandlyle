@@ -5,6 +5,8 @@ dependencies:
   config:
     - field.storage.field_collection_item.field_subtitle
     - field_collection.field_collection.field_accordion_item
+_core:
+  default_config_hash: bORJFHs1S_cp2M4o4TggA6Nu677VNOC5kYgGwQBSnl0
 id: field_collection_item.field_accordion_item.field_subtitle
 field_name: field_subtitle
 entity_type: field_collection_item

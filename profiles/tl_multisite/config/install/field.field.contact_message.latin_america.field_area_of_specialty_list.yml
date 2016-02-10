@@ -1,0 +1,25 @@
+uuid: a05336e7-4ba4-4ef8-8500-db5e980a9bcf
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.latin_america
+    - field.storage.contact_message.field_area_of_specialty_list
+  module:
+    - options
+_core:
+  default_config_hash: q63lWIdv8plqEbzfVpXTXFVbvFgskVnpWb63k-fP7fo
+id: contact_message.latin_america.field_area_of_specialty_list
+field_name: field_area_of_specialty_list
+entity_type: contact_message
+bundle: latin_america
+label: 'Area of Specialty'
+description: ''
+required: true
+translatable: true
+default_value:
+  -
+    value: 'CHPA - Chemicals'
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -10,6 +10,8 @@ dependencies:
   module:
     - image
     - text
+_core:
+  default_config_hash: S1_nCDjPOZDlnrfAjArH6xgeSf7DfiUSgk61uIkBLuU
 id: paragraph.video.default
 targetEntityType: paragraph
 bundle: video
@@ -32,4 +34,5 @@ content:
 hidden:
   created: true
   field_video_url: true
+  moderation_state: true
   uid: true

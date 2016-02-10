@@ -1,0 +1,21 @@
+uuid: 17fe3431-4ba3-4c28-b200-aa840647e186
+langcode: en
+status: true
+dependencies:
+  module:
+    - contact
+    - text
+_core:
+  default_config_hash: B4CRclVnFvZBmvOLlq_p9U21sGdP817-gu3LEly166o
+id: contact_message.field_business_street_address
+field_name: field_business_street_address
+entity_type: contact_message
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

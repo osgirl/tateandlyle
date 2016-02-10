@@ -1,0 +1,21 @@
+uuid: 45205531-3856-4d96-8f60-966d6835d1f7
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.global_transportation_vendors
+    - field.storage.contact_message.field_sedex_reference_number
+_core:
+  default_config_hash: E7Cchd7THBS3Z2_SA9NCbFZmXKsft3VE4wOvunEvpuA
+id: contact_message.global_transportation_vendors.field_sedex_reference_number
+field_name: field_sedex_reference_number
+entity_type: contact_message
+bundle: global_transportation_vendors
+label: 'Sedex Reference Number (if member)'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,21 @@
+uuid: e4c162a8-edc8-449a-9e32-501c1254dcbd
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.global_transportation_vendors
+    - field.storage.contact_message.field_duns_number
+_core:
+  default_config_hash: eJGC27R7jpDYJd98RAy3SgY_VSuoOo5w9tXMhb6SoaM
+id: contact_message.global_transportation_vendors.field_duns_number
+field_name: field_duns_number
+entity_type: contact_message
+bundle: global_transportation_vendors
+label: 'DUNS Number'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

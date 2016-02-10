@@ -1,0 +1,21 @@
+uuid: 084465ce-2e23-4ffd-a300-0f63526a662f
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.global_transportation_vendors
+    - field.storage.contact_message.field_business_postal_code
+_core:
+  default_config_hash: c1QjH-jS0LlF3dS8HfUlfUdCqld7cLSB7ERQR64R9sY
+id: contact_message.global_transportation_vendors.field_business_postal_code
+field_name: field_business_postal_code
+entity_type: contact_message
+bundle: global_transportation_vendors
+label: 'Business Postal Code'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

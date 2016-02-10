@@ -1,0 +1,17 @@
+uuid: e2d4598e-717e-4ad4-b200-b0bb7d597476
+langcode: en
+status: true
+dependencies:
+  module:
+    - contact_storage
+third_party_settings:
+  contact_storage:
+    redirect_uri: 'entity:node/31'
+_core:
+  default_config_hash: roumVOr6TNYHxTfrWrdAjecsi07UKQ07KXndA4ZVnRo
+id: asia_pacific_
+label: 'Asia Pacific'
+recipients:
+  - webmaster@tateandlyle.com
+reply: ''
+weight: 0

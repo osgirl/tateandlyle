@@ -5,28 +5,25 @@ dependencies:
   config:
     - field.field.paragraph.tout.field_background_color
     - field.field.paragraph.tout.field_image
+    - field.field.paragraph.tout.field_image_text
     - field.field.paragraph.tout.field_popup
     - field.field.paragraph.tout.field_text
     - field.field.paragraph.tout.field_title
+    - field.field.paragraph.tout.field_tout_background_image
+    - field.field.paragraph.tout.field_tout_size
     - paragraphs.paragraphs_type.tout
   module:
     - entity_reference_revisions
+    - field_formatter_class
     - image
     - text
 _core:
-  default_config_hash: SqiYGyI5-jq79stIsBBVRaWzsP1eJaWMXqJiT0xOiEo
+  default_config_hash: qiGdCAu-KEmTEhc3jgEfbjVT27jQQakRGKf8gH71Aew
 id: paragraph.tout.default
 targetEntityType: paragraph
 bundle: tout
 mode: default
 content:
-  field_background_color:
-    weight: 5
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
   field_image:
     weight: 0
     label: hidden
@@ -35,6 +32,12 @@ content:
       image_link: ''
     third_party_settings: {  }
     type: image
+  field_image_text:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
   field_popup:
     type: entity_reference_revisions_entity_view
     weight: 4
@@ -44,26 +47,24 @@ content:
       link: ''
     third_party_settings: {  }
   field_text:
-    weight: 2
+    weight: 3
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: text_default
   field_title:
-    weight: 1
+    weight: 2
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings:
       field_formatter_class:
-        class: tout-title
+        class: ''
     type: string
-  moderation_state:
-    label: hidden
-    type: entity_reference_entity_id
-    weight: -5
-    settings: {  }
-    third_party_settings: {  }
 hidden:
   created: true
+  field_background_color: true
+  field_tout_background_image: true
+  field_tout_size: true
+  moderation_state: true
   uid: true

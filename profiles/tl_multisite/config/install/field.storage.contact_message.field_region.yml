@@ -1,9 +1,12 @@
+uuid: 2b807e0a-d0f1-454d-8f07-7e819b8f0c61
 langcode: en
 status: true
 dependencies:
   module:
     - contact
     - options
+_core:
+  default_config_hash: 1Hnd9M6qtT0pZdUXGU5IhGw4RAcGHRyx0bMtnCnkosw
 id: contact_message.field_region
 field_name: field_region
 entity_type: contact_message

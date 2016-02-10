@@ -1,0 +1,244 @@
+uuid: fd1d8664-d960-43ce-8b00-eebfadca61c8
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.latin_america
+    - field.field.contact_message.latin_america.field_acc_receivable_cont_email
+    - field.field.contact_message.latin_america.field_acc_receivable_cont_name
+    - field.field.contact_message.latin_america.field_acc_receivable_cont_phone
+    - field.field.contact_message.latin_america.field_area_of_specialty_list
+    - field.field.contact_message.latin_america.field_bank_inf_contact_email
+    - field.field.contact_message.latin_america.field_bank_inf_contact_name
+    - field.field.contact_message.latin_america.field_bank_inf_contact_phone
+    - field.field.contact_message.latin_america.field_business_city
+    - field.field.contact_message.latin_america.field_business_country
+    - field.field.contact_message.latin_america.field_business_house_number
+    - field.field.contact_message.latin_america.field_business_postal_code
+    - field.field.contact_message.latin_america.field_business_state_region
+    - field.field.contact_message.latin_america.field_business_street
+    - field.field.contact_message.latin_america.field_cert_expiration_date
+    - field.field.contact_message.latin_america.field_currency
+    - field.field.contact_message.latin_america.field_doing_business_as
+    - field.field.contact_message.latin_america.field_duns_number
+    - field.field.contact_message.latin_america.field_language
+    - field.field.contact_message.latin_america.field_legal_company_name
+    - field.field.contact_message.latin_america.field_main_contact_name_email
+    - field.field.contact_message.latin_america.field_main_contact_phone_number
+    - field.field.contact_message.latin_america.field_member_of_sedex
+    - field.field.contact_message.latin_america.field_minority_owned_business
+    - field.field.contact_message.latin_america.field_remit_to_address_if_differ
+    - field.field.contact_message.latin_america.field_sedex_reference_number
+    - field.field.contact_message.latin_america.field_tate_lyle_contact_name
+    - field.field.contact_message.latin_america.field_tax_id_number
+    - field.field.contact_message.latin_america.field_type_of_business
+    - field.field.contact_message.latin_america.field_type_of_minority_owned_cer
+  module:
+    - text
+_core:
+  default_config_hash: PtzkTJM-4_IJT7GeNDu2WJl4RTeDUy1o901qL0m8YwI
+id: contact_message.latin_america.default
+targetEntityType: contact_message
+bundle: latin_america
+mode: default
+content:
+  field_acc_receivable_cont_email:
+    weight: 72
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_acc_receivable_cont_name:
+    weight: 71
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_acc_receivable_cont_phone:
+    weight: 73
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_area_of_specialty_list:
+    weight: 53
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+  field_bank_inf_contact_email:
+    weight: 69
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_bank_inf_contact_name:
+    weight: 68
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_bank_inf_contact_phone:
+    weight: 70
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_business_city:
+    weight: 57
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_business_country:
+    weight: 60
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_business_house_number:
+    weight: 55
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_business_postal_code:
+    weight: 59
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_business_state_region:
+    weight: 58
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_business_street:
+    weight: 56
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_cert_expiration_date:
+    weight: 76
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_currency:
+    weight: 64
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+  field_doing_business_as:
+    weight: 52
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_duns_number:
+    weight: 66
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_language:
+    weight: 61
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_legal_company_name:
+    weight: 51
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_main_contact_name_email:
+    weight: 62
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+  field_main_contact_phone_number:
+    weight: 63
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_member_of_sedex:
+    weight: 77
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+  field_minority_owned_business:
+    weight: 74
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+  field_remit_to_address_if_differ:
+    weight: 67
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+  field_sedex_reference_number:
+    weight: 78
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_tate_lyle_contact_name:
+    weight: 79
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_tax_id_number:
+    weight: 65
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_type_of_business:
+    weight: 54
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+  field_type_of_minority_owned_cer:
+    weight: 75
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+hidden:
+  copy: true
+  langcode: true
+  mail: true
+  message: true
+  name: true
+  subject: true

@@ -8,7 +8,7 @@ dependencies:
   module:
     - image
 _core:
-  default_config_hash: hoFSHdeeXFqBUUlQ4ZjM8InEkLEAdXQlTlmYqUmUT9E
+  default_config_hash: Uv0Q_WVAdXD8J9piuj4T2nuilbLtEZ9J9fhnE9tG31M
 id: paragraph.image.default
 targetEntityType: paragraph
 bundle: image
@@ -24,4 +24,5 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
+  moderation_state: true
   uid: true

@@ -1,0 +1,17 @@
+uuid: d268d2a4-8fb0-49d1-9e08-8a844c136bb3
+langcode: en
+status: true
+dependencies:
+  module:
+    - contact_storage
+third_party_settings:
+  contact_storage:
+    redirect_uri: 'entity:node/31'
+_core:
+  default_config_hash: lqUukb5nN5t8ceEdCQwvP3hlt6OzjdLZNbUoJYzfjvw
+id: new_supplier_submission_form
+label: 'New supplier submission form'
+recipients:
+  - webmaster@tateandlyle.com
+reply: ''
+weight: 0

@@ -1,9 +1,8 @@
-uuid: 1c9b0e28-0e67-4345-972f-4786f0e34e8c
 langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: dJ0L2DNSj5q6XVZAGsuVDpJTh5UeYkIPwKrUOOpr8YI
+  default_config_hash: _71V6IRYC03XGmlmPHbAB5GDETGpixn6fDu4hd3bf5Q
 id: authenticated
 label: 'Authenticated user'
 weight: 1
@@ -13,3 +12,4 @@ permissions:
   - 'access shortcuts'
   - 'search content'
   - 'access site-wide contact form'
+  - 'use advanced search'

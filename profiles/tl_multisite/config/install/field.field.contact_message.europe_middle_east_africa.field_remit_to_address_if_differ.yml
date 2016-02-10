@@ -1,0 +1,23 @@
+uuid: 10ed466b-f517-4a59-a208-8f6fcb2c78d5
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.europe_middle_east_africa
+    - field.storage.contact_message.field_remit_to_address_if_differ
+  module:
+    - text
+_core:
+  default_config_hash: iOGTgPCWVaA9D7kfvEJ7GNP8yrYIG2naYrKn4xM2oGQ
+id: contact_message.europe_middle_east_africa.field_remit_to_address_if_differ
+field_name: field_remit_to_address_if_differ
+entity_type: contact_message
+bundle: europe_middle_east_africa
+label: 'Remit to Address (if different)'
+description: '<a href="">Click for help about adding basic HTML formatting.</a>'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

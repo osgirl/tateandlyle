@@ -1,0 +1,23 @@
+uuid: b76ecd47-fb0d-4f02-9200-c957de939fda
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.innovation_submission
+    - field.storage.contact_message.field_ingredient_category
+  module:
+    - options
+_core:
+  default_config_hash: ykBLhv-3T20Rc8f2humrRsAGfJ3efdxc5nC6OrIgwXA
+id: contact_message.innovation_submission.field_ingredient_category
+field_name: field_ingredient_category
+entity_type: contact_message
+bundle: innovation_submission
+label: 'Ingredient category'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_integer

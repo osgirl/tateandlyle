@@ -1,0 +1,21 @@
+uuid: b706a053-a34e-45f3-9300-db765dce479c
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.innovation_submission
+    - field.storage.contact_message.field_innovation_overview
+_core:
+  default_config_hash: d3eQEJCEXIqx7oAScmNfIwmZsG25qxsD49je_rWSTaA
+id: contact_message.innovation_submission.field_innovation_overview
+field_name: field_innovation_overview
+entity_type: contact_message
+bundle: innovation_submission
+label: 'Please give an overview of your innovation'
+description: 'Please give an overview of your innovation. Describe what it does and what commercial applications you see for it. What benefits does it bring? If an ingredient, how does it differ from other ingredients? If a technology, what does it enable?'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

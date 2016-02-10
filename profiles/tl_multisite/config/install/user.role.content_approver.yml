@@ -1,7 +1,8 @@
-uuid: 22306442-a473-4e3a-ab1b-27cdb04b9209
 langcode: en
 status: true
 dependencies: {  }
+_core:
+  default_config_hash: N-dytVgrgj5FSpwGharhTXOdRcyjeLdy3LYW-AdCpXs
 id: content_approver
 label: 'Content Approver'
 weight: 5
@@ -12,3 +13,17 @@ permissions:
   - 'use published_draft transition'
   - 'edit any page content'
   - 'view all revisions'
+  - 'view the administration theme'
+  - 'access toolbar'
+  - 'edit own page content'
+  - 'edit any form content'
+  - 'edit own form content'
+  - 'edit any media_item content'
+  - 'edit own media_item content'
+  - 'access content overview'
+  - 'administer nodes'
+  - 'administer moderation state transitions'
+  - 'use draft_draft transition'
+  - 'use draft_needs_review transition'
+  - 'use needs_review_needs_review transition'
+  - 'use published_published transition'

@@ -6,10 +6,12 @@ dependencies:
     - contact_storage
 third_party_settings:
   contact_storage:
-    redirect_uri: ''
+    redirect_uri: 'entity:node/31'
+_core:
+  default_config_hash: jKUY4cAHervfRA_EStIikF3aIGIMHBpVUat5_HhOrac
 id: file_access
 label: 'File access'
 recipients:
-  - bogdan.stamate@softescu.ro
+  - webmaster@tateandlyle.com
 reply: ''
 weight: 0

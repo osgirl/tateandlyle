@@ -1,0 +1,25 @@
+uuid: 949b0db9-7e87-4615-ac00-dfce1855b930
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.north_america
+    - field.storage.contact_message.field_member_of_sedex
+  module:
+    - options
+_core:
+  default_config_hash: NO-NAsGin1LY1H__hJjOg8d-FZt9ASUsLozifP1a2ZE
+id: contact_message.north_america.field_member_of_sedex
+field_name: field_member_of_sedex
+entity_type: contact_message
+bundle: north_america
+label: 'Member of Sedex (http://www.sedexglobal.com)?'
+description: ''
+required: true
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings: {  }
+field_type: list_integer

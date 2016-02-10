@@ -1,0 +1,21 @@
+uuid: 02a48c6c-e4b2-4344-b24b-7549cfd25aa4
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.global_transportation_vendors
+    - field.storage.contact_message.field_business_city
+_core:
+  default_config_hash: AjyLBIOzDWS-Dqo-v13H8EseLutXm886-3ppxfHI_ds
+id: contact_message.global_transportation_vendors.field_business_city
+field_name: field_business_city
+entity_type: contact_message
+bundle: global_transportation_vendors
+label: 'Business City'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

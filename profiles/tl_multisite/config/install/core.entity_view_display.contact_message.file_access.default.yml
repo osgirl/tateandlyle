@@ -1,3 +1,4 @@
+uuid: 5bb0ba4a-a19d-4e92-8427-395d22e6733e
 langcode: en
 status: true
 dependencies:
@@ -12,6 +13,8 @@ dependencies:
     - field.field.contact_message.file_access.field_telephone_number
   module:
     - options
+_core:
+  default_config_hash: _M1v9CI2KcMBYZrKf4HT45PaSMvd3TbVKZTeB52If6M
 id: contact_message.file_access.default
 targetEntityType: contact_message
 bundle: file_access

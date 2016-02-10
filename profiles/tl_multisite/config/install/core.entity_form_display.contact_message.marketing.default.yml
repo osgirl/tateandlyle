@@ -18,7 +18,7 @@ dependencies:
     - field.field.contact_message.marketing.field_primary_application
     - field.field.contact_message.marketing.field_region_marketing
 _core:
-  default_config_hash: RkeIR13oOpvNhIhMBaEgWKofHd45uY338l3BkijuIDk
+  default_config_hash: UaI2E_dqj4dhI-Ho6FBqrXfXSeUMf_NyuJLlt0x1g80
 id: contact_message.marketing.default
 targetEntityType: contact_message
 bundle: marketing

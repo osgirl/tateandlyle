@@ -1,0 +1,21 @@
+uuid: e699955e-dbc1-4e53-af04-4e48e87e2bac
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.latin_america
+    - field.storage.contact_message.field_acc_receivable_cont_phone
+_core:
+  default_config_hash: XFw8-v8lU9zEBbH--Es-9qWsHLo3FiVmxYfSWnBc2lY
+id: contact_message.latin_america.field_acc_receivable_cont_phone
+field_name: field_acc_receivable_cont_phone
+entity_type: contact_message
+bundle: latin_america
+label: 'Accounts Receivable Contact Phone Number'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
