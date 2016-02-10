@@ -1,12 +1,17 @@
+uuid: 357eb720-cf04-477e-9d1b-27da2d545a16
 langcode: en
 status: true
 dependencies:
   config:
     - field.field.paragraph.country_contact.field_contact
+    - field.field.paragraph.country_contact.field_redirect
     - field.field.paragraph.country_contact.field_title
     - paragraphs.paragraphs_type.country_contact
   module:
     - paragraphs
+    - workbench_moderation
+_core:
+  default_config_hash: SP5yoGISi0gzunlpA-nYflfHbti5OJC-5RA6MV_B6Ec
 id: paragraph.country_contact.default
 targetEntityType: paragraph
 bundle: country_contact
@@ -22,6 +27,14 @@ content:
       add_mode: dropdown
       form_display_mode: default
     third_party_settings: {  }
+  field_redirect:
+    weight: 6
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
   field_title:
     weight: 0
     settings:

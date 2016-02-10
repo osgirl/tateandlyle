@@ -1,3 +1,4 @@
+uuid: 1f5a4a57-a8ed-489a-bc00-aad237bd7631
 langcode: en
 status: true
 dependencies:
@@ -6,6 +7,8 @@ dependencies:
     - field.storage.contact_message.field_industry
   module:
     - options
+_core:
+  default_config_hash: 6YaOMnHrnsxtmGgQmh9y0kx1zuBidWs9eBaJNWXK0Iw
 id: contact_message.marketing.field_industry
 field_name: field_industry
 entity_type: contact_message

@@ -1,3 +1,4 @@
+uuid: 1b203f70-3e41-4d4e-9b3e-62da6082f528
 langcode: en
 status: true
 dependencies:
@@ -6,6 +7,8 @@ dependencies:
     - field.field.paragraph.contact.field_country
     - field.field.paragraph.contact.field_identifier
     - paragraphs.paragraphs_type.contact
+_core:
+  default_config_hash: SUOUDANzCOoDE_5FJ1_Biha3C2ISkDuTTrr34589kIU
 id: paragraph.contact.default
 targetEntityType: paragraph
 bundle: contact

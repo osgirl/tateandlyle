@@ -1,0 +1,17 @@
+uuid: 3e15957a-40e3-43bc-8c00-a46ba8547970
+langcode: en
+status: true
+dependencies:
+  module:
+    - contact_storage
+third_party_settings:
+  contact_storage:
+    redirect_uri: 'entity:node/31'
+_core:
+  default_config_hash: rITJCImYE0FO11HlWyIBjEVcY0p_m0yZ4tk0v4FK5Do
+id: innovation_submission
+label: 'Innovation submission'
+recipients:
+  - webmaster@tateandlyle.com
+reply: ''
+weight: 0

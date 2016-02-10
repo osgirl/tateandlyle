@@ -1,0 +1,25 @@
+uuid: b86262cb-f1a9-48b7-8027-3901573b8f7b
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.europe_middle_east_africa
+    - field.storage.contact_message.field_currency
+  module:
+    - options
+_core:
+  default_config_hash: LMyIviHjVL9E4tqWIGI84c0wjRIC0RUYJmyMj2P3avA
+id: contact_message.europe_middle_east_africa.field_currency
+field_name: field_currency
+entity_type: contact_message
+bundle: europe_middle_east_africa
+label: Currency
+description: ''
+required: true
+translatable: true
+default_value:
+  -
+    value: USD
+default_value_callback: ''
+settings: {  }
+field_type: list_string

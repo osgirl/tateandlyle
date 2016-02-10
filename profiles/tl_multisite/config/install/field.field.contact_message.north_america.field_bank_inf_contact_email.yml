@@ -1,0 +1,21 @@
+uuid: 7287b97a-0cb1-4507-8600-c4aaeacc9b32
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.north_america
+    - field.storage.contact_message.field_bank_inf_contact_email
+_core:
+  default_config_hash: yYW_FaRXoqkSby4t9VUZOJOPQo1uyZxUimaO_xfU4ok
+id: contact_message.north_america.field_bank_inf_contact_email
+field_name: field_bank_inf_contact_email
+entity_type: contact_message
+bundle: north_america
+label: 'Bank Information Contact Email'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -5,7 +5,7 @@ dependencies:
   module:
     - paragraphs
 _core:
-  default_config_hash: '-GeXOQL8ibs6o5aEww0d81NAbOyLTNs1ZWHIoPuzfPo'
+  default_config_hash: Ziy1SicoWpN9mhrx-ewF47w01TrOErUp2EvoVwLazKU
 id: paragraph.field_timeout
 field_name: field_timeout
 entity_type: paragraph

@@ -1,0 +1,23 @@
+uuid: 9776b628-e0b8-4e2a-8b00-daf75dd42dff
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.innovation_submission
+    - field.storage.contact_message.field_development_stage
+  module:
+    - options
+_core:
+  default_config_hash: 9Mo8chgSdaNDyncpMRL7DgK9qVDF4jsUVPP_KwhSObk
+id: contact_message.innovation_submission.field_development_stage
+field_name: field_development_stage
+entity_type: contact_message
+bundle: innovation_submission
+label: 'Stage of development'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_integer

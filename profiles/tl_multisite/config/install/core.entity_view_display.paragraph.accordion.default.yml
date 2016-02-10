@@ -1,3 +1,4 @@
+uuid: b8d36a39-0869-4ad3-9800-c7aa969e4334
 langcode: en
 status: true
 dependencies:
@@ -7,6 +8,8 @@ dependencies:
     - paragraphs.paragraphs_type.accordion
   module:
     - field_collection
+_core:
+  default_config_hash: HpesEQ0LLqzuFkElE0I0Mw5i6t6vNztuMKYyiJkgil4
 id: paragraph.accordion.default
 targetEntityType: paragraph
 bundle: accordion
@@ -27,4 +30,5 @@ content:
     type: string
 hidden:
   created: true
+  moderation_state: true
   uid: true

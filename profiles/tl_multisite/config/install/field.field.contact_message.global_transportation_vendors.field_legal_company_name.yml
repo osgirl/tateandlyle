@@ -1,0 +1,21 @@
+uuid: 46945c80-ad5c-440d-8a38-5613f36f1fc4
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.global_transportation_vendors
+    - field.storage.contact_message.field_legal_company_name
+_core:
+  default_config_hash: gq5k9_58i6aoeI8uJNC4wqoZWRE1-ZtkBzR2lFpDOcI
+id: contact_message.global_transportation_vendors.field_legal_company_name
+field_name: field_legal_company_name
+entity_type: contact_message
+bundle: global_transportation_vendors
+label: 'Legal Company Name'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,11 @@
+uuid: e6934c68-7161-4514-9229-41dea4eb1211
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.global_transportation_vendors
+id: contact_message.global_transportation_vendors
+target_entity_type_id: contact_message
+target_bundle: global_transportation_vendors
+default_langcode: site_default
+language_alterable: false

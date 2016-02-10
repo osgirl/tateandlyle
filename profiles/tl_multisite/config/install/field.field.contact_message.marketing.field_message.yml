@@ -1,9 +1,12 @@
+uuid: 2418b8f4-4788-454a-b500-f527d346d66b
 langcode: en
 status: true
 dependencies:
   config:
     - contact.form.marketing
     - field.storage.contact_message.field_message
+_core:
+  default_config_hash: Ma5O_1z1TkntYqx71VtPcPWgFJltD5I5YUkrvgmBStA
 id: contact_message.marketing.field_message
 field_name: field_message
 entity_type: contact_message

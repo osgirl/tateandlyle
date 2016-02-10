@@ -1,0 +1,11 @@
+uuid: 85ced9cf-f826-47cf-8332-50c580d5db3f
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.technical_data_sheets
+id: contact_message.technical_data_sheets
+target_entity_type_id: contact_message
+target_bundle: technical_data_sheets
+default_langcode: site_default
+language_alterable: false

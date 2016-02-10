@@ -11,7 +11,7 @@ dependencies:
   module:
     - field_collection
 _core:
-  default_config_hash: WW1Se21WzWfa6fho0Ml1jEkwigfuFxoluye6uN4zhWo
+  default_config_hash: UrFbTE83wiWosYp6eEQZEDdD2Il0LoDoMlkpZTIOsi4
 id: paragraph.slide.default
 targetEntityType: paragraph
 bundle: slide

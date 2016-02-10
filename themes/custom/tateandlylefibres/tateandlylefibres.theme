@@ -33,6 +33,10 @@ function tateandlylefibres_preprocess_page(&$variables) {
       $variables['title_image'] = ImageStyle::load('original')->buildUrl($file_title_image->getFileUri());
       $variables['title_image_alt'] = $title_image_alt;
     }
+    /*Check if page has sidebar*/
+    if($variables['node']->get('field_sidebar')->getValue()) {
+      $variables['is_sidebar'] = TRUE;
+    }
   }
    // Title class
   if($variables['node']) {
@@ -40,6 +44,11 @@ function tateandlylefibres_preprocess_page(&$variables) {
     $node_title = $node_fields['title'][0]['value'];
     $node_title = preg_replace('/[^A-Za-z0-9\-]/', ' ', $node_title);
     $variables['title_name'] = strtolower(str_replace(" ", "-", $node_title));
+    if($variables['node']->get('field_sidebar_color')->getValue()[0]['value'] == 0) {
+      $variables['sidebar_color'] = 'color-block';
+    } else {
+      $variables['sidebar_color'] = 'no-color-block';
+    }
   }
   if ($variables['node'] && $variables['node']->getType() == 'form') { 
     $variables['is_form'] = 'is-form';

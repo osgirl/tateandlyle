@@ -1,0 +1,21 @@
+uuid: 3ec72955-2c1f-4640-a045-695a11e466c1
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.latin_america
+    - field.storage.contact_message.field_cert_expiration_date
+_core:
+  default_config_hash: zGQDiPkxl4S9m9i4ZEV3XVT04TT-5v03cnlujwkNumo
+id: contact_message.latin_america.field_cert_expiration_date
+field_name: field_cert_expiration_date
+entity_type: contact_message
+bundle: latin_america
+label: 'Certification Expiration Date'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

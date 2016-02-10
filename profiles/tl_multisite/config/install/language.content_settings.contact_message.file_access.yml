@@ -1,0 +1,11 @@
+uuid: a20e4304-3c64-4a10-a800-a26e93c24ef9
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.file_access
+id: contact_message.file_access
+target_entity_type_id: contact_message
+target_bundle: file_access
+default_langcode: site_default
+language_alterable: false

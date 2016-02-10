@@ -6,7 +6,14 @@ dependencies:
     - field.storage.node.field_media_item_image
     - node.type.media_item
   module:
+    - content_translation
     - image
+third_party_settings:
+  content_translation:
+    translation_sync:
+      alt: alt
+      title: title
+      file: '0'
 _core:
   default_config_hash: MyiivRyxS_Joof5vOvoso8z5HADUksm2DL8a3J4lazU
 id: node.media_item.field_media_item_image
@@ -16,7 +23,7 @@ bundle: media_item
 label: 'Media item image'
 description: 'Add the image that will be used as preview for the media item.'
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:

@@ -1,0 +1,21 @@
+uuid: 1495d60a-c78f-4f93-af00-ac5c8247a66d
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.asia_pacific_
+    - field.storage.contact_message.field_bank_inf_contact_name
+_core:
+  default_config_hash: ZPpkosJbziv88P2t1zGZJ2b5XQ2O1n5d0A0t04hV_PY
+id: contact_message.asia_pacific_.field_bank_inf_contact_name
+field_name: field_bank_inf_contact_name
+entity_type: contact_message
+bundle: asia_pacific_
+label: 'Bank Information Contact Name - Confirmation of Bank Details'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

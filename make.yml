@@ -69,7 +69,12 @@ projects:
       - "https://www.drupal.org/files/issues/fix_target_revision_id_property.patch"
   mollom:
     type: module
-    version: "1.1"
+    download:
+      type: git
+      url: "https://git.drupal.org/project/mollom.git"
+      revision: "87e19dcb801d15114a0900c4d51cc996435d5717"
+    patch:
+      - "https://www.drupal.org/files/issues/support_custom_contact-2659536-6.patch"
   field_collection:
     type: module
     version: ~
@@ -107,7 +112,19 @@ projects:
     version: "2.0-beta1"
   simplesamlphp_auth:
     type: module
-    version: "3.0-alpha3"
+    version: "3.0-alpha4"
   externalauth:
     type: module
     version: "1.0-alpha3"
+  colorbutton:
+    type: module
+    download:
+      type: git
+      url: "https://github.com/wwalc/colorbutton.git"
+      revision: "3003e13ae522affda431f6d615a9d0beb77af5ba"
+  panelbutton:
+    type: module
+    download:
+      type: git
+      url: "https://github.com/wwalc/panelbutton.git"
+      revision: "bf17c0a672887a2a0dc199f643296a0d4297f4c3"

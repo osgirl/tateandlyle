@@ -1,0 +1,21 @@
+uuid: ec654223-1c93-404e-874f-79dd233ee4e8
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.north_america
+    - field.storage.contact_message.field_legal_company_name
+_core:
+  default_config_hash: O-O0hBXgVXbnzYt23tZ6lStsgAyixGpXGtzYAZcsEXI
+id: contact_message.north_america.field_legal_company_name
+field_name: field_legal_company_name
+entity_type: contact_message
+bundle: north_america
+label: 'Legal Company Name'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

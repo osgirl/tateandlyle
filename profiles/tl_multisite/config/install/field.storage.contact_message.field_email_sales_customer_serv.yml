@@ -1,0 +1,20 @@
+uuid: 2591506e-0456-4268-9c62-98862da0ccb2
+langcode: en
+status: true
+dependencies:
+  module:
+    - contact
+_core:
+  default_config_hash: Fnh3a6TU4BZ7mXurITcdo5n-rIsdKNlO5gXSR6LezoQ
+id: contact_message.field_email_sales_customer_serv
+field_name: field_email_sales_customer_serv
+entity_type: contact_message
+type: email
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

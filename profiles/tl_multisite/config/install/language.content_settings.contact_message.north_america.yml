@@ -1,0 +1,11 @@
+uuid: 41563703-b36f-4d6d-ad00-fcfec1b20c26
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.north_america
+id: contact_message.north_america
+target_entity_type_id: contact_message
+target_bundle: north_america
+default_langcode: site_default
+language_alterable: false
