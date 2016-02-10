@@ -1,0 +1,21 @@
+uuid: 91b2834a-bfe3-438b-aa01-1eecb3dfad1c
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.north_america
+    - field.storage.contact_message.field_duns_number
+_core:
+  default_config_hash: _-xkC5KXo4AX3BgqN8gYXtksjRz9TGaSwf5_-xkCNPw
+id: contact_message.north_america.field_duns_number
+field_name: field_duns_number
+entity_type: contact_message
+bundle: north_america
+label: 'DUNS Number'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

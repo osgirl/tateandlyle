@@ -1,0 +1,25 @@
+uuid: d92ebc81-0479-4e51-ac05-5bb41ebc1319
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.europe_middle_east_africa
+    - field.storage.contact_message.field_area_of_specialty_list
+  module:
+    - options
+_core:
+  default_config_hash: r1I_mp0nbrhzBPvyxSIMRJk6M4pSkV58RYfYiD8_VnM
+id: contact_message.europe_middle_east_africa.field_area_of_specialty_list
+field_name: field_area_of_specialty_list
+entity_type: contact_message
+bundle: europe_middle_east_africa
+label: 'Area of Specialty'
+description: ''
+required: true
+translatable: true
+default_value:
+  -
+    value: 'CHPA - Chemicals'
+default_value_callback: ''
+settings: {  }
+field_type: list_string

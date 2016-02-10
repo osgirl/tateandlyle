@@ -1,0 +1,21 @@
+uuid: 99a61596-c80e-405c-ae00-ec53cc708baf
+langcode: en
+status: true
+dependencies:
+  module:
+    - contact
+    - text
+_core:
+  default_config_hash: DRQcsFzhSP3qQxWCJJxIk5rGvKhkHMeZZwUf4YvKtY0
+id: contact_message.field_remit_to_address_if_differ
+field_name: field_remit_to_address_if_differ
+entity_type: contact_message
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,25 @@
+uuid: 5393c942-68c1-4ae4-824f-79148d4d856e
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.asia_pacific_
+    - field.storage.contact_message.field_member_of_sedex
+  module:
+    - options
+_core:
+  default_config_hash: fOD0E2OdXLFSOBVTQH-LZxvKghsXOVb6wzTgV5Ip04o
+id: contact_message.asia_pacific_.field_member_of_sedex
+field_name: field_member_of_sedex
+entity_type: contact_message
+bundle: asia_pacific_
+label: 'Member of Sedex (http://www.sedexglobal.com)?'
+description: ''
+required: true
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings: {  }
+field_type: list_integer

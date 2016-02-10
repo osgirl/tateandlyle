@@ -3,14 +3,15 @@ langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: cAsI-UCx3wkQUZuwS5QmDTwNLYl49XdtY4xXkvZQxd4
+  default_config_hash: GV_BSvPrvB5oF3Pals9hTE-yEUmprG2PnLkz3TdhFPo
 name: accordion_image
-label: 'Accordion image (100x80)'
+label: 'Accordion image (100xauto)'
 effects:
-  0726bf01-24ea-4b78-b900-ed11e06b6e8c:
-    uuid: 0726bf01-24ea-4b78-b900-ed11e06b6e8c
-    id: image_scale_and_crop
+  d9b795fa-639a-4ecb-8904-4c750be7e4e1:
+    uuid: d9b795fa-639a-4ecb-8904-4c750be7e4e1
+    id: image_scale
     weight: 1
     data:
       width: 100
-      height: 80
+      height: null
+      upscale: false

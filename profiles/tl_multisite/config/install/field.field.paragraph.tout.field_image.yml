@@ -1,3 +1,4 @@
+uuid: 2c319f42-12e1-4f98-8503-3b5fe3155b4c
 langcode: en
 status: true
 dependencies:
@@ -5,14 +6,9 @@ dependencies:
     - field.storage.paragraph.field_image
     - paragraphs.paragraphs_type.tout
   module:
-    - content_translation
     - image
-third_party_settings:
-  content_translation:
-    translation_sync:
-      alt: alt
-      title: title
-      file: '0'
+_core:
+  default_config_hash: vPNU-D1YWISwtoS54mcxfwgRcmfnztmvKIQmHcpAcJk
 id: paragraph.tout.field_image
 field_name: field_image
 entity_type: paragraph
@@ -20,7 +16,7 @@ bundle: tout
 label: Image
 description: 'Upload a image by clicking the "Choose File" button.'
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:

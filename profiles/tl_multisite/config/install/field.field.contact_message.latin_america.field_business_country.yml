@@ -1,0 +1,21 @@
+uuid: 9c28f0db-cc44-446e-9a3b-59a387c58952
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.latin_america
+    - field.storage.contact_message.field_business_country
+_core:
+  default_config_hash: Mk7GeOuJ8BrhKzohD1iCs6QS9h9J0AqBCi1H5f3RsM8
+id: contact_message.latin_america.field_business_country
+field_name: field_business_country
+entity_type: contact_message
+bundle: latin_america
+label: 'Business Country'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

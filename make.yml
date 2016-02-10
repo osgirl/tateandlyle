@@ -54,8 +54,6 @@ projects:
       type: git
       url: "https://git.drupal.org/project/search_api_solr.git"
       revision: "8.x-1.x"
-    patch:
-      - "https://www.drupal.org/files/issues/support_the_core-2662662-2_2.patch"
   search_api_attachments:
     type: module
     version: "1.0-alpha2"
@@ -109,7 +107,19 @@ projects:
     version: "2.0-beta1"
   simplesamlphp_auth:
     type: module
-    version: "3.0-alpha3"
+    version: "3.0-alpha4"
   externalauth:
     type: module
     version: "1.0-alpha3"
+  colorbutton:
+    type: module
+    download:
+      type: git
+      url: "https://github.com/wwalc/colorbutton.git"
+      revision: "3003e13ae522affda431f6d615a9d0beb77af5ba"
+  panelbutton:
+    type: module
+    download:
+      type: git
+      url: "https://github.com/wwalc/panelbutton.git"
+      revision: "bf17c0a672887a2a0dc199f643296a0d4297f4c3"

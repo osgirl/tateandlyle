@@ -1,0 +1,35 @@
+uuid: 032da1db-b076-47b6-8f00-cecb536b127d
+langcode: en
+status: true
+dependencies:
+  module:
+    - contact
+    - options
+_core:
+  default_config_hash: QYDe0TOkLc6GAeQNfh8N-dsvltvu3nnTYLtHi6xfqDU
+id: contact_message.field_type_of_business
+field_name: field_type_of_business
+entity_type: contact_message
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: Corporation
+      label: Corporation
+    -
+      value: 'Sole Proprietorship'
+      label: 'Sole Proprietorship'
+    -
+      value: Partnership
+      label: Partnership
+    -
+      value: Other
+      label: Other
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

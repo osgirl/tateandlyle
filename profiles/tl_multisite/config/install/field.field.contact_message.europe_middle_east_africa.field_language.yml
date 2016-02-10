@@ -1,0 +1,21 @@
+uuid: ed0e380d-e2d0-41f2-8106-6c676a62a6df
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.europe_middle_east_africa
+    - field.storage.contact_message.field_language
+_core:
+  default_config_hash: yy92xy0rmhV_NiUflG8vGdfanCTVm_GHrGcxZKVKjRw
+id: contact_message.europe_middle_east_africa.field_language
+field_name: field_language
+entity_type: contact_message
+bundle: europe_middle_east_africa
+label: Language
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

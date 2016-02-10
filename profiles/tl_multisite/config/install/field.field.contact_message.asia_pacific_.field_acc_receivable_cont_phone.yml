@@ -1,0 +1,21 @@
+uuid: 697d3bd2-3280-407b-8700-d9d4c2832197
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.asia_pacific_
+    - field.storage.contact_message.field_acc_receivable_cont_phone
+_core:
+  default_config_hash: s0ZWlpEDdbiSo19qM5D5evSf7NAIapg0-g85SFLZH6c
+id: contact_message.asia_pacific_.field_acc_receivable_cont_phone
+field_name: field_acc_receivable_cont_phone
+entity_type: contact_message
+bundle: asia_pacific_
+label: 'Accounts Receivable Contact Phone Number'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

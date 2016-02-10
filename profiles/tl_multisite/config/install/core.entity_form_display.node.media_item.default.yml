@@ -12,9 +12,10 @@ dependencies:
     - file
     - image
     - path
+    - workbench_moderation
     - youtube
 _core:
-  default_config_hash: QO7AcB2fvlVEAoIJ66oJ2ucWkru3SpSx3O0Wiie-fm4
+  default_config_hash: khdSXgQ2T86C5DvQ0-_V5msRk-3wQ-g_tElHSmNuLu8
 id: node.media_item.default
 targetEntityType: node
 bundle: media_item
@@ -22,7 +23,7 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 6
+    weight: 7
     settings: {  }
     third_party_settings: {  }
   field_file:
@@ -44,7 +45,7 @@ content:
     third_party_settings: {  }
     type: image_image
   field_youtube_video:
-    weight: 26
+    weight: 5
     settings: {  }
     third_party_settings: {  }
     type: youtube
@@ -55,20 +56,20 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 9
+    weight: 10
     settings: {  }
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 7
+    weight: 8
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 8
+    weight: 9
     third_party_settings: {  }
   title:
     type: string_textfield
@@ -78,12 +79,12 @@ content:
       placeholder: ''
     third_party_settings: {  }
   translation:
-    weight: 10
+    weight: 11
     settings: {  }
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 5
+    weight: 6
     settings:
       match_operator: CONTAINS
       size: 60

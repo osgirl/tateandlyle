@@ -1,0 +1,15 @@
+uuid: 70c623e9-380a-47cf-9e54-84d9cda1029e
+langcode: en
+status: true
+dependencies: {  }
+name: media_centre
+label: 'Media centre (185xauto)'
+effects:
+  76830e96-e9e0-4941-8400-a75ef8a4c887:
+    uuid: 76830e96-e9e0-4941-8400-a75ef8a4c887
+    id: image_scale
+    weight: 1
+    data:
+      width: 185
+      height: null
+      upscale: false

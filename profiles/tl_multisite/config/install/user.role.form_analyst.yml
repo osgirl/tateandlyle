@@ -1,11 +1,13 @@
-uuid: 19b3a55b-bf74-4622-a300-dbb41506f03d
 langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: hhiX2QeUTa0NehNzKSYc81xBONMwsy5Ck6sePOw7zyM
+  default_config_hash: I5B7fmyC0SPCrzxvPYIx-pNcrTMkAgIpaG7uDbEoRIU
 id: form_analyst
 label: 'Form analyst'
 weight: 6
 is_admin: null
-permissions: {  }
+permissions:
+  - 'administer contact forms'
+  - 'view the administration theme'
+  - 'access toolbar'

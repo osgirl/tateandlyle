@@ -1,3 +1,4 @@
+uuid: c0fec245-6522-4d48-9108-8d9fecdbd98a
 langcode: en
 status: true
 dependencies:
@@ -6,6 +7,8 @@ dependencies:
     - field.storage.contact_message.field_primary_application
   module:
     - options
+_core:
+  default_config_hash: LlJUovJ7o2BOBtl6b3y35_gsaHZ9PkJf22REc4k1E70
 id: contact_message.marketing.field_primary_application
 field_name: field_primary_application
 entity_type: contact_message

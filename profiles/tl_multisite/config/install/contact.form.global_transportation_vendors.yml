@@ -1,0 +1,17 @@
+uuid: 57e1d180-2ef7-4135-b247-71f84f7a4390
+langcode: en
+status: true
+dependencies:
+  module:
+    - contact_storage
+third_party_settings:
+  contact_storage:
+    redirect_uri: 'entity:node/31'
+_core:
+  default_config_hash: XnGwwMgf-IhSL_T0-y4bOtV4vpasxE5O0JeWHAHcBd4
+id: global_transportation_vendors
+label: 'Global transportation vendors'
+recipients:
+  - webmaster@tateandlyle.com
+reply: ''
+weight: 0

@@ -20,7 +20,7 @@ dependencies:
   module:
     - options
 _core:
-  default_config_hash: PGEj_iT6W7PBPOtOiCbFlQyXO21fp6WdrNcxjVPWltI
+  default_config_hash: AAo_QfYm4pccw6yTqxk4ugxZsOpBkF9BX7KVMF9pnTU
 id: contact_message.marketing.default
 targetEntityType: contact_message
 bundle: marketing

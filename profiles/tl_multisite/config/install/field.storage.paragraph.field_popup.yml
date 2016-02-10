@@ -1,9 +1,12 @@
+uuid: 2780d708-881d-4181-9200-f2e96ef50f2e
 langcode: en
 status: true
 dependencies:
   module:
     - entity_reference_revisions
     - paragraphs
+_core:
+  default_config_hash: J5XxlohuwLBuCNRMFOrj_Hgwst-D24v47Vxu4hV51o8
 id: paragraph.field_popup
 field_name: field_popup
 entity_type: paragraph

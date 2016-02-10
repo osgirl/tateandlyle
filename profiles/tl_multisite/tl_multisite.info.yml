@@ -32,7 +32,6 @@ dependencies:
   - page_cache
   - taxonomy
   - telephone
-  - dblog
   - syslog
   - search
   - shortcut
@@ -45,20 +44,28 @@ dependencies:
   - paragraphs
   - entity_reference_revisions
   - field_collection
+  - field_formatter_class
   - content_translation
   - google_analytics
   - mollom
   - metatag
-  - rest
   - tl_block
   - tl_block_utility
+  - tl_dolciaprima_block
   - tl_dolcia_prima_multimedia
   - tl_fibres_media_centre
-  - youtube
+  - tl_tweaks
+  - tl_workflow
   - imce
   - token
   - pathauto
   - composer_manager
+  - workbench_moderation
+  - youtube
+  - youtube_ckeditor
+  - serialization
+  - csv_serialization
+  - rest
   # - acquia_search
 themes:
   - generic_microsite

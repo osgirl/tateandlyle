@@ -1,3 +1,4 @@
+uuid: b6277337-d195-4ec8-a400-cf0ecf3a57b4
 langcode: en
 status: true
 dependencies:
@@ -5,14 +6,9 @@ dependencies:
     - field.storage.paragraph.field_image
     - paragraphs.paragraphs_type.image
   module:
-    - content_translation
     - image
-third_party_settings:
-  content_translation:
-    translation_sync:
-      alt: alt
-      title: title
-      file: '0'
+_core:
+  default_config_hash: OiM6qkNkG-jPK-W4iXTIo7nSLdzjOs_98tUbYaaO3KA
 id: paragraph.image.field_image
 field_name: field_image
 entity_type: paragraph
@@ -20,7 +16,7 @@ bundle: image
 label: Image
 description: 'Add a image.'
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:

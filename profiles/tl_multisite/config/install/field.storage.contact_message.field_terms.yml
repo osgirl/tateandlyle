@@ -1,0 +1,32 @@
+uuid: 1513d12e-a5f0-4bbe-b800-d52001a4b973
+langcode: en
+status: true
+dependencies:
+  module:
+    - contact
+    - options
+_core:
+  default_config_hash: uV6h_-9L_dpeLcJKfzRb-XrgUNCrZzYrABmfzDvuXDQ
+id: contact_message.field_terms
+field_name: field_terms
+entity_type: contact_message
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: 'Net 30'
+      label: 'Net 30'
+    -
+      value: 'Net 60'
+      label: 'Net 60'
+    -
+      value: 'Net 120'
+      label: 'Net 120'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

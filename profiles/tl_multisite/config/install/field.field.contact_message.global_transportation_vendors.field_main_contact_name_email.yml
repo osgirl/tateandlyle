@@ -1,0 +1,23 @@
+uuid: 6080ff29-14d6-4704-9300-a8026c3b5286
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.global_transportation_vendors
+    - field.storage.contact_message.field_main_contact_name_email
+  module:
+    - text
+_core:
+  default_config_hash: Y_twivTXhWk5hIVjsJY8e3lBezmOM4UHy5uW4mj-8OQ
+id: contact_message.global_transportation_vendors.field_main_contact_name_email
+field_name: field_main_contact_name_email
+entity_type: contact_message
+bundle: global_transportation_vendors
+label: 'Main Contact Name and Email'
+description: '<a href="">Click for help about adding basic HTML formatting. </a>'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

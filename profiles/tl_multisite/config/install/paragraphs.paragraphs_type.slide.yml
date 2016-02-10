@@ -2,5 +2,7 @@ uuid: 77e5a064-efc9-48d3-950d-1354a701d1eb
 langcode: en
 status: true
 dependencies: {  }
+_core:
+  default_config_hash: onFufxvisYwfG8JW9BiCQdAL_9NmPa5pBIslOOzcnPU
 id: slide
 label: Slideshow

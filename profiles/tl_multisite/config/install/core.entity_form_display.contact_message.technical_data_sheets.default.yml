@@ -10,6 +10,8 @@ dependencies:
     - field.field.contact_message.technical_data_sheets.field_telephone_number
   module:
     - telephone
+_core:
+  default_config_hash: Hsl7T7V4riaF_d8rgmde5FzcqCyQWIQfG6goX3yQQGM
 id: contact_message.technical_data_sheets.default
 targetEntityType: contact_message
 bundle: technical_data_sheets

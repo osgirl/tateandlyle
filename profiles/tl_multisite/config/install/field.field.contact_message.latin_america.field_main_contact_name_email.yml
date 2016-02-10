@@ -1,0 +1,23 @@
+uuid: 8aff19d0-fa13-42d3-b700-db53a3b1d30d
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.latin_america
+    - field.storage.contact_message.field_main_contact_name_email
+  module:
+    - text
+_core:
+  default_config_hash: ___IMRB_toM8agXBeojsfiUTgJkPCUxYz61flEnvxxA
+id: contact_message.latin_america.field_main_contact_name_email
+field_name: field_main_contact_name_email
+entity_type: contact_message
+bundle: latin_america
+label: 'Main Contact Name and Email'
+description: '<a href="">Click for help about adding basic HTML formatting. </a>'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

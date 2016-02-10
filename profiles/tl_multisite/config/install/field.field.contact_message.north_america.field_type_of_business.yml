@@ -1,0 +1,23 @@
+uuid: 2c6fef6e-692c-4271-bc02-2c8696763ac6
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.north_america
+    - field.storage.contact_message.field_type_of_business
+  module:
+    - options
+_core:
+  default_config_hash: e-B-ypng0JnS0xSfM9fCTuzpulIzf0w51tA7MWdTg6c
+id: contact_message.north_america.field_type_of_business
+field_name: field_type_of_business
+entity_type: contact_message
+bundle: north_america
+label: 'Type of Business'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

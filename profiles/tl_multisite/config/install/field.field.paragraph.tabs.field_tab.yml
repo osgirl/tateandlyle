@@ -1,3 +1,4 @@
+uuid: 34dd203f-eaf0-47ff-9a00-d0562d74ddfd
 langcode: en
 status: true
 dependencies:
@@ -6,6 +7,8 @@ dependencies:
     - paragraphs.paragraphs_type.tabs
   module:
     - field_collection
+_core:
+  default_config_hash: Ugps2EAPMP12KjE5iZOeWTZuqyJoxHnLSiqrsSYVMCU
 id: paragraph.tabs.field_tab
 field_name: field_tab
 entity_type: paragraph

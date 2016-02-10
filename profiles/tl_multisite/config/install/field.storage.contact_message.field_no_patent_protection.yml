@@ -1,0 +1,20 @@
+uuid: bc3f783b-04b2-426b-8248-723c2159e254
+langcode: en
+status: true
+dependencies:
+  module:
+    - contact
+_core:
+  default_config_hash: kL1XTfNUyw_8O5Q3lHZD-w_FBQ7i6KwpOJMshKgXGmE
+id: contact_message.field_no_patent_protection
+field_name: field_no_patent_protection
+entity_type: contact_message
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
