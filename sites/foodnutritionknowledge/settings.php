@@ -700,11 +700,7 @@ $settings['container_yamls'][] = __DIR__ . '/services.yml';
  */
 
 // Includes required Acquia configuration and set $base_url correctly.
-//require DRUPAL_ROOT . '/sites/default/settings/base.settings.php';
-
-$ah_env = isset($_ENV['AH_SITE_ENVIRONMENT']) ? $_ENV['AH_SITE_ENVIRONMENT'] : NULL;
-$is_ah_env = (bool) $ah_env;
-$is_local_env = !$is_ah_env;
+require DRUPAL_ROOT . '/sites/default/settings/base.settings.php';
 
 /**
  * Acquia Cloud settings.
