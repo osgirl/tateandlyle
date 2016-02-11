@@ -89,6 +89,7 @@
     <!-- deploy.branch and deploy.commitMsg must be passed as params at runtime. -->
     <exec command="git rev-parse --abbrev-ref HEAD" outputProperty="currentGitBranch" logoutput="true"/>
     <exec command="git remote add downstream ${deploy.remote}" logoutput="true" passthru="true"/>
+    <exec command="git fetch --unshallow || true" />
     <exec command="git push downstream ${currentGitBranch}:${deploy.branch} --force" logoutput="true" passthru="true"/>
     <exec command="git remote rm downstream" logoutput="true" passthru="true"/>
   </target>
