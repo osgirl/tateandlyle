@@ -37,6 +37,11 @@ function tateandlylefibres_preprocess_page(&$variables) {
     if($variables['node']->get('field_sidebar')->getValue()) {
       $variables['is_sidebar'] = TRUE;
     }
+    if($variables['node']->get('field_sidebar_color')->getValue()[0]['value'] == 0) {
+      $variables['sidebar_color'] = 'color-block';
+    } else {
+      $variables['sidebar_color'] = 'no-color-block';
+    }
   }
    // Title class
   if($variables['node']) {
@@ -44,11 +49,6 @@ function tateandlylefibres_preprocess_page(&$variables) {
     $node_title = $node_fields['title'][0]['value'];
     $node_title = preg_replace('/[^A-Za-z0-9\-]/', ' ', $node_title);
     $variables['title_name'] = strtolower(str_replace(" ", "-", $node_title));
-    if($variables['node']->get('field_sidebar_color')->getValue()[0]['value'] == 0) {
-      $variables['sidebar_color'] = 'color-block';
-    } else {
-      $variables['sidebar_color'] = 'no-color-block';
-    }
   }
   if ($variables['node'] && $variables['node']->getType() == 'form') { 
     $variables['is_form'] = 'is-form';
@@ -82,7 +82,7 @@ function tateandlylefibres_preprocess_field(&$variables) {
   }
 
   // Render contact form
-    if ($variables['field_name'] == 'field_form') {
+  if ($variables['field_name'] == 'field_form') {
     $id = $variables['items'][0]['content']['#plain_text'];
     $contact_form = \Drupal::entityManager()
       ->getStorage('contact_form')
@@ -99,6 +99,21 @@ function tateandlylefibres_preprocess_field(&$variables) {
     unset($variables['items'][0]['content']['#plain_text']);
     $variables['items'][0]['content']['#suffix'] = drupal_render($form);
   }
+
+/*  if ($variables['field_name'] == 'field_title') {
+    if($variables['items'][0]) {
+      $title = $variables['items'][0]['content']['#context']['value'];
+      if(preg_match('/®/', $title)) {
+        $title_array = split('®', $title);
+        $sup = '®';
+        $title = $title_array[0].'<sup>®</sup>'.$title_array[1];
+        $newstr = filter_var($title, FILTER_SANITIZE_STRING);
+        $variables['items'][0]['content']['#context']['value'] = $newstr; 
+      }
+      dpm($variables['items'][0]['content']);
+      
+    }
+  }*/
 }
 
 function tateandlylefibres_preprocess_paragraph(&$variables) {
