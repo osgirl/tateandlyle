@@ -23,6 +23,15 @@ a {
   color: #7D6A57;
 }
 
+h6 {
+  font-size: 10px;
+}
+
+.path-node {
+  article {
+    padding: 5px 0;
+  } 
+}
 .caret {
   display: none
 }
@@ -1004,12 +1013,13 @@ body:not(.path-frontpage) {
         border-bottom: 1px solid #E5E5E5;
         float: none;
         padding: 4px 0 3px;
+        margin-bottom: 7px;
       }
       a {  
         font-weight: bold;
         font-size: 12px;
         padding: 0;
-         &:hover {
+         &:hover, &:focus {
           background: transparent;
         }
       }
@@ -1320,6 +1330,9 @@ body {
       line-height: 14px;
       margin-bottom: 5px;
       padding-left: 10px;
+      p {
+        margin-bottom: 6px;
+      }
     }
   }
   img {
@@ -1328,6 +1341,10 @@ body {
   }
   p {
     margin-bottom: 12px;
+  }
+  iframe {
+    width: 100%;
+    height: 266px;
   }
 }
 
