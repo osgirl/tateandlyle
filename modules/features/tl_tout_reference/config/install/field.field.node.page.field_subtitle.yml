@@ -1,0 +1,21 @@
+uuid: fcaa2cba-3f11-4768-aa00-d1175e39f6d9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_subtitle
+    - node.type.page
+  module:
+    - text
+id: node.page.field_subtitle
+field_name: field_subtitle
+entity_type: node
+bundle: page
+label: Subtitle
+description: 'Add the text that will be displayed after the title (Used only on Tate and Lyle Fibers theme).'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long
