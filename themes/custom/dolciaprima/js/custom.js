@@ -9,8 +9,13 @@
       $('.paragraph--type--tout a').unwrap(); 
       $('.field--name-field-video-text a.video-button').unwrap();  
       $('a.video-button').insertAfter('.field--name-field-video-text h2');
+      $('.field--name-field-title, h1, h2, h3, a, p ').each(function(i, elem) {
+        $(elem).html(function(i, html) {
+            return html.replace('®', "<sup>&reg;</sup>");
+        });
+      });
     }
-  };
+  }
 
   //Modal video
   Drupal.behaviors.modalVideo = {
