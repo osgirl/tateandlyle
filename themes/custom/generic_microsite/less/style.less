@@ -978,6 +978,16 @@ body {
   } 
 }
 
+aside {
+.paragraph {
+    border-bottom: 1px solid #E5E5E5;
+    margin-bottom: 10px;
+    li:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
 /* Other pages */
 body:not(.path-frontpage) {
   aside {
@@ -986,9 +996,6 @@ body:not(.path-frontpage) {
       padding-right: 20px;
       .region-sidebar-first {
         padding-bottom: 25px;
-        @media(min-width: @screen-xs-min) {
-          
-        }
       }
       @media(min-width: @screen-sm-min) {
         width: 23%;
@@ -1003,13 +1010,6 @@ body:not(.path-frontpage) {
         padding-right: 5px;
         width: 26%;
       } 
-    }
-    .paragraph {
-      border-bottom: 1px solid #E5E5E5;
-      margin-bottom: 10px;
-      li:last-child {
-        margin-bottom: 0;
-      }
     }
     .field--name-field-title {
       display: none;
@@ -2027,6 +2027,9 @@ body {
       }
     }
   }
+  .navbar-nav a.is-active {
+    color: #7D6A57 !important;
+  }
   .nav > li {
     @media(min-width: @screen-sm-min) {
       float: left;
@@ -2385,7 +2388,8 @@ body {
  
 }
 
-.your-bakery-and-snack-solutions {
+.your-bakery-and-snack-solutions,
+.tate---lyle-japan {
   header {
     .horizontal-gradient (@startColor: #DEDBD6, @endColor: #FFF);
   }
