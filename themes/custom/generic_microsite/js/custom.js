@@ -79,6 +79,15 @@
     }
   }
 
+   // Disable accordion toggle when are links inside.
+  Drupal.behaviors.disableDropdowntoggle = {
+    attach: function (context, settings) {
+      $('.accordion-set a').click(function(e){
+        e.stopPropagation(); 
+      });
+    }
+  }
+
   // Redirect selector.
   Drupal.behaviors.redirectSelector = {
     attach: function (context, settings) {
