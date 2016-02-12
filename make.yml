@@ -56,9 +56,11 @@ projects:
       revision: "8.x-1.x"
   search_api_attachments:
     type: module
-    version: "1.0-alpha2"
+    download:
+      url: "https://git.drupal.org/project/search_api_attachments.git"
+      revision: "81530ec2c2259fe3d1294098ada6fc3c95aebdc3"
     patch:
-      - "https://www.drupal.org/files/issues/entitymanager_is-2666774-2.patch"
+      - "https://www.drupal.org/files/issues/support_changing_the-2667658-2.patch"
   security_review:
     version: ~
   paragraphs:
@@ -97,12 +99,7 @@ projects:
     version: "3.0-beta2"
   workbench_moderation:
     type: module
-    download:
-      type: git
-      url: "https://git.drupal.org/project/workbench_moderation.git"
-      revision: "4e26d7f99e90eb9879ef6073c976ee264acba1ba"
-    patch:
-      - "https://www.drupal.org/files/issues/moderated_content-2654972-19.patch"
+    version: "1.0-beta1"
   metatag:
     type: module
     version: "1.0-beta3"
