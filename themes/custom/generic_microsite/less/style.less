@@ -843,8 +843,8 @@ body {
       }
       .field--name-field-title {
         font-family: Arial,Helvetica,sans-serif;
-        margin-top: 4px;
-        padding: 4px 0 5px;
+        margin-top: 7px;
+        padding: 4px 0 7px;
       }
       .tout-text {
         h2 {
@@ -1119,6 +1119,13 @@ aside {
       margin-bottom:10px;
     }
   }
+  .paragraph--type--text {
+    img {
+      height: auto!important;
+      width: 100%!important; 
+    }
+  }
+
 }
 
 /* Redirect selector */
@@ -1336,8 +1343,7 @@ body {
     }
   }
   img {
-    height: auto !important;
-    width: 100% !important;
+    max-width: 100%;
   }
   p {
     margin-bottom: 12px;
@@ -1345,6 +1351,23 @@ body {
   iframe {
     width: 100%;
     height: 266px;
+  }
+  table {
+    border-collapse: initial;
+    border-spacing: 3px;
+    border:1px solid #808080;
+    td {
+      border:1px solid #808080;
+    }
+    p {
+      margin-bottom: 0;
+    }
+    tr:nth-child(2n+1) {
+      background-color:#f6f6f6;
+    }
+    tr:first-child {
+      background-color: #ccc;
+    }
   }
 }
 
@@ -1782,20 +1805,39 @@ body {
 
   .form-actions {
     text-align: right;
+    margin-top: 10px;
     button {
       background: #B9B3AC;
       border: 0;
       border-radius: 0;
       color: #FFF;
       font-size: 12px;
-      font-weight: bold;
+      font-weight: 700;
       height: 30px;
-      margin: 10px 0 0;
-      padding: 0 5px;
+      margin: -1px 5px 0 0;
+      padding: 0 10px;
+      text-transform: capitalize;
     }
-    #edit-submit {
-      margin: 10px 5px 0 0;
+
+    .cancel_button {
+      background: #B9B3AC;
+      display: inline-block;
+      height: 30px;
+      line-height: 30px;
+      a {
+        font-weight: 700;
+        color:#fff;
+        display: inline-block;
+        padding: 0 10px;
+        &:hover {
+          text-decoration:none;
+        }
+      }
     }
+  }
+  /*Special fields*/
+  .field--name-field-contact-identifier {
+    display: none;
   }
 }
 
@@ -1815,7 +1857,7 @@ body {
       margin-left: 2%;
       margin-right: 3%;
       padding-bottom: 30px;
-      width: 57%;
+      width: 53%;
     }
   
     .paragraph--type--image {
@@ -1907,10 +1949,16 @@ body {
       font-size: 17px;
       height: auto;
       text-transform: capitalize;
-      padding: 5px 5px 3px;
+      padding: 5px 10px 3px;
+      margin-top: -3px;
       .glyphicon {
         display: none;
       }
+    }
+    .cancel_button {
+      font-size: 17px;
+      height: 32px;
+      line-height: 32px;
     }
   }
   .field--name-field-form-header {
@@ -1981,7 +2029,7 @@ body {
         border-left: 1px solid #7D6A57;
         padding: 0 5px;
       }
-      line-height: 11px;
+      line-height: 8px;
       &:focus,
       &:hover {
         background-color: transparent;
