@@ -78,7 +78,7 @@ function generic_microsite_preprocess_field(&$variables, $hook) {
     }
   }
   
-  /* Slideshow */
+  /* Slideshow  +link */
   if ($variables['field_name'] == 'field_slide') {
     $slide_type = $variables['element']['#object']->get('field_slide_type')->getValue();
     if($slide_type[0]['value'] == 0) {
