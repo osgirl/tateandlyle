@@ -6,7 +6,9 @@
 (function ($) {
   Drupal.behaviors.tl_tweaks = {
     attach: function (context, settings) {
-      document.getElementById('download').click();
+      if($('#download').lenght) {
+        document.getElementById('download').click();
+      }
     }
   };
 })(jQuery);
