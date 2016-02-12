@@ -17,10 +17,17 @@ body {
   &.large-text {
     font-size: 16px;
   }
+  color:#4d4d4f;
 }
 
 a {
   color: #7D6A57;
+}
+
+/*For mail links*/
+a[href^="mailto"] {
+  pointer-events: none;
+  color: #4d4d4f;
 }
 
 h6 {
@@ -1352,23 +1359,6 @@ body {
     width: 100%;
     height: 266px;
   }
-  table {
-    border-collapse: initial;
-    border-spacing: 3px;
-    border:1px solid #808080;
-    td {
-      border:1px solid #808080;
-    }
-    p {
-      margin-bottom: 0;
-    }
-    tr:nth-child(2n+1) {
-      background-color:#f6f6f6;
-    }
-    tr:first-child {
-      background-color: #ccc;
-    }
-  }
 }
 
 /* Tout */
@@ -2287,6 +2277,26 @@ body {
 
 }
 
+.purefruit {
+  table {
+    border-collapse: initial;
+    border-spacing: 3px;
+    border:1px solid #808080;
+    td {
+      border:1px solid #808080;
+    }
+    p {
+      margin-bottom: 0;
+    }
+    tr:nth-child(2n+1) {
+      background-color:#f6f6f6;
+    }
+    tr:first-child {
+      background-color: #ccc;
+    }
+  }
+}
+
 .soda-lo {
   header {
     .horizontal-gradient (@startColor: #DEDBD5, @endColor: #FFF);
@@ -2332,6 +2342,28 @@ body {
     }
   }
 }
+
+.global-industrial-starches {
+  table {
+    p {
+      margin-bottom: 0;
+    }
+    border-spacing: 1px;
+    tr:first-child {
+      background-color: #948671;
+      color:#fff;
+      text-align: center;
+    }
+    tr {
+      background-color: #e4e1db;
+      td {
+        border:1px solid #fff;
+        padding: 4px;
+      }
+    }
+  }
+}
+
 .food-and-nutrition-science-centre  {
   .navbar-brand {
     color:#7373a8;
