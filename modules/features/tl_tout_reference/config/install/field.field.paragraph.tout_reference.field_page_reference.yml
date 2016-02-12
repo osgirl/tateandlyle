@@ -1,0 +1,25 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_page_reference
+    - field_collection.field_collection.field_content_reference
+    - paragraphs.paragraphs_type.tout_reference
+id: paragraph.tout_reference.field_page_reference
+field_name: field_page_reference
+entity_type: paragraph
+bundle: tout_reference
+label: 'Page reference'
+description: 'Add the page that contains the Content Reference fields that you want to reference in this page.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:field_collection_item'
+  handler_settings:
+    target_bundles:
+      field_content_reference: field_content_reference
+    sort:
+      field: _none
+field_type: entity_reference
