@@ -131,8 +131,18 @@
 
   Drupal.behaviors.chosen = {
     attach: function (context, settings) {
+      $('.field--name-field-primary-application select, .field--name-field-interests select').chosen({
+        disable_search: true,
+        placeholder_text_multiple: "(Select up to 3)",
+        max_selected_options: 3,
+      });
+
       $('#edit-field-country-list').chosen({
-        allow_single_deselect: true,
+        disable_search: false,
+      });
+
+      $('select').chosen({
+        disable_search: true,
       });
     }
   }
