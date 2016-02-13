@@ -66,6 +66,16 @@
     }
   }
 
+  // Disable accordion toggle when are links inside.
+  Drupal.behaviors.enableAccordionlink = {
+    attach: function (context, settings) {
+      $('.accordion-set a').click(function(e){
+        e.stopPropagation(); 
+      });
+    }
+  }
+
+
  
   // Add touch events for Bootstrap carousel.
   Drupal.behaviors.swipeCarousel = {
