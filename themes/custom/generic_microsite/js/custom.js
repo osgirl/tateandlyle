@@ -80,7 +80,7 @@
   }
 
    // Disable accordion toggle when are links inside.
-  Drupal.behaviors.disableDropdowntoggle = {
+  Drupal.behaviors.enableAccordionlink = {
     attach: function (context, settings) {
       $('.accordion-set a').click(function(e){
         e.stopPropagation(); 
@@ -125,6 +125,24 @@
       $('.field--name-field-timeout').hide();
       $('.carousel').each(function() {
          $(this).attr('data-interval', $(this).closest('.paragraph--type--slide').find('.field--name-field-timeout').text())
+      });
+    }
+  }
+
+  Drupal.behaviors.chosen = {
+    attach: function (context, settings) {
+      $('.field--name-field-primary-application select, .field--name-field-interests select').chosen({
+        disable_search: true,
+        placeholder_text_multiple: "(Select up to 3)",
+        max_selected_options: 3,
+      });
+
+      $('#edit-field-country-list').chosen({
+        disable_search: false,
+      });
+
+      $('select').chosen({
+        disable_search: true,
       });
     }
   }

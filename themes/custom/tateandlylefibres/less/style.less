@@ -689,7 +689,7 @@ header.container {
     @media(min-width: @screen-md-min) {
       width: 41.666666666667%;
       height: 29.15vh;
-      min-height: auto;
+      min-height: 0;
     }
     &:nth-of-type(3) {
       @media(min-width: @screen-md-min) {
@@ -1370,7 +1370,9 @@ aside {
       height: auto !important;
     }
     @media(min-width: @screen-md-min) {
-      margin-top: -9em;
+      position:absolute;
+      top:0;
+      right:0;
       width: 61%;
     }
     h2 {
