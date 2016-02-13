@@ -15,25 +15,41 @@
         return false;
       });
 
-      if($('.is-form').length) {
-        $height_form = $('.field--name-field-form')[0].getBoundingClientRect().height + $('.field--name-field-form-header')[0].getBoundingClientRect().height;
-        $height_form_2 = $height_form - $('.field--name-field-form-header').innerHeight();
-        $('.field--name-field-form').css('height', $height_form_2);
-        $('.field--name-field-main-content').css('height', $height_form);
+     if($('.is-form').length) {
+        if($('.field--name-field-form').length) {
+          $height_form = $('.field--name-field-form')[0].getBoundingClientRect().height + $('.field--name-field-form-header')[0].getBoundingClientRect().height;
+          $height_form_2 = $height_form - $('.field--name-field-form-header').innerHeight();
+          $('.field--name-field-form').css('height', $height_form_2);
+          $('.field--name-field-main-content').css('height', $height_form);
+        }
+        else {
+          $height_form = $('.field--name-field-main-content')[0].getBoundingClientRect().height;
+          $('.field--name-field-form-header').css('height', $height_form);
+        }
       }
       // Resize window
-       $(window).resize(function(){
+       $(window).resize(function() {
          if($('.is-form').length) {
-        $height_form = $('.field--name-field-form')[0].getBoundingClientRect().height + $('.field--name-field-form-header')[0].getBoundingClientRect().height;
-        $height_form_2 = $height_form - $('.field--name-field-form-header').innerHeight();
-        $('.field--name-field-form').css('height', $height_form_2);
-           $('.field--name-field-main-content').css('height', $height_form )
-         }
+          if($('.field--name-field-form').length) {
+            $height_form = $('.field--name-field-form')[0].getBoundingClientRect().height + $('.field--name-field-form-header')[0].getBoundingClientRect().height;
+            $height_form_2 = $height_form - $('.field--name-field-form-header').innerHeight();
+            $('.field--name-field-form').css('height', $height_form_2);
+            $('.field--name-field-main-content').css('height', $height_form )
+          }
+          else {
+            if($(window).width() > 1006) {
+              $height_form = $('.field--name-field-main-content')[0].getBoundingClientRect().height;
+              $('.field--name-field-form-header').css('height', $height_form);
+            } else {
+              $('.field--name-field-form-header').css('height', '');
+            }
+          }
+        }
       })
-
+       
       $('.field--name-field-title, h1, h2, h3, a, p ').each(function(i, elem) {
         $(elem).html(function(i, html) {
-            return html.replace('Â®', "<sup>&reg;</sup>");
+            return html.replace('®', "<sup>&reg;</sup>");
         });
       });
     }
