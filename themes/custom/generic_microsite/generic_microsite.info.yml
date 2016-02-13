@@ -24,12 +24,17 @@ regions:
   page_bottom: 'Page bottom'
 
 libraries:
+
+  - 'generic_microsite/bootstrap-chosen-styling'
   - 'generic_microsite/global-styling'
+
+  # Bootstrap scripts #
   - 'generic_microsite/bootstrap-scripts'
-  
+
+  # Chosen script #
+  - 'generic_microsite/chosen-script'
 
   # Menu sidebar scripts #
   - 'generic_microsite/classie'
   - 'generic_microsite/menu-sidebar-effects'
   - 'generic_microsite/custom'
-
