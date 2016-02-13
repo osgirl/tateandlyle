@@ -44,14 +44,16 @@
       {% for item in items %}
         {% set slideshow_image = item.content['#field_collection_item'].field_image.value %}
         {% set slideshow_image_id = slideshow_image[0]['target_id'] %}
+        {% set image_alt = slideshow_image[0]['alt'] %}
         {% set slideshow_text = item.content['#field_collection_item'].field_slide_text.value %}
         {% set slideshow_link = item.content['#field_collection_item'].field_link.value[0]['uri'] %}
         {% set slideshow_link_title = item.content['#field_collection_item'].field_link.value[0]['title'] %}
+        {% set collection_id = item.content['#field_collection_item'].item_id.value  %}
         {% if i == 0 %}
           <div class="item active">
             {% if slideshow_link %}
-            <a href="{{ slideshow_link }}" title="{{ slideshow_link_title }}">
-              <img class="slideshow-image" src="{{ slideshow_image_path[slideshow_image_id] }}"/>
+            <a href="{{ link_alias[collection_id] }}"  {{ target_link[collection_id] }} title="{{ slideshow_link_title }}">
+              <img alt = {{ image_alt }} class="slideshow-image" src="{{ slideshow_image_path[slideshow_image_id] }}"/>
               <div class="slideshow-text"> {{ slideshow_text | raw }}</div>
             </a>
             {% else %}
@@ -62,8 +64,8 @@
         {% else %}
           <div class="item">
             {% if slideshow_link %}
-            <a href="{{ slideshow_link }}" title="{{ slideshow_link_title }}">
-              <img class="slideshow-image" src="{{ slideshow_image_path[slideshow_image_id] }}"/>
+            <a href="{{ link_alias[collection_id] }}"  {{ target_link[collection_id] }} title="{{ slideshow_link_title }}">
+              <img alt= {{ image_alt }} class="slideshow-image" src="{{ slideshow_image_path[slideshow_image_id] }}"/>
               <div class="slideshow-text">{{ slideshow_text | raw }}</div>
             </a>
             {% else %}

@@ -78,20 +78,58 @@ function generic_microsite_preprocess_field(&$variables, $hook) {
     }
   }
   
-  /* Slideshow */
+  /* Slideshow  +link */
   if ($variables['field_name'] == 'field_slide') {
     $slide_type = $variables['element']['#object']->get('field_slide_type')->getValue();
     if($slide_type[0]['value'] == 0) {
       foreach ($variables['items'] as $key => $item) {
+        $link = $item['content']['#field_collection_item']->get('field_link')->getValue()[0]['uri'];
+        $link_auto = split('entity:', $link);
+        $link_internal = split('internal:', $link);
+        $collection_id = $item['content']['#field_collection_item']->get('item_id')->getValue()[0]['value'];
+        if($link_auto[1]) {
+          $link_alias = \Drupal::service('path.alias_manager')->getAliasByPath('/'.$link_auto[1]);
+          $variables['link_alias'][$collection_id] = $link_alias;
+        } 
+        elseif ($link_internal[1]) {
+          $link_alias = \Drupal::service('path.alias_manager')->getAliasByPath($link_internal[1]);
+          $variables['link_alias'][$collection_id] = $link_alias;
+        }
+        else {
+          $variables['link_alias'][$collection_id] = $link;
+          $variables['target_link'][$collection_id] = 'target=_blank"';
+        }
+
         $image = $item['content']['#field_collection_item']->get('field_image')->getValue();
         if(isset($image['0'])) {
           $file_id = $image['0']['target_id'];
           $file = File::load($file_id);
-          $variables['slideshow_image_path'][$file_id] = ImageStyle::load('slideshow')->buildUrl($file->getFileUri());
+          if (theme_get_setting('frontpage_template', 'generic_microsite') == 1) {
+            $variables['slideshow_image_path'][$file_id] = ImageStyle::load('homepage_full')->buildUrl($file->getFileUri());
+          } else {
+            $variables['slideshow_image_path'][$file_id] = ImageStyle::load('slideshow')->buildUrl($file->getFileUri());
+          }
         }
       }
     } else {
       foreach ($variables['items'] as $key => $item) {
+        $link = $item['content']['#field_collection_item']->get('field_link')->getValue()[0]['uri'];
+        $link_auto = split('entity:', $link);
+        $link_internal = split('internal:', $link);
+        $collection_id = $item['content']['#field_collection_item']->get('item_id')->getValue()[0]['value'];
+        if($link_auto[1]) {
+          $link_alias = \Drupal::service('path.alias_manager')->getAliasByPath('/'.$link_auto[1]);
+          $variables['link_alias'][$collection_id] = $link_alias;
+        } 
+        elseif ($link_internal[1]) {
+          $link_alias = \Drupal::service('path.alias_manager')->getAliasByPath($link_internal[1]);
+          $variables['link_alias'][$collection_id] = $link_alias;
+        }
+        else {
+          $variables['link_alias'][$collection_id] = $link;
+          $variables['target_link'][$collection_id] = 'target=_blank"';
+        }
+        
         $image = $item['content']['#field_collection_item']->get('field_image')->getValue();
         if(isset($image['0'])) {
           $file_id = $image['0']['target_id'];

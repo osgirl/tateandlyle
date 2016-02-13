@@ -17,10 +17,17 @@ body {
   &.large-text {
     font-size: 16px;
   }
+  color:#4d4d4f;
 }
 
 a {
   color: #7D6A57;
+}
+
+/*For mail links*/
+a[href^="mailto"] {
+  pointer-events: none;
+  color: #4d4d4f;
 }
 
 h6 {
@@ -971,6 +978,16 @@ body {
   } 
 }
 
+aside {
+.paragraph {
+    border-bottom: 1px solid #E5E5E5;
+    margin-bottom: 10px;
+    li:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
 /* Other pages */
 body:not(.path-frontpage) {
   aside {
@@ -979,9 +996,6 @@ body:not(.path-frontpage) {
       padding-right: 20px;
       .region-sidebar-first {
         padding-bottom: 25px;
-        @media(min-width: @screen-xs-min) {
-          
-        }
       }
       @media(min-width: @screen-sm-min) {
         width: 23%;
@@ -996,13 +1010,6 @@ body:not(.path-frontpage) {
         padding-right: 5px;
         width: 26%;
       } 
-    }
-    .paragraph {
-      border-bottom: 1px solid #E5E5E5;
-      margin-bottom: 10px;
-      li:last-child {
-        margin-bottom: 0;
-      }
     }
     .field--name-field-title {
       display: none;
@@ -1351,23 +1358,6 @@ body {
   iframe {
     width: 100%;
     height: 266px;
-  }
-  table {
-    border-collapse: initial;
-    border-spacing: 3px;
-    border:1px solid #808080;
-    td {
-      border:1px solid #808080;
-    }
-    p {
-      margin-bottom: 0;
-    }
-    tr:nth-child(2n+1) {
-      background-color:#f6f6f6;
-    }
-    tr:first-child {
-      background-color: #ccc;
-    }
   }
 }
 
@@ -1839,6 +1829,11 @@ body {
   .field--name-field-contact-identifier {
     display: none;
   }
+  .field--name-field-message {
+    textarea {
+      min-height: 120px;
+    }
+  }
 }
 
 /* Form landing */
@@ -2036,6 +2031,9 @@ body {
         text-decoration: underline;
       }
     }
+  }
+  .navbar-nav a.is-active {
+    color: #7D6A57 !important;
   }
   .nav > li {
     @media(min-width: @screen-sm-min) {
@@ -2287,6 +2285,26 @@ body {
 
 }
 
+.purefruit {
+  table {
+    border-collapse: initial;
+    border-spacing: 3px;
+    border:1px solid #808080;
+    td {
+      border:1px solid #808080;
+    }
+    p {
+      margin-bottom: 0;
+    }
+    tr:nth-child(2n+1) {
+      background-color:#f6f6f6;
+    }
+    tr:first-child {
+      background-color: #ccc;
+    }
+  }
+}
+
 .soda-lo {
   header {
     .horizontal-gradient (@startColor: #DEDBD5, @endColor: #FFF);
@@ -2332,6 +2350,28 @@ body {
     }
   }
 }
+
+.global-industrial-starches {
+  table {
+    p {
+      margin-bottom: 0;
+    }
+    border-spacing: 1px;
+    tr:first-child {
+      background-color: #948671;
+      color:#fff;
+      text-align: center;
+    }
+    tr {
+      background-color: #e4e1db;
+      td {
+        border:1px solid #fff;
+        padding: 4px;
+      }
+    }
+  }
+}
+
 .food-and-nutrition-science-centre  {
   .navbar-brand {
     color:#7373a8;
@@ -2353,7 +2393,8 @@ body {
  
 }
 
-.your-bakery-and-snack-solutions {
+.your-bakery-and-snack-solutions,
+.tate---lyle-japan {
   header {
     .horizontal-gradient (@startColor: #DEDBD6, @endColor: #FFF);
   }
@@ -2370,6 +2411,12 @@ body {
     }
   }
 }
+
+.tate---lyle-japan {
+  .header-right {
+    padding-top: 15px;
+  }
+ }
 
 .feed-them-better{
   .header-left {
