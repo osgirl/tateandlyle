@@ -49,7 +49,7 @@
        
       $('.field--name-field-title, h1, h2, h3, a, p ').each(function(i, elem) {
         $(elem).html(function(i, html) {
-            return html.replace('Â®', "<sup>&reg;</sup>");
+            return html.replace('®', "<sup>&reg;</sup>");
         });
       });
     }
