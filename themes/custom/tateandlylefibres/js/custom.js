@@ -17,17 +17,21 @@
       });
 
       if($('.is-form').length) {
-        $height_form = $('.field--name-field-form').height() + $('.field--name-field-form-header').height() + 222;
-        $('.field--name-field-main-content').css('height', $height_form )
+        $height_form = $('.field--name-field-form')[0].getBoundingClientRect().height + $('.field--name-field-form-header')[0].getBoundingClientRect().height;
+        $height_form_2 = $height_form - $('.field--name-field-form-header').innerHeight();
+        $('.field--name-field-form').css('height', $height_form_2);
+        $('.field--name-field-main-content').css('height', $height_form);
       }
       // Resize window
        $(window).resize(function(){
          if($('.is-form').length) {
-           $height_form = $('.field--name-field-form').height() + $('.field--name-field-form-header').height() + 218;
+        $height_form = $('.field--name-field-form')[0].getBoundingClientRect().height + $('.field--name-field-form-header')[0].getBoundingClientRect().height;
+        $height_form_2 = $height_form - $('.field--name-field-form-header').innerHeight();
+        $('.field--name-field-form').css('height', $height_form_2);
            $('.field--name-field-main-content').css('height', $height_form )
          }
       })
-    //$('.field--name-field-title').html($('.field--name-field-title').text().replace('®', '<sup>®</sup>'));
+
       $('.field--name-field-title, h1, h2, h3, a, p ').each(function(i, elem) {
             $(elem).html(function(i, html) {
                 return html.replace('®', "<sup>&reg;</sup>");
