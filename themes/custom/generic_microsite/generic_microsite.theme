@@ -329,6 +329,7 @@ function generic_microsite_preprocess_paragraph(&$variables) {
 function generic_microsite_preprocess_breadcrumb(&$variables) {
   $site_name = \Drupal::configFactory()->getEditable('system.site')->get('name');
   $variables['breadcrumb'][0]['text'] = $site_name;
+  $variables['breadcrumb'][0]['text'] = t($variables['breadcrumb'][0]['text']);
   $variables['breadcrumb']['custom']['text'] = 'You are here : ';
   array_unshift($variables['breadcrumb'],$variables['breadcrumb']['custom']);
   unset($variables['breadcrumb']['custom']);
