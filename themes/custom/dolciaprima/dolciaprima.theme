@@ -133,6 +133,23 @@ function dolciaprima_preprocess_field(&$variables) {
   // Carousel
   if ($variables['field_name'] == 'field_slide') {   
     foreach ($variables['items'] as $key => $item) {
+     $link = $item['content']['#field_collection_item']->get('field_link')->getValue()[0]['uri'];
+      $link_auto = split('entity:', $link);
+      $link_internal = split('internal:', $link);
+      $collection_id = $item['content']['#field_collection_item']->get('item_id')->getValue()[0]['value'];
+      if($link_auto[1]) {
+        $link_alias = \Drupal::service('path.alias_manager')->getAliasByPath('/'.$link_auto[1]);
+        $variables['link_alias'][$collection_id] = $link_alias;
+      } 
+      elseif ($link_internal[1]) {
+        $link_alias = \Drupal::service('path.alias_manager')->getAliasByPath($link_internal[1]);
+        $variables['link_alias'][$collection_id] = $link_alias;
+      }
+      else {
+        $variables['link_alias'][$collection_id] = $link;
+        $variables['target_link'][$collection_id] = 'target=_blank"';
+      }
+        
       $image = $item['content']['#field_collection_item']->get('field_image')->getValue();
       if(isset($image['0'])) {
         $file_id = $image['0']['target_id'];
