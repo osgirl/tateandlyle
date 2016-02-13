@@ -129,4 +129,12 @@
     }
   }
 
+  Drupal.behaviors.chosen = {
+    attach: function (context, settings) {
+      $('#edit-field-country-list').chosen({
+        allow_single_deselect: true,
+      });
+    }
+  }
+
 })(jQuery);
