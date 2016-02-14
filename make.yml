@@ -86,7 +86,7 @@ projects:
     version: "1.0-beta2"
   ctools:
     type: module
-    version: "3.0-alpha21"
+    version: "3.0-alpha23"
   token:
     type: module
     version: "1.0-alpha2"
