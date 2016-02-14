@@ -546,9 +546,11 @@ body,
 
 /* CONTENT */
 .header-container {
+  background: url(../images/background-login.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
   background-position: right bottom;
   height: 300px;
-  background-size: cover;
   .valign-parent;
   @media(min-width: @screen-sm-min) {
    background-position: center center; 
@@ -1820,19 +1822,6 @@ aside {
     margin: 48px 48px 0;
     @media(min-width: @screen-md-min) {
       width: 50%;
-    }
-  }
-}
-
-/* 403 and 404 pages */
-.403,
-.404 {
-  .header-container {
-    background: url(../images/background-login.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    header {
-      padding-bottom: 0;
     }
   }
 }
