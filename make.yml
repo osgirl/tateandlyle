@@ -8,7 +8,7 @@ defaults:
 projects:
   drupal:
     type: core
-    version: 8.0.2
+    version: 8.0.3
     patch:
       - "https://www.drupal.org/files/issues/allow_access_to_the-2661016-2_2.patch"
   # For all projects, always specify the exact version that is to be used.
@@ -86,7 +86,7 @@ projects:
     version: "1.0-beta2"
   ctools:
     type: module
-    version: "3.0-alpha21"
+    version: "3.0-alpha23"
   token:
     type: module
     version: "1.0-alpha2"
