@@ -99,6 +99,18 @@ function dolciaprima_preprocess_paragraph(&$variables) {
 }
 
 function dolciaprima_preprocess_field(&$variables) {
+  if ($variables['field_name'] == 'field_accordion_item') { 
+    $variables['attributes']['id'][]='accordion';
+    foreach ($variables['items'] as $key => $item) {
+      $image = $item['content']['#field_collection_item']->get('field_image')->getValue();
+      if(isset($image['0'])) {
+        $file_id = $image['0']['target_id'];
+        $file = File::load($file_id);
+        $variables['accordeon_image'][$file_id] = ImageStyle::load('accordion_image')->buildUrl($file->getFileUri());
+      }
+    }
+  }
+  
   if ($variables['field_name'] == 'field_touts') { 
     $field_template = $variables['element']['#object']->get('field_template')->getValue();
     foreach ($variables['items'] as $key => $item) {
