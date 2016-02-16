@@ -545,13 +545,22 @@ body,
 }
 
 /* CONTENT */
+header.container {
+  padding: 24px;
+  .valign-child;
+  line-height: 0;
+  @media(min-width: @screen-sm-min) {
+    padding: 3em;
+  }
+}
+
 .header-container {
+  height: 300px;
+  .valign-parent;
   background: url(../images/background-login.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: right bottom;
-  height: 300px;
-  .valign-parent;
   @media(min-width: @screen-sm-min) {
    background-position: center center; 
   }
@@ -564,14 +573,6 @@ body,
   }
 }
 
-header.container {
-  padding: 24px;
-  .valign-child;
-  line-height: 0;
-  @media(min-width: @screen-sm-min) {
-    padding: 3em;
-  }
-}
 
 .main-container {
   padding: 0;
