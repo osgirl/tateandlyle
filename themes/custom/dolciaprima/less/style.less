@@ -957,11 +957,18 @@ header {
   }
 }
 /* Accordion */
+#accordion {
+  clear: both;
+  padding: 20px 0;
+}
 .accordion-set {
   border-bottom: 1px solid #CCC;
   padding: 0 0 25px 50px;
   position: relative;
-  margin-bottom: 25px;
+  padding-top: 20px;
+  display: inline-block;
+  width: 100%;
+  clear:both;
   &:before {
     background-image: url('../images/arrow-up.png');
     background-repeat: no-repeat;
@@ -971,7 +978,7 @@ header {
     height: 26px;
     position: absolute;
     left: 0;
-    width: 26px
+    width: 26px;
   }
   &:last-child {
     border-bottom: 0;
@@ -981,6 +988,13 @@ header {
       background-image: url('../images/arrow-down.png');
     }
   }
+  .panel-collapse {
+    clear: both;
+  }
+}
+.image-accordion {
+  float: left;
+  padding-right: 20px;
 }
 
 .accordion-title {
