@@ -545,13 +545,22 @@ body,
 }
 
 /* CONTENT */
+header.container {
+  padding: 24px;
+  .valign-child;
+  line-height: 0;
+  @media(min-width: @screen-sm-min) {
+    padding: 3em;
+  }
+}
+
 .header-container {
+  height: 300px;
+  .valign-parent;
   background: url(../images/background-login.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: right bottom;
-  height: 300px;
-  .valign-parent;
   @media(min-width: @screen-sm-min) {
    background-position: center center; 
   }
@@ -564,14 +573,6 @@ body,
   }
 }
 
-header.container {
-  padding: 24px;
-  .valign-child;
-  line-height: 0;
-  @media(min-width: @screen-sm-min) {
-    padding: 3em;
-  }
-}
 
 .main-container {
   padding: 0;
@@ -947,20 +948,31 @@ header.container {
 
 .accordion-set {
   position: relative;
-
+  clear: both;
   &:before {
     content: url('../images/arrow-down.png');
     cursor: pointer;
     left: 0;
     position: absolute;
-    top: 0;
+    top: 20px;
     .transform(rotate(180deg));
   }
   &.collapsed {
     padding-bottom: 24px;
+    display: inline-block;
+    width: 100%;
     &:before {
       .transform(rotate(0deg));
     }
+  }
+
+  .panel-collapse {
+    clear: both;
+  }
+  .image-accordion {
+    float:left;
+    padding-right: 20px;
+    padding-left: 40px
   }
 }
 
@@ -968,8 +980,8 @@ header.container {
   cursor: pointer;
   font-size: 16px;
   font-weight: bold;
-  margin: 1.3em 0 0;
-  padding: 0 0 0 48px;
+  margin: 0;
+  padding: 15px 0 0 48px;
 }
 .accordion-subtitle {
   padding-left: 48px;
