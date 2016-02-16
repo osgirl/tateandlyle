@@ -5,7 +5,6 @@
   // Unwrap html tags.
   Drupal.behaviors.overrideHTML = {
     attach: function (context, settings) {    
-
       $(".products .tout-container").click(function() {
         window.location = $(this).find("a").attr("href"); 
         return false;
@@ -16,29 +15,46 @@
         return false;
       });
 
-      if($('.is-form').length) {
-        $height_form = $('.field--name-field-form')[0].getBoundingClientRect().height + $('.field--name-field-form-header')[0].getBoundingClientRect().height;
-        $height_form_2 = $height_form - $('.field--name-field-form-header').innerHeight();
-        $('.field--name-field-form').css('height', $height_form_2);
-        $('.field--name-field-main-content').css('height', $height_form);
+     if($('.is-form').length) {
+        if($('.field--name-field-form').length) {
+          $height_form = $('.field--name-field-form')[0].getBoundingClientRect().height + $('.field--name-field-form-header')[0].getBoundingClientRect().height;
+          $height_form_2 = $height_form - $('.field--name-field-form-header').innerHeight();
+          $('.field--name-field-form').css('height', $height_form_2);
+          $('.field--name-field-main-content').css('height', $height_form);
+        }
+        else {
+          $height_form = $('.field--name-field-main-content')[0].getBoundingClientRect().height;
+          $('.field--name-field-form-header').css('height', $height_form);
+        }
       }
       // Resize window
-       $(window).resize(function(){
+       $(window).resize(function() {
          if($('.is-form').length) {
-        $height_form = $('.field--name-field-form')[0].getBoundingClientRect().height + $('.field--name-field-form-header')[0].getBoundingClientRect().height;
-        $height_form_2 = $height_form - $('.field--name-field-form-header').innerHeight();
-        $('.field--name-field-form').css('height', $height_form_2);
-           $('.field--name-field-main-content').css('height', $height_form )
-         }
+          if($('.field--name-field-form').length) {
+            $height_form = $('.field--name-field-form')[0].getBoundingClientRect().height + $('.field--name-field-form-header')[0].getBoundingClientRect().height;
+            $height_form_2 = $height_form - $('.field--name-field-form-header').innerHeight();
+            $('.field--name-field-form').css('height', $height_form_2);
+            $('.field--name-field-main-content').css('height', $height_form )
+          }
+          else {
+            if($(window).width() > 1006) {
+              $height_form = $('.field--name-field-main-content')[0].getBoundingClientRect().height;
+              $('.field--name-field-form-header').css('height', $height_form);
+            } else {
+              $('.field--name-field-form-header').css('height', '');
+            }
+          }
+        }
       })
-
+       
       $('.field--name-field-title, h1, h2, h3, a, p ').each(function(i, elem) {
-            $(elem).html(function(i, html) {
-                return html.replace('®', "<sup>&reg;</sup>");
-            });
+        $(elem).html(function(i, html) {
+            return html.replace('®', "<sup>&reg;</sup>");
         });
+      });
     }
   };
+
 
   //Modal video
   Drupal.behaviors.modalVideo = {
@@ -105,8 +121,13 @@
   Drupal.behaviors.chosen = {
     attach: function (context, settings) {
       $('.field--name-field-primary-application select, .field--name-field-interests select').chosen({
+        disable_search: true,
         placeholder_text_multiple: "(Select up to 3)",
         max_selected_options: 3,
+      });
+
+      $('#edit-field-country-list').chosen({
+        disable_search: false,
       });
 
       $('select').chosen({

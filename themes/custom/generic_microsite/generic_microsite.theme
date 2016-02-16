@@ -334,6 +334,26 @@ function generic_microsite_preprocess_breadcrumb(&$variables) {
   unset($variables['breadcrumb']['custom']);
 }
 
+
+function generic_microsite_preprocess_menu(&$variables) {
+  if($variables['menu_name'] == 'main') {
+    foreach ($variables['items'] as $key => $item) {
+      if ($item['in_active_trail'] == TRUE) {
+        $additional_class = '';
+        foreach ($item['below'] as $key => $sub_item) {
+          if ($sub_item['in_active_trail'] == TRUE) {
+            $sub_item['attributes']->addClass('active');
+            $additional_class = ' has-child-active';
+          }
+        }
+        $classes = 'active'.$additional_class;
+        $item['attributes']->addClass($classes);
+      }
+    }
+  }
+}
+
+
 /**
  * Implements template_preprocess_block().
  */

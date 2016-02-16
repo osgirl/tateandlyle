@@ -212,16 +212,19 @@
 
   Drupal.behaviors.chosen = {
     attach: function (context, settings) {
-      $('.pre-header .field--name-field-primary-application select').chosen({
-        placeholder_text_multiple: "(Select up to 3)"
+      $('.field--name-field-primary-application select, .field--name-field-interests select').chosen({
+        disable_search: true,
+        placeholder_text_multiple: "(Select up to 3)",
+        max_selected_options: 3,
       });
 
-      $('.pre-header select').chosen({
+      $('#edit-field-country-list').chosen({
+        disable_search: false,
+      });
+
+      $('select').chosen({
         disable_search: true,
       });
-
-      // Add empty option value
-      //$(".chosen-container-single ul").prepend("<li class='active-result result-selected' data-option-array-index="0"></li>");
     }
   }
 

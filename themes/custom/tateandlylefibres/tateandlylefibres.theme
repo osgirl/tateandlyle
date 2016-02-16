@@ -58,6 +58,18 @@ function tateandlylefibres_preprocess_page(&$variables) {
 }
 
 function tateandlylefibres_preprocess_field(&$variables) {
+  if ($variables['field_name'] == 'field_accordion_item') { 
+    $variables['attributes']['id'][]='accordion';
+    foreach ($variables['items'] as $key => $item) {
+      $image = $item['content']['#field_collection_item']->get('field_image')->getValue();
+      if(isset($image['0'])) {
+        $file_id = $image['0']['target_id'];
+        $file = File::load($file_id);
+        $variables['accordeon_image'][$file_id] = ImageStyle::load('accordion_image')->buildUrl($file->getFileUri());
+      }
+    }
+  }
+  
   if ($variables['field_name'] == 'field_touts') { 
     foreach ($variables['items'] as $key => $item) {
       $paragraph = $item['content']['#paragraph']->toArray();
