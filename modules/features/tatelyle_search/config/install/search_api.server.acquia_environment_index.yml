@@ -3,15 +3,15 @@ status: true
 dependencies:
   module:
     - acquia_search_multi_subs
-id: acquia_env_specific
-name: 'Acquia env specific'
+id: acquia_environment_index
+name: 'Acquia Environment Index'
 description: ''
 backend: search_api_solr_acquia_multi_subs
 backend_config:
   scheme: http
   host: euwest1-c7.acquia-search.com
   port: 80
-  path: /solr/
+  path: /solr/CMQY-94994
   http:
     http_user: ''
     http_pass: ''
@@ -24,8 +24,8 @@ backend_config:
     http_method: AUTO
     site_hash: 1
   acquia_override_subscription:
-    acquia_override_auto_switch: 1
-    acquia_override_selector: CMQY-94994.dev.tatelyle
+    acquia_override_auto_switch: 0
+    acquia_override_selector: CMQY-94994.test.tatelyle
     acquia_override_subscription_id: ''
     acquia_override_subscription_key: ''
     acquia_override_subscription_corename: ''

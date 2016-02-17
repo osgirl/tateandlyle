@@ -1,0 +1,6 @@
+name: 'T&L Search'
+type: module
+core: 8.x
+dependencies:
+  - acquia_search
+  - system
