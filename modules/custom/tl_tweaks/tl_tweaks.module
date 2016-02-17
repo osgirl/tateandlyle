@@ -46,8 +46,8 @@ function tl_tweaks_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form
         $url = Url::fromUserInput('/');
         $form['actions']['submit']['#suffix'] = "<span class='cancel_button'>" . \Drupal::l(t('Cancel'), $url) . "</span>";
         unset($form['actions']['preview']);
-        if (!empty(theme_get_setting($key, 'generic_microsite'))) {
-          $form['actions']['submit']['#value'] = theme_get_setting($key, 'generic_microsite');
+        if (!empty(\Drupal::configFactory()->get('tl_tweaks.settings')->get($key))) {
+          $form['actions']['submit']['#value'] = \Drupal::configFactory()->get('tl_tweaks.settings')->get($key);
         }
         if (isset($_GET['sub'])) {
           if (isset($form['field_message'])) {
