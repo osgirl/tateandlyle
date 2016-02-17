@@ -244,7 +244,6 @@ body {
   #search-block-form {
     .form-control {
       font-size: 11px;
-      line-height: normal;
     }
   }
   &.medium-text {
@@ -414,7 +413,7 @@ body,
   position: relative;
   left: 0;
   z-index: 99;
-  height: 100%;
+  height: auto;
   -webkit-transition: -webkit-transform 0.5s;
   transition: transform 0.5s;
 }
@@ -589,6 +588,9 @@ body,
     @media (min-width: @screen-sm) {
       display: block;
     }
+  }
+  li {
+    float: left;
   }
   li.dropdown:active,
   li.dropdown:focus,
@@ -1051,6 +1053,11 @@ body:not(.path-frontpage) {
         min-width: 100%;
         li a {
           padding-left: 10px;
+        }
+        .dropdown-menu {
+          li a {
+            padding-left: 20px;
+          }
         }
         a {
           color: #7D6A57;
@@ -1673,7 +1680,8 @@ body {
   }
 }
 
-.carousel-control {
+.carousel-control,
+.carousel-control:focus {
   opacity: 0;
 }
 
@@ -1686,6 +1694,38 @@ body {
   }
 }
 
+/* Carousel fade */
+.carousel-fade {
+  .carousel-inner {
+   .item {
+     transition-property: opacity;
+   }
+
+   .item,
+   .active.left,
+   .active.right {
+     opacity: 0;
+   }
+
+   .active,
+   .next.left,
+   .prev.right {
+     opacity: 1;
+   }
+
+   .next,
+   .prev,
+   .active.left,
+   .active.right {
+     left: 0;
+     transform: translate3d(0, 0, 0);
+   }
+  }
+
+  .carousel-control {
+   z-index: 2;
+  }
+}
 
 .carousel-inner>.item>a>img,
 .carousel-inner>.item>img,
@@ -2586,7 +2626,8 @@ body {
   }
 }
 
-.sucralose {
+.sucralose,
+.splenda---sucralose {
   header {
     .horizontal-gradient (@startColor: #FFE501, @endColor: #FFF);
   }
@@ -2597,6 +2638,36 @@ body {
     }
     .navbar-brand {
       padding-left:0;
+    }
+  }
+  .header-right {
+    padding-top: 8px;
+  }
+}
+
+:lang(en) {
+  .sucralose,
+  .splenda---sucralose {
+    &.tl-no-sidebars.path-frontpage {
+      .field--name-field-touts {
+        .field--item {
+          &:nth-child(2),
+          &:nth-child(3),
+          &:nth-child(4) {
+            li {
+              background: none;
+              padding: 0;
+              a {
+                background-color: #B9B3AC;
+                color: #FFF;
+                display: inline-block;
+                padding: 8px 30px 8px 10px;
+                text-transform: uppercase;
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
