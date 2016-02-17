@@ -1,0 +1,64 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - search_api.server.acquia_environment_index
+  module:
+    - search_api
+    - node
+id: tate_lyle_content_index
+name: 'Tate Lyle content index'
+description: ''
+read_only: false
+field_settings:
+  search_api_language:
+    label: 'Item language'
+    datasource_id: null
+    property_path: search_api_language
+    type: string
+    indexed_locked: true
+    type_locked: true
+  rendered_item:
+    label: 'Rendered HTML output'
+    datasource_id: null
+    property_path: rendered_item
+    type: text
+    indexed_locked: true
+processor_settings:
+  add_url:
+    plugin_id: add_url
+    settings:
+      weights:
+        preprocess_index: -30
+  language:
+    plugin_id: language
+    settings:
+      weights:
+        preprocess_index: -30
+  rendered_item:
+    plugin_id: rendered_item
+    settings:
+      roles:
+        anonymous: anonymous
+      view_mode:
+        'entity:node':
+          form: teaser
+          media_item: teaser
+          page: teaser
+      weights:
+        preprocess_index: -10
+options:
+  index_directly: true
+  cron_limit: 50
+datasource_settings:
+  'entity:node':
+    plugin_id: 'entity:node'
+    settings:
+      languages: {  }
+      default: '1'
+      bundles: {  }
+tracker_settings:
+  default:
+    plugin_id: default
+    settings: {  }
+server: acquia_environment_index
