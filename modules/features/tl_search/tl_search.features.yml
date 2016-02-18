@@ -1,4 +1,0 @@
-required:
-  - search_api.index.acquia_environment_index
-  - search_api.server.acquia_env_specific
-  - views.view.tate_lyle_search
