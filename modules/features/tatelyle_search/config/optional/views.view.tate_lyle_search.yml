@@ -5,6 +5,8 @@ dependencies:
     - search_api.index.tate_lyle_content_index
   module:
     - search_api
+_core:
+  default_config_hash: G_rJcTc-YHAZdsinH_Dw6aj4zeeNt713VRXkMwCrhIw
 id: tate_lyle_search
 label: 'Tate & Lyle Search'
 module: views
@@ -142,11 +144,11 @@ display:
           exposed: true
           expose:
             operator_id: search_api_fulltext_op
-            label: 'Fulltext search'
+            label: Search
             description: ''
             use_operator: false
             operator: search_api_fulltext_op
-            identifier: search
+            identifier: keyword
             required: false
             remember: false
             multiple: false
@@ -172,6 +174,45 @@ display:
           min_length: null
           fields: {  }
           plugin_id: search_api_fulltext
+        search_api_language:
+          id: search_api_language
+          table: search_api_index_tate_lyle_content_index
+          field: search_api_language
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value:
+            content: content
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          plugin_id: search_api_language
       sorts: {  }
       title: 'Tate & Lyle Search'
       header: {  }
