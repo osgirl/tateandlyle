@@ -147,4 +147,22 @@
     }
   }
 
+  Drupal.behaviors.mailTo = {
+    attach: function (context, settings) {
+      $('.utility-navigation .email a').on('click', function(e) {
+        var pageTitle = document.title;
+        var pageURL = location.href;
+        
+        pageTitle = encodeURIComponent(pageTitle);
+        pageURL = encodeURIComponent(pageURL);
+        
+        mail_str = "mailto:?subject= " + pageTitle;
+        mail_str += "&body=Have a look at the " + pageTitle + " page : " + pageURL;
+
+        e.preventDefault();
+        location.href = mail_str;
+      });
+    }
+  }
+
 })(jQuery);

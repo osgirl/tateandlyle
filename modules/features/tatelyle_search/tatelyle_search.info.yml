@@ -1,0 +1,11 @@
+name: 'T&L Search'
+type: module
+core: 8.x
+dependencies:
+  - acquia_search
+  - acquia_search_multi_subs
+  - node
+  - search_api
+  - system
+  - tatelyle_search
+  - views

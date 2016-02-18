@@ -92,7 +92,7 @@ projects:
     version: "1.0-alpha2"
   pathauto:
     type: module
-    version: "1.0-alpha1"
+    version: "1.x-dev"
   bootstrap:
     type: theme
     version: "3.0-beta2"

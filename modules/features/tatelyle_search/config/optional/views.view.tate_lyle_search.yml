@@ -2,15 +2,15 @@ langcode: en
 status: true
 dependencies:
   config:
-    - search_api.index.test
+    - search_api.index.tate_lyle_content_index
   module:
     - search_api
 id: tate_lyle_search
-label: 'Tate & Lyle search'
+label: 'Tate & Lyle Search'
 module: views
 description: ''
 tag: ''
-base_table: search_api_index_test
+base_table: search_api_index_tate_lyle_content_index
 base_field: search_api_id
 core: 8.x
 display:
@@ -73,11 +73,65 @@ display:
               form: teaser
               media_item: teaser
               page: teaser
-      fields: {  }
+      fields:
+        search_api_language:
+          table: search_api_index_tate_lyle_content_index
+          field: search_api_language
+          id: search_api_language
+          entity_type: null
+          entity_field: null
+          plugin_id: search_api
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          link_to_item: false
+          multi_type: separator
+          multi_separator: ', '
       filters:
         search_api_fulltext:
           id: search_api_fulltext
-          table: search_api_index_test
+          table: search_api_index_tate_lyle_content_index
           field: search_api_fulltext
           relationship: none
           group_type: group
@@ -92,7 +146,7 @@ display:
             description: ''
             use_operator: false
             operator: search_api_fulltext_op
-            identifier: search_api_fulltext
+            identifier: search
             required: false
             remember: false
             multiple: false
@@ -116,11 +170,10 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           min_length: null
-          fields:
-            rendered_item: rendered_item
+          fields: {  }
           plugin_id: search_api_fulltext
       sorts: {  }
-      title: 'Tate & Lyle search'
+      title: 'Tate & Lyle Search'
       header: {  }
       footer: {  }
       empty: {  }

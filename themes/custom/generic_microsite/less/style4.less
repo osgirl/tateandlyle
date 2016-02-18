@@ -1,25 +1,25 @@
 // Base-theme overrides.
 @import 'variable-overrides.less';
 
-h1, h2, h3, h4,
+ h1, h2, h3, h4,
 .field--name-field-touts .field--name-field-title,
 .navbar-brand,
-.navbar-header .navbar-nav a.is-active, a:active, a:focus, a:hover,
+a.is-active, a:active, a:focus, a:hover,
 #accordion .accordion-set.collapsed:hover .accordion-title,
 #accordion .accordion-set .accordion-title,
 .paragraph--type--accordion a:hover, .paragraph--type--accordion .field--name-field-title, .field--name-field-title-tab,
 aside .menu.nav a:hover,
 .paragraph--type--tabs .nav-tabs li.active > a:hover,
 .search-block-form:before,
-.language-switcher-language-url:before,
+.language-switcher-language-url:before, 
 aside .menu.nav .dropdown-menu li a.is-active,
 aside .menu li a.is-active,
 .navbar-default.container .menu li.active a,
-.menu li.active a,
-.menu li.active.has-child-active li.active a,
-.menu li.active.has-child-active li a:hover { 
+.region-sidebar-first .menu li.active > a,
+.region-sidebar-first .menu .has-child-active .menu li.active > a {
   color: @green-light;
 }
+
 .navbar-nav.nav {
   li a:hover, li a:focus  {
     color: @green-light;
