@@ -1,4 +1,15 @@
 (function($) {
+    // Override HTML
+  Drupal.behaviors.overrideHTML = {
+    attach: function (context, settings) {
+      $('footer, .field--name-field-title, h1, h2, h3, a, p ').each(function(i, elem) {
+        $(elem).html(function(i, html) {
+            return html.replace('®', "<sup>&reg;</sup>");
+        });
+      });
+    }
+  }
+
   // Show language block on click.
   Drupal.behaviors.headerMobile = {
     attach: function (context, settings) {

@@ -9,3 +9,4 @@ dependencies:
   - system
   - tatelyle_search
   - views
+version: 8.x

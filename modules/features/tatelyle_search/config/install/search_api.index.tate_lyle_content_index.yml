@@ -26,6 +26,11 @@ field_settings:
     property_path: rendered_item
     type: text
     indexed_locked: true
+  langcode:
+    label: Language
+    datasource_id: 'entity:node'
+    property_path: langcode
+    type: string
 processor_settings:
   add_url:
     plugin_id: add_url

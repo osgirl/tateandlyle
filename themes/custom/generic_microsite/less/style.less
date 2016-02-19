@@ -20,6 +20,10 @@ body {
   color:#4d4d4f;
 }
 
+img {
+  max-width: 100%;
+}
+
 a {
   color: #7D6A57;
 }
@@ -39,6 +43,14 @@ h6 {
 
 .navbar {
   min-height: 0;
+}
+
+table.tout {
+  td {
+    border: 0;
+    vertical-align: top;
+    width: 50%;
+  }
 }
 
 /* Header */
@@ -1818,6 +1830,9 @@ body {
             outline:none;
           }
         }
+        .paragraph--type--text {
+          max-width: 480px;
+        }
         .paragraph--type--image .field--name-field-image {
           margin:0;
         }
@@ -1975,7 +1990,7 @@ body {
         clear:both;
       }
       .accordion-content {
-        font-size:0.85em;
+        font-size: 12px;
         padding-right:10px;
         padding-top:10px;
         ul {

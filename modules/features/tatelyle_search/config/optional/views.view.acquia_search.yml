@@ -3,7 +3,6 @@ status: false
 dependencies:
   config:
     - search_api.index.acquia_search_index
-    - system.menu.main
   module:
     - search_api
 _core:
@@ -227,9 +226,10 @@ display:
       display_extenders: {  }
       path: search
       menu:
-        type: normal
+        type: none
         title: Search
         description: ''
+        expanded: false
         parent: ''
         weight: 0
         context: '0'
