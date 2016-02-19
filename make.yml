@@ -16,6 +16,11 @@ projects:
   acquia_connector:
     type: module
     version: "1.0"
+    patch:
+      # Fix the default search index - https://www.drupal.org/node/2665710.
+      - "https://www.drupal.org/files/issues/fix_acquia_search-2665710-3.patch"
+      # Fix a deprecation warning for search.
+      - "https://www.drupal.org/files/issues/2660402-plugin-deprecated.patch"
   contact_storage:
     type: module
     version: "1.0-beta2"
@@ -35,7 +40,12 @@ projects:
     version: "2.0-rc1"
   features:
     type: module
-    version: ~
+    download:
+      type: git
+      url: "https://git.drupal.org/project/features.git"
+      revision: "b226b1ef0918d18e0f3ddab2408c56dda44f6c0d"
+    patch:
+      - "https://www.drupal.org/files/issues/features-missing-2624542-7.patch"
   field_formatter_class:
     type: module
     version: 1.0-rc2
@@ -114,6 +124,9 @@ projects:
   externalauth:
     type: module
     version: "1.0-alpha3"
+  menu_link_attributes:
+    type: module
+    version: 1.0-beta1
   colorbutton:
     type: module
     download:

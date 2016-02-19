@@ -1,4 +1,23 @@
+function centerModal() {
+  jQuery(this).css('display', 'block');
+  var $dialog = jQuery(this).find(".modal-dialog");
+  var offset = (jQuery(window).height() - $dialog.height()) / 2;
+  // Center modal vertically in window
+  $dialog.css("margin-top", offset);
+}
+
 (function($) {
+    // Override HTML
+  Drupal.behaviors.overrideHTML = {
+    attach: function (context, settings) {
+      $('body :not(script)').contents().filter(function() {
+          return this.nodeType === 3;
+      }).replaceWith(function() {
+          return this.nodeValue.replace(/[™®©]/g, '<sup>$&</sup>');
+      });
+    }
+  }
+
   // Show language block on click.
   Drupal.behaviors.headerMobile = {
     attach: function (context, settings) {
@@ -76,6 +95,16 @@
   Drupal.behaviors.disableDropdowntoggle = {
     attach: function (context, settings) {
       $('a.dropdown-toggle').addClass('disabled');
+    }
+  }
+
+  // Modal style.
+  Drupal.behaviors.modalstyle = {
+    attach: function (context, settings) {
+      $('.modal').on('show.bs.modal', centerModal);
+      $(window).on("resize", function () {
+        $('.modal:visible').each(centerModal);
+      });
     }
   }
 
