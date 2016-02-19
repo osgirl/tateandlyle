@@ -111,36 +111,35 @@ function tateandlylefibres_preprocess_field(&$variables) {
     unset($variables['items'][0]['content']['#plain_text']);
     $variables['items'][0]['content']['#suffix'] = drupal_render($form);
   }
-
-/*  if ($variables['field_name'] == 'field_title') {
-    if($variables['items'][0]) {
-      $title = $variables['items'][0]['content']['#context']['value'];
-      if(preg_match('/®/', $title)) {
-        $title_array = split('®', $title);
-        $sup = '®';
-        $title = $title_array[0].'<sup>®</sup>'.$title_array[1];
-        $newstr = filter_var($title, FILTER_SANITIZE_STRING);
-        $variables['items'][0]['content']['#context']['value'] = $newstr; 
-      }
-      dpm($variables['items'][0]['content']);
-      
-    }
-  }*/
 }
 
 function tateandlylefibres_preprocess_paragraph(&$variables) {
-  if ($variables['paragraph']->getType() == 'video') {
+  if ($variables['paragraph']->getType() == 'video') {  
+    /*Is front page*/
+    $is_front = \Drupal::service('path.matcher')->isFrontPage();
+    $variables['is_front'] = $is_front;
+    /*Load video url and image*/
     $video = $variables['paragraph']->get('field_video_url')->getValue();
+    $video_image = $variables['paragraph']->get('field_video_image')->getValue();
+    /*Check if video url exist*/
     if($video[0]) {
       $video_id = $video[0]['video_id'];
       $video_url = "http://youtube.com/embed/" . $video_id;
       $variables['video_url'] = $video_url;
+    }
+    /*Check if video image exist*/
+    if($video_image[0]) {
+      $file_id = $video_image[0]['target_id'];
+      $file = File::load($file_id);
+      $variables['video_image'] = ImageStyle::load('original')->buildUrl($file->getFileUri());
     }  
   }
   if ($variables['paragraph']->getType() == 'tout') { 
     if ($variables['content']['field_text'][0]) {
       $text = $variables['content']['field_text'][0]['#text'];
+      /*Unwrap img from field_text*/
       $variables['content']['field_text'][0]['#text'] = preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $text);
+
     }
   }
 }
