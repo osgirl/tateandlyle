@@ -2,10 +2,10 @@
     // Override HTML
   Drupal.behaviors.overrideHTML = {
     attach: function (context, settings) {
-      $('footer, .field--name-field-title, h1, h2, h3, a, p ').each(function(i, elem) {
-        $(elem).html(function(i, html) {
-            return html.replace('®', "<sup>&reg;</sup>");
-        });
+      $('body :not(script)').contents().filter(function() {
+          return this.nodeType === 3;
+      }).replaceWith(function() {
+          return this.nodeValue.replace(/[™®©]/g, '<sup>$&</sup>');
       });
     }
   }
