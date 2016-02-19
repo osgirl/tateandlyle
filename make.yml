@@ -121,6 +121,9 @@ projects:
   externalauth:
     type: module
     version: "1.0-alpha3"
+  menu_link_attributes:
+    type: module
+    version: 1.0-beta1
   colorbutton:
     type: module
     download:
