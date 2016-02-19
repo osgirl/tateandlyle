@@ -1,0 +1,54 @@
+# Schema for the configuration files of the tl_tweaks module.
+
+tl_tweaks.settings:
+  type: mapping
+  label: 'T&L Tweaks Settings'
+  mapping:
+    asia_pacific_:
+      type: label
+      label: 'Asia Pacific Form Submit'
+      translatable: true
+    confirmation:
+      type: label
+      label: 'Confirmation Form Submit'
+      translatable: true
+    contact_us:
+      type: label
+      label: 'Contact us Form Submit'
+      translatable: true
+    europe_middle_east_africa:
+      type: label
+      label: 'Europe, Middle East, Africa Form Submit'
+      translatable: true
+    file_access:
+      type: label
+      label: 'File access Form Submit'
+      translatable: true
+    global_transportation_vendors:
+      type: label
+      label: 'Global transportation vendors Form Submit'
+      translatable: true
+    innovation_submission:
+      type: label
+      label: 'Innovation submission Form Submit'
+      translatable: true
+    latin_america:
+      type: label
+      label: 'Latin America Form Submit'
+      translatable: true
+    marketing:
+      type: label
+      label: 'Marketing Form Submit'
+      translatable: true
+    new_supplier_submission_form:
+      type: label
+      label: 'New supplier submission form Form Submit'
+      translatable: true
+    north_america:
+      type: label
+      label: 'North America Form Submit'
+      translatable: true
+    technical_data_sheets:
+      type: label
+      label: 'Technical data sheets Form Submit'
+      translatable: true

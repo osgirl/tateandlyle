@@ -46,8 +46,8 @@ function tl_tweaks_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form
         $url = Url::fromUserInput('/');
         $form['actions']['submit']['#suffix'] = "<span class='cancel_button'>" . \Drupal::l(t('Cancel'), $url) . "</span>";
         unset($form['actions']['preview']);
-        if (!empty(theme_get_setting($key, 'generic_microsite'))) {
-          $form['actions']['submit']['#value'] = theme_get_setting($key, 'generic_microsite');
+        if (!empty(\Drupal::config('tl_tweaks.settings')->get($key))) {
+          $form['actions']['submit']['#value'] = \Drupal::config('tl_tweaks.settings')->get($key);
         }
         if (isset($_GET['sub'])) {
           if (isset($form['field_message'])) {
@@ -96,5 +96,15 @@ function tl_tweaks_page_attachments(array &$attachments) {
         }
       }
     }
+  }
+}
+
+/**
+ * Implements hook_system_breadcrumb_alter().
+ */
+function tl_tweaks_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &$breadcrumb, \Drupal\Core\Routing\RouteMatchInterface $route_match, array $context) {
+  $is_front = \Drupal::service('path.matcher')->isFrontPage();
+  if (($is_front) && (\Drupal::request()->getRequestUri() == "/")) {
+    $breadcrumb->addLink(Link::createFromRoute("", '<none>'));
   }
 }
