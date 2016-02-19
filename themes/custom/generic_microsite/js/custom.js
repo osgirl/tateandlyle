@@ -1,4 +1,15 @@
 (function($) {
+    // Override HTML
+  Drupal.behaviors.overrideHTML = {
+    attach: function (context, settings) {
+      $('body :not(script)').contents().filter(function() {
+          return this.nodeType === 3;
+      }).replaceWith(function() {
+          return this.nodeValue.replace(/[™®©]/g, '<sup>$&</sup>');
+      });
+    }
+  }
+
   // Show language block on click.
   Drupal.behaviors.headerMobile = {
     attach: function (context, settings) {

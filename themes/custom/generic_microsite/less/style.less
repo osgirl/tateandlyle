@@ -20,6 +20,10 @@ body {
   color:#4d4d4f;
 }
 
+img {
+  max-width: 100%;
+}
+
 a {
   color: #7D6A57;
 }
@@ -39,6 +43,14 @@ h6 {
 
 .navbar {
   min-height: 0;
+}
+
+table.tout {
+  td {
+    border: 0;
+    vertical-align: top;
+    width: 50%;
+  }
 }
 
 /* Header */
@@ -271,7 +283,7 @@ body {
       height: 19px;
       margin: 0 0 0;
       padding: 0 0 0 5px;
-      width: 145px;
+      width: 146px;
     }
     &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
       color: #000;
@@ -288,10 +300,10 @@ body {
   }
   button.btn {
     @media (min-width: @screen-sm) {
-      font-size:12px;
+      font-size: 11px;
       height: 19px;
-      padding:3px 5px;
-      width: 20px;
+      padding: 3px 4px;
+      width: 19px;
     }
   }
 }
@@ -638,7 +650,7 @@ body,
     background-image: url(../images/menu.gif);
     background-position: bottom;
     background-repeat: repeat-x;
-    padding: 15px 0 12px;
+    padding: 5px 0 10px;
     margin-bottom: 5px;
     width: 100%;
     li:first-child a{
@@ -657,8 +669,7 @@ body,
       color: #7D6A57;
       font-weight: bold;
       line-height: 14px;
-      padding-bottom: 0px;
-      padding-top: 0;
+      padding: 0 15px 0 9px;
     }
   }
 }
@@ -837,7 +848,7 @@ body {
             height: 100%;
             width: 6px;
             background-repeat: repeat-y;
-            right: -15px;
+            right: -14px;
           }
           &:last-child {
             background-image: none;
@@ -1818,6 +1829,9 @@ body {
             outline:none;
           }
         }
+        .paragraph--type--text {
+          max-width: 480px;
+        }
         .paragraph--type--image .field--name-field-image {
           margin:0;
         }
@@ -1975,7 +1989,7 @@ body {
         clear:both;
       }
       .accordion-content {
-        font-size:0.85em;
+        font-size: 12px;
         padding-right:10px;
         padding-top:10px;
         ul {
@@ -2232,7 +2246,7 @@ body {
         }
       }
     }
-    & > div:nth-child(3) {
+    & > div:nth-child(2) {
       padding-bottom: 40px;
       position: relative;
       &:after {
@@ -2245,7 +2259,7 @@ body {
         width: 100%;
       }
     }
-    & > div:nth-child(4) {
+    & > div:nth-child(3) {
       .paragraph--type--text {
         padding-left: 15px;
         @media(min-width: @screen-xs-min) {
@@ -2347,14 +2361,14 @@ body {
     li:first-child a {
       border-left: none;
       @media(min-width: @screen-sm-min) { 
-      padding: 0 5px 0 0;
+        padding: 0 4px 0 0;
       }
     }
     a {
       padding: 0;
       @media(min-width: @screen-sm-min) {
         border-left: 1px solid #7D6A57;
-        padding: 0 5px;
+        padding: 0 4px;
       }
       line-height: 8px;
       &:focus,
@@ -2580,6 +2594,12 @@ body {
       padding-top: 35px;
     }
   }
+  .logo {
+    margin-top: 25px;
+  }
+  .st-pusher {
+    background-size: 100% !important;
+  }
 }
 
 .open-innovation, .global-industrial-starches, .food-and-nutrition-science-centre, .tateandlyle_china {
@@ -2744,6 +2764,9 @@ body {
       padding-left:0;
     }
   }
+  .logo {
+    margin-top: 15px;
+  }
 }
 
 /* Overrides */
@@ -2759,10 +2782,6 @@ body {
     }
   }
   &.path-frontpage {
-    .region-content {
-      margin:0 auto;
-      width:50%;
-    }
     h2 {
      border-bottom: 1px solid #dcd9d6; 
      margin-bottom:8px;
