@@ -41,6 +41,8 @@ projects:
   features:
     type: module
     version: ~
+    patch:
+      - "https://www.drupal.org/files/issues/features-missing-2624542-7.patch"
   field_formatter_class:
     type: module
     version: 1.0-rc2
