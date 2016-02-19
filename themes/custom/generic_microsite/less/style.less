@@ -1797,15 +1797,22 @@ body {
 }
 .paragraph--type--tout {
   .modal.fade {
+    text-align: center;
     .modal-dialog {
       margin: 0 auto;
-      max-width: 780px;
+      max-width: initial;
+      transform:none;
+      position: relative;
       width: auto;
+      display: inline-block;
+      text-align: center;
       .modal-content {
+        display: inline-block;
         background-color: #FFF;
         border-bottom: 30px solid #5C5C5C;
         border-top: 30px solid #5C5C5C;
         padding: 20px;
+        text-align: left;
         h1:first-child,
         h2:first-child,
         h3:first-child,
@@ -1844,6 +1851,7 @@ body {
         }
         img {
           padding-bottom: 0;
+          max-height: 87vh;
         }
       }
     }
@@ -1857,14 +1865,6 @@ body {
     transform: none;
     max-width: 1200px;
     width: 100%;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%,-50%);
-    -moz-transform: translate(-50%,-50%);
-    -ms-transform: translate(-50%,-50%);
-    -o-transform: translate(-50%,-50%);
-    transform: translate(-50%,-50%);
-    position: absolute;
     .modal-content {
       border: 0;
       border-radius: 0;
@@ -2505,269 +2505,7 @@ body {
   }
 }
 
-/* Custom sites */
-.clariastarch {
-  header {
-    .horizontal-gradient (@startColor: #4DC0AF, @endColor: #FFF);
-  }
-  .header-left {
-    @media(min-width: @screen-sm-min) {
-      margin: 0;
-      padding-top:10px;
-    }
-  }
-}
 
-.purefruit, .tate---lyle-procurement, .tasteva-sweetner {
- header {
-    .horizontal-gradient (@startColor: #D2E0BB, @endColor: #FFF);
-  }
-  .header-left {
-    @media(min-width: @screen-sm-min) {
-      margin: 0;
-      padding-top: 10px;
-    }
-  }
-}
-
-.tasteva-sweetner {
-  .header-right {
-    padding-top: 15px;
-  }
-  #search-block-form {
-    .form-group {
-      margin-bottom: 10px;
-    }
-  }
-}
-
-.purefruit {
-  table {
-    border-collapse: initial;
-    border-spacing: 3px;
-    border:1px solid #808080;
-    td {
-      border:1px solid #808080;
-    }
-    p {
-      margin-bottom: 0;
-    }
-    tr:nth-child(2n+1) {
-      background-color:#f6f6f6;
-    }
-    tr:first-child {
-      background-color: #ccc;
-    }
-  }
-}
-
-.soda-lo {
-  header {
-    .horizontal-gradient (@startColor: #DEDBD5, @endColor: #FFF);
-  }
-  .header-left {
-    @media(min-width: @screen-sm-min) {
-      margin: 0;
-      margin-top: -18px;
-      padding-top: 0;
-    }
-  }
-  .page-header {
-    border: 0;
-    font-size: 26px;
-  }
-}
-
-.proatein {
-  a {
-    color: #7D6A57;
-  }
-  .header-left {
-    padding-top:20px;
-  }
-}
-
-.avenacare {
-  .header-left {
-    @media(min-width: @screen-sm-min) {
-      margin: 0;
-      padding-top: 35px;
-    }
-  }
-  .logo {
-    margin-top: 25px;
-  }
-  .st-pusher {
-    background-size: 100% !important;
-  }
-}
-
-.open-innovation, .global-industrial-starches, .food-and-nutrition-science-centre, .tateandlyle_china {
-  header {
-    .horizontal-gradient (@startColor: #D6D2DE, @endColor: #FFF);
-  }
-  .header-left {
-    @media(min-width: @screen-sm-min) {
-      margin: 0;
-      padding-top: 55px;
-    }
-    .navbar-brand {
-      padding-left:0;
-    }
-  }
-}
-
-.your-drink-solutions {
-  header {
-    .horizontal-gradient (@startColor: #F6DABD, @endColor: #FFF);
-  }
-  .header-left {
-    @media(min-width: @screen-sm-min) {
-      margin: 0;
-      padding-top: 55px;
-    }
-    .navbar-brand {
-      padding-left:0;
-    }
-  }
-}
-
-.your-food-systems {
-  header {
-    .horizontal-gradient (@startColor: #D6D2DE, @endColor: #FFF);
-  }
-  .header-left {
-    @media(min-width: @screen-sm-min) {
-      margin: 0;
-      padding-top: 55px;
-    }
-    .navbar-brand {
-      padding-left:0;
-    }
-  }
-}
-
-.sucralose,
-.splenda---sucralose {
-  header {
-    .horizontal-gradient (@startColor: #FFE501, @endColor: #FFF);
-  }
-  .header-left {
-    @media(min-width: @screen-sm-min) {
-      margin: 0;
-      padding-top: 20px;
-    }
-    .navbar-brand {
-      padding-left:0;
-    }
-  }
-  .header-right {
-    padding-top: 8px;
-  }
-}
-
-:lang(en) {
-  .sucralose,
-  .splenda---sucralose {
-    &.tl-no-sidebars.path-frontpage {
-      .field--name-field-touts {
-        .field--item {
-          &:nth-child(2),
-          &:nth-child(3),
-          &:nth-child(4) {
-            li {
-              background: none;
-              padding: 0;
-              a {
-                background-color: #B9B3AC;
-                color: #FFF;
-                display: inline-block;
-                padding: 8px 30px 8px 10px;
-                text-transform: uppercase;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
-.global-industrial-starches {
-  table {
-    p {
-      margin-bottom: 0;
-    }
-    border-spacing: 1px;
-    thead tr:first-child {
-      background-color: #948671;
-      color:#fff;
-      text-align: center;
-    }
-    tr {
-      background-color: #e4e1db;
-      td {
-        border:1px solid #fff;
-        padding: 4px;
-      }
-    }
-  }
-}
-
-.food-and-nutrition-science-centre  {
-  .navbar-brand {
-    color:#7373a8;
-  }
-  &.path-frontpage {
-    .field--name-field-touts .field--name-field-title {
-      display: none;
-    }
-    table td {
-      border: 0;
-      &:nth-child(1) {
-        padding-right: 10px;
-      }
-      &:nth-child(2) {
-        padding-left: 10px;
-      }
-    }
-  }
- 
-}
-
-.your-bakery-and-snack-solutions,
-.tate---lyle-japan {
-  header {
-    .horizontal-gradient (@startColor: #DEDBD6, @endColor: #FFF);
-  }
-  .navbar-brand {
-    color: #9C6D2F;
-  }
-  .header-left {
-    @media(min-width: @screen-sm-min) {
-      margin: 0;
-      padding-top: 55px;
-    }
-    .navbar-brand {
-      padding-left:0;
-    }
-  }
-}
-
-.feed-them-better{
-  .header-left {
-    @media(min-width: @screen-sm-min) {
-      margin: 0;
-      padding-top: 22px;
-    }
-    .navbar-brand {
-      padding-left:0;
-    }
-  }
-  .logo {
-    margin-top: 15px;
-  }
-}
 
 /* Overrides */
 .toolbar-tray a:hover, .toolbar-tray a:active, .toolbar-tray a:focus, .toolbar-tray a.is-active {
