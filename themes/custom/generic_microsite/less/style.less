@@ -756,6 +756,7 @@ body {
   @media (min-width: @screen-sm-min) {
     display: inline-block;
     float: right;
+    margin-top: 3px;
   }
 }
 
@@ -2184,19 +2185,26 @@ body {
 
 /* Form landing */
 .form-landing {
-  margin-top: 1.5em;
+  @media(min-width: @screen-sm-min) {
+    margin-top: 3em;
+  }
+  .page-header {
+    border: 0;
+    font-size: 26px;
+    margin-bottom: 13px;
+    padding: 0 20px;
+  }
   .field--name-field-form {
     @media(min-width: @screen-sm-min) {
       float: right;
-      margin-right: 5%;
-      width: 37%;
+      margin-right: 5.2%;
+      width: 36.4%;
     }
   }
   .field--name-field-main-content {
     @media(min-width: @screen-sm-min) {
       float: left;
-      margin-left: 2%;
-      margin-right: 3%;
+      margin-left: 2.25%;
       padding-bottom: 30px;
       width: 53%;
     }
@@ -2214,11 +2222,12 @@ body {
     .paragraph--type--text {
       padding-left: 15px;
       @media(min-width: @screen-xs-min) { 
-        padding-left: 25%;
+        padding-left: 30%;
       }
-      h3, h4 {
+      h2, h3, h4 {
         font-size: 21px;
         font-weight: bold;
+        margin-bottom: 3px;
         margin-top: 0;
       }
       p {
@@ -2308,13 +2317,14 @@ body {
     margin-top: 30px;
     padding: 13px 35px 0 35px;
     @media(min-width: @screen-sm-min) {
-      width: 37%;
+      width: 36.4%;
       float: right;
-      margin-right: 5%;
+      margin-right: 5.2%;
+      margin-top: -3.2em;
     }
-    h3 {
+    h2, h3 {
       color: #4D4D4F;
-      font-size: 26px;
+      font-size: 26.604px;
       font-weight: bold;
     }
     p {
