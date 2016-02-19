@@ -576,6 +576,7 @@ header.container {
 
 .main-container {
   padding: 0;
+  background-color: #fff;
   @media(min-width: @screen-md-min) {
     margin-left: 16.66666667%;
     .full-footer {
@@ -637,7 +638,10 @@ header.container {
       background-position: 0 0;
       background-repeat: no-repeat;
       display: inline-block;
-
+      position: relative;
+      top: 0;
+      left: 0;
+      transform: none;
       vertical-align: middle;
       cursor: pointer;
       width: 60px;
@@ -656,6 +660,7 @@ header.container {
       }
     }
   }
+
   .paragraph--type--video {    
     position: absolute;
     padding: 48px;
@@ -886,9 +891,10 @@ header.container {
     margin: 0 auto;
     width: 94%;
     background-color: #f9ebdb;
+    background-image: none;
     opacity: .9;
-
   }
+
   header.container {
     transform: none;
   }
@@ -1723,6 +1729,35 @@ aside {
 
 
 /*Video modal*/
+.open-video {
+  position: relative;
+}
+.video-button {
+  background-image: url(../images/play-button.png);
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+  width: 60px;
+  height: 55px;
+  background-size: 50px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  &:hover {
+    background-position: 0 -57px;
+    @media(min-width: @screen-xs-min) {
+      background-position: 0 -57px;
+    }
+  }
+
+}
 .modal-backdrop {
   z-index: 0;
 }

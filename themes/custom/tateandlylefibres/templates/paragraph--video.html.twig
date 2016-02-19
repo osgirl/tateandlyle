@@ -46,11 +46,20 @@ view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
 
 {% set paragraph_video = paragraph.field_video_url.value %}
 {% set video_id = paragraph_video[0]['video_id'] %}
+{% if is_front %}
 <div class ="bg"></div>
 <div{{ attributes.addClass(classes) }}>
     {{ content.field_video_text[0]['#text'] | raw }}
     <a data-toggle="modal" data-target="#{{ video_id }}" data-theVideo="{{ video_url }}"><i class = "video-button"></i> {{ 'Watch the video' | t }}</a>
 </div>
+{% else %} 
+<div{{ attributes.addClass(classes) }}>
+    <div class="video-text">
+        {{ content.field_video_text[0]['#text'] | raw }}
+    </div>
+    <a class="open-video" data-toggle="modal" data-target="#{{ video_id }}" data-theVideo="{{ video_url }}"><i class = "video-button"></i><img src ="{{ video_image }}"> </a>
+</div>
+{% endif %}
 <div class="modal fade" id="{{ video_id }}" tabindex="-1" role="dialog" aria-labelledby="videoModal" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
