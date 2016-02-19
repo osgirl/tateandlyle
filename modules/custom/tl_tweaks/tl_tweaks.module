@@ -5,7 +5,6 @@
  */
 
 use Drupal\Core\Url;
-use Drupal\Core\Link;
 
 /**
  * Implements hook_form_alter().
@@ -97,15 +96,5 @@ function tl_tweaks_page_attachments(array &$attachments) {
         }
       }
     }
-  }
-}
-
-/**
- * Implements hook_system_breadcrumb_alter().
- */
-function tl_tweaks_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &$breadcrumb, \Drupal\Core\Routing\RouteMatchInterface $route_match, array $context) {
-  $is_front = \Drupal::service('path.matcher')->isFrontPage();
-  if (($is_front) && (\Drupal::request()->getRequestUri() == "/")) {
-    $breadcrumb->addLink(Link::createFromRoute("", '<none>'));
   }
 }
