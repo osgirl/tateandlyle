@@ -4,10 +4,9 @@ core: 8.x
 dependencies:
   - acquia_search
   - acquia_search_multi_subs
-  - block
   - node
   - search_api
   - system
   - tatelyle_search
   - views
-version: '8,x'
+version: 8.x
