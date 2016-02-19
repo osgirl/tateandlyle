@@ -16,6 +16,11 @@ projects:
   acquia_connector:
     type: module
     version: "1.0"
+    patch:
+      # Fix the default search index - https://www.drupal.org/node/2665710.
+      - "https://www.drupal.org/files/issues/fix_acquia_search-2665710-3.patch"
+      # Fix a deprecation warning for search.
+      - "https://www.drupal.org/files/issues/2660402-plugin-deprecated.patch"
   contact_storage:
     type: module
     version: "1.0-beta2"
