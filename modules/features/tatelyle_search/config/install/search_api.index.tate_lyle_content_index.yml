@@ -42,6 +42,11 @@ processor_settings:
     settings:
       weights:
         preprocess_index: -30
+  node_status:
+    plugin_id: node_status
+    settings:
+      weights:
+        preprocess_index: -10
   rendered_item:
     plugin_id: rendered_item
     settings:

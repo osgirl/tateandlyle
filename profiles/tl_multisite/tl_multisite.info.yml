@@ -66,6 +66,7 @@ dependencies:
   - serialization
   - csv_serialization
   - rest
+  - menu_link_attributes
   # - acquia_search
 themes:
   - generic_microsite
