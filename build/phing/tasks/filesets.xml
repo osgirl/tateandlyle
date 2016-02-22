@@ -11,23 +11,35 @@
     <exclude name="**/vendor/**/*"/>
   </patternset>
 
+  <patternset id="files.frontend">
+    <include name="**/*.css"/>
+    <include name="**/*.js"/>
+    <exclude name="**/vendor/**/*"/>
+    <exclude name="**/node_modules/**/*"/>
+    <exclude name="**/bower/**/*"/>
+  </patternset>
+
   <fileset dir="${repo.root}" id="files.php.all">
     <patternset refid="files.php"/>
   </fileset>
 
-  <fileset dir="${repo.root}/modules/custom" id="files.php.custom.modules">
+  <fileset dir="${docroot}/modules/custom" id="files.php.custom.modules">
     <patternset refid="files.php"/>
   </fileset>
 
-  <fileset dir="${repo.root}/sites/default/settings" id="files.php.custom.settings">
+  <fileset dir="${docroot}/themes/custom" id="files.php.custom.themes">
     <patternset refid="files.php"/>
   </fileset>
 
-  <fileset dir="${repo.root}/tests" id="files.tests" expandsymboliclinks="true">
+  <fileset dir="${docroot}/sites/default/settings" id="files.php.custom.settings" expandsymboliclinks="true">
     <patternset refid="files.php"/>
   </fileset>
 
-  <fileset dir="${repo.root}" id="custom.themes">
-    <include name="themes/custom/**"/>
+  <fileset dir="${repo.root}/tests" id="files.php.tests" expandsymboliclinks="true">
+    <patternset refid="files.php"/>
+  </fileset>
+
+  <fileset dir="${docroot}/themes/custom" id="files.frontend.custom.themes" expandsymboliclinks="true">
+    <patternset refid="files.frontend"/>
   </fileset>
 </project>
