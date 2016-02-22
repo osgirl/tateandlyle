@@ -11,7 +11,6 @@ use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\user\UserStorageInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Drupal\Core\Render\Element\Email;
 use Drupal\Core\Language\LanguageManagerInterface;
 
 
@@ -27,14 +26,14 @@ class TokenLoginForm extends FormBase {
    *
    * @var \Drupal\user\UserStorageInterface
    */
-  protected $user_storage;
+  protected $userStorage;
 
   /**
    * The language manager.
    *
    * @var \Drupal\Core\Language\LanguageManagerInterface
    */
-  protected $language_manager;
+  protected $languageManager;
 
   /**
    * TokenLoginForm object constructor.
@@ -49,6 +48,9 @@ class TokenLoginForm extends FormBase {
     $this->languageManager = $language_manager;
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public static function create(ContainerInterface $container) {
     return new static(
       $container->get('entity.manager')->getStorage('user'),
@@ -122,11 +124,11 @@ class TokenLoginForm extends FormBase {
       }
       $form_state->setRedirect('user.login');
     }
-    else if (!$this->validateEmail($form_state->getValue('mail'))) {
+    elseif (!$this->validateEmail($form_state->getValue('mail'))) {
       $this->logger('user')->notice('Login instructions requested for a non-whitelisted domain: %email',
         array('%email' => $reset_email));
     }
-    else if (empty($account)) {
+    elseif (empty($account)) {
       $this->logger('user')->notice('Login instructions requested for a non-existent account: %email',
         array('%email' => $reset_email));
     }
@@ -135,8 +137,9 @@ class TokenLoginForm extends FormBase {
   /**
    * Checks if a given email address can be used for login.
    *
-   * @param string
-   *   $email Email address to be checked against the whitelist.
+   * @param string $email
+   *   Email address to be checked against the whitelist.
+   *
    * @return bool
    *   Flag indicating if the email domain is part of the whitelist.
    */
@@ -148,7 +151,18 @@ class TokenLoginForm extends FormBase {
     return in_array($domain, $whitelist);
   }
 
-  private function emailNotify($account, $langcode = '') {
+  /**
+   * Helper function to send out the email with the login token.
+   *
+   * @param \Drupal\user\Entity\User $account
+   *   The Drupal user object for the account to send out the email for.
+   * @param string $langcode
+   *   The language code to be used for the email.
+   *
+   * @return mixed
+   *   The email result if the email was build, or NULL.
+   */
+  private function emailNotify(\Drupal\user\Entity\User $account, $langcode = '') {
     $params['account'] = $account;
     $langcode = $langcode ? $langcode : $account->getPreferredLangcode();
     $mail = \Drupal::service('plugin.manager.mail')->mail('token_login', 'login_link', $account->getEmail(), $langcode, $params);

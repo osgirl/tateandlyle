@@ -21,15 +21,15 @@ class RouteSubscriber extends RouteSubscriberBase {
    * {@inheritdoc}
    */
   protected function alterRoutes(RouteCollection $collection) {
-    // Always deny access to '/user/logout'.
-    // Note that the second parameter of setRequirement() is a string.
-
     // Use the password reset form for the login page.
     if ($route = $collection->get('user.login')) {
       $route->addDefaults(array('_form' => '\Drupal\token_login\Form\TokenLoginForm'));
     }
+    // Always deny access to '/user/logout'.
+    // Note that the second parameter of setRequirement() is a string.
     if ($route = $collection->get('user.pass')) {
       $route->setRequirement('_access', 'FALSE');
     }
   }
+
 }
