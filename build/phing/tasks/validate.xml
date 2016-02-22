@@ -15,34 +15,42 @@
   </target>
 
   <!-- Run code sniffer against all custom code. -->
-  <target name="validate:phpcs" description="Runs PHP Code Sniffer against only custom code.">
+  <target name="validate:phpcs" description="Runs PHP Code Sniffer against only custom modules.">
+    <property name="phpcs.ruleset" value="${repo.root}/vendor/drupal/coder/coder_sniffer/Drupal/ruleset.xml"/>
+
+    <!-- Sniff custom modules for drupal coding standards compliance. -->
     <phpcodesniffer
-        standard="${repo.root}/vendor/drupal/coder/coder_sniffer/Drupal/"
-        showSniffs="true"
-        showWarnings="true"
-        haltonerror="true"
-        haltonwarning="true">
+            standard="${phpcs.ruleset}"
+            showSniffs="false"
+            showWarnings="true"
+            haltonerror="true"
+            haltonwarning="true">
       <fileset refid="files.php.custom.modules"/>
       <formatter type="full" usefile="false"/>
     </phpcodesniffer>
 
+    <!-- Sniff JS and CSS in custom themes. -->
     <phpcodesniffer
-        standard="PSR2"
-        showSniffs="true"
-        showWarnings="true"
-        haltonerror="true"
-        haltonwarning="true">
-      <fileset refid="files.tests"/>
+            standard="${phpcs.ruleset}"
+            showSniffs="false"
+            showWarnings="true"
+            haltonerror="true"
+            haltonwarning="true"
+            verbosity="1">
+      <fileset refid="files.frontend.custom.themes"/>
       <formatter type="full" usefile="false"/>
     </phpcodesniffer>
-  </target>
 
-  <!-- Run code complexity and cleanliness checks on custom code. -->
-  <target name="validate:phpmd" description="Runs PHP Mess Detector against only custom code.">
-    <phpmd rulesets="codesize,unusedcode,cleancode">
-      <fileset refid="files.php.custom.modules"/>
-      <formatter type="text" outfile="false" usefile="false"/>
-    </phpmd>
+    <!-- Sniff tests for PSR2 coding standards compliance. -->
+    <phpcodesniffer
+            standard="${phpcs.ruleset}"
+            showSniffs="false"
+            showWarnings="true"
+            haltonerror="true"
+            haltonwarning="true">
+      <fileset refid="files.php.tests"/>
+      <formatter type="full" usefile="false"/>
+    </phpcodesniffer>
   </target>
 
 </project>
