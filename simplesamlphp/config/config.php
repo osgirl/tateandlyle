@@ -767,7 +767,7 @@ $config = array(
 // You can use any database that you have defined in your workflow.
 // Use the database "role" without the stage ("dev", "stage", or "test", etc.)
 $ah_options = array(
-  'database_name' => 'avenacare',
+  'database_name' => 'tatelyle',
   'session_store' => array(
     'prod' => 'memcache',
     'test' => 'memcache',

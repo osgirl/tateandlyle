@@ -1,0 +1,5 @@
+name: Token login
+type: module
+description: Replace the default password based authentication mechanism with one-off login tokens.
+core: 8.x
+package: Other

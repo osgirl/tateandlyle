@@ -1,0 +1,7 @@
+token_login.token_login_configuration:
+  title: 'Token Login Configuration'
+  route_name: token_login.token_login_configuration
+  description: 'Configure the one-time login token authentication.'
+  parent: system.admin_config_system
+  weight: 99
+
