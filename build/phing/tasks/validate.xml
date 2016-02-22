@@ -29,16 +29,6 @@
       <formatter type="full" usefile="false"/>
     </phpcodesniffer>
 
-    <!-- Sniff tests for PSR2 coding standards compliance. -->
-    <phpcodesniffer
-            standard="${phpcs.ruleset}"
-            showSniffs="false"
-            showWarnings="true"
-            haltonerror="true"
-            haltonwarning="true">
-      <fileset refid="files.php.tests"/>
-      <formatter type="full" usefile="false"/>
-    </phpcodesniffer>
   </target>
 
 </project>
