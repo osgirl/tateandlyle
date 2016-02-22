@@ -29,18 +29,6 @@
       <formatter type="full" usefile="false"/>
     </phpcodesniffer>
 
-    <!-- Sniff JS and CSS in custom themes. -->
-    <phpcodesniffer
-            standard="${phpcs.ruleset}"
-            showSniffs="false"
-            showWarnings="true"
-            haltonerror="true"
-            haltonwarning="true"
-            verbosity="1">
-      <fileset refid="files.frontend.custom.themes"/>
-      <formatter type="full" usefile="false"/>
-    </phpcodesniffer>
-
     <!-- Sniff tests for PSR2 coding standards compliance. -->
     <phpcodesniffer
             standard="${phpcs.ruleset}"
