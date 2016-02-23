@@ -85,30 +85,42 @@ function generic_microsite_form_system_theme_settings_alter(&$form, FormStateInt
   );
 
   $languages = \Drupal::languageManager()->getLanguages($flags = 1);
+  $default_language = \Drupal::languageManager()->getDefaultLanguage()->getId();
   foreach ($languages as $language) {
-    $fid = theme_get_setting('logo_image_' . $language->getId());
-    if ($fid) {
-      $file = File::load($fid);
-      if ($file) {
-        $file_uri = $file->getFileUri();
-        $image = '<img src="' . ImageStyle::load('medium')->buildUrl($file_uri) . '" /><br />';
+    if ($language->getId() != $default_language) {
+      $fid = theme_get_setting('logo_image_' . $language->getId());
+      if ($fid) {
+        $file = File::load($fid);
+        if ($file) {
+          $file_uri = $file->getFileUri();
+          $image = '<img src="' . ImageStyle::load('medium')->buildUrl($file_uri) . '" /><br />';
+        }
       }
+      else {
+        $image = "";
+      }
+      $form['style']['logo_image_' . $language->getId()] = array(
+        '#type' => 'file',
+        '#title' => t('Upload @language logo', array('@language' => $language->getName())),
+        '#size' => 40,
+        '#attributes' => array('enctype' => 'multipart/form-data'),
+        '#default_value' => theme_get_setting('logo_image_' . $language->getId()),
+        '#description' => t('Use this field to upload your @language logo image. Uploads limited to .png .gif .jpg .jpeg .apng .svg extensions', array('@language' => $language->getName())),
+        '#element_validate' => array('generic_microsite_logo_validate'),
+        '#suffix' => $image,
+      );
     }
-    else {
-      $image = "";
-    }
-
-    $form['style']['logo_image_' . $language->getId()] = array(
-      '#type' => 'file',
-      '#title' => t('Upload @language logo', array('@language' => $language->getName())),
-      '#size' => 40,
-      '#attributes' => array('enctype' => 'multipart/form-data'),
-      '#default_value' => theme_get_setting('logo_image_' . $language->getId()),
-      '#description' => t('Use this field to upload your @language logo image. Uploads limited to .png .gif .jpg .jpeg .apng .svg extensions', array('@language' => $language->getName())),
-      '#element_validate' => array('generic_microsite_logo_validate'),
-      '#suffix' => $image,
-    );
   }
+
+  $form['style']['logo_redirect'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Logo redirect path'),
+    '#default_value' => empty(theme_get_setting('logo_redirect')) ? '' : theme_get_setting('logo_redirect'),
+    '#size' => 100,
+    '#maxlength' => 100,
+    '#description' => t('Specify the path you wish to redirect to when you ckicl on the logo.'),
+  );
+
 }
 
 /**
