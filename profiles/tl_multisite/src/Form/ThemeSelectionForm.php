@@ -24,6 +24,12 @@ class ThemeSelectionForm extends FormBase {
    * Custom config form for tl_multisite.
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
+    $form['#title'] = $this->t('Select a theme');
+    $theme_labels = [
+      'generic_microsite' => $this->t('Generic theme'),
+      'dolciaprima' => $this->t('Dolcia Prima'),
+      'tateandlylefibres' => $this->t('Tate & Lyle Fibres'),
+    ];
     $themesdir = 'themes/custom';
     $themes = scandir($themesdir);
     $themes_list = array();
@@ -31,7 +37,7 @@ class ThemeSelectionForm extends FormBase {
       if ($theme != "." && $theme != ".." && !is_file($theme)) {
         $themedir = 'themes/custom/' . $theme;
         if (file_exists($themedir . "/" . $theme . '.theme')) {
-          $themes_list[$theme] = $theme;
+          $themes_list[$theme] = isset($theme_labels[$theme]) ? $theme_labels[$theme] : $theme;
         }
       }
     }
