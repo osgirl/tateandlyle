@@ -215,7 +215,7 @@ function tl_multisite_create_nodes() {
     'created' => REQUEST_TIME,
     'changed' => REQUEST_TIME,
     'uid' => 1,
-    'title' => '404',
+    'title' => 'Page not found',
     'field_tags' => [2],
     'field_main_content' => $paragraph,
   ]);
@@ -236,7 +236,7 @@ function tl_multisite_create_nodes() {
     'created' => REQUEST_TIME,
     'changed' => REQUEST_TIME,
     'uid' => 1,
-    'title' => '403',
+    'title' => 'Access denied',
     'field_tags' => [2],
     'field_main_content' => $paragraph,
   ]);
