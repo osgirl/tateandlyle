@@ -127,7 +127,7 @@ projects:
   menu_link_attributes:
     type: module
     version: "1.0-beta1"
-  sitemap::
+  sitemap:
     type: module
     version: "1.0"
   colorbutton:
