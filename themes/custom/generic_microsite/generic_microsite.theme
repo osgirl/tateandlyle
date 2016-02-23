@@ -219,12 +219,7 @@ function generic_microsite_preprocess_field(&$variables, $hook) {
           $form_fields[$key]['field_identifier'] = $contact->get('field_identifier')->getValue()[0]['value'];
         }
         $variables['tl_tab_forms'][$paragraph_id] = $form_fields;
-        if (strpos( $redirect_node_id[0]['target_id'], "node/")  !== false) {
-          $variables['redirect'][$paragraph_id] = $redirect_node_id[0]['target_id'];
-        }
-        else {
-          $variables['redirect'][$paragraph_id] = 'node/' . $redirect_node_id[0]['target_id'];
-        }
+        $variables['redirect'][$paragraph_id] = '/node/' . $redirect_node_id[0]['target_id'];
         $variables['tl_country_contact'] = TRUE;
       }
     }
