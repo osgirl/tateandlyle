@@ -1,21 +1,21 @@
-  //FUNCTION TO GET AND AUTO PLAY YOUTUBE VIDEO FROM DATATAG
-
 (function($) {
-
-  // Unwrap html tags.
+  // Override HTML.
   Drupal.behaviors.overrideHTML = {
-    attach: function (context, settings) {    
+    attach: function (context, settings) {
+      // Make the products clickable.
       $(".products .tout-container").click(function() {
         window.location = $(this).find("a").attr("href"); 
         return false;
       });
 
+      // Make the homepage touts clickable.
       $(".field--name-field-touts .tout-container").click(function() {
         window.location = $(this).find("a").attr("href"); 
         return false;
       });
 
-     if($('.is-form').length) {
+      // Set same height on elements on form page.
+      if ($('.is-form').length) {
         if($('.field--name-field-form').length) {
           $height_form = $('.field--name-field-form')[0].getBoundingClientRect().height + $('.field--name-field-form-header')[0].getBoundingClientRect().height;
           $height_form_2 = $height_form - $('.field--name-field-form-header').innerHeight();
@@ -27,8 +27,10 @@
           $('.field--name-field-form-header').css('height', $height_form);
         }
       }
-      // Resize window
+
+      // Resize window.
        $(window).resize(function() {
+         // Set same height on elements on form page.
          if($('.is-form').length) {
           if($('.field--name-field-form').length) {
             $height_form = $('.field--name-field-form')[0].getBoundingClientRect().height + $('.field--name-field-form-header')[0].getBoundingClientRect().height;
@@ -46,17 +48,18 @@
           }
         }
       })
-       
-      $('.field--name-field-title, h1, h2, h3, a, p ').each(function(i, elem) {
-        $(elem).html(function(i, html) {
-            return html.replace('®', "<sup>&reg;</sup>");
-        });
+
+      // Make trademark and registered symbols superscript.
+      $('body :not(script)').contents().filter(function() {
+        return this.nodeType === 3;
+      }).replaceWith(function() {
+        return this.nodeValue.replace(/[™®]/g, '<sup>$&</sup>');
       });
     }
   };
 
 
-  //Modal video
+  // Modal video.
   Drupal.behaviors.modalVideo = {
     attach: function (context, settings) {
       var trigger = $("body").find('[data-toggle="modal"]');
@@ -90,8 +93,6 @@
       });
     }
   }
-
-
  
   // Add touch events for Bootstrap carousel.
   Drupal.behaviors.swipeCarousel = {
@@ -105,9 +106,10 @@
     }
   }
 
+  // Back to top functionality.
   Drupal.behaviors.BacktoTop = {
     attach: function (context, settings) {
-      // Smooth scrolling on click menu items
+      // Smooth scrolling on click menu items.
       $('#back-to-top').on('click', function(e) {
         e.preventDefault();
         $('html,body').animate({
@@ -117,7 +119,7 @@
     }
   };
  
-
+  // Chosen options.
   Drupal.behaviors.chosen = {
     attach: function (context, settings) {
       $('.field--name-field-primary-application select, .field--name-field-interests select').chosen({

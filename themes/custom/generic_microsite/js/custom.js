@@ -1,3 +1,4 @@
+// Vertical align the modal.
 function centerModal() {
   jQuery(this).css('display', 'block');
   var $dialog = jQuery(this).find(".modal-dialog");
@@ -7,13 +8,14 @@ function centerModal() {
 }
 
 (function($) {
-    // Override HTML
+  // Override HTML.
   Drupal.behaviors.overrideHTML = {
     attach: function (context, settings) {
+      // Make trademark and registered sybmols superscript.
       $('body :not(script)').contents().filter(function() {
-          return this.nodeType === 3;
+        return this.nodeType === 3;
       }).replaceWith(function() {
-          return this.nodeValue.replace(/[™®©]/g, '<sup>$&</sup>');
+        return this.nodeValue.replace(/[™®]/g, '<sup>$&</sup>');
       });
     }
   }
@@ -129,8 +131,7 @@ function centerModal() {
     }
   }
 
-
-    //Modal video
+  // Modal video.
   Drupal.behaviors.modalVideo = {
     attach: function (context, settings) {
       var trigger = $("body").find('[data-toggle="modal"]');
@@ -148,16 +149,17 @@ function centerModal() {
       });
     }
   }
-        
+  
+  // Carousel options.
   Drupal.behaviors.carouselOptions = {
     attach: function (context, settings) {
-      $('.field--name-field-timeout').hide();
       $('.carousel').each(function() {
-         $(this).attr('data-interval', $(this).closest('.paragraph--type--slide').find('.field--name-field-timeout').text())
+         $(this).attr('data-interval', $(this).closest('.paragraph--type--slide').find('.field--name-field-timeout').text());
       });
     }
   }
 
+  // Chosen options.
   Drupal.behaviors.chosen = {
     attach: function (context, settings) {
       $('.field--name-field-primary-application select, .field--name-field-interests select').chosen({
@@ -176,6 +178,7 @@ function centerModal() {
     }
   }
 
+  // Mailto functionality from the Utility navigation.
   Drupal.behaviors.mailTo = {
     attach: function (context, settings) {
       $('.utility-navigation .email a').on('click', function(e) {
