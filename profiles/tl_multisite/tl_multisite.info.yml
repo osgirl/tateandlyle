@@ -19,31 +19,23 @@ dependencies:
   - features
   - features_ui
   - menu_link_content
-  - datetime
   - block_content
   - editor
   - entity_reference
   - help
-  - image
   - locale
   - menu_ui
-  - options
   - path
   - page_cache
   - taxonomy
-  - telephone
   - syslog
-  - search
   - shortcut
   - toolbar
   - field_ui
-  - file
   - views
   - views_ui
   - language
   - paragraphs
-  - entity_reference_revisions
-  - field_collection
   - field_formatter_class
   - content_translation
   - google_analytics
@@ -61,13 +53,26 @@ dependencies:
   - pathauto
   - composer_manager
   - workbench_moderation
-  - youtube
   - youtube_ckeditor
   - serialization
   - csv_serialization
   - rest
   - menu_link_attributes
-  # - acquia_search
+  # Field types
+  - datetime
+  - entity_reference_revisions
+  - field_collection
+  - file
+  - image
+  - link
+  - options
+  - telephone
+  - text
+  - youtube
+  # Acquia Cloud
+  - acquia_connector
+  - search_api
+  - search_api_solr
 themes:
   - generic_microsite
   - seven

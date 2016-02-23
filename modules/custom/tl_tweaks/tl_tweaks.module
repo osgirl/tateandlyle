@@ -62,6 +62,23 @@ function tl_tweaks_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form
   if (($form['#form_id'] == 'node_form_edit_form') || ($form['#form_id'] == 'node_form_form')) {
     unset($form['field_form']['widget']['#options']['personal']);
   }
+
+  if ($form_id == 'token_login_form') {
+    // Return without executing if the functionality is not enabled.
+    if (!\Drupal::config('simplesamlphp_auth.settings')->get('activate')) {
+      return;
+    }
+
+    $label = Drupal::config('simplesamlphp_auth.settings')->get('login_link_display_name');
+
+    $form['simplesamlphp_auth_login_link'] = array(
+      '#markup' => \Drupal::l($label, new Url('simplesamlphp_auth.saml_login', array(), array(
+        'attributes' => array(
+          'class' => array('simplesamlphp-auth-login-link'),
+        ),
+      ))),
+    );
+  }
 }
 
 /**

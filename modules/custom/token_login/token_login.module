@@ -25,10 +25,6 @@ function token_login_help($route_name, RouteMatchInterface $route_match) {
 
 /**
  * Implements hook_form_alter().
- *
- * @param $form
- * @param \Drupal\Core\Form\FormStateInterface $form_state
- * @param $form_id
  */
 function token_login_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
   if ($form_id == 'user_form') {
@@ -50,16 +46,16 @@ function token_login_mail($key, &$message, $params) {
   // The token service nees the user parameter to generate the login link.
   $body_variables = ['user' => $params['account']];
 
-  switch($key) {
+  switch ($key) {
     case 'login_link':
-      // The callback ensures the user specific information, namely the reset link
-      // to be added to the email body.
+      // The callback ensures user specific information will be generated,
+      // in this case the login link.
       $token_options = [
         'langcode' => $message['langcode'],
         'callback' => 'user_mail_tokens',
-        'clear' => TRUE
+        'clear' => TRUE,
       ];
-      $message['subject'] = (string)t('Login link for %site_name', $subject_variables, $token_options);
+      $message['subject'] = (string) t('Login link for %site_name', $subject_variables, $token_options);
       $message['body'][] = $token_service->replace($token_login_config->get('message'), $body_variables, $token_options);
       break;
   }

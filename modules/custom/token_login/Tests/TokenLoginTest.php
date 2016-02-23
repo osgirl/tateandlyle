@@ -72,28 +72,28 @@ class TokenLoginTest extends PageCacheTagsTestBase {
   /**
    * Tests if the user/login page was successfully changed.
    */
-  function testTokenLoginPage() {
+  public function testTokenLoginPage() {
 
   }
 
   /**
    * Tests the access control on the password reset page.
    */
-  function testTokenLoginAccessControl() {
+  public function testTokenLoginAccessControl() {
 
   }
 
   /**
    * Tests the password reset email whitelisting.
    */
-  function testTokenLoginWhitelist() {
+  public function testTokenLoginWhitelist() {
 
   }
 
   /**
    * Tests password reset functionality.
    */
-  function testUserPasswordReset() {
+  public function testUserPasswordReset() {
     // Try to reset the password for an invalid account.
     $this->drupalGet('user/password');
 
@@ -112,12 +112,12 @@ class TokenLoginTest extends PageCacheTagsTestBase {
     $subject = t('Replacement login information for @username at @site', array('@username' => $this->account->getUsername(), '@site' => $this->config('system.site')->get('name')));
     $this->assertMail('subject', $subject, 'Password reset email subject is correct.');
 
-    $resetURL = $this->getResetURL();
-    $this->drupalGet($resetURL);
+    $reset_url = $this->getResetURL();
+    $this->drupalGet($reset_url);
     $this->assertFalse($this->drupalGetHeader('X-Drupal-Cache'));
 
     // Ensure the password reset URL is not cached.
-    $this->drupalGet($resetURL);
+    $this->drupalGet($reset_url);
     $this->assertFalse($this->drupalGetHeader('X-Drupal-Cache'));
 
     // Check the one-time login page.
@@ -146,11 +146,11 @@ class TokenLoginTest extends PageCacheTagsTestBase {
 
     // Verify that the password reset session has been destroyed.
     $this->drupalPostForm(NULL, $edit, t('Save'));
-    $this->assertText(t('Your current password is missing or incorrect; it\'s required to change the Password.'), 'Password needed to make profile changes.');
+    $this->assertText(t("Your current password is missing or incorrect; it's required to change the Password."), 'Password needed to make profile changes.');
 
     // Log out, and try to log in again using the same one-time link.
     $this->drupalLogout();
-    $this->drupalGet($resetURL);
+    $this->drupalGet($reset_url);
     $this->assertText(t('You have tried to use a one-time login link that has either been used or is no longer valid. Please request a new one using the form below.'), 'One-time link is no longer valid.');
 
     // Request a new password again, this time using the email address.
@@ -159,9 +159,10 @@ class TokenLoginTest extends PageCacheTagsTestBase {
     $before = count($this->drupalGetMails(array('id' => 'user_password_reset')));
     $edit = array('name' => $this->account->getEmail());
     $this->drupalPostForm(NULL, $edit, t('Submit'));
-    $this->assertTrue( count($this->drupalGetMails(array('id' => 'user_password_reset'))) === $before + 1, 'Email sent when requesting password reset using email address.');
+    $this->assertTrue(count($this->drupalGetMails(array('id' => 'user_password_reset'))) === $before + 1, 'Email sent when requesting password reset using email address.');
 
-    // Create a password reset link as if the request time was 60 seconds older than the allowed limit.
+    // Create a password reset link as if the request time was 60 seconds older
+    // than the allowed limit.
     $timeout = $this->config('user.settings')->get('password_reset_timeout');
     $bogus_timestamp = REQUEST_TIME - $timeout - 60;
     $_uid = $this->account->id();
@@ -184,11 +185,12 @@ class TokenLoginTest extends PageCacheTagsTestBase {
     $this->assertRaw(t('%name is blocked or has not been activated yet.', array('%name' => $blocked_account->getUsername())), 'Notified user blocked accounts can not request a new password');
     $this->assertTrue(count($this->drupalGetMails(array('id' => 'user_password_reset'))) === $before, 'No email was sent when requesting password reset for a blocked account');
 
-    // Verify a password reset link is invalidated when the user's email address changes.
+    // Verify a password reset link is invalidated when the user's email address
+    // changes.
     $this->drupalGet('user/password');
     $edit = array('name' => $this->account->getUsername());
     $this->drupalPostForm(NULL, $edit, t('Submit'));
-    $old_email_reset_link = $this->getResetURL();
+    $old_email_reset_link = $this->getResetUrl();
     $this->account->setEmail("1" . $this->account->getEmail());
     $this->account->save();
     $this->drupalGet($old_email_reset_link);
@@ -198,7 +200,7 @@ class TokenLoginTest extends PageCacheTagsTestBase {
   /**
    * Retrieves password reset email and extracts the login link.
    */
-  public function getResetURL() {
+  public function getResetUrl() {
     // Assume the most recent email.
     $_emails = $this->drupalGetMails();
     $email = end($_emails);
@@ -220,8 +222,8 @@ class TokenLoginTest extends PageCacheTagsTestBase {
     $this->drupalPostForm(NULL, NULL, t('Submit'));
 
     // Click the reset URL while logged and change our password.
-    $resetURL = $this->getResetURL();
-    $this->drupalGet($resetURL);
+    $reset_url = $this->getResetUrl();
+    $this->drupalGet($reset_url);
     $this->drupalPostForm(NULL, NULL, t('Log in'));
 
     // Change the password.
@@ -242,7 +244,14 @@ class TokenLoginTest extends PageCacheTagsTestBase {
     );
     $this->drupalPostForm('user/login', $edit, t('Log in'));
     $this->assertRaw(t('Unrecognized username or password. <a href=":password">Have you forgotten your password?</a>',
-      array(':password' => \Drupal::url('user.pass', [], array('query' => array('name' => $edit['name']))))));
+      array(
+        ':password' => \Drupal::url(
+          'user.pass',
+          [],
+          array('query' => array('name' => $edit['name']))
+        ),
+      )
+    ));
     unset($edit['pass']);
     $this->drupalGet('user/password', array('query' => array('name' => $edit['name'])));
     $this->assertFieldByName('name', $edit['name'], 'User name found.');
@@ -251,7 +260,7 @@ class TokenLoginTest extends PageCacheTagsTestBase {
   /**
    * Make sure that users cannot forge password reset URLs of other users.
    */
-  function testResetImpersonation() {
+  public function testResetImpersonation() {
     // Create two identical user accounts except for the user name. They must
     // have the same empty password, so we can't use $this->drupalCreateUser().
     $edit = array();
