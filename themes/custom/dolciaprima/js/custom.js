@@ -153,10 +153,6 @@
       $('#edit-field-country-list').chosen({
         disable_search: false,
       });
-
-      $('select').chosen({
-        disable_search: true,
-      });
     }
   }
 
