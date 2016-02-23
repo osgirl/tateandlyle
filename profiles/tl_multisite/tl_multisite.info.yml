@@ -29,7 +29,6 @@ dependencies:
   - page_cache
   - taxonomy
   - syslog
-  - search
   - shortcut
   - toolbar
   - field_ui
