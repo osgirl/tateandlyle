@@ -60,6 +60,7 @@
     {% if is_front %} 
        {% if content.field_image[0] %}
         <div class="tout-image">
+          {# Add readmore link to tout image #}
           <a title="{{ image_link }}" href= "{{ image_link }}">{{ content.field_image }}</a>
           {{ content.field_image_text }}
           {% if content.field_popup['#entity_type'] is defined %} 
@@ -87,6 +88,7 @@
        {% if content.field_image[0] %}
         {{ content.field_title }}
         <div class="tout-image">
+          {# Add readmore link to tout image #}
           <a title="{{ image_link }}" href= "{{ image_link }}">{{ content.field_image }}</a>
           {{ content.field_image_text }}
           {% if content.field_popup['#entity_type'] is defined %} 
