@@ -26,7 +26,11 @@
     </a>
   {% endif %}
   {% if site_name %}
-    <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">{{ site_name }}</a>
+    {% if logo_redirect %}
+      <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">{{ site_name }}</a>
+	{% else %}	
+      <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">{{ site_name }}</a>
+    {% endif %}	
   {% endif %}
   {{ site_slogan }}
 {% endblock %}
