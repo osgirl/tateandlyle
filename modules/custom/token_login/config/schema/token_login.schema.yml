@@ -12,6 +12,5 @@ token_login.settings:
       type: string
       label: 'List of domains for which email login can be requested'
     message:
-      type: label
+      type: text
       label: 'Contents of the login email including placeholder tokens'
-      translatable: true
