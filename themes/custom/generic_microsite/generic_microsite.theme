@@ -14,8 +14,15 @@ use Drupal\image\Entity\ImageStyle;
  */
 function generic_microsite_preprocess_html(&$variables) {
   $site_name_raw = \Drupal::configFactory()->getEditable('system.site')->get('name');
-  $site_name = preg_replace('/[^A-Za-z0-9\-]/', ' ', $site_name_raw);
-  $variables['site_name'] = strtolower(str_replace(" ", "-", $site_name));
+
+  // Add special class if site name has chinese characters 
+  if (preg_match('/[\x{4e00}-\x{9fa5}]+/u', $site_name_raw)) {
+    $variables['site_name'] = 'tateandlyle_china';
+  }
+  else {
+    $site_name = preg_replace('/[^A-Za-z0-9\-]/', ' ', $site_name_raw);
+    $variables['site_name'] = strtolower(str_replace(" ", "-", $site_name));
+  }
 
   if (theme_get_setting('global_style', 'generic_microsite') != NULL) {
     $variables['#attached']['library'][] = 'generic_microsite/global-styling' . theme_get_setting('global_style', 'generic_microsite');
