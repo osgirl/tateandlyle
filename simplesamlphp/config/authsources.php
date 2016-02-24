@@ -14,12 +14,6 @@ $config = array(
         'entityID' => NULL,
         'idp' => 'saml20:test:tateandlyle.com',
         'discoURL' => NULL,
-        'authproc' => array(
-            20 => array(
-                'class' => 'saml:NameIDAttribute',
-                'attribute' => 'username',
-            )
-        )
     ),
 
     /*
