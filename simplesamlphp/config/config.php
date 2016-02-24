@@ -777,8 +777,9 @@ $ah_options = array(
 
 // Set some security and other configs that are set above, however we
 // overwrite them here to keep all changes in one area
-$config['technicalcontact_name'] = "Your Name";
-$config['technicalcontact_email'] = "your_email@yourdomain.com";
+$config['technicalcontact_name'] = "Natalija Buldakova";
+$config['technicalcontact_email'] = "natalija.buldakova@tateandlyle.com";
+
 // Change these for your installation
 $config['secretsalt'] = 'y0h9d13pki9qdhfm3l5nws4jjn55j6hj';
 $config['auth.adminpassword'] = 'mysupersecret';
@@ -787,7 +788,10 @@ setcookie('NO_CACHE', '1');
 
 if (empty($_ENV['AH_SITE_ENVIRONMENT'])) {
     // add any local configuration here
-} else {
+    $config['store.type'] = 'sql';
+    $config['store.sql.prefix'] = 'simplesaml';
+}
+else {
     $ah_options['env'] = $_ENV['AH_SITE_ENVIRONMENT'];
     $config = acquia_logging_config($config);
     $config = acquia_session_store_config($config, $ah_options);
