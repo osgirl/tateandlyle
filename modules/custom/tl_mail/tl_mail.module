@@ -1,0 +1,208 @@
+<?php
+/**
+ * @file
+ * Code for the T&L Mail module.
+ */
+
+/**
+ * Implements hook_node_update().
+ */
+function tl_mail_node_update($node) {
+  if ($node->get('moderation_state')->getValue()[0]['target_id'] == 'needs_review') {
+    mail_node_insert_approver($node);
+  }
+  if (($node->get('moderation_state')->getValue()[0]['target_id'] == 'published') || ($node->get('moderation_state')->getValue()[0]['target_id'] == 'archived')) {
+    mail_node_update_author($node);
+    mail_node_update_approvers($node);
+  }
+}
+
+/**
+ * Email sent to the approver on "Needs Review" state.
+ */
+function mail_node_insert_approver($node) {
+  global $base_url;
+
+  $mailmanager = \Drupal::service('plugin.manager.mail');
+  $subject = \Drupal::config('tl_mail.settings')->get('node_insert_subject');
+  $message = \Drupal::config('tl_mail.settings')->get('node_insert_message');
+  $module = 'tl_mail';
+  $key = 'node_insert_approver';
+  $to = tl_get_approvers();
+
+  $params['site_name'] = \Drupal::configFactory()->getEditable('system.site')->get('name');
+  $params['site_url'] = $base_url;
+  $params['node_title'] = $node->getTitle();
+  $params['node_author'] = user_load($node->get('uid')->getValue()[0]['target_id'])->get('name')->getValue()[0]['value'];
+  $params['node_url'] = $base_url . '/node/' . $node->id();
+
+  $params['subject'] = str_replace("[site_name]", $params['site_name'], $subject);
+
+  $params['message'] = str_replace("[node_author]", $params['node_author'], $message);
+  $params['message'] = str_replace("[date]", date("d-m-Y"), $params['message']);
+  $params['message'] = str_replace("[node_title]", $params['node_title'], $params['message']);
+  $params['message'] = str_replace("[site_url]", $params['site_url'], $params['message']);
+  $params['message'] = str_replace("[node_url]", $params['node_url'], $params['message']);
+
+  $langcode = \Drupal::currentUser()->getPreferredLangcode();
+  $send = TRUE;
+
+  $result = $mailmanager->mail($module, $key, $to, $langcode, $params, NULL, $send);
+  if (!$result['result']) {
+    $status_message = t('There was a problem sending your email notification to @email for creating node @id.', array('@email' => $to, '@id' => $node->id()));
+    drupal_set_message($status_message, 'error');
+    \Drupal::logger('Email notification')->error($status_message);
+    drupal_set_message($status_message);
+    return;
+  }
+}
+
+/**
+ * Email sent to the author on publish or reject state.
+ */
+function mail_node_update_author($node) {
+  global $base_url;
+
+  $mailmanager = \Drupal::service('plugin.manager.mail');
+  $subject = \Drupal::config('tl_mail.settings')->get('update_author_subject');
+  $message = \Drupal::config('tl_mail.settings')->get('update_author_message');
+  $module = 'tl_mail';
+  $key = 'node_update_author';
+  $to = \Drupal::currentUser()->getEmail();
+
+  $params['site_name'] = \Drupal::configFactory()->getEditable('system.site')->get('name');
+  $params['node_state'] = $node->get('moderation_state')->getValue()[0]['target_id'];
+  $params['node_title'] = $node->getTitle();
+  $params['site_url'] = $base_url;
+  $params['site_approver'] = \Drupal::currentUser()->getDisplayName();
+
+  $params['subject'] = str_replace("[site_name]", $params['site_name'], $subject);
+  $params['subject'] = str_replace("[node_state]", $params['node_state'], $params['subject']);
+
+  $params['message'] = str_replace("[node_title]", $params['node_title'], $message);
+  $params['message'] = str_replace("[site_url]", $params['site_url'], $params['message']);
+  $params['message'] = str_replace("[node_state]", $params['node_state'], $params['message']);
+  $params['message'] = str_replace("[site_approver]", $params['site_approver'], $params['message']);
+
+  if (($node->get('moderation_state')->getValue()[0]['target_id'] == 'published')) {
+    $params['message'] = str_replace("[site_approver]", 'The page has now been published.', $params['message']);
+  }
+  else {
+    if ($node->get('revision_log')->getValue()[0]['target_id']) {
+      $params['message'] = str_replace("[node_state_message]", $node->get('revision_log')->getValue()[0]['target_id'], $params['message']);
+    }
+    else {
+      $params['message'] = str_replace("[node_state_message]", "", $params['message']);
+    }
+  }
+
+  $langcode = \Drupal::currentUser()->getPreferredLangcode();
+  $send = TRUE;
+
+  $result = $mailmanager->mail($module, $key, $to, $langcode, $params, NULL, $send);
+  if (!$result['result']) {
+    $status_message = t('There was a problem sending your email notification to @email for creating node @id.', array('@email' => $to, '@id' => $node->id()));
+    drupal_set_message($status_message, 'error');
+    \Drupal::logger('Email notification')->error($status_message);
+    drupal_set_message($status_message);
+    return;
+  }
+}
+
+/**
+ * Email sent to the approvers on publish or reject state.
+ */
+function mail_node_update_approvers($node) {
+
+  global $base_url;
+
+  $mailmanager = \Drupal::service('plugin.manager.mail');
+  $subject = \Drupal::config('tl_mail.settings')->get('update_approvers_subject');
+  $message = \Drupal::config('tl_mail.settings')->get('update_approvers_message');
+  $module = 'tl_mail';
+  $key = 'node_update_author';
+  $to = tl_get_approvers();
+
+  $params['site_name'] = \Drupal::configFactory()->getEditable('system.site')->get('name');
+  $params['node_state'] = $node->get('moderation_state')->getValue()[0]['target_id'];
+  $params['node_title'] = $node->getTitle();
+  $params['site_url'] = $base_url;
+  $params['site_approver'] = \Drupal::currentUser()->getDisplayName();
+
+  $params['subject'] = str_replace("[site_name]", $params['site_name'], $subject);
+  $params['subject'] = str_replace("[node_state]", $params['node_state'], $params['subject']);
+
+  $params['message'] = str_replace("[node_title]", $params['node_title'], $message);
+  $params['message'] = str_replace("[site_url]", $params['site_url'], $params['message']);
+  $params['message'] = str_replace("[node_state]", $params['node_state'], $params['message']);
+  $params['message'] = str_replace("[site_approver]", $params['site_approver'], $params['message']);
+
+  if (($node->get('moderation_state')->getValue()[0]['target_id'] == 'published')) {
+    $params['message'] = str_replace("[site_approver]", 'The page has now been published.', $params['message']);
+  }
+  else {
+    if ($node->get('revision_log')->getValue()[0]['target_id']) {
+      $params['message'] = str_replace("[node_state_message]", $node->get('revision_log')->getValue()[0]['target_id'], $params['message']);
+    }
+    else {
+      $params['message'] = str_replace("[node_state_message]", "", $params['message']);
+    }
+  }
+
+  $langcode = \Drupal::currentUser()->getPreferredLangcode();
+  $send = TRUE;
+
+  $result = $mailmanager->mail($module, $key, $to, $langcode, $params, NULL, $send);
+  if (!$result['result']) {
+    $status_message = t('There was a problem sending your email notification to @email for creating node @id.', array('@email' => $to, '@id' => $node->id()));
+    drupal_set_message($status_message, 'error');
+    \Drupal::logger('Email notification')->error($status_message);
+    drupal_set_message($status_message);
+    return;
+  }
+}
+
+/**
+ * Implements hook_mail().
+ */
+function tl_mail_mail($key, &$message, $params) {
+  $options = array(
+    'langcode' => $message['langcode'],
+  );
+
+  switch ($key) {
+    case 'node_insert_approver':
+      $message['from'] = \Drupal::config('system.site')->get('mail');
+      $message['subject'] = $params['subject'];
+      $message['body'][] = $params['message'];
+      break;
+
+    case 'node_update_author':
+      $message['from'] = \Drupal::config('system.site')->get('mail');
+      $message['subject'] = $params['subject'];
+      $message['body'][] = $params['message'];
+      break;
+
+    case 'node_update_approvers':
+      $message['from'] = \Drupal::config('system.site')->get('mail');
+      $message['subject'] = $params['subject'];
+      $message['body'][] = $params['message'];
+      break;
+  }
+}
+
+/**
+ * Return site approvers mail list.
+ */
+function tl_get_approvers() {
+  $query = db_select('user__roles', 'r');
+  $query->fields('r', array('entity_id'));
+  $query->condition('r.roles_target_id', 'content_approver', '=');
+  $results = $query->execute();
+  $emails = '';
+  foreach ($results as $result) {
+    $user = user_load($result->entity_id);
+    $emails .= $user->getEmail() . ', ';
+  }
+  return $emails;
+}
