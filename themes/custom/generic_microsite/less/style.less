@@ -1035,23 +1035,23 @@ body:not(.path-frontpage) {
     .menu.nav {
       float: none;
       li {
-        border-bottom: 1px solid #E5E5E5;
         float: none;
-        padding: 4px 0 3px;
-        margin-bottom: 7px;
-        &.active {
-          .dropdown-menu {
-            margin-top: 9px;
-          }
-        }
-      }
-      a {  
-        font-weight: bold;
-        font-size: 12px;
-        padding: 0;
-        background: transparent;
-         &:hover, &:focus {
+        a {
           background: transparent;
+          border-bottom: 1px solid #E5E5E5;
+          float: none;
+          font-weight: bold;
+          font-size: 12px;
+          padding: 4px 0 3px;
+          margin-bottom: 7px;
+          &.active {
+            .dropdown-menu {
+              margin-top: 9px;
+            }
+          }
+          &:hover, &:focus {
+            background: transparent;
+          }
         }
       }
       .dropdown-menu {
@@ -2015,7 +2015,6 @@ body {
         font-size: 12px;
         line-height: 16px;
         padding: 0 25px 4px 12px;
-        width: calc(~"100% - 110px");
       }
       .accordion-subtitle {
         font-size:12px;
@@ -2121,7 +2120,7 @@ body {
 /* Forms */
 .contact-form {
   .gradient (@startColor: #E4E0DB, @endColor: #FFF);
-  padding: 12px 35px 35px;
+  padding: 15px;
 
   label {
     color: #525252;
@@ -2176,7 +2175,7 @@ body {
       }
     }
   }
-  /*Special fields*/
+  /* Special fields */
   .field--name-field-contact-identifier {
     display: none;
   }
@@ -2217,7 +2216,7 @@ body {
       width: 150px;
       @media(min-width: @screen-xs-min) {
         float: left;
-        width: 20%;
+        width: 24%;
       }
       .field--name-field-image {
         margin: initial;
@@ -2423,7 +2422,7 @@ body {
   }
 }
 
-/*Form tabs*/
+/* Form tabs */
 .tab-pane {
   .form-tabs {
     table {
@@ -2520,7 +2519,20 @@ body {
   }
 }
 
-
+/* Sitemap */
+ul.sitemap {
+  li {
+    list-style: inherit;
+    margin: 8px 0;
+    font-size: 16px;
+    li {
+      font-size: 14px;
+      li {
+        font-size: 12px;
+      }
+    }
+  }
+}
 
 /* Overrides */
 .toolbar-tray a:hover, .toolbar-tray a:active, .toolbar-tray a:focus, .toolbar-tray a.is-active {
@@ -2671,6 +2683,7 @@ body {
 }
 
 /* Custom sites */
+.claria,
 .clariastarch {
   header {
     .horizontal-gradient (@startColor: #4DC0AF, @endColor: #FFF);
@@ -2683,7 +2696,9 @@ body {
   }
 }
 
-.purefruit, .tate---lyle-procurement, .tasteva-sweetner {
+.purefruit,
+.tate---lyle-procurement,
+.tasteva-sweetner {
  header {
     .horizontal-gradient (@startColor: #D2E0BB, @endColor: #FFF);
   }
@@ -2691,6 +2706,16 @@ body {
     @media(min-width: @screen-sm-min) {
       margin: 0;
       padding-top: 10px;
+    }
+  }
+  .header-right {
+    @media(min-width: @screen-sm-min) {
+      padding-top: 40px;
+    }
+  }
+  .navbar-default.container {
+    @media(min-width: @screen-sm-min) {
+      margin-top: -10px;
     }
   }
 }
@@ -2724,6 +2749,54 @@ body {
       background-color: #ccc;
     }
   }
+
+  /* Hide menu links in sidebar left to show them only on their specific parent's link page */
+  .region-sidebar-first .menu li a {
+    display: none;
+  }
+
+  /* Show level 2+ menu links on About Purefruit parent link */
+  &.node-id-16,
+  &.node-id-21,
+  &.node-id-26,
+  &.node-id-31,
+  &.node-id-36 {
+    .region-sidebar-first .menu li {
+      a.how-purefruit-is-made,
+      a.products-and-potency,
+      a.nutritional-sheet,
+      a.technical-data {
+        display: block;
+      }
+    }
+  }
+
+  /* Show level 2+ menu links on Usage tips parent link */
+  &.node-id-41,
+  &.node-id-46,
+  &.node-id-51 {
+    .region-sidebar-first .menu li {
+      a.applications,
+      a.formulas {
+        display: block;
+      }
+    }
+  }
+
+  /* Show level 2+ menu links on FAQ parent link */
+  &.node-id-66,
+  &.node-id-71,
+  &.node-id-76,
+  &.node-id-101 {
+    .region-sidebar-first .menu li {
+      a.about,
+      a.functionality,
+      a.safety,
+      a.labeling-and-regulatory {
+        display: block;
+      }
+    }
+  }
 }
 
 .soda-lo {
@@ -2733,14 +2806,41 @@ body {
   .header-left {
     @media(min-width: @screen-sm-min) {
       margin: 0;
-      margin-top: -18px;
+      margin-top: -19px;
       padding-top: 0;
+    }
+  }
+  .header-right {
+    @media(min-width: @screen-sm-min) {
+      padding-top: 40px;
     }
   }
   .page-header {
     border: 0;
     font-size: 26px;
   }
+  .navbar-default.container {
+    @media(min-width: @screen-sm-min) {
+      margin-top: -10px;
+    }
+  }
+  #utilitynavigation, #block-tatelyleutilitynavigation {
+    @media(min-width: @screen-sm-min) {
+      margin-top: -3px;
+    }
+  }
+}
+
+/* Hide cancel button on File Acces form */
+#contact-message-file-access-form .cancel_button {
+  display: none;
+}
+
+/* Page header on form landing */
+.form-landing .page-header {
+  border: 0;
+  font-size: 26px;
+  padding: 0 20px;
 }
 
 .proatein {
@@ -2767,7 +2867,10 @@ body {
   }
 }
 
-.open-innovation, .global-industrial-starches, .food-and-nutrition-science-centre, .tateandlyle_china {
+.open-innovation,
+.global-industrial-starches,
+.food-and-nutrition-science-centre,
+.tateandlyle_china {
   header {
     .horizontal-gradient (@startColor: #D6D2DE, @endColor: #FFF);
   }
@@ -2778,6 +2881,16 @@ body {
     }
     .navbar-brand {
       padding-left:0;
+    }
+  }
+  .header-right {
+    @media(min-width: @screen-sm-min) {
+      padding-top: 40px;
+    }
+  }
+  .navbar-default.container {
+    @media(min-width: @screen-sm-min) {
+      margin-top: -10px;
     }
   }
 }
@@ -2795,6 +2908,16 @@ body {
       padding-left:0;
     }
   }
+  .header-right {
+    @media(min-width: @screen-sm-min) {
+      padding-top: 40px;
+    }
+  }
+  .navbar-default.container {
+    @media(min-width: @screen-sm-min) {
+      margin-top: -10px;
+    }
+  }
 }
 
 .your-food-systems {
@@ -2808,6 +2931,16 @@ body {
     }
     .navbar-brand {
       padding-left:0;
+    }
+  }
+  .header-right {
+    @media(min-width: @screen-sm-min) {
+      padding-top: 40px;
+    }
+  }
+  .navbar-default.container {
+    @media(min-width: @screen-sm-min) {
+      margin-top: -10px;
     }
   }
 }
@@ -2842,6 +2975,74 @@ body {
   }
   .navbar-default.container .menu {
     padding-top: 4px;
+  }
+  .header-right {
+    @media(min-width: @screen-sm-min) {
+      padding-top: 40px;
+    }
+  }
+  .navbar-default.container {
+    @media(min-width: @screen-sm-min) {
+      margin-top: -10px;
+    }
+  }
+
+  /* Hide menu links in sidebar left to show them only on their specific parent's link page */
+  .region-sidebar-first .menu li a {
+    display: none;
+  }
+
+  /* Show level 2+ menu links on Our sucralose parent link */
+  &.node-id-26,
+  &.node-id-456,
+  &.node-id-31,
+  &.node-id-106,
+  &.node-id-461,
+  &.node-id-41,
+  &.node-id-46,
+  &.node-id-51 {
+    .region-sidebar-first .menu li {
+      a.formulating-with-splenda-sucralose,
+      a.taste,
+      a.stability,
+      a.quality-and-safety,
+      a.specifications,
+      a.regulatory-approvals,
+      a.faqs {
+        display: block;
+      }
+    }
+  }
+
+  /* Show level 2+ menu links on Plus Programme parent link */
+  &.node-id-26,
+  &.node-id-456,
+  &.node-id-31,
+  &.node-id-106,
+  &.node-id-461,
+  &.node-id-41,
+  &.node-id-46,
+  &.node-id-51 {
+    .region-sidebar-first .menu li {
+      a.innovation,
+      a.innovation-workshop,
+      a.lab-to-market-launcher,
+      a.regional-innovation-centres,
+      a.asia-pacific,
+      a.emea,
+      a.north-america,
+      a.latin-america,
+      a.fresh-from-the-kitchen,
+      a.experience,
+      a.exceptional-stability,
+      a.speed-to-market-review,
+      a.confidence,
+      a.ingredient-reputation-management,
+      a.security,
+      a.traceability {
+        display: block;
+      }
+    }
   }
 }
 
@@ -2929,6 +3130,16 @@ body {
     }
     .navbar-brand {
       padding-left:0;
+    }
+  }
+  .header-right {
+    @media(min-width: @screen-sm-min) {
+      padding-top: 40px;
+    }
+  }
+  .navbar-default.container {
+    @media(min-width: @screen-sm-min) {
+      margin-top: -10px;
     }
   }
 }
