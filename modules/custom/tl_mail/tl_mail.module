@@ -85,15 +85,16 @@ function mail_node_update_author($node) {
   $params['message'] = str_replace("[site_approver]", $params['site_approver'], $params['message']);
 
   if (($node->get('moderation_state')->getValue()[0]['target_id'] == 'published')) {
-    $params['message'] = str_replace("[site_approver]", 'The page has now been published.', $params['message']);
+    $params['message'] = str_replace("[publish_state]", 'The page has now been published.', $params['message']);
   }
   else {
-    if ($node->get('revision_log')->getValue()[0]['target_id']) {
-      $params['message'] = str_replace("[node_state_message]", $node->get('revision_log')->getValue()[0]['target_id'], $params['message']);
-    }
-    else {
-      $params['message'] = str_replace("[node_state_message]", "", $params['message']);
-    }
+    $params['message'] = str_replace("[publish_state]", '', $params['message']);
+  }
+  if ($node->get('revision_log')->getValue()[0]['value'] != NULL) {
+    $params['message'] = str_replace("[node_state_message]", $node->get('revision_log')->getValue()[0]['value'], $params['message']);
+  }
+  else {
+    $params['message'] = str_replace("[node_state_message]", "", $params['message']);
   }
 
   $langcode = \Drupal::currentUser()->getPreferredLangcode();
@@ -120,7 +121,7 @@ function mail_node_update_approvers($node) {
   $subject = \Drupal::config('tl_mail.settings')->get('update_approvers_subject');
   $message = \Drupal::config('tl_mail.settings')->get('update_approvers_message');
   $module = 'tl_mail';
-  $key = 'node_update_author';
+  $key = 'node_update_approvers';
   $to = tl_get_approvers();
 
   $params['site_name'] = \Drupal::configFactory()->getEditable('system.site')->get('name');
@@ -136,17 +137,19 @@ function mail_node_update_approvers($node) {
   $params['message'] = str_replace("[site_url]", $params['site_url'], $params['message']);
   $params['message'] = str_replace("[node_state]", $params['node_state'], $params['message']);
   $params['message'] = str_replace("[site_approver]", $params['site_approver'], $params['message']);
+  $params['message'] = str_replace("[node_state_message]", $node->get('revision_log')->getValue()[0]['value'], $params['message']);
 
   if (($node->get('moderation_state')->getValue()[0]['target_id'] == 'published')) {
-    $params['message'] = str_replace("[site_approver]", 'The page has now been published.', $params['message']);
+    $params['message'] = str_replace("[publish_state]", 'The page has now been published.', $params['message']);
   }
   else {
-    if ($node->get('revision_log')->getValue()[0]['target_id']) {
-      $params['message'] = str_replace("[node_state_message]", $node->get('revision_log')->getValue()[0]['target_id'], $params['message']);
-    }
-    else {
-      $params['message'] = str_replace("[node_state_message]", "", $params['message']);
-    }
+    $params['message'] = str_replace("[publish_state]", '', $params['message']);
+  }
+  if ($node->get('revision_log')->getValue()[0]['value'] != NULL) {
+    $params['message'] = str_replace("[node_state_message]", $node->get('revision_log')->getValue()[0]['value'], $params['message']);
+  }
+  else {
+    $params['message'] = str_replace("[node_state_message]", "", $params['message']);
   }
 
   $langcode = \Drupal::currentUser()->getPreferredLangcode();
