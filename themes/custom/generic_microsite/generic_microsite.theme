@@ -46,7 +46,9 @@ function generic_microsite_preprocess_html(&$variables) {
   $id = \Drupal::routeMatch()->getRawParameter('node');
   $variables['node_id'] = "node-id-" . $id;
   $node = node_load($id);
-  $alias = str_replace("/", "-", substr($node->url(), 1));
+  if ($node) {
+    $alias = str_replace("/", "-", substr($node->url(), 1));
+  }
   $variables['node_alias'] = $alias;
 
   // Define second color for vertical gradient
