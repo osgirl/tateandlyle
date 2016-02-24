@@ -77,9 +77,8 @@ class TokenLoginConfiguration extends ConfigFormBase {
       ->set('allowed_domains', $form_state->getValue('allowed_domains'))
       ->set('message', $form_state->getValue('message'))
       ->save();
-    $this->config('user.settings')
-      ->set('password_reset_timeout', $form_state->getValue('token_lilfetime'))
-      ->save();
+    $user_settings = \Drupal::service('config.factory')->getEditable('user.settings');
+    $user_settings->set('password_reset_timeout', $form_state->getValue('token_lifetime'))->save();
   }
 
 }
