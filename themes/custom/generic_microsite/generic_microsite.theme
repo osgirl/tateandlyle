@@ -219,7 +219,7 @@ function generic_microsite_preprocess_field(&$variables, $hook) {
           $form_fields[$key]['field_identifier'] = $contact->get('field_identifier')->getValue()[0]['value'];
         }
         $variables['tl_tab_forms'][$paragraph_id] = $form_fields;
-        $variables['redirect'][$paragraph_id] = 'node/' . $redirect_node_id[0]['target_id'];
+        $variables['redirect'][$paragraph_id] = '/node/' . $redirect_node_id[0]['target_id'];
         $variables['tl_country_contact'] = TRUE;
       }
     }
@@ -361,6 +361,18 @@ function generic_microsite_preprocess_menu(&$variables) {
  * Implements template_preprocess_block().
  */
 function generic_microsite_preprocess_block(&$variables) {
+  if ($variables['base_plugin_id'] == 'system_branding_block') {
+    $language_manager = \Drupal::languageManager();
+    $default_language = $language_manager->getDefaultLanguage()->getId();
+    $current_language = $language_manager->getCurrentLanguage()->getId();
+    if ($default_language != $current_language) {
+      if ($variables['theme']['settings']['logo_image_' . $current_language]) {
+        $file = File::load($variables['theme']['settings']['logo_image_' . $current_language]);
+        $variables['site_logo'] = $file->url();
+      }
+    }
+  $variables['logo_redirect'] = $variables['theme']['settings']['logo_redirect'];    
+  }
   if ($variables['base_plugin_id'] == 'language_block') {
     $variables['label'] = t('Pick your language');
   }

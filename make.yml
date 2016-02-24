@@ -126,7 +126,10 @@ projects:
     version: "1.0-alpha3"
   menu_link_attributes:
     type: module
-    version: "1.x-dev"
+    download:
+      type: git
+      url: "https://git.drupal.org/project/menu_link_attributes.git"
+      revision: "611877ee4fac3fa51db7e568e7609dcdb1c05962"
   sitemap:
     type: module
     version: "1.0"
