@@ -129,3 +129,10 @@ function tl_tweaks_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &$
     $breadcrumb->addLink(Link::createFromRoute("", '<none>'));
   }
 }
+
+/**
+ * Implements hook_node_update().
+ */
+function tl_tweaks_node_update($node) {
+  \Drupal\Core\Cache\Cache::invalidateTags($node->getCacheTags());
+}
