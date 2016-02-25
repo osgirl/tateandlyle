@@ -53,6 +53,21 @@ table.tout {
   }
 }
 
+/* Admin toolbar */
+#toolbar-link-view-contact_messages_administration-page_1:before {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #787878;
+  content: "\2709";
+  display: inline-block;
+  font-family: 'Glyphicons Halflings';
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1;
+  top: 11px;
+}
+
 /* Header */
 .navbar-header {
   padding: 0 20px;
@@ -227,6 +242,19 @@ header.container {
       display: block !important;
     }
   }
+}
+
+#search-block-form .btn-default:after {
+  -webkit-font-smoothing: antialiased;
+  color: #FFF;
+  content: "\e003";
+  display: inline-block;
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  position: relative;
+  top: 1px;
 }
 
 .advanced-search {
@@ -618,9 +646,8 @@ body,
         background-image: url(../images/subnav-border-top.gif);
         background-position: bottom;
         background-repeat: no-repeat;
-        height: 25px;
         margin: 0 2px 2px 2px;
-        padding: 5px 10px 26px 8px;
+        padding: 5px 10px 10px 8px;
         width: 215px;
         &:last-child {
           background: none;
@@ -1856,6 +1883,7 @@ body {
         img {
           padding-bottom: 0;
           max-height: 87vh;
+          max-width: 95vw;
         }
       }
     }
@@ -2118,6 +2146,19 @@ body {
 
 
 /* Forms */
+.contact,
+.contact-us {
+  .tl-form-fields-required {
+    background: #E4E0DB;
+    font-size: 10px;
+    padding: 32px 15px 5px;
+  }
+}
+
+form .field--type-boolean {
+   margin-left: 20px;
+}
+
 .contact-form {
   .gradient (@startColor: #E4E0DB, @endColor: #FFF);
   padding: 15px;
@@ -2520,7 +2561,7 @@ body {
 }
 
 /* Sitemap */
-ul.sitemap {
+ul.sitemap-menu {
   li {
     list-style: inherit;
     margin: 8px 0;
@@ -2749,54 +2790,6 @@ ul.sitemap {
       background-color: #ccc;
     }
   }
-
-  /* Hide menu links in sidebar left to show them only on their specific parent's link page */
-  .region-sidebar-first .menu li a {
-    display: none;
-  }
-
-  /* Show level 2+ menu links on About Purefruit parent link */
-  &.node-id-16,
-  &.node-id-21,
-  &.node-id-26,
-  &.node-id-31,
-  &.node-id-36 {
-    .region-sidebar-first .menu li {
-      a.how-purefruit-is-made,
-      a.products-and-potency,
-      a.nutritional-sheet,
-      a.technical-data {
-        display: block;
-      }
-    }
-  }
-
-  /* Show level 2+ menu links on Usage tips parent link */
-  &.node-id-41,
-  &.node-id-46,
-  &.node-id-51 {
-    .region-sidebar-first .menu li {
-      a.applications,
-      a.formulas {
-        display: block;
-      }
-    }
-  }
-
-  /* Show level 2+ menu links on FAQ parent link */
-  &.node-id-66,
-  &.node-id-71,
-  &.node-id-76,
-  &.node-id-101 {
-    .region-sidebar-first .menu li {
-      a.about,
-      a.functionality,
-      a.safety,
-      a.labeling-and-regulatory {
-        display: block;
-      }
-    }
-  }
 }
 
 .soda-lo {
@@ -2856,7 +2849,7 @@ ul.sitemap {
   .header-left {
     @media(min-width: @screen-sm-min) {
       margin: 0;
-      padding-top: 35px;
+      padding-top: 36px;
     }
   }
   .logo {
@@ -2877,7 +2870,7 @@ ul.sitemap {
   .header-left {
     @media(min-width: @screen-sm-min) {
       margin: 0;
-      padding-top: 55px;
+      padding-top: 50px;
     }
     .navbar-brand {
       padding-left:0;
@@ -2960,7 +2953,9 @@ ul.sitemap {
     }
   }
   .header-right {
-    padding-top: 15px;
+    @media(min-width: @screen-sm-min) {
+      padding-top: 15px;
+    }
   }
   .language-switcher-language-url {
     @media(min-width: @screen-sm-min) {
@@ -2976,72 +2971,9 @@ ul.sitemap {
   .navbar-default.container .menu {
     padding-top: 4px;
   }
-  .header-right {
-    @media(min-width: @screen-sm-min) {
-      padding-top: 40px;
-    }
-  }
   .navbar-default.container {
     @media(min-width: @screen-sm-min) {
       margin-top: -10px;
-    }
-  }
-
-  /* Hide menu links in sidebar left to show them only on their specific parent's link page */
-  .region-sidebar-first .menu li a {
-    display: none;
-  }
-
-  /* Show level 2+ menu links on Our sucralose parent link */
-  &.node-id-26,
-  &.node-id-456,
-  &.node-id-31,
-  &.node-id-106,
-  &.node-id-461,
-  &.node-id-41,
-  &.node-id-46,
-  &.node-id-51 {
-    .region-sidebar-first .menu li {
-      a.formulating-with-splenda-sucralose,
-      a.taste,
-      a.stability,
-      a.quality-and-safety,
-      a.specifications,
-      a.regulatory-approvals,
-      a.faqs {
-        display: block;
-      }
-    }
-  }
-
-  /* Show level 2+ menu links on Plus Programme parent link */
-  &.node-id-26,
-  &.node-id-456,
-  &.node-id-31,
-  &.node-id-106,
-  &.node-id-461,
-  &.node-id-41,
-  &.node-id-46,
-  &.node-id-51 {
-    .region-sidebar-first .menu li {
-      a.innovation,
-      a.innovation-workshop,
-      a.lab-to-market-launcher,
-      a.regional-innovation-centres,
-      a.asia-pacific,
-      a.emea,
-      a.north-america,
-      a.latin-america,
-      a.fresh-from-the-kitchen,
-      a.experience,
-      a.exceptional-stability,
-      a.speed-to-market-review,
-      a.confidence,
-      a.ingredient-reputation-management,
-      a.security,
-      a.traceability {
-        display: block;
-      }
     }
   }
 }
@@ -3091,6 +3023,14 @@ ul.sitemap {
         padding: 4px;
       }
     }
+  }
+  td {
+    text-align: center;
+  }
+  th {
+    border-right: 1px solid;
+    padding: 3px 5px;
+    text-align: center;
   }
 }
 

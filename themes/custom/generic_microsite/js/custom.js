@@ -154,7 +154,11 @@ function centerModal() {
   Drupal.behaviors.carouselOptions = {
     attach: function (context, settings) {
       $('.carousel').each(function() {
+        if ($(this).closest('.paragraph--type--slide').find('.field--name-field-timeout').length > 0) {
          $(this).attr('data-interval', $(this).closest('.paragraph--type--slide').find('.field--name-field-timeout').text());
+        } else {
+          $(this).attr('data-interval', 5000);
+        }
       });
     }
   }
