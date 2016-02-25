@@ -2,3 +2,8 @@ tl_tweaks:
   version: 1.x
   js:
     js/tl_tweaks.js: {}
+tl_tweaks_menu_icon:
+  version: 1.x
+  css:
+    theme:
+      css/tl_tweaks_menu_icon.css: {}

@@ -89,6 +89,7 @@ function tl_tweaks_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form
  */
 function tl_tweaks_page_attachments_alter(&$page) {
   $page['#attached']['library'][] = 'tl_tweaks/tl_tweaks';
+  $page['#attached']['library'][] = 'tl_tweaks/tl_tweaks_menu_icon';
 }
 
 /**
@@ -134,5 +135,5 @@ function tl_tweaks_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &$
  * Implements hook_node_update().
  */
 function tl_tweaks_node_update($node) {
-  \Drupal\Core\Cache\Cache::invalidateTags($node->getCacheTags());
+  drupal_flush_all_caches();
 }
