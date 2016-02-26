@@ -36,7 +36,6 @@ dependencies:
   - views_ui
   - language
   - paragraphs
-  - field_formatter_class
   - content_translation
   - google_analytics
   - mollom
@@ -73,6 +72,7 @@ dependencies:
   - acquia_connector
   - search_api
   - search_api_solr
+  - redirect
 themes:
   - generic_microsite
   - seven

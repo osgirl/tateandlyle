@@ -7,7 +7,7 @@
   Drupal.behaviors.tl_tweaks = {
     attach: function (context, settings) {
       if($('#download').length) {
-        document.getElementById('download').click();
+        document.getElementById('download').click().delay( 2000 );
       }
     }
   };
