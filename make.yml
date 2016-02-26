@@ -13,7 +13,7 @@ projects:
       - "https://www.drupal.org/files/issues/allow_access_to_the-2661016-2_2.patch"
       # Hide unrelated child menu items when expanded option is used.
       # See https://www.drupal.org/node/2631468
-      - "https://www.drupal.org/files/issues/drupal_core_menu_block-follow_active_trail-2631468-7_0.patch"
+      - "https://www.drupal.org/files/issues/2631468-19.patch"
   # For all projects, always specify the exact version that is to be used.
   # For any project using a dev branch, always specify the revision id.
   acquia_connector:
@@ -80,6 +80,7 @@ projects:
     version: "1.0-rc4"
     patch:
       - "https://www.drupal.org/files/issues/fix_target_revision_id_property.patch"
+      - "https://www.drupal.org/files/issues/allow_limiting_the_max_items-2675604-2_1.patch"
   mollom:
     type: module
     download:
