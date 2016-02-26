@@ -13,12 +13,6 @@ cache:
   - "$HOME/.drush/cache"
   - "$HOME/.npm"
 
-env:
-  matrix:
-    - TEST_SUITE='validate:all'
-    - TEST_SUITE='build:test'
-    - TEST_SUITE='build:validate:test'
-
 addons:
   ssh_known_hosts:
     - svn-3394.devcloud.hosting.acquia.com
@@ -50,7 +44,7 @@ before_script:
   - ssh-keyscan -H -t rsa,dsa svn-3394.prod.hosting.acquia.com >> ~/.ssh/known_hosts
 
 script:
-  - ./task.sh -Dbehat:run-server=true $TEST_SUITE
+  - ./task.sh -Dbehat:run-server=true build:validate:test
 
 after_success:
   # Watch for successful `build:validate:test` build job on `master` branch; deploy to `master-build`.
