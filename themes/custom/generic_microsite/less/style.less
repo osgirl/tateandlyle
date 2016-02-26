@@ -124,7 +124,7 @@ header.container {
     padding-top: 35px;
     position: relative;
     transform: none;
-    width: 50%;
+    width: 42%;
     text-align:right;
   }
   .search-block-form {
@@ -712,10 +712,14 @@ body {
 }
 .breadcrumb {
   background: transparent;
+  display: none;
   float: left;
   font-weight: bold;
   line-height: 11px;
   padding: 0;
+  @media (min-width: @screen-sm-min) {
+    display: blocl;
+  }
   li {
     font-size: 11px;
     text-transform: capitalize;
