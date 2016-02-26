@@ -134,7 +134,10 @@ projects:
     type: module
     version: "1.0"
   redirect:
-    type: git
-    url: "https://github.com/md-systems/redirect.git"
-    revision: "34bee9a2e832d78ad691ced02993faf0c4cc67c1"
+    type: module
+    download:
+      type: git
+      url: "https://github.com/md-systems/redirect.git"
+      revision: "34bee9a2e832d78ad691ced02993faf0c4cc67c1"
+
 
