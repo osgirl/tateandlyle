@@ -15,7 +15,7 @@ cache:
 
 addons:
   ssh_known_hosts:
-    - svn-3394.devcloud.hosting.acquia.com
+    - svn-3394.prod.hosting.acquia.com
 
 notifications:
   # Replace this with project slack token.
