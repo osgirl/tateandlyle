@@ -49,9 +49,6 @@ projects:
       revision: "b226b1ef0918d18e0f3ddab2408c56dda44f6c0d"
     patch:
       - "https://www.drupal.org/files/issues/features-missing-2624542-7.patch"
-  field_formatter_class:
-    type: module
-    version: 1.0-rc2
   acquia_search_multi_subs:
     type: module
     download:
@@ -136,15 +133,11 @@ projects:
   sitemap:
     type: module
     version: "1.0"
-  colorbutton:
+  redirect:
     type: module
     download:
       type: git
-      url: "https://github.com/wwalc/colorbutton.git"
-      revision: "3003e13ae522affda431f6d615a9d0beb77af5ba"
-  panelbutton:
-    type: module
-    download:
-      type: git
-      url: "https://github.com/wwalc/panelbutton.git"
-      revision: "bf17c0a672887a2a0dc199f643296a0d4297f4c3"
+      url: "https://github.com/md-systems/redirect.git"
+      revision: "34bee9a2e832d78ad691ced02993faf0c4cc67c1"
+
+
