@@ -126,7 +126,7 @@ function tl_tweaks_page_attachments(array &$attachments) {
               $file_id = $node->get('field_file')->getValue()[0]['target_id'];
               $file = file_load($file_id);
               $file_path = $file->url($rel = canonical, $options = array());
-              print '<a href="' . $file_path . '" download id="download" hidden></a>';
+              print '<a target ="_blank" href="' . $file_path . '" id="download" hidden></a>';
             }
           }
         }
