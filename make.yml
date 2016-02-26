@@ -80,7 +80,7 @@ projects:
     version: "1.0-rc4"
     patch:
       - "https://www.drupal.org/files/issues/fix_target_revision_id_property.patch"
-      - "https://www.drupal.org/files/issues/allow_limiting_the_max_items-2675604-2_1.patch"
+      - "https://www.drupal.org/files/issues/allow_limiting_the_max_items-2675604-9_0.patch"
   mollom:
     type: module
     download:
