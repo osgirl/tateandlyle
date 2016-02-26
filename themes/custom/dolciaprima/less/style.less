@@ -960,6 +960,7 @@ header {
 
   }
 }
+
 /* Accordion */
 #accordion {
   clear: both;
@@ -1015,6 +1016,20 @@ header {
 .accordion-content {
   display: inline-block;
   margin-top: 25px;
+}
+
+.paragraph--type--accordion {
+  #accordion {
+    button.accordion-set {
+      background: none;
+      border: 0;
+      outline: 0;
+      text-align: left;
+      .accordion-content {
+        font-size: 12px;
+      }
+    }
+  }
 }
 
 .full-footer {
