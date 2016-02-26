@@ -9,6 +9,6 @@
       if($('#download').length) {
         document.getElementById('download').click();
       }
-    }, 3000);
+    }, 3000)
   };
 })(jQuery);
