@@ -1600,7 +1600,7 @@ h5{font-family:Lato,sans-serif;font-weight:600;color:#721f82;text-transform:uppe
 hr{border-top:2px solid #b0b0b0}
 em{font-size:12.5px;line-height:18.5px}
 img{max-width:100%;height:auto}
-.caret{display:none}
+.cancel_button,.caret{display:none}
 .pre-header{background:#a448c6;background-repeat:no-repeat;background-size:100% 100%;min-height:550px;position:absolute;top:0;width:100%;overflow:hidden}
 @media (min-width:480px){.pre-header{background-image:url(../images/bg-form-area.jpg);min-height:460px}}
 .pre-header .region-pre-header{margin:0 auto;width:90%}
