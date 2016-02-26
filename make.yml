@@ -131,9 +131,6 @@ projects:
       type: git
       url: "https://git.drupal.org/project/menu_link_attributes.git"
       revision: "611877ee4fac3fa51db7e568e7609dcdb1c05962"
-  sitemap:
-    type: module
-    version: "1.0"
   redirect:
     type: module
     download:
