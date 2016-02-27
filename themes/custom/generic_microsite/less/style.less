@@ -62,7 +62,6 @@ table.tout {
 header.container {
   padding: 0;
   position: relative;
-  .valign-parent;
   @media (min-width: @screen-sm) {
     transform: none;
   }
@@ -1812,6 +1811,11 @@ body {
   position: absolute;
   top: 0;
   width: 21px;
+  &.no-image {
+    position: relative;
+    float: left;
+    margin-right: 10px;
+  }
 }
 .paragraph--type--tout {
   .modal.fade {
@@ -2690,39 +2694,12 @@ ul.sitemap-menu {
   color: #000 !important;
 }
 
-.tate---lyle-procurement {
-  #st-trigger-effects {
-    display: none;
+/* Contextual links */
+.contextual-region .contextual .contextual-links li {
+  display: block;
+  &:after {
+    content: none;
   }
-  .header-left {
-    @media(min-width: @screen-sm-min) {
-      padding-top: 51px !important;
-    }
-    .navbar-brand {
-      padding-left:0;
-    }
-  }
-  &.path-frontpage {
-    h2 {
-     border-bottom: 1px solid #dcd9d6; 
-     margin-bottom:8px;
-     padding-bottom: 8px;
-    }     
-  }
-  .region-breadcrumb {
-    margin-top: 24px;
-  }
-  .search-block-form {
-    .form-group {
-      @media(min-width: @screen-sm-min) {
-        margin-bottom: 5px;
-      }
-    }
-  }
-}
-
-.help-block {
-  display: none; /* Hide the tooltip message */
 }
 
 /* Contrast */
@@ -2782,10 +2759,26 @@ ul.sitemap-menu {
     }
   }
 
+  &.tl-one-sidebar.path-frontpage .main-container .col-sm-9,
+  &.tl-one-sidebar.path-frontpage .field--name-field-touts >div {
+    background-image: url('../images/high_contrast/cp-bg-hc.gif');
+    background-repeat: repeat-y;
+  }
+
+  &.tl-one-sidebar.path-frontpage .field--name-field-touts {
+    background-color: transparent;
+  }
+
   &.tl-no-sidebars.path-frontpage .field--name-field-touts>div:last-child {
     background-image: none;
   }
 
+  .paragraph--type--tout .modal.fade .modal-dialog .modal-content {
+    background-color: #212121;
+  }
+  aside .paragraph {
+    background-color: transparent !important;
+  }
   #accordion .accordion-set .accordion-title,
   #accordion .accordion-set.collapsed:hover .accordion-title,
   .field--name-field-title-tab,
@@ -2867,6 +2860,9 @@ ul.sitemap-menu {
   .nav>li>a:hover, .nav>li>a:focus {
     background-color: transparent;
   }
+  .contextual-region .contextual .contextual-links a {
+    color: #333 !important;
+  }
 }
 
 /* Custom sites */
@@ -2879,6 +2875,37 @@ ul.sitemap-menu {
     @media(min-width: @screen-sm-min) {
       margin: 0;
       padding-top:10px;
+    }
+  }
+}
+
+.tate---lyle-procurement {
+  #st-trigger-effects {
+    display: none;
+  }
+  .header-left {
+    @media(min-width: @screen-sm-min) {
+      padding-top: 51px !important;
+    }
+    .navbar-brand {
+      padding-left:0;
+    }
+  }
+  &.path-frontpage {
+    h2 {
+     border-bottom: 1px solid #dcd9d6; 
+     margin-bottom:8px;
+     padding-bottom: 8px;
+    }     
+  }
+  .region-breadcrumb {
+    margin-top: 24px;
+  }
+  .search-block-form {
+    .form-group {
+      @media(min-width: @screen-sm-min) {
+        margin-bottom: 5px;
+      }
     }
   }
 }
