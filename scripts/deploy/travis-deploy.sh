@@ -12,7 +12,7 @@
 
 build_job=$1      # The build job to to watch.
 source_branch=$2  # The branch to watch.
-dest_branch=$3    # The branch to which the build artifact should be committed and deployed.
+dest_branch=$3
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
 
