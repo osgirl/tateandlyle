@@ -313,7 +313,9 @@ function generic_microsite_preprocess_page(&$variables) {
 function generic_microsite_preprocess_paragraph(&$variables) {
   $is_front = \Drupal::service('path.matcher')->isFrontPage();
   $variables['is_front'] = $is_front;
-  
+  if (theme_get_setting('frontpage_template', 'generic_microsite') != 2) {
+    $variables['no_sidebars'] = TRUE;
+  }
   if ($variables['paragraph']->getType() == 'tout') {
     if ($variables['content']['field_text'][0]) {
       $html = $variables['content']['field_text'][0]['#text'];

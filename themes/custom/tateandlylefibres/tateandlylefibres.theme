@@ -145,7 +145,8 @@ function tateandlylefibres_preprocess_paragraph(&$variables) {
 }
 
 function tateandlylefibres_preprocess_menu(&$variables) {
-  if($variables['menu_name'] == 'main') {
+  if($variables['menu_name'] == 'main' || $variables['menu_name'] == 'main-navigation-es' || $variables['menu_name'] == 'main-navigation-pt' || $variables['menu_name'] == 'main-navigation-cn') {
+    $variables['attributes']['class'] = 'navbar-nav'; 
     foreach ($variables['items'] as $key => $item) {
       if ($item['in_active_trail'] == TRUE) {
         $additional_class = '';
@@ -174,4 +175,18 @@ function tateandlylefibres_form_contact_message_marketing_form_alter(&$form, \Dr
 
   // Disable preview button
   unset($form['actions']['preview']);
+}
+
+/**
+ * Implements theme_preprocess_block.
+ */
+function tateandlylefibres_preprocess_block(&$variables) {
+  if($variables['base_plugin_id'] == 'system_branding_block') {
+    $language_manager = \Drupal::languageManager();
+    $default_language = $language_manager->getDefaultLanguage()->getId();
+    $current_language = $language_manager->getCurrentLanguage()->getId();
+    if ($current_language == 'en') {
+      $variables['is_english'] = TRUE;
+    }
+  }
 }
