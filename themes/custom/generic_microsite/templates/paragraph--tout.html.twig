@@ -57,7 +57,7 @@
   <div{{ attributes.addClass(classes).addClass(image_text) }}>
 {% endif %}
     {% set modal_id = paragraph.id.value %}
-    {% if is_front %} 
+    {% if is_front and no_sidebars %} 
        {% if content.field_image[0] %}
         <div class="tout-image">
           {# Add readmore link to tout image #}
@@ -101,7 +101,7 @@
         {% endif %}
       {% else %}
         {% if content.field_popup['#entity_type'] is defined %} 
-        <span class="open-modal" data-toggle="modal" data-target="#modal-{{modal_id}}"></span>
+        <span class="open-modal no-image" data-toggle="modal" data-target="#modal-{{modal_id}}"></span>
       {% endif %}
         {{ content.field_title }}
          {% if content.field_text[0] %}
