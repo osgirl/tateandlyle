@@ -1,0 +1,6 @@
+name: 'T&L Sitemap'
+description: 'This is a custom version of the sitemap module.'
+core: 8.x
+package: Custom
+type: module
+configure: sitemap.settings
