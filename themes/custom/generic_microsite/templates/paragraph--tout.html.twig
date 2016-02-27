@@ -37,11 +37,11 @@
  */
 #}
 {%
-set classes = [
-'paragraph',
-'paragraph--type--' ~ paragraph.bundle|clean_class,
-view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
-]
+  set classes = [
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+  ]
 %}
 
 {#  Set the background color of the tout #}
@@ -60,7 +60,8 @@ view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
     {% if is_front %} 
        {% if content.field_image[0] %}
         <div class="tout-image">
-          {{ content.field_image }}
+          {# Add readmore link to tout image #}
+          <a title="{{ image_link }}" href= "{{ image_link }}">{{ content.field_image }}</a>
           {{ content.field_image_text }}
           {% if content.field_popup['#entity_type'] is defined %} 
              <span class="open-modal" data-toggle="modal" data-target="#modal-{{modal_id}}"></span>
@@ -86,7 +87,7 @@ view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
     {% else %} 
        {% if content.field_image[0] %}
         {{ content.field_title }}
-        <div class="tout-image">
+        <div class="tout-image">     
           {{ content.field_image }}
           {{ content.field_image_text }}
           {% if content.field_popup['#entity_type'] is defined %} 

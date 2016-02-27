@@ -43,7 +43,7 @@ $config = array(
      * Note: The messages are logged with the DEBUG log level, so you also need to set
      * the 'logging.level' option to LOG_DEBUG.
      */
-    'debug' => false,
+    'debug' => true,
 
     /*
      * When showerrors is enabled, all error messages and stack traces will be output
@@ -121,7 +121,7 @@ $config = array(
      * Options: [syslog,file,errorlog]
      *
      */
-    'logging.level' => SimpleSAML_Logger::NOTICE,
+    'logging.level' => SimpleSAML_Logger::DEBUG,
     'logging.handler' => 'syslog',
 
     /*
@@ -767,7 +767,7 @@ $config = array(
 // You can use any database that you have defined in your workflow.
 // Use the database "role" without the stage ("dev", "stage", or "test", etc.)
 $ah_options = array(
-  'database_name' => 'avenacare',
+  'database_name' => 'tatelyle',
   'session_store' => array(
     'prod' => 'memcache',
     'test' => 'memcache',
@@ -777,8 +777,9 @@ $ah_options = array(
 
 // Set some security and other configs that are set above, however we
 // overwrite them here to keep all changes in one area
-$config['technicalcontact_name'] = "Your Name";
-$config['technicalcontact_email'] = "your_email@yourdomain.com";
+$config['technicalcontact_name'] = "Natalija Buldakova";
+$config['technicalcontact_email'] = "natalija.buldakova@tateandlyle.com";
+
 // Change these for your installation
 $config['secretsalt'] = 'y0h9d13pki9qdhfm3l5nws4jjn55j6hj';
 $config['auth.adminpassword'] = 'mysupersecret';
@@ -787,7 +788,10 @@ setcookie('NO_CACHE', '1');
 
 if (empty($_ENV['AH_SITE_ENVIRONMENT'])) {
     // add any local configuration here
-} else {
+    $config['store.type'] = 'sql';
+    $config['store.sql.prefix'] = 'simplesaml';
+}
+else {
     $ah_options['env'] = $_ENV['AH_SITE_ENVIRONMENT'];
     $config = acquia_logging_config($config);
     $config = acquia_session_store_config($config, $ah_options);

@@ -5,7 +5,6 @@
  */
 
 use Drupal\paragraphs\Entity\Paragraph;
-use Drupal\user\Entity\User;
 use Drupal\user\RoleInterface;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\node\Entity\Node;
@@ -39,9 +38,8 @@ function tl_multisite_install() {
   \Drupal::configFactory()->getEditable('system.site')->set('page.front', '/node')->save(TRUE);
 
   // Assign user 1 the "administrator" role.
-  $user = User::load(1);
-  $user->roles[] = 'administrator';
-  $user->save();
+  $account = \Drupal\user\Entity\User::load(1);
+  $account->addRole('administrator');
 
   // Allow authenticated users to use shortcuts.
   user_role_grant_permissions(RoleInterface::AUTHENTICATED_ID, array('access shortcuts'));
@@ -217,7 +215,7 @@ function tl_multisite_create_nodes() {
     'created' => REQUEST_TIME,
     'changed' => REQUEST_TIME,
     'uid' => 1,
-    'title' => '404',
+    'title' => 'Page not found',
     'field_tags' => [2],
     'field_main_content' => $paragraph,
   ]);
@@ -238,7 +236,7 @@ function tl_multisite_create_nodes() {
     'created' => REQUEST_TIME,
     'changed' => REQUEST_TIME,
     'uid' => 1,
-    'title' => '403',
+    'title' => 'Access denied',
     'field_tags' => [2],
     'field_main_content' => $paragraph,
   ]);
@@ -265,7 +263,7 @@ function tl_multisite_create_nodes() {
   ]);
   $node->save();
   $path = '/node/' . $node->id();
-  \Drupal::service('path.alias_storage')->save($path, "/thank you", "en");
+  \Drupal::service('path.alias_storage')->save($path, "/thank-you", "en");
 }
 
 /**

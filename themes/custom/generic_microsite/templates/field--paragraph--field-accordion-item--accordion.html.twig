@@ -42,7 +42,7 @@
      {% set image = item.content['#field_collection_item'].field_image.value %}
       {% set image_id = image['0']['target_id'] %}
      {% set accordion_id = item['content']['#field_collection_item'].id %}
-      <div class="accordion-set collapsed" data-toggle="collapse" data-parent="#accordion" href="#{{ accordion_id }}" {{ item.attributes }}> 
+      <button class="accordion-set collapsed" data-toggle="collapse" data-parent="#accordion" href="#{{ accordion_id }}" {{ item.attributes }}> 
       {% if image %}
         <div class="image-accordion">
           <img src={{ accordeon_image[image_id] }}>
@@ -59,6 +59,6 @@
             {{ item.content['#field_collection_item'].field_body.value | raw }}
           </div>
         </div>
-      </div>
+      </button>
     {% endfor %}
   </div>

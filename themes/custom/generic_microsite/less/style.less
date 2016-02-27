@@ -81,12 +81,14 @@ header.container {
 
 .header-left {
   float: left;
-  margin: 12px 0;
   padding-top: : 0;
   max-width: 65%;
   padding-left: 20px;
   @media (min-width: @screen-xs) {
     max-width: none;
+  }
+  img {
+    margin: 10px 0;
   }
 }
 .logo {
@@ -101,7 +103,8 @@ header.container {
 
 .navbar-brand{
   font-size: 24px;
-  height: 20px;
+  height: auto;
+  line-height: 32px;
   margin: 12px 0;
   padding: 0;
   @media (min-width: @screen-sm) {
@@ -115,16 +118,13 @@ header.container {
   margin-right: 20px;
   .valign-child;
   transform: translateY(50%);
-  @media (min-width: @screen-xs) {
-    transform: translateY(100%);
-  }
   @media (min-width: @screen-sm) {
     float: right;
     margin-bottom: 0;
     padding-top: 35px;
     position: relative;
     transform: none;
-    width: 50%;
+    width: 42%;
     text-align:right;
   }
   .search-block-form {
@@ -227,6 +227,20 @@ header.container {
       display: block !important;
     }
   }
+}
+
+#search-form .btn-default:after,
+#search-block-form .btn-default:after {
+  -webkit-font-smoothing: antialiased;
+  color: #FFF;
+  content: "\e003";
+  display: inline-block;
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  position: relative;
+  top: 1px;
 }
 
 .advanced-search {
@@ -618,9 +632,8 @@ body,
         background-image: url(../images/subnav-border-top.gif);
         background-position: bottom;
         background-repeat: no-repeat;
-        height: 25px;
         margin: 0 2px 2px 2px;
-        padding: 5px 10px 26px 8px;
+        padding: 5px 10px 10px 8px;
         width: 215px;
         &:last-child {
           background: none;
@@ -699,10 +712,14 @@ body {
 }
 .breadcrumb {
   background: transparent;
+  display: none;
   float: left;
   font-weight: bold;
   line-height: 11px;
   padding: 0;
+  @media (min-width: @screen-sm-min) {
+    display: blocl;
+  }
   li {
     font-size: 11px;
     text-transform: capitalize;
@@ -1035,23 +1052,23 @@ body:not(.path-frontpage) {
     .menu.nav {
       float: none;
       li {
-        border-bottom: 1px solid #E5E5E5;
         float: none;
-        padding: 4px 0 3px;
-        margin-bottom: 7px;
-        &.active {
-          .dropdown-menu {
-            margin-top: 9px;
-          }
-        }
-      }
-      a {  
-        font-weight: bold;
-        font-size: 12px;
-        padding: 0;
-        background: transparent;
-         &:hover, &:focus {
+        a {
           background: transparent;
+          border-bottom: 1px solid #E5E5E5;
+          float: none;
+          font-weight: bold;
+          font-size: 12px;
+          padding: 4px 0 3px;
+          margin-bottom: 7px;
+          &.active {
+            .dropdown-menu {
+              margin-top: 9px;
+            }
+          }
+          &:hover, &:focus {
+            background: transparent;
+          }
         }
       }
       .dropdown-menu {
@@ -1705,6 +1722,10 @@ body {
   }
 }
 
+.field--name-field-timeout {
+  display: none; /* Hide the timeoout value from the slideshow */
+}
+
 /* Carousel fade */
 .carousel-fade {
   .carousel-inner {
@@ -1797,15 +1818,22 @@ body {
 }
 .paragraph--type--tout {
   .modal.fade {
+    text-align: center;
     .modal-dialog {
       margin: 0 auto;
-      max-width: 780px;
+      max-width: initial;
+      transform:none;
+      position: relative;
       width: auto;
+      display: inline-block;
+      text-align: center;
       .modal-content {
+        display: inline-block;
         background-color: #FFF;
         border-bottom: 30px solid #5C5C5C;
         border-top: 30px solid #5C5C5C;
         padding: 20px;
+        text-align: left;
         h1:first-child,
         h2:first-child,
         h3:first-child,
@@ -1844,6 +1872,8 @@ body {
         }
         img {
           padding-bottom: 0;
+          max-height: 87vh;
+          max-width: 95vw;
         }
       }
     }
@@ -1857,14 +1887,6 @@ body {
     transform: none;
     max-width: 1200px;
     width: 100%;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%,-50%);
-    -moz-transform: translate(-50%,-50%);
-    -ms-transform: translate(-50%,-50%);
-    -o-transform: translate(-50%,-50%);
-    transform: translate(-50%,-50%);
-    position: absolute;
     .modal-content {
       border: 0;
       border-radius: 0;
@@ -1987,11 +2009,12 @@ body {
       }
       .panel-collapse {
         clear:both;
+        word-break: break-word;
       }
       .accordion-content {
         font-size: 12px;
-        padding-right:10px;
-        padding-top:10px;
+        padding-right: 10px;
+        padding-top: 10px;
         ul {
           padding-left:0;
           list-style-type:none;
@@ -2010,10 +2033,22 @@ body {
         font-size: 12px;
         line-height: 16px;
         padding: 0 25px 4px 12px;
-        width: calc(~"100% - 110px");
       }
       .accordion-subtitle {
-        font-size:12px;
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+.paragraph--type--accordion {
+  #accordion {
+    button.accordion-set {
+      border: 0;
+      outline: 0;
+      text-align: left;
+      .accordion-content {
+        font-size: 12px;
       }
     }
   }
@@ -2114,9 +2149,22 @@ body {
 
 
 /* Forms */
+.contact,
+.contact-us {
+  .tl-form-fields-required {
+    background: #E4E0DB;
+    font-size: 10px;
+    padding: 32px 15px 5px;
+  }
+}
+
+form .field--type-boolean {
+   margin-left: 20px;
+}
+
 .contact-form {
   .gradient (@startColor: #E4E0DB, @endColor: #FFF);
-  padding: 12px 35px 35px;
+  padding: 15px;
 
   label {
     color: #525252;
@@ -2171,7 +2219,7 @@ body {
       }
     }
   }
-  /*Special fields*/
+  /* Special fields */
   .field--name-field-contact-identifier {
     display: none;
   }
@@ -2184,19 +2232,26 @@ body {
 
 /* Form landing */
 .form-landing {
-  margin-top: 1.5em;
+  @media(min-width: @screen-sm-min) {
+    margin-top: 3em;
+  }
+  .page-header {
+    border: 0;
+    font-size: 26px;
+    margin-bottom: 13px;
+    padding: 0 20px;
+  }
   .field--name-field-form {
     @media(min-width: @screen-sm-min) {
       float: right;
-      margin-right: 5%;
-      width: 37%;
+      margin-right: 5.2%;
+      width: 36.4%;
     }
   }
   .field--name-field-main-content {
     @media(min-width: @screen-sm-min) {
       float: left;
-      margin-left: 2%;
-      margin-right: 3%;
+      margin-left: 2.25%;
       padding-bottom: 30px;
       width: 53%;
     }
@@ -2205,7 +2260,7 @@ body {
       width: 150px;
       @media(min-width: @screen-xs-min) {
         float: left;
-        width: 20%;
+        width: 24%;
       }
       .field--name-field-image {
         margin: initial;
@@ -2214,11 +2269,12 @@ body {
     .paragraph--type--text {
       padding-left: 15px;
       @media(min-width: @screen-xs-min) { 
-        padding-left: 25%;
+        padding-left: 30%;
       }
-      h3, h4 {
+      h2, h3, h4 {
         font-size: 21px;
         font-weight: bold;
+        margin-bottom: 3px;
         margin-top: 0;
       }
       p {
@@ -2308,13 +2364,14 @@ body {
     margin-top: 30px;
     padding: 13px 35px 0 35px;
     @media(min-width: @screen-sm-min) {
-      width: 37%;
+      width: 36.4%;
       float: right;
-      margin-right: 5%;
+      margin-right: 5.2%;
+      margin-top: -3.2em;
     }
-    h3 {
+    h2, h3 {
       color: #4D4D4F;
-      font-size: 26px;
+      font-size: 26.604px;
       font-weight: bold;
     }
     p {
@@ -2322,6 +2379,36 @@ body {
       font-size: 17px;
     }
   }
+}
+
+/* Pagination */
+.pagination {
+  li {
+    a {
+      border: 0;
+      color: #4d4d4f;
+      &:active,
+      &:focus,
+      &:hover {
+        background: none;
+        color: #7d6a57;
+      }
+    }
+    &.is-active {
+      a {
+        background: none;
+        color: #7d6a57;
+      }
+      &:active,
+      &:focus,
+      &:hover {
+        a {
+          background: none;
+          color: #7d6a57;
+        }
+      }
+    }
+  }
 }
 
 /* Footer */
@@ -2365,12 +2452,13 @@ body {
       }
     }
     a {
+      color: #7d6a57 !important;
       padding: 0;
       @media(min-width: @screen-sm-min) {
         border-left: 1px solid #7D6A57;
         padding: 0 4px;
       }
-      line-height: 8px;
+      line-height: 12px;
       &:focus,
       &:hover {
         background-color: transparent;
@@ -2408,7 +2496,7 @@ body {
   }
 }
 
-/*Form tabs*/
+/* Form tabs */
 .tab-pane {
   .form-tabs {
     table {
@@ -2505,267 +2593,100 @@ body {
   }
 }
 
-/* Custom sites */
-.clariastarch {
-  header {
-    .horizontal-gradient (@startColor: #4DC0AF, @endColor: #FFF);
-  }
-  .header-left {
+/* TL Search */
+.path-search {
+  .middle-content {
     @media(min-width: @screen-sm-min) {
-      margin: 0;
-      padding-top:10px;
+      width: 75%;
+    }
+    &:before,
+    &:after {
+      content: none;
     }
   }
-}
-
-.purefruit, .tate---lyle-procurement, .tasteva-sweetner {
- header {
-    .horizontal-gradient (@startColor: #D2E0BB, @endColor: #FFF);
-  }
-  .header-left {
-    @media(min-width: @screen-sm-min) {
-      margin: 0;
-      padding-top: 10px;
-    }
-  }
-}
-
-.tasteva-sweetner {
-  .header-right {
-    padding-top: 15px;
-  }
-  #search-block-form {
-    .form-group {
-      margin-bottom: 10px;
-    }
-  }
-}
-
-.purefruit {
-  table {
-    border-collapse: initial;
-    border-spacing: 3px;
-    border:1px solid #808080;
-    td {
-      border:1px solid #808080;
-    }
-    p {
-      margin-bottom: 0;
-    }
-    tr:nth-child(2n+1) {
-      background-color:#f6f6f6;
-    }
-    tr:first-child {
-      background-color: #ccc;
-    }
-  }
-}
-
-.soda-lo {
-  header {
-    .horizontal-gradient (@startColor: #DEDBD5, @endColor: #FFF);
-  }
-  .header-left {
-    @media(min-width: @screen-sm-min) {
-      margin: 0;
-      margin-top: -18px;
-      padding-top: 0;
-    }
-  }
-  .page-header {
-    border: 0;
-    font-size: 26px;
-  }
-}
-
-.proatein {
-  a {
-    color: #7D6A57;
-  }
-  .header-left {
-    padding-top:20px;
-  }
-}
-
-.avenacare {
-  .header-left {
-    @media(min-width: @screen-sm-min) {
-      margin: 0;
-      padding-top: 35px;
-    }
-  }
-  .logo {
-    margin-top: 25px;
-  }
-  .st-pusher {
-    background-size: 100% !important;
-  }
-}
-
-.open-innovation, .global-industrial-starches, .food-and-nutrition-science-centre, .tateandlyle_china {
-  header {
-    .horizontal-gradient (@startColor: #D6D2DE, @endColor: #FFF);
-  }
-  .header-left {
-    @media(min-width: @screen-sm-min) {
-      margin: 0;
-      padding-top: 55px;
-    }
-    .navbar-brand {
-      padding-left:0;
-    }
-  }
-}
-
-.your-drink-solutions {
-  header {
-    .horizontal-gradient (@startColor: #F6DABD, @endColor: #FFF);
-  }
-  .header-left {
-    @media(min-width: @screen-sm-min) {
-      margin: 0;
-      padding-top: 55px;
-    }
-    .navbar-brand {
-      padding-left:0;
-    }
-  }
-}
-
-.your-food-systems {
-  header {
-    .horizontal-gradient (@startColor: #D6D2DE, @endColor: #FFF);
-  }
-  .header-left {
-    @media(min-width: @screen-sm-min) {
-      margin: 0;
-      padding-top: 55px;
-    }
-    .navbar-brand {
-      padding-left:0;
-    }
-  }
-}
-
-.sucralose,
-.splenda---sucralose {
-  header {
-    .horizontal-gradient (@startColor: #FFE501, @endColor: #FFF);
-  }
-  .header-left {
-    @media(min-width: @screen-sm-min) {
-      margin: 0;
-      padding-top: 20px;
-    }
-    .navbar-brand {
-      padding-left:0;
-    }
-  }
-  .header-right {
-    padding-top: 8px;
-  }
-}
-
-:lang(en) {
-  .sucralose,
-  .splenda---sucralose {
-    &.tl-no-sidebars.path-frontpage {
-      .field--name-field-touts {
-        .field--item {
-          &:nth-child(2),
-          &:nth-child(3),
-          &:nth-child(4) {
-            li {
-              background: none;
-              padding: 0;
-              a {
-                background-color: #B9B3AC;
-                color: #FFF;
-                display: inline-block;
-                padding: 8px 30px 8px 10px;
-                text-transform: uppercase;
-              }
-            }
-          }
-        }
+  aside {
+    &:first-of-type {
+      @media(min-width: @screen-sm-min) {
+        right: 75%;
       }
     }
-  }
-}
-
-.global-industrial-starches {
-  table {
-    p {
-      margin-bottom: 0;
-    }
-    border-spacing: 1px;
-    thead tr:first-child {
-      background-color: #948671;
-      color:#fff;
-      text-align: center;
-    }
-    tr {
-      background-color: #e4e1db;
-      td {
-        border:1px solid #fff;
-        padding: 4px;
-      }
-    }
-  }
-}
-
-.food-and-nutrition-science-centre  {
-  .navbar-brand {
-    color:#7373a8;
-  }
-  &.path-frontpage {
-    .field--name-field-touts .field--name-field-title {
+    &:last-of-type {
       display: none;
     }
-    table td {
-      border: 0;
-      &:nth-child(1) {
-        padding-right: 10px;
-      }
-      &:nth-child(2) {
-        padding-left: 10px;
-      }
-    }
-  }
- 
-}
-
-.your-bakery-and-snack-solutions,
-.tate---lyle-japan {
-  header {
-    .horizontal-gradient (@startColor: #DEDBD6, @endColor: #FFF);
-  }
-  .navbar-brand {
-    color: #9C6D2F;
-  }
-  .header-left {
-    @media(min-width: @screen-sm-min) {
-      margin: 0;
-      padding-top: 55px;
-    }
-    .navbar-brand {
-      padding-left:0;
-    }
   }
 }
 
-.feed-them-better{
-  .header-left {
-    @media(min-width: @screen-sm-min) {
-      margin: 0;
-      padding-top: 22px;
-    }
-    .navbar-brand {
-      padding-left:0;
+.view-tate-lyle-search {
+  .view-filters {
+    .gradient (@startColor: #E4E1DC, @endColor: #F7F6F4);
+    margin-bottom: 3em;
+    min-height: 213px;
+    padding: 15px;
+    label {
+      margin-bottom: 5px;
     }
   }
-  .logo {
-    margin-top: 15px;
+  .views-exposed-form {
+    border-bottom: 1px solid #DCD9D5;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+  }
+  #edit-search {
+    background: #FFF;
+    height: 24px;
+  }
+  button.form-submit {
+    background: #B9B3AC;
+    border: 0;
+    border-radius: 0;
+    height: 24px;
+    text-indent: -999em;
+    width: 24px;
+  }
+  #edit-actions {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: normal;
+    height: 24px;
+    left: -3px;
+    line-height: 1;
+    position: relative;
+    top: 10px;
+    width: 24px;
+    &:after {
+      color: #FFF;
+      content: "\e003";
+      font-size: 14px;
+      left: 5px;
+      position: absolute;
+      top: 5px;
+    }
+  }
+  .views-row {
+    border-bottom: 1px solid #DCD9D5;
+    h2 {
+      font-size: 17px;
+      font-weight: bold;
+    }
+  }
+}
+
+
+/* Sitemap */
+ul.sitemap-menu {
+  li {
+    list-style: inherit;
+    margin: 8px 0;
+    font-size: 16px;
+    li {
+      font-size: 14px;
+      li {
+        font-size: 12px;
+      }
+    }
   }
 }
 
@@ -2775,8 +2696,13 @@ body {
 }
 
 .tate---lyle-procurement {
+  #st-trigger-effects {
+    display: none;
+  }
   .header-left {
-    padding-top: 55px;
+    @media(min-width: @screen-sm-min) {
+      padding-top: 51px !important;
+    }
     .navbar-brand {
       padding-left:0;
     }
@@ -2789,7 +2715,14 @@ body {
     }     
   }
   .region-breadcrumb {
-    margin-top:15px;
+    margin-top: 24px;
+  }
+  .search-block-form {
+    .form-group {
+      @media(min-width: @screen-sm-min) {
+        margin-bottom: 5px;
+      }
+    }
   }
 }
 
@@ -2914,5 +2847,379 @@ body {
   }
   .region-footer .menu a {
     border-color: @azure;
+  }
+}
+
+/* Custom sites */
+.claria,
+.clariastarch {
+  header {
+    .horizontal-gradient (@startColor: #4DC0AF, @endColor: #FFF);
+  }
+  .header-left {
+    @media(min-width: @screen-sm-min) {
+      margin: 0;
+      padding-top:10px;
+    }
+  }
+}
+
+.purefruit,
+.tate---lyle-procurement,
+.tasteva-sweetner {
+ header {
+    .horizontal-gradient (@startColor: #D2E0BB, @endColor: #FFF);
+  }
+  .header-left {
+    @media(min-width: @screen-sm-min) {
+      margin: 0;
+      padding-top: 10px;
+    }
+  }
+  .header-right {
+    @media(min-width: @screen-sm-min) {
+      padding-top: 40px;
+    }
+  }
+  .navbar-default.container {
+    @media(min-width: @screen-sm-min) {
+      margin-top: -10px;
+    }
+  }
+}
+
+.tasteva-sweetner {
+  .header-right {
+    @media(min-width: @screen-sm-min) {
+      padding-top: 15px;
+    }
+  }
+  #search-block-form {
+    .form-group {
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.purefruit {
+  table {
+    border-collapse: initial;
+    border-spacing: 3px;
+    border:1px solid #808080;
+    td {
+      border:1px solid #808080;
+    }
+    p {
+      margin-bottom: 0;
+    }
+    tr:nth-child(2n+1) {
+      background-color:#f6f6f6;
+    }
+    tr:first-child {
+      background-color: #ccc;
+    }
+  }
+}
+
+.soda-lo {
+  header {
+    .horizontal-gradient (@startColor: #DEDBD5, @endColor: #FFF);
+  }
+  .header-left {
+    @media(min-width: @screen-sm-min) {
+      margin: 0;
+      margin-top: -19px;
+      padding-top: 0;
+    }
+  }
+  .header-right {
+    @media(min-width: @screen-sm-min) {
+      padding-top: 40px;
+    }
+  }
+  .page-header {
+    border: 0;
+    font-size: 26px;
+  }
+  .navbar-default.container {
+    @media(min-width: @screen-sm-min) {
+      margin-top: -10px;
+    }
+  }
+  #utilitynavigation, #block-tatelyleutilitynavigation {
+    @media(min-width: @screen-sm-min) {
+      margin-top: -3px;
+    }
+  }
+}
+
+/* Hide cancel button on File Acces form */
+#contact-message-file-access-form .cancel_button {
+  display: none;
+}
+
+/* Page header on form landing */
+.form-landing .page-header {
+  border: 0;
+  font-size: 26px;
+  padding: 0 20px;
+}
+
+.proatein {
+  a {
+    color: #7D6A57;
+  }
+  .header-left {
+    @media(min-width: @screen-sm-min) {
+      padding-top: 20px;
+    }
+  }
+  .header-right {
+    @media(min-width: @screen-sm-min) {
+      padding-top: 40px;
+    }
+  }
+}
+
+.avenacare {
+  .header-left {
+    @media(min-width: @screen-sm-min) {
+      margin: 0;
+      padding-top: 36px;
+    }
+  }
+  .header-right {
+    @media(min-width: @screen-sm-min) {
+      padding-top: 40px;
+    }
+  }
+  .logo {
+    margin-top: 25px;
+  }
+  .st-pusher {
+    background-size: 100% !important;
+  }
+}
+
+.open-innovation,
+.global-industrial-starches,
+.food-and-nutrition-science-centre,
+.tateandlyle_china {
+  header {
+    .horizontal-gradient (@startColor: #D6D2DE, @endColor: #FFF);
+  }
+  .header-left {
+    @media(min-width: @screen-sm-min) {
+      margin: 0;
+      padding-top: 50px;
+    }
+    .navbar-brand {
+      padding-left:0;
+    }
+  }
+  .header-right {
+    @media(min-width: @screen-sm-min) {
+      padding-top: 40px;
+    }
+  }
+  .navbar-default.container {
+    @media(min-width: @screen-sm-min) {
+      margin-top: -10px;
+    }
+  }
+}
+
+.your-drink-solutions,
+.your-food-systems {
+  header {
+    .horizontal-gradient (@startColor: #F6DABD, @endColor: #FFF);
+  }
+  .header-left {
+    @media(min-width: @screen-sm-min) {
+      margin: 0;
+      padding-top: 51px;
+    }
+    .navbar-brand {
+      padding-left:0;
+    }
+  }
+  .header-right {
+    @media(min-width: @screen-sm-min) {
+      padding-top: 10px;
+    }
+  }
+  .language-switcher-language-url {
+    @media(min-width: @screen-sm-min) {
+      padding-bottom: 7px;
+    }
+  }
+  .navbar-default.container {
+    @media(min-width: @screen-sm-min) {
+      margin-top: -11px;
+    }
+    .menu {
+      padding-top: 4px;
+    }
+  }
+}
+
+.your-food-systems {
+  header {
+    .horizontal-gradient (@startColor: #D6D2DE, @endColor: #FFF);
+  }
+}
+
+.sucralose,
+.splenda---sucralose {
+  header {
+    .horizontal-gradient (@startColor: #FFE501, @endColor: #FFF);
+  }
+  .header-left {
+    @media(min-width: @screen-sm-min) {
+      margin: 0;
+      padding-top: 18px;
+    }
+    .navbar-brand {
+      padding-left:0;
+    }
+  }
+  .header-right {
+    @media(min-width: @screen-sm-min) {
+      padding-top: 15px;
+    }
+  }
+  .language-switcher-language-url {
+    @media(min-width: @screen-sm-min) {
+      position: relative;
+      top: -5px;
+    }
+  }
+  .navbar-default.container {
+    @media(min-width: @screen-sm-min) {
+      margin-top: -11px;
+    }
+  }
+  .navbar-default.container .menu {
+    padding-top: 4px;
+  }
+  .navbar-default.container {
+    @media(min-width: @screen-sm-min) {
+      margin-top: -10px;
+    }
+  }
+}
+
+:lang(en) {
+  .sucralose,
+  .splenda---sucralose {
+    &.tl-no-sidebars.path-frontpage {
+      .field--name-field-touts {
+        .field--item {
+          &:nth-child(2),
+          &:nth-child(3),
+          &:nth-child(4) {
+            li {
+              background: none;
+              padding: 0;
+              a {
+                background-color: #B9B3AC;
+                color: #FFF;
+                display: inline-block;
+                padding: 8px 30px 8px 10px;
+                text-transform: uppercase;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.global-industrial-starches {
+  table {
+    p {
+      margin-bottom: 0;
+    }
+    border-spacing: 1px;
+    thead tr:first-child {
+      background-color: #948671;
+      color:#fff;
+      text-align: center;
+    }
+    tr {
+      background-color: #e4e1db;
+      td {
+        border:1px solid #fff;
+        padding: 4px;
+      }
+    }
+  }
+  td {
+    text-align: center;
+  }
+  th {
+    border-right: 1px solid;
+    padding: 3px 5px;
+    text-align: center;
+  }
+}
+
+.food-and-nutrition-science-centre  {
+  .navbar-brand {
+    color:#7373a8;
+  }
+  &.path-frontpage {
+    .field--name-field-touts .field--name-field-title {
+      display: none;
+    }
+    table td {
+      border: 0;
+      &:nth-child(1) {
+        padding-right: 10px;
+      }
+      &:nth-child(2) {
+        padding-left: 10px;
+      }
+    }
+  }
+ 
+}
+
+.your-bakery-and-snack-solutions,
+.tate---lyle-japan {
+  header {
+    .horizontal-gradient (@startColor: #DEDBD6, @endColor: #FFF);
+  }
+  .navbar-brand {
+    color: #9C6D2F;
+  }
+  .header-left {
+    @media(min-width: @screen-sm-min) {
+      margin: 0;
+      padding-top: 55px;
+    }
+    .navbar-brand {
+      padding-left: 0;
+    }
+  }
+  .header-right {
+    @media(min-width: @screen-sm-min) {
+      padding-top: 40px;
+    }
+  }
+  .navbar-default.container {
+    @media(min-width: @screen-sm-min) {
+      margin-top: -10px;
+    }
+  }
+}
+
+.feedthembetter,
+.feed-them-better{
+  .header-left {
+    @media(min-width: @screen-sm-min) {
+      padding-top: 16px;
+    }
   }
 }

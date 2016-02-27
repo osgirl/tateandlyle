@@ -14,8 +14,15 @@ use Drupal\image\Entity\ImageStyle;
  */
 function generic_microsite_preprocess_html(&$variables) {
   $site_name_raw = \Drupal::configFactory()->getEditable('system.site')->get('name');
-  $site_name = preg_replace('/[^A-Za-z0-9\-]/', ' ', $site_name_raw);
-  $variables['site_name'] = strtolower(str_replace(" ", "-", $site_name));
+
+  // Add special class if site name has chinese characters 
+  if (preg_match('/[\x{4e00}-\x{9fa5}]+/u', $site_name_raw)) {
+    $variables['site_name'] = 'tateandlyle_china';
+  }
+  else {
+    $site_name = preg_replace('/[^A-Za-z0-9\-]/', ' ', $site_name_raw);
+    $variables['site_name'] = strtolower(str_replace(" ", "-", $site_name));
+  }
 
   if (theme_get_setting('global_style', 'generic_microsite') != NULL) {
     $variables['#attached']['library'][] = 'generic_microsite/global-styling' . theme_get_setting('global_style', 'generic_microsite');
@@ -45,6 +52,11 @@ function generic_microsite_preprocess_html(&$variables) {
   // The getRawParameter will return the node id.
   $id = \Drupal::routeMatch()->getRawParameter('node');
   $variables['node_id'] = "node-id-" . $id;
+  $node = node_load($id);
+  if ($node) {
+    $alias = str_replace("/", "-", substr($node->url(), 1));
+  }
+  $variables['node_alias'] = $alias;
 
   // Define second color for vertical gradient
   $variables['bg_value2'] = theme_get_setting('bg_value2', 'generic_microsite');
@@ -206,23 +218,23 @@ function generic_microsite_preprocess_field(&$variables, $hook) {
 
   if ($variables['field_name'] == 'field_main_content') {
     $forms = array();
-	foreach ($variables['items'] as $key => $item) {
-	  if ($item['content']['#paragraph']->getType() == 'country_contact') {
-	    $paragraph_id = $item['content']['#paragraph']->id();
-		$values = $item['content']['#paragraph']->field_contact->getValue($include_computed = false);
-		$redirect_node_id = $item['content']['#paragraph']->field_redirect->getValue($include_computed = false);
-		$form_fields = array();
-		foreach ($values as $key => $value) {
-		  $contact = entity_load('paragraph', $value['target_id']);
+    foreach ($variables['items'] as $key => $item) {
+      if ($item['content']['#paragraph']->getType() == 'country_contact') {
+        $paragraph_id = $item['content']['#paragraph']->id();
+        $values = $item['content']['#paragraph']->field_contact->getValue($include_computed = false);
+        $redirect_node_id = $item['content']['#paragraph']->field_redirect->getValue($include_computed = false);
+        $form_fields = array();
+        foreach ($values as $key => $value) {
+          $contact = entity_load('paragraph', $value['target_id']);
           $form_fields[$key]['field_address'] = $contact->get('field_address')->getValue()[0]['value'];
           $form_fields[$key]['field_country'] = $contact->get('field_country')->getValue()[0]['value'];
           $form_fields[$key]['field_identifier'] = $contact->get('field_identifier')->getValue()[0]['value'];
-		}
-	    $variables['tl_tab_forms'][$paragraph_id] = $form_fields;
-        $variables['redirect'][$paragraph_id] = 'node/' . $redirect_node_id[0]['target_id'];
-		$variables['tl_country_contact'] = TRUE;
-	  }
-	}
+        }
+        $variables['tl_tab_forms'][$paragraph_id] = $form_fields;
+        $variables['redirect'][$paragraph_id] = '/node/' . $redirect_node_id[0]['target_id'];
+        $variables['tl_country_contact'] = TRUE;
+      }
+    }
   }
 
 }
@@ -255,7 +267,7 @@ function generic_microsite_theme_suggestions_page_alter(array &$suggestions, arr
         $suggestions[] = 'page__form__landingform';
       }
       else {
-        $suggestions[] = 'page__form__contactform';	  
+        $suggestions[] = 'page__form__contactform';
       } 
     }
   }
@@ -361,6 +373,18 @@ function generic_microsite_preprocess_menu(&$variables) {
  * Implements template_preprocess_block().
  */
 function generic_microsite_preprocess_block(&$variables) {
+  if ($variables['base_plugin_id'] == 'system_branding_block') {
+    $language_manager = \Drupal::languageManager();
+    $default_language = $language_manager->getDefaultLanguage()->getId();
+    $current_language = $language_manager->getCurrentLanguage()->getId();
+    if ($default_language != $current_language) {
+      if ($variables['theme']['settings']['logo_image_' . $current_language]) {
+        $file = File::load($variables['theme']['settings']['logo_image_' . $current_language]);
+        $variables['site_logo'] = $file->url();
+      }
+    }
+  $variables['logo_redirect'] = $variables['theme']['settings']['logo_redirect'];    
+  }
   if ($variables['base_plugin_id'] == 'language_block') {
     $variables['label'] = t('Pick your language');
   }
