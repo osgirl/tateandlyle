@@ -62,7 +62,6 @@ table.tout {
 header.container {
   padding: 0;
   position: relative;
-  .valign-parent;
   @media (min-width: @screen-sm) {
     transform: none;
   }
@@ -84,9 +83,6 @@ header.container {
   padding-top: : 0;
   max-width: 65%;
   padding-left: 20px;
-  @media (min-width: @screen-xs) {
-    max-width: none;
-  }
   img {
     margin: 10px 0;
   }
@@ -718,7 +714,7 @@ body {
   line-height: 11px;
   padding: 0;
   @media (min-width: @screen-sm-min) {
-    display: blocl;
+    display: block;
   }
   li {
     font-size: 11px;
@@ -1815,6 +1811,11 @@ body {
   position: absolute;
   top: 0;
   width: 21px;
+  &.no-image {
+    position: relative;
+    float: left;
+    margin-right: 10px;
+  }
 }
 .paragraph--type--tout {
   .modal.fade {
@@ -1987,10 +1988,13 @@ body {
       background-image: url(../images/minusSign.png);
       background-repeat: no-repeat;
       background-position: 97% 12px;
+      border: 0;
       border-bottom: 1px solid #E5E5E5;
       clear:both;
       display: inline-block;
+      outline: 0;
       padding: 10px 0 10px 10px;
+      text-align: left;
       width: 100%;
       &.collapsed {
         background-color: #FFF;
@@ -2035,19 +2039,6 @@ body {
         padding: 0 25px 4px 12px;
       }
       .accordion-subtitle {
-        font-size: 12px;
-      }
-    }
-  }
-}
-
-.paragraph--type--accordion {
-  #accordion {
-    button.accordion-set {
-      border: 0;
-      outline: 0;
-      text-align: left;
-      .accordion-content {
         font-size: 12px;
       }
     }
@@ -2452,13 +2443,12 @@ body {
       }
     }
     a {
-      color: #7d6a57 !important;
       padding: 0;
       @media(min-width: @screen-sm-min) {
         border-left: 1px solid #7D6A57;
         padding: 0 4px;
       }
-      line-height: 8px;
+      line-height: 12px;
       &:focus,
       &:hover {
         background-color: transparent;
@@ -2467,7 +2457,7 @@ body {
     }
   }
   .navbar-nav a.is-active {
-    color: #7D6A57 !important;
+    color: #7D6A57;
   }
   .nav > li {
     @media(min-width: @screen-sm-min) {
@@ -2482,7 +2472,6 @@ body {
       li a {
         padding: 5px 0;
         @media(min-width: @screen-sm-min) {
-          border-left: 1px solid #7D6A57;
           padding: 0 5px;
         }
       }
@@ -2665,8 +2654,15 @@ body {
       top: 5px;
     }
   }
+  img {
+    float: left;
+    margin: 0 15px 15px 0;
+    max-width: 200px;
+  }
   .views-row {
     border-bottom: 1px solid #DCD9D5;
+    clear: both;
+    display: block;
     h2 {
       font-size: 17px;
       font-weight: bold;
@@ -2674,6 +2670,9 @@ body {
   }
 }
 
+.node-readmore {
+  text-decoration: underline;
+}
 
 /* Sitemap */
 ul.sitemap-menu {
@@ -2695,39 +2694,12 @@ ul.sitemap-menu {
   color: #000 !important;
 }
 
-.tate---lyle-procurement {
-  #st-trigger-effects {
-    display: none;
+/* Contextual links */
+.contextual-region .contextual .contextual-links li {
+  display: block;
+  &:after {
+    content: none;
   }
-  .header-left {
-    @media(min-width: @screen-sm-min) {
-      padding-top: 51px !important;
-    }
-    .navbar-brand {
-      padding-left:0;
-    }
-  }
-  &.path-frontpage {
-    h2 {
-     border-bottom: 1px solid #dcd9d6; 
-     margin-bottom:8px;
-     padding-bottom: 8px;
-    }     
-  }
-  .region-breadcrumb {
-    margin-top: 24px;
-  }
-  .search-block-form {
-    .form-group {
-      @media(min-width: @screen-sm-min) {
-        margin-bottom: 5px;
-      }
-    }
-  }
-}
-
-.help-block {
-  display: none; /* Hide the tooltip message */
 }
 
 /* Contrast */
@@ -2740,7 +2712,7 @@ ul.sitemap-menu {
     background: #212121 !important;
     height: auto;
   }
-  a {
+  .st-container a {
     color: @azure !important;
     &:active,
     &:focus,
@@ -2766,6 +2738,11 @@ ul.sitemap-menu {
     }
   }
   /* Content */
+  div[role="main"]>.row {
+    border-bottom: 1px solid #E5E5E5;
+    margin-bottom: 5px;
+  }
+
   .breadcrumb li:first-of-type {
     color: #FFF;
   }
@@ -2782,10 +2759,26 @@ ul.sitemap-menu {
     }
   }
 
+  &.tl-one-sidebar.path-frontpage .main-container .col-sm-9,
+  &.tl-one-sidebar.path-frontpage .field--name-field-touts >div {
+    background-image: url('../images/high_contrast/cp-bg-hc.gif');
+    background-repeat: repeat-y;
+  }
+
+  &.tl-one-sidebar.path-frontpage .field--name-field-touts {
+    background-color: transparent;
+  }
+
   &.tl-no-sidebars.path-frontpage .field--name-field-touts>div:last-child {
     background-image: none;
   }
 
+  .paragraph--type--tout .modal.fade .modal-dialog .modal-content {
+    background-color: #212121;
+  }
+  aside .paragraph {
+    background-color: transparent !important;
+  }
   #accordion .accordion-set .accordion-title,
   #accordion .accordion-set.collapsed:hover .accordion-title,
   .field--name-field-title-tab,
@@ -2797,7 +2790,7 @@ ul.sitemap-menu {
   .paragraph--type--accordion a:hover,
   .paragraph--type--tabs .nav-tabs li.active>a:hover,
   .search-block-form:before,
-  a:active, a:focus, a:hover,
+  .st-container a:active, .st-container a:focus, .st-container a:hover,
   aside .menu.nav a:hover,
   body:not(.path-frontpage) aside .menu.nav .dropdown-menu a.is-active,
   body:not(.path-frontpage) aside .menu.nav .dropdown-menu a:focus,
@@ -2830,11 +2823,26 @@ ul.sitemap-menu {
   .middle-content:after {
     background-image: url('../images/high_contrast/cp-bg-hc.gif');
   }
+  .paragraph--type--accordion #accordion .accordion-set .accordion-title,
   .paragraph--type--tout li,
   .paragraph--type--text ul li {
     background-image: url('../images/high_contrast/bullet-link-hc.gif');
   }
-
+  .paragraph--type--accordion #accordion .accordion-set.collapsed {
+    background-image: url('../images/high_contrast/PlusSign-hc.png');
+  }
+  .paragraph--type--accordion #accordion .accordion-set {
+    background-image: url('../images/high_contrast/minusSign-hc.png');
+  }
+  .tout-image .field--name-field-image-text {
+    background: #DA1515;
+  }
+  /* Accordion */
+  .paragraph--type--accordion #accordion .accordion-set,
+  .paragraph--type--accordion #accordion .accordion-set.collapsed,
+  .paragraph--type--accordion #accordion .accordion-set.collapsed:hover {
+    background-color: transparent;
+  }
   .field--name-field-touts {
     background: transparent;
   }
@@ -2842,11 +2850,18 @@ ul.sitemap-menu {
     background-color: transparent !important;
   }
   .footer {
-    border-top: 1px solid #e5e5e5;
     color: @azure;
   }
   .region-footer .menu a {
     border-color: @azure;
+  }
+  /* Overrides */
+  .nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus,
+  .nav>li>a:hover, .nav>li>a:focus {
+    background-color: transparent;
+  }
+  .contextual-region .contextual .contextual-links a {
+    color: #333 !important;
   }
 }
 
@@ -2860,6 +2875,37 @@ ul.sitemap-menu {
     @media(min-width: @screen-sm-min) {
       margin: 0;
       padding-top:10px;
+    }
+  }
+}
+
+.tate---lyle-procurement {
+  #st-trigger-effects {
+    display: none;
+  }
+  .header-left {
+    @media(min-width: @screen-sm-min) {
+      padding-top: 51px !important;
+    }
+    .navbar-brand {
+      padding-left:0;
+    }
+  }
+  &.path-frontpage {
+    h2 {
+     border-bottom: 1px solid #dcd9d6; 
+     margin-bottom:8px;
+     padding-bottom: 8px;
+    }     
+  }
+  .region-breadcrumb {
+    margin-top: 24px;
+  }
+  .search-block-form {
+    .form-group {
+      @media(min-width: @screen-sm-min) {
+        margin-bottom: 5px;
+      }
     }
   }
 }
