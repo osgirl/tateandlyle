@@ -3,8 +3,8 @@ a#toolbar-link-view-contact_messages_administration-page_1::before {
 }
 
 a#toolbar-link-view-contact_messages_administration-page_1.is-active::before {
-    background-image: url(.../icons/close-envelope-active.svg);
+  background-image: url(.../icons/close-envelope-active.svg);
 }
 .field--name-field-slide-type {
-    display: none;
+  display: none;
 }
