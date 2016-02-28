@@ -17,58 +17,60 @@ body {
   line-height: 24px;
 }
 
-a {
-  color: @brown-dark;
-  text-decoration: none;
-  &:active,
-  &:focus,
-  &:hover {
-    color: @brown-light;
+.st-content {
+  a {
+    color: @brown-dark;
     text-decoration: none;
+    &:active,
+    &:focus,
+    &:hover {
+      color: @brown-light;
+      text-decoration: none;
+    }
   }
-}
 
-h1.page-header {
-  border: 0;
-  color: #FFF;
-  font-size: 40px;
-  line-height: 48px;
-  padding: 0;
-  margin-bottom: 10px;
-  @media(min-width: @screen-sm-min) {
-    font-size: 45px;
+  h1.page-header {
+    border: 0;
+    color: #FFF;
+    font-size: 40px;
+    line-height: 48px;
+    padding: 0;
+    margin-bottom: 10px;
+    @media(min-width: @screen-sm-min) {
+      font-size: 45px;
+    }
   }
-}
 
-h1, h2 {
-  font-family: baron;
-  text-transform: lowercase;
-  margin-bottom: 20px;
-}
+  h1, h2 {
+    font-family: baron;
+    text-transform: lowercase;
+    margin-bottom: 20px;
+  }
 
-h3 {
-  font-family: Univers LT W01_65 Bold,sans-serif;
-  font-size: 18px;
-  line-height: 22px;
-}
+  h3 {
+    font-family: Univers LT W01_65 Bold,sans-serif;
+    font-size: 18px;
+    line-height: 22px;
+  }
 
 
-h6 {
-  font-size: 10px;
-  line-height: 15px;
-}
+  h6 {
+    font-size: 10px;
+    line-height: 15px;
+  }
 
-p, ol, ul {
-  margin-bottom: 1.5em;
-}
+  p, ol, ul {
+    margin-bottom: 1.5em;
+  }
 
-ol, ul {
-  margin-left: 3em;
-  padding-left: 0;
-}
+  ol, ul {
+    margin-left: 3em;
+    padding-left: 0;
+  }
 
-img {
-  max-width: 100%;
+  img {
+    max-width: 100%;
+  } 
 }
 
 .subtitle {
@@ -104,6 +106,11 @@ img {
 }
 .is-form .middle-content {
   padding: 0;
+}
+
+/* Hide cancel button on forms */
+.cancel_button {
+  display: none;
 }
 
 /* Sidebar menu */
