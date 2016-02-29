@@ -203,6 +203,12 @@ header.container {
   padding-right: 0;
 }
 
+#block-searchform {
+  .description {
+    display: none; /* Hide search description from search block form. */
+  }
+}
+
 .search-block-form {
   &:before {
     content: "\e003";
@@ -1815,7 +1821,7 @@ body {
   &.no-image {
     position: relative;
     float: left;
-    margin-right: 10px;
+    margin: 0 5px 5px 0;
   }
 }
 .paragraph--type--tout {
@@ -2761,7 +2767,7 @@ ul.sitemap-menu {
   }
 
   &.tl-one-sidebar.path-frontpage .main-container .col-sm-9,
-  &.tl-one-sidebar.path-frontpage .field--name-field-touts >div {
+  &.tl-one-sidebar.path-frontpage .field--name-field-touts > div:first-child {
     background-image: url('../images/high_contrast/cp-bg-hc.gif');
     background-repeat: repeat-y;
   }
@@ -2893,6 +2899,7 @@ ul.sitemap-menu {
     }
   }
   &.path-frontpage {
+    display: block;
     h2 {
      border-bottom: 1px solid #dcd9d6; 
      margin-bottom:8px;

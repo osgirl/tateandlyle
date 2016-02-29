@@ -1584,7 +1584,7 @@ div.features-export-list .form-type-checkbox input[type=checkbox],fieldset.featu
 .btn:focus,.btn:hover{border:3px solid #cf36c3;background-color:rgba(0,0,0,.3);color:#fff}
 h3{margin:18px 0}
 p{color:#222;font-family:'Open Sans',sans-serif;font-size:16px;font-weight:400;margin:16px 0;line-height:24px}
-ul li{color:#222;font-family:'Open Sans',sans-serif;font-size:16px;font-weight:400;line-height:24px}
+.st-content ul li{color:#222;font-family:'Open Sans',sans-serif;font-size:16px;font-weight:400;line-height:24px}
 a{color:#721f82}
 h1{font-family:'Josefin Slab',serif;font-style:italic;color:#721f82;font-size:26px;line-height:33px;letter-spacing:10px;font-weight:400;margin:0 0 20px;text-transform:uppercase}
 h1.page-header{border:none}
@@ -1662,7 +1662,7 @@ img{max-width:100%;height:auto}
 .st-menu-open .st-menu::after{width:0;height:0;opacity:0;-webkit-transition:width .1s .5s,height .1s .5s;transition:width .1s .5s,height .1s .5s}
 #st-trigger-effects button span{background:#4e287b}
 .st-menu ul{margin:0;padding:0;list-style:none}
-.st-menu ul a{display:block;color:#4e287b}
+.st-menu ul a{display:inline-block;color:#4e287b;width:100%}
 .st-menu ul a:focus,.st-menu ul a:hover{background-color:#cf36c3;color:#fff}
 .st-effect-2.st-menu-open .st-pusher{-webkit-transform:translate3d(-300px,0,0);transform:translate3d(-300px,0,0)}
 .st-effect-2.st-menu{z-index:1}
@@ -1737,6 +1737,8 @@ header.container{margin:0 auto;max-width:1128px;padding:0;width:100%;padding-bot
 .image-accordion{float:left;padding-right:20px}
 .accordion-title{font-family:Lato,sans-serif;font-size:18px;color:#721f82;cursor:pointer;margin:0;padding-top:5px;text-transform:uppercase;text-decoration:none}
 .accordion-content{display:inline-block;margin-top:25px}
+.paragraph--type--accordion #accordion button.accordion-set{background:0 0;border:0;outline:0;text-align:left}
+.paragraph--type--accordion #accordion button.accordion-set .accordion-content{font-size:12px}
 .full-footer{background-color:#ddd}
 .footer{margin-top:0;padding:20px 0;text-align:center}
 .footer nav{display:none}
