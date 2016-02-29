@@ -49,7 +49,7 @@ class UserController extends \Drupal\user\Controller\UserController {
             array(
               '%other_user' => $account->getUsername(),
               '%resetting_user' => $reset_link_user->getUsername(),
-              ':logout' => $this->url('user.logout')
+              ':logout' => $this->url('user.logout'),
             )), 'warning');
         }
         else {
