@@ -14,9 +14,9 @@ use Drupal\Core\Form\FormBase;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
- /**
-   * Form controller for the user password forms.
-   */
+/**
+ * Form controller for the user password forms.
+ */
 class UserPasswordResetForm extends FormBase {
 
   /**
@@ -71,7 +71,14 @@ class UserPasswordResetForm extends FormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state, AccountInterface $user = NULL, $expiration_date = NULL, $timestamp = NULL, $hash = NULL) {
     if ($expiration_date) {
-      $form['message'] = array('#markup' => $this->t('<p>This is a one-time login for %user_name and will expire on %expiration_date.</p><p>Click on this button to log in to the site and change your password.</p>', array('%user_name' => $user->getUsername(), '%expiration_date' => $expiration_date)));
+      $form['message'] = array(
+        '#markup' => $this->t('<p>This is a one-time login for %user_name and will expire on %expiration_date.</p><p>Click on this button to log in to the site and change your password.</p>',
+          array(
+            '%user_name' => $user->getUsername(),
+            '%expiration_date' => $expiration_date
+          )
+        )
+      );
       $form['#title'] = $this->t('Reset password');
     }
     else {
@@ -101,7 +108,7 @@ class UserPasswordResetForm extends FormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    /** @var $user \Drupal\user\UserInterface */
+    /* @var $user \Drupal\user\UserInterface */
     $user = $form_state->getValue('user');
     user_login_finalize($user);
     $this->logger->notice('User %name used one-time login link at time %timestamp.', array('%name' => $user->getUsername(), '%timestamp' => $form_state->getValue('timestamp')));
