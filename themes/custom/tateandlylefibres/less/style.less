@@ -17,6 +17,7 @@ body {
   line-height: 24px;
 }
 
+
 a {
   color: @brown-dark;
   text-decoration: none;
@@ -69,7 +70,7 @@ ol, ul {
 
 img {
   max-width: 100%;
-}
+} 
 
 .subtitle {
   clear: both; 
@@ -104,6 +105,11 @@ img {
 }
 .is-form .middle-content {
   padding: 0;
+}
+
+/* Hide cancel button on forms */
+.cancel_button {
+  display: none;
 }
 
 /* Sidebar menu */
@@ -231,8 +237,9 @@ body,
 .st-menu {
   ul {
     a {
-      display: block;
+      display: inline-block;
       color: red;
+      width: 100%;
       &:focus,
       &:hover {
         background-color: #000;
@@ -1379,7 +1386,7 @@ aside {
   background-repeat: no-repeat;
   background-size: cover;
   @media(min-width: @screen-md-min) {
-    padding-left:  8.333333333333%;
+    padding-left:  7%;
   }
   .field--name-field-form-header {
     padding: 47.5px 3% 20px;
@@ -1484,6 +1491,21 @@ aside {
       }
     }
   }  
+}
+
+#block-espanol,
+#block-portugues,
+#block-zhongwen {
+  margin-top: -15px;
+  p {
+    margin: 0;
+  }
+  a {
+    background-color: transparent;
+    color: #f5a01a;
+    font-family: baron;
+    text-transform: lowercase;
+  }
 }
 
 /* Chosen */
