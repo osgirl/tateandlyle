@@ -14,7 +14,7 @@ function dolciaprima_preprocess_page(&$variables) {
   
   /*Set page title user */
   $route = explode('/', \Drupal::service('path.current')->getPath());
-  if($variables['page'] && $route[1] != 'user' ) {
+  if($variables['page'] && $route[1] != 'user' && $route[1] != 'sitemap') {
     $variables['page_title'] =$variables['page']['#title']->__toString();
   }
   else {
