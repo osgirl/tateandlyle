@@ -64,7 +64,7 @@
           <div id="{{ tab_id }}" class="tab-pane fade in">
         {% endif %}
         {% set i = i+1 %}
-          {{ item.content['#field_collection_item'].field_body.value | raw }}
+          {{ item.content['#field_collection_item'].field_body.value }}
         </div>
       {% endfor %}
     </div>

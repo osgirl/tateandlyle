@@ -15,8 +15,6 @@ cache:
 
 env:
   matrix:
-    - TEST_SUITE='validate:all'
-    - TEST_SUITE='build:test'
     - TEST_SUITE='build:validate:test'
 
 addons:

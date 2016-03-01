@@ -1,0 +1,5 @@
+name: 'T&L Content'
+description: 'Content form and display configuration.'
+type: module
+core: 8.x
+version: 8.x-1.0

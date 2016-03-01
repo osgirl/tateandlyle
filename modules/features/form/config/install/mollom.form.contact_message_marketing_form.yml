@@ -1,0 +1,30 @@
+langcode: en
+id: contact_message_marketing_form
+label: 'Marketing form'
+mode: '2'
+enabled_fields:
+  - subject
+  - message
+  - name
+  - mail
+  - field_business_email
+  - field_company_name
+  - field_email
+  - field_first_name
+  - field_last_name
+  - field_message
+  - field_name
+checks:
+  - spam
+strictness: normal
+unsure: captcha
+discard: '1'
+moderation: null
+mapping:
+  post_title: subject
+  author_name: name
+  author_mail: mail
+  post_id: id
+module: contact
+entity: contact_message
+bundle: marketing

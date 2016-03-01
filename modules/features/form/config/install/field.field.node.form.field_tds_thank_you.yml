@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tds_thank_you
+    - node.type.form
+  module:
+    - text
+id: node.form.field_tds_thank_you
+field_name: field_tds_thank_you
+entity_type: node
+bundle: form
+label: 'Technical data sheets thank you'
+description: 'To create a button that will drop down the contact form, wrap the button in a span containing the class "tds_contact".'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long
