@@ -1,5 +1,4 @@
 required:
-  - block.block.views_block__sidebar_block_1
   - node.type.form
   - node.type.media_item
   - node.type.page
@@ -50,7 +49,6 @@ required:
   - field.storage.node.field_title_image
   - field.storage.node.field_touts
   - field.storage.node.field_youtube_video
-  - views.view.sidebar
   - core.entity_view_mode.node.full
   - core.entity_view_mode.node.teaser
   - core.entity_view_mode.node.token
