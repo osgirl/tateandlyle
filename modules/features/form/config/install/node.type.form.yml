@@ -1,0 +1,28 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - workbench_moderation
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+  workbench_moderation:
+    enabled: true
+    allowed_moderation_states:
+      - archived
+      - draft
+      - needs_review
+      - published
+    default_moderation_state: draft
+_core:
+  default_config_hash: nt0MOix4vu4UEWMmp3vM7E6Qz_WNkHFuLOitfeFc4ZU
+name: Form
+type: form
+description: 'Create a new form or questionnaire accessible to users. Submission results and statistics are recorded and accessible to privileged users.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false
