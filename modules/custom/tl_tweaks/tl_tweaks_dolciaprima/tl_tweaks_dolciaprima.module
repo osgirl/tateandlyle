@@ -20,7 +20,7 @@ function tl_tweaks_dolciaprima_node_load($nodes, $types = NULL) {
   foreach ($nodes as $key => $node) {
     if ($nodes[$key]->getType() == 'form') {
       if ($node->get('field_form')->getValue()[0]['target_id'] == "technical_data_sheets") {
-        if (isset(Html::escape($_GET['submitted']))) {
+        if (Html::escape($_GET['submitted']) !== NULL) {
           if (Html::escape($_GET['submitted']) == 'true') {
             $node->set('field_form_header', "", $notify = TRUE);
             $node->set('field_form', "", $notify = TRUE);
