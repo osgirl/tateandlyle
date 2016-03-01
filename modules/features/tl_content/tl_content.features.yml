@@ -1,0 +1,7 @@
+required:
+  - node.type.form
+  - node.type.media_item
+  - node.type.page
+  - core.entity_view_mode.node.full
+  - core.entity_view_mode.node.teaser
+  - core.entity_view_mode.node.token
