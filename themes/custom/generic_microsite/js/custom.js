@@ -45,6 +45,15 @@ function centerModal() {
         windowWidth = 752;
       }
 
+      if (navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1) {
+        windowWidth = 767; // Target Safari
+      }
+
+      var m;
+      if (jQuery && jQuery.browser && (m = (navigator.userAgent).match(/Edge\/(1[2-9]|[2-9]\d|\d{3,})\./))) {
+        windowWidth = 767; // Target Microsoft Edge
+      }
+
       // Page load on mobile.
       if ($(window).outerWidth() <= windowWidth) {
         // Place Search mobile section in the Header Bottom section.
