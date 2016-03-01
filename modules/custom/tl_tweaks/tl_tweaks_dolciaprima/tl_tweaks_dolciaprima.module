@@ -4,6 +4,8 @@
  * Code for the T&L Tweaks module.
  */
 
+use Drupal\Component\Utility\Html;
+
 /**
  * Implements hook_page_attachments_alter().
  */
@@ -18,9 +20,11 @@ function tl_tweaks_dolciaprima_node_load($nodes, $types = NULL) {
   foreach ($nodes as $key => $node) {
     if ($nodes[$key]->getType() == 'form') {
       if ($node->get('field_form')->getValue()[0]['target_id'] == "technical_data_sheets") {
-        if ($_GET['submitted'] == 'true') {
-          $node->set('field_form_header', "", $notify = TRUE);
-          $node->set('field_form', "", $notify = TRUE);
+        if (isset(Html::escape($_GET['submitted']))) {
+          if (Html::escape($_GET['submitted']) == 'true') {
+            $node->set('field_form_header', "", $notify = TRUE);
+            $node->set('field_form', "", $notify = TRUE);
+          }
         }
         \Drupal\Core\Cache\Cache::invalidateTags($node->getCacheTags());
       }

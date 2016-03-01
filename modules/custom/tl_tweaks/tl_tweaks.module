@@ -6,6 +6,7 @@
 
 use Drupal\Core\Url;
 use Drupal\Core\Link;
+use Drupal\Component\Utility\Html;
 
 /**
  * Implements hook_form_alter().
@@ -34,8 +35,8 @@ function tl_tweaks_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form
 
   if ($form_id == "contact_message_contact_us_form") {
     if (isset($_GET['field_identifier'])) {
-      if (isset($form['field_contact_identifier'])) {
-        foreach ($_GET['field_identifier'] as $id) {
+      if (isset(Html::escape($form['field_contact_identifier']))) {
+        foreach (Html::escape($_GET['field_identifier']) as $id) {
           $form['field_contact_identifier']['widget']['0']['value']['#default_value'] .= $id . '|';
         }
       }
@@ -75,7 +76,7 @@ function tl_tweaks_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form
         }
         if (isset($_GET['sub'])) {
           if (isset($form['field_message'])) {
-            $form['field_message']['widget']['0']['value']['#default_value'] = $_GET['sub'];
+            $form['field_message']['widget']['0']['value']['#default_value'] = Html::escape($_GET['sub']);
           }
         }
       }
