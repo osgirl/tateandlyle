@@ -1,0 +1,23 @@
+langcode: en
+id: contact_message_confirmation_form
+label: 'Confirmation form'
+mode: '2'
+enabled_fields:
+  - subject
+  - message
+  - name
+  - mail
+checks:
+  - spam
+strictness: normal
+unsure: captcha
+discard: '1'
+moderation: null
+mapping:
+  post_title: subject
+  author_name: name
+  author_mail: mail
+  post_id: id
+module: contact
+entity: contact_message
+bundle: confirmation

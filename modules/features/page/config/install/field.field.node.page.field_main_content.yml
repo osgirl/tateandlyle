@@ -1,0 +1,65 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_main_content
+    - node.type.page
+  module:
+    - entity_reference_revisions
+id: node.page.field_main_content
+field_name: field_main_content
+entity_type: node
+bundle: page
+label: 'Main content'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      image: image
+      accordion: accordion
+      country_contact: country_contact
+      text: text
+      redirect_selector: redirect_selector
+      slide: slide
+      tabs: tabs
+      video: video
+    target_bundles_drag_drop:
+      image:
+        enabled: true
+        weight: 9
+      accordion:
+        enabled: true
+        weight: 11
+      contact:
+        weight: 12
+        enabled: false
+      country_contact:
+        enabled: true
+        weight: 13
+      text:
+        enabled: true
+        weight: 14
+      redirect_selector:
+        enabled: true
+        weight: 16
+      tout:
+        weight: 17
+        enabled: false
+      slide:
+        enabled: true
+        weight: 17
+      tabs:
+        enabled: true
+        weight: 18
+      video:
+        enabled: true
+        weight: 20
+      tout_reference:
+        weight: 21
+        enabled: false
+field_type: entity_reference_revisions

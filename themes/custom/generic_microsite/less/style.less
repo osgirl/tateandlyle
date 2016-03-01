@@ -690,6 +690,11 @@ body,
   }
 }
 
+.region-navigation .nav>li>a:hover,
+.region-navigation .nav>li>a:focus {
+  background-color: none;
+}
+
 /* Breadcrumb */
 body {
   .breadcrumb {
@@ -2899,7 +2904,9 @@ ul.sitemap-menu {
     }
   }
   &.path-frontpage {
-    display: block;
+    .page-header {
+      display: block;
+    }
     h2 {
      border-bottom: 1px solid #dcd9d6; 
      margin-bottom:8px;

@@ -25,10 +25,17 @@ class RouteSubscriber extends RouteSubscriberBase {
     if ($route = $collection->get('user.login')) {
       $route->addDefaults(array('_form' => '\Drupal\token_login\Form\TokenLoginForm'));
     }
+
     // Always deny access to '/user/logout'.
     // Note that the second parameter of setRequirement() is a string.
     if ($route = $collection->get('user.pass')) {
       $route->setRequirement('_access', 'FALSE');
+    }
+
+    // Change the title of the password reset page.
+    if ($route = $collection->get('user.reset')) {
+      $route->addDefaults(array('_title' => 'Use log in link'));
+      $route->addDefaults(array('_controller' => '\Drupal\token_login\Controller\UserController::resetPass'));
     }
   }
 

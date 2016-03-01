@@ -1,0 +1,31 @@
+langcode: en
+id: contact_message_innovation_submission_form
+label: 'Innovation submission form'
+mode: '2'
+enabled_fields:
+  - subject
+  - message
+  - name
+  - mail
+  - field_contact_name
+  - field_country
+  - field_email
+  - field_innovation_overview
+  - field_innovation_title
+  - field_organisation
+  - field_please_include
+  - field_where_did_you_learn_about
+checks:
+  - spam
+strictness: normal
+unsure: captcha
+discard: '1'
+moderation: null
+mapping:
+  post_title: subject
+  author_name: name
+  author_mail: mail
+  post_id: id
+module: contact
+entity: contact_message
+bundle: innovation_submission
