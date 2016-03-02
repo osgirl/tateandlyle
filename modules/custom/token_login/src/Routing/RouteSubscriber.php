@@ -23,7 +23,7 @@ class RouteSubscriber extends RouteSubscriberBase {
   protected function alterRoutes(RouteCollection $collection) {
     // Use the password reset form for the login page.
     if ($route = $collection->get('user.login')) {
-      $route->addDefaults(array('_form' => '\Drupal\token_login\Form\TokenLoginForm'));
+      $route->setDefaults(array('_form' => '\Drupal\token_login\Form\TokenLoginForm'));
     }
 
     // Always deny access to '/user/logout'.
@@ -34,8 +34,10 @@ class RouteSubscriber extends RouteSubscriberBase {
 
     // Change the title of the password reset page.
     if ($route = $collection->get('user.reset')) {
-      $route->addDefaults(array('_title' => 'Use log in link'));
-      $route->addDefaults(array('_controller' => '\Drupal\token_login\Controller\UserController::resetPass'));
+      $route->setDefaults(array(
+        '_title' => 'Use log in link',
+        '_controller' => '\Drupal\token_login\Controller\UserController::resetPass',
+      ));
     }
   }
 
