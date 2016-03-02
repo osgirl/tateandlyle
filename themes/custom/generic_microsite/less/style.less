@@ -1022,7 +1022,7 @@ body {
 }
 
 aside {
-.paragraph {
+  .paragraph {
     border-bottom: 1px solid #E5E5E5;
     margin-bottom: 10px;
     li:last-child {
@@ -1679,8 +1679,9 @@ body {
 
 .paragraph--type--tout-image-text {
   .tout-image {
-    float: left;
-    margin-right: 20px;
+    img {
+      width: auto;
+    }
   }
 }
 
@@ -1689,6 +1690,7 @@ body {
   padding-bottom: 10px;
   @media (min-width: @screen-xs-min) {
     float:left;
+    margin-right: 20px;
     padding-bottom:2.5em; 
   }
   .field--name-field-image-text {
@@ -2443,8 +2445,6 @@ body {
 .region-footer {
   .menu {
     float: none;
-    padding-bottom:2px;
-    padding-top: 2px;
     @media(max-width: @screen-sm-min) {
       margin-bottom: 5px;
     }
@@ -2904,7 +2904,9 @@ ul.sitemap-menu {
     }
   }
   &.path-frontpage {
-    display: block;
+    .page-header {
+      display: block;
+    }
     h2 {
      border-bottom: 1px solid #dcd9d6; 
      margin-bottom:8px;
@@ -3036,6 +3038,25 @@ ul.sitemap-menu {
   .header-right {
     @media(min-width: @screen-sm-min) {
       padding-top: 40px;
+    }
+  }
+}
+
+.tate---lyle-ventures {
+  .header-right {
+    @media(min-width: @screen-sm-min) {
+      padding-top: 52px;
+    }
+  }
+  .navbar-default.container .menu {
+    padding-top: 10px;
+  }
+  .breadcrumb {
+    margin-bottom: 10px;
+  }
+  &.path-frontpage {
+    aside .paragraph:last-child {
+      border-bottom: 0;
     }
   }
 }
