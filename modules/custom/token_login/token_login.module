@@ -9,6 +9,13 @@ use Drupal\Core\Routing\RouteMatchInterface;
 
 /**
  * Implements hook_help().
+ *
+ * @param string $route_name
+ *   The route where the help page will be accessible.
+ * @param RouteMatchInterface $route_match
+ *   The current route match.
+ * @return string
+ *   The help page contents.
  */
 function token_login_help($route_name, RouteMatchInterface $route_match) {
   switch ($route_name) {
