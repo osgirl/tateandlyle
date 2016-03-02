@@ -1134,16 +1134,17 @@ header {
     @media(min-width: @screen-xs-min) {
       width: 25%;
     } 
-    &:last-child {
-      right:0;
-      img {
-        right: 0;
-      }
-      @media(max-width: @screen-sm-max) {
-        width:0;
+    &.image-2 {
+      display:none;
+      @media(min-width: @screen-md-min) {
+        display: block;
+        right:0;
+        img {
+          right: 0;
+        }
       }
     }
-    &:first-of-type{
+    &.image-1{
       left: 0;
       img {
         left: 0;
