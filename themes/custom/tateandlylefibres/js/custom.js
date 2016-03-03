@@ -1,3 +1,12 @@
+// Vertical align the modal.
+function centerModal() {
+  jQuery(this).css('display', 'block');
+  var $dialog = jQuery(this).find(".modal-dialog");
+  var offset = (jQuery(window).height() - $dialog.height()) / 2;
+  // Center modal vertically in window
+  $dialog.css("margin-top", offset);
+}
+
 (function($) {
   // Override HTML.
   Drupal.behaviors.overrideHTML = {
@@ -58,6 +67,24 @@
     }
   };
 
+  // Carousel options.
+  Drupal.behaviors.carouselOptions = {
+    attach: function (context, settings) {
+      $('.carousel').each(function() {
+         $(this).attr('data-interval', $(this).closest('.paragraph--type--slide').find('.field--name-field-timeout').text());
+      });
+    }
+  }
+
+  // Modal style.
+  Drupal.behaviors.modalstyle = {
+    attach: function (context, settings) {
+      $('.modal').on('show.bs.modal', centerModal);
+      $(window).on("resize", function () {
+        $('.modal:visible').each(centerModal);
+      });
+    }
+  }
 
   // Modal video.
   Drupal.behaviors.modalVideo = {
@@ -78,6 +105,19 @@
     }
   }
   
+
+  // Redirect selector.
+  Drupal.behaviors.redirectSelector = {
+    attach: function (context, settings) {
+      var redirect_link = $('#redirect_selector option:selected').val();
+      $('#redirect_selector').attr("action", redirect_link);
+      $( '#redirect_selector').change(function() {
+        var redirect_link = $('#redirect_selector option:selected').val();
+        $('#redirect_selector').attr("action", redirect_link);
+      });
+    }
+  }
+
   // Disable dropdown toggle.
   Drupal.behaviors.disableDropdowntoggle = {
     attach: function (context, settings) {
@@ -130,6 +170,10 @@
 
       $('#edit-field-country-list').chosen({
         disable_search: false,
+      });
+
+      $('select').chosen({
+        disable_search: true,
       });
     }
   }

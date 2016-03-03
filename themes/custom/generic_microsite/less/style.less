@@ -53,6 +53,10 @@ table.tout {
   }
 }
 
+select {
+  border-radius: 0;
+}
+
 /* Header */
 .navbar-header {
   padding: 0 20px;
@@ -1703,6 +1707,14 @@ body {
   }
 }
 
+aside {
+  .tout-image {
+    .field--name-field-image-text {
+      margin-top: -10px;
+    }
+  }
+}
+
 /* Slideshow */
 .path-frontpage {
   .paragraph--type--slide {
@@ -1721,6 +1733,10 @@ body {
 .carousel-control,
 .carousel-control:focus {
   opacity: 0;
+}
+
+.paragraph--type--slide {
+  position: relative;
 }
 
 .paragraph--type--slide:hover {
