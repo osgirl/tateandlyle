@@ -92,8 +92,8 @@ function generic_microsite_preprocess_field(&$variables, $hook) {
       }
     }
   }
-  
-  /* Slideshow  +link */
+
+  /* Slideshow + link */
   if ($variables['field_name'] == 'field_slide') {
     $slide_type = $variables['element']['#object']->get('field_slide_type')->getValue();
     if($slide_type[0]['value'] == 0) {
@@ -166,6 +166,7 @@ function generic_microsite_preprocess_field(&$variables, $hook) {
     }
 
   if ($variables['field_name'] == 'field_show_arrows') {
+
     $slide = $variables['element']['#object']->toArray();
     $slide_id = $slide['id'][0]['value'];
     $variables['slide_id'] = $slide['id'][0]['value'];
