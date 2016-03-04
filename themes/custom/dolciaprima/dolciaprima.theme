@@ -99,6 +99,20 @@ function dolciaprima_preprocess_paragraph(&$variables) {
 }
 
 function dolciaprima_preprocess_field(&$variables) {
+  /* Redirect selector */
+  global $base_url;
+  if ($variables['element']['#bundle'] == 'redirect_selector') {
+    foreach ($variables['items'] as $key => $item) {
+      $variables['redirect_title'] = $item['content']['#title'];
+      if ($item['content']['#url']->isExternal() == 1) {
+        $link = $item['content']['#url']->getUri();
+      } else  {
+        $link = $base_url  . '/' . $item['content']['#url']->getInternalPath();
+      };
+      $variables['redirect_url'][$key] = $link; 
+    }
+  }
+
   if ($variables['field_name'] == 'field_accordion_item') { 
     $variables['attributes']['id'][]='accordion';
     foreach ($variables['items'] as $key => $item) {
