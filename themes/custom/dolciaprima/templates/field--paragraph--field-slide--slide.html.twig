@@ -38,7 +38,7 @@
 #}
 
 <div {{ attributes }}>
-  <div id="slideshow" class="carousel slide" data-ride="carousel">
+  <div id="slideshow-{{ slide_id }}" class="carousel slide" data-ride="carousel">
     {% set slide_id = 0 %}
     <ol class="carousel-indicators">
       {% for item in items %}
