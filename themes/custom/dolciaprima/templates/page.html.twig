@@ -119,7 +119,7 @@
             {% set img_number = 1 %}
             {% for intro_image in intro_images %}
               {% if img_number < 3 %}
-                <div class="intro-image">
+                <div class="intro-image image-{{ img_number }}">
                   <img alt="{{ intro_image['alt'] }}" src="{{ intro_image['img'] }}">
                 </div>
               {% endif %}
