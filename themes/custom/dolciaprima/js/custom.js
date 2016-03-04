@@ -1,3 +1,11 @@
+function centerModal() {
+  jQuery(this).css('display', 'block');
+  var $dialog = jQuery(this).find(".modal-dialog");
+  var offset = (jQuery(window).height() - $dialog.height()) / 2;
+  // Center modal vertically in window
+  $dialog.css("margin-top", offset);
+}
+
 (function($) {
   // Override HTML.
   Drupal.behaviors.overrideHTML = {
@@ -55,6 +63,18 @@
         e.preventDefault();
         $(this).closest(".field--name-field-text").fadeOut('fast');
         return false;
+      });
+    }
+  }
+
+  // Redirect selector.
+  Drupal.behaviors.redirectSelector123 = {
+    attach: function (context, settings) {
+      var redirect_link = $('#redirect_selector option:selected').val();
+      $('#redirect_selector').attr("action", redirect_link);
+      $( '#redirect_selector').change(function() {
+        var redirect_link = $('#redirect_selector option:selected').val();
+        $('#redirect_selector').attr("action", redirect_link);
       });
     }
   }
@@ -153,6 +173,10 @@
       $('#edit-field-country-list').chosen({
         disable_search: false,
       });
+
+      $('select').chosen({
+        disable_search: true,
+      })
     }
   }
 

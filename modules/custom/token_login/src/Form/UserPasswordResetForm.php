@@ -72,18 +72,18 @@ class UserPasswordResetForm extends FormBase {
   public function buildForm(array $form, FormStateInterface $form_state, AccountInterface $user = NULL, $expiration_date = NULL, $timestamp = NULL, $hash = NULL) {
     if ($expiration_date) {
       $form['message'] = array(
-        '#markup' => $this->t('<p>This is a one-time login for %user_name and will expire on %expiration_date.</p><p>Click on this button to log in to the site and change your password.</p>',
+        '#markup' => $this->t('<p>This is a one-time login for %user_name and will expire on %expiration_date.</p><p>Click on this button to log in to the site .</p>',
           array(
-            '%user_name' => $user->getUsername(),
+            '%user_name' => $user->getAccountName(),
             '%expiration_date' => $expiration_date,
           )
         ),
       );
-      $form['#title'] = $this->t('Reset password');
+      $form['#title'] = $this->t('Use log in token');
     }
     else {
       // No expiration for first time login.
-      $form['message'] = array('#markup' => $this->t('<p>This is a one-time login for %user_name.</p><p>Click on this button to log in to the site.</p>', array('%user_name' => $user->getUsername())));
+      $form['message'] = array('#markup' => $this->t('<p>This is a one-time login for %user_name.</p><p>Click on this button to log in to the site.</p>', array('%user_name' => $user->getAccountName())));
       $form['#title'] = $this->t('Log in');
     }
 
@@ -111,19 +111,12 @@ class UserPasswordResetForm extends FormBase {
     /* @var $user \Drupal\user\UserInterface */
     $user = $form_state->getValue('user');
     user_login_finalize($user);
-    $this->logger->notice('User %name used one-time login link at time %timestamp.', array('%name' => $user->getUsername(), '%timestamp' => $form_state->getValue('timestamp')));
-    drupal_set_message($this->t('You have just used your one-time login link. It is no longer necessary to use this link to log in. Please change your password.'));
+    $this->logger->notice('User %name used one-time login link at time %timestamp.', array('%name' => $user->getAccountName(), '%timestamp' => $form_state->getValue('timestamp')));
+    drupal_set_message($this->t('You have just used your one-time login link.'));
     // Let the user's password be changed without the current password check.
     $token = Crypt::randomBytesBase64(55);
     $_SESSION['pass_reset_' . $user->id()] = $token;
-    $form_state->setRedirect(
-      'entity.user.edit_form',
-      array('user' => $user->id()),
-      array(
-        'query' => array('pass-reset-token' => $token),
-        'absolute' => TRUE,
-      )
-    );
+    $form_state->setRedirect('system.admin_content');
   }
 
 }
