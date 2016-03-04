@@ -702,32 +702,27 @@ $settings['container_yamls'][] = __DIR__ . '/services.yml';
 // Includes required Acquia configuration and set $base_url correctly.
 require DRUPAL_ROOT . '/sites/default/settings/base.settings.php';
 
-/**
- * Acquia Cloud settings.
- */
-if ($is_ah_env && file_exists('/var/www/site-php')) {
-  $default_settings = "/var/www/site-php/{$_ENV['AH_SITE_GROUP']}/{$_ENV['AH_SITE_GROUP']}-settings.inc";
-  require $default_settings;
-}
+if (file_exists(DRUPAL_ROOT . '/sites/sites.php')) {
+  $sites = array();
+  include DRUPAL_ROOT . '/sites/sites.php';
 
-/*
-  // Grab the first bit from the domain and try to find a matching, environment
-  // specific database.
-  // @TODO implementation to map when there is a full domain name.
-  $url = $_SERVER['HTTP_HOST'];
-  $url_elements = explode('.', $url);
-  $domain_prefix = array_shift($url_elements);
-
-  $environment_settings = "/var/www/site-php/{$_ENV['AH_SITE_GROUP']}/{$domain_prefix}-settings.inc";
-
-  if (file_exists($environment_settings)) {
-    require $environment_settings;
+  $root = $_SERVER['HTTP_HOST'];
+  // we detected a default site but not defined in sites.php
+  if (preg_match('~' . $wildcard_domain . '~', $root) && !in_array($root, $sites) && ($is_ah_env && file_exists('/var/www/site-php'))) {
+    $domain_paths = explode ('.', $root);
+    $tl_sitename =  $domain_paths[0];
+    $default_settings = "/var/www/site-php/{$_ENV['AH_SITE_GROUP']}/{$tl_sitename}-settings.inc";
+    require $default_settings;
+    $config['system.file']['path']['temporary'] = '/mnt/tmp/' . $_ENV['AH_SITE_GROUP'] . '.' . $_ENV['AH_SITE_ENVIRONMENT'] . '/' . $tl_sitename ;
+    $settings['file_public_path'] = 'sites/default/files/' . $tl_sitename;
+    $config['system.logging']['error_level'] = 'verbose';
   }
-  else {
+  else if ($is_ah_env && file_exists('/var/www/site-php')) {
+    $default_settings = "/var/www/site-php/{$_ENV['AH_SITE_GROUP']}/{$_ENV['AH_SITE_GROUP']}-settings.inc";
     require $default_settings;
   }
 }
-*/
+
 
 /**
  * Load local development override configuration, if available.

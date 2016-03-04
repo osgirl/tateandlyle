@@ -56,7 +56,7 @@
  */
 
 $wildcard_domain = 'cloud.tateandlyle.com';
-$envs = ['dev', 'test', 'prod'];
+$envs = ['local', 'ra', 'dev', 'test', 'prod'];
 
 $microsites = [
   'nabu',
