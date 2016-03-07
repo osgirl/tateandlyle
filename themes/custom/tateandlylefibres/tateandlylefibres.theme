@@ -174,7 +174,6 @@ function tateandlylefibres_preprocess_field(&$variables) {
   }
 
   if ($variables['field_name'] == 'field_slide') {
-    dpm($variables);
     $slide = $variables['element']['#object']->toArray();
     $slide_id = $slide['id'][0]['value'];
     $variables['slide_id'] = $slide['id'][0]['value'];
