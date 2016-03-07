@@ -10,7 +10,24 @@ use Drupal\bootstrap\Bootstrap;
 use Drupal\file\Entity\File;
 use Drupal\image\Entity\ImageStyle;
 
+/**
+ * Implements TEMPLATE_preprocess_html().
+ */
+function tateandlylefibrese_preprocess_html(&$variables) {
+  // Set custom css
+  $variables['custom_css'] = theme_get_setting('custom_css', 'generic_microsite');
+}
+
 function tateandlylefibres_preprocess_page(&$variables) {
+
+  // Set primary background color
+  if (theme_get_setting('bg_value', 'tateandlylefibres') != NULL) {
+    $variables['bg_value'] = 'background-color: ' . theme_get_setting('bg_value', 'tateandlylefibres') . ';';
+  }
+  else {
+    $variables['bg_value'] = 'background-color: #ffffff;';
+  }
+
   if ($variables['node'] && $variables['node']->getType() == 'page') {
     // Header backgroud image
     $background_image = $variables['node']->get('field_background_image')->getValue();
@@ -287,6 +304,12 @@ function tateandlylefibres_preprocess_block(&$variables) {
     $language_manager = \Drupal::languageManager();
     $default_language = $language_manager->getDefaultLanguage()->getId();
     $current_language = $language_manager->getCurrentLanguage()->getId();
+    if ($default_language != $current_language) {
+      if ($variables['theme']['settings']['logo_image_' . $current_language]) {
+        $file = File::load($variables['theme']['settings']['logo_image_' . $current_language]);
+        $variables['site_logo'] = $file->url();
+      }
+    }
     if ($current_language == 'en') {
       $variables['is_english'] = TRUE;
     }
