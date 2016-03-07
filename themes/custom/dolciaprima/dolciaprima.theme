@@ -13,7 +13,7 @@ use Drupal\Core\Url;
 /**
  * Implements TEMPLATE_preprocess_html().
  */
-function generic_microsite_preprocess_html(&$variables) {
+function dolciaprima_preprocess_html(&$variables) {
   // Set custom css
   $variables['custom_css'] = theme_get_setting('custom_css', 'dolciaprima');
 }
