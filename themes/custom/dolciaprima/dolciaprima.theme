@@ -10,8 +10,24 @@ use Drupal\file\Entity\File;
 use Drupal\image\Entity\ImageStyle;
 use Drupal\Core\Url; 
 
+/**
+ * Implements TEMPLATE_preprocess_html().
+ */
+function generic_microsite_preprocess_html(&$variables) {
+  // Set custom css
+  $variables['custom_css'] = theme_get_setting('custom_css', 'dolciaprima');
+}
+
 function dolciaprima_preprocess_page(&$variables) {
-  
+
+  // Set primary background color
+  if (theme_get_setting('bg_value', 'dolciaprima') != NULL) {
+    $variables['bg_value'] = 'background-color: ' . theme_get_setting('bg_value', 'dolciaprima') . ';';
+  }
+  else {
+    $variables['bg_value'] = 'background-color: #ffffff;';
+  }
+
   /*Set page title user */
   $route = explode('/', \Drupal::service('path.current')->getPath());
   if($variables['page'] && $route[1] != 'user' && $route[1] != 'sitemap') {
@@ -296,6 +312,22 @@ function dolciaprima_form_contact_message_technical_data_sheets_form_alter(&$for
   $form['field_telephone_number']['#suffix'] = '<div class="required-field"><span class="form-required">*</span>' . '<p>' . t('Required field') . '</p></div>';
 }
 
+/**
+ * Implements template_preprocess_block().
+ */
+function dolciaprima_preprocess_block(&$variables) {
+  if ($variables['base_plugin_id'] == 'system_branding_block') {
+    $language_manager = \Drupal::languageManager();
+    $default_language = $language_manager->getDefaultLanguage()->getId();
+    $current_language = $language_manager->getCurrentLanguage()->getId();
+    if ($default_language != $current_language) {
+      if ($variables['theme']['settings']['logo_image_' . $current_language]) {
+        $file = File::load($variables['theme']['settings']['logo_image_' . $current_language]);
+        $variables['site_logo'] = $file->url();
+      }
+    }
+  }
+}
 
 function dolciaprima_preprocess_views_view_unformatted__multimedia(&$variables) {
    foreach ($variables['rows'] as $key => $item) {
