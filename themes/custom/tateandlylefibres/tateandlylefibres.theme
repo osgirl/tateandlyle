@@ -174,6 +174,7 @@ function tateandlylefibres_preprocess_field(&$variables) {
   }
 
   if ($variables['field_name'] == 'field_slide') {
+    dpm($variables);
     $slide = $variables['element']['#object']->toArray();
     $slide_id = $slide['id'][0]['value'];
     $variables['slide_id'] = $slide['id'][0]['value'];
@@ -224,7 +225,7 @@ function tateandlylefibres_preprocess_paragraph(&$variables) {
     $video = $variables['paragraph']->get('field_video_url')->getValue();
     $video_image = $variables['paragraph']->get('field_video_image')->getValue();
     /*Check if video url exist*/
-    if($video[0]) {
+    if($video[0]) { 
       $video_id = $video[0]['video_id'];
       $video_url = "http://youtube.com/embed/" . $video_id;
       $variables['video_url'] = $video_url;
