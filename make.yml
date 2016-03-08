@@ -89,6 +89,7 @@ projects:
       revision: "87e19dcb801d15114a0900c4d51cc996435d5717"
     patch:
       - "https://www.drupal.org/files/issues/support_custom_contact-2659536-6.patch"
+      - "https://www.drupal.org/files/issues/validation_label_is-2683241-2.patch"
   field_collection:
     type: module
     version: ~
