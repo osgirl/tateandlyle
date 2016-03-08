@@ -13,9 +13,9 @@ use Drupal\image\Entity\ImageStyle;
 /**
  * Implements TEMPLATE_preprocess_html().
  */
-function tateandlylefibrese_preprocess_html(&$variables) {
+function tateandlylefibres_preprocess_html(&$variables) {
   // Set custom css
-  $variables['custom_css'] = theme_get_setting('custom_css', 'generic_microsite');
+  $variables['custom_css'] = theme_get_setting('custom_css', 'tateandlylefibres');
 }
 
 function tateandlylefibres_preprocess_page(&$variables) {
