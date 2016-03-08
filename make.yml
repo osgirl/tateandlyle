@@ -138,5 +138,9 @@ projects:
       type: git
       url: "https://github.com/md-systems/redirect.git"
       revision: "34bee9a2e832d78ad691ced02993faf0c4cc67c1"
-
-
+  entity:
+    type: module
+    version: "1.0-alpha1"
+  diff:
+    type: module
+    version: "1.0-alpha2"
