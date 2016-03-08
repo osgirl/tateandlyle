@@ -26,7 +26,7 @@ function tateandlylefibres_form_system_theme_settings_alter(&$form, FormStateInt
   $form['style']['bg_value'] = array(
     '#type' => 'textfield',
     '#title' => t('Primary background color'),
-    '#default_value' => empty(theme_get_setting('bg_value')) ? '#b5cbe6' : theme_get_setting('bg_value'),
+    '#default_value' => empty(theme_get_setting('bg_value')) ? '#ffffff' : theme_get_setting('bg_value'),
     '#size' => 7,
     '#maxlength' => 7,
     '#description' => t('Specify the primary background color for the site .'),
