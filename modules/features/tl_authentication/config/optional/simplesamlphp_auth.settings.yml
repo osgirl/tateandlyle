@@ -14,7 +14,7 @@ allow:
   set_drupal_pwd: true
   default_login: true
   default_login_roles: {  }
-  default_login_users: '1'
+  default_login_users: ''
 logout_goto_url: null
 user_register_original: visitors
 sync:

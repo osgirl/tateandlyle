@@ -89,6 +89,7 @@ projects:
       revision: "87e19dcb801d15114a0900c4d51cc996435d5717"
     patch:
       - "https://www.drupal.org/files/issues/support_custom_contact-2659536-6.patch"
+      - "https://www.drupal.org/files/issues/validation_label_is-2683241-2.patch"
   field_collection:
     type: module
     version: ~
@@ -137,5 +138,9 @@ projects:
       type: git
       url: "https://github.com/md-systems/redirect.git"
       revision: "34bee9a2e832d78ad691ced02993faf0c4cc67c1"
-
-
+  entity:
+    type: module
+    version: "1.0-alpha1"
+  diff:
+    type: module
+    version: "1.0-alpha2"
