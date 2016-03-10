@@ -1,0 +1,7 @@
+name: 'TL Path alias'
+description: 'URL Alias configuration'
+type: module
+core: 8.x
+dependencies:
+  - mollom
+version: 8.x-1.0

@@ -10266,19 +10266,33 @@ ul.sitemap-menu li li li {
 /* Custom sites */
 .claria header,
 .clariastarch header {
-  background-color: #4dc0af;
-  background-image: -webkit-gradient(linear, left top, right top, from(#4dc0af 0%), to(#ffffff 80%));
-  background-image: -webkit-linear-gradient(left, #4dc0af 0%, #ffffff 80%);
-  background-image: -moz-linear-gradient(left, #4dc0af 0%, #ffffff 80%);
-  background-image: -ms-linear-gradient(left, #4dc0af 0%, #ffffff 80%);
-  background-image: -o-linear-gradient(left, #4dc0af 0%, #ffffff 80%);
+  background-color: #4dc0af 30%;
+  background-image: -webkit-gradient(linear, left top, right top, from(#4dc0af 30% 0%), to(#ffffff 80% 80%));
+  background-image: -webkit-linear-gradient(left, #4dc0af 30% 0%, #ffffff 80% 80%);
+  background-image: -moz-linear-gradient(left, #4dc0af 30% 0%, #ffffff 80% 80%);
+  background-image: -ms-linear-gradient(left, #4dc0af 30% 0%, #ffffff 80% 80%);
+  background-image: -o-linear-gradient(left, #4dc0af 30% 0%, #ffffff 80% 80%);
 }
 @media (min-width: 768px) {
   .claria .header-left,
   .clariastarch .header-left {
     margin: 0;
-    padding-top: 10px;
+    padding-top: 1px;
   }
+}
+@media (min-width: 768px) {
+  .claria .header-right,
+  .clariastarch .header-right {
+    padding-top: 40px;
+  }
+}
+.claria .navbar-default.container,
+.clariastarch .navbar-default.container {
+  margin-top: -10px;
+}
+.claria.contact-us .tl-form-fields-required,
+.clariastarch.contact-us .tl-form-fields-required {
+  display: none;
 }
 .tate---lyle-procurement #st-trigger-effects {
   display: none;
@@ -10306,6 +10320,9 @@ ul.sitemap-menu li li li {
   .tate---lyle-procurement .search-block-form .form-group {
     margin-bottom: 5px;
   }
+}
+.tate---lyle-procurement .st-pusher {
+  background-size: 100% 80%;
 }
 .purefruit header,
 .tate---lyle-procurement header,
@@ -10339,13 +10356,45 @@ ul.sitemap-menu li li li {
     margin-top: -10px;
   }
 }
+:lang(pt-br) .tasteva-sweetner.contact-us .tl-form-fields-required,
+:lang(es) .tasteva-sweetner.contact-us .tl-form-fields-required {
+  display: none;
+}
+@media (min-width: 768px) {
+  .tasteva-sweetner .header-left {
+    margin-top: -11px;
+  }
+}
 @media (min-width: 768px) {
   .tasteva-sweetner .header-right {
-    padding-top: 15px;
+    padding-top: 10px;
   }
 }
 .tasteva-sweetner #search-block-form .form-group {
   margin-bottom: 10px;
+}
+@media (min-width: 768px) {
+  .tasteva-sweetner #block-languageswitcher {
+    padding-bottom: 6px;
+  }
+}
+@media (min-width: 768px) {
+  .tasteva-sweetner .navbar-default.container {
+    margin-top: -5px;
+  }
+}
+@media (min-width: 768px) {
+  .tasteva-sweetner .navbar-default.container .menu {
+    padding-top: 10px;
+  }
+}
+.tasteva-sweetner .st-pusher {
+  background-size: 100% 75%;
+}
+@media (min-width: 768px) {
+  .purefruit .header-left {
+    margin-top: -11px;
+  }
 }
 .purefruit table {
   border-collapse: initial;
@@ -10363,6 +10412,12 @@ ul.sitemap-menu li li li {
 }
 .purefruit table tr:first-child {
   background-color: #ccc;
+}
+.purefruit.contact-us .tl-form-fields-required {
+  display: none;
+}
+.purefruit .st-pusher {
+  background-size: 100% 80%;
 }
 .soda-lo header {
   background-color: #dedbd5;
@@ -10399,6 +10454,9 @@ ul.sitemap-menu li li li {
     margin-top: -3px;
   }
 }
+.soda-lo .st-pusher {
+  background-size: 100% 80%;
+}
 /* Hide cancel button on File Acces form */
 #contact-message-file-access-form .cancel_button {
   display: none;
@@ -10414,13 +10472,16 @@ ul.sitemap-menu li li li {
 }
 @media (min-width: 768px) {
   .proatein .header-left {
-    padding-top: 20px;
+    padding-top: 14px;
   }
 }
 @media (min-width: 768px) {
   .proatein .header-right {
     padding-top: 40px;
   }
+}
+.proatein .st-pusher {
+  background-size: 100% 80% !important;
 }
 @media (min-width: 768px) {
   .tate---lyle-ventures .header-right {
@@ -10436,10 +10497,13 @@ ul.sitemap-menu li li li {
 .tate---lyle-ventures.path-frontpage aside .paragraph:last-child {
   border-bottom: 0;
 }
+.tate---lyle-ventures .st-pusher {
+  background-size: 100% 65%;
+}
 @media (min-width: 768px) {
   .avenacare .header-left {
     margin: 0;
-    padding-top: 36px;
+    padding-top: 26px;
   }
 }
 @media (min-width: 768px) {
@@ -10451,7 +10515,7 @@ ul.sitemap-menu li li li {
   margin-top: 25px;
 }
 .avenacare .st-pusher {
-  background-size: 100% !important;
+  background-size: 100% 64% !important;
 }
 .open-innovation header,
 .global-industrial-starches header,
@@ -10495,6 +10559,26 @@ ul.sitemap-menu li li li {
     margin-top: -10px;
   }
 }
+.tateandlyle_china.zh-hans-contact-us .tl-form-fields-required {
+  display: none;
+}
+@media (min-width: 768px) {
+  .tateandlyle_china .header-left {
+    margin: 0;
+    padding-top: 45px;
+  }
+}
+.tateandlyle_china .st-pusher {
+  backgruond-size: 100% 65%;
+}
+@media (min-width: 768px) {
+  .open-innovation .header-left {
+    padding-top: 45px;
+  }
+}
+.open-innovation .st-pusher {
+  background-size: 100% 70%;
+}
 .your-drink-solutions header,
 .your-food-systems header {
   background-color: #f6dabd;
@@ -10537,6 +10621,18 @@ ul.sitemap-menu li li li {
 .your-food-systems .navbar-default.container .menu {
   padding-top: 4px;
 }
+.your-drink-solutions.contact-us .tl-form-fields-required {
+  display: none;
+}
+@media (min-width: 768px) {
+  .your-drink-solutions .header-left {
+    margin: 0;
+    padding-top: 45px;
+  }
+}
+.your-drink-solutions .st-pusher {
+  background-size: 100% 80%;
+}
 .your-food-systems header {
   background-color: #d6d2de;
   background-image: -webkit-gradient(linear, left top, right top, from(#d6d2de 0%), to(#ffffff 80%));
@@ -10544,6 +10640,35 @@ ul.sitemap-menu li li li {
   background-image: -moz-linear-gradient(left, #d6d2de 0%, #ffffff 80%);
   background-image: -ms-linear-gradient(left, #d6d2de 0%, #ffffff 80%);
   background-image: -o-linear-gradient(left, #d6d2de 0%, #ffffff 80%);
+}
+@media (min-width: 768px) {
+  .your-food-systems .header-left {
+    margin: 0;
+    padding-top: 45px;
+  }
+}
+.your-food-systems .tl-form-fields-required {
+  display: none;
+}
+.your-food-systems .st-pusher {
+  background-size: 100% 70%;
+}
+/* Hide links that do not need to be displayed on the specific pages */
+:lang(en) .your-food-systems .region-sidebar-first .request-form,
+:lang(ru) .your-food-systems .region-sidebar-first .request-form,
+:lang(de) .your-food-systems .region-sidebar-first .request-form,
+:lang(es) .your-food-systems .region-sidebar-first .request-form,
+:lang(pt-br) .your-food-systems .region-sidebar-first .request-form,
+:lang(ru) .your-food-systems .region-sidebar-first .our-graduate-oportunities-first,
+:lang(es) .your-food-systems .region-sidebar-first .our-graduate-oportunities-first,
+:lang(pt-br) .your-food-systems .region-sidebar-first .our-graduate-oportunities-first,
+:lang(ru) .your-food-systems .region-sidebar-first .our-graduate-oportunities-last,
+:lang(es) .your-food-systems .region-sidebar-first .our-graduate-oportunities-last,
+:lang(pt-br) .your-food-systems .region-sidebar-first .our-graduate-oportunities-last,
+:lang(de) .your-food-systems .region-sidebar-first .our-graduate-oportunities-last,
+:lang(es) .your-food-systems .region-navigation .our-global-presence-last,
+:lang(pt-br) .your-food-systems .region-navigation .our-global-presence-last {
+  display: none;
 }
 .sucralose header,
 .splenda---sucralose header {
@@ -10558,7 +10683,7 @@ ul.sitemap-menu li li li {
   .sucralose .header-left,
   .splenda---sucralose .header-left {
     margin: 0;
-    padding-top: 18px;
+    padding-top: 8px;
   }
 }
 .sucralose .header-left .navbar-brand,
@@ -10588,11 +10713,13 @@ ul.sitemap-menu li li li {
 .splenda---sucralose .navbar-default.container .menu {
   padding-top: 4px;
 }
-@media (min-width: 768px) {
-  .sucralose .navbar-default.container,
-  .splenda---sucralose .navbar-default.container {
-    margin-top: -10px;
-  }
+.sucralose .st-pusher,
+.splenda---sucralose .st-pusher {
+  background-size: 100% 75%;
+}
+.sucralose.contact-us .tl-form-fields-required,
+.splenda---sucralose.contact-us .tl-form-fields-required {
+  display: none;
 }
 :lang(en) .sucralose.tl-no-sidebars.path-frontpage .field--name-field-touts .field--item:nth-child(2) li,
 :lang(en) .splenda---sucralose.tl-no-sidebars.path-frontpage .field--name-field-touts .field--item:nth-child(2) li,
@@ -10641,6 +10768,24 @@ ul.sitemap-menu li li li {
   padding: 3px 5px;
   text-align: center;
 }
+.global-industrial-starches.contact .tl-form-fields-required {
+  display: none;
+}
+@media (min-width: 768px) {
+  .global-industrial-starches .header-left {
+    margin: 0;
+    padding-top: 45px;
+  }
+}
+.global-industrial-starches .st-pusher {
+  background-size: 100% 65%;
+}
+@media (min-width: 768px) {
+  .food-and-nutrition-science-centre .header-left {
+    margin: 0;
+    padding-top: 45px;
+  }
+}
 .food-and-nutrition-science-centre .navbar-brand {
   color: #7373a8;
 }
@@ -10656,8 +10801,14 @@ ul.sitemap-menu li li li {
 .food-and-nutrition-science-centre.path-frontpage table td:nth-child(2) {
   padding-left: 10px;
 }
+.food-and-nutrition-science-centre .st-pusher {
+  background-size: 100% 65%;
+}
 .tate---lyle-japan {
   color: #808080;
+}
+.tate---lyle-japan.path-frontpage .col-sm-9 h3 a {
+  color: #01778f;
 }
 .your-bakery-and-snack-solutions header,
 .tate---lyle-japan header {
@@ -10695,9 +10846,57 @@ ul.sitemap-menu li li li {
     margin-top: -10px;
   }
 }
+.your-bakery-and-snack-solutions aside .tout-text h4 {
+  font-weight: 400;
+}
+.your-bakery-and-snack-solutions.contact-us .tl-form-fields-required {
+  display: none;
+}
+@media (min-width: 768px) {
+  .your-bakery-and-snack-solutions .header-left {
+    margin: 0;
+    padding-top: 45px;
+  }
+}
+.your-bakery-and-snack-solutions .st-pusher {
+  background-size: 100% 80%;
+}
+@media (min-width: 768px) {
+  .tate---lyle-japan .header-left {
+    margin: 0;
+    padding-top: 44px;
+  }
+}
+.tate---lyle-japan .navbar-brand {
+  color: #7d6a57;
+}
+@media (min-width: 768px) {
+  .tate---lyle-japan .header-right {
+    padding-top: 8px;
+  }
+}
+@media (min-width: 768px) {
+  .tate---lyle-japan #block-languageswitcher {
+    padding-top: 5px;
+  }
+}
+@media (min-width: 768px) {
+  .tate---lyle-japan .navbar-default.container {
+    margin-top: -11px;
+  }
+}
+.tate---lyle-japan .navbar-default.container .menu {
+  padding-top: 7px;
+}
 @media (min-width: 768px) {
   .feedthembetter .header-left,
   .feed-them-better .header-left {
-    padding-top: 16px;
+    padding-top: 18px;
+  }
+}
+@media (min-width: 768px) {
+  .feedthembetter .header-right,
+  .feed-them-better .header-right {
+    padding-top: 40px;
   }
 }

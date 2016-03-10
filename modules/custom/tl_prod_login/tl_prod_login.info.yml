@@ -1,0 +1,7 @@
+name: T&L Prod login
+type: module
+description: Hides the standard drupal authentication forms and displays the SSO Federated login link.
+core: 8.x
+package: Custom
+dependencies:
+  - simplesamlphp_auth

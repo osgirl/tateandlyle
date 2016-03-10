@@ -1,0 +1,5 @@
+name: "Theme content structure restrict"
+description: "Restrict fields and content types to be hidden in certain themes"
+core: 8.x
+package: Custom
+type: module
