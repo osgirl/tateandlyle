@@ -57,6 +57,7 @@ dependencies:
   - csv_serialization
   - rest
   - menu_link_attributes
+  - simplesamlphp_auth
   # Field types
   - datetime
   - entity_reference_revisions
@@ -73,6 +74,8 @@ dependencies:
   - search_api
   - search_api_solr
   - redirect
+  - entity
+  - diff
 themes:
   - generic_microsite
   - seven

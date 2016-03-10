@@ -65,16 +65,16 @@
 <div id="st-container" class="st-container">
   {# Back to top link #}
   <a name="top"></a>
-  <div class="st-pusher" style="{{ gradient_bg }}">
+  <div class="st-pusher">
     <section class="pre-header" >
       {% if page.pre_header %}
         {{ page.pre_header }} 
       {% endif %}
     </section>
     <div class="st-content"><!-- this is the wrapper for the content -->
-      <div class="st-content-inner">
+      <div class="st-content-inner" style="{{ bg_value }}">
         {% set container = theme.settings.fluid_container ? 'container-fluid' : 'container' %}
-        <div class="header-container">
+        <div class="header-container" style="{{ bg_value }}">
           <header class="{{ container }}" >
               {{ page.header }} 
             <section class="header-right">

@@ -2072,7 +2072,7 @@ aside {
       }
       .accordion-title {
         background: url(../images/bullet-link.gif) 0 5px no-repeat;
-        display: inline-block;
+        display: inline;
         font-size: 12px;
         line-height: 16px;
         padding: 0 25px 4px 12px;
@@ -2666,10 +2666,11 @@ body {
     height: 24px;
   }
   button.form-submit {
-    background: #B9B3AC;
+    background: transparent;
     border: 0;
     border-radius: 0;
     height: 24px;
+    position: absolute;
     text-indent: -999em;
     width: 24px;
   }
@@ -2686,13 +2687,13 @@ body {
     position: relative;
     top: 10px;
     width: 24px;
-    &:after {
+    &:before {
+      background: #B9B3AC;
       color: #FFF;
       content: "\e003";
       font-size: 14px;
-      left: 5px;
+      padding: 5px;
       position: absolute;
-      top: 5px;
     }
   }
   img {
@@ -3297,6 +3298,10 @@ ul.sitemap-menu {
     }
   }
  
+}
+
+.tate---lyle-japan {
+  color: #808080;
 }
 
 .your-bakery-and-snack-solutions,
