@@ -1,12 +1,15 @@
 <?php
 
-use Drupal\Core\Access\AccessResultAllowed;
+/**
+ * @file
+ * Allow configuring and hiding fields from node forms via theme configuration.
+ */
+
 use Drupal\Core\Access\AccessResultForbidden;
 use Drupal\Core\Access\AccessResultNeutral;
 use Drupal\Core\Field\FieldDefinitionInterface;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Session\AccountInterface;
-use Drupal\node\NodeInterface;
 
 /*
  * Implements hook_entity_field_access();
