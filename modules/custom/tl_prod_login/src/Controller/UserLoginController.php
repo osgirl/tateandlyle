@@ -8,7 +8,6 @@
 namespace Drupal\tl_prod_login\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
-use Drupal\Core\Link;
 use Drupal\Core\Url;
 
 /**
@@ -36,7 +35,7 @@ class UserLoginController extends ControllerBase {
     $label = \Drupal::config('simplesamlphp_auth.settings')->get('login_link_display_name');
 
     $build['simplesamlphp_auth_login_link'] = array(
-      '#markup' => Link::fromTextAndUrl($label, Url::fromRoute('simplesamlphp_auth.saml_login', array(), array(
+      '#markup' => \Drupal::l($label, Url::fromRoute('simplesamlphp_auth.saml_login', array(), array(
         'attributes' => array(
           'class' => array('simplesamlphp-auth-login-link'),
         ),
