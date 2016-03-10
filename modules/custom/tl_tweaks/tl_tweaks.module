@@ -6,11 +6,17 @@
 
 use Drupal\Core\Url;
 use Drupal\Core\Link;
+use Drupal\Component\Utility\Html;
 
 /**
  * Implements hook_form_alter().
  */
 function tl_tweaks_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+
+  if ($form_id == "search_block_form") {
+    $action = $form['#action'];
+    $form['#action'] = str_replace("/node", "", $action);
+  }
 
   if (($form['#form_id'] == 'node_form_form') || ($form['#form_id'] == 'node_form_edit_form') || ($form['#form_id'] == 'node_page_form') || ($form['#form_id'] == 'node_page_edit_form') || ($form['#form_id'] == 'node_media_item_form') || ($form['#form_id'] == 'node_media_item_edit_form')) {
     foreach ($form['field_main_content']['widget'] as $key => $slide) {
@@ -29,8 +35,8 @@ function tl_tweaks_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form
 
   if ($form_id == "contact_message_contact_us_form") {
     if (isset($_GET['field_identifier'])) {
-      if (isset($form['field_contact_identifier'])) {
-        foreach ($_GET['field_identifier'] as $id) {
+      if (Html::escape($form['field_contact_identifier']) !== NULL) {
+        foreach (Html::escape($_GET['field_identifier']) as $id) {
           $form['field_contact_identifier']['widget']['0']['value']['#default_value'] .= $id . '|';
         }
       }
@@ -62,6 +68,12 @@ function tl_tweaks_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form
     $form_id = 'contact_message_' . $key . '_form';
     if ($contact_message['label'] != 'Personal contact form') {
       if ($form['#form_id'] == $form_id) {
+        if (isset($form['field_form_entity_id'])) {
+          $form_node_id = \Drupal::routeMatch()->getRawParameter('node');
+          $form_node = node_load($form_node_id);
+          $form['field_form_entity_id']['widget']['0']['target_id']['#default_value'] = $form_node;
+          $form['field_form_entity_id']['#attributes']['class'][] = 'hidden';
+        }
         $url = Url::fromUserInput('/');
         $form['actions']['submit']['#suffix'] = "<span class='cancel_button'>" . \Drupal::l(t('Cancel'), $url) . "</span>";
         unset($form['actions']['preview']);
@@ -70,7 +82,7 @@ function tl_tweaks_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form
         }
         if (isset($_GET['sub'])) {
           if (isset($form['field_message'])) {
-            $form['field_message']['widget']['0']['value']['#default_value'] = $_GET['sub'];
+            $form['field_message']['widget']['0']['value']['#default_value'] = Html::escape($_GET['sub']);
           }
         }
       }
@@ -126,7 +138,7 @@ function tl_tweaks_page_attachments(array &$attachments) {
               $file_id = $node->get('field_file')->getValue()[0]['target_id'];
               $file = file_load($file_id);
               $file_path = $file->url($rel = canonical, $options = array());
-              print '<a href="' . $file_path . '" download id="download" hidden></a>';
+              print '<a target ="_blank" href="' . $file_path . '" id="download" hidden></a>';
             }
           }
         }

@@ -1,0 +1,59 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_touts
+    - node.type.page
+  module:
+    - entity_reference_revisions
+id: node.page.field_touts
+field_name: field_touts
+entity_type: node
+bundle: page
+label: Touts
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      tout: tout
+      tout_reference: tout_reference
+    target_bundles_drag_drop:
+      image:
+        weight: 10
+        enabled: false
+      accordion:
+        weight: 12
+        enabled: false
+      contact:
+        weight: 13
+        enabled: false
+      country_contact:
+        weight: 14
+        enabled: false
+      text:
+        weight: 15
+        enabled: false
+      redirect_selector:
+        weight: 16
+        enabled: false
+      tout:
+        enabled: true
+        weight: 17
+      slide:
+        weight: 17
+        enabled: false
+      tabs:
+        weight: 18
+        enabled: false
+      tout_reference:
+        enabled: true
+        weight: 21
+      video:
+        weight: 22
+        enabled: false
+field_type: entity_reference_revisions

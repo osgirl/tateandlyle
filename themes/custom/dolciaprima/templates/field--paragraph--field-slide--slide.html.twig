@@ -38,7 +38,7 @@
 #}
 
 <div {{ attributes }}>
-  <div id="slideshow" class="carousel slide" data-ride="carousel">
+  <div id="slideshow-{{ slide_id }}" class="carousel slide" data-ride="carousel">
     {% set slide_id = 0 %}
     <ol class="carousel-indicators">
       {% for item in items %}
@@ -66,10 +66,10 @@
               <a  href="{{ link_alias[collection_id] }}"  {{ target_link[collection_id] }} title="{{ slideshow_link_title }}">
                 <img class="slideshow-image" src="{{ slideshow_image_path[slideshow_image_id] }}"/>
               </a>
-              <div class="slideshow-text"> {{ slideshow_text | raw }}</div>
+              <div class="slideshow-text"> {{ slideshow_text }}</div>
             {% else %}
               <img class="slideshow-image" src="{{ slideshow_image_path[slideshow_image_id] }}"/>
-              <div class="slideshow-text"> {{ slideshow_text | raw }}</div>
+              <div class="slideshow-text"> {{ slideshow_text }}</div>
             {% endif %}
           </div>
         {% else %}
@@ -78,10 +78,14 @@
               <a href="{{ link_alias[collection_id] }}"  {{ target_link[collection_id] }} title="{{ slideshow_link_title }}">
                 <img class="slideshow-image" src="{{ slideshow_image_path[slideshow_image_id] }}"/>
               </a>
-              <div class="slideshow-text">{{ slideshow_text | raw }}</div>
+              {% if slideshow_text %}
+                <div class="slideshow-text">{{ slideshow_text }}</div>
+              {% endif %}
             {% else %}
               <img class="slideshow-image" src="{{ slideshow_image_path[slideshow_image_id] }}"/>
-              <div class="slideshow-text"> {{ slideshow_text | raw }}</div>
+              {% if slideshow_text %}
+                <div class="slideshow-text"> {{ slideshow_text }}</div>
+              {% endif %}
             {% endif %}
           </div>
         {% endif %}

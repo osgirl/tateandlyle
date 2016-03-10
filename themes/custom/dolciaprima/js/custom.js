@@ -1,3 +1,11 @@
+function centerModal() {
+  jQuery(this).css('display', 'block');
+  var $dialog = jQuery(this).find(".modal-dialog");
+  var offset = (jQuery(window).height() - $dialog.height()) / 2;
+  // Center modal vertically in window
+  $dialog.css("margin-top", offset);
+}
+
 (function($) {
   // Override HTML.
   Drupal.behaviors.overrideHTML = {
@@ -59,6 +67,18 @@
     }
   }
 
+  // Redirect selector.
+  Drupal.behaviors.redirectSelector123 = {
+    attach: function (context, settings) {
+      var redirect_link = $('#redirect_selector option:selected').val();
+      $('#redirect_selector').attr("action", redirect_link);
+      $( '#redirect_selector').change(function() {
+        var redirect_link = $('#redirect_selector option:selected').val();
+        $('#redirect_selector').attr("action", redirect_link);
+      });
+    }
+  }
+
   // Calculate the size of touts.
   Drupal.behaviors.toutHeight = {
     attach: function (context, settings) {
@@ -82,39 +102,6 @@
       })
     }
   };
-
-  // Contact form reveal.
-  Drupal.behaviors.toggleContact = {
-    attach: function (context, settings) {
-      var contactHeight = $('.pre-header').height();
-      $('.menu.nav > li:last-child a, a[href="#contact-us"]').click(function(e) {
-        e.preventDefault();
-        $('.st-content').toggleClass('contact-reveal');
-        if ($('.st-content').hasClass('contact-reveal')) {
-          $('#st-container').removeClass('st-menu-open');
-          $('.st-content').css({
-            "transform": "translate3d(0px, " + contactHeight + "px, 0px)",
-            'transition': 'all 0.3s',
-          });
-        } else {
-          $('#st-container').removeClass('st-menu-open');
-          $('.st-content').css({
-            "transform": "translate3d(0px, 0px, 0px)",
-            'transition': 'all 0.3s',
-          });
-        }
-      });
-
-      $('.bt-close-form').click(function(e) {
-        e.preventDefault();
-        $('.st-content').removeClass('contact-reveal');
-          $('.st-content').css({
-            "transform": "translate3d(0px, 0px, 0px)",
-            'transition': 'all 0.8s',
-          });
-      });
-    }
-  }
 
   // Add touch events for Bootstrap carousel.
   Drupal.behaviors.swipeCarousel = {
@@ -153,7 +140,154 @@
       $('#edit-field-country-list').chosen({
         disable_search: false,
       });
+
+      $('select').chosen({
+        disable_search: true,
+      })
+
+      // Marketing form
+      // Other Job Title visibility
+      $('#edit-field-other-job-title-wrapper').hide();
+      $('#edit-field-other-job-title-wrapper label').hide();
+      $('#edit-field-job-title').change(
+        function () {
+          if ($("#edit-field-job-title option:selected").filter(":contains('Other')").length != 0) {
+            $("#edit-field-other-job-title-wrapper").fadeIn();
+            $("#edit-field-other-job-title-wrapper input").prop('required',true);
+          }
+          else {
+            $("#edit-field-other-job-title-wrapper").hide();
+            $("#edit-field-other-job-title-wrapper input").prop('required',false);
+          }
+        }
+      );
+
+      // Other Industry visibility
+      $('#edit-field-other-industry-wrapper').hide();
+      $('#edit-field-other-industry-wrapper label').hide();
+      $('#edit-field-industry').change(
+        function () {
+          if ($("#edit-field-industry option:selected").filter(":contains('Other')").length != 0) {
+            $("#edit-field-other-industry-wrapper").fadeIn();
+            $("#edit-field-other-industry-wrapper input").prop('required',true);
+          }
+          else {
+            $("#edit-field-other-industry-wrapper").hide();
+            $("#edit-field-other-industry-wrapper input").prop('required',false);
+          }
+        }
+      );
+
+      // Other Primary Application visibility
+      $('#edit-field-other-primary-application-wrapper').hide();
+      $('#edit-field-other-primary-application-wrapper label').hide();
+      $('#edit-field-primary-application').change(
+        function () {
+          if ($("#edit-field-primary-application option:selected").filter(":contains('Other')").length != 0) {
+            $("#edit-field-other-primary-application-wrapper").fadeIn();
+            $("#edit-field-other-primary-application-wrapper input").prop('required',true);
+          }
+          else {
+            $("#edit-field-other-primary-application-wrapper").hide();
+            $("#edit-field-other-primary-application-wrapper input").prop('required',false);
+          }
+        }
+      );
+
+      // Dolcia Prima Header Top
+      // Other Job Title visibility
+      $('#edit-field-other-job-title-wrapper--2').hide();
+      $('#edit-field-other-job-title-wrapper--2 label').hide();
+      $('#edit-field-job-title--2').change(
+        function () {
+          if ($("#edit-field-job-title--2 option:selected").filter(":contains('Other')").length != 0) {
+            $("#edit-field-other-job-title-wrapper--2").fadeIn();
+            $("#edit-field-other-job-title-wrapper--2 input").prop('required',true);
+          }
+          else {
+            $("#edit-field-other-job-title-wrapper--2").hide();
+            $("#edit-field-other-job-title-wrapper--2 input").prop('required',false);
+          }
+        }
+      );
+
+      // Other Industry visibility
+      $('#edit-field-other-industry-wrapper--2').hide();
+      $('#edit-field-other-industry-wrapper--2 label').hide();
+      $('#edit-field-other-industry-wrapper').insertAfter('#edit-field-industry-wrapper');
+      $('#edit-field-industry--2').change(
+        function () {
+          if ($("#edit-field-industry--2 option:selected").filter(":contains('Other')").length != 0) {
+            $("#edit-field-other-industry-wrapper--2").fadeIn();
+            $("#edit-field-other-industry-wrapper--2 input").prop('required',true);
+          }
+          else {
+            $("#edit-field-other-industry-wrapper--2").hide();
+            $("#edit-field-other-industry-wrapper--2 input").prop('required',false);
+          }
+        }
+      );
+
+      // Other Primary Application visibility
+      $('#edit-field-other-primary-application-wrapper--2').hide();
+      $('#edit-field-other-primary-application-wrapper--2 label').hide();
+      $('#edit-field-primary-application--2').change(
+        function () {
+          if ($("#edit-field-primary-application--2 option:selected").filter(":contains('Other')").length != 0) {
+            $("#edit-field-other-primary-application-wrapper--2").fadeIn();
+            $("#edit-field-other-primary-application-wrapper--2 input").prop('required',true);
+          }
+          else {
+            $("#edit-field-other-primary-application-wrapper--2").hide();
+            $("#edit-field-other-primary-application-wrapper--2 input").prop('required',false);
+          }
+        }
+      );
     }
   }
+
+    // Contact form reveal.
+  Drupal.behaviors.toggleContact = {
+    attach: function (context, settings) {
+      $('.menu.nav > li:last-child a, a[href="#contact-us"]').click(function(e) {
+        e.preventDefault();
+        $('.pre-header').slideToggle('fast');
+        $('.st-content').toggleClass('contact-reveal');
+        if ($('.st-content').hasClass('contact-reveal')) {
+          $('#st-container').removeClass('st-menu-open');
+        } else {
+          $('#st-container').removeClass('st-menu-open');
+        }
+      });
+
+      $('.bt-close-form').click(function(e) {
+        e.preventDefault();
+        $('.pre-header').slideToggle('slow');
+        $('.st-content').removeClass('contact-reveal');
+      });
+    }
+  }
+
+    // External links in new window
+    $("a[href^='http']:not([href*='" + window.location.host + "'])").addClass("external").attr({ target: "_blank" });
+
+    var hashVal = window.location.hash.split("#")[1];
+    if (hashVal == 'contact') {
+        $('.pre-header').slideDown('slow');
+    }
+    else if (hashVal == 'video') {
+        setTimeout(function(){
+            $(".btn-video-play").click();
+        },1500);
+        setTimeout(function(){
+            if ( videoPlayer != undefined ) {
+                videoPlayer.play();
+            }
+        },2500);
+    }
+    else if ($.inArray(hashVal, ['soda','baking','dairy']) > -1) {
+        console.log('yes');
+        $(".btn-media-library-play." + hashVal).click();
+    }
 
 })(jQuery);

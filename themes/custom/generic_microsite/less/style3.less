@@ -4,7 +4,10 @@
  h1, h2, h3, h4,
 .field--name-field-touts .field--name-field-title,
 .navbar-brand,
-a.is-active, a:active, a:focus, a:hover,
+.st-container a.is-active,
+.st-container a:active,
+.st-container a:focus,
+.st-container a:hover,
 #accordion .accordion-set.collapsed:hover .accordion-title,
 #accordion .accordion-set .accordion-title,
 .paragraph--type--accordion a:hover, .paragraph--type--accordion .field--name-field-title, .field--name-field-title-tab,
@@ -36,7 +39,8 @@ aside .menu li a.is-active,
   }
 }
 
- .tab-pane table tr:first-child {
+.tab-pane table th,
+.tab-pane table thead {
   background-color: @green-dark;
 }
 .breadcrumb {

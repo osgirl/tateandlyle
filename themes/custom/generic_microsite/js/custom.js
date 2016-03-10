@@ -29,8 +29,33 @@ function centerModal() {
       var search_icon = $('.search-block-form');
       var search_contents = $('.search-block-form').contents();
 
+      var MacOS = navigator.appVersion.indexOf("Mac")!=-1; // Get Mac Operationg System
+      var Windows = navigator.appVersion.indexOf("Win")!=-1; // Get Windows
+
+      var ua = window.navigator.userAgent;
+      var msie = ua.indexOf("MSIE ");
+
+      var windowWidth = 750;
+
+      if (!!navigator.userAgent.match(/Trident.*rv\:11\./)) { // If Internet Explorer, return version number
+        windowWidth = 767;
+      }
+
+      if (MacOS) {
+        windowWidth = 752;
+      }
+
+      if (navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1) {
+        windowWidth = 767; // Target Safari
+      }
+
+      var m;
+      if (jQuery && jQuery.browser && (m = (navigator.userAgent).match(/Edge\/(1[2-9]|[2-9]\d|\d{3,})\./))) {
+        windowWidth = 767; // Target Microsoft Edge
+      }
+
       // Page load on mobile.
-      if ($(window).outerWidth() <= 750) {
+      if ($(window).outerWidth() <= windowWidth) {
         // Place Search mobile section in the Header Bottom section.
         search_contents.insertAfter('.header-right');
         search_contents.wrapAll('<section class="header-bottom"></section>');
@@ -45,7 +70,7 @@ function centerModal() {
       $(window).resize(function() {
         var language_contents_mobile = $('.language-mobile').contents();
         var search_contents_mobile = $('.search-mobile').contents();
-        if ($(window).outerWidth() <= 750) {
+        if ($(window).outerWidth() <= windowWidth) {
           // Place Search mobile section in the Header Bottom section.
           if (search_contents.parent().hasClass('search-block-form')) {
             search_contents.insertAfter('.header-right');
@@ -71,7 +96,7 @@ function centerModal() {
       search_icon.click(function() {
         var language_mobile = $('.language-mobile');
         var search_mobile = $('.search-mobile');
-        if ($(window).outerWidth() <= 750) {
+        if ($(window).outerWidth() <= windowWidth) {
           language_icon.removeClass('active');
           $(this).toggleClass('active');
           language_mobile.hide();
@@ -83,7 +108,7 @@ function centerModal() {
       language_icon.click(function() {
         var language_mobile = $('.language-mobile');
         var search_mobile = $('.search-mobile');
-        if ($(window).outerWidth() <= 750) {
+        if ($(window).outerWidth() <= windowWidth) {
           search_icon.removeClass('active');
           $(this).toggleClass('active');
           search_mobile.hide();

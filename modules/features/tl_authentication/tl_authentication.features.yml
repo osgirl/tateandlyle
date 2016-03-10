@@ -1,0 +1,5 @@
+required:
+  - simplesamlphp_auth.settings
+  - user.flood
+  - user.mail
+  - user.settings

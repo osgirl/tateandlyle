@@ -48,7 +48,7 @@ view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
 {% set video_id = paragraph_video[0]['video_id'] %}
 <div{{ attributes.addClass(classes) }}>
 <div class="video-text">
-    {{ content.field_video_text[0]['#text'] | raw }}
+    {{ content.field_video_text[0]['#text'] }}
 </div>
 <a class="open-video" data-toggle="modal" data-target="#{{ video_id }}" data-theVideo="{{ video_url }}"><i class = "video-button"></i><img src ="{{ video_image }}"> </a>
 </div>

@@ -17,6 +17,7 @@ body {
   line-height: 24px;
 }
 
+
 a {
   color: @brown-dark;
   text-decoration: none;
@@ -69,7 +70,7 @@ ol, ul {
 
 img {
   max-width: 100%;
-}
+} 
 
 .subtitle {
   clear: both; 
@@ -104,6 +105,11 @@ img {
 }
 .is-form .middle-content {
   padding: 0;
+}
+
+/* Hide cancel button on forms */
+.cancel_button {
+  display: none;
 }
 
 /* Sidebar menu */
@@ -231,8 +237,9 @@ body,
 .st-menu {
   ul {
     a {
-      display: block;
+      display: inline-block;
       color: red;
+      width: 100%;
       &:focus,
       &:hover {
         background-color: #000;
@@ -342,6 +349,12 @@ body,
     text-align: center;
     width: 70%;
     margin-left: 15%;
+  }
+  p {
+    margin-bottom: 10px;
+  }
+  .block {
+    display: inline-block;
   }
 }
 
@@ -855,7 +868,89 @@ header.container {
   }
 }
 
+/* Modal */
+.modal-backdrop {
+  position: initial;
+  z-index: 0;
+}
 
+.modal-backdrop.in,
+.modal-backdrop.fade {
+  opacity: 0;
+}
+
+.modal {
+  background-color: rgba(119,119,119,0.7);
+}
+
+.open-modal:after {
+  content: "+";
+  background-color: #9c510e;
+  color: #fff;
+  cursor: pointer;
+  font-family: Univers LT W01_55 Roman,sans-serif;
+  font-weight: normal;
+  font-size: 24px;
+  padding: 0 6px 2px;
+  position: absolute;
+  top: 0;
+  &.no-image {
+    position: relative;
+    float: left;
+    margin: 0 5px 5px 0;
+  }
+}
+
+.paragraph--type--tout {
+  .modal.fade {
+    text-align: center;
+    .modal-dialog {
+      margin: 0 auto;
+      max-width: initial;
+      transform:none;
+      position: relative;
+      width: auto;
+      display: inline-block;
+      text-align: center;
+      .modal-content {
+        h1:first-child,
+        h2:first-child,
+        h3:first-child,
+        h4:first-child,
+        h5:first-child,
+        p:first-child {
+          margin-top: 0;
+        }
+        .field--name-field-popup {
+          text-align: left;
+        }
+        button {
+          &:focus {
+            outline:none;
+          }
+        }
+        .paragraph--type--text {
+          max-width: 480px;
+        }
+        .paragraph--type--image .field--name-field-image {
+          margin:0;
+        }
+        .paragraph {
+          border: none;
+          margin-bottom: 0
+        }
+        .paragraph--type--image {
+          padding-bottom: 0;
+        }
+        img {
+          padding-bottom: 0;
+          max-height: 87vh;
+          max-width: 95vw;
+        }
+      }
+    }
+  }
+}
 
 /* FAQs */
 .faqs {
@@ -985,6 +1080,20 @@ header.container {
   }
 }
 
+.paragraph--type--accordion {
+  #accordion {
+    button.accordion-set {
+      background: none;
+      border: 0;
+      outline: 0;
+      text-align: left;
+      .accordion-content {
+        font-size: 12px;
+      }
+    }
+  }
+}
+
 .accordion-title {
   cursor: pointer;
   font-size: 16px;
@@ -1093,6 +1202,14 @@ header.container {
 }
 
 aside {
+  .paragraph {
+    display: inline-block;
+    margin-bottom: 1em;
+    width: 100%;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
   &.col-sm-4 {
     @media(min-width: @screen-sm-min) {
       padding-right: 0;
@@ -1177,9 +1294,16 @@ aside {
           background-color: #f5a01a;
           color: #fff;
           box-shadow: 0 0 10px rgba(0,0,0,.75);
-
         }
       }
+    }
+  }
+  .paragraph {
+    display: inline-block;
+    margin-bottom: 1em;
+    width: 100%;
+    &:last-child {
+      margin-bottom: 0;
     }
   }
   .paragraph--type--text {
@@ -1202,6 +1326,10 @@ aside {
     }
 
   }
+}
+
+.tout-image {
+  position: relative;
 }
 
 /*Media centre*/
@@ -1359,7 +1487,7 @@ aside {
   background-repeat: no-repeat;
   background-size: cover;
   @media(min-width: @screen-md-min) {
-    padding-left:  8.333333333333%;
+    padding-left:  7%;
   }
   .field--name-field-form-header {
     padding: 47.5px 3% 20px;
@@ -1464,6 +1592,21 @@ aside {
       }
     }
   }  
+}
+
+#block-espanol,
+#block-portugues,
+#block-zhongwen {
+  margin-top: -15px;
+  p {
+    margin: 0;
+  }
+  a {
+    background-color: transparent;
+    color: #f5a01a;
+    font-family: baron;
+    text-transform: lowercase;
+  }
 }
 
 /* Chosen */
@@ -1696,6 +1839,11 @@ aside {
   .language-switcher-language-url {
     margin-left: 0;
   }
+  #block-language-change {
+    a {
+      font-size: 10.5px;
+    }
+  }
 }
 
 /* Back to top */
@@ -1773,14 +1921,6 @@ aside {
     transform: none;
     max-width: 1155px;
     width: 100%;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    position: absolute;
     .modal-content {
       border: 0;
       border-radius: 0;
@@ -1830,8 +1970,85 @@ aside {
   }
 }
 
+/* Carousel */
+.paragraph--type--slide {
+  position: relative;
+}
+.carousel-control.left,
+.carousel-control.right {
+  background: #000 url("../images/carousel-prev.png") 2px 50% no-repeat;
+  content: "";
+  display: inline-block;
+  height: 45px;
+  left: 0;
+  margin-left: 0;
+  top: 42%;
+  width: 23px;
+  z-index: 999;
+}
 
-/*User login */
+.carousel-control.right {
+  background: #000 url("../images/carousel-next.png") 11px 50% no-repeat;
+  margin-left: auto;
+  margin-right: 0;
+  right: 0;
+}
+
+.glyphicon-chevron-left,
+.glyphicon-chevron-right {
+  &:before {
+    content: none;
+  }
+}
+
+.carousel-control,
+.carousel-control:focus {
+  opacity: 0;
+}
+
+.paragraph--type--slide {
+  position: relative;
+}
+
+.paragraph--type--slide:hover {
+  .carousel-control {
+    opacity: 0.3;
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.field--name-field-timeout {
+  display: none; /* Hide the timeoout value from the slideshow */
+}
+
+.slideshow-text {
+  background: #ccc;
+  padding: 10px;
+  p {
+    margin: 0 0 3px;
+  }
+}
+
+
+/* Redirect selector */
+#redirect_selector {
+  .chosen-container {
+    float: left;
+    width: 84% !important;
+    a {
+      border-right: 0;
+    }
+  }
+  input[type="submit"] {
+    float: right;
+    padding: 0 0 1px;
+    width: 16%;
+  }
+}
+
+/* User login */
 .path-user {
   .header-container {
     background: url(../images/background-login.jpg);
@@ -1874,4 +2091,8 @@ aside {
       width: 50%;
     }
   }
+}
+
+.mollom-image-captcha img {
+  width: auto;
 }

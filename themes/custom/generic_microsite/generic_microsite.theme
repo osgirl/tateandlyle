@@ -92,8 +92,8 @@ function generic_microsite_preprocess_field(&$variables, $hook) {
       }
     }
   }
-  
-  /* Slideshow  +link */
+
+  /* Slideshow + link */
   if ($variables['field_name'] == 'field_slide') {
     $slide_type = $variables['element']['#object']->get('field_slide_type')->getValue();
     if($slide_type[0]['value'] == 0) {
@@ -166,6 +166,7 @@ function generic_microsite_preprocess_field(&$variables, $hook) {
     }
 
   if ($variables['field_name'] == 'field_show_arrows') {
+
     $slide = $variables['element']['#object']->toArray();
     $slide_id = $slide['id'][0]['value'];
     $variables['slide_id'] = $slide['id'][0]['value'];
@@ -313,7 +314,9 @@ function generic_microsite_preprocess_page(&$variables) {
 function generic_microsite_preprocess_paragraph(&$variables) {
   $is_front = \Drupal::service('path.matcher')->isFrontPage();
   $variables['is_front'] = $is_front;
-  
+  if (theme_get_setting('frontpage_template', 'generic_microsite') != 2) {
+    $variables['no_sidebars'] = TRUE;
+  }
   if ($variables['paragraph']->getType() == 'tout') {
     if ($variables['content']['field_text'][0]) {
       $html = $variables['content']['field_text'][0]['#text'];
