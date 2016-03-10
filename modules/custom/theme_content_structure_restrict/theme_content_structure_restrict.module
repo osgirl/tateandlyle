@@ -11,18 +11,18 @@ use Drupal\Core\Field\FieldDefinitionInterface;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Session\AccountInterface;
 
-/*
- * Implements hook_entity_field_access();
+/**
+ * Implements hook_entity_field_access().
  */
 function theme_content_structure_restrict_entity_field_access($operation, FieldDefinitionInterface $field_definition, AccountInterface $account, FieldItemListInterface $items = NULL) {
 
   $config = \Drupal::config('system.theme');
   $default_theme = $config->get('default');
 
-  // get fields to restrict
+  // Get the list of fields, which should be hidden.
   $fields_to_restrict = theme_get_setting('theme_content_structure_restrict_fields', $default_theme);
 
-  // no fields
+  // If no fields are detected initialise the array.
   if (empty($fields_to_restrict)) {
     $fields_to_restrict = array();
   }
@@ -36,18 +36,18 @@ function theme_content_structure_restrict_entity_field_access($operation, FieldD
   return new AccessResultNeutral();
 }
 
-/*
+/**
  * Implements hook_ENTITYTPE_node_create_access().
  */
-function theme_content_structure_restrict_node_create_access($account, array $context, $entity_bundle)  {
+function theme_content_structure_restrict_node_create_access($account, array $context, $entity_bundle) {
 
   $config = \Drupal::config('system.theme');
   $default_theme = $config->get('default');
 
-  // get fields to restrict
+  // Get the list of content types that should be hidden.
   $cts_to_restrict = theme_get_setting('theme_content_structure_restrict_cts', $default_theme);
 
-  // no fields
+  // If no content types are defined, then just initialise the array.
   if (empty($cts_to_restrict)) {
     $cts_to_restrict = array();
   }
