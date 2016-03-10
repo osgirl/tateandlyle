@@ -148,14 +148,17 @@ img {
   background: #a448c6;
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  min-height: 550px;
-  position: absolute;
+  display: none;
+  xmin-height: 550px;
+  xposition: absolute;
+  padding-bottom: 2em;
   top: 0;
   width: 100%;
-  overflow: hidden;
+  xoverflow: hidden;
   @media (min-width: @screen-xs-min) {
     background-image: url('../images/bg-form-area.jpg');
-    min-height: 460px;
+    padding-bottom: 0;
+    xmin-height: 460px;
   }
   .region-pre-header {
     margin: 0 auto;
@@ -251,6 +254,14 @@ img {
     height: 22px;
     padding: 1px 6px;
   }
+  #edit-field-other-job-title-wrapper,
+  #edit-field-other-job-title-wrapper--2,
+  #edit-field-other-industry-wrapper,
+  #edit-field-other-industry-wrapper--2,
+  #edit-field-other-primary-application-wrapper,
+  #edit-field-other-primary-application-wrapper--2 {
+    margin-top: 6px;
+  }
   .required-field {
     margin: 1em 0 0;
     @media (min-width: @screen-xs-min) {
@@ -282,7 +293,8 @@ img {
     top: 8.6em;
     right: -0.25em;
     @media (min-width: @screen-xs-min) {
-      top: 8.15em;
+      right: -2.5em;
+      top: 9.65em;
     }
   }
 }
@@ -1714,7 +1726,7 @@ button[type="submit"] {
   }
 }
 
-/*Special customization*/
+/* Special customization */
 .about-dolcia-prima {
   .tout-extra-large {  
       width: 100%;  

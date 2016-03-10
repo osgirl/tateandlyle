@@ -92,7 +92,10 @@ projects:
       - "https://www.drupal.org/files/issues/validation_label_is-2683241-2.patch"
   field_collection:
     type: module
-    version: ~
+    download:
+      type: git
+      url: "https://git.drupal.org/project/field_collection.git"
+      revision: "668dca3cb9427243c83e2f412e4c8997595d35e5"
   imce:
     type: module
     version: "1.0-beta2"
