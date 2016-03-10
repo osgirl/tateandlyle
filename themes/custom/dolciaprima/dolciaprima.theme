@@ -10,8 +10,24 @@ use Drupal\file\Entity\File;
 use Drupal\image\Entity\ImageStyle;
 use Drupal\Core\Url; 
 
+/**
+ * Implements TEMPLATE_preprocess_html().
+ */
+function dolciaprima_preprocess_html(&$variables) {
+  // Set custom css
+  $variables['custom_css'] = theme_get_setting('custom_css', 'dolciaprima');
+}
+
 function dolciaprima_preprocess_page(&$variables) {
-  
+
+  // Set primary background color
+  if (theme_get_setting('bg_value', 'dolciaprima') != NULL) {
+    $variables['bg_value'] = 'background-color: ' . theme_get_setting('bg_value', 'dolciaprima') . ';';
+  }
+  else {
+    $variables['bg_value'] = 'background-color: #ffffff;';
+  }
+
   /*Set page title user */
   $route = explode('/', \Drupal::service('path.current')->getPath());
   if($variables['page'] && $route[1] != 'user' && $route[1] != 'sitemap') {
@@ -93,8 +109,24 @@ function dolciaprima_preprocess_page(&$variables) {
 
 function dolciaprima_preprocess_paragraph(&$variables) {
   if ($variables['paragraph']->getType() == 'video') {
+    /*Is front page*/
+    $is_front = \Drupal::service('path.matcher')->isFrontPage();
+    $variables['is_front'] = $is_front;
+    /*Load video url and image*/
     $video = $variables['paragraph']->get('field_video_url')->getValue();
-    $video_url = $video[0]['input'];
+    $video_image = $variables['paragraph']->get('field_video_image')->getValue();
+    /*Check if video url exist*/
+    if($video[0]) {
+      $video_id = $video[0]['video_id'];
+      $video_url = "http://youtube.com/embed/" . $video_id;
+      $variables['video_url'] = $video_url;
+    }
+    /*Check if video image exist*/
+    if($video_image[0]) {
+      $file_id = $video_image[0]['target_id'];
+      $file = File::load($file_id);
+      $variables['video_image'] = ImageStyle::load('original')->buildUrl($file->getFileUri());
+    }  
   }
 }
 
@@ -185,6 +217,33 @@ function dolciaprima_preprocess_field(&$variables) {
     }
   }
 
+  if ($variables['field_name'] == 'field_slide_type') {
+    $variables['items'][0]['content']['#markup'] = '';
+  }
+
+  if ($variables['field_name'] == 'field_slide') {
+    $slide = $variables['element']['#object']->toArray();
+    $slide_id = $slide['id'][0]['value'];
+    $variables['slide_id'] = $slide['id'][0]['value'];
+  }
+
+
+  if ($variables['field_name'] == 'field_show_arrows') {
+    $slide = $variables['element']['#object']->toArray();
+    $slide_id = $slide['id'][0]['value'];
+    $variables['slide_id'] = $slide['id'][0]['value'];
+    if ($variables['element'][0]['#markup'] == 'Show arrows') {
+      $variables['items'][0]['content']['#markup'] = '<a class="left carousel-control" href="#slideshow'.'-'. $slide_id . '" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      </a>
+      <a class="right carousel-control" href="#slideshow'.'-'. $slide_id . '" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      </a>';
+    } else {
+      $variables['items'][0]['content']['#markup'] = '';
+    }
+  }
+
   //Close button special touts front page
  if (($variables['field_name'] == 'field_text') && ($variables['entity_type'] == 'paragraph')) {
   $paragraph = $variables['element']['#object']->toArray();
@@ -253,6 +312,22 @@ function dolciaprima_form_contact_message_technical_data_sheets_form_alter(&$for
   $form['field_telephone_number']['#suffix'] = '<div class="required-field"><span class="form-required">*</span>' . '<p>' . t('Required field') . '</p></div>';
 }
 
+/**
+ * Implements template_preprocess_block().
+ */
+function dolciaprima_preprocess_block(&$variables) {
+  if ($variables['base_plugin_id'] == 'system_branding_block') {
+    $language_manager = \Drupal::languageManager();
+    $default_language = $language_manager->getDefaultLanguage()->getId();
+    $current_language = $language_manager->getCurrentLanguage()->getId();
+    if ($default_language != $current_language) {
+      if ($variables['theme']['settings']['logo_image_' . $current_language]) {
+        $file = File::load($variables['theme']['settings']['logo_image_' . $current_language]);
+        $variables['site_logo'] = $file->url();
+      }
+    }
+  }
+}
 
 function dolciaprima_preprocess_views_view_unformatted__multimedia(&$variables) {
    foreach ($variables['rows'] as $key => $item) {

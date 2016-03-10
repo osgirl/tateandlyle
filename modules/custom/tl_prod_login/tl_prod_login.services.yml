@@ -1,0 +1,6 @@
+services:
+  tl_prod_login.route_subscriber:
+    class: Drupal\tl_prod_login\Routing\RouteSubscriber
+    tags:
+      - { name: event_subscriber }
+

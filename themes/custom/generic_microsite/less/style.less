@@ -1391,12 +1391,12 @@ aside {
     float: left;
     height: 24px;
     padding: 0 5px;
-    width: 85%;
+    width: 92%;
     @media(min-width: @screen-sm-min) {
-      width: 84%;
+      width: 80%;
     }
     @media(min-width: @screen-md-min) {
-      width: 87%;
+      width: 86%;
     }
   }
   input[type="submit"] {
@@ -1728,6 +1728,14 @@ aside {
         margin: 0;
       }
     }
+  }
+}
+
+.slideshow-text {
+  background: #ccc;
+  padding: 10px;
+  p {
+    margin: 0 0 3px;
   }
 }
 
@@ -2064,7 +2072,7 @@ aside {
       }
       .accordion-title {
         background: url(../images/bullet-link.gif) 0 5px no-repeat;
-        display: inline-block;
+        display: inline;
         font-size: 12px;
         line-height: 16px;
         padding: 0 25px 4px 12px;
@@ -2648,16 +2656,21 @@ body {
     border-bottom: 1px solid #DCD9D5;
     margin-bottom: 15px;
     padding-bottom: 15px;
+    input.form-text {
+      background: #FFF;
+      height: 24px;
+    }
   }
   #edit-search {
     background: #FFF;
     height: 24px;
   }
   button.form-submit {
-    background: #B9B3AC;
+    background: transparent;
     border: 0;
     border-radius: 0;
     height: 24px;
+    position: absolute;
     text-indent: -999em;
     width: 24px;
   }
@@ -2674,13 +2687,13 @@ body {
     position: relative;
     top: 10px;
     width: 24px;
-    &:after {
+    &:before {
+      background: #B9B3AC;
       color: #FFF;
       content: "\e003";
       font-size: 14px;
-      left: 5px;
+      padding: 5px;
       position: absolute;
-      top: 5px;
     }
   }
   img {
@@ -3285,6 +3298,10 @@ ul.sitemap-menu {
     }
   }
  
+}
+
+.tate---lyle-japan {
+  color: #808080;
 }
 
 .your-bakery-and-snack-solutions,

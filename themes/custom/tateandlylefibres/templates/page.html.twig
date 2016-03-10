@@ -73,9 +73,9 @@
       </nav>
     </div>
   {% endif %}
-  <div class="st-pusher  {{ title_name }}">
+  <div class="st-pusher  {{ title_name }}" style="{{ bg_value }}">
     <div class="st-content"><!-- this is the wrapper for the content -->
-      <div class="st-content-inner">
+      <div class="st-content-inner" style="{{ bg_value }}">
         {# Navigation - LEFT SIDE #}
         {% if page.navigation %}
           {% block navbar %}

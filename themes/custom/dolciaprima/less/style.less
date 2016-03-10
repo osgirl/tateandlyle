@@ -14,6 +14,10 @@ h3 {
   margin: 18px 0;
 }
 
+table {
+  line-height: 1.42857143;
+}
+
 p {
   color: #222;
   font-family: 'Open Sans', sans-serif;
@@ -144,14 +148,17 @@ img {
   background: #a448c6;
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  min-height: 550px;
-  position: absolute;
+  display: none;
+  xmin-height: 550px;
+  xposition: absolute;
+  padding-bottom: 2em;
   top: 0;
   width: 100%;
-  overflow: hidden;
+  xoverflow: hidden;
   @media (min-width: @screen-xs-min) {
     background-image: url('../images/bg-form-area.jpg');
-    min-height: 460px;
+    padding-bottom: 0;
+    xmin-height: 460px;
   }
   .region-pre-header {
     margin: 0 auto;
@@ -247,6 +254,14 @@ img {
     height: 22px;
     padding: 1px 6px;
   }
+  #edit-field-other-job-title-wrapper,
+  #edit-field-other-job-title-wrapper--2,
+  #edit-field-other-industry-wrapper,
+  #edit-field-other-industry-wrapper--2,
+  #edit-field-other-primary-application-wrapper,
+  #edit-field-other-primary-application-wrapper--2 {
+    margin-top: 6px;
+  }
   .required-field {
     margin: 1em 0 0;
     @media (min-width: @screen-xs-min) {
@@ -278,7 +293,8 @@ img {
     top: 8.6em;
     right: -0.25em;
     @media (min-width: @screen-xs-min) {
-      top: 8.15em;
+      right: -2.5em;
+      top: 9.65em;
     }
   }
 }
@@ -713,7 +729,7 @@ header {
 .logo {
   margin-left: 15px;
   img {
-    width: 140px;
+    max-width: 140px;
   }
 }
 .navbar-default.container {
@@ -1188,14 +1204,19 @@ header {
 }
 
 /* Main content */
+.path-frontpage .container-fluid {
+  .paragraph--type--video {
+    background: #fff url('../images/bg-hero-home.jpg') no-repeat 0 center;
+    background-size: cover;
+  }
+}
+
 .container-fluid {
   .field--name-field-main-content {
     .field--item {
       line-height: 0;
     }
     .paragraph--type--video {
-      background: #fff url('../images/bg-hero-home.jpg') no-repeat 0 center;
-      background-size: cover;
       padding: 0;
       position: relative;
       display: inline-block;
@@ -1391,15 +1412,18 @@ header {
 .modal {
   background-color: rgba(119,119,119,0.7);
 }
-.open-modal {
-  background: url(../images/bg-ajaxbox-link.gif) top left no-repeat;
+.open-modal:after {
+  content: "+";
+  background-color: #721f82;
+  color: #fff;
   cursor: pointer;
-  display: block;
-  height: 21px;
-  overflow: hidden;
+  font-family: Univers LT W01_55 Roman,sans-serif;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 24px;
+  padding: 0 6px 2px;
   position: absolute;
   top: 0;
-  width: 21px;
   &.no-image {
     position: relative;
     float: left;
@@ -1416,15 +1440,8 @@ header {
       margin: 0 auto;
       max-width: initial;
       transform:none;
-      position: relative;
-      width: auto;
-      display: inline-block;
-      text-align: center;
       .modal-content {
         display: inline-block;
-        background-color: #FFF;
-        border-bottom: 30px solid #5C5C5C;
-        border-top: 30px solid #5C5C5C;
         padding: 20px;
         text-align: left;
         h1:first-child,
@@ -1436,16 +1453,6 @@ header {
           margin-top: 0;
         }
         button {
-          background: url(../images/close-content-lightbox.png) no-repeat 0 0;
-          border: 0;
-          color: #fff;
-          font-size: 12px;
-          position: absolute;
-          right: 10px;
-          padding: 0;
-          top: -26px;
-          width: 55px;
-          height: 22px;
           &:focus {
             outline:none;
           }
@@ -1719,7 +1726,7 @@ button[type="submit"] {
   }
 }
 
-/*Special customization*/
+/* Special customization */
 .about-dolcia-prima {
   .tout-extra-large {  
       width: 100%;  
@@ -2190,12 +2197,72 @@ button[type="submit"] {
 }
 
 /* Carousel */
+.paragraph--type--slide {
+  position: relative;
+}
+.carousel-control.left,
+.carousel-control.right {
+  background: #000 url("../images/carousel-prev.png") 2px 50% no-repeat;
+  content: "";
+  display: inline-block;
+  height: 45px;
+  left: 0;
+  margin-left: 0;
+  top: 42%;
+  width: 23px;
+  z-index: 999;
+}
+
+.carousel-control.right {
+  background: #000 url("../images/carousel-next.png") 11px 50% no-repeat;
+  margin-left: auto;
+  margin-right: 0;
+  right: 0;
+}
+
+.glyphicon-chevron-left,
+.glyphicon-chevron-right {
+  &:before {
+    content: none;
+  }
+}
+
+.carousel-control,
+.carousel-control:focus {
+  opacity: 0;
+}
+
+.paragraph--type--slide {
+  position: relative;
+}
+
+.paragraph--type--slide:hover {
+  .carousel-control {
+    opacity: 0.3;
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.field--name-field-timeout {
+  display: none; /* Hide the timeoout value from the slideshow */
+}
+
 .carousel {
   cursor: pointer;
 }
 
 .paragraph--type--slide {
   max-width: 628px;
+}
+
+.slideshow-text {
+  background: #ccc;
+  padding: 10px;
+  p {
+    margin: 0 0 3px;
+  }
 }
 
 .slideshow-text {
@@ -2255,6 +2322,14 @@ button[type="submit"] {
 }
 
 aside {
+  .paragraph {
+    display: inline-block;
+    margin-bottom: 1em;
+    width: 100%;
+    &:last-child {
+      margin: 0;
+    }
+  }
   .carousel-indicators {
     right: 10px;
     top: 10px;
@@ -2343,6 +2418,22 @@ aside {
   background: transparent url('../images/btn-play@2x.png') no-repeat 0 0;
   background-size: 75px 75px;
   cursor: pointer;
+}
+a.open-video {
+  position: relative;
+}
+
+.path-node {
+  .video-button {
+    left: 50%; 
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
 }
 .open-video {
   cursor:pointer;
