@@ -1,0 +1,5 @@
+name: 'T&L Production authentication'
+description: 'Authentication configuration feature for the production environment'
+type: module
+core: 8.x
+version: 8.x-1.x
