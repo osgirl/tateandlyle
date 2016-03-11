@@ -159,11 +159,11 @@ function generic_microsite_preprocess_field(&$variables, $hook) {
     $variables['items'][0]['content']['#markup'] = '';
   }
 
-    if ($variables['field_name'] == 'field_slide') {
-      $slide = $variables['element']['#object']->toArray();
-      $slide_id = $slide['id'][0]['value'];
-      $variables['slide_id'] = $slide['id'][0]['value'];
-    }
+  if ($variables['field_name'] == 'field_slide') {
+    $slide = $variables['element']['#object']->toArray();
+    $slide_id = $slide['id'][0]['value'];
+    $variables['slide_id'] = $slide['id'][0]['value'];
+  }
 
   if ($variables['field_name'] == 'field_show_arrows') {
 
