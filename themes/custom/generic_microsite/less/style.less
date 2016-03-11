@@ -635,6 +635,7 @@ body,
       display: block;
       padding: 5px 0 0;
       width: auto;
+      z-index: 9999;
       li {
         background-image: url(../images/subnav-border-top.gif);
         background-position: bottom;
@@ -2915,13 +2916,25 @@ ul.sitemap-menu {
 .claria,
 .clariastarch {
   header {
-    .horizontal-gradient (@startColor: #4DC0AF, @endColor: #FFF);
+    .horizontal-gradient (@startColor: #4DC0AF 30%, @endColor: #FFF 80%);
   }
+
   .header-left {
     @media(min-width: @screen-sm-min) {
       margin: 0;
-      padding-top:10px;
+      padding-top: 1px;
     }
+  }
+  .header-right {
+    @media(min-width: @screen-sm-min) {
+      padding-top: 40px;
+    }
+  }
+  .navbar-default.container {
+    margin-top: -10px;
+  }
+  &.contact-us .tl-form-fields-required {
+    display: none;
   }
 }
 
@@ -2957,6 +2970,9 @@ ul.sitemap-menu {
       }
     }
   }
+  .st-pusher {
+    background-size: 100% 80%;
+  }
 }
 
 .purefruit,
@@ -2983,10 +2999,20 @@ ul.sitemap-menu {
   }
 }
 
+:lang(pt-br) .tasteva-sweetner.contact-us .tl-form-fields-required,
+:lang(es) .tasteva-sweetner.contact-us .tl-form-fields-required {
+  display: none;
+}
+
 .tasteva-sweetner {
+  .header-left {
+    @media(min-width: @screen-sm-min) {
+      margin-top: -11px;
+    }
+  }
   .header-right {
     @media(min-width: @screen-sm-min) {
-      padding-top: 15px;
+      padding-top: 10px;
     }
   }
   #search-block-form {
@@ -2994,9 +3020,32 @@ ul.sitemap-menu {
       margin-bottom: 10px;
     }
   }
+  #block-languageswitcher {
+    @media(min-width: @screen-sm-min) {
+      padding-bottom: 6px;
+    }
+  }
+  .navbar-default.container {
+    @media(min-width: @screen-sm-min) {
+      margin-top: -5px;
+    }
+    .menu {
+      @media(min-width: @screen-sm-min) {
+        padding-top: 10px;
+      }
+    }
+  }
+  .st-pusher {
+    background-size: 100% 75%;
+  }
 }
 
 .purefruit {
+  .header-left {
+    @media(min-width: @screen-sm-min) {
+      margin-top: -11px;
+    }
+  }
   table {
     border-collapse: initial;
     border-spacing: 3px;
@@ -3013,6 +3062,12 @@ ul.sitemap-menu {
     tr:first-child {
       background-color: #ccc;
     }
+  }
+  &.contact-us .tl-form-fields-required {
+    display:none;
+  }
+  .st-pusher {
+    background-size: 100% 80%;
   }
 }
 
@@ -3046,6 +3101,9 @@ ul.sitemap-menu {
       margin-top: -3px;
     }
   }
+  .st-pusher {
+    background-size: 100% 80%;
+  }
 }
 
 /* Hide cancel button on File Acces form */
@@ -3066,13 +3124,16 @@ ul.sitemap-menu {
   }
   .header-left {
     @media(min-width: @screen-sm-min) {
-      padding-top: 20px;
+      padding-top: 14px;
     }
   }
   .header-right {
     @media(min-width: @screen-sm-min) {
       padding-top: 40px;
     }
+  }
+  .st-pusher {
+    background-size: 100% 80% !important;
   }
 }
 
@@ -3093,13 +3154,16 @@ ul.sitemap-menu {
       border-bottom: 0;
     }
   }
+  .st-pusher {
+    background-size: 100% 65%;
+  }
 }
 
 .avenacare {
   .header-left {
     @media(min-width: @screen-sm-min) {
       margin: 0;
-      padding-top: 36px;
+      padding-top: 26px;
     }
   }
   .header-right {
@@ -3111,7 +3175,7 @@ ul.sitemap-menu {
     margin-top: 25px;
   }
   .st-pusher {
-    background-size: 100% !important;
+    background-size: 100% 64% !important;
   }
 }
 
@@ -3140,6 +3204,31 @@ ul.sitemap-menu {
     @media(min-width: @screen-sm-min) {
       margin-top: -10px;
     }
+  }
+}
+
+.tateandlyle_china.zh-hans-contact-us .tl-form-fields-required {display: none;}
+
+.tateandlyle_china {
+  .header-left {
+    @media(min-width: @screen-sm-min) {
+      margin: 0;
+      padding-top: 45px;
+    }
+  }
+  .st-pusher {
+    backgruond-size: 100% 65%;
+  }
+}
+
+.open-innovation {
+  .header-left {
+    @media(min-width: @screen-sm-min) {
+      padding-top: 45px;
+    }
+  }
+  .st-pusher {
+    background-size: 100% 70%;
   }
 }
 
@@ -3177,10 +3266,55 @@ ul.sitemap-menu {
   }
 }
 
+.your-drink-solutions {
+  &.contact-us .tl-form-fields-required {
+    display:none;
+  }
+  .header-left {
+    @media(min-width: @screen-sm-min) {
+      margin: 0;
+      padding-top: 45px;
+    }
+  }
+  .st-pusher {
+    background-size: 100% 80%;
+  }
+}
+
 .your-food-systems {
   header {
     .horizontal-gradient (@startColor: #D6D2DE, @endColor: #FFF);
   }
+  .header-left {
+    @media(min-width: @screen-sm-min) {
+      margin: 0;
+      padding-top: 45px;
+    }
+  }
+  .tl-form-fields-required {
+    display: none;
+  }
+  .st-pusher {
+    background-size: 100% 70%;
+  }
+}
+
+/* Hide links that do not need to be displayed on the specific pages */
+:lang(en) .your-food-systems .region-sidebar-first .request-form,
+:lang(ru) .your-food-systems .region-sidebar-first .request-form,
+:lang(de) .your-food-systems .region-sidebar-first .request-form,
+:lang(es) .your-food-systems .region-sidebar-first .request-form,
+:lang(pt-br) .your-food-systems .region-sidebar-first .request-form,
+:lang(ru) .your-food-systems .region-sidebar-first .our-graduate-oportunities-first,
+:lang(es) .your-food-systems .region-sidebar-first .our-graduate-oportunities-first,
+:lang(pt-br) .your-food-systems .region-sidebar-first .our-graduate-oportunities-first,
+:lang(ru) .your-food-systems .region-sidebar-first .our-graduate-oportunities-last,
+:lang(es) .your-food-systems .region-sidebar-first .our-graduate-oportunities-last,
+:lang(pt-br) .your-food-systems .region-sidebar-first .our-graduate-oportunities-last,
+:lang(de) .your-food-systems .region-sidebar-first .our-graduate-oportunities-last,
+:lang(es) .your-food-systems .region-navigation .our-global-presence-last,
+:lang(pt-br) .your-food-systems .region-navigation .our-global-presence-last {
+  display: none;
 }
 
 .sucralose,
@@ -3191,7 +3325,7 @@ ul.sitemap-menu {
   .header-left {
     @media(min-width: @screen-sm-min) {
       margin: 0;
-      padding-top: 18px;
+      padding-top: 8px;
     }
     .navbar-brand {
       padding-left:0;
@@ -3216,10 +3350,11 @@ ul.sitemap-menu {
   .navbar-default.container .menu {
     padding-top: 4px;
   }
-  .navbar-default.container {
-    @media(min-width: @screen-sm-min) {
-      margin-top: -10px;
-    }
+  .st-pusher {
+    background-size: 100% 75%;
+  }
+  &.contact-us .tl-form-fields-required {
+    display:none;
   }
 }
 
@@ -3277,9 +3412,27 @@ ul.sitemap-menu {
     padding: 3px 5px;
     text-align: center;
   }
+  &.contact .tl-form-fields-required {
+    display: none;
+  }
+  .header-left {
+    @media(min-width: @screen-sm-min) {
+      margin: 0;
+      padding-top: 45px;
+    }
+  }
+  .st-pusher {
+    background-size: 100% 65%;
+  }
 }
 
 .food-and-nutrition-science-centre  {
+  .header-left {
+    @media(min-width: @screen-sm-min) {
+      margin: 0;
+      padding-top: 45px;
+    }
+  }
   .navbar-brand {
     color:#7373a8;
   }
@@ -3297,11 +3450,16 @@ ul.sitemap-menu {
       }
     }
   }
- 
+  .st-pusher {
+    background-size: 100% 65%;
+  }
 }
 
 .tate---lyle-japan {
   color: #808080;
+  &.path-frontpage .col-sm-9 h3 a {
+    color: #01778f
+  }
 }
 
 .your-bakery-and-snack-solutions,
@@ -3333,11 +3491,64 @@ ul.sitemap-menu {
   }
 }
 
+.your-bakery-and-snack-solutions {
+  aside .tout-text h4 {
+    font-weight: 400;
+  }
+  &.contact-us .tl-form-fields-required { 
+    display:none;
+  }
+  .header-left {
+    @media(min-width: @screen-sm-min) {
+      margin: 0;
+      padding-top: 45px;
+    }
+  }
+  .st-pusher {
+    background-size: 100% 80%;
+  }
+}
+
+.tate---lyle-japan {
+  .header-left {
+    @media(min-width: @screen-sm-min) {
+      margin: 0;
+      padding-top: 44px;
+    }
+  }
+  .navbar-brand {
+    color: #7d6a57;
+  }
+  .header-right {
+    @media(min-width: @screen-sm-min) {
+      padding-top: 8px;
+    }
+  }
+  #block-languageswitcher {
+    @media(min-width: @screen-sm-min) {
+      padding-top: 5px;
+    }
+  }
+  .navbar-default.container {
+    @media(min-width: @screen-sm-min) {
+      margin-top: -11px;
+    }
+  }
+  .navbar-default.container .menu {
+    padding-top: 7px;
+  }
+}
+
 .feedthembetter,
 .feed-them-better{
   .header-left {
     @media(min-width: @screen-sm-min) {
-      padding-top: 16px;
+      padding-top: 18px;
+    }
+  }
+  .header-right {
+    @media(min-width: @screen-sm-min) {
+      padding-top: 40px;
     }
   }
 }

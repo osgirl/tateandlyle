@@ -1,0 +1,7 @@
+excluded:
+  - mollom.form.contact_message_asia_pacific__form
+required:
+  - pathauto.settings
+  - pathauto.pattern.node
+  - pathauto.pattern.taxonomy_term
+  - pathauto.pattern.user
