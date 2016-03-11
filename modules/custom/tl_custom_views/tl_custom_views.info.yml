@@ -2,8 +2,8 @@ name: 'T&L Custom Views'
 description: 'Contact Messages Administration, Media Centre and Multimedia views.'
 type: module
 core: 8.x
+package: Custom
 dependencies:
   - mollom
   - system
-  - tl_all_forms
 version: 8.x-1.0

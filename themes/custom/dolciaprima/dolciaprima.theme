@@ -233,8 +233,10 @@ function dolciaprima_preprocess_field(&$variables) {
     if (isset($variables['element']['#object']->field_file->getValue()['0']['target_id'])) {
       $file = File::load($variables['element']['#object']->field_file->getValue()['0']['target_id']);
       $file_url = Url::fromUri($file->url($rel = canonical, $options = array()));
-      $file_path = \Drupal::l(t('here'), $file_url);
-      $download_link = t('Click @path to download the data sheet now.', array('@path' => $file_path));
+      $file_path = Link::fromTextAndUrl(t('here'), $file_url);
+      $file_path = $file_path->toRenderable();
+      $file_path['#attributes'] = array('target' =>'_blank');
+      $download_link = t('Click @path to download the data sheet now.', array('@path' => render($file_path)));
       $variables['items']['0']['content']['#text'] = $variables['items']['0']['content']['#text'] . $download_link;
     }
   }
