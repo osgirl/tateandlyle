@@ -1,0 +1,6 @@
+langcode: en
+default_langcode: en
+allowed_domains: "acquia.com\r\nsoftescu.ro\r\ntateandlyle.com"
+message: "Dear [user:name],\r\n\r\nYou have requested a one-time login to [site:name]. Please click on the following link to authenticate:\r\n\r\n[user:one-time-login-url]"
+_core:
+  default_config_hash: 7TWoUta2QTDx0-vDPjqpKojyEkF3SUg0ICH9HD-mBjo
