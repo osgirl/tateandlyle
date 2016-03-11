@@ -144,6 +144,9 @@ projects:
   entity:
     type: module
     version: "1.0-alpha1"
+  workflow:
+    type: module
+    version: "1.x-dev"
   diff:
     type: module
     version: "1.0-alpha2"
