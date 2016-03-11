@@ -23,7 +23,7 @@ class TLCopyrightBlock extends BlockBase {
   public function build() {
     $image_path = base_path() . drupal_get_path('module', 'tl_block') . '/images/tl-footer.png';
     return array(
-      '#markup' => '<img src="' . $image_path . '" /><p>© 2016 Tate & Lyle - All rights reserved</p><a href="http://www.tateandlyle.com/pages/termsandconditions.aspx">Terms & Conditions</a><a href="http://www.tateandlyle.com/Pages/Privacy.aspx">Privacy Statement</a>',
+      '#markup' => '<img src="' . $image_path . '" /><p>© 2016 Tate & Lyle - All rights reserved</p><a href="http://www.tateandlyle.com/pages/termsandconditions.aspx" target="_blank">Terms & Conditions</a><a href="http://www.tateandlyle.com/Pages/Privacy.aspx" target="_blank">Privacy Statement</a>',
     );
   }
 
