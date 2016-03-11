@@ -8,7 +8,8 @@
 use Drupal\bootstrap\Bootstrap;
 use Drupal\file\Entity\File;
 use Drupal\image\Entity\ImageStyle;
-use Drupal\Core\Url; 
+use Drupal\Core\Url;
+use Drupal\Core\Link;
 
 function dolciaprima_preprocess_page(&$variables) {
   
