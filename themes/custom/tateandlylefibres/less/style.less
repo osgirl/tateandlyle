@@ -682,7 +682,7 @@ header.container {
       @media (min-width: @screen-xs-min) {
         width: 69px;
         height: 79px;
-        background-size: initial;
+        background-size: cover;
       }
     }
   }
@@ -983,6 +983,7 @@ header.container {
     .full-footer {
       display: inline-block;
       background-color: #fff;
+      margin-top: 5%;
       width: 100%;
       position: relative;
       .region-footer {
@@ -1079,6 +1080,7 @@ header.container {
   color: #4f4f4d;
   display: inline-block;
   position: relative;
+  width: 100%;
   &:before {
     content: url('../images/arrow-down.png');
     cursor: pointer;
@@ -1145,8 +1147,15 @@ header.container {
       width: 33.333333%;
       float: left;
       height: 100vh;
+      margin-right: -1px;
     }
     .valign-parent;
+    &:last-child {
+      @media(min-width: @screen-md-min) {
+        margin: 0;
+        width: 33.46%;
+      }
+    }
     &:before {
       content: "";
       -webkit-transform: translateZ(0);
@@ -1206,6 +1215,14 @@ header.container {
   }
   .tout-title {
     display: none;
+  }
+}
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .products .tout-container .paragraph--type--tout {
+    @media(min-width: @screen-md-min) {
+      transform: translate(-50%, -50%);
+    }
   }
 }
 
