@@ -6,3 +6,6 @@ update_author_subject: "[site_name] page submitted for approval is [node_state]"
 update_author_message: "Page [node_title] you submitted for approval on [site_url] is now [node_state] by [site_approver]. [publish_state] [node_state_message]"
 update_approvers_subject: "[site_name] page submitted for approval is [node_state]"
 update_approvers_message: "Page [node_title] submitted for approval on [site_url] is now [node_state] by [site_approver]. [publish_state] [node_state_message]"
+update_archive_approvers_subject: "[site_name] page has been submitted for archivation"
+update_archive_approvers_message: "Page [node_title] has been submitted for archivation on [site_url]. [node_state_message]"
+

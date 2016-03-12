@@ -15,6 +15,9 @@ function tl_mail_node_update($node) {
     mail_node_update_author($node);
     mail_node_update_approvers($node);
   }
+  if (($node->get('moderation_state')->getValue()[0]['target_id'] == 'needs_to_be_archived')) {
+    mail_node_update_archive_approvers($node);
+  }
 }
 
 /**
@@ -100,7 +103,7 @@ function mail_node_update_author($node) {
 
   $result = $mailmanager->mail($module, $key, $to, $langcode, $params, NULL, $send);
   if (!$result['result']) {
-    $status_message = t('There was a problem sending your email notification to @email for creating node @id.', array('@email' => $to, '@id' => $node->id()));
+    $status_message = t('There was a problem sending your email notification to @email for updating node @id.', array('@email' => $to, '@id' => $node->id()));
     \Drupal::logger('Email notification')->error($status_message);
     return;
   }
@@ -152,7 +155,48 @@ function mail_node_update_approvers($node) {
 
   $result = $mailmanager->mail($module, $key, $to, $langcode, $params, NULL, $send);
   if (!$result['result']) {
-    $status_message = t('There was a problem sending your email notification to @email for creating node @id.', array('@email' => $to, '@id' => $node->id()));
+    $status_message = t('There was a problem sending your email notification to @email for updating node @id.', array('@email' => $to, '@id' => $node->id()));
+    \Drupal::logger('Email notification')->error($status_message);
+    return;
+  }
+}
+
+/**
+ * Email sent to the approvers on request to archive.
+ */
+function mail_node_update_archive_approvers($node) {
+
+  global $base_url;
+
+  $mailmanager = \Drupal::service('plugin.manager.mail');
+  $subject = \Drupal::config('tl_mail.settings')->get('update_archive_approvers_subject');
+  $message = \Drupal::config('tl_mail.settings')->get('update_archive_approvers_message');
+  $module = 'tl_mail';
+  $key = 'node_update_archive_approvers';
+  $to = tl_get_approvers();
+
+  $params['site_name'] = \Drupal::configFactory()->getEditable('system.site')->get('name');
+  $params['node_title'] = $node->getTitle();
+  $params['site_url'] = $base_url;
+
+  $params['subject'] = str_replace("[site_name]", $params['site_name'], $subject);
+
+  $params['message'] = str_replace("[node_title]", $params['node_title'], $message);
+  $params['message'] = str_replace("[site_url]", $params['site_url'], $params['message']);
+
+  if ($node->get('revision_log')->getValue()[0]['value'] != NULL) {
+    $params['message'] = str_replace("[node_state_message]", $node->get('revision_log')->getValue()[0]['value'], $params['message']);
+  }
+  else {
+    $params['message'] = str_replace("[node_state_message]", "", $params['message']);
+  }
+
+  $langcode = \Drupal::currentUser()->getPreferredLangcode();
+  $send = TRUE;
+
+  $result = $mailmanager->mail($module, $key, $to, $langcode, $params, NULL, $send);
+  if (!$result['result']) {
+    $status_message = t('There was a problem sending your email notification to @email for updating node @id.', array('@email' => $to, '@id' => $node->id()));
     \Drupal::logger('Email notification')->error($status_message);
     return;
   }
@@ -180,6 +224,12 @@ function tl_mail_mail($key, &$message, $params) {
       break;
 
     case 'node_update_approvers':
+      $message['from'] = \Drupal::config('system.site')->get('mail');
+      $message['subject'] = $params['subject'];
+      $message['body'][] = $params['message'];
+      break;
+
+    case 'node_update_archive_approvers':
       $message['from'] = \Drupal::config('system.site')->get('mail');
       $message['subject'] = $params['subject'];
       $message['body'][] = $params['message'];
