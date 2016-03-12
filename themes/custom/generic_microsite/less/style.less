@@ -2036,6 +2036,9 @@ aside {
       padding: 10px 0 10px 10px;
       text-align: left;
       width: 100%;
+      &:focus, &:hover {
+        text-decoration: none;
+      }
       &.collapsed {
         background-color: #FFF;
         background-image: url(../images/PlusSign.png);
@@ -2056,6 +2059,7 @@ aside {
         word-break: break-word;
       }
       .accordion-content {
+        color: #4d4d4f;
         font-size: 12px;
         padding-right: 10px;
         padding-top: 10px;
@@ -2916,25 +2920,35 @@ ul.sitemap-menu {
 .claria,
 .clariastarch {
   header {
-    .horizontal-gradient (@startColor: #4DC0AF 30%, @endColor: #FFF 80%);
+    .horizontal-gradient (@startColor: #4DC0AF, @endColor: #FFF);
   }
 
-  .header-left {
-    @media(min-width: @screen-sm-min) {
-      margin: 0;
-      padding-top: 1px;
-    }
-  }
-  .header-right {
-    @media(min-width: @screen-sm-min) {
-      padding-top: 40px;
-    }
-  }
-  .navbar-default.container {
-    margin-top: -10px;
-  }
   &.contact-us .tl-form-fields-required {
     display: none;
+  }
+
+  /* Fix alignment for elements in header region */
+  .header-left {
+    @media(min-width: @screen-sm-min) {
+      margin: 0;
+      padding-top:10px;
+    }
+  }
+ 
+  .header-right {
+    @media (min-width: 768px) {
+      padding-top: 40px;
+    }
+  }
+  
+  .navbar-default.container {
+    @media (min-width: 768px) {
+      margin-top: -10px;
+    }
+  }
+
+  .contact-us .tl-form-fields-required {
+    display: none;
   }
 }
 
