@@ -51,6 +51,25 @@ function centerModal() {
     }
   }
 
+  // Disable accordion toggle when are links inside.
+  Drupal.behaviors.enableAccordionlink = {
+    attach: function (context, settings) {
+      $('.accordion-set a').click(function(e){
+        e.stopPropagation(); 
+      });
+    }
+  }
+
+  // Modal style.
+  Drupal.behaviors.modalstyle = {
+    attach: function (context, settings) {
+      $('.modal').on('show.bs.modal', centerModal);
+      $(window).on("resize", function () {
+        $('.modal:visible').each(centerModal);
+      });
+    }
+  }
+  
   // Open tout content
   Drupal.behaviors.opencloseTout = {
     attach: function (context, settings) {
