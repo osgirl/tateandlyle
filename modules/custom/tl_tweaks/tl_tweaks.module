@@ -18,6 +18,17 @@ function tl_tweaks_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form
     $form['#action'] = str_replace("/node", "", $action);
   }
 
+  if (($form_id == "views_form_content_page_1") && (\Drupal::currentUser()->id() != 1)) {
+    unset($form['header']['node_bulk_form']['action']['#options']['node_delete_action']);
+  }
+
+  if (($form_id == "node_page_edit_form") || ($form_id == "node_form_edit_form") || ($form_id == 'node_media_item_edit_form')) {
+    $node = node_load(\Drupal::routeMatch()->getRawParameter('node'));
+    if (($node->get('moderation_state')->getValue()[0]['target_id'] != 'archived') && (\Drupal::currentUser()->id() != 1)) {
+      unset($form['actions']['delete']);
+    }
+  }
+
   if (($form['#form_id'] == 'node_form_form') || ($form['#form_id'] == 'node_form_edit_form') || ($form['#form_id'] == 'node_page_form') || ($form['#form_id'] == 'node_page_edit_form') || ($form['#form_id'] == 'node_media_item_form') || ($form['#form_id'] == 'node_media_item_edit_form')) {
     foreach ($form['field_main_content']['widget'] as $key => $slide) {
       if (is_numeric($key)) {
