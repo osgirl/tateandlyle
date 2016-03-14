@@ -85,6 +85,13 @@ function generic_microsite_form_system_theme_settings_alter(&$form, FormStateInt
   );
 
   $languages = \Drupal::languageManager()->getLanguages($flags = 1);
+  if (count($languages) > 1) {
+    $form['style']['show_logos'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Customise language specific logos'),
+      '#default_value' => theme_get_setting('show_logos'),
+    );
+  }
   $default_language = \Drupal::languageManager()->getDefaultLanguage()->getId();
   foreach ($languages as $language) {
     if ($language->getId() != $default_language) {
@@ -108,6 +115,11 @@ function generic_microsite_form_system_theme_settings_alter(&$form, FormStateInt
         '#description' => t('Use this field to upload your @language logo image. Uploads limited to .png .gif .jpg .jpeg .apng .svg extensions', array('@language' => $language->getName())),
         '#element_validate' => array('generic_microsite_logo_validate'),
         '#suffix' => $image,
+        '#states' => array(
+          'visible' => array(
+            ':input[name="show_logos"]' => array('checked' => TRUE),
+          ),
+        ),
       );
     }
   }
@@ -118,7 +130,7 @@ function generic_microsite_form_system_theme_settings_alter(&$form, FormStateInt
     '#default_value' => empty(theme_get_setting('logo_redirect')) ? '' : theme_get_setting('logo_redirect'),
     '#size' => 100,
     '#maxlength' => 100,
-    '#description' => t('Specify the path you wish to redirect to when you ckicl on the logo.'),
+    '#description' => t('Specify the path you wish to redirect to when you clicc on the logo.'),
   );
 
 }
