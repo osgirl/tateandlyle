@@ -96,6 +96,9 @@ projects:
       type: git
       url: "https://git.drupal.org/project/field_collection.git"
       revision: "668dca3cb9427243c83e2f412e4c8997595d35e5"
+  field_group:
+    type: module
+    version: "1.0-rc4"
   imce:
     type: module
     version: "1.0-beta2"
