@@ -69,6 +69,7 @@ dependencies:
   - telephone
   - text
   - youtube
+  - field_group
   # Acquia Cloud
   - acquia_connector
   - search_api

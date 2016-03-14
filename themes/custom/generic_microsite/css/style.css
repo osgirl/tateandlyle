@@ -7593,6 +7593,11 @@ table.tout td {
 select {
   border-radius: 0;
 }
+/* Remove helper text from textarea */
+.filter-wrapper,
+.field--widget-text-textarea div.text-full a {
+  display: none;
+}
 /* Header */
 .navbar-header {
   padding: 0 20px;
@@ -9427,6 +9432,10 @@ aside .tout-image .field--name-field-image-text {
   text-align: left;
   width: 100%;
 }
+.paragraph--type--accordion #accordion .accordion-set:focus,
+.paragraph--type--accordion #accordion .accordion-set:hover {
+  text-decoration: none;
+}
 .paragraph--type--accordion #accordion .accordion-set.collapsed {
   background-color: #FFF;
   background-image: url(../images/PlusSign.png);
@@ -9447,6 +9456,7 @@ aside .tout-image .field--name-field-image-text {
   word-break: break-word;
 }
 .paragraph--type--accordion #accordion .accordion-set .accordion-content {
+  color: #4d4d4f;
   font-size: 12px;
   padding-right: 10px;
   padding-top: 10px;
@@ -10265,20 +10275,28 @@ ul.sitemap-menu li li li {
   color: #333 !important;
 }
 /* Custom sites */
+.claria,
+.clariastarch {
+  /* Fix alignment for elements in header region */
+}
 .claria header,
 .clariastarch header {
-  background-color: #4dc0af 30%;
-  background-image: -webkit-gradient(linear, left top, right top, from(#4dc0af 30% 0%), to(#ffffff 80% 80%));
-  background-image: -webkit-linear-gradient(left, #4dc0af 30% 0%, #ffffff 80% 80%);
-  background-image: -moz-linear-gradient(left, #4dc0af 30% 0%, #ffffff 80% 80%);
-  background-image: -ms-linear-gradient(left, #4dc0af 30% 0%, #ffffff 80% 80%);
-  background-image: -o-linear-gradient(left, #4dc0af 30% 0%, #ffffff 80% 80%);
+  background-color: #4dc0af;
+  background-image: -webkit-gradient(linear, left top, right top, from(#4dc0af 0%), to(#ffffff 80%));
+  background-image: -webkit-linear-gradient(left, #4dc0af 0%, #ffffff 80%);
+  background-image: -moz-linear-gradient(left, #4dc0af 0%, #ffffff 80%);
+  background-image: -ms-linear-gradient(left, #4dc0af 0%, #ffffff 80%);
+  background-image: -o-linear-gradient(left, #4dc0af 0%, #ffffff 80%);
+}
+.claria.contact-us .tl-form-fields-required,
+.clariastarch.contact-us .tl-form-fields-required {
+  display: none;
 }
 @media (min-width: 768px) {
   .claria .header-left,
   .clariastarch .header-left {
     margin: 0;
-    padding-top: 1px;
+    padding-top: 10px;
   }
 }
 @media (min-width: 768px) {
@@ -10287,12 +10305,14 @@ ul.sitemap-menu li li li {
     padding-top: 40px;
   }
 }
-.claria .navbar-default.container,
-.clariastarch .navbar-default.container {
-  margin-top: -10px;
+@media (min-width: 768px) {
+  .claria .navbar-default.container,
+  .clariastarch .navbar-default.container {
+    margin-top: -10px;
+  }
 }
-.claria.contact-us .tl-form-fields-required,
-.clariastarch.contact-us .tl-form-fields-required {
+.claria .contact-us .tl-form-fields-required,
+.clariastarch .contact-us .tl-form-fields-required {
   display: none;
 }
 .tate---lyle-procurement #st-trigger-effects {

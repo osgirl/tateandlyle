@@ -134,14 +134,21 @@ img {
   height: auto;
 }
 
+/* Hide caret from dropdowns */
 .caret {
   display: none;
 }
 
+/* Hide cancel button from forms */
 .cancel_button {
   display: none;
 }
 
+/* Hide helper text from textarea */
+.filter-wrapper,
+.field--widget-text-textarea div.text-full a {
+  display: none; 
+}
 
 /* Pre-header */
 .pre-header {
@@ -977,9 +984,6 @@ header {
       }
     }
   }
-  .accordion-set {
-    border-bottom: 1px solid #ccc !important;
-  }
 }
 
 /* Accordion */
@@ -1196,6 +1200,80 @@ header {
     }
     h1 {
       color:#fff;
+    }
+  }
+}
+
+/* Tabs */
+.paragraph--type--tabs {
+  padding: 0 15px 20px;
+  @media(min-width: @screen-xs-min) {
+    padding-left:0;
+    padding-right: 0;
+  }
+  .nav-tabs {
+      margin-bottom:0;
+      li.active > a, li.active > a:focus, li.active > a:hover{
+        background-color:#cf36c3;
+        border-radius:0;
+        border: 3px solid #cf36c3;
+        color: #fff;
+        cursor: pointer;
+        margin-right:2px;
+      }
+
+      li > a {
+        background-color: #f1f0ed;
+        border-radius:0;
+        font-size:12px;
+        font-weight: bold;
+        padding: 7px 15px;
+        border: 3px solid #f1f0ed;
+        &:hover {
+          background-color: #d4cec6;
+          color:#fff;
+          border: 3px solid #cf36c3;
+          background-color: rgba(0,0,0,.3);
+        }
+      }
+  }
+  .tab-pane {
+    table {
+      width:100%;
+      tr:first-child {
+        th {
+          background: #cf36c3;
+          color: #fff;
+          border-right:1px solid;
+          font-size: 11px; 
+          text-align:center;
+          padding:5px 0;
+          &:first-child {
+            padding-left:10px;
+            text-align: left;
+          }
+        }
+      }
+      tr {
+        p {
+          font-size:12px;
+        }
+        td:first-child {
+          background-color: #f1f0ed;
+          border-left: 1px solid #dcd9d5;
+          border-right: 1px solid #dcd9d5;
+          border-bottom: 1px solid #dcd9d5;
+          p {
+            padding-left:10px;
+          }
+          width:20%;
+        }
+        td {
+          border-bottom: 1px solid #dcd9d5;
+          border-right: 1px solid #dcd9d5;
+          padding:5px 10px;
+        }
+      }
     }
   }
 }
@@ -2261,6 +2339,7 @@ button[type="submit"] {
 
 .slideshow-text {
   background: #ccc;
+  cursor: auto;
   padding: 10px;
   p {
     margin: 0 0 3px;
