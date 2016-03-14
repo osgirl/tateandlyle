@@ -780,9 +780,8 @@ $ah_options = array(
 $config['technicalcontact_name'] = "Natalija Buldakova";
 $config['technicalcontact_email'] = "natalija.buldakova@tateandlyle.com";
 
-// Change these for your installation
-$config['secretsalt'] = 'y0h9d13pki9qdhfm3l5nws4jjn55j6hj';
-$config['auth.adminpassword'] = 'mysupersecret';
+$config['secretsalt'] = 'q4WCi9W%tWhUqGyrRPDNK9FNU^6GgY';
+$config['auth.adminpassword'] = 'Zp98WVYxLBB(FxU';
 // Prevent Varnish from interfering with SimpleSAMLphp.
 setcookie('NO_CACHE', '1');
 
