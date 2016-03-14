@@ -130,7 +130,7 @@ function generic_microsite_form_system_theme_settings_alter(&$form, FormStateInt
     '#default_value' => empty(theme_get_setting('logo_redirect')) ? '' : theme_get_setting('logo_redirect'),
     '#size' => 100,
     '#maxlength' => 100,
-    '#description' => t('Specify the path you wish to redirect to when you clicc on the logo.'),
+    '#description' => t('Specify the path you wish to redirect to when you click on the logo.'),
   );
 
 }
