@@ -13,7 +13,7 @@ bundle: form
 label: 'Form header'
 description: 'Add the text that''s displayed before the form.'
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }

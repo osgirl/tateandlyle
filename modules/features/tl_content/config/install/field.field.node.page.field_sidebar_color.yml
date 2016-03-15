@@ -11,10 +11,10 @@ field_name: field_sidebar_color
 entity_type: node
 bundle: page
 label: 'Sidebar color'
-description: 'Choose between coloured or transparent blocks  ( used only on Tate and Lyle Fibers theme).'
+description: 'Choose between colored or transparent blocks (used only on Tate and Lyle Fibers theme).'
 required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }
-field_type: list_string
+field_type: list_integer

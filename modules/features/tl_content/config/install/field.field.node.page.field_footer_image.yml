@@ -5,22 +5,15 @@ dependencies:
     - field.storage.node.field_footer_image
     - node.type.page
   module:
-    - content_translation
     - image
-third_party_settings:
-  content_translation:
-    translation_sync:
-      alt: alt
-      title: title
-      file: '0'
 id: node.page.field_footer_image
 field_name: field_footer_image
 entity_type: node
 bundle: page
 label: 'Footer image'
-description: 'Upload a image by clicking the "Choose File" button. (Used only on Generic Microsite theme).'
+description: 'Upload a image by clicking the "Choose File" button.'
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:

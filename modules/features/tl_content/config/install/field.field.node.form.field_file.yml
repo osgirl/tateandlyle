@@ -10,15 +10,15 @@ id: node.form.field_file
 field_name: field_file
 entity_type: node
 bundle: form
-label: File
+label: 'Technical data sheets file'
 description: ''
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
-  file_directory: '[current-date:custom:Y] - [current-date:custom:m]'
-  file_extensions: 'pdf txt xls xlsx doc docx'
+  file_directory: '[current-date:custom:Y]-[current-date:custom:m]'
+  file_extensions: 'txt pdf xls xlsx doc docx'
   max_filesize: '16 MB'
   description_field: false
   handler: 'default:file'

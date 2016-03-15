@@ -13,7 +13,7 @@ bundle: page
 label: 'Main content'
 description: ''
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
@@ -59,7 +59,4 @@ settings:
       video:
         enabled: true
         weight: 20
-      tout_reference:
-        weight: 21
-        enabled: false
 field_type: entity_reference_revisions

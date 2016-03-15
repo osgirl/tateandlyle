@@ -1,7 +1,18 @@
+excluded:
+  - block.block.views_block__sidebar_block_1
 required:
+  - core.base_field_override.node.page.promote
+  - language.content_settings.node.form
+  - language.content_settings.node.media_item
+  - language.content_settings.node.page
   - node.type.form
   - node.type.media_item
   - node.type.page
+  - core.entity_form_display.node.form.default
+  - core.entity_form_display.node.media_item.default
+  - core.entity_form_display.node.page.default
+  - core.entity_form_display.paragraph.country_contact.default
+  - core.entity_view_display.paragraph.country_contact.default
   - field.field.node.form.field_file
   - field.field.node.form.field_footer_image
   - field.field.node.form.field_form
@@ -9,14 +20,11 @@ required:
   - field.field.node.form.field_layout
   - field.field.node.form.field_main_content
   - field.field.node.form.field_meta_tags
-  - field.field.node.form.field_sidebar
   - field.field.node.form.field_subtitle
   - field.field.node.form.field_tds_thank_you
-  - field.field.node.form.field_touts
   - field.field.node.media_item.field_file
   - field.field.node.media_item.field_media_category
   - field.field.node.media_item.field_media_item_image
-  - field.field.node.media_item.field_touts
   - field.field.node.media_item.field_youtube_video
   - field.field.node.page.field_background_image
   - field.field.node.page.field_footer_image
@@ -29,26 +37,10 @@ required:
   - field.field.node.page.field_template
   - field.field.node.page.field_title_image
   - field.field.node.page.field_touts
-  - field.storage.node.body
-  - field.storage.node.field_background_image
-  - field.storage.node.field_file
-  - field.storage.node.field_footer_image
-  - field.storage.node.field_form
-  - field.storage.node.field_form_header
-  - field.storage.node.field_intro_area
-  - field.storage.node.field_layout
-  - field.storage.node.field_main_content
-  - field.storage.node.field_media_category
-  - field.storage.node.field_media_item_image
-  - field.storage.node.field_meta_tags
-  - field.storage.node.field_sidebar
-  - field.storage.node.field_sidebar_color
-  - field.storage.node.field_subtitle
-  - field.storage.node.field_tds_thank_you
-  - field.storage.node.field_template
-  - field.storage.node.field_title_image
-  - field.storage.node.field_touts
-  - field.storage.node.field_youtube_video
+  - field.field.paragraph.country_contact.field_redirect
   - core.entity_view_mode.node.full
+  - core.entity_view_mode.node.rss
+  - core.entity_view_mode.node.search_index
+  - core.entity_view_mode.node.search_result
   - core.entity_view_mode.node.teaser
   - core.entity_view_mode.node.token

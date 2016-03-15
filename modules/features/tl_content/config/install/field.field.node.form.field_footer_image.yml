@@ -5,7 +5,14 @@ dependencies:
     - field.storage.node.field_footer_image
     - node.type.form
   module:
+    - content_translation
     - image
+third_party_settings:
+  content_translation:
+    translation_sync:
+      alt: alt
+      title: title
+      file: '0'
 id: node.form.field_footer_image
 field_name: field_footer_image
 entity_type: node
@@ -13,7 +20,7 @@ bundle: form
 label: 'Footer image'
 description: ''
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
