@@ -7,12 +7,12 @@ dependencies:
     - field.storage.node.field_youtube_video
     - taxonomy.vocabulary.file_types
   content:
-    - 'taxonomy_term:file_types:104de864-e228-4276-b300-a0add07ce456'
-    - 'taxonomy_term:file_types:21709ba2-5495-4bff-b700-a5ea8a1942b0'
-    - 'taxonomy_term:file_types:24e07144-de28-42c0-955e-94dd2444190f'
-    - 'taxonomy_term:file_types:3fbfa0c9-7faf-40fa-8d01-0147e1ea1238'
-    - 'taxonomy_term:file_types:42761a78-2eb1-4efc-920a-10122c4b7357'
-    - 'taxonomy_term:file_types:ee5f1b9c-6482-4f86-8800-ba3b57bcfe58'
+    - 'taxonomy_term:file_types:16e70dcf-4b57-47ab-9800-afbe0cfcfc4a'
+    - 'taxonomy_term:file_types:422196af-f477-4307-b418-244061b9eb8c'
+    - 'taxonomy_term:file_types:6a62c680-66d6-470c-8d54-84f4e931e69c'
+    - 'taxonomy_term:file_types:7b1e8b5c-378a-42da-b800-b61d1a2c9679'
+    - 'taxonomy_term:file_types:94dccc24-efa1-4f9e-8000-ec82c7a108af'
+    - 'taxonomy_term:file_types:bb27ad79-9715-4958-994b-7536d7f20bc7'
   module:
     - file
     - image
