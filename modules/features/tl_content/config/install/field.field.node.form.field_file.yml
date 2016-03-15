@@ -6,6 +6,8 @@ dependencies:
     - node.type.form
   module:
     - file
+_core:
+  default_config_hash: XjOWGPwLvjHOkV3bQK25TVRsb_9x1T_PB03o2428KoI
 id: node.form.field_file
 field_name: field_file
 entity_type: node

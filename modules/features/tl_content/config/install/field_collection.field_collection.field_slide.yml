@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: aQ77OWaGQt02aa05bqQecj5omszDvSoOnq0Jg3TyvdU
+id: field_slide
+label: field_slide

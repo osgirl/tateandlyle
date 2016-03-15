@@ -6,6 +6,8 @@ dependencies:
     - node.type.page
   module:
     - entity_reference_revisions
+_core:
+  default_config_hash: OJyZi0KMZVH97zmdSfKgkNmiB1zQYhKQsWpZly83qXo
 id: node.page.field_intro_area
 field_name: field_intro_area
 entity_type: node

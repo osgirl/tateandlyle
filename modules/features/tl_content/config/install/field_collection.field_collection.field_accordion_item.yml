@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: EvC5r7fp4ZC5RfuFfac_86CuoIGlsM2RtUSQIiMAL5I
+id: field_accordion_item
+label: field_accordion_item

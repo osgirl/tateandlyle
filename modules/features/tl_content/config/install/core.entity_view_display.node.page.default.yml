@@ -17,6 +17,8 @@ dependencies:
   module:
     - entity_reference_revisions
     - user
+_core:
+  default_config_hash: E-VYUzVOJe_WIPGeQGJr6cuKf7okQd8EgCm87cMS9AA
 id: node.page.default
 targetEntityType: node
 bundle: page

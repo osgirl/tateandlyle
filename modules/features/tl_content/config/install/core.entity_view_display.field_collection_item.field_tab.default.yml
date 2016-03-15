@@ -1,0 +1,30 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.field_collection_item.field_tab.field_body
+    - field.field.field_collection_item.field_tab.field_label
+    - field_collection.field_collection.field_tab
+  module:
+    - text
+_core:
+  default_config_hash: Dy8to6Ebwf1OvPXiSiUTTt3Paaad6R5NyLLnMeqOss8
+id: field_collection_item.field_tab.default
+targetEntityType: field_collection_item
+bundle: field_tab
+mode: default
+content:
+  field_body:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+  field_label:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+hidden: {  }

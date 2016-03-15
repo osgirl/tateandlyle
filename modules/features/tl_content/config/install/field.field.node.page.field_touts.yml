@@ -6,6 +6,8 @@ dependencies:
     - node.type.page
   module:
     - entity_reference_revisions
+_core:
+  default_config_hash: YldfbGkymxP0zCL9HX_bl4y8ir_FM3UuhpjoH_Jta0g
 id: node.page.field_touts
 field_name: field_touts
 entity_type: node

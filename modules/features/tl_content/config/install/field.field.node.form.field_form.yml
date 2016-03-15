@@ -4,6 +4,8 @@ dependencies:
   config:
     - field.storage.node.field_form
     - node.type.form
+_core:
+  default_config_hash: qP_7p6owDr8hv0bgLWiiHiPZAlTX3uQW3XFEkFNR6Yw
 id: node.form.field_form
 field_name: field_form
 entity_type: node

@@ -6,6 +6,8 @@ dependencies:
     - node.type.form
   module:
     - metatag
+_core:
+  default_config_hash: BEdeWdIZCWPOa6pgjlh-duGeB87ql7RDKqwLeyyUOyk
 id: node.form.field_meta_tags
 field_name: field_meta_tags
 entity_type: node

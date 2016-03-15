@@ -3,6 +3,8 @@ status: false
 dependencies:
   module:
     - node
+_core:
+  default_config_hash: ZV-AtSB0W0wcqTcoG-AfdtqH1r1SexoyMbATBIS-ujg
 id: node.search_index
 label: 'Search index'
 targetEntityType: node

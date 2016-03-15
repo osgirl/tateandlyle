@@ -21,6 +21,8 @@ dependencies:
     - path
     - text
     - workbench_moderation
+_core:
+  default_config_hash: VARoefdTYiSyhgZjYsFr0OuXoFce6EkUN_LobUts564
 id: node.form.default
 targetEntityType: node
 bundle: form

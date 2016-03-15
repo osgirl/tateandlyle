@@ -5,6 +5,8 @@ dependencies:
     - field.storage.paragraph.field_redirect
     - node.type.form
     - paragraphs.paragraphs_type.country_contact
+_core:
+  default_config_hash: ELZAURlLPyWvPIxkLGUaxTwbopHOE9oE7E3cNoz9ih0
 id: paragraph.country_contact.field_redirect
 field_name: field_redirect
 entity_type: paragraph

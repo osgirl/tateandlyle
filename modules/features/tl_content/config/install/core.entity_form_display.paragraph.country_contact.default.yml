@@ -9,6 +9,8 @@ dependencies:
   module:
     - paragraphs
     - workbench_moderation
+_core:
+  default_config_hash: MpitJ1drP55VbDLREhPxJEsOyEYUgp91R6K3D-LqFJA
 id: paragraph.country_contact.default
 targetEntityType: paragraph
 bundle: country_contact

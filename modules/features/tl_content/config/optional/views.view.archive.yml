@@ -6,6 +6,8 @@ dependencies:
   module:
     - node
     - user
+_core:
+  default_config_hash: Ea3cxQo9FjYVScZDVackg-6ID_GgTkdKORm_APgV-5I
 id: archive
 label: Archive
 module: node

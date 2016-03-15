@@ -22,6 +22,8 @@ dependencies:
     - path
     - text
     - workbench_moderation
+_core:
+  default_config_hash: zHi1P4-fTN4zsCmiWhhrOP8_E4cYi4-OrzpeygkG8s4
 id: node.page.default
 targetEntityType: node
 bundle: page

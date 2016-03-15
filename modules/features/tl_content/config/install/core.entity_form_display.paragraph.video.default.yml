@@ -1,0 +1,43 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.video.field_video_image
+    - field.field.paragraph.video.field_video_text
+    - field.field.paragraph.video.field_video_url
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.video
+  module:
+    - image
+    - text
+    - workbench_moderation
+    - youtube
+_core:
+  default_config_hash: EVb5rAnkvRC5wpRS8rYIpmCk3h_DNfOJjlQ6EKCGVFo
+id: paragraph.video.default
+targetEntityType: paragraph
+bundle: video
+mode: default
+content:
+  field_video_image:
+    weight: 6
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+  field_video_text:
+    weight: 3
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+  field_video_url:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: youtube
+hidden:
+  created: true
+  uid: true

@@ -3,23 +3,17 @@ status: true
 dependencies:
   module:
     - menu_ui
-    - workbench_moderation
 third_party_settings:
   menu_ui:
     available_menus:
       - main
     parent: 'main:'
-  workbench_moderation:
-    enabled: true
-    allowed_moderation_states:
-      - draft
-      - needs_review
-      - published
-    default_moderation_state: draft
+_core:
+  default_config_hash: 5UTgaoD8md1QmMKdE9AAmpsLtS5V5ZhypW6HTk4Dvuo
 name: 'Media item'
 type: media_item
 description: 'Add media items that provide a link to the file.'
 help: ''
-new_revision: true
+new_revision: false
 preview_mode: 1
 display_submitted: false

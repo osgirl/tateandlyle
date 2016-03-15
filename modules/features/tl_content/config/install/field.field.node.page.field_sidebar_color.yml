@@ -6,6 +6,8 @@ dependencies:
     - node.type.page
   module:
     - options
+_core:
+  default_config_hash: OOjQapyPQemTdazwHIaOib_YWdpTXeDYrDEFGKMgysM
 id: node.page.field_sidebar_color
 field_name: field_sidebar_color
 entity_type: node

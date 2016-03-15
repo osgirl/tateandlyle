@@ -16,6 +16,8 @@ dependencies:
     - entity_reference_revisions
     - text
     - user
+_core:
+  default_config_hash: CA8ixqf1m1GTSzt6zqHXwosFEDH2gaVpTDygjBE_qAw
 id: node.form.default
 targetEntityType: node
 bundle: form

@@ -6,6 +6,8 @@ dependencies:
     - node.type.form
   module:
     - entity_reference_revisions
+_core:
+  default_config_hash: o4RiaFgZc9ROHB2DbirxpJTQjCkWs0N5YQkScXvshwg
 id: node.form.field_main_content
 field_name: field_main_content
 entity_type: node

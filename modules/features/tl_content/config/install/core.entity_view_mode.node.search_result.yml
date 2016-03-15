@@ -3,6 +3,8 @@ status: false
 dependencies:
   module:
     - node
+_core:
+  default_config_hash: MglTryKxcRubrBCzao8SNvi4Zeata_5w8Har6TRiQM4
 id: node.search_result
 label: 'Search result highlighting input'
 targetEntityType: node
