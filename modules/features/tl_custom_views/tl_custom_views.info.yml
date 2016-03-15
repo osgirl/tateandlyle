@@ -6,4 +6,5 @@ package: Custom
 dependencies:
   - mollom
   - system
+  - views
 version: 8.x-1.0
