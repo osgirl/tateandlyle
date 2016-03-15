@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: uHUfk2DKMRf5xnI_JWtk1uUq_ypF1sNCzjB7PqT16i8
+id: redirect_selector
+label: 'Redirect Selector'

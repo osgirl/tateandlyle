@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_accordion_item
+    - paragraphs.paragraphs_type.accordion
+  module:
+    - field_collection
+_core:
+  default_config_hash: F2EE7oM5nxdwpMGcRDhsI2b67S4zZBwb7kELmJf1e9w
+id: paragraph.accordion.field_accordion_item
+field_name: field_accordion_item
+entity_type: paragraph
+bundle: accordion
+label: 'Accordion item'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: field_collection

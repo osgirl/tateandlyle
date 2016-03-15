@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_collection
+    - paragraphs
+_core:
+  default_config_hash: BaILjFtxKdhiv5QApTX62-9R305s7KC5MgfQNqNlVqI
+id: paragraph.field_slide
+field_name: field_slide
+entity_type: paragraph
+type: field_collection
+settings: {  }
+module: field_collection
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

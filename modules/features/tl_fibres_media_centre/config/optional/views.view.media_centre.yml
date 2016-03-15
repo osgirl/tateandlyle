@@ -6,10 +6,10 @@ dependencies:
     - field.storage.node.field_media_item_image
     - taxonomy.vocabulary.file_types
   content:
-    - 'taxonomy_term:file_types:39fde48b-b7e0-4e59-9900-e350305c114c'
-    - 'taxonomy_term:file_types:43554b29-0bac-4e1e-b500-ba59965bd0b5'
-    - 'taxonomy_term:file_types:faadfde6-d404-413d-8700-b7e6c4a94594'
-    - 'taxonomy_term:file_types:fc2dfa50-fdf8-44bc-a027-39619bac6777'
+    - 'taxonomy_term:file_types:19753010-c9a0-48f7-9855-85a197c044d3'
+    - 'taxonomy_term:file_types:643a1a5c-ed82-4c9c-9400-f2d1f7959a59'
+    - 'taxonomy_term:file_types:7b1e8b5c-378a-42da-b800-b61d1a2c9679'
+    - 'taxonomy_term:file_types:94dccc24-efa1-4f9e-8000-ec82c7a108af'
   module:
     - file
     - image

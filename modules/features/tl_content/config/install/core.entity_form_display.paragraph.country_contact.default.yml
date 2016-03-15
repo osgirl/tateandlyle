@@ -1,0 +1,46 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.country_contact.field_contact
+    - field.field.paragraph.country_contact.field_redirect
+    - field.field.paragraph.country_contact.field_title
+    - paragraphs.paragraphs_type.country_contact
+  module:
+    - paragraphs
+    - workbench_moderation
+_core:
+  default_config_hash: MpitJ1drP55VbDLREhPxJEsOyEYUgp91R6K3D-LqFJA
+id: paragraph.country_contact.default
+targetEntityType: paragraph
+bundle: country_contact
+mode: default
+content:
+  field_contact:
+    type: entity_reference_paragraphs
+    weight: 1
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+    third_party_settings: {  }
+  field_redirect:
+    weight: 6
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+  field_title:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+hidden:
+  created: true
+  uid: true

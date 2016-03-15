@@ -1,0 +1,39 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.contact.field_address
+    - field.field.paragraph.contact.field_country
+    - field.field.paragraph.contact.field_identifier
+    - paragraphs.paragraphs_type.contact
+_core:
+  default_config_hash: uLnJlEtg50rvZF1gkDtKhFM1KzzkOVUiFnFZ_hBOQV4
+id: paragraph.contact.default
+targetEntityType: paragraph
+bundle: contact
+mode: default
+content:
+  field_address:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_country:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_identifier:
+    weight: 2
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+hidden:
+  created: true
+  uid: true

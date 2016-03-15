@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_tout_size
+    - paragraphs.paragraphs_type.tout
+  module:
+    - options
+_core:
+  default_config_hash: i0KnLJv9fCb4I-cz4uyWDuoBdf9PE4TOF-W2c-y3D1E
+id: paragraph.tout.field_tout_size
+field_name: field_tout_size
+entity_type: paragraph
+bundle: tout
+label: 'Tout size'
+description: 'Used only for full width pages'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

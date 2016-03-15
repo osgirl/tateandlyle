@@ -1,0 +1,55 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_popup
+    - paragraphs.paragraphs_type.tout
+  module:
+    - entity_reference_revisions
+_core:
+  default_config_hash: BWfZ9lEwDnvX1RPe1OTZM1sDPKpnUmrQfJj_C8Czu00
+id: paragraph.tout.field_popup
+field_name: field_popup
+entity_type: paragraph
+bundle: tout
+label: Popup
+description: 'Enter the content of that will appear in the popup.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      image: image
+      text: text
+    target_bundles_drag_drop:
+      accordion:
+        weight: 10
+        enabled: false
+      contact:
+        weight: 11
+        enabled: false
+      country_contact:
+        weight: 12
+        enabled: false
+      image:
+        enabled: true
+        weight: 13
+      redirect_selector:
+        weight: 14
+        enabled: false
+      slide:
+        weight: 15
+        enabled: false
+      tabs:
+        weight: 16
+        enabled: false
+      text:
+        enabled: true
+        weight: 17
+      tout:
+        weight: 18
+        enabled: false
+field_type: entity_reference_revisions

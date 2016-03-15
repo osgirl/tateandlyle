@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: g8AXSgfDFVxkrNBRe9fXgUJusGW07NCNuGofg-5iaYs
+id: tabs
+label: Tabs

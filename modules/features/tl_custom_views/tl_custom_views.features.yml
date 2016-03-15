@@ -1,0 +1,4 @@
+excluded:
+  - mollom.form.contact_message_asia_pacific__form
+required:
+  - views.view.contact_messages_administration

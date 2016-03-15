@@ -9,6 +9,12 @@ $config = array(
 
         'core:AdminPassword',
     ),
+    'tatelyle-test-sp' => array(
+      'saml:SP',
+      'entityID' => NULL,
+      'idp' => 'saml20:test:tateandlyle.com',
+      'discoURL' => NULL,
+    ),
     'tatelyle-sp' => array(
         'saml:SP',
         'entityID' => NULL,

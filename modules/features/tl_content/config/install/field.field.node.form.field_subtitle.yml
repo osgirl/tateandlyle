@@ -6,6 +6,8 @@ dependencies:
     - node.type.form
   module:
     - text
+_core:
+  default_config_hash: 165Acj9RJDdWAfsSbQwFzj56zmAMhgGpsiIk8I7DPSs
 id: node.form.field_subtitle
 field_name: field_subtitle
 entity_type: node
@@ -13,7 +15,7 @@ bundle: form
 label: Subtitle
 description: 'Add the text that will be displayed after the title(Used only for Tate and Lyle Fibers theme).'
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }

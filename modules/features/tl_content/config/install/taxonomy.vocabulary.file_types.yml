@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: O_fi4wrQPe5scj04Y2mxDj9NswHn9FA2Gyn9ZBGJkps
+name: 'File types'
+vid: file_types
+description: ''
+hierarchy: 0
+weight: 0

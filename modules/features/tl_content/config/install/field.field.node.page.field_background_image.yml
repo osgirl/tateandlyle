@@ -13,6 +13,8 @@ third_party_settings:
       alt: alt
       title: title
       file: '0'
+_core:
+  default_config_hash: aAznt_h-Z-Jt-__wgpXtiuZvx01Z-dVjYt2WHa_E61s
 id: node.page.field_background_image
 field_name: field_background_image
 entity_type: node

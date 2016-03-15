@@ -6,6 +6,8 @@ dependencies:
     - node.type.media_item
   module:
     - file
+_core:
+  default_config_hash: fOIdgXuB6pUYZpXSIUPmucGnJgsqLPZHneOpY-kU_MA
 id: node.media_item.field_file
 field_name: field_file
 entity_type: node
@@ -18,8 +20,8 @@ default_value: {  }
 default_value_callback: ''
 settings:
   file_directory: file
-  file_extensions: 'txt pdf doc docx'
-  max_filesize: '50 MB'
+  file_extensions: 'txt pdf doc docx mp4 jpg jpeg gif png'
+  max_filesize: '256 MB'
   description_field: false
   handler: 'default:file'
   handler_settings: {  }

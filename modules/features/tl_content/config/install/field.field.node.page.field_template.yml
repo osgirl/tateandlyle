@@ -6,6 +6,8 @@ dependencies:
     - node.type.page
   module:
     - options
+_core:
+  default_config_hash: 8LzRcVvF2_zdJSR_rVKiTCQfwTOa-RRZ451dkk9q6Qo
 id: node.page.field_template
 field_name: field_template
 entity_type: node
@@ -17,4 +19,4 @@ translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }
-field_type: list_integer
+field_type: list_string

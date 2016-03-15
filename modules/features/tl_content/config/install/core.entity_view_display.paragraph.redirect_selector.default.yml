@@ -1,0 +1,29 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.redirect_selector.field_link
+    - paragraphs.paragraphs_type.redirect_selector
+  module:
+    - link
+_core:
+  default_config_hash: zDaStru1yaMtV4BkueD-D3Lr7icNpnU6PU5FrKdBFA0
+id: paragraph.redirect_selector.default
+targetEntityType: paragraph
+bundle: redirect_selector
+mode: default
+content:
+  field_link:
+    weight: 0
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: '0'
+    third_party_settings: {  }
+    type: link
+hidden:
+  created: true
+  uid: true

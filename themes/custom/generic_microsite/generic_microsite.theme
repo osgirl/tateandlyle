@@ -218,6 +218,8 @@ function generic_microsite_preprocess_field(&$variables, $hook) {
   }
 
   if ($variables['field_name'] == 'field_main_content') {
+    $current_language = \Drupal::languageManager()->getCurrentLanguage()->getId();  
+    $default_language = \Drupal::languageManager()->getDefaultLanguage()->getId();
     $forms = array();
     foreach ($variables['items'] as $key => $item) {
       if ($item['content']['#paragraph']->getType() == 'country_contact') {
@@ -232,7 +234,12 @@ function generic_microsite_preprocess_field(&$variables, $hook) {
           $form_fields[$key]['field_identifier'] = $contact->get('field_identifier')->getValue()[0]['value'];
         }
         $variables['tl_tab_forms'][$paragraph_id] = $form_fields;
-        $variables['redirect'][$paragraph_id] = '/node/' . $redirect_node_id[0]['target_id'];
+        if ($current_language == $default_language) {
+          $variables['redirect'][$paragraph_id] = '/node/' . $redirect_node_id[0]['target_id'];
+        }
+        else {
+          $variables['redirect'][$paragraph_id] = '/' . $current_language . '/node/' . $redirect_node_id[0]['target_id'];
+        }
         $variables['tl_country_contact'] = TRUE;
       }
     }
@@ -318,6 +325,11 @@ function generic_microsite_preprocess_paragraph(&$variables) {
     $variables['no_sidebars'] = TRUE;
   }
   if ($variables['paragraph']->getType() == 'tout') {
+    // Add background color to tout
+    if($variables['paragraph']->get('field_has_bg_color')->getValue()[0] && $variables['paragraph']->get('field_has_bg_color')->getValue()[0]['value'] == '1') {
+      $variables['has_bg_color'] = TRUE;
+    }
+
     if ($variables['content']['field_text'][0]) {
       $html = $variables['content']['field_text'][0]['#text'];
       $hrefs = array();

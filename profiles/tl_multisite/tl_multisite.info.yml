@@ -45,6 +45,7 @@ dependencies:
   - tl_dolciaprima_block
   - tl_dolcia_prima_multimedia
   - tl_fibres_media_centre
+  - tl_content
   - tl_tweaks
   - tl_workflow
   - imce
