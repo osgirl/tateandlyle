@@ -12,7 +12,7 @@ $config = array(
     'tatelyle-sp' => array(
         'saml:SP',
         'entityID' => NULL,
-        'idp' => 'saml20:test:tateandlyle.com',
+        'idp' => 'saml20:tateandlyle.com',
         'discoURL' => NULL,
     ),
 
