@@ -318,6 +318,11 @@ function generic_microsite_preprocess_paragraph(&$variables) {
     $variables['no_sidebars'] = TRUE;
   }
   if ($variables['paragraph']->getType() == 'tout') {
+    // Add background color to tout
+    if($variables['paragraph']->get('field_has_bg_color')->getValue()[0] && $variables['paragraph']->get('field_has_bg_color')->getValue()[0]['value'] == '1') {
+      $variables['has_bg_color'] = TRUE;
+    }
+
     if ($variables['content']['field_text'][0]) {
       $html = $variables['content']['field_text'][0]['#text'];
       $hrefs = array();
