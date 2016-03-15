@@ -1,11 +1,21 @@
 langcode: en
 default_langcode: en
-node_insert_subject: "[site_name] approval request has been assigned to you"
-node_insert_message: "Task assigned by [node_author] on [date]. A page [node_title] has been edited on [site_url]. To review the contents and approve/reject the changes, please follow this link [node_url]. Once reviewed, click ‘approve’ to publish the site or ‘reject’ to send the page back to the editor with comments."
-update_author_subject: "[site_name] page submitted for approval is [node_state]"
-update_author_message: "Page [node_title] you submitted for approval on [site_url] is now [node_state] by [site_approver]. [publish_state] [node_state_message]"
-update_approvers_subject: "[site_name] page submitted for approval is [node_state]"
-update_approvers_message: "Page [node_title] submitted for approval on [site_url] is now [node_state] by [site_approver]. [publish_state] [node_state_message]"
-update_archive_approvers_subject: "[site_name] page has been submitted for archivation"
-update_archive_approvers_message: "Page [node_title] has been submitted for archivation on [site_url]. [node_state_message]"
+node_insert_subject:
+                    "[site_name] approval request has been assigned to you"
+node_insert_message:
+                    "<p>[node_author] has edited [node_title] page on [site_url] on [date].</p><p>To review the submitted changes and approve/reject the page, please follow this link: [node_url]</p><p>Once reviewed, follow the approval/rejection process to send the page back to [node_author] with comments.</p>"
 
+update_author_subject:
+                    "[site_name] page submitted for approval is [node_state]"
+update_author_message:
+                    "<p>[node_title] page submitted for approval on [site_url] is now [node_state] by [site_approver].</p><p>[publish_state]</p><p>[node_state_message]</p>"
+
+update_approvers_subject:
+                    "[site_name] page submitted for approval is [node_state]"
+update_approvers_message:
+                    "<p>[node_title] page submitted for approval on [site_url] is now [node_state] by [site_approver].</p><p>[publish_state]</p><p>[node_state_message]</p>"
+
+update_archive_approvers_subject:
+                    "[site_name] page has been submitted for archivation"
+update_archive_approvers_message:
+                    "<p>Page [node_title] has been submitted for archivation on [site_url].</p><p>To review this request, please follow this link: [node_url]</p><p>[node_state_message]</p>"
