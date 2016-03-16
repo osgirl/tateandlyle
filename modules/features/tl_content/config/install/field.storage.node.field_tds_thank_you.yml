@@ -4,6 +4,8 @@ dependencies:
   module:
     - node
     - text
+_core:
+  default_config_hash: lGIi-oIt7qPwMHrQiWSepbOv46UQOi5-WiYedXwDaqc
 id: node.field_tds_thank_you
 field_name: field_tds_thank_you
 entity_type: node

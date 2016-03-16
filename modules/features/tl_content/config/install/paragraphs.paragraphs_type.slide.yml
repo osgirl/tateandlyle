@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: tfLBET9tFrLD8EIWOADQF4Nser0IFuqy3KOf2Ub0HP0
+id: slide
+label: Slideshow

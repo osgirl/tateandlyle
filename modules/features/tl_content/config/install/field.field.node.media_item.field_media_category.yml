@@ -5,6 +5,8 @@ dependencies:
     - field.storage.node.field_media_category
     - node.type.media_item
     - taxonomy.vocabulary.file_types
+_core:
+  default_config_hash: R1C1ewP5-ixwQ0u5vNz1ckOmaAXE2CFp1H6EsWG6hpM
 id: node.media_item.field_media_category
 field_name: field_media_category
 entity_type: node
@@ -12,7 +14,7 @@ bundle: media_item
 label: 'Media category'
 description: ''
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:

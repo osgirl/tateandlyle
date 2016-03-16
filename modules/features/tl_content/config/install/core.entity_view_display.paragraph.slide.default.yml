@@ -1,0 +1,30 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.slide.field_show_arrows
+    - field.field.paragraph.slide.field_slide
+    - field.field.paragraph.slide.field_slide_type
+    - field.field.paragraph.slide.field_timeout
+    - paragraphs.paragraphs_type.slide
+  module:
+    - field_collection
+_core:
+  default_config_hash: ILlzqdns56ZjhbD7gcbSxX6r-xbIiFxiFxgfr4GPrCc
+id: paragraph.slide.default
+targetEntityType: paragraph
+bundle: slide
+mode: default
+content:
+  field_slide:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: field_collection_items
+hidden:
+  created: true
+  field_show_arrows: true
+  field_slide_type: true
+  field_timeout: true
+  uid: true

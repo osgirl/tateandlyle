@@ -6,6 +6,8 @@ dependencies:
     - node.type.page
   module:
     - entity_reference_revisions
+_core:
+  default_config_hash: YldfbGkymxP0zCL9HX_bl4y8ir_FM3UuhpjoH_Jta0g
 id: node.page.field_touts
 field_name: field_touts
 entity_type: node
@@ -13,7 +15,7 @@ bundle: page
 label: Touts
 description: ''
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
@@ -21,39 +23,32 @@ settings:
   handler_settings:
     target_bundles:
       tout: tout
-      tout_reference: tout_reference
     target_bundles_drag_drop:
       image:
         weight: 10
         enabled: false
-      accordion:
+      image_text:
+        weight: 11
+        enabled: false
+      images:
         weight: 12
         enabled: false
-      contact:
+      main_content:
         weight: 13
         enabled: false
-      country_contact:
+      nested_paragraph:
         weight: 14
         enabled: false
       text:
         weight: 15
         enabled: false
-      redirect_selector:
+      text_image:
         weight: 16
         enabled: false
       tout:
         enabled: true
         weight: 17
-      slide:
-        weight: 17
-        enabled: false
-      tabs:
+      user:
         weight: 18
-        enabled: false
-      tout_reference:
-        enabled: true
-        weight: 21
-      video:
-        weight: 22
         enabled: false
 field_type: entity_reference_revisions

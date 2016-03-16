@@ -6,14 +6,16 @@ dependencies:
     - node.type.media_item
   module:
     - youtube
+_core:
+  default_config_hash: zu-jF0BfUmhyQSH4cSMMrTaY760iIiTlr54dyfN9yqI
 id: node.media_item.field_youtube_video
 field_name: field_youtube_video
 entity_type: node
 bundle: media_item
-label: 'Youtube video'
+label: 'Youtube Video'
 description: ''
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }

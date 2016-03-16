@@ -9,16 +9,16 @@ package: 'Bootstrap'
 
 regions:
   navigation: 'Navigation'
-  navigation_collapsible: 'Navigation (Collapsible)'
+  # navigation_collapsible: 'Navigation (Collapsible)' #
   header: 'Header'
-  breadcrumb: 'Breadcrumb'
+  # breadcrumb: 'Breadcrumb' #
   highlighted: 'Highlighted'
   help: 'Help'
   content: 'Content'
-  sidebar_second: 'Secondary'
+  # sidebar_second: 'Secondary' #
   footer: 'Footer'
-  page_top: 'Page top'
-  page_bottom: 'Page bottom'
+  # page_top: 'Page top' #
+  # page_bottom: 'Page bottom' #
 
 libraries:
   # Styling sheets #
@@ -40,4 +40,3 @@ libraries:
 
     # Swipe script #
   - 'tateandlylefibres/swipe'
-

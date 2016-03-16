@@ -4,6 +4,8 @@ dependencies:
   module:
     - node
     - text
+_core:
+  default_config_hash: 9W7kTHzG6zw303W3s5M1rwhSP3b70kvdMaEXAn9acy4
 id: node.body
 field_name: body
 entity_type: node

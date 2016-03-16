@@ -76,6 +76,7 @@ function mail_node_update_author($node) {
   $params['node_title'] = $node->getTitle();
   $params['site_url'] = $base_url;
   $params['site_approver'] = \Drupal::currentUser()->getDisplayName();
+  $params['node_url'] = $base_url . '/node/' . $node->id();
 
   $params['subject'] = str_replace("[site_name]", $params['site_name'], $subject);
   $params['subject'] = str_replace("[node_state]", $params['node_state'], $params['subject']);
@@ -86,16 +87,22 @@ function mail_node_update_author($node) {
   $params['message'] = str_replace("[site_approver]", $params['site_approver'], $params['message']);
 
   if (($node->get('moderation_state')->getValue()[0]['target_id'] == 'published')) {
-    $params['message'] = str_replace("[publish_state]", 'The page has now been published.', $params['message']);
+    $params['message'] = str_replace("[publish_state]", 'The website page edits are now live. You can see them here: ' . $params['node_url'], $params['message']);
+    if ($node->get('revision_log')->getValue()[0]['value'] != NULL) {
+      $params['message'] = str_replace("[node_state_message]", $node->get('revision_log')->getValue()[0]['value'], $params['message']);
+    }
+    else {
+      $params['message'] = str_replace("[node_state_message]", "", $params['message']);
+    }
   }
   else {
-    $params['message'] = str_replace("[publish_state]", "", $params['message']);
-  }
-  if ($node->get('revision_log')->getValue()[0]['value'] != NULL) {
-    $params['message'] = str_replace("[node_state_message]", $node->get('revision_log')->getValue()[0]['value'], $params['message']);
-  }
-  else {
-    $params['message'] = str_replace("[node_state_message]", "", $params['message']);
+    $params['message'] = str_replace("[publish_state]", "See comments below for the rejection reason:", $params['message']);
+    if ($node->get('revision_log')->getValue()[0]['value'] != NULL) {
+      $params['message'] = str_replace("[node_state_message]", $node->get('revision_log')->getValue()[0]['value'] . "<p>Click the link below to return to your website to continue editing and resubmit your changes.</p>" . $params['node_url'], $params['message']);
+    }
+    else {
+      $params['message'] = str_replace("[node_state_message]", "<p>Click the link below to return to your website to continue editing and resubmit your changes.</p>" . $params['node_url'], $params['message']);
+    }
   }
 
   $langcode = \Drupal::currentUser()->getPreferredLangcode();
@@ -128,6 +135,7 @@ function mail_node_update_approvers($node) {
   $params['node_title'] = $node->getTitle();
   $params['site_url'] = $base_url;
   $params['site_approver'] = \Drupal::currentUser()->getDisplayName();
+  $params['node_url'] = $base_url . '/node/' . $node->id();
 
   $params['subject'] = str_replace("[site_name]", $params['site_name'], $subject);
   $params['subject'] = str_replace("[node_state]", $params['node_state'], $params['subject']);
@@ -138,16 +146,22 @@ function mail_node_update_approvers($node) {
   $params['message'] = str_replace("[site_approver]", $params['site_approver'], $params['message']);
 
   if (($node->get('moderation_state')->getValue()[0]['target_id'] == 'published')) {
-    $params['message'] = str_replace("[publish_state]", 'The page has now been published.', $params['message']);
+    $params['message'] = str_replace("[publish_state]", 'The website page edits are now live. You can see them here: ' . $params['node_url'], $params['message']);
+    if ($node->get('revision_log')->getValue()[0]['value'] != NULL) {
+      $params['message'] = str_replace("[node_state_message]", $node->get('revision_log')->getValue()[0]['value'], $params['message']);
+    }
+    else {
+      $params['message'] = str_replace("[node_state_message]", "", $params['message']);
+    }
   }
   else {
-    $params['message'] = str_replace("[publish_state]", "", $params['message']);
-  }
-  if ($node->get('revision_log')->getValue()[0]['value'] != NULL) {
-    $params['message'] = str_replace("[node_state_message]", $node->get('revision_log')->getValue()[0]['value'], $params['message']);
-  }
-  else {
-    $params['message'] = str_replace("[node_state_message]", "", $params['message']);
+    $params['message'] = str_replace("[publish_state]", "See comments below for the rejection reason:", $params['message']);
+    if ($node->get('revision_log')->getValue()[0]['value'] != NULL) {
+      $params['message'] = str_replace("[node_state_message]", $node->get('revision_log')->getValue()[0]['value'] . "<p>This has been returned to the site owner to continue editing and resubmit their changes.</p>", $params['message']);
+    }
+    else {
+      $params['message'] = str_replace("[node_state_message]", "<p>This has been returned to the site owner to continue editing and resubmit their changes.</p>", $params['message']);
+    }
   }
 
   $langcode = \Drupal::currentUser()->getPreferredLangcode();
@@ -178,11 +192,13 @@ function mail_node_update_archive_approvers($node) {
   $params['site_name'] = \Drupal::configFactory()->getEditable('system.site')->get('name');
   $params['node_title'] = $node->getTitle();
   $params['site_url'] = $base_url;
+  $params['node_url'] = $base_url . '/node/' . $node->id();
 
   $params['subject'] = str_replace("[site_name]", $params['site_name'], $subject);
 
   $params['message'] = str_replace("[node_title]", $params['node_title'], $message);
   $params['message'] = str_replace("[site_url]", $params['site_url'], $params['message']);
+  $params['message'] = str_replace("[node_url]", $params['node_url'], $params['message']);
 
   if ($node->get('revision_log')->getValue()[0]['value'] != NULL) {
     $params['message'] = str_replace("[node_state_message]", $node->get('revision_log')->getValue()[0]['value'], $params['message']);

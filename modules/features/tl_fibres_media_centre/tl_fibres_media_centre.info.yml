@@ -2,4 +2,12 @@ name: 'T&L Fibres Media Centre'
 description: 'Provides a view that lists all the media items on Tate and Lyle Fibres filtered by their type.'
 type: module
 core: 8.x
-version: 8.x
+version: 8.x-1.x
+dependencies:
+  - file
+  - image
+  - node
+  - taxonomy
+  - text
+  - user
+  - views

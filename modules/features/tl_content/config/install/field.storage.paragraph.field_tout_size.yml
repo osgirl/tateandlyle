@@ -1,0 +1,31 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+_core:
+  default_config_hash: 6P_uVJUuAxV7rg9m5UL55ZnWu7v9hQ5twnwut3dz2Vw
+id: paragraph.field_tout_size
+field_name: field_tout_size
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: '0'
+      label: 'Extra Large'
+    -
+      value: '1'
+      label: Large
+    -
+      value: '2'
+      label: Square
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

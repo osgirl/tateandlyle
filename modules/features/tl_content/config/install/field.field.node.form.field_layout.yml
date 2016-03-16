@@ -6,6 +6,8 @@ dependencies:
     - node.type.form
   module:
     - options
+_core:
+  default_config_hash: sp9Cj_C5TRwFwEEt8sPSNBrSQMkFghj8SsDRJNXSr10
 id: node.form.field_layout
 field_name: field_layout
 entity_type: node
@@ -13,7 +15,7 @@ bundle: form
 label: Layout
 description: 'Select the layout.'
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }

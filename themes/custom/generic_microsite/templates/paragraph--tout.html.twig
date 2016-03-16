@@ -44,17 +44,16 @@
   ]
 %}
 
-{#  Set the background color of the tout #}
-{% set bg_color = content['field_text']['#object'].field_background_color.value %}
 {#  Set class when tout has image and text #} 
 {% if content.field_text[0] and content.field_image[0] %}
   {% set image_text = "paragraph--type--tout-image-text" %}
 {% endif %}
 {#  Check if the tout has a background color #}
-{% if bg_color %}
-  <div{{ attributes.addClass(classes) }} style="background-color:{{ bg_color }}; padding: 8px">
+{% if has_bg_color %}
+  <div{{ attributes.addClass(classes).addClass('has-bg-color') }}>
 {% else %}
   <div{{ attributes.addClass(classes).addClass(image_text) }}>
+
 {% endif %}
     {% set modal_id = paragraph.id.value %}
     {% if is_front and no_sidebars %} 

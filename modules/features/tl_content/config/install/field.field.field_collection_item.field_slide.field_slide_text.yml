@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.field_collection_item.field_slide_text
+    - field_collection.field_collection.field_slide
+  module:
+    - text
+_core:
+  default_config_hash: MachkVrP7-mhpxndGBy_JHZw__y5NoAbEeAzJKIKIjk
+id: field_collection_item.field_slide.field_slide_text
+field_name: field_slide_text
+entity_type: field_collection_item
+bundle: field_slide
+label: Text
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

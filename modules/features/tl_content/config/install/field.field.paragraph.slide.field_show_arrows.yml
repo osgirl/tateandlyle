@@ -1,0 +1,24 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_show_arrows
+    - paragraphs.paragraphs_type.slide
+_core:
+  default_config_hash: 7t746CLTE4v7A9dGG4VWQl32w4uZ5VDa5U2qPgiTtUM
+id: paragraph.slide.field_show_arrows
+field_name: field_show_arrows
+entity_type: paragraph
+bundle: slide
+label: 'Show arrows'
+description: 'Used only for Generic Microsite theme.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Show arrows'
+  off_label: 'Hide arrows'
+field_type: boolean

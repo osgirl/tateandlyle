@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: BbzmDAIDeAsjVrSOlNyfIaZHriruc5zFTkJHnkUQZ0s
+id: accordion
+label: Accordion

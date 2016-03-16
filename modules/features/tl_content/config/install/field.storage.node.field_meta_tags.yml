@@ -4,6 +4,8 @@ dependencies:
   module:
     - metatag
     - node
+_core:
+  default_config_hash: Qvb5TmRXs-otDgw4XpRHqYY0Dq1HYHw4p2hdLQhSJ94
 id: node.field_meta_tags
 field_name: field_meta_tags
 entity_type: node
