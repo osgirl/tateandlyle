@@ -6,8 +6,6 @@ dependencies:
     - paragraphs.paragraphs_type.slide
   module:
     - field_collection
-_core:
-  default_config_hash: SM3fmkeLkQv7Vt29sFZqGruWcBzD3z7FdlejiOML6J4
 id: paragraph.slide.field_slide
 field_name: field_slide
 entity_type: paragraph
