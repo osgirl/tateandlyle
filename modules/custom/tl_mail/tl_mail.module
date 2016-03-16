@@ -76,7 +76,7 @@ function mail_node_update_author($node) {
   $message = \Drupal::config('tl_mail.settings')->get('update_author_message');
   $module = 'tl_mail';
   $key = 'node_update_author';
-  $to = \Drupal::currentUser()->getEmail();
+  $to = $node->getOwner()->getEmail();
 
   $params['site_name'] = \Drupal::configFactory()->getEditable('system.site')->get('name');
   $params['node_state'] = $node->get('moderation_state')->getValue()[0]['target_id'];
@@ -237,7 +237,7 @@ function mail_node_reject_author($node) {
   $message = \Drupal::config('tl_mail.settings')->get('update_reject_author_message');
   $module = 'tl_mail';
   $key = 'node_reject_author';
-  $to = \Drupal::currentUser()->getEmail();
+  $to = $node->getOwner()->getEmail();
 
   $params['site_name'] = \Drupal::configFactory()->getEditable('system.site')->get('name');
   $params['node_title'] = $node->getTitle();
