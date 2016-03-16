@@ -9,22 +9,41 @@ dependencies:
     - paragraphs.paragraphs_type.slide
   module:
     - field_collection
-_core:
-  default_config_hash: ILlzqdns56ZjhbD7gcbSxX6r-xbIiFxiFxgfr4GPrCc
+    - options
 id: paragraph.slide.default
 targetEntityType: paragraph
 bundle: slide
 mode: default
 content:
+  field_show_arrows:
+    weight: 2
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
   field_slide:
     weight: 0
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: field_collection_items
+  field_slide_type:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+  field_timeout:
+    weight: 3
+    label: hidden
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
 hidden:
   created: true
-  field_show_arrows: true
-  field_slide_type: true
-  field_timeout: true
   uid: true
