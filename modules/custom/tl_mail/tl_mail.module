@@ -9,7 +9,14 @@
  */
 function tl_mail_node_update($node) {
   if ($node->get('moderation_state')->getValue()[0]['target_id'] == 'needs_review') {
-    mail_node_insert_approver($node);
+    $roles = \Drupal::currentUser()->getAccount()->getRoles($exclude_locked_roles = FALSE);
+    if (in_array("content_approver", $roles)) {
+      mail_node_reject_author($node);
+      mail_node_reject_approvers($node);
+    }
+    else {
+      mail_node_insert_approver($node);
+    }
   }
   if (($node->get('moderation_state')->getValue()[0]['target_id'] == 'published') || ($node->get('moderation_state')->getValue()[0]['target_id'] == 'archived')) {
     mail_node_update_author($node);
@@ -219,6 +226,96 @@ function mail_node_update_archive_approvers($node) {
 }
 
 /**
+ * Email sent to the author on reject.
+ */
+function mail_node_reject_author($node) {
+
+  global $base_url;
+
+  $mailmanager = \Drupal::service('plugin.manager.mail');
+  $subject = \Drupal::config('tl_mail.settings')->get('update_reject_author_subject');
+  $message = \Drupal::config('tl_mail.settings')->get('update_reject_author_message');
+  $module = 'tl_mail';
+  $key = 'node_reject_author';
+  $to = \Drupal::currentUser()->getEmail();
+
+  $params['site_name'] = \Drupal::configFactory()->getEditable('system.site')->get('name');
+  $params['node_title'] = $node->getTitle();
+  $params['site_url'] = $base_url;
+  $params['node_url'] = $base_url . '/node/' . $node->id();
+  $params['site_approver'] = \Drupal::currentUser()->getDisplayName();
+
+  $params['subject'] = str_replace("[site_name]", $params['site_name'], $subject);
+
+  $params['message'] = str_replace("[node_title]", $params['node_title'], $message);
+  $params['message'] = str_replace("[site_url]", $params['site_url'], $params['message']);
+  $params['message'] = str_replace("[node_url]", $params['node_url'], $params['message']);
+  $params['message'] = str_replace("[site_approver]", $params['site_approver'], $params['message']);
+
+  if ($node->get('revision_log')->getValue()[0]['value'] != NULL) {
+    $params['message'] = str_replace("[node_state_message]", $node->get('revision_log')->getValue()[0]['value'], $params['message']);
+  }
+  else {
+    $params['message'] = str_replace("[node_state_message]", "-", $params['message']);
+  }
+
+  $langcode = \Drupal::currentUser()->getPreferredLangcode();
+  $send = TRUE;
+
+  $result = $mailmanager->mail($module, $key, $to, $langcode, $params, NULL, $send);
+  if (!$result['result']) {
+    $status_message = t('There was a problem sending your email notification to @email for rejecting node @id.', array('@email' => $to, '@id' => $node->id()));
+    \Drupal::logger('Email notification')->error($status_message);
+    return;
+  }
+}
+
+/**
+ * Email sent to the approvers on reject.
+ */
+function mail_node_reject_approvers($node) {
+
+  global $base_url;
+
+  $mailmanager = \Drupal::service('plugin.manager.mail');
+  $subject = \Drupal::config('tl_mail.settings')->get('update_reject_approvers_subject');
+  $message = \Drupal::config('tl_mail.settings')->get('update_reject_approvers_message');
+  $module = 'tl_mail';
+  $key = 'node_reject_approvers';
+  $to = tl_get_approvers();
+
+  $params['site_name'] = \Drupal::configFactory()->getEditable('system.site')->get('name');
+  $params['node_title'] = $node->getTitle();
+  $params['site_url'] = $base_url;
+  $params['node_url'] = $base_url . '/node/' . $node->id();
+  $params['site_approver'] = \Drupal::currentUser()->getDisplayName();
+
+  $params['subject'] = str_replace("[site_name]", $params['site_name'], $subject);
+
+  $params['message'] = str_replace("[node_title]", $params['node_title'], $message);
+  $params['message'] = str_replace("[site_url]", $params['site_url'], $params['message']);
+  $params['message'] = str_replace("[node_url]", $params['node_url'], $params['message']);
+  $params['message'] = str_replace("[site_approver]", $params['site_approver'], $params['message']);
+
+  if ($node->get('revision_log')->getValue()[0]['value'] != NULL) {
+    $params['message'] = str_replace("[node_state_message]", $node->get('revision_log')->getValue()[0]['value'], $params['message']);
+  }
+  else {
+    $params['message'] = str_replace("[node_state_message]", "-", $params['message']);
+  }
+
+  $langcode = \Drupal::currentUser()->getPreferredLangcode();
+  $send = TRUE;
+
+  $result = $mailmanager->mail($module, $key, $to, $langcode, $params, NULL, $send);
+  if (!$result['result']) {
+    $status_message = t('There was a problem sending your email notification to @email for rejecting node @id.', array('@email' => $to, '@id' => $node->id()));
+    \Drupal::logger('Email notification')->error($status_message);
+    return;
+  }
+}
+
+/**
  * Implements hook_mail().
  */
 function tl_mail_mail($key, &$message, $params) {
@@ -246,6 +343,18 @@ function tl_mail_mail($key, &$message, $params) {
       break;
 
     case 'node_update_archive_approvers':
+      $message['from'] = \Drupal::config('system.site')->get('mail');
+      $message['subject'] = $params['subject'];
+      $message['body'][] = $params['message'];
+      break;
+
+    case 'node_reject_author':
+      $message['from'] = \Drupal::config('system.site')->get('mail');
+      $message['subject'] = $params['subject'];
+      $message['body'][] = $params['message'];
+      break;
+
+    case 'node_reject_approvers':
       $message['from'] = \Drupal::config('system.site')->get('mail');
       $message['subject'] = $params['subject'];
       $message['body'][] = $params['message'];
