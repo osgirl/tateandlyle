@@ -3,6 +3,7 @@ status: true
 dependencies:
   config:
     - field.field.node.page.field_background_image
+    - field.field.node.page.field_content_reference
     - field.field.node.page.field_footer_image
     - field.field.node.page.field_intro_area
     - field.field.node.page.field_main_content
@@ -17,8 +18,6 @@ dependencies:
   module:
     - entity_reference_revisions
     - user
-_core:
-  default_config_hash: E-VYUzVOJe_WIPGeQGJr6cuKf7okQd8EgCm87cMS9AA
 id: node.page.default
 targetEntityType: node
 bundle: page
@@ -31,6 +30,7 @@ content:
     settings:
       view_mode: default
       link: ''
+      item_count: 0
     third_party_settings: {  }
   field_touts:
     type: entity_reference_revisions_entity_view
@@ -39,9 +39,11 @@ content:
     settings:
       view_mode: default
       link: ''
+      item_count: 0
     third_party_settings: {  }
 hidden:
   field_background_image: true
+  field_content_reference: true
   field_footer_image: true
   field_intro_area: true
   field_meta_tags: true
