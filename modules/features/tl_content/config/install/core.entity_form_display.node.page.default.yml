@@ -3,6 +3,7 @@ status: true
 dependencies:
   config:
     - field.field.node.page.field_background_image
+    - field.field.node.page.field_content_reference
     - field.field.node.page.field_footer_image
     - field.field.node.page.field_intro_area
     - field.field.node.page.field_main_content
@@ -16,14 +17,107 @@ dependencies:
     - image.style.thumbnail
     - node.type.page
   module:
+    - field_collection
+    - field_group
     - image
+    - imce
     - metatag
     - paragraphs
     - path
     - text
     - workbench_moderation
-_core:
-  default_config_hash: zHi1P4-fTN4zsCmiWhhrOP8_E4cYi4-OrzpeygkG8s4
+third_party_settings:
+  field_group:
+    group_title:
+      children:
+        - title
+        - field_title_image
+        - field_subtitle
+      parent_name: group_page_content
+      weight: 5
+      label: Title
+      format_type: tab
+      format_settings:
+        formatter: closed
+        description: ''
+        classes: ''
+        id: ''
+        required_fields: true
+    group_page_content:
+      children:
+        - group_title
+        - group_main_content
+        - group_tout_reference
+        - group_page_elements
+        - group_settings
+      parent_name: ''
+      weight: 0
+      label: 'Page content'
+      format_type: tabs
+      format_settings:
+        label: 'Page content'
+        direction: horizontal
+        id: ''
+        classes: ''
+    group_main_content:
+      children:
+        - field_main_content
+      parent_name: group_page_content
+      weight: 6
+      label: 'Main content'
+      format_type: tab
+      format_settings:
+        formatter: closed
+        description: ''
+        classes: ''
+        id: ''
+        required_fields: true
+    group_page_elements:
+      children:
+        - field_touts
+        - field_intro_area
+        - field_background_image
+        - field_footer_image
+        - field_sidebar
+        - field_sidebar_color
+      parent_name: group_page_content
+      weight: 8
+      label: 'Page elements'
+      format_type: tab
+      format_settings:
+        formatter: closed
+        description: ''
+        classes: ''
+        id: ''
+        required_fields: true
+    group_tout_reference:
+      children:
+        - field_content_reference
+      parent_name: group_page_content
+      weight: 7
+      label: 'Tout for reference'
+      format_type: tab
+      format_settings:
+        formatter: closed
+        description: ''
+        classes: ''
+        id: ''
+        required_fields: true
+    group_settings:
+      children:
+        - langcode
+        - field_template
+        - field_meta_tags
+      parent_name: group_page_content
+      weight: 9
+      label: Settings
+      format_type: tab
+      format_settings:
+        formatter: closed
+        description: ''
+        classes: ''
+        id: ''
+        required_fields: true
 id: node.page.default
 targetEntityType: node
 bundle: page
@@ -31,60 +125,69 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 14
+    weight: 3
     settings: {  }
     third_party_settings: {  }
   field_background_image:
-    weight: 7
+    weight: 18
     settings:
-      progress_indicator: throbber
       preview_image_style: thumbnail
-    third_party_settings: {  }
+      progress_indicator: throbber
+    third_party_settings:
+      imce:
+        enabled: '1'
     type: image_image
-  field_footer_image:
-    weight: 10
-    settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
+  field_content_reference:
+    weight: 15
+    settings: {  }
     third_party_settings: {  }
+    type: field_collection_embed
+  field_footer_image:
+    weight: 19
+    settings:
+      preview_image_style: thumbnail
+      progress_indicator: throbber
+    third_party_settings:
+      imce:
+        enabled: '1'
     type: image_image
   field_intro_area:
     type: entity_reference_paragraphs
-    weight: 4
+    weight: 17
     settings:
       title: Paragraph
       title_plural: Paragraphs
-      edit_mode: open
+      edit_mode: preview
       add_mode: dropdown
       form_display_mode: default
     third_party_settings: {  }
   field_main_content:
     type: entity_reference_paragraphs
-    weight: 8
+    weight: 14
     settings:
       title: Paragraph
       title_plural: Paragraphs
-      edit_mode: open
+      edit_mode: preview
       add_mode: dropdown
       form_display_mode: default
     third_party_settings: {  }
   field_meta_tags:
-    weight: 1
+    weight: 3
     settings: {  }
     third_party_settings: {  }
     type: metatag_firehose
   field_sidebar:
     type: entity_reference_paragraphs
-    weight: 11
+    weight: 20
     settings:
       title: Paragraph
       title_plural: Paragraphs
-      edit_mode: open
+      edit_mode: preview
       add_mode: dropdown
       form_display_mode: default
     third_party_settings: {  }
   field_sidebar_color:
-    weight: 12
+    weight: 21
     settings: {  }
     third_party_settings: {  }
     type: options_select
@@ -103,56 +206,58 @@ content:
   field_title_image:
     weight: 5
     settings:
-      progress_indicator: throbber
       preview_image_style: thumbnail
-    third_party_settings: {  }
+      progress_indicator: throbber
+    third_party_settings:
+      imce:
+        enabled: '1'
     type: image_image
   field_touts:
     type: entity_reference_paragraphs
-    weight: 9
+    weight: 16
     settings:
       title: Paragraph
       title_plural: Paragraphs
-      edit_mode: open
+      edit_mode: preview
       add_mode: dropdown
       form_display_mode: default
     third_party_settings: {  }
   langcode:
     type: language_select
-    weight: 0
+    weight: 1
     settings: {  }
     third_party_settings: {  }
   path:
     type: path
-    weight: 18
+    weight: 6
     settings: {  }
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 15
+    weight: 4
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 16
+    weight: 5
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: 3
+    weight: 4
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
   translation:
-    weight: 17
+    weight: 1
     settings: {  }
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 13
+    weight: 2
     settings:
       match_operator: CONTAINS
       size: 60

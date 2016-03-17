@@ -16,6 +16,16 @@ update_approvers_message:
                     "<p>[node_title] page submitted for approval on [site_url] is now [node_state] by [site_approver].</p><p>[publish_state]</p><p>[node_state_message]</p>"
 
 update_archive_approvers_subject:
-                    "[site_name] page has been submitted for archivation"
+                    "[site_name] page has been submitted for archiving"
 update_archive_approvers_message:
-                    "<p>Page [node_title] has been submitted for archivation on [site_url].</p><p>To review this request, please follow this link: [node_url]</p><p>[node_state_message]</p>"
+                    "<p>Page [node_title] has been submitted for archiving on [site_url].</p><p>To review this request, please follow this link: [node_url]</p><p>Once reviewed, follow the approval/rejection process to send the page back to [node_author] with comments.</p><p>[node_state_message]</p>"
+
+update_reject_author_subject:
+                    "[site_name] page needs updating"
+update_reject_author_message:
+                    "<p>Page [node_title] needs to be updated on [site_url] before it can be approved by [site_approver].</p><p>See comments below for the update reason:</p>[node_state_message]<p>Click the link below to return to your website to continue editing and resubmit your changes.</p>[node_url]"
+
+update_reject_approvers_subject:
+                    "[site_name] page sent back for updating"
+update_reject_approvers_message:
+                    "<p>Page [node_title] sent back for updating on [site_url] before it can be approved by [site_approver].</p><p>See comments below for the update reason:</p>[node_state_message]<p>Click the link below to view the page.</p>[node_url]"

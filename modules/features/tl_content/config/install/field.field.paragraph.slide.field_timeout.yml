@@ -4,17 +4,21 @@ dependencies:
   config:
     - field.storage.paragraph.field_timeout
     - paragraphs.paragraphs_type.slide
-_core:
-  default_config_hash: D33C6QIkmRulrAg9ULd3n7wWzOXJ5HRhVY6ewPOXwrs
 id: paragraph.slide.field_timeout
 field_name: field_timeout
 entity_type: paragraph
 bundle: slide
 label: Timeout
-description: 'Used only for Generic Microsite theme.'
-required: false
+description: ''
+required: true
 translatable: false
-default_value: {  }
+default_value:
+  -
+    value: 5000
 default_value_callback: ''
-settings: {  }
-field_type: string
+settings:
+  min: 400
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

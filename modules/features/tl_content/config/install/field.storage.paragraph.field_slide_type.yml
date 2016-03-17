@@ -4,8 +4,6 @@ dependencies:
   module:
     - options
     - paragraphs
-_core:
-  default_config_hash: mJYBlK4cha4XGqGNcfniKjvoJ22wKyXNv6p5g2gTsZo
 id: paragraph.field_slide_type
 field_name: field_slide_type
 entity_type: paragraph

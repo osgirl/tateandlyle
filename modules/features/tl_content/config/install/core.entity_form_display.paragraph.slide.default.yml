@@ -10,8 +10,6 @@ dependencies:
   module:
     - field_collection
     - workbench_moderation
-_core:
-  default_config_hash: iXbgXUBGGSBOzREkePXndl6KxvceGb2rVwkP-1npDto
 id: paragraph.slide.default
 targetEntityType: paragraph
 bundle: slide
@@ -36,10 +34,9 @@ content:
   field_timeout:
     weight: 1
     settings:
-      size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
+    type: number
 hidden:
   created: true
   uid: true
