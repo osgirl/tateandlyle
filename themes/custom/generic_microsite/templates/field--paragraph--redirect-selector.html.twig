@@ -42,10 +42,9 @@
 {% if label_hidden %}
   {% if multiple %}
     {% set counter = 0 %}
-    <form id="redirect_selector" method="post">
+    <form id="redirect_selector" method="get|post">
       <select{{ attributes }}>
         {% for item in items %}
-
           <option value="{{ redirect_url[counter]}}" {{ item.attributes }}>{{ item.content }}</option>
           {% set counter = counter + 1 %}
         {% endfor %}
