@@ -4,14 +4,12 @@ dependencies:
   config:
     - field.storage.paragraph.field_show_arrows
     - paragraphs.paragraphs_type.slide
-_core:
-  default_config_hash: 7t746CLTE4v7A9dGG4VWQl32w4uZ5VDa5U2qPgiTtUM
 id: paragraph.slide.field_show_arrows
 field_name: field_show_arrows
 entity_type: paragraph
 bundle: slide
 label: 'Show arrows'
-description: 'Used only for Generic Microsite theme.'
+description: ''
 required: false
 translatable: false
 default_value:

@@ -4,6 +4,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.page.field_background_image
+    - field.field.node.page.field_content_reference
     - field.field.node.page.field_footer_image
     - field.field.node.page.field_intro_area
     - field.field.node.page.field_main_content
@@ -16,25 +17,31 @@ dependencies:
     - field.field.node.page.field_touts
     - node.type.page
   module:
+    - entity_reference_revisions
     - user
-_core:
-  default_config_hash: Jw2hwEv_WinvRPYtN56yhdXoSZvBsMuDfSiGcqFUSQM
 id: node.page.teaser
 targetEntityType: node
 bundle: page
 mode: teaser
 content:
+  field_main_content:
+    type: entity_reference_revisions_entity_view
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: default
+      item_count: 1
+      link: ''
+    third_party_settings: {  }
   links:
-    weight: 101
+    weight: 1
     settings: {  }
     third_party_settings: {  }
-  workbench_moderation_control:
-    weight: -20
 hidden:
   field_background_image: true
+  field_content_reference: true
   field_footer_image: true
   field_intro_area: true
-  field_main_content: true
   field_meta_tags: true
   field_sidebar: true
   field_sidebar_color: true
@@ -43,3 +50,4 @@ hidden:
   field_title_image: true
   field_touts: true
   langcode: true
+  workbench_moderation_control: true
