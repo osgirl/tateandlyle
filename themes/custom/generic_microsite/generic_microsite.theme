@@ -217,7 +217,7 @@ function generic_microsite_preprocess_field(&$variables, $hook) {
     $variables['items'][0]['content']['#suffix'] = drupal_render($form);
   }
 
-  /*if ($variables['field_name'] == 'field_main_content') {
+  if ($variables['field_name'] == 'field_main_content') {
     $current_language = \Drupal::languageManager()->getCurrentLanguage()->getId();  
     $default_language = \Drupal::languageManager()->getDefaultLanguage()->getId();
     $forms = array();
@@ -243,7 +243,7 @@ function generic_microsite_preprocess_field(&$variables, $hook) {
         $variables['tl_country_contact'] = TRUE;
       }
     }
-  }*/
+  }
 
 }
 
