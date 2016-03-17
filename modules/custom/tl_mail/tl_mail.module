@@ -377,3 +377,12 @@ function tl_get_approvers() {
   }
   return $emails;
 }
+
+/**
+ * Implements hook_mail_alter().
+ */
+function tl_mail_mail_alter(&$message) {
+  if ($message['module'] == 'tl_mail') {
+    $message['headers']['From'] = 'webmaster@tateandlyle on behalf of ' . $message['params']['site_name'] . ' <' . $message['from'] . '>';
+  }
+}
