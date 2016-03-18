@@ -149,6 +149,9 @@ projects:
   entity:
     type: module
     version: "1.0-alpha1"
+  better_exposed_filters:
+    type: module
+    version: "3.x-dev"
   workflow:
     type: module
     version: "1.x-dev"
