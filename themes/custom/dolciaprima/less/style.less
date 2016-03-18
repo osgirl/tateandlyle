@@ -1605,7 +1605,9 @@ aside {
       font-size: 0.9em;
       text-align: center;
     }
-  
+  }
+  .field--name-field-image-text {
+    padding: 0 1em;
   }
   .paragraph--type--tout {
     margin-bottom: 35px;
@@ -1658,6 +1660,25 @@ aside {
       margin: 30px auto 0;
 
     }
+  }
+}
+
+.field--name-field-image-text {
+  background: #721f82;
+  color: #FFF;
+  padding: 5px 10px;
+  p {
+    color: #FFF;
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
+aside {
+  .field--name-field-image-text {
+    max-width: 12em;
+    margin: auto;
   }
 }
 
@@ -2450,6 +2471,17 @@ aside {
       transform:         translateY(-50%);
       border: 0;
       border-radius: 0;
+      .paragraph--type--text {
+        padding: 5px 2px;
+      }
+      .field--name-field-image-text {
+        max-width: none;
+        padding: 5px 10px;
+      }
+      .field--name-field-text {
+        margin: 0;
+        padding: 20px;
+      }
     }
   }
 }

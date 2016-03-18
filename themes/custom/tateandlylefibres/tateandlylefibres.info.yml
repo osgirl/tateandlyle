@@ -1,6 +1,5 @@
 core: 8.x
 type: theme
-version: VERSION
 base theme: bootstrap
 
 name: 'Tate and Lyle Fibres'
@@ -8,17 +7,17 @@ description: 'Subtheme based on Bootstrap 3.'
 package: 'Bootstrap'
 
 regions:
-  navigation: 'Navigation'
-  # navigation_collapsible: 'Navigation (Collapsible)' #
   header: 'Header'
-  # breadcrumb: 'Breadcrumb' #
+  navigation: 'Navigation'
+  navigation_collapsible: 'Navigation (Collapsible)'
+  breadcrumb: 'Breadcrumb'
   highlighted: 'Highlighted'
   help: 'Help'
   content: 'Content'
-  # sidebar_second: 'Secondary' #
+  sidebar_second: 'Secondary'
   footer: 'Footer'
-  # page_top: 'Page top' #
-  # page_bottom: 'Page bottom' #
+  page_top: 'Page top'
+  page_bottom: 'Page bottom'
 
 libraries:
   # Styling sheets #
