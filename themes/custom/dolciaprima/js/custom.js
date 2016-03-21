@@ -2,7 +2,7 @@ function centerModal() {
   jQuery(this).css('display', 'block');
   var $dialog = jQuery(this).find(".modal-dialog");
   var offset = (jQuery(window).height() - $dialog.height()) / 2;
-  // Center modal vertically in window
+  // Center modal vertically in window.
   $dialog.css("margin-top", offset);
 }
 
@@ -70,7 +70,7 @@ function centerModal() {
     }
   }
   
-  // Open tout content
+  // Open tout content.
   Drupal.behaviors.opencloseTout = {
     attach: function (context, settings) {
       $('.field--name-field-title').click(function(e) {
@@ -87,7 +87,7 @@ function centerModal() {
   }
 
   // Redirect selector.
-  Drupal.behaviors.redirectSelector123 = {
+  Drupal.behaviors.redirectSelector = {
     attach: function (context, settings) {
       var redirect_link = $('#redirect_selector option:selected').val();
       $('#redirect_selector').attr("action", redirect_link);
@@ -109,7 +109,7 @@ function centerModal() {
         $('.tout-child').css('height', $height_content);
        }
 
-      // Resize window
+      // Resize window.
       $(window).resize(function(){
         $height_content = $('.tout-parent').height() + 230;
         $height_content = $height_content/2;
@@ -137,7 +137,7 @@ function centerModal() {
   // Back to top functionality.
   Drupal.behaviors.BacktoTop = {
     attach: function (context, settings) {
-      // Smooth scrolling on click menu items
+      // Smooth scrolling on click menu items.
       $('#back-to-top').on('click', function(e) {
         e.preventDefault();
         $('html,body').animate({
@@ -162,110 +162,57 @@ function centerModal() {
 
       $('select').chosen({
         disable_search: true,
+        no_results_text: "No hemos encontrado resultados!",
+        allow_single_deselect: true
       })
 
-      // Marketing form
-      // Other Job Title visibility
-      $('#edit-field-other-job-title-wrapper').hide();
-      $('#edit-field-other-job-title-wrapper label').hide();
-      $('#edit-field-job-title').change(
-        function () {
-          if ($("#edit-field-job-title option:selected").filter(":contains('Other')").length != 0) {
-            $("#edit-field-other-job-title-wrapper").fadeIn();
-            $("#edit-field-other-job-title-wrapper input").prop('required',true);
-          }
-          else {
-            $("#edit-field-other-job-title-wrapper").hide();
-            $("#edit-field-other-job-title-wrapper input").prop('required',false);
-          }
-        }
-      );
-
-      // Other Industry visibility
-      $('#edit-field-other-industry-wrapper').hide();
-      $('#edit-field-other-industry-wrapper label').hide();
-      $('#edit-field-industry').change(
-        function () {
-          if ($("#edit-field-industry option:selected").filter(":contains('Other')").length != 0) {
-            $("#edit-field-other-industry-wrapper").fadeIn();
-            $("#edit-field-other-industry-wrapper input").prop('required',true);
-          }
-          else {
-            $("#edit-field-other-industry-wrapper").hide();
-            $("#edit-field-other-industry-wrapper input").prop('required',false);
+      $.validator.setDefaults({ ignore: ":hidden:not(select)" });
+      $('form').validate({
+        highlight: function(element) {
+          $(element).closest('.form-group').addClass('has-error');
+        },
+        unhighlight: function(element) {
+          $(element).closest('.form-group').removeClass('has-error');
+        },
+        errorElement: 'span',
+        errorClass: 'help-block',
+        errorPlacement: function(error, element) {
+          if(element.parent('.input-group').length) {
+            error.insertAfter(element.parent());
+          } else {
+            error.insertAfter(element);
           }
         }
-      );
-
-      // Other Primary Application visibility
-      $('#edit-field-other-primary-application-wrapper').hide();
-      $('#edit-field-other-primary-application-wrapper label').hide();
-      $('#edit-field-primary-application').change(
-        function () {
-          if ($("#edit-field-primary-application option:selected").filter(":contains('Other')").length != 0) {
-            $("#edit-field-other-primary-application-wrapper").fadeIn();
-            $("#edit-field-other-primary-application-wrapper input").prop('required',true);
-          }
-          else {
-            $("#edit-field-other-primary-application-wrapper").hide();
-            $("#edit-field-other-primary-application-wrapper input").prop('required',false);
-          }
-        }
-      );
-
-      // Dolcia Prima Header Top
-      // Other Job Title visibility
-      $('#edit-field-other-job-title-wrapper--2').hide();
-      $('#edit-field-other-job-title-wrapper--2 label').hide();
-      $('#edit-field-job-title--2').change(
-        function () {
-          if ($("#edit-field-job-title--2 option:selected").filter(":contains('Other')").length != 0) {
-            $("#edit-field-other-job-title-wrapper--2").fadeIn();
-            $("#edit-field-other-job-title-wrapper--2 input").prop('required',true);
-          }
-          else {
-            $("#edit-field-other-job-title-wrapper--2").hide();
-            $("#edit-field-other-job-title-wrapper--2 input").prop('required',false);
-          }
-        }
-      );
-
-      // Other Industry visibility
-      $('#edit-field-other-industry-wrapper--2').hide();
-      $('#edit-field-other-industry-wrapper--2 label').hide();
-      $('#edit-field-other-industry-wrapper').insertAfter('#edit-field-industry-wrapper');
-      $('#edit-field-industry--2').change(
-        function () {
-          if ($("#edit-field-industry--2 option:selected").filter(":contains('Other')").length != 0) {
-            $("#edit-field-other-industry-wrapper--2").fadeIn();
-            $("#edit-field-other-industry-wrapper--2 input").prop('required',true);
-          }
-          else {
-            $("#edit-field-other-industry-wrapper--2").hide();
-            $("#edit-field-other-industry-wrapper--2 input").prop('required',false);
-          }
-        }
-      );
-
-      // Other Primary Application visibility
-      $('#edit-field-other-primary-application-wrapper--2').hide();
-      $('#edit-field-other-primary-application-wrapper--2 label').hide();
-      $('#edit-field-primary-application--2').change(
-        function () {
-          if ($("#edit-field-primary-application--2 option:selected").filter(":contains('Other')").length != 0) {
-            $("#edit-field-other-primary-application-wrapper--2").fadeIn();
-            $("#edit-field-other-primary-application-wrapper--2 input").prop('required',true);
-          }
-          else {
-            $("#edit-field-other-primary-application-wrapper--2").hide();
-            $("#edit-field-other-primary-application-wrapper--2 input").prop('required',false);
-          }
-        }
-      );
+      });
     }
   }
 
-    // Contact form reveal.
+  // Select other for those who have the other option field.
+  Drupal.behaviors.selectOther = {
+    attach: function (context, settings) {
+      $('#edit-field-other-industry-wrapper').insertAfter('#edit-field-industry-wrapper');
+      var other_field = $('div[class*="field--name-field-other-"]');
+      var other_field_label = $('div[class*="field--name-field-other-"] label');
+      other_field_label.hide();
+      other_field.hide();
+      $("option:contains('Other')").parent().each(function() {
+        $(this).change(
+          function () {
+            if ($('option:selected', this).filter(":contains('Other')").length === 1) {
+              $(this).closest('.field--widget-options-select').next('div[class*="field--name-field-other-"]').fadeIn();
+              $(this).closest('.field--widget-options-select').next('div[class*="field--name-field-other-"]').find('input').prop('required', true);
+            }
+            else {
+              $(this).closest('.field--widget-options-select').next('div[class*="field--name-field-other-"]').hide();
+              $(this).closest('.field--widget-options-select').next('div[class*="field--name-field-other-"]').find('input').prop('required', false);
+            }
+          }
+        );
+      })
+    }
+  }
+
+  // Contact form reveal.
   Drupal.behaviors.toggleContact = {
     attach: function (context, settings) {
       $('.menu.nav > li:last-child a, a[href="#contact-us"]').click(function(e) {
@@ -279,10 +226,28 @@ function centerModal() {
         }
       });
 
-      $('.bt-close-form').click(function(e) {
+      $('.btn-close-form').click(function(e) {
         e.preventDefault();
         $('.pre-header').slideToggle('slow');
         $('.st-content').removeClass('contact-reveal');
+      });
+    }
+  }
+
+  Drupal.behaviors.submitContact = {
+    attach: function (context, settings) {
+      // Show "Thank you" message after submiting the form.
+      $('.pre-header form').submit(function(e) {
+        $.post('', $(this).serialize(), function (data) {
+
+        }).error(function() {
+
+        });
+        $('.pre-header .form-body, .pre-header .header-text').hide();
+        $(this).hide();
+        $('.btn-close-form-submit-thank-you-message').show();
+        $('.pre-header .form-submit-thank-you-message').show();
+        e.preventDefault();
       });
     }
   }
