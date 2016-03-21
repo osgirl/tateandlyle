@@ -285,6 +285,17 @@ function dolciaprima_form_contact_message_technical_data_sheets_form_alter(&$for
   $form['field_telephone_number']['#suffix'] = '<div class="required-field"><span class="form-required">*</span>' . '<p>' . t('Required field') . '</p></div>';
 }
 
+/**
+ * Implements theme_preprocess_block.
+ */
+function dolciaprima_preprocess_block(&$variables) {
+  if ($variables['base_plugin_id'] == 'language_block') {
+    $variables['label'] = t('Pick your language');
+    foreach ($variables['content']['#links'] AS $key => $value) {
+      $variables['content']['#links'][$key]['title'] = t($variables['content']['#links'][$key]['title']);
+    }
+  }
+}
 
 function dolciaprima_preprocess_views_view_unformatted__multimedia(&$variables) {
    foreach ($variables['rows'] as $key => $item) {
