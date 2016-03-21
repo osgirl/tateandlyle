@@ -257,8 +257,10 @@ body,
 
 /* Reveal effect */
 .st-effect-2.st-menu-open .st-pusher {
-  -webkit-transform: translate3d(250px, 0, 0);
-  transform: translate3d(250px, 0, 0);
+  @media (max-width: @screen-sm-max) {
+    -webkit-transform: translate3d(250px, 0, 0);
+    transform: translate3d(250px, 0, 0);
+  }
 }
 
 .st-effect-2.st-menu {

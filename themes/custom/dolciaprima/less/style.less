@@ -39,6 +39,9 @@ p {
 
 a {
   color: #721f82;
+  &:focus {
+    outline: none;
+  }
 }
 
 h1 {
@@ -156,21 +159,17 @@ img {
   background-repeat: no-repeat;
   background-size: 100% 100%;
   display: none;
-  xmin-height: 550px;
-  xposition: absolute;
   padding-bottom: 2em;
   top: 0;
   width: 100%;
-  xoverflow: hidden;
-  @media (min-width: @screen-xs-min) {
+  @media (min-width: @screen-sm-min) {
     background-image: url('../images/bg-form-area.jpg');
     padding-bottom: 0;
-    xmin-height: 460px;
   }
   .region-pre-header {
     margin: 0 auto;
     width: 90%;
-    @media (min-width: @screen-xs-min) {
+    @media (min-width: @screen-sm-min) {
       background: transparent url('../images/bg-form-fields.png') no-repeat center center;
       background-size: contain;
       min-height: 460px;
@@ -186,14 +185,14 @@ img {
   form {
     display: inline-block;
     width: 90%;
-    @media (min-width: @screen-xs-min) {
+    @media (min-width: @screen-sm-min) {
       left: -1em;
       position: relative;
       width: 100%;
     }
   }
-  .form-body {
-    @media (min-width: @screen-xs-min) {
+  .header-text {
+    @media (min-width: @screen-sm-min) {
       margin-left: 4%;
       position: relative;
       left: 1.5em;
@@ -201,19 +200,20 @@ img {
     p {
       color: #FFF;
       font-size: 20px;
-      margin-bottom: 30px;
-      margin-top: 40px;
-      text-align: center;
+      margin: 40px auto 30px;
       line-height: 26px;
-      @media (min-width: @screen-xs-min) {
+      text-align: center;
+      width: 85%;
+      @media (min-width: @screen-sm-min) {
         margin-bottom: 10px;
         margin-top: 55px;
+        width: auto;
       }
     }
   }
   .field--type-email {
     width: 100%;
-    @media (min-width: @screen-xs-min) {
+    @media (min-width: @screen-sm-min) {
       width: 95%;
     }
     label,
@@ -231,8 +231,8 @@ img {
     position: relative;
     padding-left: 0.9375em;
     padding-right: 0.9375em;
-    float: left;
-    @media (min-width: @screen-xs-min) {
+    @media (min-width: @screen-sm-min) {
+      float: left;
       width: 50%;
     }
     .field--type-email {
@@ -271,7 +271,7 @@ img {
   }
   .required-field {
     margin: 1em 0 0;
-    @media (min-width: @screen-xs-min) {
+    @media (min-width: @screen-sm-min) {
       margin: 0;
     }
     p {
@@ -288,7 +288,8 @@ img {
   .form-required {
     color: #FFF;
   }
-  .bt-close-form {
+  .btn-close-form {
+    display: block;
     height: 25px;
     width: 25px;
     position: absolute;
@@ -297,12 +298,36 @@ img {
     background: transparent url('../images/bt-close-white.png') no-repeat 0 0;
     background-size: 25px 25px;
     text-indent: -9999em;
-    top: 8.6em;
+    top: 10em;
     right: -0.25em;
-    @media (min-width: @screen-xs-min) {
-      right: -2.5em;
-      top: 9.65em;
+    @media (min-width: @screen-sm-min) {
+      right: -3em;
+      top: 1.25em;
     }
+  }
+}
+
+.btn-close-form {
+  display: none;
+}
+
+.pre-header {
+  .btn-close-form-submit-thank-you-message {
+    display: none;
+    right: 0.5em;
+    top: 8em;
+  }
+}
+
+.form-submit-thank-you-message {
+  display: none;
+  margin: 11em auto 0;
+  text-align: center;
+  width: 90%;
+  p {
+    color: #FFF;
+    font-size: 19px;
+    line-height: 29px;
   }
 }
 
@@ -643,8 +668,10 @@ body,
 
 /* Reveal effect */
 .st-effect-2.st-menu-open .st-pusher {
-  -webkit-transform: translate3d(-300px, 0, 0);
-  transform: translate3d(-300px, 0, 0);
+  @media (max-width: @screen-sm-max) {
+    -webkit-transform: translate3d(-300px, 0, 0);
+    transform: translate3d(-300px, 0, 0);
+  }
 }
 
 .st-effect-2.st-menu {
@@ -1796,12 +1823,6 @@ section.media-type {
     text-transform: uppercase;
     margin: 0;
     color: #721f82;
-  }
-  .form-control {
-    width: 100%;
-    @media(min-width: @screen-sm-min) {
-      width: 85%;
-    }
   }
   .required-field {
     margin: 1em 0 0;
