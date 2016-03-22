@@ -47,4 +47,7 @@ $settings['simplesamlphp_dir'] = DRUPAL_ROOT . '/../simplesamlphp';
 $settings['cache']['default'] = 'cache.backend.database';
 
 // TL-182/Pentest M2/ARID-667 - Setting the cookie lifetime to 20 minutes.
-ini_set('session.cookie_lifetime', 1200);
+// Ensure that the services.yml in the sites/default directory will be included.
+// The __DIR__ . '/../' path should point to sites/default, while this
+// file is located in sites/default/settings, thus the ../
+$settings['container_yamls'][] = __DIR__ . '/../services.yml';
