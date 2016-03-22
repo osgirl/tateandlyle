@@ -26,6 +26,9 @@ img {
 
 a {
   color: #7D6A57;
+  &:focus {
+    outline: none;
+  }
 }
 
 h6 {
@@ -522,10 +525,16 @@ body,
   width: 100%;
 }
 
+.st-menu a.is-active {
+  color: #FFF;
+}
+
 /* Reveal effect */
 .st-effect-2.st-menu-open .st-pusher {
-  -webkit-transform: translate3d(-300px, 0, 0);
-  transform: translate3d(-300px, 0, 0);
+  @media (max-width: @screen-sm-max) {
+    -webkit-transform: translate3d(-300px, 0, 0);
+    transform: translate3d(-300px, 0, 0);
+  }
 }
 
 .st-effect-2.st-menu {
@@ -2110,6 +2119,7 @@ body {
         padding: 0 25px 4px 12px;
       }
       .accordion-subtitle {
+        color: #4d4d4f;
         font-size: 12px;
       }
     }

@@ -26,7 +26,6 @@ settings:
       accordion: accordion
       country_contact: country_contact
       text: text
-      redirect_selector: redirect_selector
       slide: slide
       tabs: tabs
       video: video
@@ -47,7 +46,7 @@ settings:
         enabled: true
         weight: 14
       redirect_selector:
-        enabled: true
+        enabled: false
         weight: 16
       tout:
         weight: 17

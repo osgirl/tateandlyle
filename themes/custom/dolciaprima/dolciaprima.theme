@@ -16,7 +16,10 @@ function dolciaprima_preprocess_page(&$variables) {
   /*Set page title user */
   $route = explode('/', \Drupal::service('path.current')->getPath());
   if($variables['page'] && ($route[1] != 'user') && ($route[1] != 'admin')) {
-    $variables['page_title'] =$variables['page']['#title']->__toString();
+    if (isset($variables['page_title'])) {
+      $variables['page_title'] = $variables['page']['#title']->__toString();
+    }
+    
   }
   else {
     $variables['page_title'] = $variables['page']['#title'];
@@ -247,12 +250,6 @@ function dolciaprima_preprocess_field(&$variables) {
  * Implements hook_form_FORM_ID_alter.
  */
 function dolciaprima_form_contact_message_marketing_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
-  // Add header text to the form.
-  $form['#prefix'] = '<div class="form-body"><p>' . t('Prepare to challenge all your beliefs about low calorie.') . '</p></div>';
-
-    // Add close button to the form.
-  $form['#suffix'] = '<a href="#" class="bt-close-form hide-text">Close</a>';
-
   // Wrap the fields in the left group.
   $form['field_first_name']['#prefix'] = '<div class="group-left">';
   $form['field_industry']['#suffix'] = '</div>';
@@ -285,6 +282,25 @@ function dolciaprima_form_contact_message_technical_data_sheets_form_alter(&$for
   $form['field_telephone_number']['#suffix'] = '<div class="required-field"><span class="form-required">*</span>' . '<p>' . t('Required field') . '</p></div>';
 }
 
+/**
+ * Implements theme_preprocess_block.
+ */
+function dolciaprima_preprocess_block(&$variables) {
+  if ($variables['base_plugin_id'] == 'language_block') {
+    $variables['label'] = t('Pick your language');
+    $languages = \Drupal::languageManager();
+    $default_language = $languages->getDefaultLanguage();
+    $current_language = $languages->getCurrentLanguage($type = language_interface);
+    foreach ($variables['content']['#links'] AS $key => $value) {
+      if ($default_language == $current_language) {
+        $variables['content']['#links'][$key]['title'] = $languages->getLanguage($key)->getName();
+      }
+      else {
+       $variables['content']['#links'][$key]['title'] = t($variables['content']['#links'][$key]['title']);
+      }
+    }
+  }
+}
 
 function dolciaprima_preprocess_views_view_unformatted__multimedia(&$variables) {
    foreach ($variables['rows'] as $key => $item) {
