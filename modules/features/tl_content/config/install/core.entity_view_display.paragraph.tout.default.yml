@@ -59,7 +59,6 @@ content:
     type: string
 hidden:
   created: true
-  field_background_color: true
   field_tout_background_image: true
   field_tout_size: true
   uid: true

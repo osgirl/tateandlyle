@@ -93,7 +93,6 @@ required:
   - field.field.paragraph.tabs.field_tab
   - field.field.paragraph.tabs.field_title_tab
   - field.field.paragraph.text.field_body
-  - field.field.paragraph.tout.field_background_color
   - field.field.paragraph.tout.field_has_bg_color
   - field.field.paragraph.tout.field_image
   - field.field.paragraph.tout.field_image_text
@@ -135,7 +134,6 @@ required:
 #  - field.storage.node.field_youtube_video
 #  - field.storage.paragraph.field_accordion_item
 #  - field.storage.paragraph.field_address
-#  - field.storage.paragraph.field_background_color
 #  - field.storage.paragraph.field_background_image
 #  - field.storage.paragraph.field_background_tout
 #  - field.storage.paragraph.field_body
