@@ -24,13 +24,12 @@ targetEntityType: paragraph
 bundle: tout
 mode: default
 content:
-  field_background_color:
+  field_has_bg_color:
+    type: boolean_checkbox
     weight: 4
     settings:
-      size: 60
-      placeholder: ''
+      display_label: false
     third_party_settings: {  }
-    type: string_textfield
   field_image:
     weight: 1
     settings:
@@ -47,7 +46,7 @@ content:
     type: text_textarea
   field_popup:
     type: entity_reference_paragraphs
-    weight: 5
+    weight: 7
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -70,17 +69,18 @@ content:
     third_party_settings: {  }
     type: string_textfield
   field_tout_background_image:
-    weight: 6
+    weight: 5
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
     type: image_image
   field_tout_size:
-    weight: 7
+    weight: 6
     settings: {  }
     third_party_settings: {  }
     type: options_select
 hidden:
   created: true
+  field_background_color: true
   uid: true
