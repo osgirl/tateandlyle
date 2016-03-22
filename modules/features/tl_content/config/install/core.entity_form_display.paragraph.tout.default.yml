@@ -2,6 +2,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.tout.field_has_bg_color
     - field.field.paragraph.tout.field_image
     - field.field.paragraph.tout.field_image_text
     - field.field.paragraph.tout.field_popup
@@ -9,7 +10,6 @@ dependencies:
     - field.field.paragraph.tout.field_title
     - field.field.paragraph.tout.field_tout_background_image
     - field.field.paragraph.tout.field_tout_size
-    - field.field.paragraph.tout.field_has_bg_color
     - image.style.thumbnail
     - paragraphs.paragraphs_type.tout
   module:
@@ -46,7 +46,7 @@ content:
     type: text_textarea
   field_popup:
     type: entity_reference_paragraphs
-    weight: 7
+    weight: 5
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -69,14 +69,14 @@ content:
     third_party_settings: {  }
     type: string_textfield
   field_tout_background_image:
-    weight: 5
+    weight: 6
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
     type: image_image
   field_tout_size:
-    weight: 6
+    weight: 7
     settings: {  }
     third_party_settings: {  }
     type: options_select
