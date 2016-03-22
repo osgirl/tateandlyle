@@ -9,11 +9,10 @@ _core:
 id: paragraph.field_timeout
 field_name: field_timeout
 entity_type: paragraph
-type: string
+type: integer
 settings:
-  max_length: 10
-  is_ascii: false
-  case_sensitive: false
+  unsigned: false
+  size: normal
 module: core
 locked: false
 cardinality: 1

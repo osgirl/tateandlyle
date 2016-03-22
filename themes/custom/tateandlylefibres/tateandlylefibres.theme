@@ -316,8 +316,16 @@ function tateandlylefibres_preprocess_block(&$variables) {
   }
   if ($variables['base_plugin_id'] == 'language_block') {
     $variables['label'] = t('Pick your language');
+    $languages = \Drupal::languageManager();
+    $default_language = $languages->getDefaultLanguage();
+    $current_language = $languages->getCurrentLanguage($type = language_interface);
     foreach ($variables['content']['#links'] AS $key => $value) {
-      $variables['content']['#links'][$key]['title'] = t($variables['content']['#links'][$key]['title']);
+      if ($default_language == $current_language) {
+        $variables['content']['#links'][$key]['title'] = $languages->getLanguage($key)->getName();
+      }
+      else {
+       $variables['content']['#links'][$key]['title'] = t($variables['content']['#links'][$key]['title']);
+      }
     }
   }
 }

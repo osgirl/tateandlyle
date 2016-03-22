@@ -46,9 +46,7 @@ projects:
     download:
       type: git
       url: "https://git.drupal.org/project/features.git"
-      revision: "b226b1ef0918d18e0f3ddab2408c56dda44f6c0d"
-    patch:
-      - "https://www.drupal.org/files/issues/features-missing-2624542-7.patch"
+      revision: "b03339c99df65f528ca6e8d8e20c82f0068b98c5"
   acquia_search_multi_subs:
     type: module
     download:

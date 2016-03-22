@@ -2,17 +2,56 @@ excluded:
   - block.block.views_block__sidebar_block_1
 required:
   - core.base_field_override.node.page.promote
-  - language.content_settings.node.form
-  - language.content_settings.node.media_item
-  - language.content_settings.node.page
-  - node.type.form
-  - node.type.media_item
-  - node.type.page
+  - core.entity_form_display.field_collection_item.field_accordion_item.default
+  - core.entity_form_display.field_collection_item.field_slide.default
+  - core.entity_form_display.field_collection_item.field_tab.default
   - core.entity_form_display.node.form.default
   - core.entity_form_display.node.media_item.default
   - core.entity_form_display.node.page.default
+  - core.entity_form_display.paragraph.accordion.default
+  - core.entity_form_display.paragraph.contact.default
   - core.entity_form_display.paragraph.country_contact.default
+  - core.entity_form_display.paragraph.image.default
+  - core.entity_form_display.paragraph.redirect_selector.default
+  - core.entity_form_display.paragraph.slide.default
+  - core.entity_form_display.paragraph.tabs.default
+  - core.entity_form_display.paragraph.text.default
+  - core.entity_form_display.paragraph.tout.default
+  - core.entity_form_display.paragraph.video.default
+  - core.entity_view_display.field_collection_item.field_accordion_item.default
+  - core.entity_view_display.field_collection_item.field_slide.default
+  - core.entity_view_display.field_collection_item.field_tab.default
+  - core.entity_view_display.node.form.default
+  - core.entity_view_display.node.form.teaser
+  - core.entity_view_display.node.media_item.default
+  - core.entity_view_display.node.media_item.teaser
+  - core.entity_view_display.node.page.default
+  - core.entity_view_display.node.page.teaser
+  - core.entity_view_display.paragraph.accordion.default
+  - core.entity_view_display.paragraph.contact.default
   - core.entity_view_display.paragraph.country_contact.default
+  - core.entity_view_display.paragraph.image.default
+  - core.entity_view_display.paragraph.redirect_selector.default
+  - core.entity_view_display.paragraph.slide.default
+  - core.entity_view_display.paragraph.tabs.default
+  - core.entity_view_display.paragraph.text.default
+  - core.entity_view_display.paragraph.tout.default
+  - core.entity_view_display.paragraph.video.default
+  - core.entity_view_mode.node.full
+  - core.entity_view_mode.node.rss
+  - core.entity_view_mode.node.search_index
+  - core.entity_view_mode.node.search_result
+  - core.entity_view_mode.node.teaser
+  - core.entity_view_mode.node.token
+  - field.field.field_collection_item.field_accordion_item.field_body
+  - field.field.field_collection_item.field_accordion_item.field_image
+  - field.field.field_collection_item.field_accordion_item.field_subtitle
+  - field.field.field_collection_item.field_accordion_item.field_title
+  - field.field.field_collection_item.field_slide.field_image
+  - field.field.field_collection_item.field_slide.field_link
+  - field.field.field_collection_item.field_slide.field_slide_text
+  - field.field.field_collection_item.field_tab.field_body
+  - field.field.field_collection_item.field_tab.field_label
   - field.field.node.form.field_file
   - field.field.node.form.field_footer_image
   - field.field.node.form.field_form
@@ -37,13 +76,109 @@ required:
   - field.field.node.page.field_template
   - field.field.node.page.field_title_image
   - field.field.node.page.field_touts
+  - field.field.paragraph.accordion.field_accordion_item
+  - field.field.paragraph.accordion.field_title
+  - field.field.paragraph.contact.field_address
+  - field.field.paragraph.contact.field_country
+  - field.field.paragraph.contact.field_identifier
+  - field.field.paragraph.country_contact.field_contact
   - field.field.paragraph.country_contact.field_redirect
-  - core.entity_view_mode.node.full
-  - core.entity_view_mode.node.rss
-  - core.entity_view_mode.node.search_index
-  - core.entity_view_mode.node.search_result
-  - core.entity_view_mode.node.teaser
-  - core.entity_view_mode.node.token
+  - field.field.paragraph.country_contact.field_title
+  - field.field.paragraph.image.field_image
+  - field.field.paragraph.redirect_selector.field_link
+  - field.field.paragraph.slide.field_show_arrows
+  - field.field.paragraph.slide.field_slide
+  - field.field.paragraph.slide.field_slide_type
+  - field.field.paragraph.slide.field_timeout
+  - field.field.paragraph.tabs.field_tab
+  - field.field.paragraph.tabs.field_title_tab
+  - field.field.paragraph.text.field_body
+  - field.field.paragraph.tout.field_background_color
+  - field.field.paragraph.tout.field_has_bg_color
+  - field.field.paragraph.tout.field_image
+  - field.field.paragraph.tout.field_image_text
+  - field.field.paragraph.tout.field_popup
+  - field.field.paragraph.tout.field_text
+  - field.field.paragraph.tout.field_title
+  - field.field.paragraph.tout.field_tout_background_image
+  - field.field.paragraph.tout.field_tout_size
+  - field.field.paragraph.video.field_video_image
+  - field.field.paragraph.video.field_video_text
+  - field.field.paragraph.video.field_video_url
+#  - field.storage.field_collection_item.field_body
+#  - field.storage.field_collection_item.field_image
+#  - field.storage.field_collection_item.field_label
+#  - field.storage.field_collection_item.field_link
+#  - field.storage.field_collection_item.field_slide_text
+#  - field.storage.field_collection_item.field_subtitle
+#  - field.storage.field_collection_item.field_text
+#  - field.storage.field_collection_item.field_title
+#  - field.storage.node.body
+#  - field.storage.node.field_background_image
+#  - field.storage.node.field_file
+#  - field.storage.node.field_footer_image
+#  - field.storage.node.field_form
+#  - field.storage.node.field_form_header
+#  - field.storage.node.field_intro_area
+#  - field.storage.node.field_layout
+#  - field.storage.node.field_main_content
+#  - field.storage.node.field_media_category
+#  - field.storage.node.field_media_item_image
+#  - field.storage.node.field_meta_tags
+#  - field.storage.node.field_sidebar
+#  - field.storage.node.field_sidebar_color
+#  - field.storage.node.field_subtitle
+#  - field.storage.node.field_tds_thank_you
+#  - field.storage.node.field_template
+#  - field.storage.node.field_title_image
+#  - field.storage.node.field_touts
+#  - field.storage.node.field_youtube_video
+#  - field.storage.paragraph.field_accordion_item
+#  - field.storage.paragraph.field_address
+#  - field.storage.paragraph.field_background_color
+#  - field.storage.paragraph.field_background_image
+#  - field.storage.paragraph.field_background_tout
+#  - field.storage.paragraph.field_body
+#  - field.storage.paragraph.field_contact
+#  - field.storage.paragraph.field_country
+#  - field.storage.paragraph.field_has_bg_color
+#  - field.storage.paragraph.field_identifier
+#  - field.storage.paragraph.field_image
+#  - field.storage.paragraph.field_image_text
+#  - field.storage.paragraph.field_link
+#  - field.storage.paragraph.field_popup
+#  - field.storage.paragraph.field_redirect
+#  - field.storage.paragraph.field_show_arrows
+#  - field.storage.paragraph.field_slide
+#  - field.storage.paragraph.field_slide_type
+#  - field.storage.paragraph.field_tab
+#  - field.storage.paragraph.field_text
+#  - field.storage.paragraph.field_timeout
+#  - field.storage.paragraph.field_title
+#  - field.storage.paragraph.field_title_tab
+#  - field.storage.paragraph.field_tout_background_image
+#  - field.storage.paragraph.field_tout_size
+#  - field.storage.paragraph.field_video_image
+#  - field.storage.paragraph.field_video_text
+#  - field.storage.paragraph.field_video_url
+#  - field_collection.field_collection.field_accordion_item
+#  - field_collection.field_collection.field_content_reference
+#  - field_collection.field_collection.field_slide
+#  - field_collection.field_collection.field_tab
+  - node.type.form
+  - node.type.media_item
+  - node.type.page
+  - paragraphs.paragraphs_type.accordion
+  - paragraphs.paragraphs_type.contact
+  - paragraphs.paragraphs_type.country_contact
+  - paragraphs.paragraphs_type.image
+  - paragraphs.paragraphs_type.redirect_selector
+  - paragraphs.paragraphs_type.slide
+  - paragraphs.paragraphs_type.tabs
+  - paragraphs.paragraphs_type.text
+  - paragraphs.paragraphs_type.tout
+  - paragraphs.paragraphs_type.video
+  - taxonomy.vocabulary.file_types
   - workbench_moderation.moderation_state.archived
   - workbench_moderation.moderation_state.draft
   - workbench_moderation.moderation_state.needs_review
@@ -55,4 +190,3 @@ required:
   - workbench_moderation.moderation_state_transition.published_archived
   - workbench_moderation.moderation_state_transition.published_draft
   - workbench_moderation.moderation_state_transition.published_published
-
