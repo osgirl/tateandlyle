@@ -9,6 +9,7 @@ dependencies:
     - field.field.paragraph.tout.field_title
     - field.field.paragraph.tout.field_tout_background_image
     - field.field.paragraph.tout.field_tout_size
+    - field.field.paragraph.tout.field_has_bg_color
     - image.style.thumbnail
     - paragraphs.paragraphs_type.tout
   module:
