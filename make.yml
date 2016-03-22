@@ -14,6 +14,7 @@ projects:
       # Hide unrelated child menu items when expanded option is used.
       # See https://www.drupal.org/node/2631468
       - "https://www.drupal.org/files/issues/2631468-19.patch"
+      - "https://www.drupal.org/files/issues/missing-dependencies-2655104.patch"
   # For all projects, always specify the exact version that is to be used.
   # For any project using a dev branch, always specify the revision id.
   acquia_connector:
