@@ -35,6 +35,17 @@ function tl_tweaks_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form
 
   if (($form['#form_id'] == 'node_form_form') || ($form['#form_id'] == 'node_form_edit_form') || ($form['#form_id'] == 'node_page_form') || ($form['#form_id'] == 'node_page_edit_form') || ($form['#form_id'] == 'node_media_item_form') || ($form['#form_id'] == 'node_media_item_edit_form')) {
 
+    // Rename touts to blocks in the Page elements tab.
+    $form['field_touts']['widget']['#title'] = t('Blocks');
+    $form['field_touts']['widget']['add_more']['add_more_button_tout']['#value']->__construct('Add @type', array('@type' => t('Block')), array(), NULL);
+    foreach ($form['field_touts']['widget'] as $key => $value) {
+      if (is_numeric($key)) {
+        $form['field_touts']['widget'][$key]['top']['paragraph_type_title']['info']['#markup']->__construct('@title type: %type', array('@title' => t('Paragraph'), '%type' => t('Block')), array(), NULL);
+        $form['field_touts']['widget'][$key]['subform']['field_tout_background_image']['widget']['0']['#title'] = t('Block background image');
+        $form['field_touts']['widget'][$key]['subform']['field_tout_size']['widget']['#title'] = t('Block size');
+      }
+    }
+
     // Show image text field only for touts.
     foreach ($form['field_intro_area']['widget'] as $key => $image_text) {
       if (is_numeric($key)) {
