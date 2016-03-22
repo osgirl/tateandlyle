@@ -23,7 +23,7 @@ bundle: tout
 mode: default
 content:
   field_image:
-    weight: 0
+    weight: 1
     label: hidden
     settings:
       image_style: ''
@@ -31,7 +31,7 @@ content:
     third_party_settings: {  }
     type: image
   field_image_text:
-    weight: 1
+    weight: 2
     label: hidden
     settings: {  }
     third_party_settings: {  }
@@ -51,7 +51,7 @@ content:
     third_party_settings: {  }
     type: text_default
   field_title:
-    weight: 2
+    weight: 0
     label: hidden
     settings:
       link_to_entity: false
