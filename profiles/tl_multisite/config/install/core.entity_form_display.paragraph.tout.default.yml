@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.tout.field_background_color
     - field.field.paragraph.tout.field_image
     - field.field.paragraph.tout.field_image_text
     - field.field.paragraph.tout.field_popup
@@ -23,13 +22,6 @@ targetEntityType: paragraph
 bundle: tout
 mode: default
 content:
-  field_background_color:
-    weight: 4
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
   field_image:
     weight: 1
     settings:
