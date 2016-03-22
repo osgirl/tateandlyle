@@ -15,7 +15,8 @@ function tl_dolciaprima_block_form_alter(&$form, \Drupal\Core\Form\FormStateInte
 
   // Add description field to Marketing form.
   $form_id = 'tatelyledolciaprimacontactform';
-  if (strpos($form['id']['#default_value'], $form_id) !== FALSE) {
+
+  if ((isset($form['id'])) && (strpos($form['id']['#default_value'], $form_id) !== FALSE)) {
     $form['header_text'] = array(
       '#type' => 'textarea',
       '#title' => t('Header text'),

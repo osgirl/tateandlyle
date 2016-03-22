@@ -12,11 +12,4 @@
     }, 3000)
   };
 
-  Drupal.behaviors.tl_placeholder = {
-    attach: function (context, settings) {
-    	$("input[name='field_touts_tout_add_more']").val('Block');
-    	$('#edit-field-touts-wrapper .placeholder').text('Block');
-  	}
-  };
-
 })(jQuery);

@@ -78,6 +78,7 @@ dependencies:
   - redirect
   - entity
   - diff
+  - better_exposed_filters
 themes:
   - generic_microsite
   - seven
