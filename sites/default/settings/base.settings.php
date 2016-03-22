@@ -47,4 +47,7 @@ $settings['simplesamlphp_dir'] = DRUPAL_ROOT . '/../simplesamlphp';
 $settings['cache']['default'] = 'cache.backend.database';
 
 // TL-182/Pentest M2/ARID-667 - Setting the cookie lifetime to 20 minutes.
+// Session cookie lifetime, after which the browser is expected to discard it.
 ini_set('session.cookie_lifetime', 1200);
+// Session lifetime, the time until the session will last after an interaction.
+ini_set('session.gc_maxlifetime', 1200);
