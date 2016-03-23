@@ -62,6 +62,7 @@ third_party_settings:
     group_main_content:
       children:
         - field_main_content
+        - field_touts
       parent_name: group_page_content
       weight: 6
       label: 'Main content'
@@ -74,7 +75,6 @@ third_party_settings:
         required_fields: true
     group_page_elements:
       children:
-        - field_touts
         - field_intro_area
         - field_background_image
         - field_footer_image
