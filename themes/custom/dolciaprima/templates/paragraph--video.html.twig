@@ -53,7 +53,12 @@ view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
   <div class="video-text">
       {{ content.field_video_text[0]['#text'] }}
   </div>
-  <a class="open-video" data-toggle="modal" data-target="#{{ video_id }}" data-theVideo="{{ video_url }}"><i class = "video-button"></i><img src ="{{ video_image }}"> </a>
+  {% if video_url %}
+    <a class="open-video" data-toggle="modal" data-target="#{{ video_id }}" data-theVideo="{{ video_url }}">
+      <i class = "video-button"></i>
+        <img src ="{{ video_image }}">
+    </a>
+  {% endif %}
 {% endif %}
     <div class="modal fade" id="{{ video_id }}" tabindex="-1" role="dialog" aria-labelledby="videoModal" aria-hidden="true">
     <div class="modal-dialog">
