@@ -2,7 +2,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.tout.field_background_color
+    - field.field.paragraph.tout.field_has_bg_color
     - field.field.paragraph.tout.field_image
     - field.field.paragraph.tout.field_image_text
     - field.field.paragraph.tout.field_popup
@@ -43,6 +43,7 @@ content:
     settings:
       view_mode: default
       link: ''
+      item_count: 0
     third_party_settings: {  }
   field_text:
     weight: 3
@@ -59,7 +60,7 @@ content:
     type: string
 hidden:
   created: true
-  field_background_color: true
+  field_has_bg_color: true
   field_tout_background_image: true
   field_tout_size: true
   uid: true
