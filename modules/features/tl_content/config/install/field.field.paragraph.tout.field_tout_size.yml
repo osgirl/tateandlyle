@@ -12,7 +12,7 @@ id: paragraph.tout.field_tout_size
 field_name: field_tout_size
 entity_type: paragraph
 bundle: tout
-label: 'Tout size'
+label: 'Block size'
 description: 'Used only for full width pages'
 required: false
 translatable: false
