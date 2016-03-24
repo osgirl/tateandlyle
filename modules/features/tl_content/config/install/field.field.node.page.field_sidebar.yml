@@ -26,6 +26,7 @@ settings:
       slide: slide
       text: text
       tout: tout
+      tout_reference: tout_reference
     target_bundles_drag_drop:
       accordion:
         weight: 11
@@ -57,4 +58,7 @@ settings:
       video:
         weight: 20
         enabled: false
+      tout_reference:
+        enabled: true
+        weight: 21
 field_type: entity_reference_revisions
