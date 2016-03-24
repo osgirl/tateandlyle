@@ -54,10 +54,15 @@
 </div>
 {% else %} 
 <div{{ attributes.addClass(classes) }}>
-    <div class="video-text">
-        {{ content.field_video_text[0]['#text'] }}
-    </div>
-    <a class="open-video" data-toggle="modal" data-target="#{{ video_id }}" data-theVideo="{{ video_url }}"><i class = "video-button"></i><img src ="{{ video_image }}"> </a>
+  <div class="video-text">
+    {{ content.field_video_text[0]['#text'] }}
+  </div>
+  {% if video_url %}
+    <a class="open-video" data-toggle="modal" data-target="#{{ video_id }}" data-theVideo="{{ video_url }}">
+      <i class = "video-button"></i>
+        <img src ="{{ video_image }}">
+    </a>
+  {% endif %}
 </div>
 {% endif %}
 <div class="modal fade" id="{{ video_id }}" tabindex="-1" role="dialog" aria-labelledby="videoModal" aria-hidden="true">
