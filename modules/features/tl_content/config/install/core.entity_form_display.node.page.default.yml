@@ -95,7 +95,7 @@ third_party_settings:
         - field_content_reference
       parent_name: group_page_content
       weight: 7
-      label: 'Tout for reference'
+      label: 'Sidebar reference'
       format_type: tab
       format_settings:
         formatter: closed
