@@ -8,8 +8,6 @@ dependencies:
   module:
     - text
     - workbench_moderation
-_core:
-  default_config_hash: SF9DVDbTFbuC_pOBd1UYVtW-UOZljSSPvq_6qiI5GMA
 id: field_collection_item.field_tab.default
 targetEntityType: field_collection_item
 bundle: field_tab

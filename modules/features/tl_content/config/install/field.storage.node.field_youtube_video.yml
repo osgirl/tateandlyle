@@ -4,8 +4,6 @@ dependencies:
   module:
     - node
     - youtube
-_core:
-  default_config_hash: IG_20ZDpoa3Rsqj1f2LfFA2fmK7jA096kQJRfbiqrJI
 id: node.field_youtube_video
 field_name: field_youtube_video
 entity_type: node

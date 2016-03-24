@@ -7,8 +7,6 @@ dependencies:
     - paragraphs.paragraphs_type.accordion
   module:
     - field_collection
-_core:
-  default_config_hash: GIgeYI54C_nk4PZaZwKFAsk7o5ViQgXLul3VLAbJrsQ
 id: paragraph.accordion.default
 targetEntityType: paragraph
 bundle: accordion

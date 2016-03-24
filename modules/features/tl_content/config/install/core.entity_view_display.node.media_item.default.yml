@@ -12,8 +12,6 @@ dependencies:
     - image
     - user
     - youtube
-_core:
-  default_config_hash: oUZtK0Nfoi5yhJfa15_EOem9Ksxt0WasAZAtw-widk4
 id: node.media_item.default
 targetEntityType: node
 bundle: media_item

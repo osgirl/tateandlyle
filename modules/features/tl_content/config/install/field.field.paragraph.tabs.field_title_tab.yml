@@ -4,8 +4,6 @@ dependencies:
   config:
     - field.storage.paragraph.field_title_tab
     - paragraphs.paragraphs_type.tabs
-_core:
-  default_config_hash: a5zErtgwvp_G0uV_U6y0DfH6GJxp93j4-VSzwOdIHoc
 id: paragraph.tabs.field_title_tab
 field_name: field_title_tab
 entity_type: paragraph

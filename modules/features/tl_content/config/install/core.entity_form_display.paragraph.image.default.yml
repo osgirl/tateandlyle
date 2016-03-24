@@ -9,8 +9,6 @@ dependencies:
   module:
     - image
     - workbench_moderation
-_core:
-  default_config_hash: ONqMZhyKepNMqzDx6bANI3QfFwnNKGKWg6tpKDySRjE
 id: paragraph.image.default
 targetEntityType: paragraph
 bundle: image

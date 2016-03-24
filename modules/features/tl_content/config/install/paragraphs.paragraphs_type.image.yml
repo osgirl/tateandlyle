@@ -1,7 +1,5 @@
 langcode: en
 status: true
 dependencies: {  }
-_core:
-  default_config_hash: txoslMAKq1z9_ZjEd6-Di7bdvSVTao2ix_ObB651tSE
 id: image
 label: Image

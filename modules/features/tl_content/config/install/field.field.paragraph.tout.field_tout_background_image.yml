@@ -6,8 +6,6 @@ dependencies:
     - paragraphs.paragraphs_type.tout
   module:
     - image
-_core:
-  default_config_hash: IlOSE2RqRhcmGyclFny5evxlUIv4xxkr5F-kqEV1ZBI
 id: paragraph.tout.field_tout_background_image
 field_name: field_tout_background_image
 entity_type: paragraph

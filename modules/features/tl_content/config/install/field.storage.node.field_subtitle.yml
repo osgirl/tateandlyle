@@ -4,8 +4,6 @@ dependencies:
   module:
     - node
     - text
-_core:
-  default_config_hash: bYwTmfrImeh5gQ2URP9rHhn7GHVwIRreE0B42kGg5uk
 id: node.field_subtitle
 field_name: field_subtitle
 entity_type: node

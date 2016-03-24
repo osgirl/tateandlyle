@@ -4,8 +4,6 @@ dependencies:
   module:
     - entity_reference_revisions
     - paragraphs
-_core:
-  default_config_hash: EyLUp1B8iAUnHaMCFdRxCTAY9HkIpHSFCnXXoB9ve18
 id: paragraph.field_popup
 field_name: field_popup
 entity_type: paragraph

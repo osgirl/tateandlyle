@@ -4,8 +4,6 @@ dependencies:
   config:
     - field.storage.field_collection_item.field_label
     - field_collection.field_collection.field_tab
-_core:
-  default_config_hash: sLn74b9o7jAjfQk3vx1qwNGiWZRJv7rWO_w41j6PDKM
 id: field_collection_item.field_tab.field_label
 field_name: field_label
 entity_type: field_collection_item

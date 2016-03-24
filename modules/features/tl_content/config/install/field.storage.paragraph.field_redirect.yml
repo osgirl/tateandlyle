@@ -4,8 +4,6 @@ dependencies:
   module:
     - node
     - paragraphs
-_core:
-  default_config_hash: cQKRSwuCCLoPN9uIjcavqk-5BBjrAwiMN_wJ1noyUfw
 id: paragraph.field_redirect
 field_name: field_redirect
 entity_type: paragraph

@@ -8,8 +8,6 @@ dependencies:
     - paragraphs.paragraphs_type.contact
   module:
     - workbench_moderation
-_core:
-  default_config_hash: WYId9C4j-6EYPBG-MdcXAY7QfLH5R5XqNs3P8BOmbXw
 id: paragraph.contact.default
 targetEntityType: paragraph
 bundle: contact

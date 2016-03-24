@@ -7,8 +7,6 @@ dependencies:
   module:
     - link
     - workbench_moderation
-_core:
-  default_config_hash: jwh54t8JlrEApnWoSVquhqCet-MMtdufdoo65GbaF-M
 id: paragraph.redirect_selector.default
 targetEntityType: paragraph
 bundle: redirect_selector
