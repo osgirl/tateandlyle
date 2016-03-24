@@ -98,11 +98,12 @@ third_party_settings:
       label: 'Sidebar reference'
       format_type: tab
       format_settings:
+        label: 'Sidebar reference'
         formatter: closed
         description: ''
-        classes: ''
-        id: ''
         required_fields: true
+        id: ''
+        classes: ''
     group_settings:
       children:
         - langcode
