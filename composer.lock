@@ -1294,7 +1294,7 @@
             "version": "0.4.4",
             "dist": {
                 "type": "file",
-                "url": "http://pear.php.net/get/VersionControl_Git-0.4.4.tgz",
+                "url": "https://pear.php.net/get/VersionControl_Git-0.4.4.tgz",
                 "reference": null,
                 "shasum": null
             },
