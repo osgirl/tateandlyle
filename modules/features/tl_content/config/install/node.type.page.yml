@@ -12,8 +12,10 @@ third_party_settings:
   workbench_moderation:
     enabled: true
     allowed_moderation_states:
+      - archived
       - draft
       - needs_review
+      - needs_to_be_archived
       - published
     default_moderation_state: draft
 _core:
