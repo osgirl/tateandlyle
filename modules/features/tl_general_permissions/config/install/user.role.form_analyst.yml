@@ -2,9 +2,12 @@ langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: I5B7fmyC0SPCrzxvPYIx-pNcrTMkAgIpaG7uDbEoRIU
+  default_config_hash: woclSlXJiXzVJjBccHaif3zP2UZc2Rn9LC-0UvGMqGE
 id: form_analyst
 label: 'Form analyst'
 weight: 6
 is_admin: null
-permissions: {  }
+permissions:
+  - 'administer contact forms'
+  - 'view the administration theme'
+  - 'access toolbar'
