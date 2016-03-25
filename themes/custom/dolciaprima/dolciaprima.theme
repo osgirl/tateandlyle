@@ -309,7 +309,7 @@ function dolciaprima_preprocess_views_view_unformatted__multimedia(&$variables) 
       $file_download = $object->get('field_file')->getValue();
       if($video[0]) {
         $video_id = $video[0]['video_id'];
-        $video_url = "http://youtube.com/embed/".$video_id;
+        $video_url = "http://youtube.com/embed/" . $video_id . '?rel=0&autoplay=1;showinfo=0';
         $video_image = $object->get('field_media_item_image')->getValue();
         $video_image_id = $video_image[0]['target_id'];  
         $file = File::load($video_image_id);
