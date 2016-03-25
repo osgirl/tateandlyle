@@ -7,8 +7,6 @@ dependencies:
     - field_collection.field_collection.field_tab
   module:
     - text
-_core:
-  default_config_hash: Dy8to6Ebwf1OvPXiSiUTTt3Paaad6R5NyLLnMeqOss8
 id: field_collection_item.field_tab.default
 targetEntityType: field_collection_item
 bundle: field_tab

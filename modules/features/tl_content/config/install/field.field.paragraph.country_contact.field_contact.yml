@@ -6,8 +6,6 @@ dependencies:
     - paragraphs.paragraphs_type.country_contact
   module:
     - entity_reference_revisions
-_core:
-  default_config_hash: 5hNXJHmLARNjSTu08fFKm9x05-0JcoEiYllOcUhIUlU
 id: paragraph.country_contact.field_contact
 field_name: field_contact
 entity_type: paragraph

@@ -6,8 +6,6 @@ dependencies:
     - node.type.form
   module:
     - text
-_core:
-  default_config_hash: 1bwRoulggcz2g8h6GyXunOnYqwco2fnB0X9yrg2jsG0
 id: node.form.field_tds_thank_you
 field_name: field_tds_thank_you
 entity_type: node

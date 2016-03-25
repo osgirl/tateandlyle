@@ -13,8 +13,6 @@ third_party_settings:
       alt: alt
       title: title
       file: '0'
-_core:
-  default_config_hash: 0N9fQSm_FgebpH7zbxR9aZvDrcXM7-nNiYe9-4bFWmw
 id: field_collection_item.field_slide.field_image
 field_name: field_image
 entity_type: field_collection_item

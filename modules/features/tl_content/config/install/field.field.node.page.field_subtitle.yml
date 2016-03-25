@@ -6,8 +6,6 @@ dependencies:
     - node.type.page
   module:
     - text
-_core:
-  default_config_hash: I3vBz8BXOZcOHYKocLzTicTIQ6XvyMf6p5Q7utw1dc4
 id: node.page.field_subtitle
 field_name: field_subtitle
 entity_type: node

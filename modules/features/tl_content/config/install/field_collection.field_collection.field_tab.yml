@@ -1,7 +1,5 @@
 langcode: en
 status: true
 dependencies: {  }
-_core:
-  default_config_hash: t8wDqXJv70eFD_wpUbQJt8jdRAOt3_276bMGjtxKCUw
 id: field_tab
 label: field_tab

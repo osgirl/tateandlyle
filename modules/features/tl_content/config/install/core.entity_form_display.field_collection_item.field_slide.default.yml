@@ -12,8 +12,6 @@ dependencies:
     - link
     - text
     - workbench_moderation
-_core:
-  default_config_hash: 3raTGkvDfF_Agq2MUtLDESVRUJC2IGQKJE9khamODZI
 id: field_collection_item.field_slide.default
 targetEntityType: field_collection_item
 bundle: field_slide

@@ -6,8 +6,6 @@ dependencies:
     - paragraphs.paragraphs_type.tout
   module:
     - entity_reference_revisions
-_core:
-  default_config_hash: BWfZ9lEwDnvX1RPe1OTZM1sDPKpnUmrQfJj_C8Czu00
 id: paragraph.tout.field_popup
 field_name: field_popup
 entity_type: paragraph

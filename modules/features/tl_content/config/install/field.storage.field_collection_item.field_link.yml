@@ -4,8 +4,6 @@ dependencies:
   module:
     - field_collection
     - link
-_core:
-  default_config_hash: garOY7slgPZpSeGlVg-88V06u64Z7OJg7JVGW4phYk4
 id: field_collection_item.field_link
 field_name: field_link
 entity_type: field_collection_item

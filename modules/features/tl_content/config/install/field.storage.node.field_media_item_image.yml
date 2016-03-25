@@ -5,8 +5,6 @@ dependencies:
     - file
     - image
     - node
-_core:
-  default_config_hash: BS_Q1qqD-DXHfuO2pXRdcu8vKkQHMBdM8CTbE_EJVBI
 id: node.field_media_item_image
 field_name: field_media_item_image
 entity_type: node

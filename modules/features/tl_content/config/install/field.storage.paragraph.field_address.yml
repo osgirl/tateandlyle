@@ -3,8 +3,6 @@ status: true
 dependencies:
   module:
     - paragraphs
-_core:
-  default_config_hash: wxkhzrBMe8w82eZv3U4mjyGzkfp-gfyczK06Mn5YRMI
 id: paragraph.field_address
 field_name: field_address
 entity_type: paragraph

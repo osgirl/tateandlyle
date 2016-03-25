@@ -4,8 +4,6 @@ dependencies:
   config:
     - field.storage.paragraph.field_address
     - paragraphs.paragraphs_type.contact
-_core:
-  default_config_hash: hXFwHAyjXaX5tWMPag7WBjlsI-vOE6mS7Hs2JOvuvbo
 id: paragraph.contact.field_address
 field_name: field_address
 entity_type: paragraph

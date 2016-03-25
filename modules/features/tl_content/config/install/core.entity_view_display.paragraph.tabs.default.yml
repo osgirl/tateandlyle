@@ -7,8 +7,6 @@ dependencies:
     - paragraphs.paragraphs_type.tabs
   module:
     - field_collection
-_core:
-  default_config_hash: s6fu4h7-E-DoMsKN1I-R3dfxpARAXt2ZMqKjCPxxjmk
 id: paragraph.tabs.default
 targetEntityType: paragraph
 bundle: tabs

@@ -4,8 +4,6 @@ dependencies:
   module:
     - contact
     - node
-_core:
-  default_config_hash: y9rGjnTpBevQr_VI5MCG3-1Bx8WN6HaQvPGCywxrOTU
 id: node.field_form
 field_name: field_form
 entity_type: node

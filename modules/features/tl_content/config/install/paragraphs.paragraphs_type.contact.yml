@@ -1,7 +1,5 @@
 langcode: en
 status: true
 dependencies: {  }
-_core:
-  default_config_hash: WUQdb5FCmsUZPH1GpzfoGVVc4-K3irnATRV0lh_3gT0
 id: contact
 label: Contact

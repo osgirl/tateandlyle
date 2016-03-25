@@ -10,8 +10,6 @@ dependencies:
     - node.type.media_item
   module:
     - user
-_core:
-  default_config_hash: v67Qy4iZbYpeRgX-zrWF22qHJbpmVzivN3FIxfuVzPY
 id: node.media_item.teaser
 targetEntityType: node
 bundle: media_item

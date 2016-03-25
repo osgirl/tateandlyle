@@ -13,8 +13,6 @@ third_party_settings:
       alt: alt
       title: title
       file: '0'
-_core:
-  default_config_hash: y8Zjt9VYIygYgBalRDaRiYNXBXUG3yuvxfF9xICPO60
 id: node.page.field_title_image
 field_name: field_title_image
 entity_type: node

@@ -12,12 +12,12 @@ third_party_settings:
   workbench_moderation:
     enabled: true
     allowed_moderation_states:
+      - archived
       - draft
       - needs_review
+      - needs_to_be_archived
       - published
     default_moderation_state: draft
-_core:
-  default_config_hash: bOKbp4443v0l714MQ8ve5yEmPzWA7xUgNzBYm3IEXz4
 name: 'Basic page'
 type: page
 description: 'Use <em>basic pages</em> for your static content, such as an ''About us'' page.'

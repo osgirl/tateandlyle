@@ -6,8 +6,6 @@ dependencies:
     - paragraphs.paragraphs_type.tout
   module:
     - options
-_core:
-  default_config_hash: i0KnLJv9fCb4I-cz4uyWDuoBdf9PE4TOF-W2c-y3D1E
 id: paragraph.tout.field_tout_size
 field_name: field_tout_size
 entity_type: paragraph

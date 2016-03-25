@@ -6,8 +6,6 @@ dependencies:
     - field_collection.field_collection.field_slide
   module:
     - link
-_core:
-  default_config_hash: hZB9CGsATRSBZ0ghqcomht_lb-eCHeHh7c9WKdLBhIM
 id: field_collection_item.field_slide.field_link
 field_name: field_link
 entity_type: field_collection_item

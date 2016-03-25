@@ -3,19 +3,26 @@ type: module
 core: 8.x
 dependencies:
   - block
+  - contact
   - content_translation
   - entity_reference_revisions
   - field
+  - field_collection
+  - field_group
   - file
   - image
+  - imce
   - language
+  - link
   - menu_ui
   - metatag
   - node
   - options
   - paragraphs
   - path
+  - taxonomy
   - text
+  - tl_content
   - user
   - views
   - workbench_moderation

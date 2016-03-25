@@ -4,8 +4,6 @@ dependencies:
   module:
     - field_collection
     - text
-_core:
-  default_config_hash: K3v8Q_QwYuQqAKFFjgp7AqnJ3W5UpRKxwk9HNRQBYbI
 id: field_collection_item.field_body
 field_name: field_body
 entity_type: field_collection_item

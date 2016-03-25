@@ -6,8 +6,6 @@ dependencies:
     - paragraphs.paragraphs_type.redirect_selector
   module:
     - link
-_core:
-  default_config_hash: 3vUnh-d7bNyYD96NVXKUmaTeWjPaCVfaUnKJ2PQR6fo
 id: paragraph.redirect_selector.field_link
 field_name: field_link
 entity_type: paragraph

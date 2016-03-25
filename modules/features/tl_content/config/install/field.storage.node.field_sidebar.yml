@@ -5,8 +5,6 @@ dependencies:
     - entity_reference_revisions
     - node
     - paragraphs
-_core:
-  default_config_hash: Rc6mKYaXC6IV229eEP6RRlEpBXu5lrtR2qEk6SdXWhs
 id: node.field_sidebar
 field_name: field_sidebar
 entity_type: node
