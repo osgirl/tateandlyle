@@ -1,7 +1,5 @@
 langcode: en
 status: true
 dependencies: {  }
-_core:
-  default_config_hash: Z8poHoNdHUF6skWMhQAkTAybEY0KqB1kgepjVJSzHrI
 id: country_contact
 label: 'Country contact'

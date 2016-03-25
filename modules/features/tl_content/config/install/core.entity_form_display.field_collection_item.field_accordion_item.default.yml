@@ -12,8 +12,6 @@ dependencies:
     - image
     - text
     - workbench_moderation
-_core:
-  default_config_hash: o4jFauheRgX8nz24UPMCs2jSV1L7Ms_nVesSQDFbKYY
 id: field_collection_item.field_accordion_item.default
 targetEntityType: field_collection_item
 bundle: field_accordion_item

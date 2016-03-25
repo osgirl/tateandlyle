@@ -2,4 +2,4 @@ langcode: en
 status: true
 dependencies: {  }
 id: tout_reference
-label: 'Tout reference'
+label: 'Reference block'

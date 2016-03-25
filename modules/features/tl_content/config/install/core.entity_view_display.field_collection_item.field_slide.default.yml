@@ -10,8 +10,6 @@ dependencies:
     - image
     - link
     - text
-_core:
-  default_config_hash: LYrnjtpDhlfwM07xmiViLnf3H_3-EnQDXZK4-PAPAo8
 id: field_collection_item.field_slide.default
 targetEntityType: field_collection_item
 bundle: field_slide

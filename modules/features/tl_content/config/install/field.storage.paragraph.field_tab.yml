@@ -4,8 +4,6 @@ dependencies:
   module:
     - field_collection
     - paragraphs
-_core:
-  default_config_hash: qcJ1UXKxecJZD14w26U6PZQyPh9rOBBGmOQaTSwDErQ
 id: paragraph.field_tab
 field_name: field_tab
 entity_type: paragraph

@@ -8,8 +8,6 @@ dependencies:
   module:
     - field_collection
     - workbench_moderation
-_core:
-  default_config_hash: fMppj5mzg0abmEoa5MNdqXlAJKLVK5UJitKvF8LD_EQ
 id: paragraph.tabs.default
 targetEntityType: paragraph
 bundle: tabs

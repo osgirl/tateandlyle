@@ -5,8 +5,6 @@ dependencies:
     - field_collection
     - file
     - image
-_core:
-  default_config_hash: FENF7lvIsgIV_GCGskUMDhXc4OMm5bITKJn9TQE4ZeU
 id: field_collection_item.field_image
 field_name: field_image
 entity_type: field_collection_item

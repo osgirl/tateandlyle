@@ -7,8 +7,6 @@ dependencies:
   module:
     - text
     - workbench_moderation
-_core:
-  default_config_hash: AehLtWE7m9e2I40vFIQmgaXBt-5v3jTqgSfyz4UNqX8
 id: paragraph.text.default
 targetEntityType: paragraph
 bundle: text

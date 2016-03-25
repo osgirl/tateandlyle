@@ -4,8 +4,6 @@ dependencies:
   module:
     - node
     - options
-_core:
-  default_config_hash: XXyi4HXC_m_XB6MzbmqIjExy4D87kH8vfSFifGjOAgU
 id: node.field_sidebar_color
 field_name: field_sidebar_color
 entity_type: node

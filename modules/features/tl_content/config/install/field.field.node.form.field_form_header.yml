@@ -6,8 +6,6 @@ dependencies:
     - node.type.form
   module:
     - text
-_core:
-  default_config_hash: xZd7jIrOEqWe8R5IQ0TQD_T3TB9U6BxoszbuSvF3uSc
 id: node.form.field_form_header
 field_name: field_form_header
 entity_type: node

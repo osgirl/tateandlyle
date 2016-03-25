@@ -17,8 +17,6 @@ dependencies:
     - paragraphs
     - text
     - workbench_moderation
-_core:
-  default_config_hash: l96t_JKel_WH8az_KDgDvwp92TfEEU1rezLlyGyKQIw
 id: paragraph.tout.default
 targetEntityType: paragraph
 bundle: tout

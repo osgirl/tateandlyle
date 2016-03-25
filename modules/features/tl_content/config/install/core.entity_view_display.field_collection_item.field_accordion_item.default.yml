@@ -10,8 +10,6 @@ dependencies:
   module:
     - image
     - text
-_core:
-  default_config_hash: vGh9X7RPPCkh3S_qqgXCpm2bKTpBV36LtUYrEdS137Q
 id: field_collection_item.field_accordion_item.default
 targetEntityType: field_collection_item
 bundle: field_accordion_item

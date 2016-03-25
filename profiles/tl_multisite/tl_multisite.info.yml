@@ -48,6 +48,7 @@ dependencies:
   - tl_content
   - tl_tweaks
   - tl_workflow
+  - tl_mail
   - imce
   - token
   - pathauto

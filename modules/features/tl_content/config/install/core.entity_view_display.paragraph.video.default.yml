@@ -9,8 +9,6 @@ dependencies:
   module:
     - image
     - text
-_core:
-  default_config_hash: SR0q91JyHzo97NxBqf-nSsqaNIsIHg2h_-ytJz15IA0
 id: paragraph.video.default
 targetEntityType: paragraph
 bundle: video

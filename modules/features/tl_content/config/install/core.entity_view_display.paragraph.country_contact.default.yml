@@ -8,8 +8,6 @@ dependencies:
     - paragraphs.paragraphs_type.country_contact
   module:
     - entity_reference_revisions
-_core:
-  default_config_hash: DLdc7PbuB8xsJOGCUvciX5yGB-PurljhDFnSAMQP5RI
 id: paragraph.country_contact.default
 targetEntityType: paragraph
 bundle: country_contact

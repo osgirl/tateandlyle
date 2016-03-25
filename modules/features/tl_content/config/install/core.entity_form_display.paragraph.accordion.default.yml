@@ -8,8 +8,6 @@ dependencies:
   module:
     - field_collection
     - workbench_moderation
-_core:
-  default_config_hash: gcGRXeovxq933dHwZaU-lCIcRSuZ6dhZHUVLNY_NFyE
 id: paragraph.accordion.default
 targetEntityType: paragraph
 bundle: accordion

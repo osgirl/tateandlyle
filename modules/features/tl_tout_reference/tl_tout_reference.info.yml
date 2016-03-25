@@ -1,7 +1,0 @@
-name: 'T&L Tout reference'
-description: 'Provides tout reference functionality on Tate and Lyle.'
-type: module
-core: 8.x
-dependencies:
-  - node
-version: 8.x

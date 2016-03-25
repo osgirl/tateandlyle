@@ -4,8 +4,6 @@ dependencies:
   config:
     - field.storage.paragraph.field_title
     - paragraphs.paragraphs_type.country_contact
-_core:
-  default_config_hash: 1Y-hmWqw5IJHbiAksseBu2tX-BpBKxvSw8XAof6lIr4
 id: paragraph.country_contact.field_title
 field_name: field_title
 entity_type: paragraph
