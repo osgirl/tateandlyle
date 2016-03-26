@@ -163,6 +163,7 @@ required:
 #  - field_collection.field_collection.field_content_reference
 #  - field_collection.field_collection.field_slide
 #  - field_collection.field_collection.field_tab
+  - image.style.footer_image
   - node.type.form
   - node.type.media_item
   - node.type.page
@@ -188,4 +189,3 @@ required:
   - workbench_moderation.moderation_state_transition.published_archived
   - workbench_moderation.moderation_state_transition.published_draft
   - workbench_moderation.moderation_state_transition.published_published
-  - image.style.footer_image
