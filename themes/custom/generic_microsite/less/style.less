@@ -60,6 +60,10 @@ select {
   border-radius: 0;
 }
 
+hr {
+  border: 1px solid #E5E5E5;
+}
+
 /* Remove helper text from textarea */
 .filter-wrapper,
 .field--widget-text-textarea div.text-full a {
@@ -2588,6 +2592,7 @@ body {
           &:first-child {
             background-color: #f1f0ed;
             font-weight: 700;
+            min-width: 97px;
           }
           padding:10px;
           padding-right:5px;
@@ -2611,6 +2616,7 @@ body {
     }
   }
 }
+
 .nav-tabs.forms {
   margin-bottom: 0;
   .active a {
@@ -2625,7 +2631,7 @@ body {
     }
   }
   a {
-    padding: 7px 15px;
+    padding: 10px 14px;
     background-color: #f1f0ed;
     font-size: 12px;
     font-weight: 700;
@@ -2654,8 +2660,6 @@ body {
 .footer-image {
   display: none;
   margin-left: -20px;
-  max-width: 600px;
-  width: 100%;
   @media (min-width: @screen-xs) {
     display: block;
   }
