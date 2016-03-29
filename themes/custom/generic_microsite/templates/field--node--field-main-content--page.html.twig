@@ -93,7 +93,7 @@
         <table border="1">
 			    <thead>	
 				  <tr>
-				  <td>{{ 'Where / What' | t}}</td><td>{{ 'Further details' | t}}</td><td></td>
+				  <td>{{ item['content']['#paragraph'].field_first_column_label.value | t}}</td><td>{{ item['content']['#paragraph'].field_second_column_label.value | t}}</td><td></td>
 				  </tr>
 				</thead>				
 			  {% for tab in tl_tab_forms[tab_id] %} 
@@ -113,7 +113,7 @@
         <table border="1">
 			    <thead>	
 				  <tr>
-				  <td>{{ 'Where / What' | t}}</td><td>{{ 'Further details' | t}}</td><td></td>
+				  <td>{{ item['content']['#paragraph'].field_first_column_label.value | t}}</td><td>{{ item['content']['#paragraph'].field_second_column_label.value | t}}</td><td></td>
 				  </tr>
 				</thead>				
 			  {% for tab in tl_tab_forms[tab_id] %} 
