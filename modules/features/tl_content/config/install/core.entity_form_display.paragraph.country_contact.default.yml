@@ -3,7 +3,9 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.country_contact.field_contact
+    - field.field.paragraph.country_contact.field_first_column_label
     - field.field.paragraph.country_contact.field_redirect
+    - field.field.paragraph.country_contact.field_second_column_label
     - field.field.paragraph.country_contact.field_title
     - paragraphs.paragraphs_type.country_contact
   module:
