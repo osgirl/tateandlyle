@@ -57,7 +57,10 @@ projects:
       revision: "8.x-1.x"
   search_api:
     type: module
-    version: "1.0-alpha12"
+    download:
+      type: git
+      url: "https://git.drupal.org/project/search_api.git"
+      revision: "42417befcf48f8122b17ae2a4053187b00a6c82e"
   search_api_solr:
     type: module
     download:
