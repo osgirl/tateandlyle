@@ -49,7 +49,7 @@ dependencies:
     - rest
     - user
 _core:
-  default_config_hash: H2nCcHnT-0BT-k_LrtUSDhtVZpyUu_-YZi85rgDCm1I
+  default_config_hash: PtksiKt5P8jCcVvoz_2rvki-TmjRBqbKhoBFcuyNTZ8
 id: contact_messages_administration
 label: 'Contact Messages Administration'
 module: views
@@ -1591,6 +1591,22 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
+          click_sort_column: value
+          type: timestamp
+          settings:
+            date_format: custom
+            custom_date_format: d-m-Y
+            timezone: ''
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: 0
           date_format: fallback
           custom_date_format: ''
           timezone: ''
@@ -2208,7 +2224,7 @@ display:
           type: timestamp
           settings:
             date_format: custom
-            custom_date_format: 'd-m-Y'
+            custom_date_format: d-m-Y
             timezone: ''
           group_column: value
           group_columns: {  }
