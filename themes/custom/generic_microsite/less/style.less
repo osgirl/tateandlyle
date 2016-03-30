@@ -2295,6 +2295,7 @@ form .field--type-boolean {
       }
     }
   }
+
   /* Special fields */
   .field--name-field-contact-identifier {
     display: none;
@@ -2321,6 +2322,7 @@ form .field--type-boolean {
     @media(min-width: @screen-sm-min) {
       float: right;
       margin-right: 5.2%;
+      margin-top: -5px;
       width: 36.4%;
     }
   }
@@ -2404,7 +2406,8 @@ form .field--type-boolean {
     .form-group {
       margin-bottom: 10px;
     }
-    label {
+    label,
+    .panel-title {
       font-size: 17px;
       padding: 2px 0;
     }
@@ -2455,6 +2458,44 @@ form .field--type-boolean {
       font-size: 17px;
     }
   }
+}
+
+form {
+  .panel,
+  .panel-default>.panel-heading {
+    background: none;
+    border: none;
+    box-shadow: none;
+  }
+
+  .panel-default>.panel-heading {
+    padding: 0 15px;
+  }
+
+  .panel-title {
+    color: #525252;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 5px 0 4px 0;
+    text-align: left;
+  }
+
+  .panel-body {
+    padding-left: 20px;
+    padding-top: 5px;
+  }
+}
+
+.radio input[type="radio"],
+.radio-inline input[type="radio"],
+.checkbox input[type="checkbox"],
+.checkbox-inline input[type="checkbox"] {
+  top: 2px;
+  width: 10px;
+}
+
+iframe {
+  max-width: 100%;
 }
 
 /* Pagination */
