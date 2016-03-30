@@ -72,7 +72,7 @@ projects:
     download:
       type: git
       url: "https://git.drupal.org/project/search_api_attachments.git"
-      revision: "81530ec2c2259fe3d1294098ada6fc3c95aebdc3"
+      revision: "4754c6c9a3498cd68aea0c48679d5c6f583e733b"
   security_review:
     version: ~
   paragraphs:
