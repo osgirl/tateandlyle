@@ -66,7 +66,7 @@ projects:
     download:
       type: git
       url: "https://git.drupal.org/project/search_api_solr.git"
-      revision: "10f3516556ba2041494b6b2e5f9ef960fb93394d"
+      revision: "b2d020198dc2f631aa9b64054a47ad9e56bc9702"
   search_api_attachments:
     type: module
     download:
