@@ -24,6 +24,7 @@ permissions:
   13: 'access content overview'
   14: 'administer nodes'
   15: 'administer themes'
+  18: 'translate interface'
   21: 'administer google analytics'
   23: 'access administration pages'
   24: 'administer blocks'
