@@ -11,4 +11,4 @@ dependencies:
   - system
   - tatelyle_search
   - views
-version: '8.x'
+version: 8.x

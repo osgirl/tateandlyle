@@ -6,8 +6,6 @@ dependencies:
   module:
     - search_api
     - node
-_core:
-  default_config_hash: tvKZN_Hyh5rsILcP5Jvm_BOkXBwGa_ZiTw-sxMsAgOw
 id: tate_lyle_content_index
 name: 'Tate Lyle content index'
 description: ''
