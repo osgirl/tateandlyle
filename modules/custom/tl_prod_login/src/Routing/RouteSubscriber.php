@@ -35,10 +35,6 @@ class RouteSubscriber extends RouteSubscriberBase {
       $route->setRequirement('_access', 'FALSE');
     }
 
-    // Deny access to the password reset page.
-    if ($route = $collection->get('user.reset')) {
-      $route->setRequirement('_access', 'FALSE');
-    }
   }
 
 }
