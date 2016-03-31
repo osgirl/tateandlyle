@@ -75,7 +75,7 @@ projects:
       revision: "4754c6c9a3498cd68aea0c48679d5c6f583e733b"
     patch:
       - "https://www.drupal.org/files/issues/drupal_8_acquia_search-2696901-3.patch"
-      - "https://www.drupal.org/files/issues/configuration_screen-2695361-3.patch"
+      - "https://www.drupal.org/files/issues/configuration_screen-2695361-4.patch"
   security_review:
     version: ~
   paragraphs:
