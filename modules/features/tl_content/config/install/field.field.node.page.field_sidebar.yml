@@ -24,6 +24,7 @@ settings:
       slide: slide
       text: text
       tout: tout
+      video: video
       tout_reference: tout_reference
     target_bundles_drag_drop:
       accordion:
