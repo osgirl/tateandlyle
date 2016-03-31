@@ -3,17 +3,17 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_sidebar
-    - node.type.page
+    - node.type.form
   module:
     - entity_reference_revisions
-id: node.page.field_sidebar
+id: node.form.field_sidebar
 field_name: field_sidebar
 entity_type: node
-bundle: page
+bundle: form
 label: Sidebar
-description: 'Add content that will appear on the sidebar region on this page.'
+description: 'Add content that will appear on the sidebar of this page.'
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
@@ -55,8 +55,8 @@ settings:
         enabled: true
         weight: 19
       video:
+        enabled: true
         weight: 20
-        enabled: false
       tout_reference:
         enabled: true
         weight: 21

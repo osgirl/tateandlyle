@@ -186,11 +186,23 @@ required:
   - workbench_moderation.moderation_state.draft
   - workbench_moderation.moderation_state.needs_review
   - workbench_moderation.moderation_state.published
+  - workbench_moderation.moderation_state.needs_to_be_archived
   - workbench_moderation.moderation_state_transition.draft_draft
   - workbench_moderation.moderation_state_transition.draft_needs_review
+  - workbench_moderation.moderation_state_transition.draft_published
+  - workbench_moderation.moderation_state_transition.draft_archived
+  - workbench_moderation.moderation_state_transition.needs_review_draft
   - workbench_moderation.moderation_state_transition.needs_review_needs_review
   - workbench_moderation.moderation_state_transition.needs_review_published
-  - workbench_moderation.moderation_state_transition.published_archived
+  - workbench_moderation.moderation_state_transition.needs_review_archived
+  - workbench_moderation.moderation_state_transition.needs_to_be_archived_archived
+  - workbench_moderation.moderation_state_transition.needs_to_be_archived_published
   - workbench_moderation.moderation_state_transition.published_draft
+  - workbench_moderation.moderation_state_transition.published_needs_review
   - workbench_moderation.moderation_state_transition.published_published
-
+  - workbench_moderation.moderation_state_transition.published_needs_to_be_archived
+  - workbench_moderation.moderation_state_transition.published_archived
+  - workbench_moderation.moderation_state_transition.archived_archived
+  - workbench_moderation.moderation_state_transition.archived_draft
+  - workbench_moderation.moderation_state_transition.archived_needs_review
+  - workbench_moderation.moderation_state_transition.archived_published
