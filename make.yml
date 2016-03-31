@@ -15,6 +15,7 @@ projects:
       # See https://www.drupal.org/node/2631468
       - "https://www.drupal.org/files/issues/2631468-19.patch"
       - "https://www.drupal.org/files/issues/missing-dependencies-2655104.patch"
+      - "https://www.drupal.org/files/issues/drupal-views_exposed_filter_pager-2686429-2-8.0.x.patch"
   # For all projects, always specify the exact version that is to be used.
   # For any project using a dev branch, always specify the revision id.
   acquia_connector:
@@ -56,7 +57,10 @@ projects:
       revision: "8.x-1.x"
   search_api:
     type: module
-    version: "1.0-alpha12"
+    download:
+      type: git
+      url: "https://git.drupal.org/project/search_api.git"
+      revision: "42417befcf48f8122b17ae2a4053187b00a6c82e"
   search_api_solr:
     type: module
     download:
@@ -68,7 +72,7 @@ projects:
     download:
       type: git
       url: "https://git.drupal.org/project/search_api_attachments.git"
-      revision: "81530ec2c2259fe3d1294098ada6fc3c95aebdc3"
+      revision: "4754c6c9a3498cd68aea0c48679d5c6f583e733b"
   security_review:
     version: ~
   paragraphs:

@@ -93,7 +93,11 @@
         <table border="1">
 			    <thead>	
 				  <tr>
-				  <td>{{ item['content']['#paragraph'].field_first_column_label.value | t}}</td><td>{{ item['content']['#paragraph'].field_second_column_label.value | t}}</td><td></td>
+				  {% if item['content']['#paragraph'].field_first_column_label.value and item['content']['#paragraph'].field_second_column_label.value %}
+				    <td>{{ item['content']['#paragraph'].field_first_column_label.value | t}}</td><td>{{ item['content']['#paragraph'].field_second_column_label.value | t}}</td><td></td>
+				  {% else %}
+				    <td>{{ 'Where/What' | t}}</td><td>{{ 'Further details' | t}}</td><td></td>
+				  {% endif %}
 				  </tr>
 				</thead>				
 			  {% for tab in tl_tab_forms[tab_id] %} 
@@ -113,7 +117,12 @@
         <table border="1">
 			    <thead>	
 				  <tr>
-				  <td>{{ item['content']['#paragraph'].field_first_column_label.value | t}}</td><td>{{ item['content']['#paragraph'].field_second_column_label.value | t}}</td><td></td>
+				  {% if item['content']['#paragraph'].field_first_column_label.value and item['content']['#paragraph'].field_second_column_label.value %}
+				    <td>{{ item['content']['#paragraph'].field_first_column_label.value | t}}</td><td>{{ item['content']['#paragraph'].field_second_column_label.value | t}}</td><td></td>
+				  {% else %}
+				    <td>{{ 'Where/What' | t}}</td><td>{{ 'Further details' | t}}</td><td></td>
+				  {% endif %}
+				  </tr>
 				  </tr>
 				</thead>				
 			  {% for tab in tl_tab_forms[tab_id] %} 
