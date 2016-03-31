@@ -56,6 +56,12 @@ table.tout {
   }
 }
 
+table.no-borders {
+  td {
+    border: 0;
+  }
+}
+
 select {
   border-radius: 0;
 }
@@ -2117,7 +2123,7 @@ body {
       }
       .accordion-title {
         background: url(../images/bullet-link.gif) 0 5px no-repeat;
-        display: inline;
+        display: inline-block;
         font-size: 12px;
         line-height: 16px;
         padding: 0 25px 4px 12px;
@@ -3392,6 +3398,11 @@ ul.sitemap-menu {
   }
   .st-pusher {
     background-size: 100% 70%;
+  }
+  aside .paragraph:last-child {
+    border-bottom: 1px solid #e5e5e5;
+    margin-bottom: 1em;
+    padding-bottom: 1em;
   }
 }
 

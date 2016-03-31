@@ -1977,7 +1977,9 @@ form {
     margin-left: 5px;
     margin-bottom: 0;
     li {
-      display: inline-block;
+      @media(min-width: @screen-md-min) {
+        display: inline-block;
+      }
       a {
         font-size: 10.5px;
         line-height: 11px;
