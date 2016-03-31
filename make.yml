@@ -155,9 +155,6 @@ projects:
   better_exposed_filters:
     type: module
     version: "3.x-dev"
-  workflow:
-    type: module
-    version: "1.x-dev"
   diff:
     type: module
     version: "1.0-alpha2"
