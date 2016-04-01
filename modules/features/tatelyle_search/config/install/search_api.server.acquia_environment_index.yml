@@ -22,10 +22,12 @@ backend_config:
     skip_schema_check: 0
     solr_version: ''
     http_method: AUTO
+  multisite:
     site_hash: 1
   acquia_override_subscription:
-    acquia_override_auto_switch: 0
+    acquia_override_auto_switch: 1
     acquia_override_selector: CMQY-94994.test.tatelyle
+    local_core: CMQY-94994.dev.tatelyle
     acquia_override_subscription_id: ''
     acquia_override_subscription_key: ''
     acquia_override_subscription_corename: ''
@@ -40,4 +42,3 @@ backend_config:
   site_hash: 1
   autocorrect_spell: true
   autocorrect_suggest_words: true
-  core: CMQY-94994.test.tatelyle
