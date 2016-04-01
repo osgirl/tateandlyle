@@ -56,7 +56,7 @@ settings:
         weight: 19
       video:
         weight: 20
-        enabled: false
+        enabled: true
       tout_reference:
         enabled: true
         weight: 21

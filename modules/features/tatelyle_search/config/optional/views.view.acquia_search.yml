@@ -6,8 +6,6 @@ dependencies:
     - system.menu.main
   module:
     - search_api
-_core:
-  default_config_hash: QckdK2CPcROlYYoZ2yCkmHnD32lL63-Zkn5587OdvtY
 id: acquia_search
 label: 'Acquia Search'
 module: views

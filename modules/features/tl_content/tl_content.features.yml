@@ -206,3 +206,5 @@ required:
   - workbench_moderation.moderation_state_transition.archived_draft
   - workbench_moderation.moderation_state_transition.archived_needs_review
   - workbench_moderation.moderation_state_transition.archived_published
+  - filter.format.filtered_html
+  - editor.editor.filtered_html

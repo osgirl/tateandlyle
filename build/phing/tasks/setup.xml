@@ -45,6 +45,8 @@
     <exec dir="${docroot}" command="cp ../simplesamlphp/config/config.php ./vendor/simplesamlphp/simplesamlphp/config/" />
     <exec dir="${docroot}" command="cp ../simplesamlphp/config/authsources.php ./vendor/simplesamlphp/simplesamlphp/config/" />
     <exec dir="${docroot}" command="cp ../simplesamlphp/metadata/saml20-idp-remote.php ./vendor/simplesamlphp/simplesamlphp/metadata" />
+    <echo message="Patching solarium to support file extraction." />
+    <exec dir="${docroot}" command="cat ../patches/solarium-multipart.patch | patch -p0" />
 
     <!-- Symlink htaccess. -->
     <exec dir="${docroot}" command="rm .htaccess"/>

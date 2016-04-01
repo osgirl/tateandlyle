@@ -47,7 +47,7 @@ dependencies:
   - tl_fibres_media_centre
   - tl_content
   - tl_tweaks
-  - tl_workflow
+  #- tl_workflow
   - tl_mail
   - imce
   - token
