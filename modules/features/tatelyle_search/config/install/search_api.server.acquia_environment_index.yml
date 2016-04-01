@@ -3,8 +3,6 @@ status: true
 dependencies:
   module:
     - acquia_search_multi_subs
-_core:
-  default_config_hash: RShsVo1nweEwrIhvGIbXmmYIvjFRVOOddc5dh-GrgMA
 id: acquia_environment_index
 name: 'Acquia Environment Index'
 description: ''
