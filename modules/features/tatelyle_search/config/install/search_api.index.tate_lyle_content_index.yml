@@ -52,9 +52,9 @@ processor_settings:
         anonymous: anonymous
       view_mode:
         'entity:node':
-          form: teaser
-          media_item: teaser
-          page: teaser
+          form: default
+          media_item: default
+          page: default
       weights:
         preprocess_index: -10
 options:
