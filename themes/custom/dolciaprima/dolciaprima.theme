@@ -286,6 +286,9 @@ function dolciaprima_form_contact_message_technical_data_sheets_form_alter(&$for
  * Implements theme_preprocess_block.
  */
 function dolciaprima_preprocess_block(&$variables) {
+  if ($variables['base_plugin_id'] == 'local_tasks_block') {
+    unset($variables['content']['#primary']['entity.node.delete_form']);
+  }
   if ($variables['base_plugin_id'] == 'language_block') {
     $variables['label'] = t('Pick your language');
     $languages = \Drupal::languageManager();
