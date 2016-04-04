@@ -5,4 +5,4 @@ dependencies: {  }
 _core:
   default_config_hash: GPcqVkKcqdB9WnOEED30poonJ1oKVDgnsTBhB7HKpUU
 id: country_contact
-label: 'Country contact'
+label: 'Selection'

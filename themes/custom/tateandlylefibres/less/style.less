@@ -1999,9 +1999,12 @@ form {
     margin: 5px 7px 0;
     p {
       font-size: 10px;
-      line-height: 13px;
+      line-height: 11px;
+      margin-bottom: 0;
       color: #9c510e;
-      margin-bottom: 10px;
+      @media(min-width: @screen-lg) {
+        margin-bottom: 10px;
+      }
     }
   }
   .language-switcher-language-url {

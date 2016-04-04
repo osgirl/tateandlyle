@@ -243,7 +243,7 @@ function tateandlylefibres_preprocess_paragraph(&$variables) {
     /*Check if video url exist*/
     if($video[0]) { 
       $video_id = $video[0]['video_id'];
-      $video_url = "http://youtube.com/embed/" . $video_id . '?rel=0&amp&autoplay=1;showinfo=0';
+      $video_url = "http://youtube.com/embed/" . $video_id . '?rel=0&amp;showinfo=0';
       $variables['video_url'] = $video_url;
     }
     /*Check if video image exist*/
@@ -300,6 +300,9 @@ function tateandlylefibres_form_contact_message_marketing_form_alter(&$form, \Dr
  * Implements theme_preprocess_block.
  */
 function tateandlylefibres_preprocess_block(&$variables) {
+  if ($variables['base_plugin_id'] == 'local_tasks_block') {
+    unset($variables['content']['#primary']['entity.node.delete_form']);
+  }
   if($variables['base_plugin_id'] == 'system_branding_block') {
     $language_manager = \Drupal::languageManager();
     $default_language = $language_manager->getDefaultLanguage()->getId();

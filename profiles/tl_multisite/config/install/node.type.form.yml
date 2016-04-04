@@ -1,20 +1,27 @@
-uuid: 55a78465-a380-4fc1-a93c-6006574d6e13
 langcode: en
 status: true
 dependencies:
   module:
     - menu_ui
+    - workbench_moderation
 third_party_settings:
   menu_ui:
     available_menus:
       - main
     parent: 'main:'
-_core:
-  default_config_hash: DF-H_pUpf8QPIDSzc890EmANeSyuPmraW-bs-5R0DGs
+  workbench_moderation:
+    enabled: true
+    allowed_moderation_states:
+      - archived
+      - draft
+      - needs_review
+      - needs_to_be_archived
+      - published
+    default_moderation_state: draft
 name: Form
 type: form
 description: 'Create a new form or questionnaire accessible to users. Submission results and statistics are recorded and accessible to privileged users.'
 help: ''
-new_revision: false
+new_revision: true
 preview_mode: 1
 display_submitted: false
