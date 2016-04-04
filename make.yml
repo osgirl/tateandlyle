@@ -54,7 +54,7 @@ projects:
     download:
       type: git
       url: "https://git.drupal.org/project/acquia_search_multi_subs.git"
-      revision: "715fe70cf6f6ac42e1bb2302eb30b9d60abbbd6c"
+      revision: "a8e82af9006e9bcd465de91b738cf899d61a96fd"
   search_api:
     type: module
     download:
