@@ -82,7 +82,7 @@ projects:
     type: module
     version: "1.0-rc4"
     patch:
-    - "https://www.drupal.org/files/issues/paragraphs-EntityChangedConstraintValidator-FixAndTest-2631590-16.patch"
+      - "https://www.drupal.org/files/issues/paragraphs-EntityChangedConstraintValidator-FixAndTest-2631590-16.patch"
   entity_reference_revisions:
     type: module
     version: "1.0-rc4"
