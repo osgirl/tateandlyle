@@ -1,0 +1,7 @@
+required:
+  - user.role.anonymous
+  - user.role.authenticated
+  - user.role.site_admin
+  - user.role.site_owner
+  - user.role.content_approver
+  - user.role.form_analyst

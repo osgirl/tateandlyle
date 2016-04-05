@@ -54,7 +54,7 @@ projects:
     download:
       type: git
       url: "https://git.drupal.org/project/acquia_search_multi_subs.git"
-      revision: "8.x-1.x"
+      revision: "a8e82af9006e9bcd465de91b738cf899d61a96fd"
   search_api:
     type: module
     download:
@@ -82,7 +82,7 @@ projects:
     type: module
     version: "1.0-rc4"
     patch:
-    - "https://www.drupal.org/files/issues/paragraphs-EntityChangedConstraintValidator-FixAndTest-2631590-16.patch"
+      - "https://www.drupal.org/files/issues/paragraphs-EntityChangedConstraintValidator-FixAndTest-2631590-16.patch"
   entity_reference_revisions:
     type: module
     version: "1.0-rc4"
