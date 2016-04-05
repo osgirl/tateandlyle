@@ -2,9 +2,10 @@ langcode: en
 status: true
 dependencies:
   config:
+    - workbench_moderation.moderation_state.draft
     - workbench_moderation.moderation_state.needs_review
-id: needs_review_needs_review
-label: 'Needs review » Needs review'
+id: needs_review_draft
+label: 'Needs review » Draft'
 stateFrom: needs_review
-stateTo: needs_review
-weight: -5
+stateTo: draft
+weight: -6

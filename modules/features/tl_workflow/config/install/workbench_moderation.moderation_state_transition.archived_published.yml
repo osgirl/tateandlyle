@@ -4,8 +4,8 @@ dependencies:
   config:
     - workbench_moderation.moderation_state.archived
     - workbench_moderation.moderation_state.published
-id: published_archived
-label: 'Published » Archived'
-stateFrom: published
-stateTo: archived
-weight: 1
+id: archived_published
+label: 'Archived » Published'
+stateFrom: archived
+stateTo: published
+weight: 4

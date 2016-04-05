@@ -3,9 +3,8 @@ status: true
 dependencies:
   config:
     - workbench_moderation.moderation_state.published
-_core:
-  default_config_hash: PEaMEAIPnPWVSvZxf4wJS8kwHqdQIzc2Cebdy7rzHis
 id: published_published
 label: 'Published » Published'
 stateFrom: published
 stateTo: published
+weight: 0
