@@ -1,7 +1,0 @@
-langcode: en
-status: true
-dependencies: {  }
-id: needs_to_be_archived
-label: 'Needs to be archived'
-published: true
-default_revision: true
