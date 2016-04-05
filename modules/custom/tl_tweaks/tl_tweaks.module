@@ -192,17 +192,17 @@ function tl_tweaks_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &$
  */
 function tl_tweaks_views_query_alter($view, $query) {
   $where = $query->where['1']['conditions'];
-  unset($query->where['1']);
   foreach ($where as $key => $value) {
     if (strpos($value['field'], 'contact_message.created >= ') !== FALSE) {
       $substr = str_replace("contact_message.created >= ", "", $value['field']);
-      $substr = $substr + '89940';
-      $query->addWhere("test", "contact_message.created", $value = $substr, $operator = ">=");
+      unset($query->where['1']['conditions'][$key]);
+      $query->addWhere("1", "contact_message.created", $value = $substr, $operator = ">=");
     }
     if (strpos($value['field'], 'contact_message.created <= ') !== FALSE) {
       $substr = str_replace("contact_message.created <= ", "", $value['field']);
-      $substr = $substr + '89940';
-      $query->addWhere("test", "contact_message.created", $value = $substr, $operator = "<=");
+      unset($query->where['1']['conditions'][$key]);
+      $substr = $substr + '86340';
+      $query->addWhere("1", "contact_message.created", $value = $substr, $operator = "<=");
     }
   }
 }
