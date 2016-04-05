@@ -4,8 +4,8 @@ dependencies:
   config:
     - workbench_moderation.moderation_state.draft
     - workbench_moderation.moderation_state.published
-id: published_draft
-label: 'Published » Draft'
-stateFrom: published
-stateTo: draft
-weight: -2
+id: draft_published
+label: 'Draft » Publish'
+stateFrom: draft
+stateTo: published
+weight: -8
