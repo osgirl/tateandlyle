@@ -161,3 +161,6 @@ projects:
   diff:
     type: module
     version: "1.0-alpha2"
+  autologout:
+    type: module
+    version: "1.0-rc1"
