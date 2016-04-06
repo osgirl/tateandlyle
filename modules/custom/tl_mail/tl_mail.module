@@ -5,6 +5,15 @@
  */
 
 /**
+ * Implements hook_node_insert().
+ */
+function tl_mail_node_insert($node) {
+  if ($node->get('moderation_state')->getValue()[0]['target_id'] == 'needs_review') {
+    mail_node_insert_approver($node);
+  }
+}
+
+/**
  * Implements hook_node_update().
  */
 function tl_mail_node_update($node) {
