@@ -48,19 +48,6 @@ global-styling7:
     theme:
       css/style7.css: {}
 
-# Bootstrap chosen styling #
-bootstrap-chosen-styling:
-  version: VERSION
-  css:
-    theme:
-      css/bootstrap-chosen.css: {}
-
-# Chosen script #
-chosen-script:
-  version: VERSION
-  js:
-    js/chosen.jquery.min.js: {}
-
 
 # Menu sidebar scripts #
 classie:

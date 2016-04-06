@@ -218,6 +218,24 @@ function dolciaprima_preprocess_field(&$variables) {
     $variables['slide_id'] = $slide['id'][0]['value'];
   }
 
+  // Show/hide arrows.
+  if ($variables['field_name'] == 'field_show_arrows') {
+
+    $slide = $variables['element']['#object']->toArray();
+    $slide_id = $slide['id'][0]['value'];
+    $variables['slide_id'] = $slide['id'][0]['value'];
+    if ($variables['element'][0]['#markup'] == 'Show arrows') {
+      $variables['items'][0]['content']['#markup'] = '<a class="left carousel-control" href="#slideshow'.'-'. $slide_id . '" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      </a>
+      <a class="right carousel-control" href="#slideshow'.'-'. $slide_id . '" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      </a>';
+    } else {
+      $variables['items'][0]['content']['#markup'] = '';
+    }
+  }
+
   //Close button special touts front page.
  if (($variables['field_name'] == 'field_text') && ($variables['entity_type'] == 'paragraph')) {
   $paragraph = $variables['element']['#object']->toArray();

@@ -184,10 +184,50 @@ function centerModal() {
     }
   }
 
+  Drupal.behaviors.ValidateEachForm = {
+    attach: function (context, settings) {
+      $.validator.setDefaults({ ignore: ":hidden:not(select)" });
+
+      $('form').each(function() {  // attach to all form elements on page
+        $(this).validate({       // initialize plugin on each form
+
+          errorPlacement: function(error, element) {
+              if(element.parent('.form-group').length) {
+                  error.insertAfter(element.parent());
+              } else if (element.is('select')) {
+                  error.insertBefore(element);
+              } else
+              {
+                  error.insertAfter(element);
+              }
+          },
+
+          highlight: function (element) {
+            $(element).closest('.form-group').removeClass('checked').addClass('error');
+            $(element).next('.chosen-container').removeClass('checked').addClass('error');
+            //$('label.error').insertAfter($('.chosen-container'));
+            
+          },
+          success: function (element) {
+            $(element).closest('.form-group').removeClass('error').addClass('checked');
+            $(element).next('.chosen-continer').removeClass('error').addClass('checked');
+          }
+
+        });
+      });
+
+      $("option[value='_none']").attr("disabled", true);
+     
+      $('select').on('change', function () {
+          $(this).valid();
+      });
+    }
+  }
+
   // Chosen options.
   Drupal.behaviors.chosen = {
     attach: function (context, settings) {
-      $('.field--name-field-primary-application select, .field--name-field-interests select').chosen({
+      /*$('.field--name-field-primary-application select, .field--name-field-interests select').chosen({
         disable_search: true,
         placeholder_text_multiple: "(Select up to 3)",
         max_selected_options: 3,
@@ -195,7 +235,7 @@ function centerModal() {
 
       $('#edit-field-country-list').chosen({
         disable_search: false,
-      });
+      });*/
     }
   }
 
