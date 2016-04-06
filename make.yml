@@ -164,3 +164,9 @@ projects:
   autologout:
     type: module
     version: "1.0-rc1"
+  chosen:
+    type: module
+    version: "2.0-beta3"
+  clientside_validation:
+    type: module
+    version: "1.0-rc1"

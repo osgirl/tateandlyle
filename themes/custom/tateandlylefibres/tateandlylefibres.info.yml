@@ -21,11 +21,7 @@ regions:
 
 libraries:
   # Styling sheets #
-  - 'tateandlylefibres/bootstrap-chosen-styling'
   - 'tateandlylefibres/global-styling'
-
-  # Chosen script #
-  - 'tateandlylefibres/chosen-script'
 
   # Bootstrap scripts #
   - 'tateandlylefibres/bootstrap-scripts'
