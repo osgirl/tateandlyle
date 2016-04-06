@@ -158,6 +158,35 @@ function centerModal() {
       });
     }
   };
+
+  Drupal.behaviors.ValidateEachForm1 = {
+    attach: function (context, settings) {
+      $.validator.setDefaults({ ignore: ":hidden:not(select)" });
+
+      $('form').each(function() {  // attach to all form elements on page
+        $(this).validate({       // initialize plugin on each form
+            highlight: function (element) {
+                $(element).closest('.form-group').removeClass('checked').addClass('error');
+                $(element).next('.chosen-container').removeClass('checked').addClass('error');
+            },
+            success: function (element) {
+        /*        element
+                .text('OK!').addClass('valid')*/
+                $(element).closest('.form-group').removeClass('error').addClass('checked');
+                $(element).next('.chosen-continer').removeClass('error').addClass('checked');
+            }
+        });
+      });
+
+      $("option[value='_none']").attr("disabled", true);
+     
+
+      $('select').on('change', function () {
+          $(this).valid();
+      });
+
+    }
+  }
  
   // Chosen options.
   Drupal.behaviors.chosen = {
