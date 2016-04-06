@@ -1,0 +1,8 @@
+name: 'TL Features setings'
+type: module
+core: 8.x
+dependencies:
+  - block
+  - features
+  - views
+version: 8.x-1.0
