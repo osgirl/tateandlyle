@@ -124,10 +124,10 @@ projects:
     version: "3.0-beta2"
   workbench_moderation:
     type: module
-    version: "1.0-beta1"
+    version: "1.0-beta2"
   metatag:
     type: module
-    version: "1.0-beta3"
+    version: "1.0-beta7"
   youtube:
     type: module
     version: "1.0-beta2"
@@ -161,9 +161,12 @@ projects:
   diff:
     type: module
     version: "1.0-alpha2"
+  autologout:
+    type: module
+    version: "1.0-rc1"
   chosen:
     type: module
     version: "2.0-beta3"
-  clienside_valication:
+  clientside_validation:
     type: module
     version: "1.0-rc1"
