@@ -23,7 +23,8 @@ regions:
   page_bottom: 'Page bottom'
 
 libraries:
-
+  # Styling sheets #
+  - 'generic_microsite/bootstrap-chosen-styling'
   - 'generic_microsite/global-styling'
 
   # Bootstrap scripts #
