@@ -23,8 +23,12 @@ regions:
 
 libraries:
   # Styling sheets #
+  - 'dolciaprima/bootstrap-chosen-styling'
   - 'dolciaprima/global-styling'
 
+  # Chosen script #
+  - 'dolciaprima/chosen-script'
+ 
   # Bootstrap scripts #
   - 'dolciaprima/bootstrap-scripts'
 
