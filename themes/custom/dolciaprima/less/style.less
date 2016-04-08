@@ -194,9 +194,9 @@ img {
   }
   .header-text {
     @media (min-width: @screen-sm-min) {
-      margin-left: 4%;
+      margin-left: 10%;
       position: relative;
-      left: 1.5em;
+      left: 1em;
     }
     p {
       color: #FFF;
@@ -206,11 +206,15 @@ img {
       text-align: center;
       width: 85%;
       @media (min-width: @screen-sm-min) {
-        margin-bottom: 10px;
+        margin-bottom: 0;
         margin-top: 55px;
         width: auto;
       }
     }
+  }
+  .field--name-field-name {
+    padding-left: .9375em;
+    padding-right: .9375em;
   }
   .field--type-email {
     width: 100%;
@@ -543,6 +547,91 @@ img {
   }
 }
 
+/* Form validation */
+label.error {
+  display: none !important; // Hide the error label set by jQuery Validation plugin.
+}
+
+.form-group {
+  position: relative;
+  &.error {
+    label {
+      color: #721f82 !important;
+    }
+    &:after {
+      color: #cf36c3;
+      content: "\e014";
+      font-family: 'Glyphicons Halflings';
+      font-size: 10px;
+      right: -15px;
+      position: absolute;
+      top: 24px;
+    };
+  }
+  &.checked {
+    &:after {
+      color: #FFF;
+      content: "\e013";
+      font-family: 'Glyphicons Halflings';
+      font-size: 10px;
+      right: -15px;
+      position: absolute;
+      top: 24px;
+    }
+  }
+}
+
+.chosen-container.error .chosen-single,
+.chosen-container.error .chosen-single span {
+  line-height: 24px;
+}
+
+.pre-header {
+  .chosen-container.error .chosen-choices,
+  .chosen-container.error .chosen-single {
+    border: 1px solid #aaa;
+  }
+  .form-group {
+    position: relative;
+    &.error {
+      label {
+        color: #FFF !important;
+        font-weight: 400 !important;
+      }
+    }
+  }
+}
+
+.contact-message-technical-data-sheets-form {
+  .form-group {
+    width: 95%;
+    &.error {
+      label {
+        color: #721f82 !important;
+      }
+      input {
+        border-color: #cf36c3;
+      }
+      &:after {
+        color: #cf36c3;
+        content: "\e014";
+        font-family: 'Glyphicons Halflings';
+        font-size: 14px;
+        right: -20px;
+        position: absolute;
+        top: 28px;
+      };
+    }
+    &.checked {
+      &:after {
+        content: none;
+      }
+    }
+    input {
+      width: 100%;
+    }
+  }
+}
 
 /* Header */
 .header-right {

@@ -219,6 +219,7 @@ function tl_multisite_create_nodes() {
     'title' => 'Page not found',
     'field_tags' => [2],
     'field_main_content' => $paragraph,
+    'moderation_state' => 'published',
   ]);
   $node->save();
   $path = '/node/' . $node->id();
@@ -240,6 +241,7 @@ function tl_multisite_create_nodes() {
     'title' => 'Access denied',
     'field_tags' => [2],
     'field_main_content' => $paragraph,
+    'moderation_state' => 'published',
   ]);
   $node->save();
   $path = '/node/' . $node->id();
@@ -261,6 +263,7 @@ function tl_multisite_create_nodes() {
     'title' => 'Thank you',
     'field_tags' => [2],
     'field_main_content' => $paragraph,
+    'moderation_state' => 'published',
   ]);
   $node->save();
   $path = '/node/' . $node->id();

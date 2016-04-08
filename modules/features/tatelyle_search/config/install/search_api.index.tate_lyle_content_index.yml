@@ -5,6 +5,7 @@ dependencies:
     - search_api.server.acquia_environment_index
   module:
     - search_api
+    - search_api_attachments
     - node
 id: tate_lyle_content_index
 name: 'Tate Lyle content index'
@@ -52,11 +53,31 @@ processor_settings:
         anonymous: anonymous
       view_mode:
         'entity:node':
-          form: teaser
-          media_item: teaser
-          page: teaser
+          form: default
+          media_item: default
+          page: default
       weights:
         preprocess_index: -10
+  highlight:
+    plugin_id: highlight
+    settings:
+      highlight: always
+      excerpt: true
+      excerpt_length: 256
+      prefix: '<strong>'
+      suffix: '</strong>'
+      weights:
+        postprocess_query: 0
+  file_attachments:
+    plugin_id: file_attachments
+    settings:
+      excluded_extensions: 'aif art avi bmp gif ico mov oga ogv png psd ra ram rgb flv'
+      number_indexed: '0'
+      max_filesize: '0'
+      excluded_private: 1
+      excluded_mimes: 'audio/x-aiff image/x-jg video/x-msvideo image/x-ms-bmp image/gif image/vnd.microsoft.icon video/quicktime audio/ogg video/ogg image/png image/x-photoshop audio/x-realaudio audio/x-pn-realaudio image/x-rgb video/x-flv'
+      weights:
+        preprocess_index: '0'
 options:
   index_directly: true
   cron_limit: 50

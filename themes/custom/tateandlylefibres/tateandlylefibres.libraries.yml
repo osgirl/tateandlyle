@@ -18,6 +18,7 @@ chosen-script:
   js:
     js/chosen.jquery.min.js: {}
 
+
 # Custom script #
 custom-script:
   version: VERSION

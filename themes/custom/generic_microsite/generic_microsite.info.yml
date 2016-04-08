@@ -1,6 +1,5 @@
 core: 8.x
 type: theme
-version: VERSION
 base theme: bootstrap
 
 name: 'Generic Microsite'
@@ -24,15 +23,12 @@ regions:
   page_bottom: 'Page bottom'
 
 libraries:
-
+  # Styling sheets #
   - 'generic_microsite/bootstrap-chosen-styling'
   - 'generic_microsite/global-styling'
 
   # Bootstrap scripts #
   - 'generic_microsite/bootstrap-scripts'
-
-  # Chosen script #
-  - 'generic_microsite/chosen-script'
 
   # Menu sidebar scripts #
   - 'generic_microsite/classie'

@@ -151,46 +151,6 @@ function centerModal() {
     }
   };
 
-  // Chosen options.
-  Drupal.behaviors.chosen = {
-    attach: function (context, settings) {
-      $('.field--name-field-primary-application select, .field--name-field-interests select').chosen({
-        disable_search: true,
-        placeholder_text_multiple: "(Select up to 3)",
-        max_selected_options: 3,
-      });
-
-      $('#edit-field-country-list').chosen({
-        disable_search: false,
-      });
-
-      $('select').chosen({
-        disable_search: true,
-        no_results_text: "No hemos encontrado resultados!",
-        allow_single_deselect: true
-      })
-
-      $.validator.setDefaults({ ignore: ":hidden:not(select)" });
-      $('form').validate({
-        highlight: function(element) {
-          $(element).closest('.form-group').addClass('has-error');
-        },
-        unhighlight: function(element) {
-          $(element).closest('.form-group').removeClass('has-error');
-        },
-        errorElement: 'span',
-        errorClass: 'help-block',
-        errorPlacement: function(error, element) {
-          if(element.parent('.input-group').length) {
-            error.insertAfter(element.parent());
-          } else {
-            error.insertAfter(element);
-          }
-        }
-      });
-    }
-  }
-
   // Select other for those who have the other option field.
   Drupal.behaviors.selectOther = {
     attach: function (context, settings) {
@@ -238,44 +198,105 @@ function centerModal() {
     }
   }
 
-  Drupal.behaviors.submitContact = {
+  // External links in new window.
+  $("a[href^='http']:not([href*='" + window.location.host + "'])").addClass("external").attr({ target: "_blank" });
+
+  var hashVal = window.location.hash.split("#")[1];
+  if (hashVal == 'contact') {
+    $('.pre-header').slideDown('slow');
+  }
+  else if (hashVal == 'video') {
+    setTimeout(function(){
+      $(".btn-video-play").click();
+    },1500);
+    setTimeout(function(){
+      if ( videoPlayer != undefined ) {
+        videoPlayer.play();
+      }
+    },2500);
+  }
+  else if ($.inArray(hashVal, ['soda','baking','dairy']) > -1) {
+    console.log('yes');
+    $(".btn-media-library-play." + hashVal).click();
+  }
+
+
+  Drupal.behaviors.ValidateEachForm = {
     attach: function (context, settings) {
-      // Show "Thank you" message after submiting the form.
-      $('.pre-header form').submit(function(e) {
-        $.post('', $(this).serialize(), function (data) {
+      $.validator.setDefaults({ ignore: ":hidden:not(select)" });
 
-        }).error(function() {
-
+      $('form').each(function() {  // attach to all form elements on page
+        $(this).validate({       // initialize plugin on each form
+            highlight: function (element) {
+                $(element).closest('.form-group').removeClass('checked').addClass('error');
+                $(element).next('.chosen-container').removeClass('checked').addClass('error');
+            },
+            success: function (element) {
+        /*        element
+                .text('OK!').addClass('valid')*/
+                $(element).closest('.form-group').removeClass('error').addClass('checked');
+                $(element).next('.chosen-continer').removeClass('error').addClass('checked');
+            }
         });
-        $('.pre-header .form-body, .pre-header .header-text').hide();
-        $(this).hide();
-        $('.btn-close-form-submit-thank-you-message').show();
-        $('.pre-header .form-submit-thank-you-message').show();
-        e.preventDefault();
+      });
+
+      $("option[value='_none']").attr("disabled", true);
+     
+
+      $('select').on('change', function () {
+          $(this).valid();
+      });
+
+    }
+  }
+
+  // Chosen options.
+  Drupal.behaviors.chosen = {
+    attach: function (context, settings) {
+      $('.field--name-field-primary-application select, .field--name-field-interests select').chosen({
+        placeholder_text_multiple: "(Select up to 3)",
+        max_selected_options: 3,
+      });
+
+      $('#edit-field-country-list').chosen({
+        disable_search: false,
+      });
+
+      $('select').chosen({
+        disable_search: true,
+        allow_single_deselect: true,
       });
     }
   }
 
-    // External links in new window
-    $("a[href^='http']:not([href*='" + window.location.host + "'])").addClass("external").attr({ target: "_blank" });
+  Drupal.behaviors.submitContact = {
+    attach: function (context, settings) {
+      $(".pre-header .form-submit").click(function (e) {
+        e.preventDefault();
+        var form = $('.pre-header form');
+        if (form.valid()) {
+            $.ajax({
+                cache: false,
+                async: true,
+                type: "POST",
+                url: form.attr('action'),
+                data: form.serialize(),
+                success: function (data) {
+                    $('.pre-header .form-body, .pre-header .header-text').hide();
+                    form.hide();
+                    $('.btn-close-form-submit-thank-you-message').show();
+                    $('.pre-header .form-submit-thank-you-message').show();
+                },
+                error: function (data) {
 
-    var hashVal = window.location.hash.split("#")[1];
-    if (hashVal == 'contact') {
-        $('.pre-header').slideDown('slow');
+                }
+            });
+        }
+        return false;
+      });
     }
-    else if (hashVal == 'video') {
-        setTimeout(function(){
-            $(".btn-video-play").click();
-        },1500);
-        setTimeout(function(){
-            if ( videoPlayer != undefined ) {
-                videoPlayer.play();
-            }
-        },2500);
-    }
-    else if ($.inArray(hashVal, ['soda','baking','dairy']) > -1) {
-        console.log('yes');
-        $(".btn-media-library-play." + hashVal).click();
-    }
+  }
+
+
 
 })(jQuery);

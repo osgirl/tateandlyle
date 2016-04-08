@@ -1,21 +1,7 @@
 name: 'TL Workflow'
+description: 'TL Workflow configuration'
 type: module
 core: 8.x
 dependencies:
   - workbench_moderation
-features:
-  required:
-    - workbench_moderation.moderation_state.archived
-    - workbench_moderation.moderation_state.draft
-    - workbench_moderation.moderation_state.needs_review
-    - workbench_moderation.moderation_state.published
-    - workbench_moderation.moderation_state_transition.draft_draft
-    - workbench_moderation.moderation_state_transition.draft_needs_review
-    - workbench_moderation.moderation_state_transition.needs_review_needs_review
-    - workbench_moderation.moderation_state_transition.needs_review_published
-    - workbench_moderation.moderation_state_transition.published_archived
-    - workbench_moderation.moderation_state_transition.published_draft
-    - workbench_moderation.moderation_state_transition.published_published
-    - node.type.form
-    - node.type.media_item
-    - node.type.page
+version: 8.x-1.0

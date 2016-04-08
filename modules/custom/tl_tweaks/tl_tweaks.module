@@ -12,6 +12,11 @@ use Drupal\Component\Utility\Html;
  * Implements hook_form_alter().
  */
 function tl_tweaks_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+
+  if ($form_id == "user_register_form") {
+    $form['account']['notify']['#default_value'] = TRUE;
+  }
+
   if (($form_id == "views_exposed_form") && (\Drupal::service('path.current')->getPath() == "/admin/contact-messages")) {
     $form['created']['#type'] = 'date';
     $form['created_1']['#type'] = 'date';
@@ -188,8 +193,21 @@ function tl_tweaks_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &$
 }
 
 /**
- * Implements hook_node_update().
+ * Implements hook_views_query_alter().
  */
-function tl_tweaks_node_update($node) {
-  views_invalidate_cache();
+function tl_tweaks_views_query_alter($view, $query) {
+  $where = $query->where['1']['conditions'];
+  foreach ($where as $key => $value) {
+    if (strpos($value['field'], 'contact_message.created >= ') !== FALSE) {
+      $substr = str_replace("contact_message.created >= ", "", $value['field']);
+      unset($query->where['1']['conditions'][$key]);
+      $query->addWhere("1", "contact_message.created", $value = $substr, $operator = ">=");
+    }
+    if (strpos($value['field'], 'contact_message.created <= ') !== FALSE) {
+      $substr = str_replace("contact_message.created <= ", "", $value['field']);
+      unset($query->where['1']['conditions'][$key]);
+      $substr = $substr + '86340';
+      $query->addWhere("1", "contact_message.created", $value = $substr, $operator = "<=");
+    }
+  }
 }
