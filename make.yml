@@ -79,6 +79,8 @@ projects:
   search_api_page:
     type: module
     version: "1.0-alpha8"
+    patch:
+      - "https://www.drupal.org/files/issues/filter_search_results-2649332-2.patch"
   security_review:
     version: ~
   paragraphs:
