@@ -58,10 +58,9 @@ projects:
       revision: "a8e82af9006e9bcd465de91b738cf899d61a96fd"
   search_api:
     type: module
-    download:
-      type: git
-      url: "https://git.drupal.org/project/search_api.git"
-      revision: "42417befcf48f8122b17ae2a4053187b00a6c82e"
+    version: "1.0-alpha13"
+    patch:
+      - "https://www.drupal.org/files/issues/empty_highlighted-2703915-2.patch"
   search_api_solr:
     type: module
     download:
@@ -77,6 +76,9 @@ projects:
     patch:
       - "https://www.drupal.org/files/issues/drupal_8_acquia_search-2696901-3.patch"
       - "https://www.drupal.org/files/issues/configuration_screen-2695361-4.patch"
+  search_api_page:
+    type: module
+    version: "1.0-alpha8"
   security_review:
     version: ~
   paragraphs:
