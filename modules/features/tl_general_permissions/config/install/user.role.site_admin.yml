@@ -139,3 +139,4 @@ permissions:
   135: 'use published_needs_to_be_archived transition'
   136: 'use archived_needs_review transition'
   137: 'use published_needs_review transition'
+  138: 'view latest version'
