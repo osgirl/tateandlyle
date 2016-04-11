@@ -12,6 +12,18 @@ use Drupal\Component\Utility\Html;
  * Implements hook_form_alter().
  */
 function tl_tweaks_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+
+  $roles = \Drupal::currentUser()->getRoles($exclude_locked_roles = FALSE);
+  if (in_array('content_approver', $roles)) {
+    if (($form['moderation_state']['widget']['0']['#default_value'] == 'needs_review') || ($form['moderation_state']['widget']['0']['#default_value'] == 'published') || ($form['moderation_state']['widget']['0']['#default_value'] == 'archived')) {
+      $form['moderation_state']['widget']['0']['#options']['needs_review'] = "Reject";
+    }
+  }
+
+  if ($form_id == "user_register_form") {
+    $form['account']['notify']['#default_value'] = TRUE;
+  }
+
   if (($form_id == "views_exposed_form") && (\Drupal::service('path.current')->getPath() == "/admin/contact-messages")) {
     $form['created']['#type'] = 'date';
     $form['created_1']['#type'] = 'date';

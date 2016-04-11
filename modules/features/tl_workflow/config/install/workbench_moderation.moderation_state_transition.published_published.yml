@@ -4,7 +4,7 @@ dependencies:
   config:
     - workbench_moderation.moderation_state.published
 id: published_published
-label: 'Published » Published'
+label: 'Publish'
 stateFrom: published
 stateTo: published
 weight: 0

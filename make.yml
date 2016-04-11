@@ -16,6 +16,7 @@ projects:
       - "https://www.drupal.org/files/issues/2631468-19.patch"
       - "https://www.drupal.org/files/issues/missing-dependencies-2655104.patch"
       - "https://www.drupal.org/files/issues/drupal-views_exposed_filter_pager-2686429-2-8.0.x.patch"
+      - "https://www.drupal.org/files/issues/content_language-2189267-13_1.patch"
   # For all projects, always specify the exact version that is to be used.
   # For any project using a dev branch, always specify the revision id.
   acquia_connector:
@@ -164,9 +165,6 @@ projects:
   autologout:
     type: module
     version: "1.0-rc1"
-  chosen:
-    type: module
-    version: "2.0-beta3"
   clientside_validation:
     type: module
-    version: "1.0-rc1"
+    version: "1.x-dev"

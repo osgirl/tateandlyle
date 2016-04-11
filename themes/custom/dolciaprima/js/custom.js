@@ -221,7 +221,7 @@ function centerModal() {
   }
 
 
-  Drupal.behaviors.ValidateEachForm1 = {
+  Drupal.behaviors.ValidateEachForm = {
     attach: function (context, settings) {
       $.validator.setDefaults({ ignore: ":hidden:not(select)" });
 
