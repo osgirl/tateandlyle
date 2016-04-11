@@ -105,7 +105,7 @@ function mail_node_update_author($node) {
   if (($node->get('moderation_state')->getValue()[0]['target_id'] == 'published')) {
     $params['message'] = str_replace("[publish_state]", 'The website page edits are now live. You can see them here: ' . $params['node_url'], $params['message']);
     if ($node->get('revision_log')->getValue()[0]['value'] != NULL) {
-      $params['message'] = str_replace("[node_state_message]", $node->get('revision_log')->getValue()[0]['value'], $params['message']);
+      $params['message'] = str_replace("[node_state_message]", "<p>" . $node->get('revision_log')->getValue()[0]['value'] . "</p>", $params['message']);
     }
     else {
       $params['message'] = str_replace("[node_state_message]", "", $params['message']);
@@ -164,7 +164,7 @@ function mail_node_update_approvers($node) {
   if (($node->get('moderation_state')->getValue()[0]['target_id'] == 'published')) {
     $params['message'] = str_replace("[publish_state]", 'The website page edits are now live. You can see them here: ' . $params['node_url'], $params['message']);
     if ($node->get('revision_log')->getValue()[0]['value'] != NULL) {
-      $params['message'] = str_replace("[node_state_message]", $node->get('revision_log')->getValue()[0]['value'], $params['message']);
+      $params['message'] = str_replace("[node_state_message]", "<p>" . $node->get('revision_log')->getValue()[0]['value'] . "</p>", $params['message']);
     }
     else {
       $params['message'] = str_replace("[node_state_message]", "", $params['message']);
@@ -217,7 +217,7 @@ function mail_node_update_archive_approvers($node) {
   $params['message'] = str_replace("[node_url]", $params['node_url'], $params['message']);
 
   if ($node->get('revision_log')->getValue()[0]['value'] != NULL) {
-    $params['message'] = str_replace("[node_state_message]", $node->get('revision_log')->getValue()[0]['value'], $params['message']);
+    $params['message'] = str_replace("[node_state_message]", "<p>" . $node->get('revision_log')->getValue()[0]['value'] . "</p>", $params['message']);
   }
   else {
     $params['message'] = str_replace("[node_state_message]", "", $params['message']);
@@ -262,10 +262,10 @@ function mail_node_reject_author($node) {
   $params['message'] = str_replace("[site_approver]", $params['site_approver'], $params['message']);
 
   if ($node->get('revision_log')->getValue()[0]['value'] != NULL) {
-    $params['message'] = str_replace("[node_state_message]", $node->get('revision_log')->getValue()[0]['value'], $params['message']);
+    $params['message'] = str_replace("[node_state_message]", "<p>" . $node->get('revision_log')->getValue()[0]['value'] . "</p>", $params['message']);
   }
   else {
-    $params['message'] = str_replace("[node_state_message]", "-", $params['message']);
+    $params['message'] = str_replace("[node_state_message]", "", $params['message']);
   }
 
   $langcode = \Drupal::currentUser()->getPreferredLangcode();
@@ -307,10 +307,10 @@ function mail_node_reject_approvers($node) {
   $params['message'] = str_replace("[site_approver]", $params['site_approver'], $params['message']);
 
   if ($node->get('revision_log')->getValue()[0]['value'] != NULL) {
-    $params['message'] = str_replace("[node_state_message]", $node->get('revision_log')->getValue()[0]['value'], $params['message']);
+    $params['message'] = str_replace("[node_state_message]", "<p>" . $node->get('revision_log')->getValue()[0]['value'] . "</p>", $params['message']);
   }
   else {
-    $params['message'] = str_replace("[node_state_message]", "-", $params['message']);
+    $params['message'] = str_replace("[node_state_message]", "", $params['message']);
   }
 
   $langcode = \Drupal::currentUser()->getPreferredLangcode();
