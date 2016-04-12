@@ -1,0 +1,14 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - contact_storage
+third_party_settings:
+  contact_storage:
+    redirect_uri: 'entity:node/66'
+id: contact_us
+label: 'Contact us'
+recipients:
+  - webmaster@tateandlyle.com
+reply: ''
+weight: 0

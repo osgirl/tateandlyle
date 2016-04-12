@@ -352,6 +352,9 @@ body,
 }
 
 .region-navigation {
+  display: inline-block;
+  height: 58vh;
+  overflow-y: auto;
   @media(max-width: @screen-sm-max) {
     display: inline-block;
     text-align: center;
@@ -416,7 +419,9 @@ body,
 }
 
 .navbar-header {
+  height: 100%;
   max-width: 100%;
+  position: relative;
   @media(max-width: @screen-sm-max) {
     background-color: #9c510e;
     float: none;

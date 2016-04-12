@@ -1,0 +1,17 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - search_api.index.tate_lyle_content_index
+id: search
+label: Search
+path: search
+clean_url: false
+show_all_when_no_keys: false
+index: tate_lyle_content_index
+limit: 10
+searched_fields:
+  rendered_item: rendered_item
+style: search_results
+view_mode_configuration: {  }
+show_search_form: true

@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - search_api_page.search_api_page.search
+  module:
+    - search_api_page
+  theme:
+    - generic_microsite
+id: searchapipagesearchblockform
+theme: generic_microsite
+region: header_right
+weight: -13
+provider: null
+plugin: search_api_page_form_block
+settings:
+  id: search_api_page_form_block
+  label: 'Search Api Page search block form'
+  provider: search_api_page
+  label_display: '0'
+  search_api_page: search
+visibility: {  }

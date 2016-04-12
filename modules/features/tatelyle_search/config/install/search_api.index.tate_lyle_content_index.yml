@@ -29,23 +29,18 @@ field_settings:
     label: Language
     datasource_id: 'entity:node'
     property_path: langcode
-    type: string
+    type: text
 processor_settings:
-  add_url:
-    plugin_id: add_url
-    settings:
-      weights:
-        preprocess_index: -30
-  language:
-    plugin_id: language
-    settings:
-      weights:
-        preprocess_index: -30
   node_status:
     plugin_id: node_status
     settings:
       weights:
         preprocess_index: -10
+  add_url:
+    plugin_id: add_url
+    settings:
+      weights:
+        preprocess_index: -30
   rendered_item:
     plugin_id: rendered_item
     settings:
@@ -68,6 +63,11 @@ processor_settings:
       suffix: '</strong>'
       weights:
         postprocess_query: 0
+  language:
+    plugin_id: language
+    settings:
+      weights:
+        preprocess_index: -30
   file_attachments:
     plugin_id: file_attachments
     settings:

@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.innovation_submission
+    - field.storage.contact_message.field_please_include
+id: contact_message.innovation_submission.field_please_include
+field_name: field_please_include
+entity_type: contact_message
+bundle: innovation_submission
+label: 'Please include a couple of sentences summarising what it does and why it’s commercially viable'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

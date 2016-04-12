@@ -8,8 +8,9 @@ dependencies:
   - node
   - search_api
   - search_api_attachments
+  - search_api_page
   - search_api_solr
   - system
   - tatelyle_search
   - views
-version: 8.x
+version: 8.x-1.0
