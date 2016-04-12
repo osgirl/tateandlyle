@@ -1,0 +1,80 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.file_access
+    - field.field.contact_message.file_access.field_company_name
+    - field.field.contact_message.file_access.field_email
+    - field.field.contact_message.file_access.field_first_name
+    - field.field.contact_message.file_access.field_form_entity_id
+    - field.field.contact_message.file_access.field_last_name
+    - field.field.contact_message.file_access.field_region
+    - field.field.contact_message.file_access.field_subscribe
+    - field.field.contact_message.file_access.field_telephone_number
+  module:
+    - telephone
+id: contact_message.file_access.default
+targetEntityType: contact_message
+bundle: file_access
+mode: default
+content:
+  field_company_name:
+    weight: 4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_email:
+    weight: 2
+    settings:
+      placeholder: ''
+      size: 60
+    third_party_settings: {  }
+    type: email_default
+  field_first_name:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_form_entity_id:
+    weight: 7
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+  field_last_name:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_region:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+  field_subscribe:
+    weight: 6
+    settings:
+      display_label: false
+    third_party_settings: {  }
+    type: boolean_checkbox
+  field_telephone_number:
+    weight: 5
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: telephone_default
+hidden:
+  copy: true
+  langcode: true
+  mail: true
+  message: true
+  name: true
+  subject: true

@@ -1,0 +1,27 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.marketing
+    - field.storage.contact_message.field_form_entity_id
+    - node.type.form
+    - node.type.page
+id: contact_message.marketing.field_form_entity_id
+field_name: field_form_entity_id
+entity_type: contact_message
+bundle: marketing
+label: 'Form Entity Id'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      form: form
+      page: page
+    sort:
+      field: _none
+field_type: entity_reference

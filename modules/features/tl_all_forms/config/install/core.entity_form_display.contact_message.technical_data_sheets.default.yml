@@ -1,0 +1,59 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.technical_data_sheets
+    - field.field.contact_message.technical_data_sheets.field_company_name
+    - field.field.contact_message.technical_data_sheets.field_email
+    - field.field.contact_message.technical_data_sheets.field_form_entity_id
+    - field.field.contact_message.technical_data_sheets.field_name
+    - field.field.contact_message.technical_data_sheets.field_telephone_number
+  module:
+    - telephone
+id: contact_message.technical_data_sheets.default
+targetEntityType: contact_message
+bundle: technical_data_sheets
+mode: default
+content:
+  field_company_name:
+    weight: 52
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_email:
+    weight: 53
+    settings:
+      placeholder: ''
+      size: 60
+    third_party_settings: {  }
+    type: email_default
+  field_form_entity_id:
+    weight: 55
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+  field_name:
+    weight: 51
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_telephone_number:
+    weight: 54
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: telephone_default
+hidden:
+  copy: true
+  langcode: true
+  mail: true
+  message: true
+  name: true
+  subject: true

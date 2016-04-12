@@ -1,5 +1,12 @@
 name: 'T&L All Forms'
-description: All the forms that are on Tate and Lyle.
+description: 'All the forms that are on Tate and Lyle.'
 type: module
 core: 8.x
 version: 8.x
+dependencies:
+  - contact
+  - contact_storage
+  - field
+  - language
+  - options
+  - telephone

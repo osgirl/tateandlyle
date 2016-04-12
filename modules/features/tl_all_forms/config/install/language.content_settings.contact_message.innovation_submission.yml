@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.innovation_submission
+id: contact_message.innovation_submission
+target_entity_type_id: contact_message
+target_bundle: innovation_submission
+default_langcode: site_default
+language_alterable: false
