@@ -1,12 +1,9 @@
-uuid: 427ada54-554d-4f8a-8817-23bbc95aff2a
 langcode: en
 status: true
 dependencies:
   config:
     - contact.form.innovation_submission
     - field.storage.contact_message.field_email
-_core:
-  default_config_hash: UrMnNljnhu-5xMt8uBIQ38ZBjLg9zAm21hm8BK_avg4
 id: contact_message.innovation_submission.field_email
 field_name: field_email
 entity_type: contact_message

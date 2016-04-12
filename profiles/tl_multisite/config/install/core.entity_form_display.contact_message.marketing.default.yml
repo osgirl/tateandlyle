@@ -1,4 +1,3 @@
-uuid: da8354e8-8e7e-470b-bd57-8714f51eb310
 langcode: en
 status: true
 dependencies:
@@ -7,27 +6,30 @@ dependencies:
     - field.field.contact_message.marketing.field_business_email
     - field.field.contact_message.marketing.field_company_name
     - field.field.contact_message.marketing.field_contact
+    - field.field.contact_message.marketing.field_country_list
     - field.field.contact_message.marketing.field_email
     - field.field.contact_message.marketing.field_first_name
+    - field.field.contact_message.marketing.field_form_entity_id
     - field.field.contact_message.marketing.field_industry
     - field.field.contact_message.marketing.field_interests
     - field.field.contact_message.marketing.field_job_title
     - field.field.contact_message.marketing.field_last_name
     - field.field.contact_message.marketing.field_message
     - field.field.contact_message.marketing.field_name
+    - field.field.contact_message.marketing.field_other_industry
+    - field.field.contact_message.marketing.field_other_job_title
+    - field.field.contact_message.marketing.field_other_primary_application
     - field.field.contact_message.marketing.field_primary_application
-    - field.field.contact_message.marketing.field_region_marketing
-_core:
-  default_config_hash: UaI2E_dqj4dhI-Ho6FBqrXfXSeUMf_NyuJLlt0x1g80
 id: contact_message.marketing.default
 targetEntityType: contact_message
 bundle: marketing
 mode: default
 content:
   field_business_email:
-    weight: 3
+    weight: 4
     settings:
       placeholder: ''
+      size: 60
     third_party_settings: {  }
     type: email_default
   field_company_name:
@@ -37,48 +39,91 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
-  field_email:
+  field_contact:
+    type: boolean_checkbox
+    weight: 13
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_country_list:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+  field_first_name:
+    type: string_textfield
     weight: 0
     settings:
+      size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: email_default
+  field_form_entity_id:
+    weight: 14
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
   field_industry:
-    weight: 5
+    weight: 7
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+  field_interests:
+    weight: 11
     settings: {  }
     third_party_settings: {  }
     type: options_select
   field_job_title:
-    weight: 4
+    weight: 5
     settings: {  }
     third_party_settings: {  }
     type: options_select
+  field_last_name:
+    type: string_textfield
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_message:
-    weight: 7
+    weight: 12
     settings:
       rows: 2
       placeholder: ''
     third_party_settings: {  }
     type: string_textarea
-  field_name:
-    weight: 1
+  field_other_industry:
+    weight: 8
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_other_job_title:
+    weight: 6
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_other_primary_application:
+    weight: 10
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
   field_primary_application:
-    weight: 6
+    weight: 9
     settings: {  }
     third_party_settings: {  }
     type: options_select
 hidden:
   copy: true
-  field_contact: true
-  field_first_name: true
-  field_interests: true
-  field_last_name: true
-  field_region_marketing: true
+  field_email: true
+  field_name: true
   langcode: true
   mail: true
   message: true

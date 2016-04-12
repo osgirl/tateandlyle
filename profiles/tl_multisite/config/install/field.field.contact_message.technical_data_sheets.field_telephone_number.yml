@@ -1,4 +1,3 @@
-uuid: c504719f-63ae-426f-9400-f36894502504
 langcode: en
 status: true
 dependencies:
@@ -7,15 +6,13 @@ dependencies:
     - field.storage.contact_message.field_telephone_number
   module:
     - telephone
-_core:
-  default_config_hash: VwXDJDbvHVBdMbh2PjhlfGz14YLZVnnlf0lTiHZrVaU
 id: contact_message.technical_data_sheets.field_telephone_number
 field_name: field_telephone_number
 entity_type: contact_message
 bundle: technical_data_sheets
 label: 'Phone number'
 description: ''
-required: true
+required: false
 translatable: true
 default_value: {  }
 default_value_callback: ''

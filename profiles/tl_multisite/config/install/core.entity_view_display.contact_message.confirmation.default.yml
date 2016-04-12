@@ -1,12 +1,9 @@
-uuid: 30346b3e-2493-4bc1-b653-83a4647fdaa6
 langcode: en
 status: true
 dependencies:
   config:
     - contact.form.confirmation
     - field.field.contact_message.confirmation.field_i_accept
-_core:
-  default_config_hash: b7EA9M2Q2jiof5WvbIqGd3QpHg1jjxGNFmmse1ME7gA
 id: contact_message.confirmation.default
 targetEntityType: contact_message
 bundle: confirmation

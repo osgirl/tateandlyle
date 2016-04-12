@@ -1,11 +1,8 @@
-uuid: 1b566b63-eb10-4488-ae00-b30f5f61f316
 langcode: en
 status: true
 dependencies:
   module:
     - contact
-_core:
-  default_config_hash: gG8AYPoiQOs4qC7OlWKJULnEggrLHhoCGLxXagp3lAk
 id: contact_message.field_business_email
 field_name: field_business_email
 entity_type: contact_message

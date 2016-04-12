@@ -1,29 +1,26 @@
-uuid: e59f2c7e-d446-4f91-b100-b5e606d7a0eb
 langcode: en
 status: true
 dependencies:
   module:
     - contact
     - options
-_core:
-  default_config_hash: aokt16PEKdzfYC0__xDgyX9f7cp-BsshHU7qDzQmm9g
 id: contact_message.field_ingredient_category
 field_name: field_ingredient_category
 entity_type: contact_message
-type: list_integer
+type: list_string
 settings:
   allowed_values:
     -
-      value: 0
+      value: '0'
       label: Sweeteners
     -
-      value: 1
+      value: '1'
       label: Texturant
     -
-      value: 2
+      value: '2'
       label: 'Health and wellness'
     -
-      value: 3
+      value: '3'
       label: 'Food technology'
   allowed_values_function: ''
 module: options

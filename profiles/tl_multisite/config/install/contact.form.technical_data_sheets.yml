@@ -1,4 +1,3 @@
-uuid: 4c2932a6-cc7e-4c60-ba00-d5f0609c3fb0
 langcode: en
 status: true
 dependencies:
@@ -6,9 +5,7 @@ dependencies:
     - contact_storage
 third_party_settings:
   contact_storage:
-    redirect_uri: 'entity:node/14?submitted=true'
-_core:
-  default_config_hash: KmzewFnzVVG5l6KB1qCM9ItT2GTog91wAJEnWnoKs-4
+    redirect_uri: 'entity:node/66'
 id: technical_data_sheets
 label: 'Technical data sheets'
 recipients:

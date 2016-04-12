@@ -1,11 +1,8 @@
-uuid: 2114be57-1d0e-4466-9e09-9ba0a3546868
 langcode: en
 status: true
 dependencies:
   module:
     - contact
-_core:
-  default_config_hash: 4t1lPnx5TNptuKOVFXCTRiBqrpx3GkskyTR9JpSE0O8
 id: contact_message.field_innovation_overview
 field_name: field_innovation_overview
 entity_type: contact_message

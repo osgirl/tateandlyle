@@ -1,11 +1,8 @@
-uuid: 7fc67dbd-767d-4f4a-b100-f24907a6d7bd
 langcode: en
 status: true
 dependencies:
   module:
     - contact
-_core:
-  default_config_hash: PhZVUp-Wci3eNdXyro0Ve58HZEokCV7z71FNzJNe_GU
 id: contact_message.field_country
 field_name: field_country
 entity_type: contact_message
