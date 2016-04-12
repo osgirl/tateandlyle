@@ -17,7 +17,7 @@ backend_config:
     http_pass: ''
   advanced:
     excerpt: 1
-    retrieve_data: 0
+    retrieve_data: 1
     highlight_data: 1
     skip_schema_check: 0
     solr_version: ''
@@ -34,8 +34,8 @@ backend_config:
   http_user: ''
   http_pass: ''
   excerpt: 1
-  retrieve_data: 0
-  highlight_data: 0
+  retrieve_data: 1
+  highlight_data: 1
   skip_schema_check: 0
   solr_version: ''
   http_method: AUTO

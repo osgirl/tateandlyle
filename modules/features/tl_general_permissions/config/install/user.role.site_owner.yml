@@ -74,3 +74,4 @@ permissions:
   86: 'use archived_needs_review transition'
   87: 'administer moderation states'
   88: 'use published_needs_review transition'
+  89: 'view latest version'

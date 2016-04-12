@@ -11,3 +11,4 @@ permissions:
   - 'access content'
   - 'search content'
   - 'access site-wide contact form'
+  - 'view search api pages'

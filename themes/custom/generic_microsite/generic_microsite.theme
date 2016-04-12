@@ -358,8 +358,8 @@ function generic_microsite_preprocess_paragraph(&$variables) {
 
 function generic_microsite_preprocess_breadcrumb(&$variables) {
   $site_name = \Drupal::configFactory()->getEditable('system.site')->get('name');
-  $variables['breadcrumb'][0]['text'] = $site_name;
-  $variables['breadcrumb']['custom']['text'] = 'You are here : ';
+  $variables['breadcrumb'][0]['text'] = t($site_name);
+  $variables['breadcrumb']['custom']['text'] = t('You are here') . ' : ';
   array_unshift($variables['breadcrumb'],$variables['breadcrumb']['custom']);
   unset($variables['breadcrumb']['custom']);
 }
@@ -424,4 +424,17 @@ function generic_microsite_preprocess_block(&$variables) {
  */
 function generic_microsite_form_search_block_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
   $form['#suffix'] = '<a href="search" class="advanced-search">' . t('Advanced search'). '</a>';
+}
+
+function generic_microsite_preprocess_search_api_page_result(&$variables) {
+  /* @var $entity \Drupal\Core\Entity\EntityInterface */
+  $entity = $variables['entity'];
+  /* @var $item \Drupal\search_api\Item\ItemInterface */
+  $item = $variables['item'];
+
+  $variables['snippet'] = $item->getExcerpt();
+  $variables['url'] = $entity->toUrl();
+  $variables['title'] = $entity->label();
+  unset($variables['info']);
+
 }
