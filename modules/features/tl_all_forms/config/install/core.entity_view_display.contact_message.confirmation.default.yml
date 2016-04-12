@@ -1,0 +1,28 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.confirmation
+    - field.field.contact_message.confirmation.field_i_accept
+id: contact_message.confirmation.default
+targetEntityType: contact_message
+bundle: confirmation
+mode: default
+content:
+  field_i_accept:
+    weight: 1
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+  message:
+    type: string
+    weight: 0
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+hidden: {  }

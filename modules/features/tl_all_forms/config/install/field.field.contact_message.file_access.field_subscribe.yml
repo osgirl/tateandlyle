@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.file_access
+    - field.storage.contact_message.field_subscribe
+id: contact_message.file_access.field_subscribe
+field_name: field_subscribe
+entity_type: contact_message
+bundle: file_access
+label: Subscribe
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'I’m interested in learning more about SODA-LO® Salt Microspheres'
+  off_label: 'Off'
+field_type: boolean
