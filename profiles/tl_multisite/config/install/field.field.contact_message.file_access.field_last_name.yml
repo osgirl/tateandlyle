@@ -1,12 +1,9 @@
-uuid: 68b58c7c-03de-4b52-a908-8a4dd0004a8f
 langcode: en
 status: true
 dependencies:
   config:
     - contact.form.file_access
     - field.storage.contact_message.field_last_name
-_core:
-  default_config_hash: KxMXMtKochItHUxzTigjiMPRSn2CZJv6uWOSyYc9Ams
 id: contact_message.file_access.field_last_name
 field_name: field_last_name
 entity_type: contact_message

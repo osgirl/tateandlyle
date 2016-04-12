@@ -1,12 +1,9 @@
-uuid: 456d00a2-23fc-4f8a-a800-fd4f3a3b9da1
 langcode: en
 status: true
 dependencies:
   config:
     - contact.form.innovation_submission
     - field.storage.contact_message.field_where_did_you_learn_about
-_core:
-  default_config_hash: bBoDmVxYyMjMInczMEQ6OUZlg1N0DRPTksf6tvoeKYg
 id: contact_message.innovation_submission.field_where_did_you_learn_about
 field_name: field_where_did_you_learn_about
 entity_type: contact_message

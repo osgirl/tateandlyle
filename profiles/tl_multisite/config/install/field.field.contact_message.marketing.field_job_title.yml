@@ -1,4 +1,3 @@
-uuid: 3c55b691-16af-4ac5-ae40-646e4ca8d697
 langcode: en
 status: true
 dependencies:
@@ -7,17 +6,15 @@ dependencies:
     - field.storage.contact_message.field_job_title
   module:
     - options
-_core:
-  default_config_hash: UgJU6E2ExLcoHYXfeyXyRVWr5ZKQDSUD9wtLWIKL-DY
 id: contact_message.marketing.field_job_title
 field_name: field_job_title
 entity_type: contact_message
 bundle: marketing
-label: 'Job Title'
+label: 'Job title'
 description: ''
 required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }
-field_type: list_integer
+field_type: list_string

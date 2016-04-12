@@ -1,29 +1,26 @@
-uuid: f65a7209-d5d5-4fb0-8400-fdd846e9e147
 langcode: en
 status: true
 dependencies:
   module:
     - contact
     - options
-_core:
-  default_config_hash: zDajphYPa8UaZRb7sPAMuW58I2vGtQa_mqlAC8EE6k4
 id: contact_message.field_development_stage
 field_name: field_development_stage
 entity_type: contact_message
-type: list_integer
+type: list_string
 settings:
   allowed_values:
     -
-      value: 0
+      value: '0'
       label: 'Product in development'
     -
-      value: 1
+      value: '1'
       label: 'Commercial product'
     -
-      value: 2
+      value: '2'
       label: Technology
     -
-      value: 3
+      value: other
       label: Other
   allowed_values_function: ''
 module: options

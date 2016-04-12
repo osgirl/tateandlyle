@@ -1,4 +1,3 @@
-uuid: cdb77cd6-5afa-40e7-bd00-f0659e93fcb4
 langcode: en
 status: true
 dependencies:
@@ -6,12 +5,11 @@ dependencies:
     - contact.form.technical_data_sheets
     - field.field.contact_message.technical_data_sheets.field_company_name
     - field.field.contact_message.technical_data_sheets.field_email
+    - field.field.contact_message.technical_data_sheets.field_form_entity_id
     - field.field.contact_message.technical_data_sheets.field_name
     - field.field.contact_message.technical_data_sheets.field_telephone_number
   module:
     - telephone
-_core:
-  default_config_hash: Hsl7T7V4riaF_d8rgmde5FzcqCyQWIQfG6goX3yQQGM
 id: contact_message.technical_data_sheets.default
 targetEntityType: contact_message
 bundle: technical_data_sheets
@@ -28,8 +26,17 @@ content:
     weight: 53
     settings:
       placeholder: ''
+      size: 60
     third_party_settings: {  }
     type: email_default
+  field_form_entity_id:
+    weight: 55
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
   field_name:
     weight: 51
     settings:

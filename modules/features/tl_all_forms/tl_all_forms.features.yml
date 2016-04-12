@@ -56,7 +56,6 @@ required:
   - field.field.contact_message.marketing.field_message
   - field.field.contact_message.marketing.field_name
   - field.field.contact_message.marketing.field_primary_application
-  - field.field.contact_message.marketing.field_region_marketing
   - field.field.contact_message.technical_data_sheets.field_company_name
   - field.field.contact_message.technical_data_sheets.field_email
   - field.field.contact_message.technical_data_sheets.field_name
@@ -117,7 +116,6 @@ required:
   - field.storage.contact_message.field_please_include
   - field.storage.contact_message.field_primary_application
   - field.storage.contact_message.field_region_contact
-  - field.storage.contact_message.field_region_marketing
   - field.storage.contact_message.field_remit_to_address_if_differ
   - field.storage.contact_message.field_sedex_reference_number
   - field.storage.contact_message.field_subscribe
