@@ -13,3 +13,4 @@ permissions:
   - 'search content'
   - 'access site-wide contact form'
   - 'view own unpublished content'
+  - 'view search api pages'
