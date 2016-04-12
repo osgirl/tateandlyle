@@ -193,7 +193,7 @@ function tl_tweaks_page_attachments(array &$attachments) {
   if (\Drupal::currentUser()->id() != 1) {
     $args = explode("/", $page_path);
     if (($args[0] == "") && ($args[1] == "node") && (is_numeric($args[2])) && ($args[3] == "translations")) {
-      $attachments['#attached']['library'][] = 'tl_tweaks/tl_tweaks_node_form';
+      $attachments['#attached']['library'][] = 'tl_tweaks/tl_tweaks_node_form_translations';
     }
   }
 }
