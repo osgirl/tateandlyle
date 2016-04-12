@@ -5,3 +5,10 @@ tl_tweaks:
   css:
     theme:
       css/tl_tweaks.css: {}
+tl_tweaks_node_form:
+  version: 1.x
+  js:
+    js/tl_tweaks_node_form.js: {}
+  css:
+    theme:
+      css/tl_tweaks_node_form.css: {}
