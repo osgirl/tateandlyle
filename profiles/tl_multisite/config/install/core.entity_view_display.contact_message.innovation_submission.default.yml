@@ -1,4 +1,3 @@
-uuid: 97826948-0fb3-456c-9a1c-289b7118ff24
 langcode: en
 status: true
 dependencies:
@@ -8,6 +7,7 @@ dependencies:
     - field.field.contact_message.innovation_submission.field_country
     - field.field.contact_message.innovation_submission.field_development_stage
     - field.field.contact_message.innovation_submission.field_email
+    - field.field.contact_message.innovation_submission.field_form_entity_id
     - field.field.contact_message.innovation_submission.field_ingredient_category
     - field.field.contact_message.innovation_submission.field_innovation_overview
     - field.field.contact_message.innovation_submission.field_innovation_title
@@ -19,8 +19,6 @@ dependencies:
     - field.field.contact_message.innovation_submission.field_where_did_you_learn_about
   module:
     - options
-_core:
-  default_config_hash: ElZRBk7zH2NL721YYPrmf9tjzN4X4ptI46Z36RGqORs
 id: contact_message.innovation_submission.default
 targetEntityType: contact_message
 bundle: innovation_submission
@@ -52,6 +50,13 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: basic_string
+  field_form_entity_id:
+    weight: 14
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
   field_ingredient_category:
     weight: 4
     label: above
@@ -119,10 +124,9 @@ content:
     third_party_settings: {  }
     type: string
   message:
-    type: string
+    type: basic_string
     weight: 0
     label: above
-    settings:
-      link_to_entity: false
+    settings: {  }
     third_party_settings: {  }
 hidden: {  }

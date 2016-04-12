@@ -1,11 +1,8 @@
-uuid: 27d0acb4-47fc-4613-a217-23bb80695c83
 langcode: en
 status: true
 dependencies:
   module:
     - contact
-_core:
-  default_config_hash: jLYb9Nga6LqEkZiPlRUqOUTt6VBkdGWiuopC79ZgOgU
 id: contact_message.field_patent_under_application
 field_name: field_patent_under_application
 entity_type: contact_message

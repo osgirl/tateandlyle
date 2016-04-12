@@ -1,19 +1,16 @@
-uuid: 55d75feb-cd44-42dc-8f00-cf67585b75e3
 langcode: en
 status: true
 dependencies:
   config:
     - contact.form.contact_us
     - field.storage.contact_message.field_country
-_core:
-  default_config_hash: Gvr8GUc2q8gpGH_0lq5lCyU315qFZaEdu5EBACVwcVQ
 id: contact_message.contact_us.field_country
 field_name: field_country
 entity_type: contact_message
 bundle: contact_us
 label: Country
 description: ''
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''

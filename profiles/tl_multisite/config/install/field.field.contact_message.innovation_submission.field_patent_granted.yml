@@ -1,12 +1,9 @@
-uuid: b35df10a-4345-41cb-b600-da05ef58161d
 langcode: en
 status: true
 dependencies:
   config:
     - contact.form.innovation_submission
     - field.storage.contact_message.field_patent_granted
-_core:
-  default_config_hash: YE-UHPxboco7ZLLkEBJRtmnopMxYSgRoURdODBVOau4
 id: contact_message.innovation_submission.field_patent_granted
 field_name: field_patent_granted
 entity_type: contact_message

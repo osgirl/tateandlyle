@@ -1,19 +1,18 @@
-uuid: 311870be-0366-43b2-ad04-4e29668f77a0
 langcode: en
 status: true
 dependencies:
   config:
     - contact.form.contact_us
     - field.field.contact_message.contact_us.field_company_name
+    - field.field.contact_message.contact_us.field_contact_identifier
     - field.field.contact_message.contact_us.field_country
     - field.field.contact_message.contact_us.field_email
+    - field.field.contact_message.contact_us.field_form_entity_id
     - field.field.contact_message.contact_us.field_message
     - field.field.contact_message.contact_us.field_name
     - field.field.contact_message.contact_us.field_region_contact
   module:
     - options
-_core:
-  default_config_hash: FW-d6606cjmnvepfN31BOf_IitXCedaZjKhErQpgBic
 id: contact_message.contact_us.default
 targetEntityType: contact_message
 bundle: contact_us
@@ -26,6 +25,12 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+  field_contact_identifier:
+    weight: 7
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
   field_country:
     weight: 4
     label: above
@@ -39,6 +44,13 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: basic_string
+  field_form_entity_id:
+    weight: 8
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
   field_message:
     weight: 6
     label: above

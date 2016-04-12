@@ -1,12 +1,9 @@
-uuid: 20d332b5-e17a-48b7-bb21-33285908933d
 langcode: en
 status: true
 dependencies:
   module:
     - contact
     - telephone
-_core:
-  default_config_hash: Wij6y0uie1DdIzfMSZfyuU2wklGvnUbq67u_B2FTpdM
 id: contact_message.field_telephone_number
 field_name: field_telephone_number
 entity_type: contact_message

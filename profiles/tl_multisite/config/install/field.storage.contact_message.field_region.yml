@@ -1,26 +1,23 @@
-uuid: 2b807e0a-d0f1-454d-8f07-7e819b8f0c61
 langcode: en
 status: true
 dependencies:
   module:
     - contact
     - options
-_core:
-  default_config_hash: 1Hnd9M6qtT0pZdUXGU5IhGw4RAcGHRyx0bMtnCnkosw
 id: contact_message.field_region
 field_name: field_region
 entity_type: contact_message
-type: list_integer
+type: list_string
 settings:
   allowed_values:
     -
-      value: 0
+      value: '0'
       label: Americas
     -
-      value: 1
+      value: '1'
       label: 'Asia Pacific'
     -
-      value: 2
+      value: '2'
       label: 'Europe, Middle East and Africa'
   allowed_values_function: ''
 module: options
