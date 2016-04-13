@@ -37,7 +37,7 @@ function theme_content_structure_restrict_entity_field_access($operation, FieldD
  */
 function theme_content_structure_restrict_node_create_access(\Drupal\Core\Session\AccountInterface $account, array $context, $entity_bundle) {
 
-  // if there are cts defined, check and restrict access
+  // If there are cts defined, check and restrict access.
   if ($cts_to_restrict = theme_content_structure_restrict_get_restrictions('cts')) {
     if (in_array($entity_bundle, $cts_to_restrict)) {
       return new AccessResultForbidden();
