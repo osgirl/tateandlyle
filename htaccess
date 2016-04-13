@@ -114,7 +114,8 @@ AddEncoding gzip svgz
   # Redirect all requests that use the bare domain (and it is not one of the internal domains:
   # consists of no subdomains.
   RewriteCond %{HTTP_HOST} .
-  # Check if the hostname is one word only.
+  # Check if the hostname is one word only and is not localhost.
+  RewriteCond %{HTTP_HOST} !^loc.tl$
   RewriteCond %{HTTP_HOST} ^[^.]+\.[^.]+$
   RewriteCond %{HTTP_HOST} !^www\. [NC]
   RewriteRule ^ http://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
