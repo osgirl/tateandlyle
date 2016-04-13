@@ -10,7 +10,7 @@ entity_type: contact_message
 bundle: technical_data_sheets
 label: Name
 description: ''
-required: false
+required: true
 translatable: true
 default_value: {  }
 default_value_callback: ''
