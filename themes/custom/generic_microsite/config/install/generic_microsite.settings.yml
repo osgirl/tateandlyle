@@ -1,17 +1,2 @@
 # Disable the CDN provider so compiled LESS source files can be used.
 bootstrap_cdn_provider: ''
-theme_content_structure_restrict_fields:
-  # Subtitle
-  - field_subtitle
-  # Title image
-  - field_title_image
-  # Intro area and Background image - http://screencast.com/t/EP7qPgKF5Gh
-  - field_intro_area
-  - field_background_image
-  - field_sidebar_color
-  - field_template
-  - field_sidebar_color
-  - field_tout_size
-
-theme_content_structure_restrict_cts:
-  - media_item
