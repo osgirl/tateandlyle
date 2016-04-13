@@ -12,7 +12,7 @@ entity_type: contact_message
 bundle: marketing
 label: Industry
 description: ''
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
