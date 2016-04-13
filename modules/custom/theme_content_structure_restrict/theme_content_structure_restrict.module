@@ -16,7 +16,7 @@ use Drupal\Core\Session\AccountInterface;
  */
 function theme_content_structure_restrict_entity_field_access($operation, FieldDefinitionInterface $field_definition, AccountInterface $account, FieldItemListInterface $items = NULL) {
 
-  // if there are fields defined, check and restrict access
+  // If there are fields defined, check and restrict access.
   if ($fields_to_restrict = theme_content_structure_restrict_get_restrictions('fields')) {
     $field_name = $field_definition->getName();
 
@@ -25,9 +25,9 @@ function theme_content_structure_restrict_entity_field_access($operation, FieldD
     }
   }
 
-  // No fields were detected, maybe we dont have fields restrictions YML for this theme
-  // or there are no restrictions defined in the YML file.
-  // Either case, proceed as normal
+  // No fields were detected, maybe we dont have fields restrictions YML
+  // for this theme, or there are no restrictions defined in the YML file.
+  // Either case, proceed as normal.
   return new AccessResultNeutral();
 }
 
@@ -44,9 +44,9 @@ function theme_content_structure_restrict_node_create_access(\Drupal\Core\Sessio
     }
   }
 
-  // No cts were detected, maybe we dont have fields restrictions YML for this theme
-  // or there are no restrictions defined in the YML file.
-  // Either case, proceed as normal
+  // No cts were detected, maybe we dont have fields restrictions YML
+  // for this theme or there are no restrictions defined in the YML file.
+  // Either case, proceed as normal.
   return new AccessResultNeutral();
 }
 
@@ -58,7 +58,8 @@ function theme_content_structure_restrict_get_restrictions($restriction_type = '
   $config = \Drupal::config('system.theme');
   $default_theme = $config->get('default');
 
-  // Get the list of fields which should be hidden; from file named as example: tcsr.bartik.settings,
+  // Get the list of fields which should be hidden
+  // from file named as example: tcsr.bartik.settings.
   $config = \Drupal::config('tcsr.' . $default_theme . '.settings');
   $restrictions = $config->get('theme_content_structure_restrict_' . $restriction_type);
 
