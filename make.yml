@@ -103,6 +103,7 @@ projects:
     patch:
       - "https://www.drupal.org/files/issues/support_custom_contact-2659536-6.patch"
       - "https://www.drupal.org/files/issues/validation_label_is-2683241-2.patch"
+      - "https://www.drupal.org/files/issues/mollom_patch_2642800.patch"
   field_collection:
     type: module
     download:
