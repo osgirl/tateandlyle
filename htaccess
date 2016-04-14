@@ -110,6 +110,17 @@ AddEncoding gzip svgz
   # RewriteCond %{HTTP_HOST} .
   # RewriteCond %{HTTP_HOST} !^www\. [NC]
   # RewriteRule ^ http%{ENV:protossl}://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # Redirect all requests that use the bare domain (and it is not one of the internal domains:
+  # consists of no subdomains.
+  RewriteCond %{HTTP_HOST} .
+  # Check if the hostname is one word only and is not localhost.
+  RewriteCond %{HTTP_HOST} !^loc.tl$
+  RewriteCond %{HTTP_HOST} ^[^.]+\.[^.]+$
+  RewriteCond %{HTTP_HOST} !^www\. [NC]
+  RewriteRule ^ http://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+
   #
   # To redirect all users to access the site WITHOUT the 'www.' prefix,
   # (http://www.example.com/foo will be redirected to http://example.com/foo)

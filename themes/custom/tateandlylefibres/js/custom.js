@@ -166,14 +166,12 @@ function centerModal() {
       $('form').each(function() {  // attach to all form elements on page
         $(this).validate({       // initialize plugin on each form
             highlight: function (element) {
-                $(element).closest('.form-group').removeClass('checked').addClass('error');
-                $(element).next('.chosen-container').removeClass('checked').addClass('error');
+              $(element).closest('.form-group').removeClass('checked').addClass('error');
+              $(element).next('.chosen-container').removeClass('checked').addClass('error');
             },
             success: function (element) {
-        /*        element
-                .text('OK!').addClass('valid')*/
-                $(element).closest('.form-group').removeClass('error').addClass('checked');
-                $(element).next('.chosen-continer').removeClass('error').addClass('checked');
+              $(element).closest('.form-group').removeClass('error').addClass('checked');
+              $(element).next('.chosen-continer').removeClass('error').addClass('checked');
             }
         });
       });
@@ -210,15 +208,14 @@ function centerModal() {
   // Select other for those who have the other option field.
   Drupal.behaviors.selectOther = {
     attach: function (context, settings) {
-      $('#edit-field-other-industry-wrapper').insertAfter('#edit-field-industry-wrapper');
       var other_field = $('div[class*="field--name-field-other-"]');
       var other_field_label = $('div[class*="field--name-field-other-"] label');
       other_field_label.hide();
-      other_field.hide();
-      $("option:contains('Other')").parent().each(function() {
+      other_field.hide();  
+      $('option[value="other"]').parent().each(function() {
         $(this).change(
           function () {
-            if ($('option:selected', this).filter(":contains('Other')").length === 1) {
+            if ($('option:selected', this).val() == 'other') {
               $(this).closest('.field--widget-options-select').next('div[class*="field--name-field-other-"]').fadeIn();
               $(this).closest('.field--widget-options-select').next('div[class*="field--name-field-other-"]').find('input').prop('required', true);
             }

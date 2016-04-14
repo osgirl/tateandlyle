@@ -39,9 +39,12 @@ function tl_tweaks_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form
   }
 
   if (($form_id == "node_page_edit_form") || ($form_id == "node_form_edit_form") || ($form_id == 'node_media_item_edit_form')) {
-    $node = node_load(\Drupal::routeMatch()->getRawParameter('node'));
-    if (($node->get('moderation_state')->getValue()[0]['target_id'] != 'archived') && (\Drupal::currentUser()->id() != 1)) {
+    $node = $form_state->getFormObject()->getEntity();
+    $current_language = \Drupal::languageManager()->getCurrentLanguage($type = 'language_url')->getId();
+    $node_state = $node->getTranslation($current_language)->get('moderation_state')->getValue()[0]['target_id'];
+    if (($node_state != 'archived') && (\Drupal::currentUser()->id() != 1)) {
       unset($form['actions']['delete']);
+      $form['#attached']['library'][] = 'tl_tweaks/tl_tweaks_node_form';
     }
   }
 
@@ -185,6 +188,12 @@ function tl_tweaks_page_attachments(array &$attachments) {
           }
         }
       }
+    }
+  }
+  if (\Drupal::currentUser()->id() != 1) {
+    $args = explode("/", $page_path);
+    if (($args[0] == "") && ($args[1] == "node") && (is_numeric($args[2])) && ($args[3] == "translations")) {
+      $attachments['#attached']['library'][] = 'tl_tweaks/tl_tweaks_node_form_translations';
     }
   }
 }
