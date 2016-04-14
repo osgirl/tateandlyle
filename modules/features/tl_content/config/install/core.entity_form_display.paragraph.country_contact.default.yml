@@ -26,6 +26,13 @@ content:
       add_mode: dropdown
       form_display_mode: default
     third_party_settings: {  }
+  field_first_column_label:
+    type: string_textfield
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_redirect:
     weight: 6
     settings:
@@ -34,6 +41,13 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
+  field_second_column_label:
+    type: string_textfield
+    weight: 4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_title:
     weight: 0
     settings:
