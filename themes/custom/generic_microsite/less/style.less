@@ -497,8 +497,11 @@ body,
 
 .st-content,
 .st-content-inner {
-  background: #FFF;
+  @media (max-width: @screen-sm-max) {
+    background: #FFF;
+  }
   position: relative;
+
 }
 
 .st-container {
