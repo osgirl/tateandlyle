@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @file
+ * Minor schema updates to the application.
+ */
+
 use \Drupal\field\Entity\FieldConfig;
 
 /**
