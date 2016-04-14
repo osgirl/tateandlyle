@@ -3,8 +3,6 @@ status: true
 dependencies:
   module:
     - tl_options_preview_block
-  theme:
-    - generic_microsite
 id: tatelyleoptionspreviewblock
 theme: generic_microsite
 region: sidebar_second
