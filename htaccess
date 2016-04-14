@@ -100,34 +100,6 @@ AddEncoding gzip svgz
   # downloaded.
   RewriteRule "(^|/)\." - [F]
 
-  # If your site can be accessed both with and without the 'www.' prefix, you
-  # can use one of the following settings to redirect users to your preferred
-  # URL, either WITH or WITHOUT the 'www.' prefix. Choose ONLY one option:
-  #
-  # To redirect all users to access the site WITH the 'www.' prefix,
-  # (http://example.com/foo will be redirected to http://www.example.com/foo)
-  # uncomment the following:
-  # RewriteCond %{HTTP_HOST} .
-  # RewriteCond %{HTTP_HOST} !^www\. [NC]
-  # RewriteRule ^ http%{ENV:protossl}://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-
-  # Redirect all requests that use the bare domain (and it is not one of the internal domains:
-  # consists of no subdomains.
-  RewriteCond %{HTTP_HOST} .
-  # Check if the hostname is one word only and is not localhost.
-  RewriteCond %{HTTP_HOST} !^loc.tl$
-  RewriteCond %{HTTP_HOST} ^[^.]+\.[^.]+$
-  RewriteCond %{HTTP_HOST} !^www\. [NC]
-  RewriteRule ^ http://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-
-
-  #
-  # To redirect all users to access the site WITHOUT the 'www.' prefix,
-  # (http://www.example.com/foo will be redirected to http://example.com/foo)
-  # uncomment the following:
-  # RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
-  # RewriteRule ^ http%{ENV:protossl}://%1%{REQUEST_URI} [L,R=301]
-
   # Modify the RewriteBase if you are using Drupal in a subdirectory or in a
   # VirtualDocumentRoot and the rewrite rules are not working properly.
   # For example if your site is at http://example.com/drupal uncomment and
