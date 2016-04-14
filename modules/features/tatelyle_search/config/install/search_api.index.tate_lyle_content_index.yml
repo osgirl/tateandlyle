@@ -30,7 +30,7 @@ field_settings:
     label: Language
     datasource_id: 'entity:node'
     property_path: langcode
-    type: string
+    type: text
 processor_settings:
   add_url:
     plugin_id: add_url

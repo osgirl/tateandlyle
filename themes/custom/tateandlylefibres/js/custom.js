@@ -166,14 +166,12 @@ function centerModal() {
       $('form').each(function() {  // attach to all form elements on page
         $(this).validate({       // initialize plugin on each form
             highlight: function (element) {
-                $(element).closest('.form-group').removeClass('checked').addClass('error');
-                $(element).next('.chosen-container').removeClass('checked').addClass('error');
+              $(element).closest('.form-group').removeClass('checked').addClass('error');
+              $(element).next('.chosen-container').removeClass('checked').addClass('error');
             },
             success: function (element) {
-        /*        element
-                .text('OK!').addClass('valid')*/
-                $(element).closest('.form-group').removeClass('error').addClass('checked');
-                $(element).next('.chosen-continer').removeClass('error').addClass('checked');
+              $(element).closest('.form-group').removeClass('error').addClass('checked');
+              $(element).next('.chosen-continer').removeClass('error').addClass('checked');
             }
         });
       });

@@ -154,6 +154,7 @@ function centerModal() {
   // Select "Other" field for those who have the other option field.
   Drupal.behaviors.selectOther = {
     attach: function (context, settings) {
+      $('.pre-header .field--name-field-other-industry').insertAfter('.pre-header .field--name-field-industry');
       var other_field = $('div[class*="field--name-field-other-"]');
       var other_field_label = $('div[class*="field--name-field-other-"] label');
       other_field_label.hide();
@@ -227,14 +228,12 @@ function centerModal() {
       $('form').each(function() {  // attach to all form elements on page
         $(this).validate({       // initialize plugin on each form
             highlight: function (element) {
-                $(element).closest('.form-group').removeClass('checked').addClass('error');
-                $(element).next('.chosen-container').removeClass('checked').addClass('error');
+              $(element).closest('.form-group').removeClass('checked').addClass('error');
+              $(element).next('.chosen-container').removeClass('checked').addClass('error');
             },
             success: function (element) {
-        /*        element
-                .text('OK!').addClass('valid')*/
-                $(element).closest('.form-group').removeClass('error').addClass('checked');
-                $(element).next('.chosen-continer').removeClass('error').addClass('checked');
+              $(element).closest('.form-group').removeClass('error').addClass('checked');
+              $(element).next('.chosen-continer').removeClass('error').addClass('checked');
             }
         });
       });
