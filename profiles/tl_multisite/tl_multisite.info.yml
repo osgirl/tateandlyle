@@ -50,6 +50,7 @@ dependencies:
   - tl_workflow
   - tl_features_settings
   - tl_general_permissions
+  - tl_language_detection_and_selection_settings
   - tl_mail
   - imce
   - token
@@ -82,6 +83,7 @@ dependencies:
   - entity
   - diff
   - better_exposed_filters
+  - tl_options_preview_block
 themes:
   - generic_microsite
   - seven

@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - tl_options_preview_block
+  theme:
+    - generic_microsite
+id: tatelyleoptionspreviewblock
+theme: generic_microsite
+region: sidebar_second
+weight: -10
+provider: null
+plugin: tl_options_preview_block
+settings:
+  id: tl_options_preview_block
+  label: 'Tate & Lyle Options Preview Block'
+  provider: tl_options_preview_block
+  label_display: visible
+visibility: {  }
