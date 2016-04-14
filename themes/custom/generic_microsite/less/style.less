@@ -147,7 +147,8 @@ header.container {
     width: 42%;
     text-align:right;
   }
-  .search-block-form {
+  .search-block-form,
+  .search-api-page-block-form {
     display: inline-block;
     margin: 0 10px;
     @media (min-width: @screen-sm) {
@@ -233,12 +234,16 @@ header.container {
   }
 }
 
-.search-block-form {
+.search-block-form,
+header .search-api-page-block-form {
   &:before {
     content: "\e003";
     cursor: pointer;
     font-family: 'Glyphicons Halflings';
-    font-size: 22px;
+    font-size: 20px;
+    font-weight: bold;
+    position: relative;
+    top: 1px;
     @media (min-width: @screen-sm) {
       content: none;
     }
@@ -256,7 +261,8 @@ header.container {
 }
 
 #search-form .btn-default:after,
-#search-block-form .btn-default:after {
+#search-block-form .btn-default:after,
+.search-api-page-block-form .btn-default:after {
   -webkit-font-smoothing: antialiased;
   color: #FFF;
   content: "\e003";
@@ -293,20 +299,24 @@ header.container {
 }
 
 body {
-  #search-block-form {
+  #search-block-form,
+  .search-api-page-block-form {
     .form-control {
+      float: left;
       font-size: 11px;
     }
   }
   &.medium-text {
-    #search-block-form {
+    #search-block-form,
+    .search-api-page-block-form {
       .form-control {
         font-size: 13px;
       }
     }
   }
   &.large-text {
-    #search-block-form {
+    #search-block-form,
+    .search-api-page-block-form {
       .form-control {
         font-size: 15px;
       }
@@ -314,12 +324,21 @@ body {
   }
 }
 
-#search-block-form {
+.btn.icon-before .glyphicon-search {
+  margin-left: 0;
+  margin-right: 5px;
+}
+
+#search-block-form,
+.search-api-page-block-form {
+  margin-top: 22px;
+  .form-group {
+    display: inline;
+  }
   .form-control {
     color: #000;
     @media (min-width: @screen-sm) {
       background: #eeeae6;
-      float:right;
       height: 19px;
       margin: 0 0 0;
       padding: 0 0 0 5px;
@@ -339,10 +358,11 @@ body {
     }
   }
   button.btn {
+    overflow: hidden;
+    padding: 3px 4px;
     @media (min-width: @screen-sm) {
       font-size: 11px;
       height: 19px;
-      padding: 3px 4px;
       width: 19px;
     }
   }
@@ -360,13 +380,12 @@ body {
   width: 100%;
 }
 
-.js-form-type-search {
+.js-form-type-search,
+.search-api-page-block-form {
   button.btn {
     background:#B9B3AC;
     border:none;
     border-radius:0;
-    font-size:20px;
-    padding:5px 9px 1px;
   }
 }
 
@@ -385,13 +404,37 @@ body {
   display: none;
   padding: 25px 20px;
   border-top: 1px solid #DDD;
-  #search-block-form .form-control {
+  #search-block-form .form-control,
+  .search-api-page-block-form .form-control {
     font-size: 16px;
     background: #EEEAE6;
     color: black;
   }
+  .btn.icon-before .glyphicon-search {
+    margin-left: -2px;
+  }
   .glyphicon-search:before {
     font-size: 18px;
+  }
+  form {
+    position: relative;
+  }
+  .form-item {
+    padding-right: 36px;
+    width: 100%;
+  }
+  .form-actions {
+    position: absolute;
+    right: 0;
+    top: 0
+  }
+  button.btn {
+    overflow: hidden;
+    width: 36px;
+    height: 34px;
+    border-radius: 0;
+    background: #b9b3ac;
+    border: 0;
   }
 }
 
@@ -454,6 +497,7 @@ body,
 
 .st-content,
 .st-content-inner {
+  background: #FFF;
   position: relative;
 }
 
@@ -583,6 +627,7 @@ body,
   }
   button {
     border: 0;
+    display: block;
     margin: 0;
     padding: 0;
     @media (min-width: @screen-sm) {
@@ -2749,6 +2794,39 @@ body {
   }
 }
 
+.search-header {
+  .gradient (@startColor: #E4E1DC, @endColor: #F7F6F4);
+  margin-bottom: 3em;
+  min-height: 213px;
+  padding: 15px;
+  form {
+    margin-bottom: 1.5em;
+  }
+  label {
+    margin-bottom: 5px;
+  }
+  .form-control {
+    background: #FFF;
+    height: 24px;
+    width: 40%;
+  }
+  button.btn {
+    font-size: 14px;
+    height: 24px;
+    width: 24px;
+  }
+  .btn.icon-before .glyphicon-search {
+    margin-left: 2px;
+  }
+}
+
+.search-result {
+  border-bottom: 1px solid #dcd9d5;
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
 .view-tate-lyle-search {
   .view-filters {
     .gradient (@startColor: #E4E1DC, @endColor: #F7F6F4);
@@ -3131,7 +3209,8 @@ ul.sitemap-menu {
       padding-top: 10px;
     }
   }
-  #search-block-form {
+  #search-block-form,
+  .search-api-page-block-form {
     .form-group {
       margin-bottom: 10px;
     }
