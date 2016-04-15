@@ -46,10 +46,7 @@ projects:
     version: "2.0-rc1"
   features:
     type: module
-    download:
-      type: git
-      url: "https://git.drupal.org/project/features.git"
-      revision: "f8b0b7f221a7429c9b3447b07f716c006ef5ebae"
+    version: "3.0-beta3"
   acquia_search_multi_subs:
     type: module
     download:
