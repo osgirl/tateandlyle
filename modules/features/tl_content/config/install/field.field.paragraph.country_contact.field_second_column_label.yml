@@ -8,8 +8,8 @@ id: paragraph.country_contact.field_second_column_label
 field_name: field_second_column_label
 entity_type: paragraph
 bundle: country_contact
-label: 'Second column label'
-description: 'Add the table header for the second column.'
+label: 'Second Column Heading'
+description: 'Add the table heading for the second column.'
 required: false
 translatable: false
 default_value:

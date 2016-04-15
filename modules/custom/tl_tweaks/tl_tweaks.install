@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * @file
+ * Minor schema updates to the application.
+ */
+
+use \Drupal\field\Entity\FieldConfig;
+
+/**
+ * Remove the sidebar field from the form content type.
+ */
+function tl_tweaks_update_8001() {
+
+  if ($field = FieldConfig::loadByName('node', 'form', 'field_sidebar')) {
+    $field->delete();
+  }
+
+}

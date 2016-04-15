@@ -79,10 +79,11 @@ function tl_tweaks_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form
   }
 
   if ($form_id == "contact_message_contact_us_form") {
-    if (isset($_GET['field_identifier'])) {
-      if (Html::escape($form['field_contact_identifier']) !== NULL) {
-        foreach (Html::escape($_GET['field_identifier']) as $id) {
-          $form['field_contact_identifier']['widget']['0']['value']['#default_value'] .= $id . '|';
+    if (isset($_POST['field_identifier'])) {
+      if ($form['field_contact_identifier'] !== NULL) {
+        foreach ($_POST['field_identifier'] as $id) {
+          $option = explode(" | ", Html::escape($id));
+          $form['field_contact_identifier']['widget']['0']['value']['#default_value'] .= $option[0] . '|';
         }
       }
       $form['field_contact_identifier']['#attributes']['class'][] = 'hidden';
