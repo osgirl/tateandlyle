@@ -10,7 +10,7 @@ dependencies:
 id: searchapipagesearchblockform
 theme: generic_microsite
 region: header_right
-weight: -10
+weight: 10
 provider: null
 plugin: search_api_page_form_block
 settings:
