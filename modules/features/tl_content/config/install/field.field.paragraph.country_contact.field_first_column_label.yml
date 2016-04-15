@@ -8,8 +8,8 @@ id: paragraph.country_contact.field_first_column_label
 field_name: field_first_column_label
 entity_type: paragraph
 bundle: country_contact
-label: 'First column label'
-description: 'Add the table header for the first column.'
+label: 'First Column Heading'
+description: 'Add the table heading for the first column.'
 required: false
 translatable: false
 default_value:
