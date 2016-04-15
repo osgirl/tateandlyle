@@ -81,11 +81,24 @@ $microsites = [
   'yourdrinksolutions',
 ];
 
+$tld_list = [
+  'org',
+  'info',
+  'cn',
+  'jp',
+  'com',
+];
+
 $sites = [];
 foreach ($envs as $env) {
   foreach ($microsites as $site_name) {
     $full_domain = $site_name . '.' . $env . '.' . $wildcard_domain;
     $sites[$full_domain] = $site_name;
+
+    // Make sure we detect the right site when we are not using the wildcard domain.
+    foreach ($tld_list as $tld) {
+      $sites[$site_name . '.' . $tld] = $site_name;
+    }
   }
 }
 
@@ -95,4 +108,5 @@ foreach ($envs as $env) {
 foreach ($envs as $env) {
   $full_domain = 'soda-lo' . '.' . $env . '.' . $wildcard_domain;
   $sites[$full_domain] = 'soda_lo';
+  $sites['soda-lo.com'] = 'soda_lo';
 }
