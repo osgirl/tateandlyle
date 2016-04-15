@@ -782,8 +782,6 @@ $config['technicalcontact_email'] = "natalija.buldakova@tateandlyle.com";
 
 $config['secretsalt'] = 'q4WCi9W%tWhUqGyrRPDNK9FNU^6GgY';
 $config['auth.adminpassword'] = 'Zp98WVYxLBB(FxU';
-// Prevent Varnish from interfering with SimpleSAMLphp.
-setcookie('NO_CACHE', '1');
 
 if (empty($_ENV['AH_SITE_ENVIRONMENT'])) {
     // add any local configuration here

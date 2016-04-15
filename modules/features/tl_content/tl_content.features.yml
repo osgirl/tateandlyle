@@ -135,12 +135,9 @@ required:
 #  - field.storage.node.field_touts
 #  - field.storage.node.field_youtube_video
 #  - field.storage.paragraph.field_accordion_item
-#  - field.storage.paragraph.field_address
 #  - field.storage.paragraph.field_background_image
 #  - field.storage.paragraph.field_background_tout
 #  - field.storage.paragraph.field_body
-#  - field.storage.paragraph.field_contact
-#  - field.storage.paragraph.field_country
 #  - field.storage.paragraph.field_has_bg_color
 #  - field.storage.paragraph.field_identifier
 #  - field.storage.paragraph.field_image
@@ -208,3 +205,5 @@ required:
   # - workbench_moderation.moderation_state_transition.archived_published
   - filter.format.filtered_html
   - editor.editor.filtered_html
+  - field.storage.paragraph.field_country
+  - field.storage.paragraph.field_address
