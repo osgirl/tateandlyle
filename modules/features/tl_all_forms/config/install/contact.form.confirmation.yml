@@ -5,9 +5,9 @@ dependencies:
     - contact_storage
 third_party_settings:
   contact_storage:
-    redirect_uri: 'entity:node/66'
+    redirect_uri: ''
 id: confirmation
-label: Confirmation
+label: 'Confirmation'
 recipients:
   - webmaster@tateandlyle.com
 reply: ''
