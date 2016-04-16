@@ -68,11 +68,11 @@ function centerModal() {
 
       // Set the height for the footer.
       var NavHeight = $('.region-navigation').height();
-      var WindowHeight = $(window).height();
-      $('.full-footer').height(WindowHeight - NavHeight);
+      var DocHeight = $(document).height();
+      $('.full-footer').height(DocHeight - NavHeight);
       $(window).resize(function() {
         var NavHeight = $('.region-navigation').height();
-        var WindowHeight = $(window).height();
+        var DocHeight = $(document).height();
         $('.full-footer').height(WindowHeight - NavHeight);
       })
     }
@@ -179,11 +179,11 @@ function centerModal() {
         $(this).validate({       // initialize plugin on each form
             highlight: function (element) {
               $(element).closest('.form-group').removeClass('checked').addClass('error');
-              $(element).next('.chosen-container').removeClass('checked').addClass('error');
+              $(element).next().removeClass('checked').addClass('error');
             },
             success: function (element) {
               $(element).closest('.form-group').removeClass('error').addClass('checked');
-              $(element).next('.chosen-continer').removeClass('error').addClass('checked');
+              $(element).next().removeClass('error').addClass('checked');
             }
         });
       });
