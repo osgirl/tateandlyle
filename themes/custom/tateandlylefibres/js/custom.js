@@ -64,6 +64,17 @@ function centerModal() {
       }).replaceWith(function() {
         return this.nodeValue.replace(/[™®]/g, '<sup>$&</sup>');
       });
+
+
+      // Set the height for the footer.
+      var NavHeight = $('.region-navigation').height();
+      var WindowHeight = $(window).height();
+      $('.full-footer').height(WindowHeight - NavHeight);
+      $(window).resize(function() {
+        var NavHeight = $('.region-navigation').height();
+        var WindowHeight = $(window).height();
+        $('.full-footer').height(WindowHeight - NavHeight);
+      })
     }
   };
 
@@ -159,7 +170,8 @@ function centerModal() {
     }
   };
 
-  Drupal.behaviors.ValidateEachForm1 = {
+  // Validate forms.
+  Drupal.behaviors.ValidateEachForm = {
     attach: function (context, settings) {
       $.validator.setDefaults({ ignore: ":hidden:not(select)" });
 
@@ -180,7 +192,7 @@ function centerModal() {
      
 
       $('select').on('change', function () {
-          $(this).valid();
+        $(this).valid();
       });
 
     }
