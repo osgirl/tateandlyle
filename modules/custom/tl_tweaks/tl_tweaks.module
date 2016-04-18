@@ -113,6 +113,11 @@ function tl_tweaks_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form
         $form['field_main_content']['widget'][$key]['subform']['field_contact']['widget']['add_more']['#access'] = TRUE;
       }
     }
+    foreach ($form['field_touts']['widget'] as $key => $item) {
+      if (is_numeric($key)) {
+        $form['field_touts']['widget'][$key]['subform']['field_popup']['widget']['add_more']['#access'] = TRUE;
+      }
+    }
   }
 
   foreach (entity_get_bundles()['contact_message'] as $key => $contact_message) {
