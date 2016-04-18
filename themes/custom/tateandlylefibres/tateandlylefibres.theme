@@ -243,7 +243,7 @@ function tateandlylefibres_preprocess_paragraph(&$variables) {
     /*Check if video url exist*/
     if($video[0]) { 
       $video_id = $video[0]['video_id'];
-      $video_url = "http://youtube.com/embed/" . $video_id . '?rel=0&amp;showinfo=0';
+      $video_url = "https://youtube.com/embed/" . $video_id . '?rel=0&amp;showinfo=0';
       $variables['video_url'] = $video_url;
     }
     /*Check if video image exist*/
