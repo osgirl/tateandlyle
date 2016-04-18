@@ -106,7 +106,7 @@ function dolciaprima_preprocess_paragraph(&$variables) {
     // Check if video url exist.
     if ($video[0]) {
       $video_id = $video[0]['video_id'];
-      $video_url = "http://youtube.com/embed/" . $video_id;
+      $video_url = "https://youtube.com/embed/" . $video_id;
       $variables['video_url'] = $video_url;
     }
     // Check if video image exist.
@@ -247,7 +247,7 @@ function dolciaprima_preprocess_field(&$variables) {
   if($variables['field_name'] == 'field_video_text') {
     $video = $variables['element']['#object']->get('field_video_url')->getValue();
     $video_id = $video[0]['video_id'];
-    $video_url = "http://youtube.com/embed/" . $video_id . '?rel=0&amp;showinfo=0';
+    $video_url = "https://youtube.com/embed/" . $video_id . '?rel=0&amp;showinfo=0';
     $variables['items'][0]['content']['#text'] = $variables['items'][0]['content']['#text'].'<a class="video-button" data-toggle="modal" data-target="#'.$video_id.'" data-theVideo="'.$video_url.'"></a>';
   }
 
@@ -330,7 +330,7 @@ function dolciaprima_preprocess_views_view_unformatted__multimedia(&$variables) 
       $file_download = $object->get('field_file')->getValue();
       if($video[0]) {
         $video_id = $video[0]['video_id'];
-        $video_url = "http://youtube.com/embed/" . $video_id . '?rel=0;showinfo=0';
+        $video_url = "https://youtube.com/embed/" . $video_id . '?rel=0;showinfo=0';
         $video_image = $object->get('field_media_item_image')->getValue();
         $video_image_id = $video_image[0]['target_id'];  
         $file = File::load($video_image_id);

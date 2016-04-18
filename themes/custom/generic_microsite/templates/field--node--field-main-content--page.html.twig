@@ -89,7 +89,7 @@
 			{% set tab_id = item.content['#paragraph'].id.value %}
 			{% if j == 0 %}
 			<div id="{{ tab_id }}" class="tab-pane fade in active">
-			 <form class = "form-tabs" action="{{ redirect[tab_id] }}" method="get|post">
+			 <form class = "form-tabs" action="{{ redirect[tab_id] }}?tab={{ item['content']['#paragraph'].field_title.value }}" method="post">
         <table border="1">
 			    <thead>	
 				  <tr>
@@ -104,7 +104,7 @@
 			  <tr>
 			  <td>{{ tab['field_country'] }}</td>
 			  <td>{{ tab['field_address'] }}</td>
-			  <td><input type="checkbox" name="field_identifier[]" value="{{ tab['field_identifier'] }}"></td>
+			  <td><input type="checkbox" name="field_identifier[]" value="{{ tab['field_identifier'] }}{{ ' | ' }}{{ tab['field_country'] }}"></td>
 			  </tr>
 			  {% endfor %}
 			  </table>
@@ -113,7 +113,7 @@
 			</div>
 			{% else %}
 			<div id="{{ tab_id }}" class="tab-pane fade in">
-			 <form class="form-tabs" action="{{ redirect[tab_id] }}" method="get|post">
+			 <form class="form-tabs" action="{{ redirect[tab_id] }}?tab={{ item['content']['#paragraph'].field_title.value }}" method="post">
         <table border="1">
 			    <thead>	
 				  <tr>
@@ -129,7 +129,7 @@
 			  <tr>
 			  <td>{{ tab['field_country'] }}</td>
 			  <td>{{ tab['field_address'] }}</td>
-			  <td><input type="checkbox" name="field_identifier[]" value="{{ tab['field_identifier'] }}"></td>  
+			  <td><input type="checkbox" name="field_identifier[]" value="{{ tab['field_identifier'] }}{{ ' | ' }}{{ tab['field_country'] }}"></td>  
 			  </tr>
 			  {% endfor %}
 			  </table>

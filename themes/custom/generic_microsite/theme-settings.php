@@ -90,17 +90,23 @@ function generic_microsite_form_system_theme_settings_alter(&$form, FormStateInt
       '#type' => 'checkbox',
       '#title' => t('Customise language specific logos'),
       '#default_value' => theme_get_setting('show_logos'),
+      '#suffix' => '<br>',
     );
   }
   $default_language = \Drupal::languageManager()->getDefaultLanguage()->getId();
   foreach ($languages as $language) {
     if ($language->getId() != $default_language) {
-      $fid = theme_get_setting('logo_image_' . $language->getId());
-      if ($fid) {
-        $file = File::load($fid);
-        if ($file) {
-          $file_uri = $file->getFileUri();
-          $image = '<img src="' . ImageStyle::load('medium')->buildUrl($file_uri) . '" /><br />';
+      if (theme_get_setting('logo_image_' . $language->getId() . '_delete') != 1) {
+        $fid = theme_get_setting('logo_image_' . $language->getId());
+        if ($fid) {
+          $file = File::load($fid);
+          if ($file) {
+            $file_uri = $file->getFileUri();
+            $image = '<img src="' . ImageStyle::load('medium')->buildUrl($file_uri) . '" /><br />';
+          }
+        }
+        else {
+          $image = "";
         }
       }
       else {
@@ -120,6 +126,12 @@ function generic_microsite_form_system_theme_settings_alter(&$form, FormStateInt
             ':input[name="show_logos"]' => array('checked' => TRUE),
           ),
         ),
+      );
+      $form['style']['logo_image_' . $language->getId() . '_delete'] = array(
+        '#type' => 'checkbox',
+        '#title' => t('Show default logo instead of the custom @language logo', array('@language' => $language->getName())),
+        '#default_value' => theme_get_setting('logo_image_' . $language->getId() . '_delete'),
+        '#suffix' => '<br>',
       );
     }
   }

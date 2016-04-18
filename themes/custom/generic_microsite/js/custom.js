@@ -26,8 +26,8 @@ function centerModal() {
       // Set variables.
       var language_icon = $('.language-switcher-language-url');
       var language_contents = $('.language-switcher-language-url').contents();
-      var search_icon = $('.search-block-form');
-      var search_contents = $('.search-block-form').contents();
+      var search_icon = $('header .search-api-page-block-form');
+      var search_contents = $('header .search-api-page-block-form').contents();
 
       var MacOS = navigator.appVersion.indexOf("Mac")!=-1; // Get Mac Operationg System
       var Windows = navigator.appVersion.indexOf("Win")!=-1; // Get Windows
@@ -72,7 +72,7 @@ function centerModal() {
         var search_contents_mobile = $('.search-mobile').contents();
         if ($(window).outerWidth() <= windowWidth) {
           // Place Search mobile section in the Header Bottom section.
-          if (search_contents.parent().hasClass('search-block-form')) {
+          if (search_contents.parent().hasClass('search-api-page-block-form')) {
             search_contents.insertAfter('.header-right');
             search_contents.wrapAll('<section class="header-bottom"></section>');
             search_contents.wrapAll('<section class="search-mobile"></section>');
@@ -87,7 +87,7 @@ function centerModal() {
         else {
           // Place Search and Language in the Header Right section.
           $('.header-bottom').remove();
-          search_contents_mobile.appendTo('.search-block-form');
+          search_contents_mobile.appendTo('header .search-api-page-block-form');
           language_contents_mobile.appendTo('.language-switcher-language-url');
         }
       });
@@ -204,13 +204,13 @@ function centerModal() {
 
           highlight: function (element) {
             $(element).closest('.form-group').removeClass('checked').addClass('error');
-            $(element).next('.chosen-container').removeClass('checked').addClass('error');
+            $(element).next().removeClass('checked').addClass('error');
             //$('label.error').insertAfter($('.chosen-container'));
             
           },
           success: function (element) {
             $(element).closest('.form-group').removeClass('error').addClass('checked');
-            $(element).next('.chosen-continer').removeClass('error').addClass('checked');
+            $(element).next().removeClass('error').addClass('checked');
           }
 
         });

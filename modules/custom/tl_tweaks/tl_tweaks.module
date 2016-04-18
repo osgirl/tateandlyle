@@ -79,10 +79,11 @@ function tl_tweaks_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form
   }
 
   if ($form_id == "contact_message_contact_us_form") {
-    if (isset($_GET['field_identifier'])) {
-      if (Html::escape($form['field_contact_identifier']) !== NULL) {
-        foreach (Html::escape($_GET['field_identifier']) as $id) {
-          $form['field_contact_identifier']['widget']['0']['value']['#default_value'] .= $id . '|';
+    if (isset($_POST['field_identifier'])) {
+      if ($form['field_contact_identifier'] !== NULL) {
+        foreach ($_POST['field_identifier'] as $id) {
+          $option = explode(" | ", Html::escape($id));
+          $form['field_contact_identifier']['widget']['0']['value']['#default_value'] .= $option[0] . '|';
         }
       }
       $form['field_contact_identifier']['#attributes']['class'][] = 'hidden';
@@ -105,6 +106,11 @@ function tl_tweaks_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form
     foreach ($form['field_sidebar']['widget'] as $key => $item) {
       if (is_numeric($key)) {
         $form['field_sidebar']['widget'][$key]['subform']['field_popup']['widget']['add_more']['#access'] = TRUE;
+      }
+    }
+    foreach ($form['field_main_content']['widget'] as $key => $item) {
+      if (is_numeric($key)) {
+        $form['field_main_content']['widget'][$key]['subform']['field_contact']['widget']['add_more']['#access'] = TRUE;
       }
     }
   }

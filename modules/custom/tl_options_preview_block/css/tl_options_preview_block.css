@@ -1,0 +1,17 @@
+.options-preview-block-title {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.options-preview-block-tab {
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.options-preview-block-options  ul{
+  padding-left: 20px;
+}
+
+.options-preview-block-options  ul li{
+  margin-bottom: 5px;
+}

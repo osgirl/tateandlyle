@@ -64,6 +64,17 @@ function centerModal() {
       }).replaceWith(function() {
         return this.nodeValue.replace(/[™®]/g, '<sup>$&</sup>');
       });
+
+
+      // Set the height for the footer.
+      var NavHeight = $('.region-navigation').height();
+      var DocHeight = $(document).height();
+      $('.full-footer').height(DocHeight - NavHeight);
+      $(window).resize(function() {
+        var NavHeight = $('.region-navigation').height();
+        var DocHeight = $(document).height();
+        $('.full-footer').height(WindowHeight - NavHeight);
+      })
     }
   };
 
@@ -159,7 +170,8 @@ function centerModal() {
     }
   };
 
-  Drupal.behaviors.ValidateEachForm1 = {
+  // Validate forms.
+  Drupal.behaviors.ValidateEachForm = {
     attach: function (context, settings) {
       $.validator.setDefaults({ ignore: ":hidden:not(select)" });
 
@@ -167,11 +179,11 @@ function centerModal() {
         $(this).validate({       // initialize plugin on each form
             highlight: function (element) {
               $(element).closest('.form-group').removeClass('checked').addClass('error');
-              $(element).next('.chosen-container').removeClass('checked').addClass('error');
+              $(element).next().removeClass('checked').addClass('error');
             },
             success: function (element) {
               $(element).closest('.form-group').removeClass('error').addClass('checked');
-              $(element).next('.chosen-continer').removeClass('error').addClass('checked');
+              $(element).next().removeClass('error').addClass('checked');
             }
         });
       });
@@ -180,7 +192,7 @@ function centerModal() {
      
 
       $('select').on('change', function () {
-          $(this).valid();
+        $(this).valid();
       });
 
     }
