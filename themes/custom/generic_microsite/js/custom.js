@@ -204,13 +204,13 @@ function centerModal() {
 
           highlight: function (element) {
             $(element).closest('.form-group').removeClass('checked').addClass('error');
-            $(element).next('.chosen-container').removeClass('checked').addClass('error');
+            $(element).next().removeClass('checked').addClass('error');
             //$('label.error').insertAfter($('.chosen-container'));
             
           },
           success: function (element) {
             $(element).closest('.form-group').removeClass('error').addClass('checked');
-            $(element).next('.chosen-continer').removeClass('error').addClass('checked');
+            $(element).next().removeClass('error').addClass('checked');
           }
 
         });

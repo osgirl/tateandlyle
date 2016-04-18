@@ -396,7 +396,7 @@ function generic_microsite_preprocess_block(&$variables) {
     $default_language = $language_manager->getDefaultLanguage()->getId();
     $current_language = $language_manager->getCurrentLanguage()->getId();
     if ($default_language != $current_language) {
-      if ($variables['theme']['settings']['logo_image_' . $current_language]) {
+      if (($variables['theme']['settings']['logo_image_' . $current_language]) && ($variables['theme']['settings']['logo_image_' . $current_language . '_delete'] != 1)) {
         $file = File::load($variables['theme']['settings']['logo_image_' . $current_language]);
         $variables['site_logo'] = $file->url();
       }

@@ -353,8 +353,6 @@ body,
 
 .region-navigation {
   display: inline-block;
-  height: 58vh;
-  overflow-y: auto;
   @media(max-width: @screen-sm-max) {
     display: inline-block;
     text-align: center;
@@ -2012,8 +2010,8 @@ label.error {
     padding: 5px 0;
   }
   @media(min-width: @screen-md-min) {
-    position:absolute;
-    bottom: 0;
+    display: table-cell;
+    vertical-align: bottom;
   }
   .nav, .links {
     margin-left: 5px;
