@@ -83,14 +83,17 @@ projects:
     version: ~
   paragraphs:
     type: module
-    version: "1.0-rc4"
+    download:
+      type: git
+      url: "http://git.drupal.org/project/paragraphs.git"
+      revision: "990082ae9d2a83f3b80f241f903a41438d648e97"
     patch:
-      - "https://www.drupal.org/files/issues/paragraphs-EntityChangedConstraintValidator-FixAndTest-2631590-16.patch"
+      - "https://www.drupal.org/files/issues/required_paragraphs_field_unable_to_edit-2556539-24.patch"
   entity_reference_revisions:
     type: module
-    version: "1.0-rc4"
+    version: "1.0-rc6"
     patch:
-      - "https://www.drupal.org/files/issues/fix_target_revision_id_property.patch"
+#      - "https://www.drupal.org/files/issues/fix_target_revision_id_property.patch"
       - "https://www.drupal.org/files/issues/allow_limiting_the_max_items-2675604-9_1.patch"
   mollom:
     type: module
