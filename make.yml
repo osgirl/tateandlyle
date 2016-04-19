@@ -21,7 +21,7 @@ projects:
   # For any project using a dev branch, always specify the revision id.
   acquia_connector:
     type: module
-    version: "1.0"
+    version: "1.1"
     patch:
       # Fix the default search index - https://www.drupal.org/node/2665710.
       - "https://www.drupal.org/files/issues/fix_acquia_search-2665710-3.patch"
@@ -37,7 +37,7 @@ projects:
     version: ~
   config_update:
     type: module
-    version: ~
+    version: "1.1"
   csv_serialization:
     type: module
     version: ~
