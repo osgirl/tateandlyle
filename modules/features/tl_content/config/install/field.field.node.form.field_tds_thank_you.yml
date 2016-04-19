@@ -13,7 +13,7 @@ bundle: form
 label: 'Technical data sheets thank you'
 description: 'To create a button that will drop down the contact form, wrap the button in a span containing the class "tds_contact".'
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }
