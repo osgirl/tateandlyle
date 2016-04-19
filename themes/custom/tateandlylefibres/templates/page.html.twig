@@ -65,11 +65,11 @@
 <div id="st-container" class="st-container">
   {# Back to top link #}
   <a name="top"></a>
-    {# Navigation (collapsible) #}
-  {% if page.navigation %}
-    <div class="navbar-collapse">
+  {# Navigation (collapsible) #}
+  {% if page.navigation_collapsible %}
+    <div class="sidebar-menu">
       <nav class="st-menu st-effect-2" id="menu-2">
-        {{ page.navigation }}
+        {{ page.navigation_collapsible }}
       </nav>
     </div>
   {% endif %}
@@ -90,7 +90,7 @@
             <nav{{ navbar_attributes.addClass(navbar_classes) }} id="navbar" role="banner">
               <div class="navbar-header">
                <div id="st-trigger-effects" class="column">
-                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" data-effect="st-effect-2">
+                  <button type="button" class="navbar-toggle" data-effect="st-effect-2">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
