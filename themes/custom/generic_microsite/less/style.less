@@ -243,7 +243,6 @@ header .search-api-page-block-form {
     font-size: 20px;
     font-weight: bold;
     position: relative;
-    top: 1px;
     @media (min-width: @screen-sm) {
       content: none;
     }
@@ -269,10 +268,10 @@ header .search-api-page-block-form {
   display: inline-block;
   font-family: 'Glyphicons Halflings';
   font-style: normal;
+  font-size: 11px;
   font-weight: normal;
   line-height: 1;
   position: relative;
-  top: 1px;
 }
 
 .advanced-search {
@@ -325,8 +324,10 @@ body {
 }
 
 .btn.icon-before .glyphicon-search {
+  font-size: 11px;
   margin-left: 0;
   margin-right: 5px;
+  top: 0;
 }
 
 #search-block-form,
@@ -358,10 +359,10 @@ body {
     }
   }
   button.btn {
+    font-size: 0;
     overflow: hidden;
     padding: 3px 4px;
     @media (min-width: @screen-sm) {
-      font-size: 11px;
       height: 19px;
       width: 19px;
     }
@@ -435,6 +436,20 @@ body {
     border-radius: 0;
     background: #b9b3ac;
     border: 0;
+    font-size: 0;
+    &:after {
+      -webkit-font-smoothing: antialiased;
+      color: #FFF;
+      content: "\e003";
+      display: inline-block;
+      font-family: 'Glyphicons Halflings';
+      font-style: normal;
+      font-size: 18px;
+      font-weight: normal;
+      left: -3px;
+      line-height: 1;
+      position: relative;
+    }
   }
 }
 
@@ -630,6 +645,7 @@ body,
   }
   button {
     border: 0;
+    border-radius: 0;
     display: block;
     margin: 0;
     padding: 0;
@@ -651,7 +667,7 @@ body,
   background-color: #DEDEDE;
 }
 
-.navbar-collapse {
+.sidebar-menu {
   .dropdown-menu {
     background: none;
     border: 0;
@@ -2814,12 +2830,17 @@ body {
     width: 40%;
   }
   button.btn {
-    font-size: 14px;
+    font-size: 0;
     height: 24px;
     width: 24px;
+    &:after {
+      font-size: 14px;
+      left: 5%;
+    }
   }
   .btn.icon-before .glyphicon-search {
-    margin-left: 2px;
+    font-size: 14px;
+    margin-left: 1px;
   }
 }
 
