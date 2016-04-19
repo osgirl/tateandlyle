@@ -112,3 +112,7 @@ foreach ($envs as $env) {
   $sites['www.soda-lo.com'] = 'soda_lo';
   $sites['soda-lo.com'] = 'soda_lo';
 }
+
+// tateandlyle.jp breaks up the database name to TLD and domain name and is an exception
+$sites['tateandlyle.jp'] = 'tateandlylejp';
+$sites['www.tateandlyle.jp'] = 'tateandlylejp';

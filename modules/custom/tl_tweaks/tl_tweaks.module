@@ -113,6 +113,11 @@ function tl_tweaks_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form
         $form['field_main_content']['widget'][$key]['subform']['field_contact']['widget']['add_more']['#access'] = TRUE;
       }
     }
+    foreach ($form['field_touts']['widget'] as $key => $item) {
+      if (is_numeric($key)) {
+        $form['field_touts']['widget'][$key]['subform']['field_popup']['widget']['add_more']['#access'] = TRUE;
+      }
+    }
   }
 
   foreach (entity_get_bundles()['contact_message'] as $key => $contact_message) {
@@ -230,6 +235,20 @@ function tl_tweaks_views_query_alter($view, $query) {
       unset($query->where['1']['conditions'][$key]);
       $substr = $substr + '86340';
       $query->addWhere("1", "contact_message.created", $value = $substr, $operator = "<=");
+    }
+  }
+}
+
+
+/**
+ * Implements hook_library_info_alter().
+ */
+function tl_tweaks_library_info_alter(&$libraries, $extension) {
+  // Use Additional Methods js from https.
+  if ($extension == 'clientside_validation_jquery' && isset($libraries['jquery.validate'])) {
+    if (!file_exists($libraries['jquery.validate']['js']['js/lib/jquery.validate.js'])) {
+      unset($libraries['jquery.validate']['js']['http://cdn.jsdelivr.net/jquery.validation/1.14.0/additional-methods.min.js']);
+      $libraries['jquery.validate']['js']['https://cdn.jsdelivr.net/jquery.validation/1.14.0/additional-methods.min.js'] = ['type' => 'external'];
     }
   }
 }
