@@ -1,0 +1,27 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.media_item.field_file
+    - field.field.node.media_item.field_media_category
+    - field.field.node.media_item.field_media_item_image
+    - field.field.node.media_item.field_youtube_video
+    - node.type.media_item
+  module:
+    - user
+id: node.media_item.teaser
+targetEntityType: node
+bundle: media_item
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_file: true
+  field_media_category: true
+  field_media_item_image: true
+  field_youtube_video: true
+  langcode: true

@@ -1,0 +1,41 @@
+core: 8.x
+type: theme
+base theme: bootstrap
+
+name: 'Tate and Lyle Fibres'
+description: 'Subtheme based on Bootstrap 3.'
+package: 'Bootstrap'
+
+regions:
+  header: 'Header'
+  navigation: 'Navigation'
+  navigation_collapsible: 'Navigation (Collapsible)'
+  breadcrumb: 'Breadcrumb'
+  highlighted: 'Highlighted'
+  help: 'Help'
+  content: 'Content'
+  sidebar_second: 'Secondary'
+  footer: 'Footer'
+  page_top: 'Page top'
+  page_bottom: 'Page bottom'
+
+libraries:
+  # Styling sheets #
+  - 'tateandlylefibres/bootstrap-chosen-styling'
+  - 'tateandlylefibres/global-styling'
+
+  # Chosen script #
+  - 'tateandlylefibres/chosen-script'
+
+  # Bootstrap scripts #
+  - 'tateandlylefibres/bootstrap-scripts'
+
+  # Menu sidebar scripts #
+  - 'tateandlylefibres/classie-script'
+  - 'tateandlylefibres/menu-sidebar-script'
+
+  # Custom script #
+  - 'tateandlylefibres/custom-script'
+
+    # Swipe script #
+  - 'tateandlylefibres/swipe'

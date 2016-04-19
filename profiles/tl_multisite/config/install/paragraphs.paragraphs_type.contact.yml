@@ -1,0 +1,8 @@
+uuid: f7a05274-26fe-4b75-ac07-7a65be9227ba
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: dgL4bFlTzenFwfLblFb1WSpeWLcr_Y-nXkmMZgRROJw
+id: contact
+label: Contact

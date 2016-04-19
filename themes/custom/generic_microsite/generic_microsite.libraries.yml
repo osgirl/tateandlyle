@@ -1,0 +1,96 @@
+# Global styling #
+global-styling:
+  version: VERSION
+  css:
+    theme:
+      css/style.css: {}
+      css/print.css: { media: print }
+
+global-styling1:
+  version: VERSION
+  css:
+    theme:
+      css/style1.css: {}
+
+global-styling2:
+  version: VERSION
+  css:
+    theme:
+      css/style2.css: {}
+
+global-styling3:
+  version: VERSION
+  css:
+    theme:
+      css/style3.css: {}
+
+global-styling4:
+  version: VERSION
+  css:
+    theme:
+      css/style4.css: {}
+
+global-styling5:
+  version: VERSION
+  css:
+    theme:
+      css/style5.css: {}
+
+global-styling6:
+  version: VERSION
+  css:
+    theme:
+      css/style6.css: {}
+
+global-styling7:
+  version: VERSION
+  css:
+    theme:
+      css/style7.css: {}
+
+# Bootstrap chosen styling #
+bootstrap-chosen-styling:
+  version: VERSION
+  css:
+    theme:
+      css/bootstrap-chosen.css: {}
+
+# Chosen script #
+chosen-script:
+  version: VERSION
+  js:
+    js/chosen.jquery.min.js: {}
+
+
+# Menu sidebar scripts #
+classie:
+  version: VERSION
+  js:
+    js/classie.js: {}
+
+menu-sidebar-effects:
+  version: VERSION
+  js:
+    js/sidebarEffects.js: {}
+
+custom:
+  version: VERSION
+  js:
+    js/custom.js: {}
+
+# Bootstrap scripts #
+bootstrap-scripts:
+  version: VERSION
+  js:
+    bootstrap/js/affix.js: {}
+    bootstrap/js/alert.js: {}
+    bootstrap/js/button.js: {}
+    bootstrap/js/carousel.js: {}
+    bootstrap/js/collapse.js: {}
+    bootstrap/js/dropdown.js: {}
+    bootstrap/js/modal.js: {}
+    bootstrap/js/tooltip.js: {}
+    bootstrap/js/popover.js: {}
+    bootstrap/js/scrollspy.js: {}
+    bootstrap/js/tab.js: {}
+    bootstrap/js/transition.js: {}

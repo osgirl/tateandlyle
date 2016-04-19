@@ -1,0 +1,334 @@
+<?php
+/**
+ * @file
+ * Bootstrap sub-theme.
+ *
+ * Place your custom PHP code in this file.
+ */
+
+use Drupal\bootstrap\Bootstrap;
+use Drupal\file\Entity\File;
+use Drupal\image\Entity\ImageStyle;
+
+/**
+ * Implements TEMPLATE_preprocess_html().
+ */
+function tateandlylefibres_preprocess_html(&$variables) {
+  // Set custom css
+  $variables['custom_css'] = theme_get_setting('custom_css', 'tateandlylefibres');
+}
+
+function tateandlylefibres_preprocess_page(&$variables) {
+
+  // Set primary background color
+  if (theme_get_setting('bg_value', 'tateandlylefibres') != NULL) {
+    $variables['bg_value'] = 'background-color: ' . theme_get_setting('bg_value', 'tateandlylefibres') . ';';
+  }
+  else {
+    $variables['bg_value'] = 'background-color: #ffffff;';
+  }
+
+  if ($variables['node'] && $variables['node']->getType() == 'page') {
+    // Header backgroud image
+    $background_image = $variables['node']->get('field_background_image')->getValue();
+    if ($background_image[0]) {
+      $background_image_id = $background_image[0]['target_id'];
+      $file = File::load($background_image_id);
+      $variables['background_image'] = 'background-image:url("'.ImageStyle::load('original')->buildUrl($file->getFileUri()).'")';
+    }
+
+    // Subtitle
+    $subtitle = $variables['node']->get('field_subtitle')->getValue();
+    $variables['subtitle'] = $subtitle[0]['value'];
+
+    // Title image
+    $title_image = $variables['node']->get('field_title_image')->getValue();
+    if ($title_image[0]) {
+      $title_image_id = $title_image[0]['target_id'];
+      $title_image_alt = $title_image[0]['alt'];
+      $file_title_image = $file = File::load($title_image_id);
+      $variables['title_image'] = ImageStyle::load('original')->buildUrl($file_title_image->getFileUri());
+      $variables['title_image_alt'] = $title_image_alt;
+    }
+    // Check if page has sidebar
+    if($variables['node']->get('field_sidebar')->getValue()) {
+      $variables['is_sidebar'] = TRUE;
+    }
+    if($variables['node']->get('field_sidebar_color')->getValue()[0]['value'] == 0) {
+      $variables['sidebar_color'] = 'color-block';
+    } else {
+      $variables['sidebar_color'] = 'no-color-block';
+    }
+  }
+   // Title class
+  if($variables['node']) {
+    $node_fields = $variables['node']->toArray();
+    $node_title = $node_fields['title'][0]['value'];
+    $node_title = preg_replace('/[^A-Za-z0-9\-]/', ' ', $node_title);
+    $variables['title_name'] = strtolower(str_replace(" ", "-", $node_title));
+  }
+  if ($variables['node'] && $variables['node']->getType() == 'form') { 
+    $variables['is_form'] = 'is-form';
+    $subtitle = $variables['node']->get('field_subtitle')->getValue();
+    $variables['subtitle'] = $subtitle[0]['value'];
+  }
+}
+
+function tateandlylefibres_preprocess_field(&$variables) {
+  if ($variables['field_name'] == 'field_accordion_item') { 
+    $variables['attributes']['id'][]='accordion';
+    foreach ($variables['items'] as $key => $item) {
+      $image = $item['content']['#field_collection_item']->get('field_image')->getValue();
+      if(isset($image['0'])) {
+        $file_id = $image['0']['target_id'];
+        $file = File::load($file_id);
+        $variables['accordeon_image'][$file_id] = ImageStyle::load('accordion_image')->buildUrl($file->getFileUri());
+      }
+    }
+  }
+  
+  if ($variables['field_name'] == 'field_touts') { 
+    foreach ($variables['items'] as $key => $item) {
+      $paragraph = $item['content']['#paragraph']->toArray();
+      $paragraph_id = $paragraph['id'][0]['value'];  
+      if(isset($paragraph['field_tout_background_image'][0])) {
+        $field_image_id = $paragraph['field_tout_background_image'][0]['target_id'];
+        $file = File::load($field_image_id);
+        $variables['background_image_tout'][$field_image_id] = 'background-image:url("'.ImageStyle::load('original')->buildUrl($file->getFileUri()).'")';
+      }
+    }
+  }
+
+  /* Redirect selector */
+  global $base_url;
+  if ($variables['element']['#bundle'] == 'redirect_selector') {
+    foreach ($variables['items'] as $key => $item) {
+      $variables['redirect_title'] = $item['content']['#title'];
+      if ($item['content']['#url']->isExternal() == 1) {
+        $link = $item['content']['#url']->getUri();
+      } else  {
+        $link = $base_url  . '/' . $item['content']['#url']->getInternalPath();
+      };
+      $variables['redirect_url'][$key] = $link; 
+    }
+  }
+
+  if($variables['field_name'] == 'field_block_color') {
+    $variables['items'][0]['content']['#markup'] = '';
+  }
+  if($variables['field_name'] == 'field_title' && $variables['element']['#object']->getType() == 'accordion') { 
+    if($variables['items'][0]) {
+       $accordion_name = preg_replace('/[^A-Za-z0-9\-]/', ' ', $variables['items'][0]['content']['#context']['value']);
+       $accordion_id = strtolower(str_replace(" ", "-",$accordion_name));
+      $variables['attributes']['id'][] = $accordion_id;
+    }
+  }
+
+  /* Slideshow + link */
+  if ($variables['field_name'] == 'field_slide') {
+    $slide_type = $variables['element']['#object']->get('field_slide_type')->getValue();
+    if($slide_type[0]['value'] == 0) {
+      foreach ($variables['items'] as $key => $item) {
+        $link = $item['content']['#field_collection_item']->get('field_link')->getValue()[0]['uri'];
+        $link_auto = split('entity:', $link);
+        $link_internal = split('internal:', $link);
+        $collection_id = $item['content']['#field_collection_item']->get('item_id')->getValue()[0]['value'];
+        if($link_auto[1]) {
+          $link_alias = \Drupal::service('path.alias_manager')->getAliasByPath('/'.$link_auto[1]);
+          $variables['link_alias'][$collection_id] = $link_alias;
+        } 
+        elseif ($link_internal[1]) {
+          $link_alias = \Drupal::service('path.alias_manager')->getAliasByPath($link_internal[1]);
+          $variables['link_alias'][$collection_id] = $link_alias;
+        }
+        else {
+          $variables['link_alias'][$collection_id] = $link;
+          $variables['target_link'][$collection_id] = 'target=_blank"';
+        }
+
+        $image = $item['content']['#field_collection_item']->get('field_image')->getValue();
+        if(isset($image['0'])) {
+          $file_id = $image['0']['target_id'];
+          $file = File::load($file_id);
+          if (theme_get_setting('frontpage_template', 'generic_microsite') == 1) {
+            $variables['slideshow_image_path'][$file_id] = ImageStyle::load('homepage_full')->buildUrl($file->getFileUri());
+          } else {
+            $variables['slideshow_image_path'][$file_id] = ImageStyle::load('slideshow')->buildUrl($file->getFileUri());
+          }
+        }
+      }
+    } else {
+      foreach ($variables['items'] as $key => $item) {
+        $link = $item['content']['#field_collection_item']->get('field_link')->getValue()[0]['uri'];
+        $link_auto = split('entity:', $link);
+        $link_internal = split('internal:', $link);
+        $collection_id = $item['content']['#field_collection_item']->get('item_id')->getValue()[0]['value'];
+        if($link_auto[1]) {
+          $link_alias = \Drupal::service('path.alias_manager')->getAliasByPath('/'.$link_auto[1]);
+          $variables['link_alias'][$collection_id] = $link_alias;
+        } 
+        elseif ($link_internal[1]) {
+          $link_alias = \Drupal::service('path.alias_manager')->getAliasByPath($link_internal[1]);
+          $variables['link_alias'][$collection_id] = $link_alias;
+        }
+        else {
+          $variables['link_alias'][$collection_id] = $link;
+          $variables['target_link'][$collection_id] = 'target=_blank"';
+        }
+        
+        $image = $item['content']['#field_collection_item']->get('field_image')->getValue();
+        if(isset($image['0'])) {
+          $file_id = $image['0']['target_id'];
+          $file = File::load($file_id);
+          $variables['slideshow_image_path'][$file_id] = ImageStyle::load('original')->buildUrl($file->getFileUri());
+        }
+      }
+    }
+  }
+
+  if ($variables['field_name'] == 'field_slide_type') {
+    $variables['items'][0]['content']['#markup'] = '';
+  }
+
+  if ($variables['field_name'] == 'field_slide') {
+    $slide = $variables['element']['#object']->toArray();
+    $slide_id = $slide['id'][0]['value'];
+    $variables['slide_id'] = $slide['id'][0]['value'];
+  }
+
+  if ($variables['field_name'] == 'field_show_arrows') {
+    $slide = $variables['element']['#object']->toArray();
+    $slide_id = $slide['id'][0]['value'];
+    $variables['slide_id'] = $slide['id'][0]['value'];
+    if ($variables['element'][0]['#markup'] == 'Show arrows') {
+      $variables['items'][0]['content']['#markup'] = '<a class="left carousel-control" href="#slideshow'.'-'. $slide_id . '" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      </a>
+      <a class="right carousel-control" href="#slideshow'.'-'. $slide_id . '" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      </a>';
+    } else {
+      $variables['items'][0]['content']['#markup'] = '';
+    }
+  }
+
+  // Render contact form
+  if ($variables['field_name'] == 'field_form') {
+    $id = $variables['items'][0]['content']['#plain_text'];
+    $contact_form = \Drupal::entityManager()
+      ->getStorage('contact_form')
+      ->load($id);
+
+    $message = \Drupal::entityManager()
+      ->getStorage('contact_message')
+      ->create(array(
+        'contact_form' => $id
+      ));
+
+    $form = \Drupal::service('entity.form_builder')->getForm($message);
+    
+    unset($variables['items'][0]['content']['#plain_text']);
+    $variables['items'][0]['content']['#suffix'] = drupal_render($form);
+  }
+}
+
+function tateandlylefibres_preprocess_paragraph(&$variables) {
+  if ($variables['paragraph']->getType() == 'video') {  
+    /*Is front page*/
+    $is_front = \Drupal::service('path.matcher')->isFrontPage();
+    $variables['is_front'] = $is_front;
+    /*Load video url and image*/
+    $video = $variables['paragraph']->get('field_video_url')->getValue();
+    $video_image = $variables['paragraph']->get('field_video_image')->getValue();
+    /*Check if video url exist*/
+    if($video[0]) { 
+      $video_id = $video[0]['video_id'];
+      $video_url = "https://youtube.com/embed/" . $video_id . '?rel=0&amp;showinfo=0';
+      $variables['video_url'] = $video_url;
+    }
+    /*Check if video image exist*/
+    if($video_image[0]) {
+      $file_id = $video_image[0]['target_id'];
+      $file = File::load($file_id);
+      $variables['video_image'] = ImageStyle::load('original')->buildUrl($file->getFileUri());
+    }  
+  }
+  if ($variables['paragraph']->getType() == 'tout') { 
+    if ($variables['content']['field_text'][0]) {
+      $text = $variables['content']['field_text'][0]['#text'];
+      /*Unwrap img from field_text*/
+      $variables['content']['field_text'][0]['#text'] = preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $text);
+
+    }
+  }
+}
+
+function tateandlylefibres_preprocess_menu(&$variables) {
+  if($variables['menu_name'] == 'main' || $variables['menu_name'] == 'main-navigation-es' || $variables['menu_name'] == 'main-navigation-pt' || $variables['menu_name'] == 'main-navigation-cn') {
+    $variables['attributes']['class'] = 'navbar-nav'; 
+    foreach ($variables['items'] as $key => $item) {
+      if ($item['in_active_trail'] == TRUE) {
+        $additional_class = '';
+        foreach ($item['below'] as $key => $sub_item) {
+          if ($sub_item['in_active_trail'] == TRUE) {
+            $sub_item['attributes']->addClass('active');
+            $additional_class = ' has-child-active';
+          }
+        }
+        $classes = 'active'.$additional_class;
+        $item['attributes']->addClass($classes);
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter.
+ */
+function tateandlylefibres_form_contact_message_marketing_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  // Add required text to message field.
+  $form['field_first_name']['#prefix'] = '<div class="required-field"><span class="form-required">*</span>' . ' ' . '<p>' . t('Required field') . '</p></div>';
+
+  // Change Submit value
+  $form['actions']['submit']['#value'] = t('Send now');
+
+  // Disable preview button
+  unset($form['actions']['preview']);
+}
+
+/**
+ * Implements theme_preprocess_block.
+ */
+function tateandlylefibres_preprocess_block(&$variables) {
+  if ($variables['base_plugin_id'] == 'local_tasks_block') {
+    unset($variables['content']['#primary']['entity.node.delete_form']);
+  }
+  if($variables['base_plugin_id'] == 'system_branding_block') {
+    $language_manager = \Drupal::languageManager();
+    $default_language = $language_manager->getDefaultLanguage()->getId();
+    $current_language = $language_manager->getCurrentLanguage()->getId();
+    if ($default_language != $current_language) {
+      if ($variables['theme']['settings']['logo_image_' . $current_language]) {
+        $file = File::load($variables['theme']['settings']['logo_image_' . $current_language]);
+        $variables['site_logo'] = $file->url();
+      }
+    }
+    if ($current_language == 'en') {
+      $variables['is_english'] = TRUE;
+    }
+  }
+  if ($variables['base_plugin_id'] == 'language_block') {
+    $variables['label'] = t('Pick your language');
+    $languages = \Drupal::languageManager();
+    $default_language = $languages->getDefaultLanguage();
+    $current_language = $languages->getCurrentLanguage($type = language_interface);
+    foreach ($variables['content']['#links'] AS $key => $value) {
+      if ($default_language == $current_language) {
+        $variables['content']['#links'][$key]['title'] = $languages->getLanguage($key)->getName();
+      }
+      else {
+       $variables['content']['#links'][$key]['title'] = t($variables['content']['#links'][$key]['title']);
+      }
+    }
+  }
+}

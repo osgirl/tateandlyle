@@ -1,0 +1,89 @@
+name: Tate & Lyle Multisite
+type: profile
+description: 'Tate & Lyle Multisite Profile.'
+core: '8.x'
+
+dependencies:
+  - system
+  - node
+  - user 
+  - block
+  - breakpoint
+  - ckeditor
+  - config
+  - contextual
+  - contact
+  - contact_storage
+  - config_translation
+  - ctools
+  - features
+  - features_ui
+  - menu_link_content
+  - block_content
+  - editor
+  - entity_reference
+  - help
+  - locale
+  - menu_ui
+  - path
+  - page_cache
+  - taxonomy
+  - syslog
+  - shortcut
+  - toolbar
+  - field_ui
+  - views
+  - views_ui
+  - language
+  - paragraphs
+  - content_translation
+  - google_analytics
+  - mollom
+  - metatag
+  - tl_block
+  - tl_block_utility
+  - tl_dolciaprima_block
+  - tl_dolcia_prima_multimedia
+  - tl_fibres_media_centre
+  - tl_content
+  - tl_tweaks
+  - tl_workflow
+  - tl_features_settings
+  - tl_general_permissions
+  - tl_language_detection_and_selection_settings
+  - tl_mail
+  - imce
+  - token
+  - pathauto
+  - composer_manager
+  - workbench_moderation
+  - youtube_ckeditor
+  - serialization
+  - csv_serialization
+  - rest
+  - menu_link_attributes
+  - simplesamlphp_auth
+  # Field types
+  - datetime
+  - entity_reference_revisions
+  - field_collection
+  - file
+  - image
+  - link
+  - options
+  - telephone
+  - text
+  - youtube
+  - field_group
+  # Acquia Cloud
+  - acquia_connector
+  - search_api
+  - search_api_solr
+  - redirect
+  - entity
+  - diff
+  - better_exposed_filters
+  - tl_options_preview_block
+themes:
+  - generic_microsite
+  - seven

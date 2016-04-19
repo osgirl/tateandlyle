@@ -1,0 +1,4 @@
+required:
+  - user.flood
+  - user.mail
+  - user.settings

@@ -1,0 +1,36 @@
+core: 8.x
+type: theme
+base theme: bootstrap
+
+name: 'Generic Microsite'
+description: 'Subtheme based on Bootstrap 3.'
+package: 'Bootstrap'
+
+regions:
+  header_top: 'Header Top'
+  header_left: 'Header Left'
+  header_right: 'Header Right'
+  navigation: 'Navigation'
+  navigation_collapsible: 'Navigation (Collapsible)'
+  breadcrumb: 'Breadcrumb'
+  highlighted: 'Highlighted'
+  help: 'Help'
+  content: 'Content'
+  sidebar_first: 'Primary'
+  sidebar_second: 'Secondary'
+  footer: 'Footer'
+  page_top: 'Page top'
+  page_bottom: 'Page bottom'
+
+libraries:
+  # Styling sheets #
+  - 'generic_microsite/bootstrap-chosen-styling'
+  - 'generic_microsite/global-styling'
+
+  # Bootstrap scripts #
+  - 'generic_microsite/bootstrap-scripts'
+
+  # Menu sidebar scripts #
+  - 'generic_microsite/classie'
+  - 'generic_microsite/menu-sidebar-effects'
+  - 'generic_microsite/custom'

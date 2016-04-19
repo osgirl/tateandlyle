@@ -1,0 +1,16 @@
+tl_tweaks:
+  version: 1.x
+  js:
+    js/tl_tweaks.js: {}
+  css:
+    theme:
+      css/tl_tweaks.css: {}
+tl_tweaks_node_form:
+  version: 1.x
+  css:
+    theme:
+      css/tl_tweaks_node_form.css: {}
+tl_tweaks_node_form_translations:
+  version: 1.x
+  js:
+    js/tl_tweaks_node_form.js: {}

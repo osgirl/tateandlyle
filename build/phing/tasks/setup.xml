@@ -6,7 +6,7 @@
 
   <!-- This is run when a project is cloned to a new environment. -->
   <target name="setup:build:all" description="Generates all required files for a full build. E.g., removes docroot, builds via `drush make`, restores symlinks, etc."
-      depends="setup:behat, setup:build:make, setup:build:symlinks, frontend:build">
+      depends="setup:behat, setup:build:make, setup:build:symlinks, setup:tatelyle, frontend:build">
   </target>
 
   <!-- Delete the docroot directory. Used prior to running Drush make. -->
@@ -30,6 +30,38 @@
       <option name="no-gitinfofile"></option>
     </drush>
 
+  </target>
+
+  <target name="setup:tatelyle" description="Set up custom composer dependencies until automatic generation is fixed.">
+    <exec dir="${docroot}" command="composer require league/csv ^7.1" />
+    <exec dir="${docroot}" command="composer update league/csv" />
+    <exec dir="${docroot}" command="composer require solarium/solarium ^3.5" />
+    <exec dir="${docroot}" command="composer update solarium/solarium" />
+    <exec dir="${docroot}" command="composer require simplesamlphp/simplesamlphp 1.13.2" />
+    <!--<exec dir="${docroot}" command="composer install &#45;&#45;no-dev" />-->
+    <exec dir="${docroot}" command="ln -s ./vendor/simplesamlphp/simplesamlphp/www ./simplesaml" />
+    <exec dir="${docroot}" command="cp -r ./vendor/simplesamlphp/simplesamlphp/config-templates ./vendor/simplesamlphp/simplesamlphp/config" />
+    <exec dir="${docroot}" command="cp -r ./vendor/simplesamlphp/simplesamlphp/metadata-templates ./vendor/simplesamlphp/simplesamlphp/metadata" />
+    <exec dir="${docroot}" command="cp ../simplesamlphp/config/config.php ./vendor/simplesamlphp/simplesamlphp/config/" />
+    <exec dir="${docroot}" command="cp ../simplesamlphp/config/authsources.php ./vendor/simplesamlphp/simplesamlphp/config/" />
+    <exec dir="${docroot}" command="cp ../simplesamlphp/metadata/saml20-idp-remote.php ./vendor/simplesamlphp/simplesamlphp/metadata" />
+    <echo message="Patching solarium to support file extraction." />
+    <exec dir="${docroot}" command="cat ../patches/solarium-multipart.patch | patch -p0" />
+
+    <!-- Symlink htaccess. -->
+    <exec dir="${docroot}" command="rm .htaccess"/>
+    <exec dir="${docroot}" command="ln -s ../htaccess .htaccess"/>
+  </target>
+
+  <target name="setup:composer:init" description="Initializes composer_manager by modifying Drupal core's composer.json.">
+    <exec dir="${docroot}" command="php modules/contrib/composer_manager/scripts/init.php" logoutput="true" />
+    <echo message="${docroot}/composer.json has been modified for composer_manager integration."/>
+  </target>
+
+  <target name="setup:composer:update" description="Updates composer dependencies via Composer Manager." depends="setup:composer:init">
+    <echo message="Updating contrib module library dependencies via Composer Manager."/>
+    <exec dir="${docroot}" command="composer drupal-rebuild" logoutput="true"/>
+    <exec dir="${docroot}" command="composer update --prefer-source" logoutput="true"/>
   </target>
 
   <!-- Check for docroot. -->
@@ -58,6 +90,7 @@
     <delete dir="${docroot}/themes/custom" quiet="true"/>
     <delete dir="${docroot}/profiles" quiet="true"/>
     <exec dir="${repo.root}" command="ln -s ../../modules/custom docroot/modules/custom"/>
+    <exec dir="${repo.root}" command="ln -s ../../modules/features docroot/modules/features"/>
     <exec dir="${repo.root}" command="ln -s ../../themes/custom docroot/themes/custom"/>
     <exec dir="${repo.root}" command="ln -s ../profiles docroot/profiles"/>
 
@@ -66,6 +99,21 @@
     <exec dir="${repo.root}" command="ln -s ../../../sites/default/settings docroot/sites/default/settings"/>
     <exec dir="${repo.root}" command="ln -s ../../../sites/default/settings.php docroot/sites/default/settings.php"/>
     <exec dir="${repo.root}" command="ln -s ../../../sites/default/files docroot/sites/default/files"/>
+
+    <!-- Symlink the multisite related configuration. -->
+    <exec dir="${repo.root}" command="ln -s ../../sites/sites.php docroot/sites/sites.php" />
+    <foreach param="dirname" absparam="absname" target="setup:build:symlinks:settings">
+      <fileset dir="${repo.root}/sites/">
+        <exclude name="all"></exclude>
+        <exclude name="default"></exclude>
+        <type type="dir" />
+        <depth max="0" min="0" />
+      </fileset>
+    </foreach>
+  </target>
+
+  <target name="setup:build:symlinks:settings">
+    <exec dir="${repo.root}" command="ln -s ../../sites/${dirname} docroot/sites/${dirname}"/>
   </target>
 
   <target name="setup:drupal:install"

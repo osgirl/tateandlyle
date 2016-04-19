@@ -1,0 +1,23 @@
+uuid: 4b75e904-5b47-48ef-a12f-479a70af6a51
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_text
+    - paragraphs.paragraphs_type.tout
+  module:
+    - text
+_core:
+  default_config_hash: c57dHZ8M97EIcZveD6bsYbSNaYUwX0wEHvmWYd7wfJ4
+id: paragraph.tout.field_text
+field_name: field_text
+entity_type: paragraph
+bundle: tout
+label: Text
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -55,6 +55,8 @@ filters_exclude[5]='development'
 filters_exclude[6]='scripts'
 filters_exclude[7]='git'
 filters_exclude[8]='featurized'
+filters_exclude[9]='simplesamlphp'
+filters_exclude[10]='authsources'
 
 # Include extensions that should be checked.
 filters_include[0]='\.inc'
@@ -106,6 +108,15 @@ fi
 
 for file in $LIST
 do
+    if [ $(basename $file) = "settings.php" ]; then
+      continue;
+    fi
+    if [ $(basename $file) = "sites.php" ]; then
+      continue;
+    fi
+    if [ $file = "sites/default/settings/base.settings.php" ]; then
+      continue;
+    fi
 
     PHPL_RESULT=$(php -l $file)
     SYNTAX_CODE=$?

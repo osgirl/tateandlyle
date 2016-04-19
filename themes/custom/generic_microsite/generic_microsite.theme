@@ -1,0 +1,440 @@
+<?php
+/**
+ * @file
+ * Bootstrap sub-theme.
+ *
+ * Place your custom PHP code in this file.
+ */
+use Drupal\bootstrap\Bootstrap;
+use Drupal\file\Entity\File;
+use Drupal\image\Entity\ImageStyle;
+
+/**
+ * Implements TEMPLATE_preprocess_html().
+ */
+function generic_microsite_preprocess_html(&$variables) {
+  $site_name_raw = \Drupal::configFactory()->getEditable('system.site')->get('name');
+
+  // Add special class if site name has chinese characters 
+  if (preg_match('/[\x{4e00}-\x{9fa5}]+/u', $site_name_raw)) {
+    $variables['site_name'] = 'tateandlyle_china';
+  }
+  else {
+    $site_name = preg_replace('/[^A-Za-z0-9\-]/', ' ', $site_name_raw);
+    $variables['site_name'] = strtolower(str_replace(" ", "-", $site_name));
+  }
+
+  if (theme_get_setting('global_style', 'generic_microsite') != NULL) {
+    $variables['#attached']['library'][] = 'generic_microsite/global-styling' . theme_get_setting('global_style', 'generic_microsite');
+    $variables['global_style'] = theme_get_setting('global_style', 'generic_microsite');
+  }
+  else {
+    $variables['#attached']['library'][] = 'generic_microsite/global-styling1';
+    $variables['global_style'] = 1;
+  }
+
+  if (theme_get_setting('frontpage_template', 'generic_microsite') != NULL) {
+    $variables['frontpage_template'] = theme_get_setting('frontpage_template', 'generic_microsite');
+  }
+  else {
+    $variables['frontpage_template'] = 1;
+  }
+
+   if (theme_get_setting('frontpage_template', 'generic_microsite') == 2) {
+     $variables['attributes']['class'][] = 'tl-one-sidebar';
+   }
+   else {
+    $variables['attributes']['class'][] = 'tl-no-sidebars';
+   }
+
+  $variables['custom_css'] = theme_get_setting('custom_css', 'generic_microsite');
+
+  // The getRawParameter will return the node id.
+  $id = \Drupal::routeMatch()->getRawParameter('node');
+  $variables['node_id'] = "node-id-" . $id;
+  $node = node_load($id);
+  if ($node) {
+    $alias = str_replace("/", "-", substr($node->url(), 1));
+  }
+  $variables['node_alias'] = $alias;
+
+  // Define second color for vertical gradient
+  $variables['bg_value2'] = theme_get_setting('bg_value2', 'generic_microsite');
+}
+
+/**
+ * Implements TEMPLATE_preprocess_field().
+ */
+function generic_microsite_preprocess_field(&$variables, $hook) {
+  /* Redirect selector */
+  global $base_url;
+  if ($variables['element']['#bundle'] == 'redirect_selector') {
+    foreach ($variables['items'] as $key => $item) {
+      $variables['redirect_title'] = $item['content']['#title'];
+      if ($item['content']['#url']->isExternal() == 1) {
+        $link = $item['content']['#url']->getUri();
+      } else  {
+        $link = $base_url  . '/' . $item['content']['#url']->getInternalPath();
+      };
+      $variables['redirect_url'][$key] = $link; 
+    }
+  }
+
+  /* Accordion */
+  if ($variables['field_name'] == 'field_accordion_item') { 
+    $variables['attributes']['id'][]='accordion';
+    foreach ($variables['items'] as $key => $item) {
+      $image = $item['content']['#field_collection_item']->get('field_image')->getValue();
+      if(isset($image['0'])) {
+        $file_id = $image['0']['target_id'];
+        $file = File::load($file_id);
+        $variables['accordeon_image'][$file_id] = ImageStyle::load('accordion_image')->buildUrl($file->getFileUri());
+      }
+    }
+  }
+
+  /* Slideshow + link */
+  if ($variables['field_name'] == 'field_slide') {
+    $slide_type = $variables['element']['#object']->get('field_slide_type')->getValue();
+    if($slide_type[0]['value'] == 0) {
+      foreach ($variables['items'] as $key => $item) {
+        $link = $item['content']['#field_collection_item']->get('field_link')->getValue()[0]['uri'];
+        $link_auto = split('entity:', $link);
+        $link_internal = split('internal:', $link);
+        $collection_id = $item['content']['#field_collection_item']->get('item_id')->getValue()[0]['value'];
+        if($link_auto[1]) {
+          $link_alias = \Drupal::service('path.alias_manager')->getAliasByPath('/'.$link_auto[1]);
+          $variables['link_alias'][$collection_id] = $link_alias;
+        } 
+        elseif ($link_internal[1]) {
+          $link_alias = \Drupal::service('path.alias_manager')->getAliasByPath($link_internal[1]);
+          $variables['link_alias'][$collection_id] = $link_alias;
+        }
+        else {
+          $variables['link_alias'][$collection_id] = $link;
+          $variables['target_link'][$collection_id] = 'target=_blank"';
+        }
+
+        $image = $item['content']['#field_collection_item']->get('field_image')->getValue();
+        if(isset($image['0'])) {
+          $file_id = $image['0']['target_id'];
+          $file = File::load($file_id);
+          if (theme_get_setting('frontpage_template', 'generic_microsite') == 1) {
+            $variables['slideshow_image_path'][$file_id] = ImageStyle::load('homepage_full')->buildUrl($file->getFileUri());
+          } else {
+            $variables['slideshow_image_path'][$file_id] = ImageStyle::load('slideshow')->buildUrl($file->getFileUri());
+          }
+        }
+      }
+    } else {
+      foreach ($variables['items'] as $key => $item) {
+        $link = $item['content']['#field_collection_item']->get('field_link')->getValue()[0]['uri'];
+        $link_auto = split('entity:', $link);
+        $link_internal = split('internal:', $link);
+        $collection_id = $item['content']['#field_collection_item']->get('item_id')->getValue()[0]['value'];
+        if($link_auto[1]) {
+          $link_alias = \Drupal::service('path.alias_manager')->getAliasByPath('/'.$link_auto[1]);
+          $variables['link_alias'][$collection_id] = $link_alias;
+        } 
+        elseif ($link_internal[1]) {
+          $link_alias = \Drupal::service('path.alias_manager')->getAliasByPath($link_internal[1]);
+          $variables['link_alias'][$collection_id] = $link_alias;
+        }
+        else {
+          $variables['link_alias'][$collection_id] = $link;
+          $variables['target_link'][$collection_id] = 'target=_blank"';
+        }
+        
+        $image = $item['content']['#field_collection_item']->get('field_image')->getValue();
+        if(isset($image['0'])) {
+          $file_id = $image['0']['target_id'];
+          $file = File::load($file_id);
+          $variables['slideshow_image_path'][$file_id] = ImageStyle::load('slideshow_block')->buildUrl($file->getFileUri());
+        }
+      }
+    }
+  }
+
+  if ($variables['field_name'] == 'field_slide_type') {
+    $variables['items'][0]['content']['#markup'] = '';
+  }
+
+  if ($variables['field_name'] == 'field_slide') {
+    $slide = $variables['element']['#object']->toArray();
+    $slide_id = $slide['id'][0]['value'];
+    $variables['slide_id'] = $slide['id'][0]['value'];
+  }
+
+  if ($variables['field_name'] == 'field_show_arrows') {
+
+    $slide = $variables['element']['#object']->toArray();
+    $slide_id = $slide['id'][0]['value'];
+    $variables['slide_id'] = $slide['id'][0]['value'];
+    if ($variables['element'][0]['#markup'] == 'Show arrows') {
+      $variables['items'][0]['content']['#markup'] = '<a class="left carousel-control" href="#slideshow'.'-'. $slide_id . '" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      </a>
+      <a class="right carousel-control" href="#slideshow'.'-'. $slide_id . '" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      </a>';
+    } else {
+      $variables['items'][0]['content']['#markup'] = '';
+    }
+  }
+
+  /* Image style frontpage */
+  $is_front = \Drupal::service('path.matcher')->isFrontPage();
+  if ($variables['entity_type'] == 'paragraph' && $variables['element']['#object']->getType() == 'image' && $is_front == 1) {
+    $landing_image = $variables['element']['#object']->get('field_image')->getValue();
+    if(isset($landing_image['0'])) {
+      $file_id = $landing_image['0']['target_id'];
+      $file = File::load($file_id);
+      if (theme_get_setting('frontpage_template', 'generic_microsite') == 1) {
+        $variables['landing_image'] = ImageStyle::load('homepage_full')->buildUrl($file->getFileUri());
+      } else {
+        $variables['landing_image'] = ImageStyle::load('slideshow')->buildUrl($file->getFileUri());
+      }
+      $variables['landing_image_alt'] = $landing_image[0]['alt']; 
+    }
+    $variables['is_front'] = $is_front;
+  }
+
+  if ($variables['field_name'] == 'field_form') {
+    $id = $variables['items'][0]['content']['#plain_text'];
+    $contact_form = \Drupal::entityManager()
+      ->getStorage('contact_form')
+      ->load($id);
+
+    $message = \Drupal::entityManager()
+      ->getStorage('contact_message')
+      ->create(array(
+        'contact_form' => $id
+      ));
+
+    $form = \Drupal::service('entity.form_builder')->getForm($message);
+    
+    unset($variables['items'][0]['content']['#plain_text']);
+    $variables['items'][0]['content']['#suffix'] = drupal_render($form);
+  }
+
+  if ($variables['field_name'] == 'field_main_content') {
+    $current_language = \Drupal::languageManager()->getCurrentLanguage()->getId();  
+    $default_language = \Drupal::languageManager()->getDefaultLanguage()->getId();
+    $forms = array();
+    foreach ($variables['items'] as $key => $item) {
+      if ($item['content']['#paragraph']->getType() == 'country_contact') {
+        $paragraph_id = $item['content']['#paragraph']->id();
+        $values = $item['content']['#paragraph']->field_contact->getValue($include_computed = false);
+        $redirect_node_id = $item['content']['#paragraph']->field_redirect->getValue($include_computed = false);
+        $form_fields = array();
+        foreach ($values as $key => $value) {
+          $contact = entity_load('paragraph', $value['target_id']);
+          $form_fields[$key]['field_address'] = $contact->get('field_address')->getValue()[0]['value'];
+          $form_fields[$key]['field_country'] = $contact->get('field_country')->getValue()[0]['value'];
+          $form_fields[$key]['field_identifier'] = $contact->get('field_identifier')->getValue()[0]['value'];
+        }
+        $variables['tl_tab_forms'][$paragraph_id] = $form_fields;
+        if ($current_language == $default_language) {
+          $variables['redirect'][$paragraph_id] = '/node/' . $redirect_node_id[0]['target_id'];
+        }
+        else {
+          $variables['redirect'][$paragraph_id] = '/' . $current_language . '/node/' . $redirect_node_id[0]['target_id'];
+        }
+        $variables['tl_country_contact'] = TRUE;
+      }
+    }
+  }
+
+}
+
+/**
+ * Implements hook_theme_suggestions_alter.
+ */
+function generic_microsite_theme_suggestions_alter(array &$suggestions, array $variables, $hook) {
+$is_front = \Drupal::service('path.matcher')->isFrontPage();
+  if (($is_front) && in_array($hook, array('page'))) {
+    if (theme_get_setting('frontpage_template', 'generic_microsite') == 1) {
+      $suggestions[] = 'page__front__onecolumn';
+    }
+    else {
+      $suggestions[] = 'page__front__twocolumn';
+    }
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function generic_microsite_theme_suggestions_page_alter(array &$suggestions, array $variables) {
+  if ($node = \Drupal::routeMatch()->getParameter('node')) {
+    $content_type = $node->bundle();
+    if ($content_type == 'form') {
+      $id = $node->id();
+      $layout = $node->field_layout->value;
+      if ($layout == 0) {
+        $suggestions[] = 'page__form__landingform';
+      }
+      else {
+        $suggestions[] = 'page__form__contactform';
+      } 
+    }
+  }
+}
+
+/**
+ * Implements hook_theme_preprocess_page().
+ */
+function generic_microsite_preprocess_page(&$variables) {
+  if (isset($variables['node'])) {
+    $node_type = $variables['node']->get('type')->getValue();
+    if (($node_type[0]['target_id'] == 'page') || ($node_type[0]['target_id'] == 'form')) {
+      $footer_image = $variables['node']->get('field_footer_image')->getValue();
+      if (isset($footer_image[0])) {
+        $file_id = $footer_image[0]['target_id'];
+        $file = File::load($file_id);
+        $variables['footer_background_image'][$file_id] = ImageStyle::load('footer_image')->buildUrl($file->getFileUri());
+      }
+    }
+  }
+
+  // Set gradient background colors
+  if (theme_get_setting('bg_value1', 'generic_microsite') != NULL) {
+    $variables['bg_value1'] = theme_get_setting('bg_value1', 'generic_microsite');
+  }
+  else {
+    $variables['bg_value1'] = '#b5cbe6';
+  }
+
+  $variables['bg_value2'] = theme_get_setting('bg_value2', 'generic_microsite');
+
+  if (theme_get_setting('bg_value2', 'generic_microsite') != NULL) {
+   $variables['gradient_bg'] = 'background: -webkit-gradient(linear,left top,left bottom,from(' . theme_get_setting('bg_value1', 'generic_microsite') . '),to(' . theme_get_setting('bg_value2', 'generic_microsite') . ')) no-repeat; background: -webkit-linear-gradient(top,' . theme_get_setting('bg_value1', 'generic_microsite') . ',' . theme_get_setting('bg_value2', 'generic_microsite') . ') no-repeat; background: -moz-linear-gradient(top,' . theme_get_setting('bg_value1', 'generic_microsite') . ',' . theme_get_setting('bg_value2', 'generic_microsite') . ') no-repeat; background: -ms-linear-gradient(top,' . theme_get_setting('bg_value1', 'generic_microsite') . ',' . theme_get_setting('bg_value2', 'generic_microsite') . ') no-repeat; background: -o-linear-gradient(top,' . theme_get_setting('bg_value1', 'generic_microsite') . ',' . theme_get_setting('bg_value2', 'generic_microsite') . ') no-repeat;';
+  }
+  else if (theme_get_setting('bg_value1', 'generic_microsite') != NULL) {
+    $variables['gradient_bg'] = 'background-color: ' . theme_get_setting('bg_value1', 'generic_microsite') . ';';
+  }
+  else {
+    $variables['gradient_bg'] = 'background-color: #b5cbe6;';
+  }
+}
+
+function generic_microsite_preprocess_paragraph(&$variables) {
+  $is_front = \Drupal::service('path.matcher')->isFrontPage();
+  $variables['is_front'] = $is_front;
+  if (theme_get_setting('frontpage_template', 'generic_microsite') != 2) {
+    $variables['no_sidebars'] = TRUE;
+  }
+  if ($variables['paragraph']->getType() == 'tout') {
+    // Add background color to tout
+    if($variables['paragraph']->get('field_has_bg_color')->getValue()[0] && $variables['paragraph']->get('field_has_bg_color')->getValue()[0]['value'] == '1') {
+      $variables['has_bg_color'] = TRUE;
+    }
+
+    if ($variables['content']['field_text'][0]) {
+      $html = $variables['content']['field_text'][0]['#text'];
+      $hrefs = array();
+      $dom = new DOMDocument();
+      $dom->loadHTML($html);
+      $tags = $dom->getElementsByTagName('a');
+      foreach ($tags as $tag) {
+        $hrefs[] =  $tag->getAttribute('href');
+      }
+      $variables['image_link'] = $hrefs[0];
+    }
+  }
+  if ($variables['paragraph']->getType() == 'video') {
+    $video_image = $variables['paragraph']->get('field_video_image')->getValue();
+    $video_url = $variables['paragraph']->get('field_video_url')->getValue(); 
+    if($video_url[0]) {
+       $variables['video_url']  = "https://youtube.com/embed/" . $video_url[0]['video_id'] . '?rel=0&amp;showinfo=0';
+    }
+    if($video_image[0]) {
+      $file_id = $video_image[0]['target_id'];
+      $file = File::load($file_id);
+      $variables['video_image'] = ImageStyle::load('original')->buildUrl($file->getFileUri());
+    }
+  }
+}
+
+function generic_microsite_preprocess_breadcrumb(&$variables) {
+  $site_name = \Drupal::configFactory()->getEditable('system.site')->get('name');
+  $variables['breadcrumb'][0]['text'] = t($site_name);
+  $variables['breadcrumb']['custom']['text'] = t('You are here') . ' : ';
+  array_unshift($variables['breadcrumb'],$variables['breadcrumb']['custom']);
+  unset($variables['breadcrumb']['custom']);
+}
+
+
+function generic_microsite_preprocess_menu(&$variables) {
+  if($variables['menu_name'] == 'main') {
+    foreach ($variables['items'] as $key => $item) {
+      if ($item['in_active_trail'] == TRUE) {
+        $additional_class = '';
+        foreach ($item['below'] as $key => $sub_item) {
+          if ($sub_item['in_active_trail'] == TRUE) {
+            $sub_item['attributes']->addClass('active');
+            $additional_class = ' has-child-active';
+          }
+        }
+        $classes = 'active'.$additional_class;
+        $item['attributes']->addClass($classes);
+      }
+    }
+  }
+}
+
+
+/**
+ * Implements template_preprocess_block().
+ */
+function generic_microsite_preprocess_block(&$variables) {
+  if ($variables['base_plugin_id'] == 'local_tasks_block') {
+    unset($variables['content']['#primary']['entity.node.delete_form']);
+  }
+  if ($variables['base_plugin_id'] == 'system_branding_block') {
+    $language_manager = \Drupal::languageManager();
+    $default_language = $language_manager->getDefaultLanguage()->getId();
+    $current_language = $language_manager->getCurrentLanguage()->getId();
+    if ($default_language != $current_language) {
+      if (($variables['theme']['settings']['logo_image_' . $current_language]) && ($variables['theme']['settings']['logo_image_' . $current_language . '_delete'] != 1)) {
+        $file = File::load($variables['theme']['settings']['logo_image_' . $current_language]);
+        $variables['site_logo'] = $file->url();
+      }
+    }
+  $variables['logo_redirect'] = $variables['theme']['settings']['logo_redirect'];    
+  }
+  if ($variables['base_plugin_id'] == 'language_block') {
+    $variables['label'] = t('Pick your language');
+    $languages = \Drupal::languageManager();
+    $default_language = $languages->getDefaultLanguage();
+    $current_language = $languages->getCurrentLanguage($type = language_interface);
+    foreach ($variables['content']['#links'] AS $key => $value) {
+      if ($default_language == $current_language) {
+        $variables['content']['#links'][$key]['title'] = $languages->getLanguage($key)->getName();
+      }
+      else {
+       $variables['content']['#links'][$key]['title'] = t($variables['content']['#links'][$key]['title']);
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_form_alter().
+ */
+function generic_microsite_form_search_block_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  $form['#suffix'] = '<a href="search" class="advanced-search">' . t('Advanced search'). '</a>';
+}
+
+function generic_microsite_preprocess_search_api_page_result(&$variables) {
+  /* @var $entity \Drupal\Core\Entity\EntityInterface */
+  $entity = $variables['entity'];
+  /* @var $item \Drupal\search_api\Item\ItemInterface */
+  $item = $variables['item'];
+
+  $variables['snippet'] = $item->getExcerpt();
+  $variables['url'] = $entity->toUrl();
+  $variables['title'] = $entity->label();
+  unset($variables['info']);
+
+}

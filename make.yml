@@ -8,11 +8,166 @@ defaults:
 projects:
   drupal:
     type: core
-    version: 8.0.1
+    version: 8.0.5
+    patch:
+      - "https://www.drupal.org/files/issues/allow_access_to_the-2661016-2_2.patch"
+      # Hide unrelated child menu items when expanded option is used.
+      # See https://www.drupal.org/node/2631468
+      - "https://www.drupal.org/files/issues/2631468-19.patch"
+      - "https://www.drupal.org/files/issues/missing-dependencies-2655104.patch"
+      - "https://www.drupal.org/files/issues/drupal-views_exposed_filter_pager-2686429-2-8.0.x.patch"
+      - "https://www.drupal.org/files/issues/content_language-2189267-13_1.patch"
   # For all projects, always specify the exact version that is to be used.
   # For any project using a dev branch, always specify the revision id.
   acquia_connector:
     type: module
-    revision: "f88c7ca372c96506ba31365d17e97455c072214b"
+    version: "1.0"
+    patch:
+      # Fix the default search index - https://www.drupal.org/node/2665710.
+      - "https://www.drupal.org/files/issues/fix_acquia_search-2665710-3.patch"
+      # Fix a deprecation warning for search.
+      - "https://www.drupal.org/files/issues/2660402-plugin-deprecated.patch"
+  contact_storage:
+    type: module
+    version: "1.0-beta2"
+    patch:
+      - "https://www.drupal.org/files/issues/contact_storage-add_canonical-2484383-7.patch"
+  composer_manager:
+    type: module
+    version: ~
+  config_update:
+    type: module
+    version: ~
+  csv_serialization:
+    type: module
+    version: ~
+  google_analytics:
+    type: module
+    version: "2.0-rc1"
+  features:
+    type: module
+    version: "3.0-beta3"
+  acquia_search_multi_subs:
+    type: module
+    download:
+      type: git
+      url: "https://git.drupal.org/project/acquia_search_multi_subs.git"
+      revision: "a8e82af9006e9bcd465de91b738cf899d61a96fd"
+  search_api:
+    type: module
+    version: "1.0-alpha13"
+    patch:
+      - "https://www.drupal.org/files/issues/empty_highlighted-2703915-2.patch"
+  search_api_solr:
+    type: module
+    download:
+      type: git
+      url: "https://git.drupal.org/project/search_api_solr.git"
+      revision: "b2d020198dc2f631aa9b64054a47ad9e56bc9702"
+  search_api_attachments:
+    type: module
+    download:
+      type: git
+      url: "https://git.drupal.org/project/search_api_attachments.git"
+      revision: "4754c6c9a3498cd68aea0c48679d5c6f583e733b"
+    patch:
+      - "https://www.drupal.org/files/issues/drupal_8_acquia_search-2696901-3.patch"
+      - "https://www.drupal.org/files/issues/configuration_screen-2695361-4.patch"
+  search_api_page:
+    type: module
+    version: "1.0-alpha8"
+    patch:
+      - "https://www.drupal.org/files/issues/filter_search_results-2649332-7.patch"
+      - "https://www.drupal.org/files/issues/2687631-4.patch"
   security_review:
     version: ~
+  paragraphs:
+    type: module
+    version: "1.0-rc4"
+    patch:
+      - "https://www.drupal.org/files/issues/paragraphs-EntityChangedConstraintValidator-FixAndTest-2631590-16.patch"
+  entity_reference_revisions:
+    type: module
+    version: "1.0-rc4"
+    patch:
+      - "https://www.drupal.org/files/issues/fix_target_revision_id_property.patch"
+      - "https://www.drupal.org/files/issues/allow_limiting_the_max_items-2675604-9_1.patch"
+  mollom:
+    type: module
+    download:
+      type: git
+      url: "https://git.drupal.org/project/mollom.git"
+      revision: "87e19dcb801d15114a0900c4d51cc996435d5717"
+    patch:
+      - "https://www.drupal.org/files/issues/support_custom_contact-2659536-6.patch"
+      - "https://www.drupal.org/files/issues/validation_label_is-2683241-2.patch"
+      - "https://www.drupal.org/files/issues/mollom_patch_2642800.patch"
+  field_collection:
+    type: module
+    download:
+      type: git
+      url: "https://git.drupal.org/project/field_collection.git"
+      revision: "668dca3cb9427243c83e2f412e4c8997595d35e5"
+  field_group:
+    type: module
+    version: "1.0-rc4"
+  imce:
+    type: module
+    version: "1.0-beta2"
+  ctools:
+    type: module
+    version: "3.0-alpha23"
+  token:
+    type: module
+    version: "1.0-alpha2"
+  pathauto:
+    type: module
+    version: "1.x-dev"
+  bootstrap:
+    type: theme
+    version: "3.0-beta2"
+  workbench_moderation:
+    type: module
+    version: "1.0-beta2"
+  metatag:
+    type: module
+    version: "1.0-beta7"
+  youtube:
+    type: module
+    version: "1.0-beta2"
+  sharethis:
+    type: module
+    version: "2.0-beta2"
+  simplesamlphp_auth:
+    type: module
+    version: "3.0-alpha4"
+  externalauth:
+    type: module
+    version: "1.0-alpha3"
+  menu_link_attributes:
+    type: module
+    download:
+      type: git
+      url: "https://git.drupal.org/project/menu_link_attributes.git"
+      revision: "611877ee4fac3fa51db7e568e7609dcdb1c05962"
+  redirect:
+    type: module
+    download:
+      type: git
+      url: "https://github.com/md-systems/redirect.git"
+      revision: "34bee9a2e832d78ad691ced02993faf0c4cc67c1"
+  entity:
+    type: module
+    version: "1.0-alpha1"
+  better_exposed_filters:
+    type: module
+    version: "3.x-dev"
+  diff:
+    type: module
+    version: "1.0-alpha2"
+  autologout:
+    type: module
+    version: "1.0-rc1"
+  clientside_validation:
+    type: module
+    version: "1.x-dev"

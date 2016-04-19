@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: _71V6IRYC03XGmlmPHbAB5GDETGpixn6fDu4hd3bf5Q
+id: authenticated
+label: 'Authenticated user'
+weight: 1
+is_admin: false
+permissions:
+  - 'access content'
+  - 'access shortcuts'
+  - 'search content'
+  - 'access site-wide contact form'
+  - 'view own unpublished content'
+  - 'view search api pages'

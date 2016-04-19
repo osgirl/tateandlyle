@@ -1,0 +1,21 @@
+uuid: ad0cfb6d-4ea5-4a50-be00-0dff0f2b9c2e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_template
+    - node.type.page
+  module:
+    - options
+id: node.page.field_template
+field_name: field_template
+entity_type: node
+bundle: page
+label: 'Page layout'
+description: 'Used only for Dolcia Prima theme.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

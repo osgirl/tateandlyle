@@ -1,0 +1,8 @@
+uuid: null
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: _2AlDmSYycZ_g632ATS5HsP3Z0bVJdA7gRzNPriBLBg
+id: field_tab
+label: field_tab

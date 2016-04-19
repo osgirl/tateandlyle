@@ -1,0 +1,5 @@
+langcode: en
+status: true
+dependencies: {  }
+id: field_accordion_item
+label: field_accordion_item

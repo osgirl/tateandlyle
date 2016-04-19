@@ -1,0 +1,5 @@
+name: "T&L Logo"
+description: "Provides the Tate&Lyle logo"
+core: 8.x
+package: Custom
+type: module

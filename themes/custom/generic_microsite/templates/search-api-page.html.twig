@@ -1,0 +1,23 @@
+<section class="search-area">
+	<div class="search-header">
+		{{ form }}
+
+		{% if search_title %}
+		  <h4>{{ search_title }}</h4>
+		{% endif %}
+
+		{% if no_of_results %}
+		  <p>{{ no_of_results }}</p>
+		{% endif %}
+
+		{{ no_results_found }}
+
+		{{ search_help }}
+	</div>
+	<div class="search-results">
+		{{ results }}
+	</div>
+	<div class="pager">
+		{{ pager }}
+	</div>
+</section>

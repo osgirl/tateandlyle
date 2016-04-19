@@ -1,4 +1,8 @@
 <?php
+/**
+ * @file
+ * Environment related configuration.
+ */
 
 /**
  * Host detection.
@@ -6,7 +10,7 @@
 if (!empty($_SERVER['HTTP_X_FORWARDED_HOST'])) {
   $forwarded_host = $_SERVER['HTTP_X_FORWARDED_HOST'];
 }
-elseif(!empty($_SERVER['HTTP_HOST'])) {
+elseif (!empty($_SERVER['HTTP_HOST'])) {
   $forwarded_host = $_SERVER['HTTP_HOST'];
 }
 else {
@@ -30,46 +34,28 @@ $is_ah_free_tier = (!empty($_ENV['ACQUIA_HOSTING_DRUPAL_LOG']) && strstr($_ENV['
 $is_ah_dev_env = (preg_match('/^dev[0-9]*$/', $ah_env) == TRUE);
 $is_local_env = !$is_ah_env;
 
+/**
+ * Set the proper search indexes per environment.
+ */
 if ($ah_env) {
-  switch ($_ENV['AH_SITE_ENVIRONMENT']) {
-    default:
-      // Dynamically set base url based on Acquia environment variable.
-      $domain_prefix = $is_ah_free_tier ? 'devcloud' : 'prod';
-      $domain = "{$_ENV['AH_SITE_NAME']}.$domain_prefix.acquia-sites.com";
-      break;
+
+  if ($is_ah_prod_env) {
+
+    $settings['system.performance']['cache']['page']['max_age'] = 1800;
+
+    $settings['system.performance']['css']['preprocess'] = TRUE;
+    $settings['system.performance']['css']['gzip'] = TRUE;
+
+    $settings['system.performance']['js']['preprocess'] = TRUE;
+    $settings['system.performance']['js']['gzip'] = TRUE;
   }
-
-  /**
-   * Base URL (optional).
-   *
-   * If Drupal is generating incorrect URLs on your site, which could
-   * be in HTML headers (links to CSS and JS files) or visible links on pages
-   * (such as in menus), uncomment the Base URL statement below (remove the
-   * leading hash sign) and fill in the absolute URL to your Drupal installation.
-   *
-   * You might also want to force users to use a given domain.
-   * See the .htaccess file for more information.
-   *
-   * Examples:
-   *   $base_url = 'http://www.example.com';
-   *   $base_url = 'http://www.example.com:8888';
-   *   $base_url = 'http://www.example.com/drupal';
-   *   $base_url = 'https://www.example.com:8888/drupal';
-   *
-   * It is not allowed to have a trailing slash; Drupal will add it
-   * for you.
-   */
-  $protocol = 'http://';
-  $base_url = $protocol . $domain;
-
-  /**
-   * Drupal automatically generates a unique session cookie name for each site
-   * based on its full domain name. If you have multiple domains pointing at the
-   * same Drupal site, you can either redirect them all to a single domain (see
-   * comment in .htaccess), or uncomment the line below and specify their shared
-   * base domain. Doing so assures that users remain logged in as they cross
-   * between your various domains. Make sure to always start the $cookie_domain
-   * with a leading dot, as per RFC 2109.
-   */
-  $cookie_domain = ".$domain";
 }
+
+$settings['simplesamlphp_dir'] = DRUPAL_ROOT . '/../simplesamlphp';
+$settings['cache']['default'] = 'cache.backend.database';
+
+// TL-182/Pentest M2/ARID-667 - Setting the cookie lifetime to 20 minutes.
+// Ensure that the services.yml in the sites/default directory will be included.
+// The __DIR__ . '/../' path should point to sites/default, while this
+// file is located in sites/default/settings, thus the ../
+$settings['container_yamls'][] = __DIR__ . '/../services.yml';

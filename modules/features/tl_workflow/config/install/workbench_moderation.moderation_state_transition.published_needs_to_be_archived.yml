@@ -1,0 +1,11 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - workbench_moderation.moderation_state.needs_to_be_archived
+    - workbench_moderation.moderation_state.published
+id: published_needs_to_be_archived
+label: 'Request Archive'
+stateFrom: published
+stateTo: needs_to_be_archived
+weight: 8

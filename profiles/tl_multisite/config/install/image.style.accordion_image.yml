@@ -1,0 +1,17 @@
+uuid: b2f3ada1-9248-4f89-ab00-bbd147e1bd40
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: GV_BSvPrvB5oF3Pals9hTE-yEUmprG2PnLkz3TdhFPo
+name: accordion_image
+label: 'Accordion image (100xauto)'
+effects:
+  d9b795fa-639a-4ecb-8904-4c750be7e4e1:
+    uuid: d9b795fa-639a-4ecb-8904-4c750be7e4e1
+    id: image_scale
+    weight: 1
+    data:
+      width: 100
+      height: null
+      upscale: false

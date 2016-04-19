@@ -1,0 +1,26 @@
+uuid: 9dbb7ec6-bd5a-409b-9d00-b027dc0df13f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_timeout
+    - paragraphs.paragraphs_type.slide
+_core:
+  default_config_hash: mmS5VWPvLsNJa5nHlbTW9qBtrIpuuJkN0ydgKx33_Uk
+id: paragraph.slide.field_timeout
+field_name: field_timeout
+entity_type: paragraph
+bundle: slide
+label: Timeout
+description: 'Used only for Generic Microsite theme.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 400
+  max: null
+  prefix: ''
+  suffix: ''
+settings: {  }
+field_type: integer

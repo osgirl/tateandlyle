@@ -1,0 +1,25 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.technical_data_sheets
+    - field.storage.contact_message.field_form_entity_id
+    - node.type.form
+id: contact_message.technical_data_sheets.field_form_entity_id
+field_name: field_form_entity_id
+entity_type: contact_message
+bundle: technical_data_sheets
+label: 'Form Entity Id'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      form: form
+    sort:
+      field: _none
+field_type: entity_reference

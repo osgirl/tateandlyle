@@ -1,0 +1,13 @@
+{% if content %}
+<div class="options-preview-block">
+  <h3><div class="options-preview-block-title">
+    {{ "You have selected these items:"|t }}
+  </div></h3>
+  <h4><div class="options-preview-block-tab">
+    {{ tab|t }}
+  </div></h4>
+  <div class="options-preview-block-options">
+    {{ content|raw }}
+  </div>
+</div>
+{% endif %}

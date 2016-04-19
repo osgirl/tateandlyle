@@ -1,0 +1,23 @@
+uuid: 0238a6fa-5b28-47e2-a500-bfb19cb24e6b
+langcode: en
+status: true
+dependencies:
+  module:
+    - contact
+_core:
+  default_config_hash: BJnKs7OJPEJufm7PusVIMI3SvLRRQxe8ZTiBjOQbavk
+id: contact_message.field_cert_expiration_date
+field_name: field_cert_expiration_date
+entity_type: contact_message
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

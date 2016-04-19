@@ -1,0 +1,45 @@
+<?php
+/**
+ * @file
+ * Code for the T&L Dolciaprima Block module.
+ */
+
+/**
+ * Implements hook_form_alter().
+ */
+function tl_dolciaprima_block_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  // Add close button to name field in the Marketing form.
+  if ($form_id == 'contact_message_marketing_form') {
+    $form['field_name']['#suffix'] = '<a href="#" class="btn-close-form hide-text">Close</a>';
+  }
+
+  // Add description field to Marketing form.
+  $form_id = 'tatelyledolciaprimacontactform';
+
+  if ((isset($form['id'])) && (strpos($form['id']['#default_value'], $form_id) !== FALSE)) {
+    $form['header_text'] = array(
+      '#type' => 'textarea',
+      '#title' => t('Header text'),
+      '#default_value' => \Drupal::config('tl_dolciaprima_block.settings')->get('header_text'),
+      '#description' => "Add the text that will appear above the form. You can use HTML tags.",
+      '#weight' => '0',
+    );
+    $form['thank_you_message'] = array(
+      '#type' => 'textarea',
+      '#title' => t('Form submit thank you message'),
+      '#default_value' => \Drupal::config('tl_dolciaprima_block.settings')->get('submit_thank_you_message'),
+      '#description' => "Add the message that you want to be displayed after the user submits the form. You can use HTML tags.",
+      '#weight' => '0',
+    );
+    $form['actions']['submit']['#submit'][] = 'tl_dolciaprima_block_submit';
+  }
+}
+
+/**
+ * Custom submit function().
+ */
+function tl_dolciaprima_block_submit($form) {
+  $config = \Drupal::configFactory()->getEditable('tl_dolciaprima_block.settings');
+  $config->set('header_text', $form['header_text']['#value'])->save();
+  $config->set('submit_thank_you_message', $form['thank_you_message']['#value'])->save();
+}

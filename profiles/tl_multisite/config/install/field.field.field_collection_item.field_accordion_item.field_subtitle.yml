@@ -1,0 +1,21 @@
+uuid: a146d532-d59c-4a35-9d00-bcad8fb5cc8c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.field_collection_item.field_subtitle
+    - field_collection.field_collection.field_accordion_item
+_core:
+  default_config_hash: bORJFHs1S_cp2M4o4TggA6Nu677VNOC5kYgGwQBSnl0
+id: field_collection_item.field_accordion_item.field_subtitle
+field_name: field_subtitle
+entity_type: field_collection_item
+bundle: field_accordion_item
+label: Subtitle
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

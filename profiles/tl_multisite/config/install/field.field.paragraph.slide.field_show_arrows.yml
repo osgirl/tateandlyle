@@ -1,0 +1,25 @@
+uuid: 4f9798e2-4fe1-4e34-9d25-37c0d66eeefd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_show_arrows
+    - paragraphs.paragraphs_type.slide
+_core:
+  default_config_hash: yMYgR8C7UcMGokgkHiQJ3R6T7OiwJzfcEk-c2VXP4FY
+id: paragraph.slide.field_show_arrows
+field_name: field_show_arrows
+entity_type: paragraph
+bundle: slide
+label: 'Show arrows'
+description: 'Used only for Generic Microsite theme.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Show arrows'
+  off_label: 'Hide arrows'
+field_type: boolean

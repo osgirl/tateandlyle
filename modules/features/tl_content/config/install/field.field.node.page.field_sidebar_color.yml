@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sidebar_color
+    - node.type.page
+  module:
+    - options
+id: node.page.field_sidebar_color
+field_name: field_sidebar_color
+entity_type: node
+bundle: page
+label: 'Sidebar color'
+description: 'Choose between colored or transparent blocks (used only on Tate and Lyle Fibers theme).'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_integer

@@ -1,0 +1,23 @@
+uuid: 1274327f-a96b-44e4-8857-87c19a980139
+langcode: en
+status: true
+dependencies:
+  module:
+    - contact
+_core:
+  default_config_hash: mROiBLluKC9yAYmz5NU1o6I79xuNoz1_AatTKNVX66c
+id: contact_message.field_duns_number
+field_name: field_duns_number
+entity_type: contact_message
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

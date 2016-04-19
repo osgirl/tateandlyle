@@ -1,0 +1,64 @@
+uuid: 0ef89575-703b-403b-be01-1da52c1c3537
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_contact
+    - paragraphs.paragraphs_type.country_contact
+  module:
+    - entity_reference_revisions
+_core:
+  default_config_hash: w_X7NdLKHxLHbG1v41ZuutyGeukkFmcrROhOYbdteIU
+id: paragraph.country_contact.field_contact
+field_name: field_contact
+entity_type: paragraph
+bundle: country_contact
+label: Contact
+description: 'Add the contact information.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      contact: contact
+    target_bundles_drag_drop:
+      contact:
+        enabled: true
+        weight: 13
+      country_contact:
+        weight: 14
+        enabled: false
+      image:
+        weight: 15
+        enabled: false
+      image_text:
+        weight: 16
+        enabled: false
+      images:
+        weight: 17
+        enabled: false
+      main_content:
+        weight: 18
+        enabled: false
+      nested_paragraph:
+        weight: 19
+        enabled: false
+      redirect_selector:
+        weight: 20
+        enabled: false
+      text:
+        weight: 21
+        enabled: false
+      text_image:
+        weight: 22
+        enabled: false
+      tout:
+        weight: 23
+        enabled: false
+      user:
+        weight: 24
+        enabled: false
+field_type: entity_reference_revisions

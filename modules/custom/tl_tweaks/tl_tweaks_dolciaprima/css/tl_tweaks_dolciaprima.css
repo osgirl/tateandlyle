@@ -1,0 +1,36 @@
+.st-container .field--name-field-tds-thank-you {
+  text-align: center;
+  float: right;
+  width: 31%;
+  background-color: #e6e6e6;
+  padding: 0 1em 2em;
+  margin-top: 30px;
+  display: none;
+  min-height: 400px;
+}
+
+.st-container .field--name-field-tds-thank-you p {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  color: #721f82;
+  font-size: 1.3em;
+  -webkit-margin-before: 1em;
+  -webkit-margin-after: 1em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+  line-height: 1.5;
+}
+
+.st-container .field--name-field-tds-thank-you a {
+  text-decoration: underline;
+}
+
+.landing-form .field--name-field-tds-thank-you img {
+  max-width: 182px;
+  margin-top: -6.5em;
+}
+
+.tds_contact {
+  cursor: pointer;
+  text-decoration: underline;
+}

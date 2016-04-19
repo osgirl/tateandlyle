@@ -1,0 +1,71 @@
+{#
+/**
+ * @file
+ * Theme override for a field.
+ *
+ * To override output, copy the "field.html.twig" from the templates directory
+ * to your theme's directory and customize it, just like customizing other
+ * Drupal templates such as page.html.twig or node.html.twig.
+ *
+ * Instead of overriding the theming for all fields, you can also just override
+ * theming for a subset of fields using
+ * @link themeable Theme hook suggestions. @endlink For example,
+ * here are some theme hook suggestions that can be used for a field_foo field
+ * on an article node type:
+ * - field--node--field-foo--article.html.twig
+ * - field--node--field-foo.html.twig
+ * - field--node--article.html.twig
+ * - field--field-foo.html.twig
+ * - field--text-with-summary.html.twig
+ * - field.html.twig
+ *
+ * Available variables:
+ * - attributes: HTML attributes for the containing element.
+ * - label_hidden: Whether to show the field label or not.
+ * - title_attributes: HTML attributes for the title.
+ * - label: The label for the field.
+ * - multiple: TRUE if a field can contain multiple items.
+ * - items: List of all the field items. Each item contains:
+ *   - attributes: List of HTML attributes for each item.
+ *   - content: The field item's content.
+ * - entity_type: The entity type to which the field belongs.
+ * - field_name: The name of the field.
+ * - field_type: The type of the field.
+ * - label_display: The display settings for the label.
+ *
+ * @see template_preprocess_field()
+ */
+#}
+
+  <div  {{ attributes }}>
+    <ul class="nav nav-tabs">
+    {% set i = 0 %}
+    {% for item in items %}
+      {% set tab_id = item.content['#field_collection_item'].item_id.value %}
+      {% if i == 0 %}
+        <li class="active">
+          <a data-toggle="tab" href="#{{ tab_id }}">{{ item.content['#field_collection_item'].field_label.value }}</a>
+        </li>
+      {% else %}
+        <li>
+          <a data-toggle="tab" href="#{{ tab_id }}">{{ item.content['#field_collection_item'].field_label.value }}</a>
+        </li>
+      {% endif %}
+      {% set i = i+1 %}
+    {% endfor %}
+    </ul>
+    {% set i = 0 %}
+    <div class="tab-content">
+      {% for item in items %}
+        {% set tab_id = item.content['#field_collection_item'].item_id.value %}
+        {% if i == 0 %}
+          <div id="{{ tab_id }}" class="tab-pane fade in active">
+        {% else %} 
+          <div id="{{ tab_id }}" class="tab-pane fade in">
+        {% endif %}
+        {% set i = i+1 %}
+          {{ item.content['#field_collection_item'].field_body.value }}
+        </div>
+      {% endfor %}
+    </div>
+  </div>

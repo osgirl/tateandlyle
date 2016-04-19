@@ -1,0 +1,41 @@
+uuid: f1a7a6e8-2114-4ff4-8808-8dd162eeb6fa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.contact.field_address
+    - field.field.paragraph.contact.field_country
+    - field.field.paragraph.contact.field_identifier
+    - paragraphs.paragraphs_type.contact
+_core:
+  default_config_hash: VGTTYC76q0dBWHt4JCMdG11mCB3Xy0UqQm3HC0o1Qso
+id: paragraph.contact.default
+targetEntityType: paragraph
+bundle: contact
+mode: default
+content:
+  field_address:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_country:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_identifier:
+    weight: 2
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+hidden:
+  created: true
+  moderation_state: true
+  uid: true

@@ -1,0 +1,21 @@
+uuid: e168c066-651b-494e-ac06-6db2f3272765
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_collection
+    - paragraphs
+_core:
+  default_config_hash: 5ga65bM4Z-1Al2-XGDQ_BpTT0lDJUgpEN_t49qLr74U
+id: paragraph.field_accordion_item
+field_name: field_accordion_item
+entity_type: paragraph
+type: field_collection
+settings: {  }
+module: field_collection
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

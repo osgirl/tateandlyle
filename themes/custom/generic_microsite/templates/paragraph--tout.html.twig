@@ -1,0 +1,121 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a paragraph.
+ *
+ * Available variables:
+ * - paragraph: Full paragraph entity.
+ *   - id: The paragraph ID.
+ *   - bundle: The type of the paragraph, for example, "image" or "text".
+ *   - authorid: The user ID of the paragraph author.
+ *   - createdtime: Formatted creation date. Preprocess functions can
+ *     reformat it by calling format_date() with the desired parameters on
+ *     $variables['paragraph']->getCreatedTime().
+ * - content: All paragraph items. Use {{ content }} to print them all,
+ *   or print a subset such as {{ content.field_example }}. Use
+ *   {{ content|without('field_example') }} to temporarily suppress the printing
+ *   of a given child element.
+ * - attributes: HTML attributes for the containing element.
+ *   The attributes.class element may contain one or more of the following
+ *   classes:
+ *   - paragraphs: The current template type (also known as a "theming hook").
+ *   - paragraphs--type-[type]: The current paragraphs type. For example, if the paragraph is an
+ *     "Image" it would result in "paragraphs--type--image". Note that the machine
+ *     name will often be in a short form of the human readable label.
+ *   - paragraphs--view-mode--[view_mode]: The View Mode of the paragraph; for example, a
+ *     preview would result in: "paragraphs--view-mode--preview", and
+ *     default: "paragraphs--view-mode--default".
+ * - view_mode: View mode; for example, "preview" or "full".
+ * - logged_in: Flag for authenticated user status. Will be true when the
+ *   current user is a logged-in member.
+ * - is_admin: Flag for admin user status. Will be true when the current user
+ *   is an administrator.
+ *
+ * @see template_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+{%
+  set classes = [
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+  ]
+%}
+
+{#  Set class when tout has image and text #} 
+{% if content.field_text[0] and content.field_image[0] %}
+  {% set image_text = "paragraph--type--tout-image-text" %}
+{% endif %}
+{#  Check if the tout has a background color #}
+{% if has_bg_color %}
+  <div{{ attributes.addClass(classes).addClass('has-bg-color') }}>
+{% else %}
+  <div{{ attributes.addClass(classes).addClass(image_text) }}>
+
+{% endif %}
+    {% set modal_id = paragraph.id.value %}
+    {% if is_front and no_sidebars %} 
+       {% if content.field_image[0] %}
+        <div class="tout-image">
+          {# Add readmore link to tout image #}
+          <a title="{{ image_link }}" href= "{{ image_link }}">{{ content.field_image }}</a>
+          {{ content.field_image_text }}
+          {% if content.field_popup['#entity_type'] is defined %} 
+             <span class="open-modal" data-toggle="modal" data-target="#modal-{{modal_id}}"></span>
+          {% endif %}
+        </div>
+        {{ content.field_title }}
+        {% if content.field_text[0] %}
+          <div class="tout-text">
+            {{ content.field_text }}
+          </div>
+        {% endif %}
+      {% else %}
+        {% if content.field_popup['#entity_type'] is defined %} 
+          <span class="open-modal" data-toggle="modal" data-target="#modal-{{modal_id}}"></span>
+        {% endif %}
+        {{ content.field_title }}
+         {% if content.field_text[0] %}
+          <div class="tout-text">
+            {{ content.field_text }}
+          </div>
+        {% endif %}
+      {% endif %}
+    {% else %} 
+       {% if content.field_image[0] %}
+        {{ content.field_title }}
+        <div class="tout-image">     
+          {{ content.field_image }}
+          {{ content.field_image_text }}
+          {% if content.field_popup['#entity_type'] is defined %} 
+             <span class="open-modal" data-toggle="modal" data-target="#modal-{{modal_id}}"></span>
+          {% endif %}
+        </div>
+        {% if content.field_text[0] %}
+          <div class="tout-text">
+            {{ content.field_text }}
+          </div>
+        {% endif %}
+      {% else %}
+        {% if content.field_popup['#entity_type'] is defined %} 
+        <span class="open-modal no-image" data-toggle="modal" data-target="#modal-{{modal_id}}"></span>
+      {% endif %}
+        {{ content.field_title }}
+         {% if content.field_text[0] %}
+          <div class="tout-text">
+            {{ content.field_text }}
+          </div>
+        {% endif %}
+      {% endif %}
+    {% endif %}
+    <div class="modal fade" id="modal-{{modal_id}}">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <button type="button" class="btn btn-default" data-dismiss="modal"></button>
+          {{ content.field_popup }}
+        </div>
+      </div>
+    </div>
+</div>

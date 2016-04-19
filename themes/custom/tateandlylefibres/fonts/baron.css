@@ -1,0 +1,14 @@
+@font-face{
+  font-family: myFirstFont;
+  src: url('baron.eot');
+  src: url('baron.eot?#iefix') format('embedded-opentype'),
+       url('baron.woff2') format('woff2'),
+       url('baron.woff') format('woff'),
+       url('baron.ttf') format('truetype'),
+       url('baron.svg#baron_neueregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+

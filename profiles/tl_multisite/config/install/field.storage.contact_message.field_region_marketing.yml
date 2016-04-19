@@ -1,0 +1,35 @@
+uuid: c3b6df90-cf95-4675-a24a-748246310071
+langcode: en
+status: true
+dependencies:
+  module:
+    - contact
+    - options
+_core:
+  default_config_hash: LfKn7i0QbMLoisKCX9bBaADVb3_FxVYaXA_UP5TfqgU
+id: contact_message.field_region_marketing
+field_name: field_region_marketing
+entity_type: contact_message
+type: list_integer
+settings:
+  allowed_values:
+    -
+      value: 0
+      label: 'North America'
+    -
+      value: 1
+      label: 'Latin America'
+    -
+      value: 2
+      label: 'Europe, Middle East and Africa'
+    -
+      value: 3
+      label: 'Asia Pacific, ANZ'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

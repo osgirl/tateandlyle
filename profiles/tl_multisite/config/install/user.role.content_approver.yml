@@ -1,0 +1,39 @@
+uuid: bb62aecb-cace-4f61-b300-aca52536b721
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: cjhl3yPjBy9Cvy6LXKmXPpg50UwbMtz65n5AwDJLILo
+id: content_approver
+label: 'Content Approver'
+weight: 5
+is_admin: null
+permissions:
+  - 'create content_flow workflow_transition'
+  - 'use needs_review_published transition'
+  - 'use published_draft transition'
+  - 'edit any page content'
+  - 'view all revisions'
+  - 'view the administration theme'
+  - 'access toolbar'
+  - 'edit own page content'
+  - 'edit any form content'
+  - 'edit own form content'
+  - 'edit any media_item content'
+  - 'edit own media_item content'
+  - 'access content overview'
+  - 'administer nodes'
+  - 'administer moderation state transitions'
+  - 'use draft_draft transition'
+  - 'use draft_needs_review transition'
+  - 'use needs_review_needs_review transition'
+  - 'use published_published transition'
+  - 'use text format filtered_html'
+  - 'view any unpublished content'
+  - 'use draft_published transition'
+  - 'use published_archived transition'
+  - 'update content translations'
+  - 'view own unpublished content'
+  - 'view page revisions'
+  - 'view form revisions'
+  - 'view media_item revisions'

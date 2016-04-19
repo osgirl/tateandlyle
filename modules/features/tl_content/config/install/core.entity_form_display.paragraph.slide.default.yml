@@ -1,0 +1,42 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.slide.field_show_arrows
+    - field.field.paragraph.slide.field_slide
+    - field.field.paragraph.slide.field_slide_type
+    - field.field.paragraph.slide.field_timeout
+    - paragraphs.paragraphs_type.slide
+  module:
+    - field_collection
+    - workbench_moderation
+id: paragraph.slide.default
+targetEntityType: paragraph
+bundle: slide
+mode: default
+content:
+  field_show_arrows:
+    weight: 0
+    settings:
+      display_label: false
+    third_party_settings: {  }
+    type: boolean_checkbox
+  field_slide:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: field_collection_embed
+  field_slide_type:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+  field_timeout:
+    weight: 1
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+hidden:
+  created: true
+  uid: true

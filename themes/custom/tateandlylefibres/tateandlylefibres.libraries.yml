@@ -1,0 +1,60 @@
+# Global styling #
+global-styling:
+  version: VERSION
+  css:
+    theme:
+      css/style.css: {}
+
+# Bootstrap chosen styling #
+bootstrap-chosen-styling:
+  version: VERSION
+  css:
+    theme:
+      css/bootstrap-chosen.css: {}
+
+# Chosen script #
+chosen-script:
+  version: VERSION
+  js:
+    js/chosen.jquery.min.js: {}
+
+
+# Custom script #
+custom-script:
+  version: VERSION
+  js:
+    js/custom.js: {}
+
+# Menu sidebar scripts #
+classie-script:
+  version: VERSION
+  js:
+    js/classie.js: {}
+
+menu-sidebar-script:
+  version: VERSION
+  js:
+    js/sidebarEffects.js: {}
+
+# Swipe scripts #
+swipe:
+  version: VERSION
+  js:
+    js/jquery.mobile.custom.min.js: {}
+
+# Bootstrap scripts #
+bootstrap-scripts:
+  version: VERSION
+  js:
+    bootstrap/js/affix.js: {}
+    bootstrap/js/alert.js: {}
+    bootstrap/js/button.js: {}
+    bootstrap/js/carousel.js: {}
+    bootstrap/js/collapse.js: {}
+    bootstrap/js/dropdown.js: {}
+    bootstrap/js/modal.js: {}
+    bootstrap/js/tooltip.js: {}
+    bootstrap/js/popover.js: {}
+    bootstrap/js/scrollspy.js: {}
+    bootstrap/js/tab.js: {}
+    bootstrap/js/transition.js: {}

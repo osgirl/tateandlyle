@@ -1,0 +1,20 @@
+uuid: f59e4098-2dac-4392-a43a-584b153db49b
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - generic_microsite
+id: mainpagecontent
+theme: generic_microsite
+region: content
+weight: -5
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

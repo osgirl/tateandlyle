@@ -1,0 +1,93 @@
+uuid: ffc835c0-bd5a-490e-a208-8ec10ea21ec0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.media_item.field_file
+    - field.field.node.media_item.field_media_category
+    - field.field.node.media_item.field_media_item_image
+    - field.field.node.media_item.field_youtube_video
+    - node.type.media_item
+  module:
+    - file
+    - image
+    - path
+    - workbench_moderation
+    - youtube
+_core:
+  default_config_hash: khdSXgQ2T86C5DvQ0-_V5msRk-3wQ-g_tElHSmNuLu8
+id: node.media_item.default
+targetEntityType: node
+bundle: media_item
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 7
+    settings: {  }
+    third_party_settings: {  }
+  field_file:
+    weight: 4
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+    type: file_generic
+  field_media_category:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+  field_media_item_image:
+    weight: 3
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+  field_youtube_video:
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
+    type: youtube
+  langcode:
+    type: language_select
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 8
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 9
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  translation:
+    weight: 11
+    settings: {  }
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 6
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

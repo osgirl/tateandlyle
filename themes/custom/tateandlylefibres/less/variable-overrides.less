@@ -1,0 +1,36 @@
+/**
+ * Variable Overrides.
+ *
+ * Modify this file to override the Bootstrap Framework variables. You can copy
+ * these variables directly from ../bootstrap/less/variables.less to this file.
+ */
+
+// Set the proper directory for the Bootstrap Glyphicon font.
+@icon-font-path: '../bootstrap/fonts/';
+
+// Colors
+@brown-dark: #9C510E;
+@brown-light: #F5A01A;
+@grey-dark: #4F4F4D;
+
+@font-face {
+  font-family: baron;
+  src: url('../fonts/baron.eot');
+  src: url('../fonts/baron.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/baron.woff2') format('woff2'),
+       url('../fonts/baron.woff') format('woff'),
+       url('../fonts/baron.ttf') format('truetype'),
+       url('../fonts/baron.svg#baron_neueregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+// Medium screen / desktop
+//** Deprecated `@screen-md` as of v3.0.1
+@screen-md:                  1024px;
+@screen-md-min:              @screen-md;
+//** Deprecated `@screen-desktop` as of v3.0.1
+@screen-desktop:             @screen-md-min;
+
+

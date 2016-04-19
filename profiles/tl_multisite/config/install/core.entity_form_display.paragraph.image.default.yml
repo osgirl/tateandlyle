@@ -1,0 +1,26 @@
+uuid: 8f00637a-6e47-4b33-9905-5ae6bcf163e0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.image.field_image
+    - paragraphs.paragraphs_type.image
+  module:
+    - image
+_core:
+  default_config_hash: UdH5mD951XoN4mKcBLFGcvZ1lfzN7whJlFyvpQlJMec
+id: paragraph.image.default
+targetEntityType: paragraph
+bundle: image
+mode: default
+content:
+  field_image:
+    weight: 0
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+hidden:
+  created: true
+  uid: true

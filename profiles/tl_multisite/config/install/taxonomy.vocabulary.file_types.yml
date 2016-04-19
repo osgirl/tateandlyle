@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'File types'
+vid: file_types
+description: ''
+hierarchy: 0
+weight: 0

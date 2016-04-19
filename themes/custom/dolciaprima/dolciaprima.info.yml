@@ -1,0 +1,43 @@
+core: 8.x
+type: theme
+base theme: bootstrap
+
+name: 'Dolciaprima'
+description: 'Subtheme based on Bootstrap 3.'
+package: 'Bootstrap'
+
+regions:
+  pre_header: 'Pre-Header'
+  header: 'Header'
+  navigation: 'Navigation'
+  navigation_collapsible: 'Navigation (Collapsible)'
+  breadcrumb: 'Breadcrumb'
+  highlighted: 'Highlighted'
+  help: 'Help'
+  content: 'Content'
+  sidebar_second: 'Secondary'
+  post_content: 'Post-Content'
+  footer: 'Footer'
+  page_top: 'Page top'
+  page_bottom: 'Page bottom'
+
+libraries:
+  # Styling sheets #
+  - 'dolciaprima/bootstrap-chosen-styling'
+  - 'dolciaprima/global-styling'
+
+  # Chosen script #
+  - 'dolciaprima/chosen-script'
+ 
+  # Bootstrap scripts #
+  - 'dolciaprima/bootstrap-scripts'
+
+  # Menu sidebar scripts #
+  - 'dolciaprima/classie-script'
+  - 'dolciaprima/menu-sidebar-script'
+
+  # Custom script #
+  - 'dolciaprima/custom-script'
+
+    # Swipe script #
+  - 'dolciaprima/swipe'

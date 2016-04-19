@@ -1,0 +1,346 @@
+<?php
+/**
+ * @file
+ * Bootstrap sub-theme.
+ *
+ * Place your custom PHP code in this file.
+ */
+use Drupal\bootstrap\Bootstrap;
+use Drupal\file\Entity\File;
+use Drupal\image\Entity\ImageStyle;
+use Drupal\Core\Url;
+use Drupal\Core\Link;
+
+function dolciaprima_preprocess_page(&$variables) {
+  
+  /*Set page title user */
+  $route = explode('/', \Drupal::service('path.current')->getPath());
+  if($variables['page'] && ($route[1] != 'user') && ($route[1] != 'admin')) {
+    if (isset($variables['page_title'])) {
+      $variables['page_title'] = $variables['page']['#title']->__toString();
+    }
+    
+  }
+  else {
+    $variables['page_title'] = $variables['page']['#title'];
+  }
+
+  /* Set template style variable */
+  if($variables['node'] && $variables['node']->getType() == 'page') {
+    $field_template = $variables['node']->get('field_template')->getValue();
+    if (isset($field_template[0])) {
+      $field_template_value = $field_template[0]['value'];
+    }  
+    if ($field_template_value == 0) {
+      $variables['template_style'] = 'container-fluid';
+      $variables['not_title'] = 'not';
+    } else {
+      $variables['template_style'] = 'container';
+    }
+  } else {
+    $variables['template_style'] = 'container';
+  }
+
+  /* Set variable with which will be used as class for special customizations */
+  if($variables['node']) {
+    $node_fields = $variables['node']->toArray();
+    $node_title = $node_fields['title'][0]['value'];
+    $node_title = preg_replace('/[^A-Za-z0-9\-]/', ' ', $node_title);
+    $variables['title_name'] = strtolower(str_replace(" ", "-", $node_title));
+  }
+
+  /* Set variables form layout */
+  if($variables['node'] && $variables['node']->getType() == 'form'){
+    $variables['is_form'] = TRUE;
+    $form_page_layout = $variables['node']->get('field_layout')->getValue();
+    if ($form_page_layout[0]['value'] == 0) {
+      $variables['form_page_layout'] = 'landing-form';
+    }else {
+      $variables['form_page_layout'] = 'contact-form';
+    }
+  } 
+
+  if($variables['node'] && $variables['node']->getType() == 'page') {
+
+    /*Set variables for page from intro area */
+    $paragraphs = $variables['node']->get('field_intro_area')->getValue();
+    foreach ($paragraphs as $key => $paragraph) {
+      $id = $paragraph['target_id'];
+      $paragraph_type = entity_load('paragraph', $id);
+      if($paragraph_type->getType() == 'text') {
+        $paragraph_body = $paragraph_type->get('field_body')->getValue();
+        if($paragraph_body[0]) {
+          $variables['intro_text'] = $paragraph_body[0]['value'];
+        }
+      }
+      if($paragraph_type->getType() == 'image') { 
+        $paragraphs_image = $paragraph_type->get('field_image')->getValue();
+        foreach ($paragraphs_image as $key => $paragraph_image) {
+          if($paragraph_image) {
+            $file = File::load($paragraph_image['target_id']);
+            $variables['intro_images'][$paragraph_image['target_id']]['img'] = ImageStyle::load('original')->buildUrl($file->getFileUri());
+            $variables['intro_images'][$paragraph_image['target_id']]['alt'] =  $paragraph_image['alt'];
+          }   
+        }
+      }     
+    }
+    /*Check if page has sidebar*/
+    if($variables['node']->get('field_sidebar')->getValue()) {
+      $variables['is_sidebar'] = TRUE;
+    }
+  }
+  /*Set page title*/
+  if($variables['node']) {
+    $variables['page_title'] = $variables['node']->getTitle();
+  }
+}
+
+function dolciaprima_preprocess_paragraph(&$variables) {
+  if ($variables['paragraph']->getType() == 'video') {
+    // Is front page.
+    $is_front = \Drupal::service('path.matcher')->isFrontPage();
+    $variables['is_front'] = $is_front;
+    // Load video url and image.
+    $video = $variables['paragraph']->get('field_video_url')->getValue();
+    $video_image = $variables['paragraph']->get('field_video_image')->getValue();
+    // Check if video url exist.
+    if ($video[0]) {
+      $video_id = $video[0]['video_id'];
+      $video_url = "https://youtube.com/embed/" . $video_id;
+      $variables['video_url'] = $video_url;
+    }
+    // Check if video image exist.
+    if ($video_image[0]) {
+      $file_id = $video_image[0]['target_id'];
+      $file = File::load($file_id);
+      $variables['video_image'] = ImageStyle::load('original')->buildUrl($file->getFileUri());
+    }  
+  }
+  
+  if ($variables['paragraph']->getType() == 'tout') {
+    $node = \Drupal::routeMatch()->getParameter('node');
+    if ($node->get('field_template')->getValue()[0] && $node->get('field_template')->getValue()[0]['value'] =='0') {
+      $variables['template_full_width'] = TRUE;
+    }
+    else {
+      $variables['template_full_width'] = FALSE;
+    }  
+  }
+}
+
+function dolciaprima_preprocess_field(&$variables) {
+  /* Redirect selector */
+  global $base_url;
+  if ($variables['element']['#bundle'] == 'redirect_selector') {
+    foreach ($variables['items'] as $key => $item) {
+      $variables['redirect_title'] = $item['content']['#title'];
+      if ($item['content']['#url']->isExternal() == 1) {
+        $link = $item['content']['#url']->getUri();
+      } else  {
+        $link = $base_url  . '/' . $item['content']['#url']->getInternalPath();
+      };
+      $variables['redirect_url'][$key] = $link; 
+    }
+  }
+
+  if ($variables['field_name'] == 'field_accordion_item') { 
+    $variables['attributes']['id'][]='accordion';
+    foreach ($variables['items'] as $key => $item) {
+      $image = $item['content']['#field_collection_item']->get('field_image')->getValue();
+      if(isset($image['0'])) {
+        $file_id = $image['0']['target_id'];
+        $file = File::load($file_id);
+        $variables['accordeon_image'][$file_id] = ImageStyle::load('accordion_image')->buildUrl($file->getFileUri());
+      }
+    }
+  }
+  
+  if ($variables['field_name'] == 'field_touts') { 
+    $field_template = $variables['element']['#object']->get('field_template')->getValue();
+    foreach ($variables['items'] as $key => $item) {
+      $paragraph = $item['content']['#paragraph']->toArray();
+      $paragraph_id = $paragraph['id'][0]['value'];  
+      if(isset($paragraph['field_tout_background_image'][0])) {
+        $field_image_id = $paragraph['field_tout_background_image'][0]['target_id'];
+        $file = File::load($field_image_id);
+        $variables['background_image_tout'][$field_image_id] = 'background-image:url("'.ImageStyle::load('original')->buildUrl($file->getFileUri()).'")';
+      }
+    }
+  }
+
+  if ($variables['field_name'] == 'field_form') {
+    $id = $variables['items'][0]['content']['#plain_text'];
+    $contact_form = \Drupal::entityManager()
+      ->getStorage('contact_form')
+      ->load($id);
+
+    $message = \Drupal::entityManager()
+      ->getStorage('contact_message')
+      ->create(array(
+        'contact_form' => $id
+      ));
+
+    $form = \Drupal::service('entity.form_builder')->getForm($message);
+    
+    unset($variables['items'][0]['content']['#plain_text']);
+    $variables['items'][0]['content']['#suffix'] = drupal_render($form);
+  }
+
+  // Carousel
+  if ($variables['field_name'] == 'field_slide') {   
+    foreach ($variables['items'] as $key => $item) {
+     $link = $item['content']['#field_collection_item']->get('field_link')->getValue()[0]['uri'];
+      $link_auto = split('entity:', $link);
+      $link_internal = split('internal:', $link);
+      $collection_id = $item['content']['#field_collection_item']->get('item_id')->getValue()[0]['value'];
+      if($link_auto[1]) {
+        $link_alias = \Drupal::service('path.alias_manager')->getAliasByPath('/'.$link_auto[1]);
+        $variables['link_alias'][$collection_id] = $link_alias;
+      } 
+      elseif ($link_internal[1]) {
+        $link_alias = \Drupal::service('path.alias_manager')->getAliasByPath($link_internal[1]);
+        $variables['link_alias'][$collection_id] = $link_alias;
+      }
+      else {
+        $variables['link_alias'][$collection_id] = $link;
+        $variables['target_link'][$collection_id] = 'target=_blank"';
+      }
+        
+      $image = $item['content']['#field_collection_item']->get('field_image')->getValue();
+      if(isset($image['0'])) {
+        $file_id = $image['0']['target_id'];
+        $file = File::load($file_id);
+        $variables['slideshow_image_path'][$file_id] = ImageStyle::load('slideshow')->buildUrl($file->getFileUri());
+      }
+    }
+    $slide = $variables['element']['#object']->toArray();
+    $slide_id = $slide['id'][0]['value'];
+    $variables['slide_id'] = $slide['id'][0]['value'];
+  }
+
+  // Show/hide arrows.
+  if ($variables['field_name'] == 'field_show_arrows') {
+
+    $slide = $variables['element']['#object']->toArray();
+    $slide_id = $slide['id'][0]['value'];
+    $variables['slide_id'] = $slide['id'][0]['value'];
+    if ($variables['element'][0]['#markup'] == 'Show arrows') {
+      $variables['items'][0]['content']['#markup'] = '<a class="left carousel-control" href="#slideshow'.'-'. $slide_id . '" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      </a>
+      <a class="right carousel-control" href="#slideshow'.'-'. $slide_id . '" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      </a>';
+    } else {
+      $variables['items'][0]['content']['#markup'] = '';
+    }
+  }
+
+  //Close button special touts front page.
+ if (($variables['field_name'] == 'field_text') && ($variables['entity_type'] == 'paragraph')) {
+  $paragraph = $variables['element']['#object']->toArray();
+  if (($paragraph['field_tout_size'][0]['value'] == '2') && (isset($paragraph['field_tout_background_image'][0]))) {
+    $variables['items'][0]['content']['#text'] = '<a class="btn-close"></a>'.$variables['items'][0]['content']['#text'];
+  }
+ }
+
+  if($variables['field_name'] == 'field_video_text') {
+    $video = $variables['element']['#object']->get('field_video_url')->getValue();
+    $video_id = $video[0]['video_id'];
+    $video_url = "https://youtube.com/embed/" . $video_id . '?rel=0&amp;showinfo=0';
+    $variables['items'][0]['content']['#text'] = $variables['items'][0]['content']['#text'].'<a class="video-button" data-toggle="modal" data-target="#'.$video_id.'" data-theVideo="'.$video_url.'"></a>';
+  }
+
+  if (($variables['field_name'] == 'field_tds_thank_you') && ($variables['label'] == 'Technical data sheets thank you')) {
+    if (isset($variables['element']['#object']->field_file->getValue()['0']['target_id'])) {
+      $file = File::load($variables['element']['#object']->field_file->getValue()['0']['target_id']);
+      $file_url = Url::fromUri($file->url($rel = canonical, $options = array()));
+      $file_path = Link::fromTextAndUrl(t('here'), $file_url);
+      $file_path = $file_path->toRenderable();
+      $file_path['#attributes'] = array('target' =>'_blank');
+      $download_link = t('Click @path to download the data sheet now.', array('@path' => render($file_path)));
+      $variables['items']['0']['content']['#text'] = $variables['items']['0']['content']['#text'] . $download_link;
+    }
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter.
+ */
+function dolciaprima_form_contact_message_marketing_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  // Wrap the fields in the left group.
+  $form['field_first_name']['#prefix'] = '<div class="group-left">';
+  $form['field_industry']['#suffix'] = '</div>';
+
+  // Wrap the fields in the right group.
+  $form['field_primary_application']['#prefix'] = '<div class="group-right">';
+  $form['actions']['#suffix'] = '</div>';
+
+  // Change Submit value
+  $form['actions']['submit']['#value'] = t('Send');
+
+  // Disable preview button
+  unset($form['actions']['preview']);
+
+  // Add required text to message field.
+  $form['field_message']['#suffix'] = '<div class="required-field"><span class="form-required">*</span>' . ' ' . '<p>' . t('Required field') . '</p></div>';
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter.
+ */
+function dolciaprima_form_contact_message_technical_data_sheets_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  // Change Submit value
+  $form['actions']['submit']['#value'] = t('Download now');
+
+  // Disable preview button
+  unset($form['actions']['preview']);
+
+  // Add required text to message field.
+  $form['field_telephone_number']['#suffix'] = '<div class="required-field"><span class="form-required">*</span>' . '<p>' . t('Required field') . '</p></div>';
+}
+
+/**
+ * Implements theme_preprocess_block.
+ */
+function dolciaprima_preprocess_block(&$variables) {
+  if ($variables['base_plugin_id'] == 'local_tasks_block') {
+    unset($variables['content']['#primary']['entity.node.delete_form']);
+  }
+  if ($variables['base_plugin_id'] == 'language_block') {
+    $variables['label'] = t('Pick your language');
+    $languages = \Drupal::languageManager();
+    $default_language = $languages->getDefaultLanguage();
+    $current_language = $languages->getCurrentLanguage($type = language_interface);
+    foreach ($variables['content']['#links'] AS $key => $value) {
+      if ($default_language == $current_language) {
+        $variables['content']['#links'][$key]['title'] = $languages->getLanguage($key)->getName();
+      }
+      else {
+       $variables['content']['#links'][$key]['title'] = t($variables['content']['#links'][$key]['title']);
+      }
+    }
+  }
+}
+
+function dolciaprima_preprocess_views_view_unformatted__multimedia(&$variables) {
+   foreach ($variables['rows'] as $key => $item) {
+      $object = $item['content']['#row']->_entity;
+      $video = $object->get('field_youtube_video')->getValue();
+      $file_download = $object->get('field_file')->getValue();
+      if($video[0]) {
+        $video_id = $video[0]['video_id'];
+        $video_url = "https://youtube.com/embed/" . $video_id . '?rel=0;showinfo=0';
+        $video_image = $object->get('field_media_item_image')->getValue();
+        $video_image_id = $video_image[0]['target_id'];  
+        $file = File::load($video_image_id);
+        $variables['video_image_modal'][$video_id] = ImageStyle::load('media_item')->buildUrl($file->getFileUri());
+        $variables['video_url'][$video_id] = $video_url;
+        if($file_download[0]) {
+          $file_donwload_id = $file_download[0]['target_id'];
+          $download = File::load($file_donwload_id);
+          $variables['download_url'][$video_id] = $download->url($rel = canonical, $options = array());
+        }
+      }
+    }
+}

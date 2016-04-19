@@ -1,0 +1,32 @@
+uuid: b2d25d5a-3780-4064-933d-61b2fd9f2053
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.tabs.field_tab
+    - field.field.paragraph.tabs.field_title_tab
+    - paragraphs.paragraphs_type.tabs
+  module:
+    - field_collection
+_core:
+  default_config_hash: 0lhaA6kfeWGSm8XWm7E7Hn3y4Se09VJQQVDL2Z1m8f0
+id: paragraph.tabs.default
+targetEntityType: paragraph
+bundle: tabs
+mode: default
+content:
+  field_tab:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: field_collection_embed
+  field_title_tab:
+    type: string_textfield
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  uid: true

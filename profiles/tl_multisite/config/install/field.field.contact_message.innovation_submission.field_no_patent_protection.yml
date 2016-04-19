@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.innovation_submission
+    - field.storage.contact_message.field_no_patent_protection
+id: contact_message.innovation_submission.field_no_patent_protection
+field_name: field_no_patent_protection
+entity_type: contact_message
+bundle: innovation_submission
+label: 'No patent protection (please see notes on confidentiality in FAQs)'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'No patent protection (please see notes on confidentiality in FAQs)'
+  off_label: 'No patent protection (please see notes on confidentiality in FAQs)'
+field_type: boolean

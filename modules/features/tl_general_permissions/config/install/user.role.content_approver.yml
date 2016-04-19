@@ -1,0 +1,47 @@
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: cjhl3yPjBy9Cvy6LXKmXPpg50UwbMtz65n5AwDJLILo
+id: content_approver
+label: 'Content Approver'
+weight: 5
+is_admin: null
+permissions:
+  0: 'create content_flow workflow_transition'
+  1: 'use needs_review_published transition'
+  3: 'edit any page content'
+  4: 'view all revisions'
+  5: 'view the administration theme'
+  6: 'access toolbar'
+  7: 'edit own page content'
+  8: 'edit any form content'
+  9: 'edit own form content'
+  10: 'edit any media_item content'
+  11: 'edit own media_item content'
+  12: 'access content overview'
+  13: 'administer nodes'
+  14: 'administer moderation state transitions'
+  15: 'use draft_draft transition'
+  16: 'use draft_needs_review transition'
+  17: 'use needs_review_needs_review transition'
+  18: 'use published_published transition'
+  19: 'use text format filtered_html'
+  20: 'view any unpublished content'
+  21: 'use draft_published transition'
+  22: 'use published_archived transition'
+  23: 'update content translations'
+  24: 'view own unpublished content'
+  25: 'view page revisions'
+  26: 'view form revisions'
+  27: 'view media_item revisions'
+  29: 'administer moderation states'
+  30: 'use needs_review_archived transition'
+  31: 'use needs_review_draft transition'
+  32: 'use needs_to_be_archived_archived transition'
+  33: 'use needs_to_be_archived_published transition'
+  34: 'use published_needs_review transition'
+  35: 'use archived_needs_review transition'
+  36: 'use archived_published transition'
+  37: 'use draft_archived transition'
+  38: 'view latest version'

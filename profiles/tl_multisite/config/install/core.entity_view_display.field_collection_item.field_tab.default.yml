@@ -1,0 +1,32 @@
+uuid: 7d72f427-6b68-40b7-9a00-bb6a1b64a25c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.field_collection_item.field_tab.field_body
+    - field.field.field_collection_item.field_tab.field_label
+    - field_collection.field_collection.field_tab
+  module:
+    - text
+_core:
+  default_config_hash: 90VIS6owk4fprA-nBN180K7ASWiCECjvUQOl4eDwxIc
+id: field_collection_item.field_tab.default
+targetEntityType: field_collection_item
+bundle: field_tab
+mode: default
+content:
+  field_body:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+  field_label:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+hidden:
+  moderation_state: true

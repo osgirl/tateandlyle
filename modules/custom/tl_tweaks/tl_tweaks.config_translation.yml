@@ -1,0 +1,5 @@
+tl_tweaks.admin:
+  title: 'T&L Tweaks Translatable settings'
+  base_route_name: tl_tweaks.admin
+  names:
+    - tl_tweaks.settings

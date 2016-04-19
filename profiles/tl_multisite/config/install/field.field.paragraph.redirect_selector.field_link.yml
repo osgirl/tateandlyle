@@ -1,0 +1,25 @@
+uuid: 9ae13634-3d54-45a6-8219-253c3dfba5bc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_link
+    - paragraphs.paragraphs_type.redirect_selector
+  module:
+    - link
+_core:
+  default_config_hash: U7yYGY6WICEWqEIfYyhGPiHQ_iQQMKjYK-rbpoYGmls
+id: paragraph.redirect_selector.field_link
+field_name: field_link
+entity_type: paragraph
+bundle: redirect_selector
+label: Link
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

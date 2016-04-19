@@ -1,0 +1,5 @@
+name: 'T&L Stage authentication'
+description: 'Authentication configuration for the dev and stage (all non-prod) environments.'
+type: module
+core: 8.x
+version: 8.x-1.x

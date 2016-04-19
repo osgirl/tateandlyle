@@ -1,0 +1,25 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.file_access
+    - field.storage.contact_message.field_form_entity_id
+    - node.type.form
+id: contact_message.file_access.field_form_entity_id
+field_name: field_form_entity_id
+entity_type: contact_message
+bundle: file_access
+label: 'Form Entity Id'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      form: form
+    sort:
+      field: _none
+field_type: entity_reference

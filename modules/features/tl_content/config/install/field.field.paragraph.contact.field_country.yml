@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_country
+    - paragraphs.paragraphs_type.contact
+  module:
+    - text
+id: paragraph.contact.field_country
+field_name: field_country
+entity_type: paragraph
+bundle: contact
+label: Country
+description: 'Add the country.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -1,0 +1,16 @@
+uuid: a3022ebf-ed73-4e94-9904-4f751e778f8c
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: zn-pq8EKaNd7BjdJVeJh9Bd1STROj8w92QDcxpDFbSQ
+name: slideshow
+label: 'Slideshow (670×270)'
+effects:
+  2a794499-fcd9-4ba4-8763-99f964e9365f:
+    uuid: 2a794499-fcd9-4ba4-8763-99f964e9365f
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 670
+      height: 270

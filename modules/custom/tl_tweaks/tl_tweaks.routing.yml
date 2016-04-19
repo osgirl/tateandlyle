@@ -1,0 +1,7 @@
+tl_tweaks.admin:
+  path: '/admin/tl_tweaks'
+  defaults:
+    _form: '\Drupal\tl_tweaks\Form\ContactFormSettingsForm'
+    _title: 'Contact Forms Settings'
+  requirements:
+    _permission: 'administer tl_tweaks'

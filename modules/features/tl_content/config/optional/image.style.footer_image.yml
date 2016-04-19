@@ -1,0 +1,14 @@
+langcode: en
+status: true
+dependencies: {  }
+name: footer_image
+label: 'Footer image (auto×290)'
+effects:
+  1cccc902-a311-4eaa-b146-708e9d6aa008:
+    uuid: 1cccc902-a311-4eaa-b146-708e9d6aa008
+    id: image_scale
+    weight: 1
+    data:
+      width: null
+      height: 290
+      upscale: false

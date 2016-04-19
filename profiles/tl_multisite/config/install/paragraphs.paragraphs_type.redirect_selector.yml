@@ -1,0 +1,8 @@
+uuid: 8b696767-13c1-4dcc-a71d-298d2c48b414
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: IP3xaVo9egnQbkboEfECP6ZWIjZfzULAS6FxJGhc9k0
+id: redirect_selector
+label: 'Redirect Selector'

@@ -1,0 +1,304 @@
+<?php
+/**
+ * @file
+ * Install, update & uninstall functions for the Tatelyle installation profile.
+ */
+
+use Drupal\paragraphs\Entity\Paragraph;
+use Drupal\user\RoleInterface;
+use Drupal\taxonomy\Entity\Term;
+use Drupal\node\Entity\Node;
+use Drupal\shortcut\Entity\Shortcut;
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_install_tasks().
+ */
+function tl_multisite_install_tasks(&$install_state) {
+  $install_state['#title'] = t('Theme Selection');
+  // Add extra install task steps for custom configuration.
+  $tasks = array();
+  // Add custom configuration form to the install tasks.
+  $tasks['Drupal\tl_multisite\Form\ThemeSelectionForm'] = array(
+    'title' => t('Theme Selection'),
+    'display_name' => t('Theme Selection'),
+    'type' => 'form',
+  );
+  return $tasks;
+}
+
+/**
+ * Implements hook_install().
+ *
+ * Perform actions to set up the site for this profile.
+ *
+ * @see system_install()
+ */
+function tl_multisite_install() {
+  // Set front page to "node".
+  \Drupal::configFactory()->getEditable('system.site')->set('page.front', '/node')->save(TRUE);
+
+  // Assign user 1 the "administrator" role.
+  $account = \Drupal\user\Entity\User::load(1);
+  $account->addRole('administrator');
+
+  // Allow authenticated users to use shortcuts.
+  user_role_grant_permissions(RoleInterface::AUTHENTICATED_ID, array('access shortcuts'));
+  // Populate the default shortcut set.
+  $shortcut = Shortcut::create(array(
+    'shortcut_set' => 'default',
+    'title' => t('Add content'),
+    'weight' => -20,
+    'link' => array('uri' => 'internal:/node/add'),
+  ));
+  $shortcut->save();
+
+  $shortcut = Shortcut::create(array(
+    'shortcut_set' => 'default',
+    'title' => t('All content'),
+    'weight' => -19,
+    'link' => array('uri' => 'internal:/admin/content'),
+  ));
+  $shortcut->save();
+
+  // Allow all users to use search.
+  user_role_grant_permissions(RoleInterface::ANONYMOUS_ID, array('search content'));
+  user_role_grant_permissions(RoleInterface::AUTHENTICATED_ID, array('search content'));
+
+  // Enable the admin theme.
+  \Drupal::configFactory()->getEditable('node.settings')->set('use_admin_theme', TRUE)->save(TRUE);
+  $config = \Drupal::configFactory()->getEditable('system.theme');
+  $config->set('admin', 'seven');
+  $config->save();
+
+  tl_multisite_create_terms();
+  tl_multisite_create_nodes();
+  tl_multisite_set_timezone();
+
+  \Drupal::service('entity.definition_update_manager')->applyUpdates();
+}
+
+/**
+ * Helper function to create the taxonomy terms during install.
+ */
+function tl_multisite_create_terms() {
+  $term = Term::create([
+    'vid' => 'file_types',
+    'langcode' => 'en',
+    'name' => 'Video',
+    'description' => [
+      'value' => '',
+      'format' => 'full_html',
+    ],
+    'weight' => 0,
+    'parent' => '',
+  ]);
+  $term->save();
+
+  $term = Term::create([
+    'vid' => 'file_types',
+    'langcode' => 'en',
+    'name' => 'Baked goods',
+    'description' => [
+      'value' => '',
+      'format' => 'full_html',
+    ],
+    'weight' => 1,
+    'parent' => '',
+  ]);
+  $term->save();
+
+  $term = Term::create([
+    'vid' => 'file_types',
+    'langcode' => 'en',
+    'name' => 'Beverages',
+    'description' => [
+      'value' => '',
+      'format' => 'full_html',
+    ],
+    'weight' => 2,
+    'parent' => '',
+  ]);
+  $term->save();
+
+  $term = Term::create([
+    'vid' => 'file_types',
+    'langcode' => 'en',
+    'name' => 'Dairy',
+    'description' => [
+      'value' => '',
+      'format' => 'full_html',
+    ],
+    'weight' => 3,
+    'parent' => '',
+  ]);
+  $term->save();
+
+  $term = Term::create([
+    'vid' => 'file_types',
+    'langcode' => 'en',
+    'name' => 'General',
+    'description' => [
+      'value' => '',
+      'format' => 'full_html',
+    ],
+    'weight' => 4,
+    'parent' => '',
+  ]);
+  $term->save();
+
+  $term = Term::create([
+    'vid' => 'file_types',
+    'langcode' => 'en',
+    'name' => 'Logos',
+    'description' => [
+      'value' => '',
+      'format' => 'full_html',
+    ],
+    'weight' => 5,
+    'parent' => '',
+  ]);
+  $term->save();
+
+  $term = Term::create([
+    'vid' => 'file_types',
+    'langcode' => 'en',
+    'name' => 'Factsheets',
+    'description' => [
+      'value' => '',
+      'format' => 'full_html',
+    ],
+    'weight' => 6,
+    'parent' => '',
+  ]);
+  $term->save();
+
+  $term = Term::create([
+    'vid' => 'file_types',
+    'langcode' => 'en',
+    'name' => 'Photos',
+    'description' => [
+      'value' => '',
+      'format' => 'full_html',
+    ],
+    'weight' => 7,
+    'parent' => '',
+  ]);
+  $term->save();
+
+  $term = Term::create([
+    'vid' => 'file_types',
+    'langcode' => 'en',
+    'name' => 'Infographic',
+    'description' => [
+      'value' => '',
+      'format' => 'full_html',
+    ],
+    'weight' => 8,
+    'parent' => '',
+  ]);
+  $term->save();
+}
+
+/**
+ * Helper function to create the basic pages during install.
+ */
+function tl_multisite_create_nodes() {
+  $paragraph = Paragraph::create([
+    'type' => 'text',
+    'field_body' => 'Page not found.',
+  ]);
+  $paragraph->save();
+
+  $node = Node::create([
+    'type' => 'page',
+    'langcode' => 'en',
+    'created' => REQUEST_TIME,
+    'changed' => REQUEST_TIME,
+    'uid' => 1,
+    'title' => 'Page not found',
+    'field_tags' => [2],
+    'field_main_content' => $paragraph,
+    'moderation_state' => 'published',
+  ]);
+  $node->save();
+  $path = '/node/' . $node->id();
+  \Drupal::service('path.alias_storage')->save($path, "/404", "en");
+  \Drupal::configFactory()->getEditable('system.site')->set('page.404', $path)->save(TRUE);
+
+  $paragraph = Paragraph::create([
+    'type' => 'text',
+    'field_body' => 'Access denied.',
+  ]);
+  $paragraph->save();
+
+  $node = Node::create([
+    'type' => 'page',
+    'langcode' => 'en',
+    'created' => REQUEST_TIME,
+    'changed' => REQUEST_TIME,
+    'uid' => 1,
+    'title' => 'Access denied',
+    'field_tags' => [2],
+    'field_main_content' => $paragraph,
+    'moderation_state' => 'published',
+  ]);
+  $node->save();
+  $path = '/node/' . $node->id();
+  \Drupal::service('path.alias_storage')->save($path, "/403", "en");
+  \Drupal::configFactory()->getEditable('system.site')->set('page.403', $path)->save(TRUE);
+
+  $paragraph = Paragraph::create([
+    'type' => 'text',
+    'field_body' => 'Thank you for your interest.',
+  ]);
+  $paragraph->save();
+
+  $node = Node::create([
+    'type' => 'page',
+    'langcode' => 'en',
+    'created' => REQUEST_TIME,
+    'changed' => REQUEST_TIME,
+    'uid' => 1,
+    'title' => 'Thank you',
+    'field_tags' => [2],
+    'field_main_content' => $paragraph,
+    'moderation_state' => 'published',
+  ]);
+  $node->save();
+  $path = '/node/' . $node->id();
+  \Drupal::service('path.alias_storage')->save($path, "/thank-you", "en");
+}
+
+/**
+ * Helper function to set the timezone during install.
+ */
+function tl_multisite_set_timezone() {
+  date_default_timezone_set("Europe/London");
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter() for install_configure_form().
+ *
+ * Allows the profile to alter the site configuration form.
+ */
+function tl_multisite_form_install_configure_form_alter(&$form, FormStateInterface $form_state) {
+  $form['site_information']['site_mail']['#default_value'] = 'webmaster@tateandlyle.com';
+
+  // Override the username for user 1.
+  $form['admin_account']['account']['name']['#value'] = 'svcCMSDrupal';
+  $form['admin_account']['account']['name']['#type'] = 'value';
+
+  // Override the email account for user 1.
+  $form['admin_account']['account']['mail']['#value'] = 'svcCMSDrupal@tateandlyle.com';
+  $form['admin_account']['account']['mail']['#type'] = 'value';
+
+  // Override the email account for user 1.
+  $form['admin_account']['account']['pass']['#value'] = 'D9KUwqiQhswN4';
+  $form['admin_account']['account']['pass']['#type'] = 'value';
+
+  $form['admin_account']['account']['notice'] = array(
+    '#markup' => t('The admin account will be registered using pre-defined
+    details. For details please consult the user documentation.'),
+  );
+}

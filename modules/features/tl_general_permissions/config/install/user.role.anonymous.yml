@@ -1,0 +1,14 @@
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: z5oyUVU9iusRGjS1w_mLOaYSdoglY3r9T2O40WDET24
+id: anonymous
+label: 'Anonymous user'
+weight: 0
+is_admin: false
+permissions:
+  - 'access content'
+  - 'search content'
+  - 'access site-wide contact form'
+  - 'view search api pages'

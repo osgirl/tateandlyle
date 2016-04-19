@@ -1,0 +1,89 @@
+{#
+/**
+ * @file
+ * Theme override for a field.
+ *
+ * To override output, copy the "field.html.twig" from the templates directory
+ * to your theme's directory and customize it, just like customizing other
+ * Drupal templates such as page.html.twig or node.html.twig.
+ *
+ * Instead of overriding the theming for all fields, you can also just override
+ * theming for a subset of fields using
+ * @link themeable Theme hook suggestions. @endlink For example,
+ * here are some theme hook suggestions that can be used for a field_foo field
+ * on an article node type:
+ * - field--node--field-foo--article.html.twig
+ * - field--node--field-foo.html.twig
+ * - field--node--article.html.twig
+ * - field--field-foo.html.twig
+ * - field--text-with-summary.html.twig
+ * - field.html.twig
+ *
+ * Available variables:
+ * - attributes: HTML attributes for the containing element.
+ * - label_hidden: Whether to show the field label or not.
+ * - title_attributes: HTML attributes for the title.
+ * - label: The label for the field.
+ * - multiple: TRUE if a field can contain multiple items.
+ * - items: List of all the field items. Each item contains:
+ *   - attributes: List of HTML attributes for each item.
+ *   - content: The field item's content.
+ * - entity_type: The entity type to which the field belongs.
+ * - field_name: The name of the field.
+ * - field_type: The type of the field.
+ * - label_display: The display settings for the label.
+ *
+ * @see template_preprocess_field()
+ */
+#}
+
+<div {{ attributes }}>
+  <div id="slideshow-{{ slide_id }}" class="carousel slide carousel-fade" data-ride="carousel">
+    <div class="carousel-inner">
+      {% set i = 0 %}
+      {% for item in items %}
+        {% set slideshow_image = item.content['#field_collection_item'].field_image.value %}
+        {% set slideshow_image_id = slideshow_image[0]['target_id'] %}
+        {% set image_alt = slideshow_image[0]['alt'] %}
+        {% set slideshow_text = item.content['#field_collection_item'].field_slide_text.value %}
+        {% set slideshow_link = item.content['#field_collection_item'].field_link.value[0]['uri'] %}
+        {% set slideshow_link_title = item.content['#field_collection_item'].field_link.value[0]['title'] %}
+        {% set collection_id = item.content['#field_collection_item'].item_id.value  %}
+        {% if i == 0 %}
+          <div class="item active">
+            {% if slideshow_link %}
+              <a href="{{ link_alias[collection_id] }}"  {{ target_link[collection_id] }} title="{{ slideshow_link_title }}">
+                <img alt = {{ image_alt }} class="slideshow-image" src="{{ slideshow_image_path[slideshow_image_id] }}"/>
+                {% if slideshow_text %}
+                  <div class="slideshow-text"> {{ slideshow_text }}</div>
+                {% endif %}
+              </a>
+            {% else %}
+              <img class="slideshow-image" src="{{ slideshow_image_path[slideshow_image_id] }}"/>
+              {% if slideshow_text %}
+                <div class="slideshow-text"> {{ slideshow_text }}</div>
+              {% endif %}
+            {% endif %}
+          </div>
+        {% else %}
+          <div class="item">
+            {% if slideshow_link %}
+              <a href="{{ link_alias[collection_id] }}"  {{ target_link[collection_id] }} title="{{ slideshow_link_title }}">
+                <img alt= {{ image_alt }} class="slideshow-image" src="{{ slideshow_image_path[slideshow_image_id] }}"/>
+                {% if slideshow_text %}
+                  <div class="slideshow-text">{{ slideshow_text }}</div>
+                {% endif %}
+              </a>
+            {% else %}
+              <img class="slideshow-image" src="{{ slideshow_image_path[slideshow_image_id] }}"/>
+              {% if slideshow_text %}
+                <div class="slideshow-text"> {{ slideshow_text }}</div>
+              {% endif %}
+            {% endif %}
+          </div>
+        {% endif %}
+        {% set i = i+1 %}
+      {% endfor %}
+    </div>
+  </div>
+</div>

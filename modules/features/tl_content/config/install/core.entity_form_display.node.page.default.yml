@@ -1,0 +1,267 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.page.field_background_image
+    - field.field.node.page.field_content_reference
+    - field.field.node.page.field_footer_image
+    - field.field.node.page.field_intro_area
+    - field.field.node.page.field_main_content
+    - field.field.node.page.field_meta_tags
+    - field.field.node.page.field_sidebar
+    - field.field.node.page.field_sidebar_color
+    - field.field.node.page.field_subtitle
+    - field.field.node.page.field_template
+    - field.field.node.page.field_title_image
+    - field.field.node.page.field_touts
+    - image.style.thumbnail
+    - node.type.page
+  module:
+    - field_collection
+    - field_group
+    - image
+    - imce
+    - metatag
+    - paragraphs
+    - path
+    - text
+    - workbench_moderation
+third_party_settings:
+  field_group:
+    group_title:
+      children:
+        - title
+        - field_title_image
+        - field_subtitle
+      parent_name: group_page_content
+      weight: 5
+      label: Title
+      format_type: tab
+      format_settings:
+        formatter: closed
+        description: ''
+        classes: ''
+        id: ''
+        required_fields: true
+    group_page_content:
+      children:
+        - group_title
+        - group_main_content
+        - group_tout_reference
+        - group_page_elements
+        - group_settings
+      parent_name: ''
+      weight: 0
+      label: 'Page content'
+      format_type: tabs
+      format_settings:
+        label: 'Page content'
+        direction: horizontal
+        id: ''
+        classes: ''
+    group_main_content:
+      children:
+        - field_main_content
+        - field_touts
+      parent_name: group_page_content
+      weight: 6
+      label: 'Main content'
+      format_type: tab
+      format_settings:
+        formatter: closed
+        description: ''
+        classes: ''
+        id: ''
+        required_fields: true
+    group_page_elements:
+      children:
+        - field_intro_area
+        - field_background_image
+        - field_footer_image
+        - field_sidebar
+        - field_sidebar_color
+      parent_name: group_page_content
+      weight: 8
+      label: 'Page elements'
+      format_type: tab
+      format_settings:
+        formatter: closed
+        description: ''
+        classes: ''
+        id: ''
+        required_fields: true
+    group_tout_reference:
+      children:
+        - field_content_reference
+      parent_name: group_page_content
+      weight: 7
+      label: 'Sidebar reference'
+      format_type: tab
+      format_settings:
+        label: 'Sidebar reference'
+        formatter: closed
+        description: ''
+        required_fields: true
+        id: ''
+        classes: ''
+    group_settings:
+      children:
+        - langcode
+        - field_template
+        - field_meta_tags
+      parent_name: group_page_content
+      weight: 9
+      label: Settings
+      format_type: tab
+      format_settings:
+        formatter: closed
+        description: ''
+        classes: ''
+        id: ''
+        required_fields: true
+id: node.page.default
+targetEntityType: node
+bundle: page
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+  field_background_image:
+    weight: 18
+    settings:
+      preview_image_style: thumbnail
+      progress_indicator: throbber
+    third_party_settings:
+      imce:
+        enabled: '1'
+    type: image_image
+  field_content_reference:
+    weight: 15
+    settings: {  }
+    third_party_settings: {  }
+    type: field_collection_embed
+  field_footer_image:
+    weight: 19
+    settings:
+      preview_image_style: thumbnail
+      progress_indicator: throbber
+    third_party_settings:
+      imce:
+        enabled: '1'
+    type: image_image
+  field_intro_area:
+    type: entity_reference_paragraphs
+    weight: 17
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: preview
+      add_mode: dropdown
+      form_display_mode: default
+    third_party_settings: {  }
+  field_main_content:
+    type: entity_reference_paragraphs
+    weight: 14
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: preview
+      add_mode: dropdown
+      form_display_mode: default
+    third_party_settings: {  }
+  field_meta_tags:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_firehose
+  field_sidebar:
+    type: entity_reference_paragraphs
+    weight: 20
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: preview
+      add_mode: dropdown
+      form_display_mode: default
+    third_party_settings: {  }
+  field_sidebar_color:
+    weight: 21
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+  field_subtitle:
+    weight: 6
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+  field_template:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+  field_title_image:
+    weight: 5
+    settings:
+      preview_image_style: thumbnail
+      progress_indicator: throbber
+    third_party_settings:
+      imce:
+        enabled: '1'
+    type: image_image
+  field_touts:
+    type: entity_reference_paragraphs
+    weight: 16
+    settings:
+      title: Block
+      title_plural: Blocks
+      edit_mode: preview
+      add_mode: dropdown
+      form_display_mode: default
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 6
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 4
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 5
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  translation:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 2
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

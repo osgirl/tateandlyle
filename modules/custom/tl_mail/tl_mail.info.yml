@@ -1,0 +1,5 @@
+name: "T&L Mail"
+description: "T&L sites emails"
+core: 8.x
+package: Custom T&L Tweaks
+type: module
