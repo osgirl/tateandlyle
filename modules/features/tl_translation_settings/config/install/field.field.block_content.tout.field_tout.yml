@@ -1,0 +1,55 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.tout
+    - field.storage.block_content.field_tout
+  module:
+    - entity_reference_revisions
+id: block_content.tout.field_tout
+field_name: field_tout
+entity_type: block_content
+bundle: tout
+label: Tout
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      tout: tout
+    target_bundles_drag_drop:
+      accordion:
+        weight: 11
+        enabled: false
+      contact:
+        weight: 12
+        enabled: false
+      country_contact:
+        weight: 13
+        enabled: false
+      image:
+        weight: 14
+        enabled: false
+      main_content:
+        weight: 15
+        enabled: false
+      redirect_selector:
+        weight: 16
+        enabled: false
+      slide:
+        weight: 17
+        enabled: false
+      tabs:
+        weight: 18
+        enabled: false
+      text:
+        weight: 19
+        enabled: false
+      tout:
+        enabled: true
+        weight: 20
+field_type: entity_reference_revisions
