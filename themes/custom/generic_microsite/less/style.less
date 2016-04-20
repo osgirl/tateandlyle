@@ -134,8 +134,9 @@ header.container {
 }
 
 .header-right {
-  margin-right: 20px;
   margin-top: 1.3em;
+  position: relative;
+  right: 20px;
   text-align: right;
   @media (min-width: @screen-sm) {
     float: right;
@@ -169,6 +170,8 @@ header.container {
 
 .language-switcher-language-url {
   display: inline-block;
+  position: relative;
+  top: -3px;
   &:before {
     content: "\e135";
     cursor: pointer;
@@ -436,19 +439,6 @@ body {
     background: #b9b3ac;
     border: 0;
     font-size: 0;
-    &:after {
-      -webkit-font-smoothing: antialiased;
-      color: #FFF;
-      content: "\e003";
-      display: inline-block;
-      font-family: 'Glyphicons Halflings';
-      font-style: normal;
-      font-size: 18px;
-      font-weight: normal;
-      left: -3px;
-      line-height: 1;
-      position: relative;
-    }
   }
 }
 
