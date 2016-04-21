@@ -1,0 +1,26 @@
+<?php
+/**
+ * @file
+ * Code for the T&L Messages module.
+ */
+
+/**
+ * Implements hook_form_alter().
+ */
+function tl_messages_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  foreach (entity_get_bundles()['contact_message'] as $key => $contact_message) {
+    $form_id = 'contact_message_' . $key . '_form';
+    if ($contact_message['label'] != 'Personal contact form') {
+      if ($form['#form_id'] == $form_id) {
+        $form['actions']['submit']['#submit'][] = 'contact_messages_submit';
+      }
+    }
+  }
+}
+
+/**
+ * Custom submit function.
+ */
+function contact_messages_submit() {
+  drupal_get_messages($type = 'status');
+}
