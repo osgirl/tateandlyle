@@ -12,7 +12,7 @@ source_env="$4"
 domain_prefix=`echo $db_name | tr '_' '-'`
 
 site_name=$site.$target_env
-uri="${domain_refix}.${target_env}.cloud.tateandlyle.com"
+uri="${domain_prefix}.${target_env}.cloud.tateandlyle.com"
 
 multisite="--uri=${uri} --root=/var/www/html/${site_name}/docroot"
 
