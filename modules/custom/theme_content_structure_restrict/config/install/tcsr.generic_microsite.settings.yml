@@ -1,7 +1,6 @@
 theme_content_structure_restrict_fields:
-  # Title image
   - field_title_image
-  # Intro area and Background image - http://screencast.com/t/EP7qPgKF5Gh
+  - field_subtitle
   - field_intro_area
   - field_background_image
   - field_sidebar_color
