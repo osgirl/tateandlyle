@@ -58,6 +58,7 @@ projects:
     version: "1.0-alpha13"
     patch:
       - "https://www.drupal.org/files/issues/empty_highlighted-2703915-2.patch"
+      - "https://www.drupal.org/files/issues/2703915-5--highlighting_of_datasource_independent_fields.patch"
   search_api_solr:
     type: module
     download:
