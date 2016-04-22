@@ -97,6 +97,7 @@ foreach ($envs as $env) {
 
     // Make sure we detect the right site when we are not using the wildcard domain.
     foreach ($tld_list as $tld) {
+      $sites['www.' . $site_name . '.' . $tld] = $site_name;
       $sites[$site_name . '.' . $tld] = $site_name;
     }
   }
@@ -108,5 +109,10 @@ foreach ($envs as $env) {
 foreach ($envs as $env) {
   $full_domain = 'soda-lo' . '.' . $env . '.' . $wildcard_domain;
   $sites[$full_domain] = 'soda_lo';
+  $sites['www.soda-lo.com'] = 'soda_lo';
   $sites['soda-lo.com'] = 'soda_lo';
 }
+
+// tateandlyle.jp breaks up the database name to TLD and domain name and is an exception
+$sites['tateandlyle.jp'] = 'tateandlylejp';
+$sites['www.tateandlyle.jp'] = 'tateandlylejp';

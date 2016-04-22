@@ -13,7 +13,7 @@ bundle: page
 label: 'Footer image'
 description: 'Upload a image by clicking the "Choose File" button.'
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
