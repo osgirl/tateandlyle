@@ -12,8 +12,12 @@ source_env="$4"
 domain_prefix=`echo $db_name | tr '_' '-'`
 
 site_name=$site.$target_env
+uri="${domain_refix}.${target_env}.cloud.tateandlyle.com"
 
-multisite="--uri=${domain_prefix}.${target_env}.cloud.tateandlyle.com --root=/var/www/html/${site_name}/docroot"
+multisite="--uri=${uri} --root=/var/www/html/${site_name}/docroot"
+
+echo "$site.$target_env: Received copy of database $db_name from $source_env."
+echo "Running drush on $uri."
 
 # Disable production only modules and configuration.
 drush8 pm-uninstall --yes tl_authentication_prod $multisite
