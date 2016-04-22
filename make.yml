@@ -8,7 +8,7 @@ defaults:
 projects:
   drupal:
     type: core
-    version: 8.0.5
+    version: 8.0.6
     patch:
       - "https://www.drupal.org/files/issues/allow_access_to_the-2661016-2_2.patch"
       # Hide unrelated child menu items when expanded option is used.
