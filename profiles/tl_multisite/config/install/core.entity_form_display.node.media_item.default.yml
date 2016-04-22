@@ -1,4 +1,3 @@
-uuid: ffc835c0-bd5a-490e-a208-8ec10ea21ec0
 langcode: en
 status: true
 dependencies:
@@ -7,6 +6,7 @@ dependencies:
     - field.field.node.media_item.field_media_category
     - field.field.node.media_item.field_media_item_image
     - field.field.node.media_item.field_youtube_video
+    - image.style.thumbnail
     - node.type.media_item
   module:
     - file
@@ -14,8 +14,6 @@ dependencies:
     - path
     - workbench_moderation
     - youtube
-_core:
-  default_config_hash: khdSXgQ2T86C5DvQ0-_V5msRk-3wQ-g_tElHSmNuLu8
 id: node.media_item.default
 targetEntityType: node
 bundle: media_item
