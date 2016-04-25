@@ -11,6 +11,11 @@ function centerModal() {
   // Override HTML.
   Drupal.behaviors.overrideHTML = {
     attach: function (context, settings) {
+      $('.field--name-field-text img').unwrap();
+      
+      $('.field--name-field-video-text a.video-button').unwrap();  
+      $('a.video-button').insertAfter('.field--name-field-video-text h2');
+
       // Make the products clickable.
       $(".products .tout-container").click(function() {
         window.location = $(this).find("a").attr("href"); 
@@ -65,15 +70,32 @@ function centerModal() {
         return this.nodeValue.replace(/[™®]/g, '<sup>$&</sup>');
       });
 
+      // Add form before content on mobile.
+      if ($('.is-form .field--name-field-form-header').css('width') == '70%') {
+        // Do nothing.
+      } else {
+        $('.is-form .field--name-field-main-content').insertAfter('.is-form .field--name-field-form');
+      }
 
       // Set the height for the footer.
-      var NavHeight = $('.region-navigation').height();
+      var NavHeight = $('.navbar-header').height();
+      var NavRegHeight = $('.region-navigation').height();
+      var MainContainerHeight = $('main-container').height();
       var DocHeight = $(document).height();
-      $('.full-footer').height(DocHeight - NavHeight);
+      if ($('.navbar').css('position') == 'absolute') {
+        console.log('desktop');
+        $('.full-footer').height(NavHeight - NavRegHeight);
+      } else {
+        console.log('mobile');
+        
+      }
       $(window).resize(function() {
-        var NavHeight = $('.region-navigation').height();
-        var DocHeight = $(document).height();
-        $('.full-footer').height(WindowHeight - NavHeight);
+        if ($('.navbar').css('position') == 'absolute') {
+          console.log('desktop');
+          $('.full-footer').height(NavHeight - NavRegHeight);
+        } else {
+          console.log('mobile');
+        }
       })
     }
   };
