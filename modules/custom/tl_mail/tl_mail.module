@@ -52,12 +52,14 @@ function mail_node_insert_approver($node) {
   $params['site_name'] = \Drupal::configFactory()->getEditable('system.site')->get('name');
   $params['site_url'] = $base_url;
   $params['node_title'] = $node->getTitle();
+  $params['node_editor'] = \Drupal::currentUser()->getDisplayName();
   $params['node_author'] = user_load($node->get('uid')->getValue()[0]['target_id'])->get('name')->getValue()[0]['value'];
   $params['node_url'] = $base_url . '/node/' . $node->id();
 
   $params['subject'] = str_replace("[site_name]", $params['site_name'], $subject);
 
   $params['message'] = str_replace("[node_author]", $params['node_author'], $message);
+  $params['message'] = str_replace("[node_editor]", $params['node_editor'], $params['message']);
   $params['message'] = str_replace("[date]", date("d-m-Y"), $params['message']);
   $params['message'] = str_replace("[node_title]", $params['node_title'], $params['message']);
   $params['message'] = str_replace("[site_url]", $params['site_url'], $params['message']);
