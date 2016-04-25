@@ -7,6 +7,7 @@ theme_content_structure_restrict_fields:
   - field_template
   - field_sidebar_color
   - field_tout_size
+  - field_tout_background_image
 
 theme_content_structure_restrict_cts:
   - media_item
