@@ -14,7 +14,33 @@ a#toolbar-link-view-contact_messages_administration-page_1.is-active::before {
   margin-bottom: 20px;
 }
 
+.node-form .paragraph-type-title {
+	font-weight: normal;
+}
+
 .node-form img {
     height: auto;
     max-width: 500px;
+}
+
+.node-form .form-wrapper {
+	margin-bottom: 1em;
+}
+
+.node-form .field--name-field-popup,
+.node-form .field--name-field-sidebar,
+.node-form .field--name-field-intro-area {
+	font-weight: bold;
+}
+
+.node-form .field--name-field-popup p,
+.node-form .field--name-field-sidebar p,
+.node-form .field--name-field-intro-area p {
+	font-weight: normal;
+}
+
+.node-form .field--name-field-popup .description,
+.node-form .field--name-field-sidebar .description,
+.node-form .field--name-field-intro-area .description {
+	font-weight: normal;
 }
