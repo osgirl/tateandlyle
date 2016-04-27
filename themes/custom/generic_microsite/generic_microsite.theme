@@ -218,8 +218,8 @@ function generic_microsite_preprocess_field(&$variables, $hook) {
   }
 
   if ($variables['field_name'] == 'field_main_content') {
-    $current_language = \Drupal::languageManager()->getCurrentLanguage()->getId();  
-    $default_language = \Drupal::languageManager()->getDefaultLanguage()->getId();
+    $default_language = \Drupal::languageManager()->getDefaultLanguage()->getId(); 
+    $current_language = \Drupal::languageManager()->getCurrentLanguage($type = 'language_content')->getId();  
     $forms = array();
     foreach ($variables['items'] as $key => $item) {
       if ($item['content']['#paragraph']->getType() == 'country_contact') {
@@ -394,7 +394,7 @@ function generic_microsite_preprocess_block(&$variables) {
   if ($variables['base_plugin_id'] == 'system_branding_block') {
     $language_manager = \Drupal::languageManager();
     $default_language = $language_manager->getDefaultLanguage()->getId();
-    $current_language = $language_manager->getCurrentLanguage()->getId();
+    $current_language = $language_manager->getCurrentLanguage($type = 'language_content')->getId();
     if ($default_language != $current_language) {
       if (($variables['theme']['settings']['logo_image_' . $current_language]) && ($variables['theme']['settings']['logo_image_' . $current_language . '_delete'] != 1)) {
         $file = File::load($variables['theme']['settings']['logo_image_' . $current_language]);
@@ -407,7 +407,7 @@ function generic_microsite_preprocess_block(&$variables) {
     $variables['label'] = t('Pick your language');
     $languages = \Drupal::languageManager();
     $default_language = $languages->getDefaultLanguage();
-    $current_language = $languages->getCurrentLanguage($type = language_interface);
+    $current_language = $languages->getCurrentLanguage($type = 'language_content');
     foreach ($variables['content']['#links'] AS $key => $value) {
       if ($default_language == $current_language) {
         $variables['content']['#links'][$key]['title'] = $languages->getLanguage($key)->getName();
