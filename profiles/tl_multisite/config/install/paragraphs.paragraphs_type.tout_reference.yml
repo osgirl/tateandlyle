@@ -1,5 +1,5 @@
 langcode: en
 status: true
 dependencies: {  }
-id: tout
-label: Block
+id: tout_reference
+label: 'Reference block'

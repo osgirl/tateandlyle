@@ -183,6 +183,7 @@ function centerModal() {
         e.preventDefault();
         $('.pre-header').slideToggle('fast');
         $('.st-content').toggleClass('contact-reveal');
+        $('html, body').animate({scrollTop : 0},400);
         if ($('.st-content').hasClass('contact-reveal')) {
           $('#st-container').removeClass('st-menu-open');
         } else {

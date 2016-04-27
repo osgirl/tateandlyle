@@ -1,0 +1,8 @@
+theme_content_structure_restrict_fields:
+  - field_intro_area 
+  - field_has_bg_color 
+  - field_footer_image 
+  - field_template
+  - field_tout_size
+
+theme_content_structure_restrict_cts:
