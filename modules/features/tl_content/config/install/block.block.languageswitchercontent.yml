@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - language
+  theme:
+    - generic_microsite
+id: languageswitchercontent
+theme: generic_microsite
+region: header_right
+weight: -12
+provider: null
+plugin: 'language_block:language_content'
+settings:
+  id: 'language_block:language_content'
+  label: 'Language switcher (Content)'
+  provider: language
+  label_display: '0'
+visibility: {  }
