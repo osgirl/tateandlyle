@@ -1,7 +1,6 @@
 excluded:
   - block.block.views_block__sidebar_block_1
 required:
-  - core.base_field_override.node.page.promote
   - core.entity_form_display.field_collection_item.field_accordion_item.default
   - core.entity_form_display.field_collection_item.field_slide.default
   - core.entity_form_display.field_collection_item.field_tab.default
@@ -207,3 +206,4 @@ required:
   - editor.editor.filtered_html
   - field.storage.paragraph.field_country
   - field.storage.paragraph.field_address
+  - field.field.node.page.field_content_reference

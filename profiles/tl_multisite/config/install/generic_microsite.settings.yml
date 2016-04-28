@@ -1,0 +1,37 @@
+bootstrap_cdn_provider: ''
+_core:
+  default_config_hash: IVk69njDtcJ-J3eTEB_Ypryl_KC9ixwYzSsRoblJt9k
+favicon:
+  mimetype: image/vnd.microsoft.icon
+  path: ''
+  url: 'http://tl.dd:8083/themes/custom/generic_microsite/favicon.ico'
+  use_default: true
+schema: '8000'
+features:
+  comment_user_picture: true
+  comment_user_verification: true
+  favicon: false
+  node_user_picture: true
+logo:
+  path: ''
+  url: ''
+  use_default: true
+region_wells:
+  header_top: ''
+  header_left: ''
+  header_right: ''
+  navigation: ''
+  navigation_collapsible: ''
+  breadcrumb: ''
+  highlighted: ''
+  help: ''
+  content: ''
+  sidebar_first: ''
+  sidebar_second: ''
+  footer: ''
+global_style: '1'
+frontpage_template: '1'
+bg_value1: '#B5CBE6'
+bg_value2: '#FFFFFF'
+custom_css: ''
+logo_redirect: ''

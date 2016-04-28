@@ -1,4 +1,3 @@
-uuid: 0abef5c0-698c-4413-8508-8bd11ed34368
 langcode: en
 status: true
 dependencies:
@@ -25,6 +24,8 @@ settings:
       slide: slide
       text: text
       tout: tout
+      video: video
+      tout_reference: tout_reference
     target_bundles_drag_drop:
       accordion:
         weight: 11
@@ -55,5 +56,8 @@ settings:
         weight: 19
       video:
         weight: 20
-        enabled: false
+        enabled: true
+      tout_reference:
+        enabled: true
+        weight: 21
 field_type: entity_reference_revisions

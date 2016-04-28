@@ -1,8 +1,5 @@
-uuid: d9cb6135-8991-4d83-8600-cd0533334252
 langcode: en
 status: true
 dependencies: {  }
-_core:
-  default_config_hash: hosKpw_V2lXNsZoA5g4qEmm8bU1jXk7K5wawy7bclWI
 id: tout
-label: Tout
+label: Block

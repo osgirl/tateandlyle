@@ -1,0 +1,9 @@
+theme_content_structure_restrict_fields:
+  - field_title_image 
+  - field_subtitle 
+  - field_has_bg_color 
+  - field_background_image 
+  - field_footer_image 
+  - field_sidebar_color 
+
+theme_content_structure_restrict_cts:

@@ -13,7 +13,7 @@ bundle: page
 label: 'Content reference'
 description: 'Add the content that will appear on the page which was referenced on.'
 required: false
-translatable: false
+translatable: true
 default_value:
   - {  }
 default_value_callback: ''

@@ -1,4 +1,3 @@
-uuid: 980d904a-8f12-4b96-a91a-26197cfe416d
 langcode: en
 status: true
 dependencies:
@@ -7,8 +6,6 @@ dependencies:
     - node.type.page
   module:
     - entity_reference_revisions
-_core:
-  default_config_hash: Ebh-eXYNW5QKQdcoKhhbpV69TX15aQ35STGeMNxc0gc
 id: node.page.field_main_content
 field_name: field_main_content
 entity_type: node
@@ -16,7 +13,7 @@ bundle: page
 label: 'Main content'
 description: ''
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
@@ -27,7 +24,6 @@ settings:
       accordion: accordion
       country_contact: country_contact
       text: text
-      redirect_selector: redirect_selector
       slide: slide
       tabs: tabs
       video: video
@@ -48,7 +44,7 @@ settings:
         enabled: true
         weight: 14
       redirect_selector:
-        enabled: true
+        enabled: false
         weight: 16
       tout:
         weight: 17

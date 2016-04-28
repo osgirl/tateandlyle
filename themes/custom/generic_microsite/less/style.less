@@ -134,10 +134,10 @@ header.container {
 }
 
 .header-right {
-  float: right;
-  margin-right: 20px;
-  .valign-child;
-  transform: translateY(50%);
+  margin-top: 1.3em;
+  position: relative;
+  right: 20px;
+  text-align: right;
   @media (min-width: @screen-sm) {
     float: right;
     margin-bottom: 0;
@@ -170,10 +170,12 @@ header.container {
 
 .language-switcher-language-url {
   display: inline-block;
+  position: relative;
+  top: -1px;
   &:before {
     content: "\e135";
     cursor: pointer;
-    display: inline-block;
+    display: inline;
     font-family: 'Glyphicons Halflings';
     font-size: 22px;
     height: 22px;
@@ -234,6 +236,12 @@ header.container {
   }
 }
 
+.search-api-page-block-form {
+  .error {
+    display: none !important;
+  }
+}
+
 .search-block-form,
 header .search-api-page-block-form {
   &:before {
@@ -259,9 +267,10 @@ header .search-api-page-block-form {
   }
 }
 
-#search-form .btn-default:after,
-#search-block-form .btn-default:after,
-.search-api-page-block-form .btn-default:after {
+#search-form button.form-submit:after,
+#search-block-form button.form-submit:after,
+.search-api-page-block-form button.form-submit:after,
+.search-mobile button.form-submit:after {
   -webkit-font-smoothing: antialiased;
   color: #FFF;
   content: "\e003";
@@ -272,6 +281,11 @@ header .search-api-page-block-form {
   font-weight: normal;
   line-height: 1;
   position: relative;
+}
+
+.search-mobile button.form-submit:after {
+  font-size: 18px;
+  left: -3px;
 }
 
 .advanced-search {
@@ -413,6 +427,7 @@ body {
   }
   .btn.icon-before .glyphicon-search {
     margin-left: -2px;
+    margin-right: 2em;
   }
   .glyphicon-search:before {
     font-size: 18px;
@@ -437,19 +452,6 @@ body {
     background: #b9b3ac;
     border: 0;
     font-size: 0;
-    &:after {
-      -webkit-font-smoothing: antialiased;
-      color: #FFF;
-      content: "\e003";
-      display: inline-block;
-      font-family: 'Glyphicons Halflings';
-      font-style: normal;
-      font-size: 18px;
-      font-weight: normal;
-      left: -3px;
-      line-height: 1;
-      position: relative;
-    }
   }
 }
 
@@ -559,12 +561,12 @@ body,
   top: 0;
   right: 0;
   z-index: 100;
-  visibility: hidden;
   width: 300px;
   height: 100%;
   overflow: auto;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
+  display: none;
 }
 
 .st-menu::after {
@@ -614,7 +616,7 @@ body,
 }
 
 .st-effect-2.st-menu-open .st-effect-2.st-menu {
-  visibility: visible;
+  display: block;
   -webkit-transition: -webkit-transform 0.5s;
   transition: transform 0.5s;
 }
@@ -667,7 +669,7 @@ body,
   background-color: #DEDEDE;
 }
 
-.navbar-collapse {
+.sidebar-menu {
   .dropdown-menu {
     background: none;
     border: 0;
@@ -1491,6 +1493,8 @@ aside {
     color: #948671 !important;
     font-size: 12px !important;
     font-weight: normal;
+    margin-bottom: 0;
+    padding-bottom: 0;
   }
 }
 
@@ -2326,6 +2330,10 @@ form .field--type-boolean {
 .contact-form {
   .gradient (@startColor: #E4E0DB, @endColor: #FFF);
   padding: 15px;
+
+  .form-group {
+    margin-bottom: 8px;
+  }
 
   label {
     color: #525252;
@@ -3248,9 +3256,6 @@ ul.sitemap-menu {
     }
   }
   .navbar-default.container {
-    @media(min-width: @screen-sm-min) {
-      margin-top: -5px;
-    }
     .menu {
       @media(min-width: @screen-sm-min) {
         padding-top: 10px;
