@@ -8,6 +8,7 @@ dependencies:
     - paragraphs.paragraphs_type.image
   module:
     - image
+    - text
     - workbench_moderation
 id: paragraph.image.default
 targetEntityType: paragraph
@@ -30,4 +31,5 @@ content:
     type: text_textarea
 hidden:
   created: true
+  status: true
   uid: true

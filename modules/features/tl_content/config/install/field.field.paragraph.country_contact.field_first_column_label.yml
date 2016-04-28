@@ -14,7 +14,7 @@ required: false
 translatable: false
 default_value:
   -
-    value: 'Where/What'
+    value: Where/What
 default_value_callback: ''
 settings: {  }
 field_type: string

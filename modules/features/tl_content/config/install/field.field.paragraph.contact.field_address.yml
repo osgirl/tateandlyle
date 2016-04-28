@@ -10,8 +10,8 @@ id: paragraph.contact.field_address
 field_name: field_address
 entity_type: paragraph
 bundle: contact
-label: Second column details
-description: 'Add the second column details.'
+label: Address
+description: 'Add the address.'
 required: false
 translatable: false
 default_value: {  }

@@ -3,23 +3,27 @@ status: true
 dependencies:
   config:
     - field.storage.paragraph.field_page_reference
-    - field_collection.field_collection.field_content_reference
+    - node.type.form
+    - node.type.media_item
+    - node.type.page
     - paragraphs.paragraphs_type.tout_reference
 id: paragraph.tout_reference.field_page_reference
 field_name: field_page_reference
 entity_type: paragraph
 bundle: tout_reference
 label: 'Page reference'
-description: 'Add the page that contains the Content Reference fields that you want to reference in this page.'
+description: ''
 required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: 'default:field_collection_item'
+  handler: 'default:node'
   handler_settings:
     target_bundles:
-      field_content_reference: field_content_reference
+      form: form
+      media_item: media_item
+      page: page
     sort:
       field: _none
 field_type: entity_reference
