@@ -3,8 +3,6 @@ status: true
 dependencies:
   module:
     - language
-  theme:
-    - generic_microsite
 id: languageswitchercontent
 theme: generic_microsite
 region: header_right
