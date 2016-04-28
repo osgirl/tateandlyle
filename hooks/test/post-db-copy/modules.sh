@@ -34,6 +34,8 @@ drush pm-uninstall --yes tl_prod_login $multisite
 #drush8 pm-enable --yes token_login $multisite
 drush pm-enable --yes tl_authentication_stage $multisite
 
+drush updatedb --yes $multisite
+
 # Make sure that the staging configuration does apply.
 drush fr --yes tl_authentication_stage $multisite
 
@@ -43,5 +45,3 @@ drush fr --yes tatelyle_search $multisite
 
 # Temporary change to help QA - ensure that the password for the service account is fixed.
 drush user-password svcCMSDrupal@tateandlyle.com --password="D9KUwqiQhswN4" $multisite
-
-drush updatedb --yes $multisite
