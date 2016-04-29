@@ -47,45 +47,11 @@ processor_settings:
       suffix: '</strong>'
       weights:
         postprocess_query: 0
-  language:
-    plugin_id: language
-    settings:
-      weights:
-        preprocess_index: -30
-  node_status:
-    plugin_id: node_status
-    settings:
-      weights:
-        preprocess_index: -10
-  rendered_item:
-    plugin_id: rendered_item
-    settings:
-      roles:
-        anonymous: anonymous
-      view_mode:
-        'entity:node':
-          form: default
-          media_item: default
-          page: search_index
-      weights:
-        preprocess_index: -10
-  file_attachments:
-    plugin_id: file_attachments
-    settings:
-      excluded_extensions: 'aif art avi bmp gif ico mov oga ogv png psd ra ram rgb flv'
-      number_indexed: '0'
-      max_filesize: '0'
-      excluded_private: 1
-      excluded_mimes: 'audio/x-aiff image/x-jg video/x-msvideo image/x-ms-bmp image/gif image/vnd.microsoft.icon video/quicktime audio/ogg video/ogg image/png image/x-photoshop audio/x-realaudio audio/x-pn-realaudio image/x-rgb video/x-flv'
-      weights:
-        preprocess_index: '0'
   html_filter:
     plugin_id: html_filter
     settings:
       fields:
-        - search_api_language
         - rendered_item
-        - langcode
       title: true
       alt: true
       tags:
@@ -94,8 +60,16 @@ processor_settings:
         h3: 2
         strong: 2
         b: 2
-        em: 1
-        u: 1
+      weights:
+        preprocess_index: -10
+        preprocess_query: -10
+  ignorecase:
+    plugin_id: ignorecase
+    settings:
+      fields:
+        - search_api_language
+        - rendered_item
+        - langcode
       weights:
         preprocess_index: -10
         preprocess_query: -10
@@ -103,9 +77,7 @@ processor_settings:
     plugin_id: ignore_character
     settings:
       fields:
-        - search_api_language
         - rendered_item
-        - langcode
       ignorable: '[''¿¡!?,.:;]'
       strip:
         character_sets:
@@ -132,17 +104,84 @@ processor_settings:
       weights:
         preprocess_index: -10
         preprocess_query: -10
-  tokenizer:
-    plugin_id: tokenizer
+  language:
+    plugin_id: language
+    settings:
+      weights:
+        preprocess_index: -30
+  node_status:
+    plugin_id: node_status
+    settings:
+      weights:
+        preprocess_index: -10
+  stopwords:
+    plugin_id: stopwords
     settings:
       fields:
         - rendered_item
-      spaces: ''
-      overlap_cjk: 1
-      minimum_word_size: '3'
+        - langcode
+      stopwords:
+        - a
+        - an
+        - and
+        - are
+        - as
+        - at
+        - be
+        - but
+        - by
+        - for
+        - if
+        - in
+        - into
+        - is
+        - it
+        - 'no'
+        - not
+        - of
+        - 'on'
+        - or
+        - s
+        - such
+        - t
+        - that
+        - the
+        - their
+        - then
+        - there
+        - these
+        - they
+        - this
+        - to
+        - was
+        - will
+        - with
       weights:
-        preprocess_index: -6
-        preprocess_query: -6
+        preprocess_index: -5
+        preprocess_query: -2
+        postprocess_query: -2
+  file_attachments:
+    plugin_id: file_attachments
+    settings:
+      excluded_extensions: 'aif art avi bmp gif ico mov oga ogv png psd ra ram rgb flv'
+      number_indexed: '0'
+      max_filesize: '0'
+      excluded_private: 1
+      excluded_mimes: 'audio/x-aiff image/x-jg video/x-msvideo image/x-ms-bmp image/gif image/vnd.microsoft.icon video/quicktime audio/ogg video/ogg image/png image/x-photoshop audio/x-realaudio audio/x-pn-realaudio image/x-rgb video/x-flv'
+      weights:
+        preprocess_index: '0'
+  rendered_item:
+    plugin_id: rendered_item
+    settings:
+      roles:
+        anonymous: anonymous
+      view_mode:
+        'entity:node':
+          form: default
+          media_item: default
+          page: search_index
+      weights:
+        preprocess_index: -10
 options:
   index_directly: true
   cron_limit: 50
