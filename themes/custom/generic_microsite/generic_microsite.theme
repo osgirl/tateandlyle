@@ -8,6 +8,7 @@
 use Drupal\bootstrap\Bootstrap;
 use Drupal\file\Entity\File;
 use Drupal\image\Entity\ImageStyle;
+use Drupal\Component\Utility\Html;
 
 /**
  * Implements TEMPLATE_preprocess_html().
@@ -441,7 +442,7 @@ function generic_microsite_preprocess_search_api_page_result(&$variables) {
   // Deal with missing snipets
   if (!$snippet) {
     $query_key = \Drupal::request()->query->get('keys');
-    $snippet = 'We found a partial match for <strong>' . SafeMarkup::checkPlain($query_key) . '</strong> you might be interested in.';
+    $snippet = 'We found a partial match for <strong>' . Html::escape($query_key) . '</strong> you might be interested in.';
   }
 
   $variables['snippet'] = array('#markup' => str_replace($bad_strings, $clean_strings, $snippet));
