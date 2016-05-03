@@ -15,21 +15,30 @@
 
 @font-face {
   font-family: baron;
-  src: url('../fonts/baron.eot');
-  src: url('../fonts/baron.eot?#iefix') format('embedded-opentype'),
-       url('../fonts/baron.woff2') format('woff2'),
-       url('../fonts/baron.woff') format('woff'),
-       url('../fonts/baron.ttf') format('truetype'),
-       url('../fonts/baron.svg#baron_neueregular') format('svg');
+  src: url('../fonts/BaronNeue.eot');
+  src: url('../fonts/BaronNeue.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
 }
 
+@font-face {
+  font-family: baronbold;
+  src: url('../fonts/BaronNeueBold.eot');
+  src: url('../fonts/BaronNeueBold.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+// Medium screen / desktop
+//** Deprecated `@screen-xs` as of v3.0.1
+@screen-xs:                  600px;
+@screen-xs-min:              @screen-xs;
 
 // Medium screen / desktop
 //** Deprecated `@screen-md` as of v3.0.1
 @screen-md:                  1024px;
 @screen-md-min:              @screen-md;
+
 //** Deprecated `@screen-desktop` as of v3.0.1
 @screen-desktop:             @screen-md-min;
 

@@ -10,7 +10,7 @@ id: paragraph.country_contact.field_contact
 field_name: field_contact
 entity_type: paragraph
 bundle: country_contact
-label: Row
+label: Contact
 description: 'Add the contact information.'
 required: false
 translatable: false

@@ -12,7 +12,7 @@ bundle: tout_reference
 mode: default
 content:
   field_page_reference:
-    weight: 6
+    weight: 8
     settings:
       match_operator: CONTAINS
       size: 60
@@ -21,4 +21,5 @@ content:
     type: entity_reference_autocomplete
 hidden:
   created: true
+  status: true
   uid: true

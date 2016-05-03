@@ -3,7 +3,7 @@ function centerModal() {
   jQuery(this).css('display', 'block');
   var $dialog = jQuery(this).find(".modal-dialog");
   var offset = (jQuery(window).height() - $dialog.height()) / 2;
-  // Center modal vertically in window
+  // Center modal vertically in window.
   $dialog.css("margin-top", offset);
 }
 
@@ -20,10 +20,10 @@ function centerModal() {
     }
   }
 
-  // Show language block on click.
+  // Modify header region for mobile.
   Drupal.behaviors.headerMobile = {
     attach: function (context, settings) {
-      // Set variables.
+      // Set the variables.
       var language_icon = $('.language-switcher-language-url');
       var language_contents = $('.language-switcher-language-url').contents();
       var search_icon = $('header .search-api-page-block-form');
@@ -32,26 +32,30 @@ function centerModal() {
       var MacOS = navigator.appVersion.indexOf("Mac")!=-1; // Get Mac Operationg System
       var Windows = navigator.appVersion.indexOf("Win")!=-1; // Get Windows
 
+      var firefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
       var ua = window.navigator.userAgent;
       var msie = ua.indexOf("MSIE ");
 
-      var windowWidth = 750;
+      var windowWidth = 974;
+
+      if (firefox) {
+        windowWidth = 991;
+      }
 
       if (!!navigator.userAgent.match(/Trident.*rv\:11\./)) { // If Internet Explorer, return version number
-        windowWidth = 767;
+        windowWidth = 991;
       }
 
       if (MacOS) {
-        windowWidth = 752;
+        windowWidth = 991;
       }
 
       if (navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1) {
-        windowWidth = 767; // Target Safari
+        windowWidth = 991; // Target Safari
       }
 
-      var m;
       if (jQuery && jQuery.browser && (m = (navigator.userAgent).match(/Edge\/(1[2-9]|[2-9]\d|\d{3,})\./))) {
-        windowWidth = 767; // Target Microsoft Edge
+        windowWidth = 991; // Target Microsoft Edge
       }
 
       // Page load on mobile.
@@ -64,9 +68,12 @@ function centerModal() {
         // Place Language mobile section in the Header Bottom section.
         language_contents.insertAfter('.search-mobile');
         language_contents.wrapAll('<section class="language-mobile"></section>');
+      } else {
+        language_icon.removeClass('active');
+        search_icon.removeClass('active');
       }
 
-      // Window resize.
+      // Window resize event.
       $(window).resize(function() {
         var language_contents_mobile = $('.language-mobile').contents();
         var search_contents_mobile = $('.search-mobile').contents();
@@ -89,10 +96,12 @@ function centerModal() {
           $('.header-bottom').remove();
           search_contents_mobile.appendTo('header .search-api-page-block-form');
           language_contents_mobile.appendTo('.language-switcher-language-url');
+          language_icon.removeClass('active');
+          search_icon.removeClass('active');
         }
       });
 
-      // Search block fade effect.
+      // Search block slide toggle effect.
       search_icon.click(function() {
         var language_mobile = $('.language-mobile');
         var search_mobile = $('.search-mobile');
@@ -104,7 +113,7 @@ function centerModal() {
         }
       });
 
-      // Language block fade effect.
+      // Language block slide toggle effect.
       language_icon.click(function() {
         var language_mobile = $('.language-mobile');
         var search_mobile = $('.search-mobile');
@@ -187,30 +196,26 @@ function centerModal() {
   Drupal.behaviors.ValidateEachForm = {
     attach: function (context, settings) {
       $.validator.setDefaults({ ignore: ":hidden:not(select)" });
-
-      $('form').each(function() {  // attach to all form elements on page
-        $(this).validate({       // initialize plugin on each form
+      $('form').each(function() {  // attach to all form elements on page.
+        $(this).validate({       // initialize plugin on each form.
 
           errorPlacement: function(error, element) {
-              if(element.parent('.form-group').length) {
-                  error.insertAfter(element.parent());
-              } else if (element.is('select')) {
-                  error.insertBefore(element);
-              } else
-              {
-                  error.insertAfter(element);
-              }
+            if(element.parent('.form-group').length) {
+              error.insertAfter(element.parent());
+            } else if (element.is('select')) {
+              error.insertBefore(element);
+            } else {
+              error.insertAfter(element);
+            }
           },
 
           highlight: function (element) {
-            $(element).closest('.form-group').removeClass('checked').addClass('error');
-            $(element).next().removeClass('checked').addClass('error');
-            //$('label.error').insertAfter($('.chosen-container'));
-            
+            $(element).closest('.form-wrapper').removeClass('checked').addClass('error');
+            //$(element).next().removeClass('checked').addClass('error');
           },
           success: function (element) {
-            $(element).closest('.form-group').removeClass('error').addClass('checked');
-            $(element).next().removeClass('error').addClass('checked');
+            $(element).closest('.form-wrapper').removeClass('error').addClass('checked');
+            //$(element).next().removeClass('error').addClass('checked');
           }
 
         });
@@ -221,21 +226,6 @@ function centerModal() {
       $('select').on('change', function () {
           $(this).valid();
       });
-    }
-  }
-
-  // Chosen options.
-  Drupal.behaviors.chosen = {
-    attach: function (context, settings) {
-      /*$('.field--name-field-primary-application select, .field--name-field-interests select').chosen({
-        disable_search: true,
-        placeholder_text_multiple: "(Select up to 3)",
-        max_selected_options: 3,
-      });
-
-      $('#edit-field-country-list').chosen({
-        disable_search: false,
-      });*/
     }
   }
 

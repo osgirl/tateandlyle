@@ -3,13 +3,16 @@ type: module
 core: 8.x
 dependencies:
   - block
+  - ckeditor
   - contact
   - content_translation
+  - editor
   - entity_reference_revisions
   - field
   - field_collection
   - field_group
   - file
+  - filter
   - image
   - imce
   - language
@@ -27,4 +30,4 @@ dependencies:
   - views
   - workbench_moderation
   - youtube
-version: 8.x-1.0
+version: 8.x-1.1

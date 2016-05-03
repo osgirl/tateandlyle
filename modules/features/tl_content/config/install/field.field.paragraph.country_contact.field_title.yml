@@ -8,7 +8,7 @@ id: paragraph.country_contact.field_title
 field_name: field_title
 entity_type: paragraph
 bundle: country_contact
-label: Tab title
+label: Title
 description: ''
 required: false
 translatable: false
