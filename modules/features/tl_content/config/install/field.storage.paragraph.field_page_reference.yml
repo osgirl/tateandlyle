@@ -2,14 +2,14 @@ langcode: en
 status: true
 dependencies:
   module:
-    - field_collection
+    - node
     - paragraphs
 id: paragraph.field_page_reference
 field_name: field_page_reference
 entity_type: paragraph
 type: entity_reference
 settings:
-  target_type: field_collection_item
+  target_type: node
 module: core
 locked: false
 cardinality: 1

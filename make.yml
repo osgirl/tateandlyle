@@ -128,7 +128,7 @@ projects:
     version: "1.x-dev"
   bootstrap:
     type: theme
-    version: "3.0-beta3"
+    version: "3.0-beta2"
   workbench_moderation:
     type: module
     version: "1.0"

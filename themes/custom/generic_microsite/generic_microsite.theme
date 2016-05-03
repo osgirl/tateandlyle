@@ -8,6 +8,7 @@
 use Drupal\bootstrap\Bootstrap;
 use Drupal\file\Entity\File;
 use Drupal\image\Entity\ImageStyle;
+use Drupal\Component\Utility\Html;
 
 /**
  * Implements TEMPLATE_preprocess_html().
@@ -218,8 +219,8 @@ function generic_microsite_preprocess_field(&$variables, $hook) {
   }
 
   if ($variables['field_name'] == 'field_main_content') {
-    $current_language = \Drupal::languageManager()->getCurrentLanguage()->getId();  
-    $default_language = \Drupal::languageManager()->getDefaultLanguage()->getId();
+    $default_language = \Drupal::languageManager()->getDefaultLanguage()->getId(); 
+    $current_language = \Drupal::languageManager()->getCurrentLanguage($type = 'language_content')->getId();  
     $forms = array();
     foreach ($variables['items'] as $key => $item) {
       if ($item['content']['#paragraph']->getType() == 'country_contact') {
@@ -394,7 +395,7 @@ function generic_microsite_preprocess_block(&$variables) {
   if ($variables['base_plugin_id'] == 'system_branding_block') {
     $language_manager = \Drupal::languageManager();
     $default_language = $language_manager->getDefaultLanguage()->getId();
-    $current_language = $language_manager->getCurrentLanguage()->getId();
+    $current_language = $language_manager->getCurrentLanguage($type = 'language_content')->getId();
     if ($default_language != $current_language) {
       if (($variables['theme']['settings']['logo_image_' . $current_language]) && ($variables['theme']['settings']['logo_image_' . $current_language . '_delete'] != 1)) {
         $file = File::load($variables['theme']['settings']['logo_image_' . $current_language]);
@@ -407,7 +408,7 @@ function generic_microsite_preprocess_block(&$variables) {
     $variables['label'] = t('Pick your language');
     $languages = \Drupal::languageManager();
     $default_language = $languages->getDefaultLanguage();
-    $current_language = $languages->getCurrentLanguage($type = language_interface);
+    $current_language = $languages->getCurrentLanguage($type = 'language_content');
     foreach ($variables['content']['#links'] AS $key => $value) {
       if ($default_language == $current_language) {
         $variables['content']['#links'][$key]['title'] = $languages->getLanguage($key)->getName();
@@ -432,9 +433,21 @@ function generic_microsite_preprocess_search_api_page_result(&$variables) {
   /* @var $item \Drupal\search_api\Item\ItemInterface */
   $item = $variables['item'];
 
-  $variables['snippet'] = $item->getExcerpt();
+  // For ticket TL277, TL-276
+  // Replace this with custom search_api processors
+  $bad_strings = array('amp', 'tate', 'lyle');
+  $clean_strings = array('&amp;', 'Tate', 'Lyle');
+  $snippet = $item->getExcerpt();
+
+  // Deal with missing snipets
+  if (!$snippet) {
+    $query_key = \Drupal::request()->query->get('keys');
+    $snippet = 'We found a partial match for <strong>' . Html::escape($query_key) . '</strong> you might be interested in.';
+  }
+
+  $variables['snippet'] = array('#markup' => str_replace($bad_strings, $clean_strings, $snippet));
+
   $variables['url'] = $entity->toUrl();
   $variables['title'] = $entity->label();
   unset($variables['info']);
-
 }

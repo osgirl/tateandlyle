@@ -189,7 +189,7 @@ function _sitemap_menus($mid) {
       $attributes->addClass('sitemap-box-menu', 'sitemap-box-menu-' . $mid);
       $translated_menu = $config->get('translated_menu');
       if ($translated_menu == 0) {
-        $current_language = \Drupal::languageManager()->getCurrentLanguage()->getId();
+        $current_language = \Drupal::languageManager()->getCurrentLanguage($type = 'language_content')->getId();
         $menu_language = $menu->language()->getId();
         if ($current_language == $menu_language) {
           $sitemap_box = array(

@@ -130,7 +130,7 @@
           {# Content #}
            {%
                 set content_classes = [
-                  page.sidebar_second and is_sidebar ? 'col-sm-8',
+                  page.sidebar_second and is_sidebar ? 'col-sm-12 col-md-8',
                   is_sidebar is empty ? 'col-sm-12',
                   is_form ? 'col-sm-12',
                   form_page_layout,
@@ -139,7 +139,7 @@
               %}
               {% 
                 set remove_classes = [
-                is_form ? 'col-sm-8'
+                is_form ? 'col-md-8'
                 ] 
               %}
            <section {{ content_attributes.addClass(content_classes).removeClass(remove_classes) }}>
@@ -176,7 +176,7 @@
           {% if is_form != 1 %}
             {% if page.sidebar_second and is_sidebar %}
               {% block sidebar_second %}
-                <aside class="col-sm-4 {{ sidebar_color }}" role="complementary">
+                <aside class="col-sm-12 col-md-4 {{ sidebar_color }}" role="complementary">
                   {{ page.sidebar_second }}
                 </aside>
               {% endblock %}

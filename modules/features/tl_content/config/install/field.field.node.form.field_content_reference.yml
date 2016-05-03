@@ -5,17 +5,54 @@ dependencies:
     - field.storage.node.field_content_reference
     - node.type.form
   module:
-    - field_collection
+    - entity_reference_revisions
 id: node.form.field_content_reference
 field_name: field_content_reference
 entity_type: node
 bundle: form
 label: 'Content reference'
-description: 'Add the content that will appear on the page which was referenced on.'
+description: ''
 required: false
 translatable: true
-default_value:
-  - {  }
+default_value: {  }
 default_value_callback: ''
-settings: {  }
-field_type: field_collection
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      tout: tout
+    target_bundles_drag_drop:
+      accordion:
+        weight: 12
+        enabled: false
+      contact:
+        weight: 13
+        enabled: false
+      country_contact:
+        weight: 14
+        enabled: false
+      image:
+        weight: 15
+        enabled: false
+      redirect_selector:
+        weight: 16
+        enabled: false
+      slide:
+        weight: 17
+        enabled: false
+      tabs:
+        weight: 18
+        enabled: false
+      text:
+        weight: 19
+        enabled: false
+      tout:
+        enabled: true
+        weight: 20
+      tout_reference:
+        weight: 21
+        enabled: false
+      video:
+        weight: 22
+        enabled: false
+field_type: entity_reference_revisions

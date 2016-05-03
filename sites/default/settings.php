@@ -720,8 +720,12 @@ if (file_exists(DRUPAL_ROOT . '/sites/sites.php')) {
 
   // A new production domain is detected which was not defined in sites.php.
   // The htaccess redirection ensures that top level domains are using www only.
-  else if (preg_match('/^www.([a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9])\.[a-zA-Z]{2,}$/', $root, $matches) && !in_array($root, $sites) && ($is_ah_env && file_exists('/var/www/site-php'))) {
-    $tl_sitename = $matches[1];
+  else if (preg_match('/^www.([a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9])\.[a-zA-Z]{2,}(\.[a-zA-Z]{2,})?$/', $root, $matches) && !in_array($root, $sites) && ($is_ah_env && file_exists('/var/www/site-php'))) {
+    // Remove the leading www.
+    $tl_sitename = preg_replace('/^www\.//', '', $root);
+    $tl_sitename = str_replace('.', '', $tl_sitename);
+    $tl_sitename = str_replace('-', '_', $tl_sitename);
+
     $default_settings = "/var/www/site-php/{$_ENV['AH_SITE_GROUP']}/{$tl_sitename}-settings.inc";
     require $default_settings;
 

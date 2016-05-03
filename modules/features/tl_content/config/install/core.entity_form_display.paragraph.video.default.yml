@@ -38,4 +38,5 @@ content:
     type: youtube
 hidden:
   created: true
+  status: true
   uid: true

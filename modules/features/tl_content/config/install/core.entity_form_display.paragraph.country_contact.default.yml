@@ -22,7 +22,7 @@ content:
     settings:
       title: Paragraph
       title_plural: Paragraphs
-      edit_mode: preview
+      edit_mode: open
       add_mode: dropdown
       form_display_mode: default
     third_party_settings: {  }
@@ -57,4 +57,5 @@ content:
     type: string_textfield
 hidden:
   created: true
+  status: true
   uid: true
