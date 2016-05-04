@@ -38,7 +38,7 @@
           <img src = {{ video_image_modal[video_id] }} >
         </a>
         {% if file_download %}
-          <a class="donwload-file" download href="{{ download_url[video_id] }}">{{ 'Download' |t }}</a>
+          <a class="donwload-file" download href="{{ download_url[video_id] }}?dl=true">{{ 'Download' |t }}</a>
         {% endif %}
       <div class="modal fade" id="{{ video_id }}" tabindex="-1" role="dialog" aria-labelledby="videoModal" aria-hidden="true">
         <div class="modal-dialog">
