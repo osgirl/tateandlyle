@@ -179,7 +179,7 @@ function centerModal() {
   // Contact form reveal.
   Drupal.behaviors.toggleContact = {
     attach: function (context, settings) {
-      $('.menu.nav > li:last-child a, a[href="#contact-us"]').click(function(e) {
+      $('.menu.nav > li:last-child a, a[href="#contact-us"], .tds_contact').click(function(e) {
         e.preventDefault();
         $('.pre-header').slideToggle('fast');
         $('.st-content').toggleClass('contact-reveal');

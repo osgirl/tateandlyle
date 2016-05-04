@@ -59,7 +59,6 @@ $wildcard_domain = 'cloud.tateandlyle.com';
 $envs = ['local', 'ra', 'dev', 'test', 'prod'];
 
 $microsites = [
-  'nabu',
   'avenacare',
   'proatein',
   'clariastarch',

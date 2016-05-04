@@ -18,7 +18,7 @@ mode: default
 content:
   field_contact:
     type: entity_reference_paragraphs
-    weight: 1
+    weight: 3
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -28,13 +28,13 @@ content:
     third_party_settings: {  }
   field_first_column_label:
     type: string_textfield
-    weight: 3
+    weight: 1
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
   field_redirect:
-    weight: 6
+    weight: 4
     settings:
       match_operator: CONTAINS
       size: 60
@@ -43,7 +43,7 @@ content:
     type: entity_reference_autocomplete
   field_second_column_label:
     type: string_textfield
-    weight: 4
+    weight: 2
     settings:
       size: 60
       placeholder: ''
