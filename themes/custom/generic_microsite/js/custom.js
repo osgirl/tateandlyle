@@ -193,6 +193,31 @@ function centerModal() {
     }
   }
 
+  // Select "Other" field for those who have the other option field.
+  Drupal.behaviors.selectOther = {
+    attach: function (context, settings) {
+      $('.pre-header .field--name-field-other-industry').insertAfter('.pre-header .field--name-field-industry');
+      var other_field = $('div[class*="field--name-field-other-"]');
+      var other_field_label = $('div[class*="field--name-field-other-"] label');
+      other_field_label.hide();
+      other_field.hide();  
+      $('option[value="other"]').parent().each(function() {
+        $(this).change(
+          function () {
+            if ($('option:selected', this).val() == 'other') {
+              $(this).closest('.field--widget-options-select').next('div[class*="field--name-field-other-"]').fadeIn();
+              $(this).closest('.field--widget-options-select').next('div[class*="field--name-field-other-"]').find('input').prop('required', true);
+            }
+            else {
+              $(this).closest('.field--widget-options-select').next('div[class*="field--name-field-other-"]').hide();
+              $(this).closest('.field--widget-options-select').next('div[class*="field--name-field-other-"]').find('input').prop('required', false);
+            }
+          }
+        );
+      })
+    }
+  }
+
   Drupal.behaviors.ValidateEachForm = {
     attach: function (context, settings) {
       $.validator.setDefaults({ ignore: ":hidden:not(select)" });
