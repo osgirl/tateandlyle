@@ -288,7 +288,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '<a download href="{{ field_file }}">DOWNLOAD</a>'
+            text: '<a download href="{{ field_file }}?dl=true">DOWNLOAD</a>'
             make_link: false
             path: '{{ field_file }}'
             absolute: false

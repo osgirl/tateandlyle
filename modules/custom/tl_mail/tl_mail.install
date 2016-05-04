@@ -1,0 +1,22 @@
+<?php
+/**
+ * @file
+ * Update calls for TL Mail.
+ */
+
+use \Drupal\Core\Config\FileStorage;
+
+/**
+ * Update the mail configuration to the latest packaged with the module.
+ */
+function tl_mail_update_8001() {
+  $path = dirname(__FILE__) . '/config/install';
+  $name = 'tl_mail.settings';
+
+  // Define the storage for this module.
+  $source = new FileStorage($path);
+  /** @var \Drupal\Core\Config\StorageInterface $active_storage */
+  $active_storage = \Drupal::service('config.storage');
+  // Update the active storage with contents of the new configuration file.
+  $active_storage->write($name, $source->read($name));
+}
