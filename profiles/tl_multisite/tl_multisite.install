@@ -286,7 +286,7 @@ function tl_multisite_form_install_configure_form_alter(&$form, FormStateInterfa
   $form['site_information']['site_mail']['#default_value'] = 'webmaster@tateandlyle.com';
 
   // Override the username for user 1.
-  $form['admin_account']['account']['name']['#value'] = 'svcCMSDrupal';
+  $form['admin_account']['account']['name']['#value'] = 'svcCMSDrupal@tateandlyle.com';
   $form['admin_account']['account']['name']['#type'] = 'value';
 
   // Override the email account for user 1.
