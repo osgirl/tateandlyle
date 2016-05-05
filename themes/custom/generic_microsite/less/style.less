@@ -66,6 +66,11 @@ select {
   border-radius: 0;
 }
 
+/* Remove select arrow on ie */
+select::-ms-expand {
+  display: none;
+}
+
 hr {
   border: 1px solid #E5E5E5;
 }
@@ -854,6 +859,11 @@ body {
     &:first-of-type:after {
       content: none;
     }
+    &:last-of-type {
+      &:after {
+        content: none;
+      }
+    }
     &:before {
       content: none;
     }
@@ -1696,11 +1706,6 @@ body {
 .paragraph--type--video {
   padding-bottom: 20px;
   .video-text {
-    h2 {
-      line-height: normal;
-      font-size: 17px;
-      font-weight: 700;
-    }
     p {
       margin-bottom: 10px;
     }
@@ -2170,6 +2175,7 @@ body {
 .open-video {
   cursor:pointer;
   display: inline-block;
+  max-width: 100%;
   position: relative;
 }
 
