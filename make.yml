@@ -55,9 +55,9 @@ projects:
       revision: "a8e82af9006e9bcd465de91b738cf899d61a96fd"
   search_api:
     type: module
-    version: "1.0-alpha13"
+    version: "1.0-alpha14"
     patch:
-      - "https://www.drupal.org/files/issues/empty_highlighted-2703915-2.patch"
+      - "https://www.drupal.org/files/issues/empty_highlighted-2703915-6.patch"
   search_api_solr:
     type: module
     download:
