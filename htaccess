@@ -205,3 +205,10 @@ AddEncoding gzip svgz
   # Disable content sniffing, since it's an attack vector.
   Header always set X-Content-Type-Options nosniff
 </IfModule>
+
+# Check to see it's a file
+# Check if parameter dl=true is in querystring
+# Output as octet-stream/force download
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteCond %{QUERY_STRING} dl=true
+RewriteRule .? - [T=application/octet-stream]
