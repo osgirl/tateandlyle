@@ -81,7 +81,7 @@ projects:
     patch:
       - "https://www.drupal.org/files/issues/filter_search_results-2649332-7.patch"
       - "https://www.drupal.org/files/issues/2687631-4.patch"
-      - "https://www.drupal.org/files/issues/block_language_should-2720105-2_1.patch"
+      - "https://www.drupal.org/files/issues/block_language_should-2720105-2_2.patch"
   security_review:
     version: ~
   paragraphs:
