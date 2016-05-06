@@ -34,21 +34,28 @@ $is_ah_free_tier = (!empty($_ENV['ACQUIA_HOSTING_DRUPAL_LOG']) && strstr($_ENV['
 $is_ah_dev_env = (preg_match('/^dev[0-9]*$/', $ah_env) == TRUE);
 $is_local_env = !$is_ah_env;
 
-/**
- * Set the proper search indexes per environment.
- */
-if ($ah_env) {
+global $config;
+// Ensure that on AC caching is enabled when running on the production environment.
+if ($is_ah_env) {
 
   if ($is_ah_prod_env) {
 
-    $settings['system.performance']['cache']['page']['max_age'] = 1800;
+    $config['system.performance']['cache']['page']['max_age'] = 1800;
 
-    $settings['system.performance']['css']['preprocess'] = TRUE;
-    $settings['system.performance']['css']['gzip'] = TRUE;
+    $config['system.performance']['css']['preprocess'] = TRUE;
+    $config['system.performance']['css']['gzip'] = TRUE;
 
-    $settings['system.performance']['js']['preprocess'] = TRUE;
-    $settings['system.performance']['js']['gzip'] = TRUE;
+    $config['system.performance']['js']['preprocess'] = TRUE;
+    $config['system.performance']['js']['gzip'] = TRUE;
   }
+}
+// Disable caching on local setup to assist development.
+else {
+  $config['system.performance']['css']['preprocess'] = FALSE;
+  $config['system.performance']['css']['gzip'] = FALSE;
+
+  $config['system.performance']['js']['preprocess'] = FALSE;
+  $config['system.performance']['js']['gzip'] = FALSE;
 }
 
 $settings['simplesamlphp_dir'] = DRUPAL_ROOT . '/../simplesamlphp';

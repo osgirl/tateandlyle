@@ -60,7 +60,7 @@ function theme_content_structure_restrict_get_restrictions($restriction_type = '
 
   // Get the list of fields which should be hidden
   // from file named as example: tcsr.bartik.settings.
-  $config = \Drupal::config('tcsr.' . $default_theme . '.settings');
+  $config = \Drupal::config('theme_content_structure_restrict.' . $default_theme . '.settings');
   $restrictions = $config->get('theme_content_structure_restrict_' . $restriction_type);
 
   if (!empty($restrictions)) {

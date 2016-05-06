@@ -19,7 +19,7 @@ default_value_callback: ''
 settings:
   file_directory: '[current-date:custom:Y]-[current-date:custom:m]'
   file_extensions: 'txt pdf xls xlsx doc docx'
-  max_filesize: '16 MB'
+  max_filesize: '50 MB'
   description_field: false
   handler: 'default:file'
   handler_settings: {  }
