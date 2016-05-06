@@ -2,7 +2,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.tout.field_background_color
     - field.field.paragraph.tout.field_has_bg_color
     - field.field.paragraph.tout.field_image
     - field.field.paragraph.tout.field_image_text

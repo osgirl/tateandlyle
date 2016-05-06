@@ -1,4 +1,3 @@
-uuid: 6d37cdc1-19e6-49c1-bd58-8854c2431ddb
 langcode: en
 status: true
 dependencies:
@@ -6,6 +5,7 @@ dependencies:
     - field.field.paragraph.video.field_video_image
     - field.field.paragraph.video.field_video_text
     - field.field.paragraph.video.field_video_url
+    - image.style.thumbnail
     - paragraphs.paragraphs_type.video
   module:
     - image
@@ -38,4 +38,5 @@ content:
     type: youtube
 hidden:
   created: true
+  status: true
   uid: true

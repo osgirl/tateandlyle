@@ -1,4 +1,3 @@
-uuid: 83ecff3b-283a-4c82-a408-8de686c5abdc
 langcode: en
 status: true
 dependencies:
@@ -9,8 +8,6 @@ dependencies:
 third_party_settings:
   content_translation:
     enabled: true
-_core:
-  default_config_hash: wAEsTlg0p81xsvlvcAsmHUlj-l0iwzQnY0DZ2-e1-5s
 id: node.media_item
 target_entity_type_id: node
 target_bundle: media_item

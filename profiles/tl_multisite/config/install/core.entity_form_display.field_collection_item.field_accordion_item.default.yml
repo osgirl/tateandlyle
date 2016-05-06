@@ -1,4 +1,3 @@
-uuid: 1cf5f81d-fcb2-4684-b400-0eb7acf3255a
 langcode: en
 status: true
 dependencies:
@@ -8,11 +7,11 @@ dependencies:
     - field.field.field_collection_item.field_accordion_item.field_subtitle
     - field.field.field_collection_item.field_accordion_item.field_title
     - field_collection.field_collection.field_accordion_item
+    - image.style.thumbnail
   module:
     - image
     - text
-_core:
-  default_config_hash: 1HaNMZ43lXa7NPGEboR8PC9zUc-hf_PQ4s51H3PvfYc
+    - workbench_moderation
 id: field_collection_item.field_accordion_item.default
 targetEntityType: field_collection_item
 bundle: field_accordion_item

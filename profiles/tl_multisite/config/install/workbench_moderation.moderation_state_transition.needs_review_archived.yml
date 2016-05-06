@@ -5,7 +5,7 @@ dependencies:
     - workbench_moderation.moderation_state.archived
     - workbench_moderation.moderation_state.needs_review
 id: needs_review_archived
-label: 'Needs review » Archived'
+label: 'Archive'
 stateFrom: needs_review
 stateTo: archived
 weight: -3

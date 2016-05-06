@@ -12,4 +12,5 @@ permissions:
   - 'access shortcuts'
   - 'search content'
   - 'access site-wide contact form'
-  - 'use advanced search'
+  - 'view own unpublished content'
+  - 'view search api pages'

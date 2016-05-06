@@ -1,12 +1,9 @@
-uuid: 920c0886-4b67-44d9-a806-6f6ccd582bda
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.paragraph.field_title_tab
     - paragraphs.paragraphs_type.tabs
-_core:
-  default_config_hash: e9FL8Kzj1sWzf0YBzoiAx5r0zy6mB4L6Hn7fgLv32fg
 id: paragraph.tabs.field_title_tab
 field_name: field_title_tab
 entity_type: paragraph

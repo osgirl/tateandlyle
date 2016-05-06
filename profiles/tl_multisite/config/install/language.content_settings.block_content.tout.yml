@@ -3,8 +3,13 @@ status: true
 dependencies:
   config:
     - block_content.type.tout
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
 id: block_content.tout
 target_entity_type_id: block_content
 target_bundle: tout
 default_langcode: site_default
-language_alterable: false
+language_alterable: true
