@@ -1706,21 +1706,54 @@ form {
         font-size: 13px;
       }
     }
-    .form-actions {
-      button {
-        text-transform: uppercase;
-        background: transparent;
-        border: 2px solid rgb(156, 95, 14);
-        color:rgb(156, 95, 14);
-        border-radius: 0;
-        padding: 4px 28px;
-        font-size: 16px;
-        &:hover {
-          background-color: @brown-light;
-        }  
-      }
-    }
   }  
+}
+
+button,
+.btn {
+  text-transform: uppercase;
+  background: transparent;
+  border: 2px solid rgb(156, 95, 14);
+  color:rgb(156, 95, 14);
+  border-radius: 0;
+  padding: 4px 28px;
+  font-size: 16px;
+  &:hover {
+    background-color: @brown-light;
+    border-color: @brown-dark;
+    color:rgb(156, 95, 14);
+  }  
+}
+
+.btn-primary:active:hover,
+.btn-primary.active:hover,
+.open>.dropdown-toggle.btn-primary:hover,
+.btn-primary:active:focus,
+.btn-primary.active:focus,
+.open>.dropdown-toggle.btn-primary:focus,
+.btn-primary:active.focus,
+.btn-primary.active.focus,
+.open>.dropdown-toggle.btn-primary.focus,
+.btn-default:active:hover,
+.btn-default.active:hover,
+.open>.dropdown-toggle.btn-default:hover,
+.btn-default:active:focus,
+.btn-default.active:focus,
+.open>.dropdown-toggle.btn-default:focus,
+.btn-default:active.focus,
+.btn-default.active.focus,
+.open>.dropdown-toggle.btn-default.focus,
+.btn-default:focus,
+.btn-default.focus,
+.btn-primary:focus,
+.btn-primary.focus {
+  background: @brown-light;
+  border-color: @brown-dark;
+  color:rgb(156, 95, 14);
+}
+
+.form-required {
+  color:rgb(156, 95, 14);
 }
 
 .radio label, .checkbox label {
@@ -1956,6 +1989,7 @@ label.error {
 }
 
 .form-control {
+  border-radius: 0;
   color: #9c5f0e;
   padding: 0 10px;
 }
@@ -1975,6 +2009,11 @@ label.error {
       border-color: #F00;
     }
   }
+}
+
+label {
+  color: #9c5f0e;
+  font-weight: normal;
 }
 
 .chosen-container.error .chosen-choices,
@@ -2352,6 +2391,12 @@ label.error {
     position: absolute;
     z-index: 1;
     margin-top: 36px;
+    left: 1.5em;
+    right: 1.5em;
+    @media(min-width: @screen-md-min) {
+      left: 3em;
+      right: 3em;
+    }
     .tabs  {
       a {
         color: #fff;
@@ -2376,7 +2421,6 @@ label.error {
     }
   }
   .user-login-form, .user-register-form, .user-pass  {
-    margin: 48px 48px 0;
     @media(min-width: @screen-md-min) {
       width: 50%;
     }
