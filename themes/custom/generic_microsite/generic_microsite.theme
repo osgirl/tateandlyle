@@ -435,17 +435,15 @@ function generic_microsite_preprocess_search_api_page_result(&$variables) {
 
   // For ticket TL277, TL-276
   // Replace this with custom search_api processors
-  $bad_strings = array('amp', 'tate', 'lyle');
-  $clean_strings = array('&amp;', 'Tate', 'Lyle');
   $snippet = $item->getExcerpt();
 
-  // Deal with missing snipets
+  // Deal with missing snippets
   if (!$snippet) {
     $query_key = \Drupal::request()->query->get('keys');
     $snippet = 'We found a partial match for <strong>' . Html::escape($query_key) . '</strong> you might be interested in.';
   }
 
-  $variables['snippet'] = array('#markup' => str_replace($bad_strings, $clean_strings, $snippet));
+  $variables['snippet'] = array('#markup' => $snippet);
 
   $variables['url'] = $entity->toUrl();
   $variables['title'] = $entity->label();
