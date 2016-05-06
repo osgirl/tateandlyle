@@ -389,6 +389,11 @@ function generic_microsite_preprocess_menu(&$variables) {
  * Implements template_preprocess_block().
  */
 function generic_microsite_preprocess_block(&$variables) {
+  // Add class to main navigation blocks.
+  if ($variables['configuration']['id'] == 'system_menu_block:main') {
+    $variables['attributes']['class'][] = 'main-navigation';
+  }
+
   if ($variables['base_plugin_id'] == 'local_tasks_block') {
     unset($variables['content']['#primary']['entity.node.delete_form']);
   }
