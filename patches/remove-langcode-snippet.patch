@@ -1,0 +1,17 @@
+diff --git a/src/Plugin/search_api/processor/Highlight.php b/src/Plugin/search_api/processor/Highlight.php
+index 0e9a97a..0202bd3 100644
+--- a/src/Plugin/search_api/processor/Highlight.php
++++ b/src/Plugin/search_api/processor/Highlight.php
+@@ -168,7 +168,11 @@ class Highlight extends ProcessorPluginBase {
+     foreach ($items as $item_id => $item) {
+       $text = array();
+       /** @var \Drupal\search_api\Item\FieldInterface $field */
+-      foreach ($item as $field) {
++      foreach ($item as $field_id => $field) {
++        // Do not consider the langcode as part of the snippet.
++        if ($field_id == 'langcode') {
++          continue;
++        }
+         $text = array_merge($text, $field->getValues());
+       }
+       // @todo This is pretty poor handling for the borders between different

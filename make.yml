@@ -58,6 +58,8 @@ projects:
     version: "1.0-alpha14"
     patch:
       - "https://www.drupal.org/files/issues/empty_highlighted-2703915-6.patch"
+      - "https://www.drupal.org/files/issues/remove-ellipsis-from-addExcerpt.patch"
+      - "./patches/remove-langcode-snippet.patch"
   search_api_solr:
     type: module
     download:
