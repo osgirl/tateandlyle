@@ -22,7 +22,7 @@ default_value_callback: ''
 settings:
   file_directory: file
   file_extensions: 'txt pdf doc docx mp4 jpg jpeg gif png'
-  max_filesize: '256 MB'
+  max_filesize: '50 MB'
   description_field: false
   handler: 'default:file'
   handler_settings: {  }
