@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_second_column_label
+    - paragraphs.paragraphs_type.country_contact
+id: paragraph.country_contact.field_second_column_label
+field_name: field_second_column_label
+entity_type: paragraph
+bundle: country_contact
+label: 'Second Column Heading'
+description: 'Add the table heading for the second column.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 'Further details'
+default_value_callback: ''
+settings: {  }
+field_type: string
