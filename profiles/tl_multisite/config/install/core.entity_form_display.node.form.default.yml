@@ -127,6 +127,8 @@ third_party_settings:
         classes: ''
         id: ''
         required_fields: true
+_core:
+  default_config_hash: m06abtkRnd5AD2veWIXs4jVR245Nzk4g5HpsAMwOloY
 id: node.form.default
 targetEntityType: node
 bundle: form

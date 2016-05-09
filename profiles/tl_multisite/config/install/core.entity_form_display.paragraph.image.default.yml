@@ -8,8 +8,11 @@ dependencies:
     - paragraphs.paragraphs_type.image
   module:
     - image
+    - imce
     - text
     - workbench_moderation
+_core:
+  default_config_hash: FGMRNVBdivA1-zT9VXNLzQVY0ziFQpJgV0a7CofwObI
 id: paragraph.image.default
 targetEntityType: paragraph
 bundle: image
@@ -18,9 +21,11 @@ content:
   field_image:
     weight: 0
     settings:
-      progress_indicator: throbber
       preview_image_style: thumbnail
-    third_party_settings: {  }
+      progress_indicator: throbber
+    third_party_settings:
+      imce:
+        enabled: true
     type: image_image
   field_image_text:
     weight: 6

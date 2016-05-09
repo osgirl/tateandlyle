@@ -14,9 +14,12 @@ dependencies:
     - paragraphs.paragraphs_type.tout
   module:
     - image
+    - imce
     - paragraphs
     - text
     - workbench_moderation
+_core:
+  default_config_hash: QxJ5Y6igBG5zAwk1R-IeY4WDGhPhfdbkNq9BjgyX4GM
 id: paragraph.tout.default
 targetEntityType: paragraph
 bundle: tout
@@ -31,9 +34,11 @@ content:
   field_image:
     weight: 1
     settings:
-      progress_indicator: throbber
       preview_image_style: thumbnail
-    third_party_settings: {  }
+      progress_indicator: throbber
+    third_party_settings:
+      imce:
+        enabled: true
     type: image_image
   field_image_text:
     weight: 2
@@ -69,9 +74,11 @@ content:
   field_tout_background_image:
     weight: 5
     settings:
-      progress_indicator: throbber
       preview_image_style: thumbnail
-    third_party_settings: {  }
+      progress_indicator: throbber
+    third_party_settings:
+      imce:
+        enabled: true
     type: image_image
   field_tout_size:
     weight: 6
