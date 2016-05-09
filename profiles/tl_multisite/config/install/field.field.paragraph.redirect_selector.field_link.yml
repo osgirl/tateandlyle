@@ -1,4 +1,3 @@
-uuid: 9ae13634-3d54-45a6-8219-253c3dfba5bc
 langcode: en
 status: true
 dependencies:
@@ -7,8 +6,6 @@ dependencies:
     - paragraphs.paragraphs_type.redirect_selector
   module:
     - link
-_core:
-  default_config_hash: U7yYGY6WICEWqEIfYyhGPiHQ_iQQMKjYK-rbpoYGmls
 id: paragraph.redirect_selector.field_link
 field_name: field_link
 entity_type: paragraph

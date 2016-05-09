@@ -1,4 +1,3 @@
-uuid: 9b7640b7-8db2-4d88-815a-903323f14865
 langcode: en
 status: true
 dependencies:
@@ -7,8 +6,6 @@ dependencies:
     - paragraphs.paragraphs_type.redirect_selector
   module:
     - link
-_core:
-  default_config_hash: _Scv1UJhUh6YA8uWNmLgugAoPkr59EgrbcUFCXl6iR8
 id: paragraph.redirect_selector.default
 targetEntityType: paragraph
 bundle: redirect_selector
@@ -27,5 +24,4 @@ content:
     type: link
 hidden:
   created: true
-  moderation_state: true
   uid: true

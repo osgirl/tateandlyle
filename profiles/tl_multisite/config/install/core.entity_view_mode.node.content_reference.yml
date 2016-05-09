@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.content_reference
+label: 'Content reference'
+targetEntityType: node
+cache: true

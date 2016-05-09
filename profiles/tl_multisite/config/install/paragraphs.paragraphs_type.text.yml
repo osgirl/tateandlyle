@@ -1,8 +1,5 @@
-uuid: b0ea5e72-53f8-4640-aa00-ded0f2eef35b
 langcode: en
 status: true
 dependencies: {  }
-_core:
-  default_config_hash: rcVSGZ4GsbbEhR2Cs5QeBYtGQb6PaVR-yUN5cD5NYmo
 id: text
 label: Text

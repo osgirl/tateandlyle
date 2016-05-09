@@ -1,4 +1,3 @@
-uuid: 9a36e6a1-65d4-4fa8-bf00-f00f595489b0
 langcode: en
 status: true
 dependencies:
@@ -8,8 +7,6 @@ dependencies:
     - paragraphs.paragraphs_type.tabs
   module:
     - field_collection
-_core:
-  default_config_hash: jlEvhi1fvSeckA4E2L6DuC-zQoA0TEpqqPrgY0z8ky0
 id: paragraph.tabs.default
 targetEntityType: paragraph
 bundle: tabs
@@ -30,5 +27,4 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
-  moderation_state: true
   uid: true

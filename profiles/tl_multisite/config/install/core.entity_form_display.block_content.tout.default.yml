@@ -6,6 +6,7 @@ dependencies:
     - field.field.block_content.tout.field_tout
   module:
     - paragraphs
+    - workbench_moderation
 id: block_content.tout.default
 targetEntityType: block_content
 bundle: tout
@@ -33,4 +34,6 @@ content:
     weight: 2
     settings: {  }
     third_party_settings: {  }
+  translation:
+    weight: 10
 hidden: {  }

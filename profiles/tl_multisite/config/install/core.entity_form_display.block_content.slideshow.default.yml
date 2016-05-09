@@ -1,4 +1,3 @@
-uuid: 4a1138de-c1a8-4efa-9900-d884b1ed8b6e
 langcode: en
 status: true
 dependencies:
@@ -7,6 +6,7 @@ dependencies:
     - field.field.block_content.slideshow.field_slide_block
   module:
     - paragraphs
+    - workbench_moderation
 id: block_content.slideshow.default
 targetEntityType: block_content
 bundle: slideshow
@@ -34,4 +34,6 @@ content:
     weight: 2
     settings: {  }
     third_party_settings: {  }
+  translation:
+    weight: 10
 hidden: {  }

@@ -1,14 +1,12 @@
-uuid: d2ee1ea6-3cd7-4524-be00-b6b3c53c2461
 langcode: en
 status: true
 dependencies:
   config:
     - field.field.paragraph.image.field_image
+    - field.field.paragraph.image.field_image_text
     - paragraphs.paragraphs_type.image
   module:
     - image
-_core:
-  default_config_hash: Uv0Q_WVAdXD8J9piuj4T2nuilbLtEZ9J9fhnE9tG31M
 id: paragraph.image.default
 targetEntityType: paragraph
 bundle: image
@@ -22,7 +20,12 @@ content:
       image_style: ''
       image_link: ''
     third_party_settings: {  }
+  field_image_text:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
 hidden:
   created: true
-  moderation_state: true
   uid: true

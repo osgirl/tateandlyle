@@ -1,14 +1,15 @@
-uuid: 8f00637a-6e47-4b33-9905-5ae6bcf163e0
 langcode: en
 status: true
 dependencies:
   config:
     - field.field.paragraph.image.field_image
+    - field.field.paragraph.image.field_image_text
+    - image.style.thumbnail
     - paragraphs.paragraphs_type.image
   module:
     - image
-_core:
-  default_config_hash: UdH5mD951XoN4mKcBLFGcvZ1lfzN7whJlFyvpQlJMec
+    - text
+    - workbench_moderation
 id: paragraph.image.default
 targetEntityType: paragraph
 bundle: image
@@ -21,6 +22,14 @@ content:
       preview_image_style: thumbnail
     third_party_settings: {  }
     type: image_image
+  field_image_text:
+    weight: 6
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
 hidden:
   created: true
+  status: true
   uid: true

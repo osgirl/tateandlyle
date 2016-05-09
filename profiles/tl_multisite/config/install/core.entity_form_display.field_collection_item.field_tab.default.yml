@@ -7,6 +7,7 @@ dependencies:
     - field_collection.field_collection.field_tab
   module:
     - text
+    - workbench_moderation
 id: field_collection_item.field_tab.default
 targetEntityType: field_collection_item
 bundle: field_tab

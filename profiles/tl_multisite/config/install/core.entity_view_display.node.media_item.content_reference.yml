@@ -1,0 +1,36 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.content_reference
+    - field.field.node.media_item.field_content_reference
+    - field.field.node.media_item.field_file
+    - field.field.node.media_item.field_media_category
+    - field.field.node.media_item.field_media_item_image
+    - field.field.node.media_item.field_youtube_video
+    - node.type.media_item
+  module:
+    - entity_reference_revisions
+    - user
+id: node.media_item.content_reference
+targetEntityType: node
+bundle: media_item
+mode: content_reference
+content:
+  field_content_reference:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: default
+      item_count: 0
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+hidden:
+  field_file: true
+  field_media_category: true
+  field_media_item_image: true
+  field_youtube_video: true
+  langcode: true
+  links: true
+  workbench_moderation_control: true

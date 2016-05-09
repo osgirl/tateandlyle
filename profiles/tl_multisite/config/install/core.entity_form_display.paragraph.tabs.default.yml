@@ -1,4 +1,3 @@
-uuid: b2d25d5a-3780-4064-933d-61b2fd9f2053
 langcode: en
 status: true
 dependencies:
@@ -8,8 +7,7 @@ dependencies:
     - paragraphs.paragraphs_type.tabs
   module:
     - field_collection
-_core:
-  default_config_hash: 0lhaA6kfeWGSm8XWm7E7Hn3y4Se09VJQQVDL2Z1m8f0
+    - workbench_moderation
 id: paragraph.tabs.default
 targetEntityType: paragraph
 bundle: tabs

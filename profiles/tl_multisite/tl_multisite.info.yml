@@ -62,7 +62,8 @@ dependencies:
   - csv_serialization
   - rest
   - menu_link_attributes
-  - simplesamlphp_auth
+  - theme_content_structure_restrict
+  # - simplesamlphp_auth
   # Field types
   - datetime
   - entity_reference_revisions

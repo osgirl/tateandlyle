@@ -1,4 +1,3 @@
-uuid: a13b611a-3bb1-4538-b806-06c7f4f73314
 langcode: en
 status: true
 dependencies:
@@ -7,8 +6,6 @@ dependencies:
     - paragraphs.paragraphs_type.slide
   module:
     - options
-_core:
-  default_config_hash: wdFzVYQ8vk97TDIP3qnSkriSiQBroawKVac--px9TXM
 id: paragraph.slide.field_slide_type
 field_name: field_slide_type
 entity_type: paragraph
