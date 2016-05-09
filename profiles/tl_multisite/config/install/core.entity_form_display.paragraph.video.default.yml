@@ -9,9 +9,12 @@ dependencies:
     - paragraphs.paragraphs_type.video
   module:
     - image
+    - imce
     - text
     - workbench_moderation
     - youtube
+_core:
+  default_config_hash: jbG8KMYjAiiecK_1f4AnFZXWDz4D5aVfBODXiE8HckQ
 id: paragraph.video.default
 targetEntityType: paragraph
 bundle: video
@@ -20,9 +23,11 @@ content:
   field_video_image:
     weight: 6
     settings:
-      progress_indicator: throbber
       preview_image_style: thumbnail
-    third_party_settings: {  }
+      progress_indicator: throbber
+    third_party_settings:
+      imce:
+        enabled: true
     type: image_image
   field_video_text:
     weight: 3
