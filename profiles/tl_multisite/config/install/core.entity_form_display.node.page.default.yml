@@ -1,3 +1,4 @@
+uuid: d753c0e1-7da9-44d3-9efa-598232ce7048
 langcode: en
 status: true
 dependencies:
@@ -118,6 +119,8 @@ third_party_settings:
         classes: ''
         id: ''
         required_fields: true
+_core:
+  default_config_hash: 53p0FmwK0jz8OPxGcZ9Q3vquO2tv8i_tLefSUUkwL0I
 id: node.page.default
 targetEntityType: node
 bundle: page

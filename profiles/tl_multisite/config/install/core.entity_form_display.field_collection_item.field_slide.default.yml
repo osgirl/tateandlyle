@@ -1,3 +1,4 @@
+uuid: 23302d1e-1458-42c0-9854-a3140118cc7c
 langcode: en
 status: true
 dependencies:
@@ -9,9 +10,12 @@ dependencies:
     - image.style.thumbnail
   module:
     - image
+    - imce
     - link
     - text
     - workbench_moderation
+_core:
+  default_config_hash: 44EUSLPB8qBn7fTdy4VOc7UHf9yAUR3z7rWFM06d7sw
 id: field_collection_item.field_slide.default
 targetEntityType: field_collection_item
 bundle: field_slide
@@ -20,9 +24,11 @@ content:
   field_image:
     weight: 0
     settings:
-      progress_indicator: throbber
       preview_image_style: thumbnail
-    third_party_settings: {  }
+      progress_indicator: throbber
+    third_party_settings:
+      imce:
+        enabled: true
     type: image_image
   field_link:
     weight: 1

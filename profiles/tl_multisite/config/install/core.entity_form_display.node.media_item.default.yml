@@ -1,3 +1,4 @@
+uuid: 6aa26658-b1c0-4669-a8b4-716e62770aff
 langcode: en
 status: true
 dependencies:
@@ -12,10 +13,13 @@ dependencies:
   module:
     - file
     - image
+    - imce
     - paragraphs
     - path
     - workbench_moderation
     - youtube
+_core:
+  default_config_hash: cCQCSjJ0lKVYpP0HOpxh2IRp-DCYYEVfwxnxfFk3MmU
 id: node.media_item.default
 targetEntityType: node
 bundle: media_item
@@ -40,7 +44,9 @@ content:
     weight: 4
     settings:
       progress_indicator: throbber
-    third_party_settings: {  }
+    third_party_settings:
+      imce:
+        enabled: true
     type: file_generic
   field_media_category:
     weight: 2
@@ -50,9 +56,11 @@ content:
   field_media_item_image:
     weight: 3
     settings:
-      progress_indicator: throbber
       preview_image_style: thumbnail
-    third_party_settings: {  }
+      progress_indicator: throbber
+    third_party_settings:
+      imce:
+        enabled: true
     type: image_image
   field_youtube_video:
     weight: 5
