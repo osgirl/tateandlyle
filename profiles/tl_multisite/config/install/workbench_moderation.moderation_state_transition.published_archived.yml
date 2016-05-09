@@ -5,7 +5,7 @@ dependencies:
     - workbench_moderation.moderation_state.archived
     - workbench_moderation.moderation_state.published
 id: published_archived
-label: 'Published » Archived'
+label: 'Archive'
 stateFrom: published
 stateTo: archived
 weight: 1

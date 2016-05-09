@@ -1,4 +1,3 @@
-uuid: 44edcf03-0847-4e8f-ac1f-311ca67bfb15
 langcode: en
 status: true
 dependencies:
@@ -9,8 +8,6 @@ dependencies:
     - paragraphs.paragraphs_type.country_contact
   module:
     - entity_reference_revisions
-_core:
-  default_config_hash: hQ4ppBKsdZtXbTqk6d755acldGpmyGV21WXbIXhPwiQ
 id: paragraph.country_contact.default
 targetEntityType: paragraph
 bundle: country_contact
@@ -40,5 +37,4 @@ content:
     type: string
 hidden:
   created: true
-  moderation_state: true
   uid: true

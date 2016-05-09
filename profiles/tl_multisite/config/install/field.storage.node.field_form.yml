@@ -1,12 +1,9 @@
-uuid: a2548f2a-4585-4179-a309-09901d3a213e
 langcode: en
 status: true
 dependencies:
   module:
     - contact
     - node
-_core:
-  default_config_hash: WkIJvG38R89K5l7AXwYClwh3XTzvwbJ7zO8v2x0rkpY
 id: node.field_form
 field_name: field_form
 entity_type: node

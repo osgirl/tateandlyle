@@ -1,4 +1,3 @@
-uuid: 5a5c95b2-0d39-4322-8620-32afcbb3b6ff
 langcode: en
 status: true
 dependencies:
@@ -14,7 +13,7 @@ bundle: tout
 label: Tout
 description: ''
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:

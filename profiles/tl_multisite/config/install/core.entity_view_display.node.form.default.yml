@@ -1,8 +1,8 @@
-uuid: 26013a20-d562-4ae1-9000-ff8667cc19b1
 langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.form.field_content_reference
     - field.field.node.form.field_file
     - field.field.node.form.field_footer_image
     - field.field.node.form.field_form
@@ -17,8 +17,6 @@ dependencies:
     - entity_reference_revisions
     - text
     - user
-_core:
-  default_config_hash: DFfogVrMIudQ55yqJvhhKmbguy4NlL8uC__hGMe_RIY
 id: node.form.default
 targetEntityType: node
 bundle: form
@@ -42,6 +40,7 @@ content:
     settings:
       view_mode: default
       link: ''
+      item_count: 0
     third_party_settings: {  }
     type: entity_reference_revisions_entity_view
   field_tds_thank_you:
@@ -51,6 +50,7 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_content_reference: true
   field_file: true
   field_footer_image: true
   field_layout: true
@@ -58,4 +58,4 @@ hidden:
   field_subtitle: true
   langcode: true
   links: true
-  moderation_state: true
+  workbench_moderation_control: true

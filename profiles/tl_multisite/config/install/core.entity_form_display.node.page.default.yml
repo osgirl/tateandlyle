@@ -17,7 +17,6 @@ dependencies:
     - image.style.thumbnail
     - node.type.page
   module:
-    - field_collection
     - field_group
     - image
     - imce
@@ -139,10 +138,15 @@ content:
         enabled: '1'
     type: image_image
   field_content_reference:
-    weight: 15
-    settings: {  }
+    type: entity_reference_paragraphs
+    weight: 27
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
     third_party_settings: {  }
-    type: field_collection_embed
   field_footer_image:
     weight: 19
     settings:

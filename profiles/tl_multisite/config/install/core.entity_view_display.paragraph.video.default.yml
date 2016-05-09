@@ -1,4 +1,3 @@
-uuid: be59dc22-b2a9-48ed-ab03-3c6980a0be98
 langcode: en
 status: true
 dependencies:
@@ -10,8 +9,6 @@ dependencies:
   module:
     - image
     - text
-_core:
-  default_config_hash: S1_nCDjPOZDlnrfAjArH6xgeSf7DfiUSgk61uIkBLuU
 id: paragraph.video.default
 targetEntityType: paragraph
 bundle: video
@@ -34,5 +31,4 @@ content:
 hidden:
   created: true
   field_video_url: true
-  moderation_state: true
   uid: true

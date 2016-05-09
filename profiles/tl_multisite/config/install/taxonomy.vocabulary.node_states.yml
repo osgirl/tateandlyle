@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'Node States'
+vid: node_states
+description: 'Dummy states for nodes.'
+hierarchy: 0
+weight: 0

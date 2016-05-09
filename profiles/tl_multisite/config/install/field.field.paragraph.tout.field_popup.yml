@@ -1,4 +1,3 @@
-uuid: 91d8bf1b-9da4-4362-8800-a160c3a68ae8
 langcode: en
 status: true
 dependencies:
@@ -7,8 +6,6 @@ dependencies:
     - paragraphs.paragraphs_type.tout
   module:
     - entity_reference_revisions
-_core:
-  default_config_hash: Iod7qvDsaCjCy66m3UQXwBhBajAcPT8TAI4LHeOsSTU
 id: paragraph.tout.field_popup
 field_name: field_popup
 entity_type: paragraph

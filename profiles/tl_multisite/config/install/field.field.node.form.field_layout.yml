@@ -1,4 +1,3 @@
-uuid: 5a45e097-b804-4491-9454-84886b37e924
 langcode: en
 status: true
 dependencies:
@@ -7,8 +6,6 @@ dependencies:
     - node.type.form
   module:
     - options
-_core:
-  default_config_hash: 7zHUVwN-o_-pGXgyWq8B7Q8NSOo0hwQcp3WBP121_mU
 id: node.form.field_layout
 field_name: field_layout
 entity_type: node

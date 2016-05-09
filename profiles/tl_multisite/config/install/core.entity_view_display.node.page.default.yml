@@ -1,9 +1,9 @@
-uuid: 5cffd36e-10b2-4490-b902-2fd2bf9b6079
 langcode: en
 status: true
 dependencies:
   config:
     - field.field.node.page.field_background_image
+    - field.field.node.page.field_content_reference
     - field.field.node.page.field_footer_image
     - field.field.node.page.field_intro_area
     - field.field.node.page.field_main_content
@@ -18,8 +18,6 @@ dependencies:
   module:
     - entity_reference_revisions
     - user
-_core:
-  default_config_hash: Fy0g5TVM7yJT2LaWSxId152GjhDlXRbXsuqmybBIYZY
 id: node.page.default
 targetEntityType: node
 bundle: page
@@ -32,6 +30,7 @@ content:
     settings:
       view_mode: default
       link: ''
+      item_count: 0
     third_party_settings: {  }
   field_touts:
     type: entity_reference_revisions_entity_view
@@ -40,9 +39,11 @@ content:
     settings:
       view_mode: default
       link: ''
+      item_count: 0
     third_party_settings: {  }
 hidden:
   field_background_image: true
+  field_content_reference: true
   field_footer_image: true
   field_intro_area: true
   field_meta_tags: true
@@ -53,5 +54,4 @@ hidden:
   field_title_image: true
   langcode: true
   links: true
-  moderation_state: true
   workbench_moderation_control: true

@@ -1,4 +1,3 @@
-uuid: 9d8a0fae-e6dd-4876-b00c-1247bc78d994
 langcode: en
 status: true
 dependencies:
@@ -10,8 +9,7 @@ dependencies:
     - paragraphs.paragraphs_type.slide
   module:
     - field_collection
-_core:
-  default_config_hash: UrFbTE83wiWosYp6eEQZEDdD2Il0LoDoMlkpZTIOsi4
+    - workbench_moderation
 id: paragraph.slide.default
 targetEntityType: paragraph
 bundle: slide
@@ -36,10 +34,9 @@ content:
   field_timeout:
     weight: 1
     settings:
-      size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
+    type: number
 hidden:
   created: true
   uid: true
