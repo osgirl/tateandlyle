@@ -708,6 +708,10 @@ body,
   background-color: #DEDEDE;
 }
 
+.dropdown-menu {
+  font-size: inherit;
+}
+
 .sidebar-menu {
   .dropdown-menu {
     background: none;
@@ -2018,13 +2022,30 @@ body {
   }
   .field--name-field-image-text {
     background: #e8eaeb;
+    font-size: 10px;
     padding: 5px 10px 7px 10px;
     p {
-      font-size: 10px;
       margin: 0;
     }
   }
 }
+
+&.medium-text {
+  .tout-image {
+    .field--name-field-image-text {
+      font-size: 12px;
+    }
+  }
+}
+
+&.large-text {
+  .tout-image {
+    .field--name-field-image-text {
+      font-size: 14px;
+    }
+  }
+}
+
 
 /* Slideshow */
 .path-frontpage {
