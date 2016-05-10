@@ -15,7 +15,6 @@ dependencies:
     - image.style.thumbnail
     - node.type.form
   module:
-    - field_collection
     - field_group
     - file
     - image
@@ -128,6 +127,8 @@ third_party_settings:
         classes: ''
         id: ''
         required_fields: true
+_core:
+  default_config_hash: m06abtkRnd5AD2veWIXs4jVR245Nzk4g5HpsAMwOloY
 id: node.form.default
 targetEntityType: node
 bundle: form
@@ -139,10 +140,15 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_content_reference:
-    weight: 5
-    settings: {  }
+    weight: 26
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
     third_party_settings: {  }
-    type: field_collection_embed
+    type: entity_reference_paragraphs
   field_file:
     weight: 12
     settings:

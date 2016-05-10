@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.footer_text
+    - field.field.block_content.footer_text.field_text
+id: block_content.footer_text.default
+targetEntityType: block_content
+bundle: footer_text
+mode: default
+content:
+  field_text:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+hidden:
+  langcode: true

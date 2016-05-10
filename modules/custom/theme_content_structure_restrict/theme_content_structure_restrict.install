@@ -1,0 +1,28 @@
+<?php
+/**
+ * @file
+ * Update configuration in tcrs.
+ */
+
+use \Drupal\Core\Config\FileStorage;
+
+/**
+ * Update the mail configuration to the latest packaged with the module.
+ */
+function theme_content_structure_restrict_update_8001() {
+  $path = dirname(__FILE__) . '/config/install';
+  $config_to_update = [
+    'theme_content_structure_restrict.dolciaprima.settings',
+    'theme_content_structure_restrict.generic_microsite.settings',
+    'theme_content_structure_restrict.tateandlylefibres.settings',
+  ];
+
+  // Define the storage for this module.
+  $source = new FileStorage($path);
+  /** @var \Drupal\Core\Config\StorageInterface $active_storage */
+  $active_storage = \Drupal::service('config.storage');
+  // Update the active storage with contents of the new configuration file.
+  foreach ($config_to_update as $name) {
+    $active_storage->write($name, $source->read($name));
+  }
+}

@@ -220,7 +220,7 @@ function centerModal() {
     attach: function (context, settings) {
       $('.field--name-field-primary-application select, .field--name-field-interests select').chosen({
         disable_search: true,
-        placeholder_text_multiple: "(Select up to 3)",
+        placeholder_text_multiple: Drupal.t("(Select up to 3)"),
         max_selected_options: 3,
       });
 

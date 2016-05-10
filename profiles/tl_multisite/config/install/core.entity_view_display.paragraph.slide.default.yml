@@ -1,4 +1,3 @@
-uuid: 648836dc-5d1b-49ed-8100-e54b254b2df6
 langcode: en
 status: true
 dependencies:
@@ -10,23 +9,41 @@ dependencies:
     - paragraphs.paragraphs_type.slide
   module:
     - field_collection
-_core:
-  default_config_hash: QA6RX4P5JWwgXrl3Mdwz5hbyrdEu-6AlPY3ilG_Folk
+    - options
 id: paragraph.slide.default
 targetEntityType: paragraph
 bundle: slide
 mode: default
 content:
+  field_show_arrows:
+    weight: 2
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
   field_slide:
     weight: 0
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: field_collection_items
+  field_slide_type:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+  field_timeout:
+    weight: 3
+    label: hidden
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
 hidden:
   created: true
-  field_show_arrows: true
-  field_slide_type: true
-  field_timeout: true
-  moderation_state: true
   uid: true

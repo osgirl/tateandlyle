@@ -1,8 +1,8 @@
-uuid: 10a39649-2bb5-46a6-bc01-1b92ff09630c
 langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.tout.field_has_bg_color
     - field.field.paragraph.tout.field_image
     - field.field.paragraph.tout.field_image_text
     - field.field.paragraph.tout.field_popup
@@ -10,24 +10,35 @@ dependencies:
     - field.field.paragraph.tout.field_title
     - field.field.paragraph.tout.field_tout_background_image
     - field.field.paragraph.tout.field_tout_size
+    - image.style.thumbnail
     - paragraphs.paragraphs_type.tout
   module:
     - image
+    - imce
     - paragraphs
     - text
+    - workbench_moderation
 _core:
-  default_config_hash: k1IIR1pO-6V2xazRartHFx-Vx0kg2R6rdCrD_9nosCw
+  default_config_hash: QxJ5Y6igBG5zAwk1R-IeY4WDGhPhfdbkNq9BjgyX4GM
 id: paragraph.tout.default
 targetEntityType: paragraph
 bundle: tout
 mode: default
 content:
+  field_has_bg_color:
+    type: boolean_checkbox
+    weight: 4
+    settings:
+      display_label: true
+    third_party_settings: {  }
   field_image:
     weight: 1
     settings:
-      progress_indicator: throbber
       preview_image_style: thumbnail
-    third_party_settings: {  }
+      progress_indicator: throbber
+    third_party_settings:
+      imce:
+        enabled: true
     type: image_image
   field_image_text:
     weight: 2
@@ -38,11 +49,11 @@ content:
     type: text_textarea
   field_popup:
     type: entity_reference_paragraphs
-    weight: 5
+    weight: 7
     settings:
       title: Paragraph
       title_plural: Paragraphs
-      edit_mode: open
+      edit_mode: preview
       add_mode: dropdown
       form_display_mode: default
     third_party_settings: {  }
@@ -61,17 +72,21 @@ content:
     third_party_settings: {  }
     type: string_textfield
   field_tout_background_image:
-    weight: 6
+    weight: 5
     settings:
-      progress_indicator: throbber
       preview_image_style: thumbnail
-    third_party_settings: {  }
+      progress_indicator: throbber
+    third_party_settings:
+      imce:
+        enabled: true
     type: image_image
   field_tout_size:
-    weight: 7
+    weight: 6
     settings: {  }
     third_party_settings: {  }
     type: options_select
 hidden:
   created: true
+  field_background_color: true
+  status: true
   uid: true

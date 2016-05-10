@@ -5,7 +5,7 @@ dependencies:
     - workbench_moderation.moderation_state.draft
     - workbench_moderation.moderation_state.needs_review
 id: needs_review_draft
-label: 'Needs review » Draft'
+label: 'Draft'
 stateFrom: needs_review
 stateTo: draft
 weight: -6

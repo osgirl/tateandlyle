@@ -10,10 +10,10 @@ id: node.page.field_touts
 field_name: field_touts
 entity_type: node
 bundle: page
-label: Touts
+label: Blocks
 description: ''
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:

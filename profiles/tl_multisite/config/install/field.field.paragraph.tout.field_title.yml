@@ -1,12 +1,9 @@
-uuid: 45b7f773-e10a-4cc1-b35e-94476498c5ea
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.paragraph.field_title
     - paragraphs.paragraphs_type.tout
-_core:
-  default_config_hash: k7vQLJF-NdzsHBm_xNN4IX865NQvkoBF9iBDz2BhleI
 id: paragraph.tout.field_title
 field_name: field_title
 entity_type: paragraph

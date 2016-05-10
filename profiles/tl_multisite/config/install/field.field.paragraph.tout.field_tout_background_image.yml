@@ -1,4 +1,3 @@
-uuid: 627cc55e-8404-4f03-b346-70c3b875b93a
 langcode: en
 status: true
 dependencies:
@@ -11,7 +10,7 @@ id: paragraph.tout.field_tout_background_image
 field_name: field_tout_background_image
 entity_type: paragraph
 bundle: tout
-label: 'Tout background image'
+label: 'Block background image'
 description: ''
 required: false
 translatable: false
@@ -20,7 +19,7 @@ default_value_callback: ''
 settings:
   file_directory: '[current-date:custom:Y]-[current-date:custom:m]'
   file_extensions: 'png gif jpg jpeg'
-  max_filesize: ''
+  max_filesize: '16 MB'
   max_resolution: ''
   min_resolution: ''
   alt_field: true

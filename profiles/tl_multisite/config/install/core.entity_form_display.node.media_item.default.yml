@@ -2,6 +2,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.media_item.field_content_reference
     - field.field.node.media_item.field_file
     - field.field.node.media_item.field_media_category
     - field.field.node.media_item.field_media_item_image
@@ -11,9 +12,13 @@ dependencies:
   module:
     - file
     - image
+    - imce
+    - paragraphs
     - path
     - workbench_moderation
     - youtube
+_core:
+  default_config_hash: cCQCSjJ0lKVYpP0HOpxh2IRp-DCYYEVfwxnxfFk3MmU
 id: node.media_item.default
 targetEntityType: node
 bundle: media_item
@@ -24,11 +29,23 @@ content:
     weight: 7
     settings: {  }
     third_party_settings: {  }
+  field_content_reference:
+    weight: 26
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+    third_party_settings: {  }
+    type: entity_reference_paragraphs
   field_file:
     weight: 4
     settings:
       progress_indicator: throbber
-    third_party_settings: {  }
+    third_party_settings:
+      imce:
+        enabled: true
     type: file_generic
   field_media_category:
     weight: 2
@@ -38,9 +55,11 @@ content:
   field_media_item_image:
     weight: 3
     settings:
-      progress_indicator: throbber
       preview_image_style: thumbnail
-    third_party_settings: {  }
+      progress_indicator: throbber
+    third_party_settings:
+      imce:
+        enabled: true
     type: image_image
   field_youtube_video:
     weight: 5

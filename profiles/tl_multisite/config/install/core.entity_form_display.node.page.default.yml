@@ -17,7 +17,6 @@ dependencies:
     - image.style.thumbnail
     - node.type.page
   module:
-    - field_collection
     - field_group
     - image
     - imce
@@ -119,6 +118,8 @@ third_party_settings:
         classes: ''
         id: ''
         required_fields: true
+_core:
+  default_config_hash: 53p0FmwK0jz8OPxGcZ9Q3vquO2tv8i_tLefSUUkwL0I
 id: node.page.default
 targetEntityType: node
 bundle: page
@@ -139,10 +140,15 @@ content:
         enabled: '1'
     type: image_image
   field_content_reference:
-    weight: 15
-    settings: {  }
+    type: entity_reference_paragraphs
+    weight: 27
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
     third_party_settings: {  }
-    type: field_collection_embed
   field_footer_image:
     weight: 19
     settings:

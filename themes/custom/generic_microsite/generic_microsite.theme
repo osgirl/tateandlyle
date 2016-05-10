@@ -365,20 +365,30 @@ function generic_microsite_preprocess_breadcrumb(&$variables) {
   unset($variables['breadcrumb']['custom']);
 }
 
-
+/**
+ * Implements hook_preprocess_menu().
+ * @param $variables
+ */
 function generic_microsite_preprocess_menu(&$variables) {
-  if($variables['menu_name'] == 'main') {
-    foreach ($variables['items'] as $key => $item) {
-      if ($item['in_active_trail'] == TRUE) {
-        $additional_class = '';
-        foreach ($item['below'] as $key => $sub_item) {
-          if ($sub_item['in_active_trail'] == TRUE) {
-            $sub_item['attributes']->addClass('active');
-            $additional_class = ' has-child-active';
+
+  if (isset($variables['menu_name'])) {
+
+    if ($variables['menu_name'] == 'main') {
+
+      foreach ($variables['items'] as $key => $item) {
+
+        if ($item['in_active_trail'] == TRUE) {
+          $additional_class = '';
+
+          foreach ($item['below'] as $key => $sub_item) {
+            if ($sub_item['in_active_trail'] == TRUE) {
+              $sub_item['attributes']->addClass('active');
+              $additional_class = ' has-child-active';
+            }
           }
+          $classes = 'active' . $additional_class;
+          $item['attributes']->addClass($classes);
         }
-        $classes = 'active'.$additional_class;
-        $item['attributes']->addClass($classes);
       }
     }
   }
@@ -389,6 +399,11 @@ function generic_microsite_preprocess_menu(&$variables) {
  * Implements template_preprocess_block().
  */
 function generic_microsite_preprocess_block(&$variables) {
+  // Add class to main navigation blocks.
+  if ($variables['configuration']['id'] == 'system_menu_block:main') {
+    $variables['attributes']['class'][] = 'main-navigation';
+  }
+
   if ($variables['base_plugin_id'] == 'local_tasks_block') {
     unset($variables['content']['#primary']['entity.node.delete_form']);
   }
@@ -435,17 +450,15 @@ function generic_microsite_preprocess_search_api_page_result(&$variables) {
 
   // For ticket TL277, TL-276
   // Replace this with custom search_api processors
-  $bad_strings = array('amp', 'tate', 'lyle');
-  $clean_strings = array('&amp;', 'Tate', 'Lyle');
   $snippet = $item->getExcerpt();
 
-  // Deal with missing snipets
+  // Deal with missing snippets
   if (!$snippet) {
     $query_key = \Drupal::request()->query->get('keys');
     $snippet = 'We found a partial match for <strong>' . Html::escape($query_key) . '</strong> you might be interested in.';
   }
 
-  $variables['snippet'] = array('#markup' => str_replace($bad_strings, $clean_strings, $snippet));
+  $variables['snippet'] = array('#markup' => $snippet);
 
   $variables['url'] = $entity->toUrl();
   $variables['title'] = $entity->label();

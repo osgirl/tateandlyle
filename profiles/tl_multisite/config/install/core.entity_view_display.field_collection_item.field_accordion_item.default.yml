@@ -1,4 +1,3 @@
-uuid: 90eec65a-0fba-4ebf-be29-419a81c17d68
 langcode: en
 status: true
 dependencies:
@@ -11,8 +10,6 @@ dependencies:
   module:
     - image
     - text
-_core:
-  default_config_hash: xbTmoE-396XNty0ihLsAfPgQkuz6c-wEHR_SnSgEwZw
 id: field_collection_item.field_accordion_item.default
 targetEntityType: field_collection_item
 bundle: field_accordion_item
@@ -45,5 +42,4 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
-hidden:
-  moderation_state: true
+hidden: {  }

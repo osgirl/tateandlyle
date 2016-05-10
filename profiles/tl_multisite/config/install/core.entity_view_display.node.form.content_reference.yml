@@ -1,0 +1,46 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.content_reference
+    - field.field.node.form.field_content_reference
+    - field.field.node.form.field_file
+    - field.field.node.form.field_footer_image
+    - field.field.node.form.field_form
+    - field.field.node.form.field_form_header
+    - field.field.node.form.field_layout
+    - field.field.node.form.field_main_content
+    - field.field.node.form.field_meta_tags
+    - field.field.node.form.field_subtitle
+    - field.field.node.form.field_tds_thank_you
+    - node.type.form
+  module:
+    - entity_reference_revisions
+    - user
+id: node.form.content_reference
+targetEntityType: node
+bundle: form
+mode: content_reference
+content:
+  field_content_reference:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: default
+      item_count: 0
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+hidden:
+  field_file: true
+  field_footer_image: true
+  field_form: true
+  field_form_header: true
+  field_layout: true
+  field_main_content: true
+  field_meta_tags: true
+  field_subtitle: true
+  field_tds_thank_you: true
+  langcode: true
+  links: true
+  workbench_moderation_control: true

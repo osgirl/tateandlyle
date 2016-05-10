@@ -1,11 +1,8 @@
-uuid: 260a3156-6c5c-4eac-bc00-a60ff16edd2b
 langcode: en
 status: true
 dependencies:
   module:
     - paragraphs
-_core:
-  default_config_hash: Ziy1SicoWpN9mhrx-ewF47w01TrOErUp2EvoVwLazKU
 id: paragraph.field_timeout
 field_name: field_timeout
 entity_type: paragraph

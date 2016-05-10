@@ -1,4 +1,3 @@
-uuid: a4605906-970d-41cf-8909-09ac4ba6707d
 langcode: en
 status: true
 dependencies:
@@ -9,8 +8,6 @@ dependencies:
 third_party_settings:
   content_translation:
     enabled: true
-_core:
-  default_config_hash: 7Iek7SkSiriPURAOyKaEAiFSX4MAnfgCjcv_cYpHHnw
 id: node.form
 target_entity_type_id: node
 target_bundle: form

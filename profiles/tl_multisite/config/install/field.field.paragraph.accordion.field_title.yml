@@ -1,12 +1,9 @@
-uuid: 223d1aab-a526-40e9-8a00-b4042e7c123a
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.paragraph.field_title
     - paragraphs.paragraphs_type.accordion
-_core:
-  default_config_hash: 1YLgo8vQ-ivmYGYkiXk5LQMQNgDyhy06hUABLWbCf8g
 id: paragraph.accordion.field_title
 field_name: field_title
 entity_type: paragraph
