@@ -17,3 +17,75 @@ function tl_tweaks_update_8001() {
   }
 
 }
+
+/**
+ * Restore the paragraph content for yourfoodsystems.
+ */
+function tl_tweaks_update_8002() {
+
+  // This update is only relevant for yourfoodsystems, so test the
+  // incoming URI for a match.
+  global $base_url;
+  preg_match("/([a-z]+)\.([a-z]+)\.cloud.tateandlyle.com/", $base_url, $matches);
+  if (isset($matches[1]) && $matches[1] == 'yourfoodsystems') {
+    // The backup tables have to be created in advance.
+
+    // 1. Import all entries from the backup tables into the real ones while ensuring
+    // we do not import duplicate entries.
+    db_query("INSERT INTO paragraph__field_address (
+        SELECT bpfa.*
+        FROM backup_paragraph__field_address bpfa
+        LEFT JOIN paragraph__field_address pfa ON pfa.revision_id = bpfa.revision_id
+        WHERE pfa.revision_id IS NULL
+        AND bpfa.bundle = 'contact')");
+
+    db_query("INSERT INTO paragraph_revision__field_address (
+                SELECT backup_prfa.*
+                FROM backup_paragraph_revision__field_address backup_prfa
+                LEFT JOIN paragraph_revision__field_address prfa ON prfa.revision_id = backup_prfa.revision_id
+                WHERE prfa.entity_id IS NULL
+                AND backup_prfa.bundle = 'contact')");
+
+    // 2. Grab all the paragraph items for the contact paragraph.
+    $paragraphs = db_query("SELECT id, revision_id FROM paragraphs_item WHERE type = 'contact'");
+
+    // 3.1 Make sure that the revision field for the field_address table matches the latest revision of the contact bundle.
+    foreach ($paragraphs as $paragraph) {
+      echo "Updating field_address for $paragraph->id\n";
+      db_query('UPDATE paragraph__field_address SET revision_id = :revision_id WHERE entity_id = :entity_id',
+        array(
+          ':revision_id' => $paragraph->revision_id,
+          ':entity_id' => $paragraph->id,
+        )
+      );
+    }
+
+    // 3.2 Duplicate the latest revision that we just imported from the backup table with the new revision
+    // in the paragraph_revision__field_address table so we don't squash previous revisions.
+    $paragraphs = db_query("SELECT id, revision_id FROM paragraphs_item WHERE type = 'contact'");
+    foreach ($paragraphs as $paragraph) {
+      echo "Updating revision__field_address for $paragraph->id\n";
+      $latest_row = db_query("SELECT * FROM paragraph_revision__field_address
+          WHERE entity_id = :entity_id
+          ORDER BY revision_id DESC
+          LIMIT 1", array(':entity_id' => $paragraph->id))->fetchObject();
+
+      // We do not have a match for this paragraph.
+      // Also skip a if we are already at the latest revision.
+      if ($latest_row->entity_id != '' && $latest_row->revision_id != $paragraph->revision_id) {
+        db_merge('paragraph_revision__field_address')
+          ->key(array('entity_id' => $latest_row->entity_id, 'revision_id' => $paragraph->revision_id))
+          ->fields(array(
+            'bundle' => 'contact',
+            'deleted' => 0,
+            'langcode' => 'en',
+            'delta' => 0,
+            'field_address_value' => $latest_row->field_address_value,
+            'field_address_format' => $latest_row->field_address_format
+          ))
+          ->execute();
+      }
+    }
+  }
+
+}
