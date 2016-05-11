@@ -28,10 +28,10 @@ function tl_tweaks_update_8002() {
   global $base_url;
   preg_match("/([a-z]+)\.([a-z]+)\.cloud.tateandlyle.com/", $base_url, $matches);
   if (isset($matches[1]) && $matches[1] == 'yourfoodsystems') {
-    // The backup tables have to be created in advance.
 
-    // 1. Import all entries from the backup tables into the real ones while ensuring
-    // we do not import duplicate entries.
+    // 1. Import all entries from the backup tables into the real ones while
+    // ensuring that we do not import duplicate entries.
+    // Note: the backup tables have to be created in advance.
     db_query("INSERT INTO paragraph__field_address (
         SELECT bpfa.*
         FROM backup_paragraph__field_address bpfa
@@ -49,7 +49,8 @@ function tl_tweaks_update_8002() {
     // 2. Grab all the paragraph items for the contact paragraph.
     $paragraphs = db_query("SELECT id, revision_id FROM paragraphs_item WHERE type = 'contact'");
 
-    // 3.1 Make sure that the revision field for the field_address table matches the latest revision of the contact bundle.
+    // 3.1 Make sure that the revision field for the field_address table
+    // matches the latest revision of the contact bundle.
     foreach ($paragraphs as $paragraph) {
       echo "Updating field_address for $paragraph->id\n";
       db_query('UPDATE paragraph__field_address SET revision_id = :revision_id WHERE entity_id = :entity_id',
@@ -60,8 +61,9 @@ function tl_tweaks_update_8002() {
       );
     }
 
-    // 3.2 Duplicate the latest revision that we just imported from the backup table with the new revision
-    // in the paragraph_revision__field_address table so we don't squash previous revisions.
+    // 3.2 Duplicate the latest revision that we just imported from the backup
+    // table with the new revision in the paragraph_revision__field_address
+    // table so we don't squash previous revisions.
     $paragraphs = db_query("SELECT id, revision_id FROM paragraphs_item WHERE type = 'contact'");
     foreach ($paragraphs as $paragraph) {
       echo "Updating revision__field_address for $paragraph->id\n";
@@ -81,7 +83,7 @@ function tl_tweaks_update_8002() {
             'langcode' => 'en',
             'delta' => 0,
             'field_address_value' => $latest_row->field_address_value,
-            'field_address_format' => $latest_row->field_address_format
+            'field_address_format' => $latest_row->field_address_format,
           ))
           ->execute();
       }
