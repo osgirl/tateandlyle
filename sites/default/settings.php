@@ -665,34 +665,40 @@ $settings['container_yamls'][] = __DIR__ . '/services.yml';
  */
 // Includes required Acquia configuration and set $base_url correctly.
 require DRUPAL_ROOT . '/sites/default/settings/base.settings.php';
-if (file_exists(DRUPAL_ROOT . '/sites/sites.php')) {
+
+$root = $_SERVER['HTTP_HOST'];
+$is_wildcard_domain = preg_match("/$wildcard_domain/", $root);
+
+if (file_exists(DRUPAL_ROOT . '/sites/sites.php') && $is_ah_env && file_exists('/var/www/site-php')) {
   $sites = array();
   include DRUPAL_ROOT . '/sites/sites.php';
-  $root = $_SERVER['HTTP_HOST'];
-  // we detected a default site but not defined in sites.php
-  if (preg_match('~' . $wildcard_domain . '~', $root) && !in_array($root, $sites) && ($is_ah_env && file_exists('/var/www/site-php'))) {
-    $domain_paths = explode ('.', $root);
-    $tl_sitename =  $domain_paths[0];
-    $default_settings = "/var/www/site-php/{$_ENV['AH_SITE_GROUP']}/{$tl_sitename}-settings.inc";
-    require $default_settings;
-    $config['system.file']['path']['temporary'] = '/mnt/tmp/' . $_ENV['AH_SITE_GROUP'] . '.' . $_ENV['AH_SITE_ENVIRONMENT'] . '/' . $tl_sitename ;
-    $settings['file_public_path'] = 'sites/default/files/' . $tl_sitename;
-    $config['system.logging']['error_level'] = 'verbose';
-  }
-  // A new production domain is detected which was not defined in sites.php.
-  // The htaccess redirection ensures that top level domains are using www only.
-  else if (preg_match('/^www.([a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9])\.[a-zA-Z]{2,}(\.[a-zA-Z]{2,})?$/', $root, $matches) && !in_array($root, $sites) && ($is_ah_env && file_exists('/var/www/site-php'))) {
-    // Remove the leading www.
-    $tl_sitename = preg_replace('/^www\.//', '', $root);
-    $tl_sitename = str_replace('.', '', $tl_sitename);
+
+  // Domain is not defined in sites.php.
+  if (!in_array($root, $sites)) {
+
+    if ($is_wildcard_domain) {
+      $domain_elements = explode('.', $root);
+      $tl_sitename =  $domain_elements[0];
+    }
+    else {
+      // If it is not wildcard, then it must be a custom prod domain.
+      $tl_sitename = preg_replace('/^www\.//', '', $root); // Strip the www.
+      $tl_sitename = str_replace('.', '', $tl_sitename); // Remove all the dots.
+    }
     $tl_sitename = str_replace('-', '_', $tl_sitename);
+
     $default_settings = "/var/www/site-php/{$_ENV['AH_SITE_GROUP']}/{$tl_sitename}-settings.inc";
     require $default_settings;
+
+    // Override the configuration, because we dynamically capture the site name,
+    // so directories, such as tmp, or files will not be provisioned.
     $config['system.file']['path']['temporary'] = '/mnt/tmp/' . $_ENV['AH_SITE_GROUP'] . '.' . $_ENV['AH_SITE_ENVIRONMENT'] . '/' . $tl_sitename ;
-    $settings['file_public_path'] = 'sites/default/files/' . $tl_sitename;
     $config['system.logging']['error_level'] = 'verbose';
+    $settings['file_public_path'] = 'sites/default/files/' . $tl_sitename;
   }
-  else if ($is_ah_env && file_exists('/var/www/site-php')) {
+  // In theory we should only get here for the default site, if a site is
+  // defined in sites.php, a sites dir should exist and this file won't be read.
+  else {
     $default_settings = "/var/www/site-php/{$_ENV['AH_SITE_GROUP']}/{$_ENV['AH_SITE_GROUP']}-settings.inc";
     require $default_settings;
   }
