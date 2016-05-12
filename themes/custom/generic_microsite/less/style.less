@@ -1182,7 +1182,11 @@ body {
 }
 
 .home-two-col-left-block {
+  border-bottom: 1px solid #e5e5e5;
+  border-top: 1px solid #e5e5e5;
   display: block;
+  padding-bottom: 7px;
+  padding-top: 15px;
   @media(min-width: @screen-sm) {
     display: none;
   }
@@ -1197,6 +1201,7 @@ body {
     .home-two-col-left-block {
       .field--name-field-title {
         display: block;
+        padding: 0 0 10px;
       }
     }
     @media(max-width: @screen-xs-max) {
@@ -1653,7 +1658,9 @@ aside {
 
 /* Main content */
 div[role="main"] > .row {
-  padding-bottom: 20px;
+  @media(min-width: @screen-md-min) {
+    padding-bottom: 20px;
+  }
 }
 
  h1, h2, h3 {
