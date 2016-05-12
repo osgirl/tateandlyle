@@ -28,7 +28,7 @@ a#toolbar-link-view-contact_messages_administration-page_1.is-active::before {
 }
 
 .node-form .field--name-field-popup,
-.node-form .field--name-field-sidebar,
+.node-form .field--name-field-sidebar .placeholder,
 .node-form .field--name-field-intro-area {
 	font-weight: bold;
 }
