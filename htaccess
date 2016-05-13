@@ -116,7 +116,7 @@ AddEncoding gzip svgz
   RewriteCond %{HTTP_HOST} .
   # Check if the hostname is one word only and is not localhost.
   RewriteCond %{HTTP_HOST} !^loc.tl$
-  RewriteCond %{HTTP_HOST} ^[^.]+\.[^.]+$
+  RewriteCond %{HTTP_HOST} !^(.*)\.(.*)\.cloud.tateandlyle.com$
   RewriteCond %{HTTP_HOST} !^www\. [NC]
   RewriteRule ^ http://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
