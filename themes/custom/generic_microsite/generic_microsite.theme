@@ -68,17 +68,6 @@ function generic_microsite_preprocess_html(&$variables) {
  * Implements TEMPLATE_preprocess_field().
  */
 function generic_microsite_preprocess_field(&$variables, $hook) {
-  $is_front = \Drupal::service('path.matcher')->isFrontPage();
-  if ($is_front) {
-    if (theme_get_setting('frontpage_template', 'generic_microsite') == 2) {
-      //if ($variables['element']['#bundle'] == 'tout') {
-        dpm($variables);
-      //}
-    }
-  }
-  
- 
-
   // Redirect selector.
   global $base_url;
   if ($variables['element']['#bundle'] == 'redirect_selector') {

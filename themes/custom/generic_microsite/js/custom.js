@@ -20,7 +20,7 @@ function centerModal() {
 
       // Show the first block after the main image/slider on mobile.
       if ($('.tl-one-sidebar.path-frontpage .field--name-field-touts >div').css('float') == 'left') {
-        // Target desktop media query. 
+        // Target desktop media query.
       } else {
         // Target max-width sm media query. 
         $('.tl-one-sidebar.path-frontpage .field--name-field-touts>.field--item:first-child').addClass('home-two-col-left-block');
@@ -30,7 +30,7 @@ function centerModal() {
       $(window).resize(function() {
         // Show the first block after the main image/slider on mobile.
         if ($('.tl-one-sidebar.path-frontpage .field--name-field-touts > div').css('float') == 'left') {
-          //console.log('desktop');
+          // Target desktop media query.
           if ($('.tl-one-sidebar.path-frontpage aside .home-two-col-left-block').length) {
             // If home-two-col-left-block is in the sidebar.
             $('.tl-one-sidebar.path-frontpage aside .home-two-col-left-block').insertBefore('.tl-one-sidebar.path-frontpage .field--name-field-touts > div');
