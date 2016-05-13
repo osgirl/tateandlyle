@@ -9,6 +9,7 @@ use Drupal\bootstrap\Bootstrap;
 use Drupal\file\Entity\File;
 use Drupal\image\Entity\ImageStyle;
 use Drupal\Component\Utility\Html;
+use Drupal\Core\Entity\EntityViewBuilder;
 
 /**
  * Implements TEMPLATE_preprocess_html().
@@ -16,7 +17,7 @@ use Drupal\Component\Utility\Html;
 function generic_microsite_preprocess_html(&$variables) {
   $site_name_raw = \Drupal::configFactory()->getEditable('system.site')->get('name');
 
-  // Add special class if site name has chinese characters 
+  // Add special class if site name has chinese characters.
   if (preg_match('/[\x{4e00}-\x{9fa5}]+/u', $site_name_raw)) {
     $variables['site_name'] = 'tateandlyle_china';
   }
@@ -59,7 +60,7 @@ function generic_microsite_preprocess_html(&$variables) {
   }
   $variables['node_alias'] = $alias;
 
-  // Define second color for vertical gradient
+  // Define second color for vertical gradient.
   $variables['bg_value2'] = theme_get_setting('bg_value2', 'generic_microsite');
 }
 
@@ -67,7 +68,7 @@ function generic_microsite_preprocess_html(&$variables) {
  * Implements TEMPLATE_preprocess_field().
  */
 function generic_microsite_preprocess_field(&$variables, $hook) {
-  /* Redirect selector */
+  // Redirect selector.
   global $base_url;
   if ($variables['element']['#bundle'] == 'redirect_selector') {
     foreach ($variables['items'] as $key => $item) {
@@ -81,7 +82,7 @@ function generic_microsite_preprocess_field(&$variables, $hook) {
     }
   }
 
-  /* Accordion */
+  // Accordion.
   if ($variables['field_name'] == 'field_accordion_item') { 
     $variables['attributes']['id'][]='accordion';
     foreach ($variables['items'] as $key => $item) {
@@ -94,7 +95,7 @@ function generic_microsite_preprocess_field(&$variables, $hook) {
     }
   }
 
-  /* Slideshow + link */
+  // Slideshow + link.
   if ($variables['field_name'] == 'field_slide') {
     $slide_type = $variables['element']['#object']->get('field_slide_type')->getValue();
     if($slide_type[0]['value'] == 0) {
@@ -183,7 +184,7 @@ function generic_microsite_preprocess_field(&$variables, $hook) {
     }
   }
 
-  /* Image style frontpage */
+  // Image style frontpage.
   $is_front = \Drupal::service('path.matcher')->isFrontPage();
   if ($variables['entity_type'] == 'paragraph' && $variables['element']['#object']->getType() == 'image' && $is_front == 1) {
     $landing_image = $variables['element']['#object']->get('field_image')->getValue();
@@ -245,7 +246,6 @@ function generic_microsite_preprocess_field(&$variables, $hook) {
       }
     }
   }
-
 }
 
 /**
@@ -286,6 +286,21 @@ function generic_microsite_theme_suggestions_page_alter(array &$suggestions, arr
  * Implements hook_theme_preprocess_page().
  */
 function generic_microsite_preprocess_page(&$variables) {
+  // Target the first tout from the Two Column Homepage.
+  $is_front = \Drupal::service('path.matcher')->isFrontPage();
+  if ($is_front) {
+    if (theme_get_setting('frontpage_template', 'generic_microsite') == 2) {
+      $blocks = $variables['node']->get('field_touts')->getValue();
+      foreach ($blocks as $key => $block) {
+        if ($key == 0) {
+          $id = $block['target_id'];
+          $paragraph = entity_load('paragraph', $id);
+          $view_builder = \Drupal::entityManager()->getViewBuilder('paragraph');
+          $variables['home_two_col_left_block'] = $view_builder->view($paragraph);
+        }
+      }
+    }
+  }
   if (isset($variables['node'])) {
     $node_type = $variables['node']->get('type')->getValue();
     if (($node_type[0]['target_id'] == 'page') || ($node_type[0]['target_id'] == 'form')) {
@@ -298,7 +313,7 @@ function generic_microsite_preprocess_page(&$variables) {
     }
   }
 
-  // Set gradient background colors
+  // Set gradient background colors.
   if (theme_get_setting('bg_value1', 'generic_microsite') != NULL) {
     $variables['bg_value1'] = theme_get_setting('bg_value1', 'generic_microsite');
   }
@@ -326,7 +341,7 @@ function generic_microsite_preprocess_paragraph(&$variables) {
     $variables['no_sidebars'] = TRUE;
   }
   if ($variables['paragraph']->getType() == 'tout') {
-    // Add background color to tout
+    // Add background color to tout.
     if($variables['paragraph']->get('field_has_bg_color')->getValue()[0] && $variables['paragraph']->get('field_has_bg_color')->getValue()[0]['value'] == '1') {
       $variables['has_bg_color'] = TRUE;
     }
@@ -370,16 +385,11 @@ function generic_microsite_preprocess_breadcrumb(&$variables) {
  * @param $variables
  */
 function generic_microsite_preprocess_menu(&$variables) {
-
   if (isset($variables['menu_name'])) {
-
     if ($variables['menu_name'] == 'main') {
-
       foreach ($variables['items'] as $key => $item) {
-
         if ($item['in_active_trail'] == TRUE) {
           $additional_class = '';
-
           foreach ($item['below'] as $key => $sub_item) {
             if ($sub_item['in_active_trail'] == TRUE) {
               $sub_item['attributes']->addClass('active');
@@ -393,7 +403,6 @@ function generic_microsite_preprocess_menu(&$variables) {
     }
   }
 }
-
 
 /**
  * Implements template_preprocess_block().
@@ -443,7 +452,7 @@ function generic_microsite_form_search_block_form_alter(&$form, \Drupal\Core\For
 }
 
 function generic_microsite_preprocess_search_api_page_result(&$variables) {
-  /* @var $entity \Drupal\Core\Entity\EntityInterface */
+  // @var $entity \Drupal\Core\Entity\EntityInterface.
   $entity = $variables['entity'];
   /* @var $item \Drupal\search_api\Item\ItemInterface */
   $item = $variables['item'];
@@ -459,7 +468,6 @@ function generic_microsite_preprocess_search_api_page_result(&$variables) {
   }
 
   $variables['snippet'] = array('#markup' => $snippet);
-
   $variables['url'] = $entity->toUrl();
   $variables['title'] = $entity->label();
   unset($variables['info']);

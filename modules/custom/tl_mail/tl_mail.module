@@ -87,7 +87,7 @@ function mail_node_update_author($node) {
   $message = \Drupal::config('tl_mail.settings')->get('update_author_message');
   $module = 'tl_mail';
   $key = 'node_update_author';
-  $to = $node->getOwner()->getEmail();
+  $to = $node->original->getRevisionAuthor()->getEmail();
 
   $params['site_name'] = \Drupal::configFactory()->getEditable('system.site')->get('name');
   $params['node_state'] = $node->get('moderation_state')->getValue()[0]['target_id'];
@@ -211,12 +211,14 @@ function mail_node_update_archive_approvers($node) {
   $params['node_title'] = $node->getTitle();
   $params['site_url'] = $base_url;
   $params['node_url'] = $base_url . '/node/' . $node->id();
+  $params['node_author'] = $node->original->getRevisionAuthor()->getDisplayName();
 
   $params['subject'] = str_replace("[site_name]", $params['site_name'], $subject);
 
   $params['message'] = str_replace("[node_title]", $params['node_title'], $message);
   $params['message'] = str_replace("[site_url]", $params['site_url'], $params['message']);
   $params['message'] = str_replace("[node_url]", $params['node_url'], $params['message']);
+  $params['message'] = str_replace("[node_author]", $params['node_author'], $params['message']);
 
   if ($node->get('revision_log')->getValue()[0]['value'] != NULL) {
     $params['message'] = str_replace("[node_state_message]", "<p>" . $node->get('revision_log')->getValue()[0]['value'] . "</p>", $params['message']);
@@ -248,7 +250,7 @@ function mail_node_reject_author($node) {
   $message = \Drupal::config('tl_mail.settings')->get('update_reject_author_message');
   $module = 'tl_mail';
   $key = 'node_reject_author';
-  $to = $node->getOwner()->getEmail();
+  $to = $node->original->getRevisionAuthor()->getEmail();
 
   $params['site_name'] = \Drupal::configFactory()->getEditable('system.site')->get('name');
   $params['node_title'] = $node->getTitle();

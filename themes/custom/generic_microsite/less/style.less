@@ -949,7 +949,7 @@ body {
 /* Homepage one column */
 .tl-no-sidebars.path-frontpage .field--name-field-touts .field--name-field-title {
   font-size: 12px;
-  line-height: normal
+  line-height: normal;
 }
 
 .medium-text.tl-no-sidebars.path-frontpage .field--name-field-touts .field--name-field-title {
@@ -1077,27 +1077,34 @@ body {
 
 /* Homepage two column */
 .tl-one-sidebar.path-frontpage {
-    .main-container .col-sm-9 {  
-      @media(min-width: @screen-sm-min) {
-        background-image: url(../images/col.gif);
-        background-position: right;
-        background-repeat: repeat-y;
-      }
+  .main-container .col-sm-9 {  
+    @media(min-width: @screen-sm-min) {
+      background-image: url(../images/col.gif);
+      background-position: right;
+      background-repeat: repeat-y;
     }
+  }
   .field--name-field-touts {
     background-color: #FFF;
     background-repeat: repeat-y;
     height: 100%;
     margin-top: 0;
-    margin-bottom: 15px;
+    margin-bottom: 0;
     min-height: initial;
-    @media(min-width: @screen-xs-min) {
+    padding-bottom: 0;
+    @media(min-width: @screen-sm-min) {
       margin-top: 15px;
       margin-bottom: 0;
     }
+    > .field--item:first-child {
+      display: none;
+      @media(min-width: @screen-sm-min) {
+        display: block;
+      }
+    }
     > div {
       padding-bottom: 15px;
-      @media(max-width: @screen-xs-min) { 
+      @media(max-width: @screen-sm) { 
         border-bottom: 1px solid #ddd;
         padding-bottom: 0;
       }
@@ -1139,10 +1146,9 @@ body {
     }
     .field--name-field-title {
       font-family: Arial,Helvetica,sans-serif;
-      font-size: 14.5px;
+      font-size: 14px;
       padding: 15px 15px 4px 15px;
       @media(min-width: @screen-sm-min) { 
-       font-size:13px;
        padding-top: 5px;
        margin-top:4px;
       }
@@ -1167,11 +1173,36 @@ body {
   }
 }
 
+.medium-text.tl-one-sidebar.path-frontpage .field--name-field-touts .field--name-field-title {
+  font-size: 16px;
+}
+
+.large-text.tl-one-sidebar.path-frontpage .field--name-field-touts .field--name-field-title {
+  font-size: 18px;
+}
+
+.home-two-col-left-block {
+  border-bottom: 1px solid #e5e5e5;
+  border-top: 1px solid #e5e5e5;
+  display: block;
+  padding-bottom: 7px;
+  padding-top: 15px;
+  @media(min-width: @screen-sm) {
+    display: none;
+  }
+}
+
 .path-frontpage {
   aside {
     padding-left: 10px;
     .field--name-field-title {
-      display:none;
+      display: none;
+    }
+    .home-two-col-left-block {
+      .field--name-field-title {
+        display: block;
+        padding: 0 0 10px;
+      }
     }
     @media(max-width: @screen-xs-max) {
       display: inline-block;
@@ -1246,7 +1277,7 @@ body:not(.path-frontpage) {
     }
     .field--name-field-title {
       display: none;
-    } 
+    }
     .menu.nav {
       float: none;
       li {
@@ -1627,7 +1658,9 @@ aside {
 
 /* Main content */
 div[role="main"] > .row {
-  padding-bottom: 20px;
+  @media(min-width: @screen-md-min) {
+    padding-bottom: 20px;
+  }
 }
 
  h1, h2, h3 {
