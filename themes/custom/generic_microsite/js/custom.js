@@ -17,6 +17,38 @@ function centerModal() {
       }).replaceWith(function() {
         return this.nodeValue.replace(/[™®]/g, '<sup>$&</sup>');
       });
+
+      // Show the first block after the main image/slider on mobile.
+      if ($('.tl-one-sidebar.path-frontpage .field--name-field-touts >div').css('float') == 'left') {
+        // Target desktop media query.
+      } else {
+        // Target max-width sm media query. 
+        $('.tl-one-sidebar.path-frontpage .field--name-field-touts>.field--item:first-child').addClass('home-two-col-left-block');
+        $('.tl-one-sidebar.path-frontpage .field--name-field-touts .home-two-col-left-block').appendTo('.tl-one-sidebar.path-frontpage aside');
+      }
+
+      $(window).resize(function() {
+        // Show the first block after the main image/slider on mobile.
+        if ($('.tl-one-sidebar.path-frontpage .field--name-field-touts > div').css('float') == 'left') {
+          // Target desktop media query.
+          if ($('.tl-one-sidebar.path-frontpage aside .home-two-col-left-block').length) {
+            // If home-two-col-left-block is in the sidebar.
+            $('.tl-one-sidebar.path-frontpage aside .home-two-col-left-block').insertBefore('.tl-one-sidebar.path-frontpage .field--name-field-touts > div');
+            $('.tl-one-sidebar.path-frontpage .field--name-field-touts .home-two-col-left-block').removeClass('home-two-col-left-block');
+          } else {
+            // If home-two-col-left-block is not in the sidebar.
+          }
+       
+        } else {
+          if ($('.tl-one-sidebar.path-frontpage aside .home-two-col-left-block').length) {
+            // If home-two-col-left-block is in the sidebar.
+          } else {
+            // If home-two-col-left-block is not in the sidebar.
+            $('.tl-one-sidebar.path-frontpage .field--name-field-touts>.field--item:first-child').addClass('home-two-col-left-block');
+            $('.tl-one-sidebar.path-frontpage .field--name-field-touts .home-two-col-left-block').appendTo('.tl-one-sidebar.path-frontpage aside');
+          }
+        }
+      })
     }
   }
 
