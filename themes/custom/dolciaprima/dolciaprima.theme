@@ -26,7 +26,7 @@ function dolciaprima_preprocess_page(&$variables) {
   }
 
   /* Set template style variable */
-  if($variables['node'] && $variables['node']->getType() == 'page') {
+  if (isset($variables['node']) && $variables['node']->getType() == 'page') {
     $field_template = $variables['node']->get('field_template')->getValue();
     if (isset($field_template[0])) {
       $field_template_value = $field_template[0]['value'];
@@ -42,7 +42,7 @@ function dolciaprima_preprocess_page(&$variables) {
   }
 
   /* Set variable with which will be used as class for special customizations */
-  if($variables['node']) {
+  if (isset($variables['node'])) {
     $node_fields = $variables['node']->toArray();
     $node_title = $node_fields['title'][0]['value'];
     $node_title = preg_replace('/[^A-Za-z0-9\-]/', ' ', $node_title);
@@ -50,17 +50,18 @@ function dolciaprima_preprocess_page(&$variables) {
   }
 
   /* Set variables form layout */
-  if($variables['node'] && $variables['node']->getType() == 'form'){
+  if (isset($variables['node']) && $variables['node']->getType() == 'form') {
     $variables['is_form'] = TRUE;
     $form_page_layout = $variables['node']->get('field_layout')->getValue();
     if ($form_page_layout[0]['value'] == 0) {
       $variables['form_page_layout'] = 'landing-form';
-    }else {
+    }
+    else {
       $variables['form_page_layout'] = 'contact-form';
     }
   } 
 
-  if($variables['node'] && $variables['node']->getType() == 'page') {
+  if (isset($variables['node']) && $variables['node']->getType() == 'page') {
 
     /*Set variables for page from intro area */
     $paragraphs = $variables['node']->get('field_intro_area')->getValue();
@@ -85,12 +86,12 @@ function dolciaprima_preprocess_page(&$variables) {
       }     
     }
     /*Check if page has sidebar*/
-    if($variables['node']->get('field_sidebar')->getValue()) {
+    if ($variables['node']->get('field_sidebar')->getValue()) {
       $variables['is_sidebar'] = TRUE;
     }
   }
   /*Set page title*/
-  if($variables['node']) {
+  if (isset($variables['node'])) {
     $variables['page_title'] = $variables['node']->getTitle();
   }
 }
