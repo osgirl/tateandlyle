@@ -667,7 +667,7 @@ $settings['container_yamls'][] = __DIR__ . '/services.yml';
 require DRUPAL_ROOT . '/sites/default/settings/base.settings.php';
 
 $root = $_SERVER['HTTP_HOST'];
-$is_wildcard_domain = preg_match("/$wildcard_domain/", $root);
+$is_wildcard_domain = preg_match("/cloud.tateandlyle.com/", $root);
 
 if (file_exists(DRUPAL_ROOT . '/sites/sites.php') && $is_ah_env && file_exists('/var/www/site-php')) {
   $sites = array();
