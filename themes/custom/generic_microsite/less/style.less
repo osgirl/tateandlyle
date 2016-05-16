@@ -599,13 +599,13 @@ body,
   position: fixed;
   top: 0;
   right: 0;
-  z-index: 100;
-  display: none;
   width: 300px;
   height: 100%;
   overflow: auto;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
+  visibility: hidden;
+  z-index: 100;
 }
 
 .st-menu::after {
@@ -655,9 +655,9 @@ body,
 }
 
 .st-effect-2.st-menu-open .st-effect-2.st-menu {
-  display: block;
   -webkit-transition: -webkit-transform 0.5s;
   transition: transform 0.5s;
+  visibility: visible;
 }
 
 .st-effect-2.st-menu::after {
@@ -1096,12 +1096,6 @@ body {
       margin-top: 15px;
       margin-bottom: 0;
     }
-    > .field--item:first-child {
-      display: none;
-      @media(min-width: @screen-sm-min) {
-        display: block;
-      }
-    }
     > div {
       padding-bottom: 15px;
       @media(max-width: @screen-sm) { 
@@ -1133,6 +1127,11 @@ body {
           display: none;
         }
       }
+      .field--name-field-title {
+        @media(max-width: @screen-sm) {
+          display: none;
+        }
+      }
     }
     .tout-image {
       padding-bottom: 10px;
@@ -1147,10 +1146,10 @@ body {
     .field--name-field-title {
       font-family: Arial,Helvetica,sans-serif;
       font-size: 14px;
-      padding: 15px 15px 4px 15px;
+      padding: 15px 0 4px;
       @media(min-width: @screen-sm-min) { 
-       padding-top: 5px;
-       margin-top:4px;
+       padding: 5px 15px 4px;
+       margin-top: 4px;
       }
       @media(min-width: @screen-xs-max) { 
        padding-left: 0;
@@ -1159,7 +1158,7 @@ body {
     }
     .tout-text {
       h2 {
-        font-size:18px;
+        font-size: 18px;
         margin-top: 0;
       }
       h3 {
@@ -1184,12 +1183,8 @@ body {
 .home-two-col-left-block {
   border-bottom: 1px solid #e5e5e5;
   border-top: 1px solid #e5e5e5;
-  display: block;
   padding-bottom: 7px;
   padding-top: 15px;
-  @media(min-width: @screen-sm) {
-    display: none;
-  }
 }
 
 .path-frontpage {
@@ -2529,26 +2524,25 @@ body {
     padding-right: 0;
   }
   .nav-tabs {
-      margin-bottom:0;
-      li.active > a, li.active > a:focus, li.active > a:hover{
-        background-color: #d4cec6;
-        border-radius:0;
-        color: #fff;
-        cursor: pointer;
-        margin-right:2px;
-      }
+    margin-bottom:0;
+    li.active > a, li.active > a:focus, li.active > a:hover{
+      background-color: #d4cec6;
+      border-radius:0;
+      color: #fff;
+      cursor: pointer;
+    }
 
-      li > a {
-        background-color: #f1f0ed;
-        border-radius:0;
-        font-size:12px;
-        font-weight: bold;
-        padding: 7px 15px;
-        &:hover {
-          background-color: #d4cec6;
-          text-decoration: underline;
-        }
+    li > a {
+      background-color: #f1f0ed;
+      border-radius:0;
+      font-size:12px;
+      font-weight: bold;
+      padding: 7px 15px;
+      &:hover {
+        background-color: #d4cec6;
+        text-decoration: underline;
       }
+    }
   }
   .tab-pane {
     table {
@@ -3049,6 +3043,16 @@ body {
       cursor: pointer;
     }
   }
+}
+
+.nav-tabs>li>a,
+.nav-tabs>li.active>a,
+.nav-tabs>li.active>a:hover,
+.nav-tabs>li.active>a:focus,
+.nav-tabs.forms .active a {
+  border: 0;
+  margin-right: 2px;
+  margin-top: 3px;
 }
 
 .nav-tabs.forms {
@@ -3616,6 +3620,7 @@ ul.sitemap-menu {
     }
   }
   .header-right {
+    margin-top: 0;
     @media(min-width: @screen-md) {
       padding-top: 40px;
     }
@@ -3837,6 +3842,9 @@ ul.sitemap-menu {
   }
   aside .tout-text h4 {
     font-weight: 400;
+  }
+  .home-two-col-left-block {
+    border: 0;
   }
 }
 

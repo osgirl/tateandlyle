@@ -286,21 +286,6 @@ function generic_microsite_theme_suggestions_page_alter(array &$suggestions, arr
  * Implements hook_theme_preprocess_page().
  */
 function generic_microsite_preprocess_page(&$variables) {
-  // Target the first tout from the Two Column Homepage.
-  $is_front = \Drupal::service('path.matcher')->isFrontPage();
-  if ($is_front) {
-    if (theme_get_setting('frontpage_template', 'generic_microsite') == 2) {
-      $blocks = $variables['node']->get('field_touts')->getValue();
-      foreach ($blocks as $key => $block) {
-        if ($key == 0) {
-          $id = $block['target_id'];
-          $paragraph = entity_load('paragraph', $id);
-          $view_builder = \Drupal::entityManager()->getViewBuilder('paragraph');
-          $variables['home_two_col_left_block'] = $view_builder->view($paragraph);
-        }
-      }
-    }
-  }
   if (isset($variables['node'])) {
     $node_type = $variables['node']->get('type')->getValue();
     if (($node_type[0]['target_id'] == 'page') || ($node_type[0]['target_id'] == 'form')) {

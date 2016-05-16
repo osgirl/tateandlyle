@@ -7,9 +7,18 @@
 use \Drupal\Core\Config\FileStorage;
 
 /**
- * Update the mail configuration to the latest packaged with the module.
+ * Remove obsolete configuration objects.
  */
 function theme_content_structure_restrict_update_8001() {
+  Drupal::configFactory()->getEditable('tcsr.dolciaprima.settings')->delete();
+  Drupal::configFactory()->getEditable('tcsr.generic_microsite.settings')->delete();
+  Drupal::configFactory()->getEditable('tcsr.tateandlylefibres.settings')->delete();
+}
+
+/**
+ * Update the module configuration to the latest packaged with the module.
+ */
+function theme_content_structure_restrict_update_8002() {
   $path = dirname(__FILE__) . '/config/install';
   $config_to_update = [
     'theme_content_structure_restrict.dolciaprima.settings',

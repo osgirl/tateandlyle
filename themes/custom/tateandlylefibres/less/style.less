@@ -145,6 +145,8 @@ body,
 .st-container,
 .st-pusher,
 .st-content {
+  font-family: Arial,Helvetica,sans-serif;
+  line-height: 1.5;
   height: 100%;
 }
 
@@ -737,6 +739,7 @@ header.container {
       min-height: 0;
     }
     &:nth-of-type(3) {
+      background-position: right bottom;
       @media(min-width: @screen-md-min) {
         float:left;
       }  
@@ -1293,11 +1296,6 @@ aside {
   &.color-block {
     .paragraph--type--text {
        color:#fff;
-        p {
-          font-size: 13px;
-          line-height: 19.5px;
-          padding-top: 5px;
-        }
     }
     .paragraph--type--text:nth-child(1) {
       padding:12px 24px;
@@ -1348,7 +1346,6 @@ aside {
     .paragraph--type--text {
       h4 {
         color:@brown-dark;
-        font-family: "Univers LT W01_65 Bold",sans-serif;
       }
       p {
         font-size: 14.5px;
@@ -1385,10 +1382,12 @@ aside {
       font-size: 24px;
     }
     h4 {
+      font-family: "Univers LT W01_65 Bold",sans-serif;
       font-size: 16px;
       line-height: 24px;
       margin-bottom: 2.5%;
       margin-top: 0;
+      text-transform: uppercase;
     }
     img {
       float: left;
@@ -1414,6 +1413,19 @@ aside {
       }
     }
   }
+}
+
+:lang(en) {
+  aside.color-block .paragraph--type--text p {
+    font-size: 13px;
+    line-height: 19.5px;
+  }
+}
+
+aside.color-block .paragraph--type--text p {
+  font-size: 14.4px;
+  line-height: 21.6px;
+  padding-top: 5px;
 }
 
 .tout-image {
