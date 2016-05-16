@@ -22,6 +22,7 @@ class TLOPBlock extends BlockBase {
    * Provides block content.
    */
   public function build() {
+    $content = '';
     if (isset($_POST['field_identifier'])) {
       $content = "<ul>";
       foreach ($_POST['field_identifier'] as $id) {
