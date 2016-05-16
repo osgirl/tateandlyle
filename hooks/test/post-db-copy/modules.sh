@@ -42,6 +42,7 @@ drush fr --yes tl_authentication_stage $multisite
 # Make sure that all features are reverted
 drush fr --yes tl_content $multisite
 drush fr --yes tatelyle_search $multisite
+drush fr --yes tl_language_detection_and_selection_settings $multisite
 
 # Temporary change to help QA - ensure that the password for the service account is fixed.
 drush user-password svcCMSDrupal@tateandlyle.com --password="D9KUwqiQhswN4" $multisite
