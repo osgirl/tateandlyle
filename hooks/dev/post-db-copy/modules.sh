@@ -46,3 +46,5 @@ drush fr --yes tl_language_detection_and_selection_settings $multisite
 
 # Temporary change to help QA - ensure that the password for the service account is fixed.
 drush user-password svcCMSDrupal@tateandlyle.com --password="D9KUwqiQhswN4" $multisite
+
+drush cr
