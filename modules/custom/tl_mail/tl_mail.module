@@ -82,12 +82,16 @@ function mail_node_insert_approver($node) {
 function mail_node_update_author($node) {
   global $base_url;
 
+  $vids = \Drupal::entityManager()->getStorage('node')->revisionIds($node);
+  end($vids);
+  $old_revision = entity_revision_load('node', prev($vids));
+
   $mailmanager = \Drupal::service('plugin.manager.mail');
   $subject = \Drupal::config('tl_mail.settings')->get('update_author_subject');
   $message = \Drupal::config('tl_mail.settings')->get('update_author_message');
   $module = 'tl_mail';
   $key = 'node_update_author';
-  $to = $node->original->getRevisionAuthor()->getEmail();
+  $to = $old_revision->getRevisionAuthor()->getEmail();
 
   $params['site_name'] = \Drupal::configFactory()->getEditable('system.site')->get('name');
   $params['node_state'] = $node->get('moderation_state')->getValue()[0]['target_id'];
