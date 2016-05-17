@@ -45,3 +45,5 @@ permissions:
   36: 'use archived_published transition'
   37: 'use draft_archived transition'
   38: 'view latest version'
+  39 : use draft transition		
+  40 : use published_draft transition

@@ -17,6 +17,7 @@ projects:
       - "https://www.drupal.org/files/issues/missing-dependencies-2655104.patch"
       - "https://www.drupal.org/files/issues/drupal-views_exposed_filter_pager-2686429-2-8.0.x.patch"
       - "https://www.drupal.org/files/issues/content_language-2189267-13_1.patch"
+      - "https://www.drupal.org/files/issues/user_language-2726505-3.patch"
   # For all projects, always specify the exact version that is to be used.
   # For any project using a dev branch, always specify the revision id.
   acquia_connector:
