@@ -82,7 +82,9 @@ function mail_node_insert_approver($node) {
 function mail_node_update_author($node) {
   global $base_url;
 
-  $old_revision = entity_revision_load('node', $node->getRevisionId() - 1);
+  $vids = \Drupal::entityManager()->getStorage('node')->revisionIds($node);
+  end($vids);
+  $old_revision = entity_revision_load('node', prev($vids));
 
   $mailmanager = \Drupal::service('plugin.manager.mail');
   $subject = \Drupal::config('tl_mail.settings')->get('update_author_subject');
