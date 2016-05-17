@@ -267,7 +267,10 @@ $is_front = \Drupal::service('path.matcher')->isFrontPage();
  * Implements hook_theme_suggestions_HOOK_alter().
  */
 function generic_microsite_theme_suggestions_page_alter(array &$suggestions, array $variables) {
-  if ($node = \Drupal::routeMatch()->getParameter('node')) {
+  if ($vid = \Drupal::request()->attributes->get('node_revision')) {
+    $node = entity_revision_load('node', $vid);
+  }
+  else if ($node = Drupal::request()->attributes->get('node') && is_object($node)) {
     $content_type = $node->bundle();
     if ($content_type == 'form') {
       $id = $node->id();
@@ -286,7 +289,8 @@ function generic_microsite_theme_suggestions_page_alter(array &$suggestions, arr
  * Implements hook_theme_preprocess_page().
  */
 function generic_microsite_preprocess_page(&$variables) {
-  if (isset($variables['node'])) {
+
+  if (isset($variables['node']) && is_object($variables['node'])) {
     $node_type = $variables['node']->get('type')->getValue();
     if (($node_type[0]['target_id'] == 'page') || ($node_type[0]['target_id'] == 'form')) {
       $footer_image = $variables['node']->get('field_footer_image')->getValue();
