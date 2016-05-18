@@ -42,6 +42,8 @@ drush fr --yes tl_authentication_stage $multisite
 # Make sure that all features are reverted
 drush fr --yes tl_content $multisite
 drush fr --yes tatelyle_search $multisite
+drush fr --yes tl_general_permissions $multisite
+drush fr --yes tl_workflow $multisite
 drush en --yes tl_language_detection_and_selection_settings $multisite
 drush fr --yes tl_language_detection_and_selection_settings $multisite
 
