@@ -17,8 +17,6 @@ dependencies:
     - path
     - workbench_moderation
     - youtube
-_core:
-  default_config_hash: cCQCSjJ0lKVYpP0HOpxh2IRp-DCYYEVfwxnxfFk3MmU
 id: node.media_item.default
 targetEntityType: node
 bundle: media_item
