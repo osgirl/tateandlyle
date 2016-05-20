@@ -50,6 +50,11 @@ function tl_tweaks_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form
 
   if (($form['#form_id'] == 'node_form_form') || ($form['#form_id'] == 'node_form_edit_form') || ($form['#form_id'] == 'node_page_form') || ($form['#form_id'] == 'node_page_edit_form') || ($form['#form_id'] == 'node_media_item_form') || ($form['#form_id'] == 'node_media_item_edit_form')) {
 
+    $nid = $form_state->getFormObject()->getEntity()->id();
+    if (empty($nid)) {
+      $form['menu']['enabled']['#default_value'] = TRUE;
+    }
+
     // Show image text field only for touts.
     foreach ($form['field_intro_area']['widget'] as $key => $image_text) {
       if (is_numeric($key)) {

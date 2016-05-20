@@ -20,7 +20,7 @@
   {% if is_english %}
     <a class="logo navbar-btn pull-left" href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">
   {% else %}
-    <a class="logo navbar-btn pull-left" title="{{ 'Home'|t }}" rel="home">
+    <a class="logo navbar-btn pull-left" href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">
   {% endif %}
       <img src="{{ site_logo }}" alt="{{ 'Home'|t }}" />
     </a>
