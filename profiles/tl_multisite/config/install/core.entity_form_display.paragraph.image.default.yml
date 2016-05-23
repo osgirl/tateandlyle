@@ -11,8 +11,6 @@ dependencies:
     - imce
     - text
     - workbench_moderation
-_core:
-  default_config_hash: FGMRNVBdivA1-zT9VXNLzQVY0ziFQpJgV0a7CofwObI
 id: paragraph.image.default
 targetEntityType: paragraph
 bundle: image

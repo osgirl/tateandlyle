@@ -13,8 +13,6 @@ dependencies:
     - text
     - workbench_moderation
     - youtube
-_core:
-  default_config_hash: jbG8KMYjAiiecK_1f4AnFZXWDz4D5aVfBODXiE8HckQ
 id: paragraph.video.default
 targetEntityType: paragraph
 bundle: video
