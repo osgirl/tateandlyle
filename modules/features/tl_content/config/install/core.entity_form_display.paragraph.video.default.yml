@@ -9,6 +9,7 @@ dependencies:
     - paragraphs.paragraphs_type.video
   module:
     - image
+    - imce
     - text
     - workbench_moderation
     - youtube
@@ -22,7 +23,9 @@ content:
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
-    third_party_settings: {  }
+    third_party_settings:
+      imce:
+        enabled: true
     type: image_image
   field_video_text:
     weight: 3
