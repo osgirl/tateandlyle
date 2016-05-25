@@ -140,5 +140,5 @@ permissions:
   136: 'use archived_needs_review transition'
   137: 'use published_needs_review transition'
   138: 'view latest version'
-  139 : use draft transition		
-  140 : use published_draft transition
+  139: 'use draft transition'
+  140: 'use published_draft transition'
