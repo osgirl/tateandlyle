@@ -91,9 +91,7 @@ projects:
     download:
       type: git
       url: "http://git.drupal.org/project/paragraphs.git"
-      revision: "ea1ec00cb35e6ec65ccdd473db98fb3ed3537bf6"
-    patch:
-      - "https://www.drupal.org/files/issues/required_paragraphs_field_unable_to_edit-2556539-24.patch"
+      revision: "7c52c14d48e34812c2f55f6bc334f3402b19e07e"
   entity_reference_revisions:
     type: module
     version: "1.0-rc6"
