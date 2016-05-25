@@ -96,7 +96,7 @@ function tl_tweaks_update_8002() {
 /**
  * Restore the paragraph content for yourfoodsystems.
  */
-function tl_tweaks_update_8003() {
+function tl_tweaks_update_8004() {
 
   // This update is only relevant for yourfoodsystems, so test the
   // incoming URI for a match.
