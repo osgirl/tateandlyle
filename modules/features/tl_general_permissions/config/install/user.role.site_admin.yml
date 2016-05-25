@@ -142,3 +142,4 @@ permissions:
   138: 'view latest version'
   139: 'use draft transition'
   140: 'use published_draft transition'
+  141: 'use needs_review_draft transition'
