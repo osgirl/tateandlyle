@@ -51,6 +51,10 @@ dependencies:
   - tl_general_permissions
   - tl_language_detection_and_selection_settings
   - tl_mail
+  - tl_authentication_stage
+  - token_login
+  - simplesamlphp_auth
+  - tl_authentication
   - imce
   - token
   - pathauto
