@@ -31,7 +31,7 @@ drush pm-uninstall --yes tl_authentication_prod $multisite
 drush pm-uninstall --yes tl_prod_login $multisite
 
 # Enable the staging configuration and modules.
-#drush8 pm-enable --yes token_login $multisite
+drush pm-enable --yes token_login $multisite
 drush pm-enable --yes tl_authentication_stage $multisite
 
 drush updatedb --yes $multisite
