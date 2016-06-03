@@ -60,7 +60,7 @@ function generic_microsite_preprocess_html(&$variables) {
     if (!empty($node)) {
       $alias = str_replace("/", "-", substr($node->url(), 1));
     }
-  }generic_microsite_preprocess_html
+  }
   $variables['node_alias'] = $alias;
 
   // Define second color for vertical gradient.
