@@ -128,7 +128,10 @@ projects:
     version: "1.0-alpha2"
   pathauto:
     type: module
-    version: "1.x-dev"
+    download:
+      type: git
+      url: "https://git.drupal.org/project/pathauto.git"
+      revision: "c6da28cdd3a500db8b5ff0772dc0933f7cd7b544"
   bootstrap:
     type: theme
     version: "3.0-beta2"
