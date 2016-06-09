@@ -27,6 +27,7 @@ fi
 alias drush="php ~/drush.phar"
 
 # Disable staging only modules and configuration.
+drush pm-uninstall --yes token_login $multisite
 drush pm-uninstall --yes tl_authentication_stage $multisite
 
 # Enable production modules and configuration

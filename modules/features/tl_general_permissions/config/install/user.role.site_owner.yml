@@ -75,4 +75,5 @@ permissions:
   87: 'administer moderation states'
   88: 'use published_needs_review transition'
   89: 'view latest version'
-  90: 'use published_draft transitions'
+  90: 'use published_draft transition'
+  91: 'use needs_review_draft transition'

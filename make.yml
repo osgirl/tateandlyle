@@ -16,7 +16,7 @@ projects:
       - "https://www.drupal.org/files/issues/2631468-19.patch"
       - "https://www.drupal.org/files/issues/missing-dependencies-2655104.patch"
       - "https://www.drupal.org/files/issues/drupal-views_exposed_filter_pager-2686429-2-8.0.x.patch"
-      - "https://www.drupal.org/files/issues/content_language-2189267-13_1.patch"
+      - "https://www.drupal.org/files/issues/content_language-2189267-24.patch"
       - "https://www.drupal.org/files/issues/user_language-2726505-3.patch"
   # For all projects, always specify the exact version that is to be used.
   # For any project using a dev branch, always specify the revision id.
@@ -91,9 +91,7 @@ projects:
     download:
       type: git
       url: "http://git.drupal.org/project/paragraphs.git"
-      revision: "ea1ec00cb35e6ec65ccdd473db98fb3ed3537bf6"
-    patch:
-      - "https://www.drupal.org/files/issues/required_paragraphs_field_unable_to_edit-2556539-24.patch"
+      revision: "7c52c14d48e34812c2f55f6bc334f3402b19e07e"
   entity_reference_revisions:
     type: module
     version: "1.0-rc6"
@@ -130,7 +128,10 @@ projects:
     version: "1.0-alpha2"
   pathauto:
     type: module
-    version: "1.x-dev"
+    download:
+      type: git
+      url: "https://git.drupal.org/project/pathauto.git"
+      revision: "c6da28cdd3a500db8b5ff0772dc0933f7cd7b544"
   bootstrap:
     type: theme
     version: "3.0-beta2"
