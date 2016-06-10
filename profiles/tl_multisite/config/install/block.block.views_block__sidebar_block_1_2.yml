@@ -1,4 +1,4 @@
-langcode: en
+angcode: en
 status: true
 dependencies:
   config:
@@ -6,11 +6,11 @@ dependencies:
   module:
     - views
   theme:
-    - generic_microsite
-id: views_block__sidebar_block_1
-theme: generic_microsite
+    - dolciaprima
+id: views_block__sidebar_block_1_2
+theme: dolciaprima
 region: sidebar_second
-weight: -10
+weight: -8
 provider: null
 plugin: 'views_block:sidebar-block_1'
 settings:
@@ -21,3 +21,4 @@ settings:
   views_label: ''
   items_per_page: none
 visibility: {  }
+
