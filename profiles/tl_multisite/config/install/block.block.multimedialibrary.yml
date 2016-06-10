@@ -1,0 +1,30 @@
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:pre_content:468a48e2-f272-488a-8733-51a88818e3fe'
+  module:
+    - block_content
+    - system
+  theme:
+    - dolciaprima
+id: multimedialibrary
+theme: dolciaprima
+region: post_content
+weight: -8
+provider: null
+plugin: 'block_content:468a48e2-f272-488a-8733-51a88818e3fe'
+settings:
+  id: 'block_content:468a48e2-f272-488a-8733-51a88818e3fe'
+  label: 'Multimedia Library'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: /media-center
+    negate: false
+    context_mapping: {  }

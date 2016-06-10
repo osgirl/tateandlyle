@@ -268,6 +268,28 @@ function tl_multisite_create_nodes() {
   $node->save();
   $path = '/node/' . $node->id();
   \Drupal::service('path.alias_storage')->save($path, "/thank-you", "en");
+
+  $paragraph = Paragraph::create([
+    'type' => 'text',
+    'field_body' => 'Welcome to your new Tateandlyle Website.',
+  ]);
+  $paragraph->save();
+
+  $node = Node::create([
+    'type' => 'page',
+    'langcode' => 'en',
+    'created' => REQUEST_TIME,
+    'changed' => REQUEST_TIME,
+    'uid' => 1,
+    'title' => 'Frontpage',
+    'field_tags' => [2],
+    'field_main_content' => $paragraph,
+    'moderation_state' => 'published',
+  ]);
+  $node->save();
+  $path = '/node/' . $node->id();
+  \Drupal::service('path.alias_storage')->save($path, "/frontpage", "en");
+  \Drupal::configFactory()->getEditable('system.site')->set('page.front', $path)->save(TRUE);
 }
 
 /**

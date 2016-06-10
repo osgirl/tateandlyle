@@ -1,0 +1,50 @@
+button_option: stbc_large
+comments: 0
+late_load: 0
+location: block
+node_types:
+  page: page
+  form: null
+  media_item: null
+option_extras:
+  'Google Plus One:plusone': '0'
+  'Facebook Like:fblike': '0'
+option_neworzero: 0
+option_onhover: 1
+option_shorten: 1
+service_option: '"ShareThis:sharethis","Facebook:facebook","Twitter:twitter","LinkedIn:linkedin"'
+twitter_handle: ''
+twitter_recommends: ''
+twitter_suffix: ''
+webform_options: ''
+weight: 10
+widget_option: st_multi
+cns:
+  donotcopy: null
+  hashaddress: null
+sharethisnodes:
+  article:
+    full: full
+  page:
+    full: full
+    rss: '0'
+    search_index: '0'
+    search_result: '0'
+    teaser: '0'
+    token: '0'
+  form:
+    full: '0'
+    rss: '0'
+    search_index: '0'
+    search_result: '0'
+    teaser: '0'
+    token: '0'
+  media_item:
+    full: '0'
+    rss: '0'
+    search_index: '0'
+    search_result: '0'
+    teaser: '0'
+    token: '0'
+publisherID: dr-b4308920-905d-8ed3-bd7a-84ea9566307f
+callesi: '0'

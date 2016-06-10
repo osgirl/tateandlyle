@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - tl_dolciaprima_block
+  theme:
+    - dolciaprima
+id: tatelyledolciaprimacontactform
+theme: dolciaprima
+region: pre_header
+weight: null
+provider: null
+plugin: tl_dolciaprima_block
+settings:
+  id: tl_dolciaprima_block
+  label: 'Tate & Lyle Dolciaprima Contact Form'
+  provider: tl_dolciaprima_block
+  label_display: '0'
+visibility: {  }

@@ -1,0 +1,24 @@
+angcode: en
+status: true
+dependencies:
+  config:
+    - views.view.sidebar
+  module:
+    - views
+  theme:
+    - dolciaprima
+id: views_block__sidebar_block_1_2
+theme: dolciaprima
+region: sidebar_second
+weight: -8
+provider: null
+plugin: 'views_block:sidebar-block_1'
+settings:
+  id: 'views_block:sidebar-block_1'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+visibility: {  }
+
