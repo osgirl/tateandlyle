@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - sharethis
+  theme:
+    - dolciaprima
+id: sharethis
+theme: dolciaprima
+region: footer
+weight: -8
+provider: null
+plugin: sharethis_block
+settings:
+  id: sharethis_block
+  label: 'Share this page'
+  provider: sharethis
+  label_display: visible
+visibility: {  }

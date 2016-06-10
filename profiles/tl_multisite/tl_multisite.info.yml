@@ -88,6 +88,9 @@ dependencies:
   - diff
   - better_exposed_filters
   - tl_options_preview_block
+  - sharethis
 themes:
+  - dolciaprima
+  - tateandlylefibres
   - generic_microsite
   - seven
