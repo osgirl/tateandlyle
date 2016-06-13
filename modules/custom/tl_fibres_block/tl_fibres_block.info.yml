@@ -1,0 +1,5 @@
+name: "T&L Fibres Blocks"
+description: "Provides the Tate&Lyle Custom Blocks for the TLFibres theme"
+core: 8.x
+package: Custom
+type: module

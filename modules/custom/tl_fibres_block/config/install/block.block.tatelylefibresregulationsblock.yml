@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - tl_fibres_block
+  theme:
+    - tateandlylefibres
+id: tatelylefibresregulationsblock
+theme: tateandlylefibres
+region: footer
+weight: -3
+provider: null
+plugin: regulationallrightsblock
+settings:
+  id: regulationallrightsblock
+  label: 'Tate & Lyle Fibres Regulations block'
+  provider: tl_fibres_block
+  label_display: '0'
+visibility: {  }
