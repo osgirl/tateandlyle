@@ -318,7 +318,7 @@ function tateandlylefibres_preprocess_block(&$variables) {
     }
   }
   if ($variables['base_plugin_id'] == 'language_block') {
-    $variables['label'] = t('Pick your language');
+    //$variables['label'] = t('Pick your language');
     $languages = \Drupal::languageManager();
     $default_language = $languages->getDefaultLanguage();
     $current_language = $languages->getCurrentLanguage($type = 'language_content');
