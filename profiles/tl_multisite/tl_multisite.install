@@ -10,6 +10,7 @@ use Drupal\taxonomy\Entity\Term;
 use Drupal\node\Entity\Node;
 use Drupal\shortcut\Entity\Shortcut;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\menu_link_content\Entity\MenuLinkContent;
 
 /**
  * Implements hook_install_tasks().
@@ -76,6 +77,20 @@ function tl_multisite_install() {
   tl_multisite_set_timezone();
 
   \Drupal::service('entity.definition_update_manager')->applyUpdates();
+
+  MenuLinkContent::create([
+    'title'      => 'Contact',
+    'link'       => ['uri' => 'internal:/'],
+    'menu_name'  => 'main',
+  ])->save();
+
+  MenuLinkContent::create([
+    'title'      => 'Home',
+    'link'       => ['uri' => 'internal:/'],
+    'menu_name'  => 'main',
+  ])->save();
+
+  \Drupal::service('module_installer')->install(['tl_fibres_block']);
 }
 
 /**
