@@ -10,6 +10,7 @@ use Drupal\taxonomy\Entity\Term;
 use Drupal\node\Entity\Node;
 use Drupal\shortcut\Entity\Shortcut;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\menu_link_content\Entity\MenuLinkContent;
 
 /**
  * Implements hook_install_tasks().
