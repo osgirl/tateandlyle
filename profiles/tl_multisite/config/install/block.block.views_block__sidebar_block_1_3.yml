@@ -1,0 +1,23 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.sidebar
+  module:
+    - views
+  theme:
+    - tateandlylefibres
+id: views_block__sidebar_block_1_3
+theme: tateandlylefibres
+region: sidebar_second
+weight: -6
+provider: null
+plugin: 'views_block:sidebar-block_1'
+settings:
+  id: 'views_block:sidebar-block_1'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+visibility: {  }

@@ -1,0 +1,17 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - language
+id: languageswitchercontent_2
+theme: tateandlylefibres
+region: footer
+weight: -5
+provider: null
+plugin: 'language_block:language_content'
+settings:
+  id: 'language_block:language_content'
+  label: 'Language switcher (Content)'
+  provider: language
+  label_display: '0'
+visibility: {  }
