@@ -276,7 +276,7 @@ function tateandlylefibres_preprocess_paragraph(&$variables) {
 }
 
 function tateandlylefibres_preprocess_menu(&$variables) {
-  if($variables['menu_name'] == 'main' || $variables['menu_name'] == 'main-navigation-es' || $variables['menu_name'] == 'main-navigation-pt' || $variables['menu_name'] == 'main-navigation-cn') {
+  if(($variables['menu_name'] == 'main') !== null || ($variables['menu_name'] == 'main-navigation-es') !== null || ($variables['menu_name'] == 'main-navigation-pt') !== null || ($variables['menu_name'] == 'main-navigation-cn') !== null) {
     $variables['attributes']['class'] = 'navbar-nav'; 
     foreach ($variables['items'] as $key => $item) {
       if ($item['in_active_trail'] == TRUE) {
