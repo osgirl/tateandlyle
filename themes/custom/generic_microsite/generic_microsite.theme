@@ -273,7 +273,8 @@ function generic_microsite_theme_suggestions_page_alter(array &$suggestions, arr
   if ($vid = \Drupal::request()->attributes->get('node_revision')) {
     $node = entity_revision_load('node', $vid);
   }
-  else if ($node = Drupal::request()->attributes->get('node') && is_object($node)) {
+  //else if ($node = Drupal::request()->attributes->get('node') && is_object($node)) {
+  else if ($node = Drupal::request()->attributes->get('node')) {
     $content_type = $node->bundle();
     if ($content_type == 'form') {
       $id = $node->id();

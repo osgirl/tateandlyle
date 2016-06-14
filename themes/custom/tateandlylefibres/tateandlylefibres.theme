@@ -30,33 +30,45 @@ function tateandlylefibres_preprocess_page(&$variables) {
 
   if ($variables['node'] && $variables['node']->getType() == 'page') {
     // Header backgroud image
-    $background_image = $variables['node']->get('field_background_image')->getValue();
-    if ($background_image[0]) {
-      $background_image_id = $background_image[0]['target_id'];
-      $file = File::load($background_image_id);
-      $variables['background_image'] = 'background-image:url("'.ImageStyle::load('original')->buildUrl($file->getFileUri()).'")';
+    if($variables['node']->get('field_background_image')->isEmpty() == FALSE) {
+      $background_image = $variables['node']->get('field_background_image')->getValue();
+      if ($background_image[0]) {
+        $background_image_id = $background_image[0]['target_id'];
+        $file = File::load($background_image_id);
+        $variables['background_image'] = 'background-image:url("'.ImageStyle::load('original')->buildUrl($file->getFileUri()).'")';
+      }
     }
 
     // Subtitle
-    $subtitle = $variables['node']->get('field_subtitle')->getValue();
-    $variables['subtitle'] = $subtitle[0]['value'];
+    if($variables['node']->get('field_subtitle')->isEmpty() == FALSE) {
+      $subtitle = $variables['node']->get('field_subtitle')->getValue();
+      $variables['subtitle'] = $subtitle[0]['value'];
+    }
 
     // Title image
-    $title_image = $variables['node']->get('field_title_image')->getValue();
-    if ($title_image[0]) {
-      $title_image_id = $title_image[0]['target_id'];
-      $title_image_alt = $title_image[0]['alt'];
-      $file_title_image = $file = File::load($title_image_id);
-      $variables['title_image'] = ImageStyle::load('original')->buildUrl($file_title_image->getFileUri());
-      $variables['title_image_alt'] = $title_image_alt;
+    if($variables['node']->get('field_title_image')->isEmpty() == FALSE) {
+      $title_image = $variables['node']->get('field_title_image')->getValue();
+      if ($title_image[0]) {
+        $title_image_id = $title_image[0]['target_id'];
+        $title_image_alt = $title_image[0]['alt'];
+        $file_title_image = $file = File::load($title_image_id);
+        $variables['title_image'] = ImageStyle::load('original')->buildUrl($file_title_image->getFileUri());
+        $variables['title_image_alt'] = $title_image_alt;
+      }
     }
     // Check if page has sidebar
     if($variables['node']->get('field_sidebar')->getValue()) {
       $variables['is_sidebar'] = TRUE;
     }
-    if($variables['node']->get('field_sidebar_color')->getValue()[0]['value'] == 0) {
-      $variables['sidebar_color'] = 'color-block';
-    } else {
+	if($variables['node']->get('field_sidebar_color')->isEmpty() == FALSE) {
+      if($variables['node']->get('field_sidebar_color')->getValue()[0]['value'] == 0) {
+        $variables['sidebar_color'] = 'color-block';
+      } 
+      else {
+        $variables['sidebar_color'] = 'no-color-block';
+      }
+    }
+    else {
       $variables['sidebar_color'] = 'no-color-block';
     }
   }

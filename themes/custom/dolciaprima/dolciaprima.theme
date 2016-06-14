@@ -27,18 +27,20 @@ function dolciaprima_preprocess_page(&$variables) {
 
   /* Set template style variable */
   if (isset($variables['node']) && $variables['node']->getType() == 'page') {
-    $field_template = $variables['node']->get('field_template')->getValue();
-    if (isset($field_template[0])) {
-      $field_template_value = $field_template[0]['value'];
-    }  
-    if ($field_template_value == 0) {
-      $variables['template_style'] = 'container-fluid';
-      $variables['not_title'] = 'not';
+    if($variables['node']->get('field_template')->isEmpty() == FALSE) {
+      $field_template = $variables['node']->get('field_template')->getValue();
+      if (isset($field_template[0])) {
+        $field_template_value = $field_template[0]['value'];
+      }  
+      if ($field_template_value == 0) {
+        $variables['template_style'] = 'container-fluid';
+        $variables['not_title'] = 'not';
+      } else {
+        $variables['template_style'] = 'container';
+      }
     } else {
-      $variables['template_style'] = 'container';
-    }
-  } else {
-    $variables['template_style'] = 'container';
+        $variables['template_style'] = 'container';
+      }
   }
 
   /* Set variable with which will be used as class for special customizations */
