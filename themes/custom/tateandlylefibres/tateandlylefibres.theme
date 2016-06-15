@@ -82,7 +82,9 @@ function tateandlylefibres_preprocess_page(&$variables) {
   if ($variables['node'] && $variables['node']->getType() == 'form') { 
     $variables['is_form'] = 'is-form';
     $subtitle = $variables['node']->get('field_subtitle')->getValue();
-    $variables['subtitle'] = $subtitle[0]['value'];
+    if (isset($subtitle[0]['value'])) {
+      $variables['subtitle'] = $subtitle[0]['value'];
+    }
   }
 }
 

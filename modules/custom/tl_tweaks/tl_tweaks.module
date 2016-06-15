@@ -56,29 +56,37 @@ function tl_tweaks_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form
     }
 
     // Show image text field only for touts.
-    foreach ($form['field_intro_area']['widget'] as $key => $image_text) {
-      if (is_numeric($key)) {
-        unset($form['field_intro_area']['widget'][$key]['subform']['field_image_text']);
+    if (isset($form['field_intro_area'])) {
+      foreach ($form['field_intro_area']['widget'] as $key => $image_text) {
+        if (is_numeric($key)) {
+          unset($form['field_intro_area']['widget'][$key]['subform']['field_image_text']);
+        }
       }
     }
-    foreach ($form['field_main_content']['widget'] as $key => $image_text) {
-      if (is_numeric($key)) {
-        unset($form['field_main_content']['widget'][$key]['subform']['field_image_text']);
+    if (isset($form['field_main_content'])) {
+      foreach ($form['field_main_content']['widget'] as $key => $image_text) {
+        if (is_numeric($key)) {
+          unset($form['field_main_content']['widget'][$key]['subform']['field_image_text']);
+        }
       }
     }
 
     // Make slide type default content if it's in main content.
-    foreach ($form['field_main_content']['widget'] as $key => $slide) {
-      if (is_numeric($key)) {
-        $form['field_main_content']['widget'][$key]['subform']['field_slide_type']['widget']['#default_value'] = 0;
-        unset($form['field_main_content']['widget'][$key]['subform']['field_slide_type']['widget']['#options'][1]);
+    if (isset($form['field_main_content'])) {
+      foreach ($form['field_main_content']['widget'] as $key => $slide) {
+        if (is_numeric($key)) {
+          $form['field_main_content']['widget'][$key]['subform']['field_slide_type']['widget']['#default_value'] = 0;
+          unset($form['field_main_content']['widget'][$key]['subform']['field_slide_type']['widget']['#options'][1]);
+        }
       }
     }
     // Make slide type default content if it's in sidebar.
-    foreach ($form['field_sidebar']['widget'] as $key => $slide) {
-      if (is_numeric($key)) {
-        $form['field_sidebar']['widget'][$key]['subform']['field_slide_type']['widget']['#default_value'] = 1;
-        unset($form['field_sidebar']['widget'][$key]['subform']['field_slide_type']['widget']['#options'][0]);
+    if (isset($form['field_sidebar'])) {
+      foreach ($form['field_sidebar']['widget'] as $key => $slide) {
+        if (is_numeric($key)) {
+          $form['field_sidebar']['widget'][$key]['subform']['field_slide_type']['widget']['#default_value'] = 1;
+          unset($form['field_sidebar']['widget'][$key]['subform']['field_slide_type']['widget']['#options'][0]);
+        }
       }
     }
   }
@@ -107,10 +115,10 @@ function tl_tweaks_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form
     }
     if (isset($form['field_sidebar'])) {
       $form['field_sidebar']['widget']['add_more']['#access'] = TRUE;
-    }
-    foreach ($form['field_sidebar']['widget'] as $key => $item) {
-      if (is_numeric($key)) {
-        $form['field_sidebar']['widget'][$key]['subform']['field_popup']['widget']['add_more']['#access'] = TRUE;
+      foreach ($form['field_sidebar']['widget'] as $key => $item) {
+        if (is_numeric($key)) {
+          $form['field_sidebar']['widget'][$key]['subform']['field_popup']['widget']['add_more']['#access'] = TRUE;
+        }
       }
     }
     foreach ($form['field_main_content']['widget'] as $key => $item) {
@@ -118,9 +126,11 @@ function tl_tweaks_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form
         $form['field_main_content']['widget'][$key]['subform']['field_contact']['widget']['add_more']['#access'] = TRUE;
       }
     }
-    foreach ($form['field_touts']['widget'] as $key => $item) {
-      if (is_numeric($key)) {
-        $form['field_touts']['widget'][$key]['subform']['field_popup']['widget']['add_more']['#access'] = TRUE;
+    if (isset($form['field_touts'])) {
+      foreach ($form['field_touts']['widget'] as $key => $item) {
+        if (is_numeric($key)) {
+          $form['field_touts']['widget'][$key]['subform']['field_popup']['widget']['add_more']['#access'] = TRUE;
+        }
       }
     }
   }
