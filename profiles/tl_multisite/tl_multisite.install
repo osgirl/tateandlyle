@@ -79,15 +79,17 @@ function tl_multisite_install() {
   \Drupal::service('entity.definition_update_manager')->applyUpdates();
 
   MenuLinkContent::create([
-    'title'      => 'Contact',
-    'link'       => ['uri' => 'internal:/'],
-    'menu_name'  => 'main',
-  ])->save();
-
-  MenuLinkContent::create([
     'title'      => 'Home',
     'link'       => ['uri' => 'internal:/'],
     'menu_name'  => 'main',
+    'weight'     => '-1',
+  ])->save();
+
+  MenuLinkContent::create([
+    'title'      => 'Contact',
+    'link'       => ['uri' => 'internal:/'],
+    'menu_name'  => 'main',
+    'weight'     => '1',
   ])->save();
 
   \Drupal::service('module_installer')->install(['tl_fibres_block']);

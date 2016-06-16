@@ -35,7 +35,7 @@ class TLOPBlock extends BlockBase {
       '#theme' => 'tl_options_preview_block',
       '#title' => [],
       '#content' => $content,
-      '#tab' => Html::escape($_GET['tab']),
+      '#tab' => empty($_GET['tab']) ? '' : Html::escape($_GET['tab']),
       '#attributes' => [],
     ];
   }

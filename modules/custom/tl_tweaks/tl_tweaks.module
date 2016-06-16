@@ -157,7 +157,9 @@ function tl_tweaks_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form
       if ($form['#form_id'] == $form_id) {
         if (isset($form['field_form_entity_id'])) {
           $form_node_id = \Drupal::routeMatch()->getRawParameter('node');
-          $form_node = node_load($form_node_id);
+          if (isset($form_node_id)) {
+            $form_node = node_load($form_node_id);
+          }
           $form['field_form_entity_id']['widget']['0']['target_id']['#default_value'] = $form_node;
           $form['field_form_entity_id']['#attributes']['class'][] = 'hidden';
         }
