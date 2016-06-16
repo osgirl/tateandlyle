@@ -59,9 +59,9 @@ function generic_microsite_preprocess_html(&$variables) {
 
     if (!empty($node)) {
       $alias = str_replace("/", "-", substr($node->url(), 1));
+      $variables['node_alias'] = $alias;	  
     }
   }
-  $variables['node_alias'] = $alias;
 
   // Define second color for vertical gradient.
   $variables['bg_value2'] = theme_get_setting('bg_value2', 'generic_microsite');
@@ -348,7 +348,9 @@ function generic_microsite_preprocess_paragraph(&$variables) {
       foreach ($tags as $tag) {
         $hrefs[] =  $tag->getAttribute('href');
       }
-      $variables['image_link'] = $hrefs[0];
+      if (isset($hrefs[0])) {
+        $variables['image_link'] = $hrefs[0];
+      }
     }
   }
   if ($variables['paragraph']->getType() == 'video') {

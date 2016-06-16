@@ -122,7 +122,7 @@ function dolciaprima_preprocess_paragraph(&$variables) {
   
   if ($variables['paragraph']->getType() == 'tout') {
     $node = \Drupal::routeMatch()->getParameter('node');
-    if ($node->get('field_template')->getValue()[0] && $node->get('field_template')->getValue()[0]['value'] =='0') {
+    if ($node->get('field_template')->getValue() && $node->get('field_template')->getValue()[0]['value'] =='0') {
       $variables['template_full_width'] = TRUE;
     }
     else {
@@ -240,12 +240,14 @@ function dolciaprima_preprocess_field(&$variables) {
   }
 
   //Close button special touts front page.
- if (($variables['field_name'] == 'field_text') && ($variables['entity_type'] == 'paragraph')) {
-  $paragraph = $variables['element']['#object']->toArray();
-  if (($paragraph['field_tout_size'][0]['value'] == '2') && (isset($paragraph['field_tout_background_image'][0]))) {
-    $variables['items'][0]['content']['#text'] = '<a class="btn-close"></a>'.$variables['items'][0]['content']['#text'];
+  if (($variables['field_name'] == 'field_text') && ($variables['entity_type'] == 'paragraph')) {
+    $paragraph = $variables['element']['#object']->toArray();
+    if (!empty($paragraph['field_tout_background_image'])) {
+      if ($paragraph['field_tout_size'][0]['value'] == '2') {
+        $variables['items'][0]['content']['#text'] = '<a class="btn-close"></a>'.$variables['items'][0]['content']['#text'];
+      }
+    }
   }
- }
 
   if($variables['field_name'] == 'field_video_text') {
     $video = $variables['element']['#object']->get('field_video_url')->getValue();
