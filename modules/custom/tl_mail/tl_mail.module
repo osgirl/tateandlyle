@@ -110,7 +110,7 @@ function mail_node_update_author($node) {
 
   if (($node->get('moderation_state')->getValue()[0]['target_id'] == 'published')) {
     $params['message'] = str_replace("[publish_state]", 'The website page edits are now live. You can see them here: ' . $params['node_url'], $params['message']);
-    if ($node->get('revision_log')->getValue()[0]['value'] != NULL) {
+    if ($node->get('revision_log')->getValue() != NULL) {
       $params['message'] = str_replace("[node_state_message]", "<p>" . $node->get('revision_log')->getValue()[0]['value'] . "</p>", $params['message']);
     }
     else {
@@ -169,7 +169,7 @@ function mail_node_update_approvers($node) {
 
   if (($node->get('moderation_state')->getValue()[0]['target_id'] == 'published')) {
     $params['message'] = str_replace("[publish_state]", 'The website page edits are now live. You can see them here: ' . $params['node_url'], $params['message']);
-    if ($node->get('revision_log')->getValue()[0]['value'] != NULL) {
+    if ($node->get('revision_log')->getValue() != NULL) {
       $params['message'] = str_replace("[node_state_message]", "<p>" . $node->get('revision_log')->getValue()[0]['value'] . "</p>", $params['message']);
     }
     else {
