@@ -88,6 +88,7 @@ dependencies:
   - better_exposed_filters
   - tl_options_preview_block
   - sharethis
+  - tl_messages
 themes:
   - dolciaprima
   - tateandlylefibres

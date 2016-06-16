@@ -50,6 +50,22 @@ function tl_tweaks_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form
 
   if (($form['#form_id'] == 'node_form_form') || ($form['#form_id'] == 'node_form_edit_form') || ($form['#form_id'] == 'node_page_form') || ($form['#form_id'] == 'node_page_edit_form') || ($form['#form_id'] == 'node_media_item_form') || ($form['#form_id'] == 'node_media_item_edit_form')) {
 
+    $config = \Drupal::config('system.theme');
+    $default_theme = $config->get('default');
+    if ($default_theme == 'dolciaprima') {
+      unset($form['field_footer_image']);
+      unset($form['field_title_image']);
+      unset($form['field_background_image']);
+    }
+    if ($default_theme == 'tateandlylefibres') {
+      unset($form['field_footer_image']);
+    }
+    if ($default_theme == 'generic_microsite') {
+      unset($form['field_title_image']);
+      unset($form['field_background_image']);
+      unset($form['field_tout_background_image']);
+    }
+
     $nid = $form_state->getFormObject()->getEntity()->id();
     if (empty($nid)) {
       $form['menu']['enabled']['#default_value'] = TRUE;

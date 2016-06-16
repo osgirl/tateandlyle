@@ -28,7 +28,7 @@ function tateandlylefibres_preprocess_page(&$variables) {
     $variables['bg_value'] = 'background-color: #ffffff;';
   }
 
-  if ($variables['node'] && $variables['node']->getType() == 'page') {
+  if (isset($variables['node']) && $variables['node']->getType() == 'page') {
     // Header backgroud image
     if($variables['node']->get('field_background_image')->isEmpty() == FALSE) {
       $background_image = $variables['node']->get('field_background_image')->getValue();
@@ -73,13 +73,13 @@ function tateandlylefibres_preprocess_page(&$variables) {
     }
   }
    // Title class
-  if($variables['node']) {
+  if(isset($variables['node'])) {
     $node_fields = $variables['node']->toArray();
     $node_title = $node_fields['title'][0]['value'];
     $node_title = preg_replace('/[^A-Za-z0-9\-]/', ' ', $node_title);
     $variables['title_name'] = strtolower(str_replace(" ", "-", $node_title));
   }
-  if ($variables['node'] && $variables['node']->getType() == 'form') { 
+  if (isset($variables['node']) && $variables['node']->getType() == 'form') { 
     $variables['is_form'] = 'is-form';
     $subtitle = $variables['node']->get('field_subtitle')->getValue();
     if (isset($subtitle[0]['value'])) {
