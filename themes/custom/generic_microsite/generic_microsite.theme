@@ -339,7 +339,7 @@ function generic_microsite_preprocess_paragraph(&$variables) {
       $variables['has_bg_color'] = TRUE;
     }
 
-    if ($variables['content']['field_text'][0]) {
+    if (isset($variables['content']['field_text'][0]['#text'])) {
       $html = $variables['content']['field_text'][0]['#text'];
       $hrefs = array();
       $dom = new DOMDocument();

@@ -63,7 +63,27 @@ function tl_tweaks_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form
     if ($default_theme == 'generic_microsite') {
       unset($form['field_title_image']);
       unset($form['field_background_image']);
-      unset($form['field_tout_background_image']);
+      if (isset($form['field_touts'])) {
+        foreach ($form['field_touts']['widget'] as $key => $tout_image) {
+          if (is_numeric($key)) {
+            unset($form['field_touts']['widget'][$key]['subform']['field_tout_background_image']);
+          }
+        }
+      }
+      if (isset($form['field_content_reference'])) {
+        foreach ($form['field_content_reference']['widget'] as $key => $tout_image) {
+          if (is_numeric($key)) {
+            unset($form['field_content_reference']['widget'][$key]['subform']['field_tout_background_image']);
+          }
+        }
+      }
+      if (isset($form['field_sidebar'])) {
+        foreach ($form['field_sidebar']['widget'] as $key => $tout_image) {
+          if (is_numeric($key)) {
+            unset($form['field_sidebar']['widget'][$key]['subform']['field_tout_background_image']);
+          }
+        }
+      }
     }
 
     $nid = $form_state->getFormObject()->getEntity()->id();
