@@ -7,7 +7,7 @@ dependencies:
     - content_translation
 third_party_settings:
   content_translation:
-    enabled: false
+    enabled: true
 id: paragraph.tout
 target_entity_type_id: paragraph
 target_bundle: tout
