@@ -149,6 +149,9 @@ function tl_tweaks_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form
     if (isset($form['field_touts'])) {
       $form['field_touts']['widget']['add_more']['#access'] = TRUE;
     }
+    if (isset($form['field_content_reference'])) {
+      $form['field_content_reference']['widget']['add_more']['#access'] = TRUE;
+    }
     if (isset($form['field_sidebar'])) {
       $form['field_sidebar']['widget']['add_more']['#access'] = TRUE;
       foreach ($form['field_sidebar']['widget'] as $key => $item) {
