@@ -116,15 +116,15 @@
           <div class="header-container" style="{{ background_image }}">
             <header class="container">
               {% if title_image %}
-               <div class="title-image">
-                  <img alt="{{ title_image_alt }}" src="{{ title_image }}" />                
-                </div>
+              <div class="title-image">
+              <img alt="{{ title_image_alt }}" src="{{ title_image }}" />
+                </div>
               {% else %} 
-                 {{ page.header }} 
-              {% endif %}
-              <div class="subtitle">
-                {{ subtitle }}
-              </div>
+                {{ page.header }} 
+              {% endif %}
+                <div class="subtitle">
+                  {{ subtitle|raw }}
+                </div>
             </header>
           </div>
           {# Content #}
