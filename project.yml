@@ -1,7 +1,7 @@
 project:
-    machine_name: blted8
+    machine_name: tatelyle
     prefix: BLT
-    human_name: 'BLTed 8'
+    human_name: 'Tate and Lyle'
     profile:
         name: lightning
     local:
