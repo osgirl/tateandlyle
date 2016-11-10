@@ -13,13 +13,15 @@
         "drupal/cog": "^8.1.0",
         "drupal/console": "1.0.0-beta5",
         "drupal/core": "~8",
-        "drupal/features": "^8.3.0-beta9",
-        "drupal/lightning": "8.1.x-dev",
+        "drupal/features": "^8.3.0",
+        "drupal/lightning": "^8.1.12",
         "drupal/memcache": "^8.2.0-alpha2",
         "drupal/search_api": "8.1.0-alpha14",
         "drupal/search_api_solr": "8.1.0-alpha3",
         "drupal/security_review": "8.*",
-        "drupal-composer/drupal-security-advisories": "8.0.x-dev"
+        "drupal-composer/drupal-security-advisories": "8.0.x-dev",
+        "drupal/seckit": "^8.1.0-alpha2",
+        "drush/drush": "^9.0"
     },
     "require-dev": {
         "behat/behat": "^3.1",
@@ -32,7 +34,8 @@
         "jarnaiz/behat-junit-formatter": "^1.3.2",
         "phpunit/phpunit": "^5.4",
         "se/selenium-server-standalone": "^2.53",
-        "squizlabs/php_codesniffer": "^2.7"
+        "squizlabs/php_codesniffer": "^2.7",
+        "drupal/devel": "^8.1.0-alpha1"
     },
     "scripts": {
         "post-create-project-cmd": [
@@ -46,7 +49,8 @@
             "rm -rf vendor composer.lock",
             "@composer clearcache",
             "@composer install"
-        ]
+        ],
+        "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold"
     },
     "repositories": [
         {
@@ -87,6 +91,13 @@
             "drupal/features": {
                 "Bundle support": "https://www.drupal.org/files/issues/features-2808303-2.patch"
             }
-        }
+        },
+        "drupal-scaffold": {
+            "initial": {
+                "sites/default/default.services.yml": "sites/default/services.yml",
+                "sites/default/default.settings.php": "sites/default/settings.php"
+            }
+        },
+        "enable-patching": true
     }
 }
