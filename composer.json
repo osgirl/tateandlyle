@@ -21,7 +21,8 @@
         "drupal/security_review": "8.*",
         "drupal-composer/drupal-security-advisories": "8.0.x-dev",
         "drupal/seckit": "^8.1.0-alpha2",
-        "drush/drush": "^9.0"
+        "drush/drush": "^9.0",
+        "drupal/admin_toolbar": "^8.1"
     },
     "require-dev": {
         "behat/behat": "^3.1",
