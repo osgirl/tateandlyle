@@ -182,7 +182,6 @@ $aliases['tal.local'] = array(
  'path-aliases' => array(
 
    '%dump-dir' => '/tmp',
-
  ),
 
 );

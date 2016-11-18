@@ -87,9 +87,6 @@
         "patches": {
             "drupal/core": {
                 "Ignore front end vendor folders to improve directory search performance": "https://www.drupal.org/files/issues/ignore_front_end_vendor-2329453-116.patch"
-            },
-            "drupal/features": {
-                "Bundle support": "https://www.drupal.org/files/issues/features-2808303-2.patch"
             }
         },
         "drupal-scaffold": {
