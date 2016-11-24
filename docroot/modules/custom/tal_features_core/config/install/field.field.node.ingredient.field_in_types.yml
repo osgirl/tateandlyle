@@ -1,0 +1,27 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_in_types
+    - node.type.ingredient
+    - taxonomy.vocabulary.types_of_ingredients
+id: node.ingredient.field_in_types
+field_name: field_in_types
+entity_type: node
+bundle: ingredient
+label: 'Types of Ingredients'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      types_of_ingredients: types_of_ingredients
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
