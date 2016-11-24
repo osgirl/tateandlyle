@@ -1,0 +1,19 @@
+name: 'TAL Core Feature'
+description: 'Provides Ingredient content type and related configuration. Use ingredient to create your static ingredient contents.'
+type: module
+core: 8.x
+dependencies:
+  - country
+  - entity_reference_revisions
+  - field
+  - lightning_core
+  - menu_ui
+  - node
+  - options
+  - paragraphs
+  - path
+  - taxonomy
+  - text
+  - user
+  - workbench_moderation
+package: TAL

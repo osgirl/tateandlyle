@@ -1,0 +1,30 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.ingredient_accordion_items.field_in_accordion_body
+    - field.field.paragraph.ingredient_accordion_items.field_in_accordion_header
+    - paragraphs.paragraphs_type.ingredient_accordion_items
+  module:
+    - text
+id: paragraph.ingredient_accordion_items.default
+targetEntityType: paragraph
+bundle: ingredient_accordion_items
+mode: default
+content:
+  field_in_accordion_body:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+  field_in_accordion_header:
+    weight: 0
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+hidden:
+  created: true
+  uid: true

@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_in_accordion_header
+    - paragraphs.paragraphs_type.ingredient_accordion_items
+id: paragraph.ingredient_accordion_items.field_in_accordion_header
+field_name: field_in_accordion_header
+entity_type: paragraph
+bundle: ingredient_accordion_items
+label: Header
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
