@@ -1,5 +1,0 @@
-langcode: en
-status: true
-dependencies: {  }
-id: wysiwyg_with_block_reference
-label: 'WYSIWYG with block reference'
