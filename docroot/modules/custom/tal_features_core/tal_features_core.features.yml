@@ -1,6 +1,2 @@
 bundle: tal
-excluded:
-  - user.role.ingredient_creator
-  - user.role.ingredient_reviewer
-  - user.role.ingredient_owner
 required: true
