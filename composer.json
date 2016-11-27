@@ -38,7 +38,9 @@
         "phpunit/phpunit": "^5.4",
         "se/selenium-server-standalone": "^2.53",
         "squizlabs/php_codesniffer": "^2.7",
-        "drupal/devel": "^8.1.0-alpha1"
+        "drupal/devel": "^8.1.0-alpha1",
+        "drupal/field_group": "8.1.0-rc4",
+        "drupal/bootstrap": "^8.3.0"
     },
     "scripts": {
         "post-create-project-cmd": [
