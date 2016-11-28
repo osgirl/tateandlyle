@@ -24,7 +24,8 @@
         "drush/drush": "^9.0",
         "drupal/admin_toolbar": "^8.1",
         "drupal/paragraphs": "^8.1",
-        "drupal/field_group": "8.1.0-rc4"
+        "drupal/field_group": "8.1.0-rc4",
+        "drupal/config_rewrite": "^8.1@beta"
     },
     "require-dev": {
         "behat/behat": "^3.1",
