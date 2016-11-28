@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_in_country
+    - paragraphs.paragraphs_type.wysiwyg_with_country_and_region
+  module:
+    - country
+id: paragraph.wysiwyg_with_country_and_region.field_in_country
+field_name: field_in_country
+entity_type: paragraph
+bundle: wysiwyg_with_country_and_region
+label: 'Add country'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  selectable_countries: {  }
+field_type: country

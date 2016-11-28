@@ -1,0 +1,54 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ingredients_content
+    - node.type.ingredient
+    - paragraphs.paragraphs_type.block_reference
+    - paragraphs.paragraphs_type.downloads
+    - paragraphs.paragraphs_type.ingredient_accordion
+    - paragraphs.paragraphs_type.wysiwyg
+    - paragraphs.paragraphs_type.wysiwyg_with_block_reference
+    - paragraphs.paragraphs_type.wysiwyg_with_country_and_region
+  module:
+    - entity_reference_revisions
+id: node.ingredient.field_ingredients_content
+field_name: field_ingredients_content
+entity_type: node
+bundle: ingredient
+label: 'Ingredients content'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      block_reference: block_reference
+      downloads: downloads
+      ingredient_accordion: ingredient_accordion
+      wysiwyg: wysiwyg
+      wysiwyg_with_block_reference: wysiwyg_with_block_reference
+      wysiwyg_with_country_and_region: wysiwyg_with_country_and_region
+    target_bundles_drag_drop:
+      block_reference:
+        enabled: true
+        weight: 7
+      downloads:
+        enabled: true
+        weight: 8
+      ingredient_accordion:
+        enabled: true
+        weight: 9
+      wysiwyg:
+        enabled: true
+        weight: 10
+      wysiwyg_with_block_reference:
+        enabled: true
+        weight: 11
+      wysiwyg_with_country_and_region:
+        enabled: true
+        weight: 12
+field_type: entity_reference_revisions

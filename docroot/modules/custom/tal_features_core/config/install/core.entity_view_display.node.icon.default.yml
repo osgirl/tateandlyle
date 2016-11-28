@@ -1,0 +1,25 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.icon.field_image
+    - node.type.icon
+  module:
+    - image
+    - user
+id: node.icon.default
+targetEntityType: node
+bundle: icon
+mode: default
+content:
+  field_image:
+    weight: 101
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+  links:
+    weight: 100
+hidden: {  }

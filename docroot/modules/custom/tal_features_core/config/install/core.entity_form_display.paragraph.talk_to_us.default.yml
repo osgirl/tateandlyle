@@ -1,0 +1,63 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.talk_to_us.field_button_text
+    - field.field.paragraph.talk_to_us.field_or_link_text
+    - field.field.paragraph.talk_to_us.field_simple_text
+    - field.field.paragraph.talk_to_us.field_ttu_contact
+    - field.field.paragraph.talk_to_us.field_ttu_link_text
+    - field.field.paragraph.talk_to_us.field_ttu_or_button
+    - paragraphs.paragraphs_type.talk_to_us
+  module:
+    - workbench_moderation
+id: paragraph.talk_to_us.default
+targetEntityType: paragraph
+bundle: talk_to_us
+mode: default
+content:
+  field_button_text:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_or_link_text:
+    weight: 4
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+  field_simple_text:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_ttu_contact:
+    weight: 0
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+  field_ttu_link_text:
+    weight: 5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_ttu_or_button:
+    weight: 2
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+hidden:
+  created: true
+  status: true
+  uid: true

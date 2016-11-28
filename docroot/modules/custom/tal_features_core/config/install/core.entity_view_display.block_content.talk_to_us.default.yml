@@ -1,0 +1,63 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.talk_to_us
+    - field.field.block_content.talk_to_us.field_bg_color
+    - field.field.block_content.talk_to_us.field_bg_image
+    - field.field.block_content.talk_to_us.field_connect_block
+    - field.field.block_content.talk_to_us.field_icon
+    - field.field.block_content.talk_to_us.field_short_summary
+    - field.field.block_content.talk_to_us.field_simple_text
+  module:
+    - entity_reference_revisions
+    - image
+    - options
+id: block_content.talk_to_us.default
+targetEntityType: block_content
+bundle: talk_to_us
+mode: default
+content:
+  field_bg_color:
+    weight: 7
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+  field_bg_image:
+    weight: 1
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+  field_connect_block:
+    type: entity_reference_revisions_entity_view
+    weight: 8
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+  field_icon:
+    weight: 4
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+  field_short_summary:
+    weight: 5
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_simple_text:
+    weight: 0
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+hidden: {  }
