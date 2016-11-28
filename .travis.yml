@@ -24,7 +24,7 @@ cache:
 
 addons:
   ssh_known_hosts:
-  # - svn-4786.devcloud.hosting.acquia.com
+   - svn-19900.prod.hosting.acquia.com
   apt:
     packages:
     - mysql-server-5.6
