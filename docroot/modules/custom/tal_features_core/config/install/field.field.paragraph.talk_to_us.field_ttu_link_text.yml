@@ -2,10 +2,10 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_simple_text1
+    - field.storage.paragraph.field_ttu_link_text
     - paragraphs.paragraphs_type.talk_to_us
-id: paragraph.talk_to_us.field_simple_text1
-field_name: field_simple_text1
+id: paragraph.talk_to_us.field_ttu_link_text
+field_name: field_ttu_link_text
 entity_type: paragraph
 bundle: talk_to_us
 label: 'Link text'
