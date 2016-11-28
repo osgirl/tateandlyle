@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_ttu_or_button
+    - paragraphs.paragraphs_type.talk_to_us
+id: paragraph.talk_to_us.field_ttu_or_button
+field_name: field_ttu_or_button
+entity_type: paragraph
+bundle: talk_to_us
+label: 'Or Button'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

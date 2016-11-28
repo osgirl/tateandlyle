@@ -2,11 +2,11 @@ langcode: en
 status: true
 dependencies:
   config:
+    - entity_browser.browser.image_browser
     - field.field.node.icon.field_image
-    - image.style.thumbnail
     - node.type.icon
   module:
-    - image
+    - entity_browser
     - path
     - workbench_moderation
 id: node.icon.default
