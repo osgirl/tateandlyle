@@ -1,0 +1,77 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.single_item_promo
+    - field.field.block_content.single_item_promo.body
+    - field.field.block_content.single_item_promo.field_bg_color
+    - field.field.block_content.single_item_promo.field_icon
+    - field.field.block_content.single_item_promo.field_simple_text
+    - field.field.block_content.single_item_promo.field_sip_image
+    - field.field.block_content.single_item_promo.field_sip_vertical
+    - field.field.block_content.single_item_promo.field_tal_link
+  module:
+    - image
+    - link
+    - options
+    - text
+id: block_content.single_item_promo.default
+targetEntityType: block_content
+bundle: single_item_promo
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+  field_bg_color:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+  field_icon:
+    weight: 3
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+  field_simple_text:
+    weight: 4
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_sip_image:
+    weight: 2
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+  field_sip_vertical:
+    weight: 6
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+  field_tal_link:
+    weight: 5
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+hidden: {  }
