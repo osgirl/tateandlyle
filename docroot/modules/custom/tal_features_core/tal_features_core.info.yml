@@ -15,6 +15,7 @@ dependencies:
   - file
   - image
   - lightning_media_image
+  - link
   - menu_ui
   - node
   - options

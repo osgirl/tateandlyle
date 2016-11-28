@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.single_item_promo
+    - field.storage.block_content.body
+  module:
+    - text
+id: block_content.single_item_promo.body
+field_name: body
+entity_type: block_content
+bundle: single_item_promo
+label: Summary
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary
