@@ -1,7 +1,7 @@
 project:
     machine_name: tlweb
     prefix: TLWeb
-    human_name: 'Tate and Lyle'
+    human_name: 'Tate and Lyle.Com'
     profile:
         name: lightning
     local:
