@@ -453,7 +453,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "BSD"
+                "BSD-2-Clause"
             ],
             "authors": [
                 {
@@ -1243,7 +1243,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://ftp.drupal.org/files/projects/coder-8.x-2.9.zip",
-                "reference": "b08682bd939cf7d3ac7034bee792aa17f80e19d7",
+                "reference": null,
                 "shasum": null
             },
             "require": {
