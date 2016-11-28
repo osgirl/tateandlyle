@@ -1,0 +1,33 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.ingredient_accordion_items.field_in_accordion_body
+    - field.field.paragraph.ingredient_accordion_items.field_in_accordion_header
+    - paragraphs.paragraphs_type.ingredient_accordion_items
+  module:
+    - text
+    - workbench_moderation
+id: paragraph.ingredient_accordion_items.default
+targetEntityType: paragraph
+bundle: ingredient_accordion_items
+mode: default
+content:
+  field_in_accordion_body:
+    weight: 7
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+  field_in_accordion_header:
+    weight: 6
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+hidden:
+  created: true
+  status: true
+  uid: true
