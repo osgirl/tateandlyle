@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_block_component
+    - paragraphs.paragraphs_type.block_reference
+id: paragraph.block_reference.field_block_component
+field_name: field_block_component
+entity_type: paragraph
+bundle: block_reference
+label: Component
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:block_content'
+  handler_settings: {  }
+field_type: entity_reference
