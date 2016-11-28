@@ -13,3 +13,13 @@
 
 # Disable the CDN provider so compiled source files can be used.
 cdn_provider: ''
+
+# Set logo path.
+logo:
+  path: 'themes/custom/tateandlyle/logo.svg'
+  use_default: false
+
+# Set favicon path.
+favicon:
+  path: 'themes/custom/tateandlyle/favicon.ico'
+  use_default: false

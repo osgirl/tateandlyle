@@ -1,0 +1,21 @@
+<?php
+
+/**
+ * @file
+ * Contains Tate and Lyle configurations.
+ */
+
+/**
+ * Implements hook_install().
+ *
+ * Perform actions to further customize the site after Lightning has been
+ * installed. This module is automatically enabled via the lightning.extend.yml
+ * file.
+ *
+ * @see system_install()
+ */
+function tal_config_install() {
+  // Enable and set tateandlyle as default theme.
+  \Drupal::service('theme_installer')->install(array('tateandlyle'), TRUE);
+  \Drupal::configFactory()->getEditable('system.theme')->set('default', 'tateandlyle')->save(TRUE);
+}

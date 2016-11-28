@@ -15,6 +15,7 @@ lightning_extensions:
 # List of additional modules to enable after Lightning is installed.
 modules:
   - tal_features_core
+  - tal_config
 
 # In the components key of their info file, Lightning components may list
 # additional sub-components to be installed. To override this behavior, you can

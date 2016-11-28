@@ -1,0 +1,35 @@
+{
+  "sass": {
+    "input": "sass\/**\/*.scss",
+    "output": ".\/build",
+    "options": {
+      "dev": {
+        "errLogToConsole": true,
+        "outputStyle": "expanded",
+        "includePaths": "./node_modules/bootstrap-sass/assets/stylesheets"
+      },
+      "prod": {
+        "outputStyle": "compressed"
+      }
+    }
+  },
+  "js": {
+    "input": "js\/**\/*.js",
+    "output": ".\/build"
+  },
+  "img": {
+    "input": "img\/**\/*.*",
+    "output": ".\/build\/img",
+    "options": {
+      "optimizationLevel": 3,
+      "progressive": true,
+      "interlaced": true
+    }
+  },
+  "autoprefixer": {
+    "browsers": [
+      "last 2 versions",
+      "> 5%"
+    ]
+  }
+}

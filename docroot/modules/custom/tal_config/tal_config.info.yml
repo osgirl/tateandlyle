@@ -1,0 +1,5 @@
+name: 'TAL Config'
+description: 'Install tateandlyle configurations'
+type: module
+core: 8.x
+package: tal
