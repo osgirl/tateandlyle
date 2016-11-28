@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_description
+    - paragraphs.paragraphs_type.passive_recruitment
+  module:
+    - text
+id: paragraph.passive_recruitment.field_description
+field_name: field_description
+entity_type: paragraph
+bundle: passive_recruitment
+label: Description
+description: 'Recruitment Description'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long
