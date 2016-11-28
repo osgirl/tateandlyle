@@ -5,8 +5,8 @@ dependencies:
     - field.field.paragraph.talk_to_us.field_button_text
     - field.field.paragraph.talk_to_us.field_or_link_text
     - field.field.paragraph.talk_to_us.field_simple_text
-    - field.field.paragraph.talk_to_us.field_ttu_link_text
     - field.field.paragraph.talk_to_us.field_ttu_contact
+    - field.field.paragraph.talk_to_us.field_ttu_link_text
     - field.field.paragraph.talk_to_us.field_ttu_or_button
     - paragraphs.paragraphs_type.talk_to_us
   module:
@@ -36,13 +36,6 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
-  field_ttu_link_text:
-    weight: 5
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
   field_ttu_contact:
     weight: 0
     settings:
@@ -51,6 +44,13 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
+  field_ttu_link_text:
+    weight: 5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
   field_ttu_or_button:
     weight: 2
     settings:
