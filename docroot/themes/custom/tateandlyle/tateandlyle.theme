@@ -5,7 +5,7 @@
  *
  * Place your custom PHP code in this file.
  */
-
+use Drupal\Component\Utility\Html;
 /**
  * Implements hook_theme_suggestions_HOOK_alter() for form templates.
  * @param array $suggestions
@@ -28,6 +28,20 @@ function tateandlyle_preprocess_block(&$variables) {
     $bundle = $variables['elements']['content']['#block_content']->bundle();
     if($bundle == 'talk_to_us'){
       $variables['bottom_link'] = true;
+    }
+    if($bundle == 'banner'){
+      $id = $variables['elements']['content']['#block_content']->get('id')->value;
+      $video_id = $variables['elements']['content']['#block_content']->get('field_simple_text')->value;
+      $variables['videos'] = false;
+      if(!empty($video_id)){
+        $variables['videos'] = true;
+        $variables['videoid']= 'buto'.$id.'_'.$video_id;
+        $variables['#attached']['drupalSettings']['tateandlyle']["banner-".$id]['elementid'] = $variables['videoid'];
+        $variables['#attached']['drupalSettings']['tateandlyle']["banner-".$id]['videoid'] = $video_id;
+        $variables['#attached']['drupalSettings']['tateandlyle']["banner-".$id]['height'] = 261;
+        $variables['#attached']['drupalSettings']['tateandlyle']["banner-".$id]['width'] = 464;
+        $variables['#attached']['library'][] = 'tateandlyle/buto-tv-script';
+      }
     }
   }
 }
