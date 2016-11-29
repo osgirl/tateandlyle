@@ -6,7 +6,14 @@ dependencies:
     - field.field.node.contact.field_phone_number
     - node.type.contact
   module:
+    - panelizer
     - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
 id: node.contact.default
 targetEntityType: node
 bundle: contact
@@ -27,4 +34,6 @@ content:
     type: string
   links:
     weight: 100
+    settings: {  }
+    third_party_settings: {  }
 hidden: {  }
