@@ -6,11 +6,11 @@
 /**
  * Implements Drupal.behaviours.
  */
-(function($, Drupal) {
+(function ($, Drupal) {
   "use strict";
 
   Drupal.behaviors.tateandlyle = {
-    attach: function() {
+    attach: function () {
 
       // Put your code here.
     }
