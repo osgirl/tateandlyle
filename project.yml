@@ -1,6 +1,6 @@
 project:
-    machine_name: tlweb
-    prefix: TLWeb
+    machine_name: tal
+    prefix: TAL
     human_name: 'Tate and Lyle.Com'
     profile:
         name: lightning
