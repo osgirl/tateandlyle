@@ -1,23 +1,20 @@
 <?php
+
 /**
  * @file
  * Bootstrap sub-theme.
  *
  * Place your custom PHP code in this file.
  */
-use Drupal\Component\Utility\Html;
+
 /**
  * Implements hook_theme_suggestions_HOOK_alter() for form templates.
- * @param array $suggestions
- * @param array $variables
- * Template suggestion for block bundle type.
  */
 function tateandlyle_theme_suggestions_block_alter(array &$suggestions, array $variables) {
   if (isset($variables['elements']['content']['#block_content'])) {
     array_splice($suggestions, 1, 0, 'block__bundle__' . $variables['elements']['content']['#block_content']->bundle());
   }
 }
-
 
 /**
  * Implements template_preprocess_block().
@@ -26,20 +23,20 @@ function tateandlyle_preprocess_block(&$variables) {
   // Custom block type helper classes.
   if (isset($variables['elements']['content']['#block_content'])) {
     $bundle = $variables['elements']['content']['#block_content']->bundle();
-    if($bundle == 'talk_to_us'){
-      $variables['bottom_link'] = true;
+    if ($bundle == 'talk_to_us') {
+      $variables['bottom_link'] = TRUE;
     }
-    if($bundle == 'banner'){
+    if ($bundle == 'banner') {
       $id = $variables['elements']['content']['#block_content']->get('id')->value;
       $video_id = $variables['elements']['content']['#block_content']->get('field_simple_text')->value;
-      $variables['videos'] = false;
-      if(!empty($video_id)){
-        $variables['videos'] = true;
-        $variables['videoid']= 'buto'.$id.'_'.$video_id;
-        $variables['#attached']['drupalSettings']['tateandlyle']["banner-".$id]['elementid'] = $variables['videoid'];
-        $variables['#attached']['drupalSettings']['tateandlyle']["banner-".$id]['videoid'] = $video_id;
-        $variables['#attached']['drupalSettings']['tateandlyle']["banner-".$id]['height'] = 261;
-        $variables['#attached']['drupalSettings']['tateandlyle']["banner-".$id]['width'] = 464;
+      $variables['videos'] = FALSE;
+      if (!empty($video_id)) {
+        $variables['videos'] = TRUE;
+        $variables['videoid'] = 'buto' . $id . '_' . $video_id;
+        $variables['#attached']['drupalSettings']['tateandlyle']["banner-" . $id]['elementid'] = $variables['videoid'];
+        $variables['#attached']['drupalSettings']['tateandlyle']["banner-" . $id]['videoid'] = $video_id;
+        $variables['#attached']['drupalSettings']['tateandlyle']["banner-" . $id]['height'] = 261;
+        $variables['#attached']['drupalSettings']['tateandlyle']["banner-" . $id]['width'] = 464;
         $variables['#attached']['library'][] = 'tateandlyle/buto-tv-script';
       }
     }
