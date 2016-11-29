@@ -19,6 +19,7 @@ dependencies:
   - menu_ui
   - node
   - options
+  - panelizer
   - paragraphs
   - path
   - taxonomy
