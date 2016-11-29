@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_pr_title
+    - paragraphs.paragraphs_type.passive_recruitment
+id: paragraph.passive_recruitment.field_pr_title
+field_name: field_pr_title
+entity_type: paragraph
+bundle: passive_recruitment
+label: Title
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

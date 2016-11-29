@@ -1,0 +1,42 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.passive_recruitment.field_all_jobs_link
+    - field.field.paragraph.passive_recruitment.field_description
+    - field.field.paragraph.passive_recruitment.field_pr_title
+    - paragraphs.paragraphs_type.passive_recruitment
+  module:
+    - link
+    - text
+    - workbench_moderation
+id: paragraph.passive_recruitment.default
+targetEntityType: paragraph
+bundle: passive_recruitment
+mode: default
+content:
+  field_all_jobs_link:
+    weight: 2
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+  field_description:
+    weight: 1
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+  field_pr_title:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+hidden:
+  created: true
+  status: true
+  uid: true

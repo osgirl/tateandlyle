@@ -12,7 +12,7 @@ entity_type: node
 bundle: icon
 label: Image
 description: ''
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
@@ -20,7 +20,7 @@ settings:
   file_directory: '[date:custom:Y]-[date:custom:m]'
   file_extensions: 'png gif jpg jpeg'
   max_filesize: ''
-  max_resolution: 50x50
+  max_resolution: ''
   min_resolution: ''
   alt_field: true
   alt_field_required: true
