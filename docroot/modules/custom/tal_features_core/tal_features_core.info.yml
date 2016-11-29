@@ -6,6 +6,7 @@ version: 8.x-1.0
 package: tal
 dependencies:
   - block_content
+  - color_field
   - country
   - entity_browser
   - entity_reference_revisions

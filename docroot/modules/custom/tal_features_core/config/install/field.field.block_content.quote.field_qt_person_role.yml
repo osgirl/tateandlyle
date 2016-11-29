@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.quote
+    - field.storage.block_content.field_qt_person_role
+id: block_content.quote.field_qt_person_role
+field_name: field_qt_person_role
+entity_type: block_content
+bundle: quote
+label: 'Quote person role'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

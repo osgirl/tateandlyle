@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: quote
+label: Quote
+revision: 1
+description: 'Create custom blocks for quote.'
