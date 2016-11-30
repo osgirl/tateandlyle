@@ -12,7 +12,7 @@ entity_type: block_content
 bundle: banner
 label: 'Background Banner Image'
 description: ''
-required: false
+required: true
 translatable: true
 default_value: {  }
 default_value_callback: ''
