@@ -46,8 +46,14 @@ function tateandlyle_preprocess_paragraph(&$variables) {
   $bundle = $variables['paragraph']->getType();
   if ($bundle == 'talk_to_us') {
     $contact = $variables['paragraph']->get('field_ttu_contact')->referencedEntities();
-    $variables['field_ttu_contact_phone'] = $contact[0]->get('field_phone_number')->value;
-    $variables['field_ttu_contact_title'] = $contact[0]->label();
+    if (!empty($contact)) {
+      $variables['field_ttu_contact_phone'] = $contact[0]->get('field_phone_number')->value;
+      $variables['field_ttu_contact_title'] = $contact[0]->label();
+    }
+    else {
+      $variables['field_ttu_contact_phone'] = '';
+      $variables['field_ttu_contact_title'] = '';
+    }
     $variables['field_button_text'] = $variables['paragraph']->get('field_button_text')->value;
     $variables['field_or_link_text'] = $variables['paragraph']->get('field_or_link_text')->value;
     $variables['field_simple_text'] = $variables['paragraph']->get('field_simple_text')->value;

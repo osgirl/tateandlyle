@@ -1,0 +1,187 @@
+.overlay__block {
+  position: relative;
+  min-height: 425px;
+}
+
+.overlay__block--background {
+  .img-responsive {
+    width: 100%;
+    min-height: 500px;
+    object-fit: cover;
+    @media (min-width: $screen-sm) {
+      min-height: 425px;
+    }
+  }
+}
+
+.overlay__block--content {
+  @extend %absolute-center;
+  @extend %vertical-center;
+  @extend .max-content-width;
+  background: $color-white;
+  position: absolute;
+  text-align: center;
+  width: 90%;
+  @media (min-width: $screen-sm) {
+    display: table;
+    text-align: left;
+  }
+
+  .component-left {
+    color: $color-white;
+    padding: 36px;
+    @media (min-width: $screen-sm) {
+      display: table-cell;
+      vertical-align: middle;
+      width: 33.33%;
+    }
+
+    .field--name-field-simple-text {
+      color: $color-white;
+      font-size: $font-size-h3;
+      font-family: $font-family-sans-serif-Med;
+      line-height: 1.2;
+      @media (min-width: $screen-sm) {
+        font-size: $font-size-h2;
+      }
+    }
+  }
+
+  .field--name-field-short-summary {
+    font-size: $font-size-base;
+  }
+
+  .component-left,
+  .connect__block {
+    color: $color-white;
+    padding: 22px;
+    @media (min-width: $screen-sm) {
+      display: table-cell;
+      padding: 36px;
+      vertical-align: middle;
+      width: 33.33%;
+    }
+  }
+
+  .connect__block {
+    border-bottom: 1px solid $color-warm-gray;
+    color: $gray-base;
+    @media (min-width: $screen-sm) {
+      border-bottom: none;
+      position: relative;
+
+      &::after {
+        content: " ";
+        background: $color-warm-gray;
+        height: 72%;
+        position: absolute;
+        right: 0;
+        top: 14%;
+        width: 1px;
+      }
+    }
+
+    .field--name-field-simple-text,
+    .field--name-field-pr-title {
+      font-size: $font-size-h3;
+      margin-bottom: 5px;
+    }
+
+    .field--name-field-phone-number {
+      font-size: $font-size-h4;
+      @media (min-width: $screen-sm) {
+        font-size: $font-size-h2;
+      }
+    }
+
+    .field--name-field-button-text {
+      @extend .btn;
+      @extend .btn-primary;
+      &::after {
+        @extend %svg-icon-small;
+        background: url("../images/icons/cta-arrow-white.svg") no-repeat;
+        background-size: cover;
+      }
+    }
+
+    .field--name-field-ttu-link-text,
+    .field--name-field-all-jobs-link {
+      @media (min-width: $screen-sm) {
+        position: absolute;
+        bottom: 10%;
+      }
+
+      &::after {
+        @extend %svg-icon-small;
+        background: url("../images/icons/cta-arrow-blue.svg") no-repeat;
+        background-size: cover;
+      }
+    }
+  }
+
+  .icon {
+    h2 {
+      display: none;
+    }
+
+    img {
+      max-width: 45px;
+      margin: auto;
+      @media (min-width: $screen-sm) {
+        margin: 0;
+      }
+    }
+  }
+}
+
+.white .component-left,
+.off-white .component-left {
+  color: $gray-dark;
+  .field--name-field-simple-text {
+    color: $gray-base;
+  }
+}
+
+.warm-grey .component-left {
+  background-color: $color-warm-gray;
+}
+
+.black .component-left {
+  background-color: $gray-base;
+}
+
+.purple .component-left {
+  background-color: $color-purple;
+}
+
+.blue .component-left {
+  background-color: $brand-primary;
+}
+
+.red .component-left {
+  background-color: $color-red;
+}
+
+.off-white .component-left {
+  background-color: $color-off-white;
+}
+
+.mid-grey .component-left {
+  background-color: $gray-dark;
+}
+
+.yellow .component-left {
+  background-color: $color-yellow;
+}
+
+.gold .component-left {
+  background-color: $color-gold;
+}
+
+.silver .component-left {
+  background-color: $color-silver;
+}
+
+.light-grey .component-left {
+  background-color: $color-light-gray;
+}

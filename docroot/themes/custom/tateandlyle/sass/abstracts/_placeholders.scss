@@ -1,0 +1,20 @@
+%vertical-center {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+%absolute-center {
+  left: 0;
+  margin-left: auto;
+  margin-right: auto;
+  right: 0;
+}
+
+%svg-icon-small {
+  content: " ";
+  display: inline-block;
+  height: 15px;
+  margin-left: 5px;
+  vertical-align: middle;
+  width: 15px;
+}

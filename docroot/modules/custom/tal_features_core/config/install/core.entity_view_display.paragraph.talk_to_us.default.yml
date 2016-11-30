@@ -15,51 +15,35 @@ bundle: talk_to_us
 mode: default
 content:
   field_button_text:
-    weight: 3
-    label: above
+    weight: 1
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
-  field_or_link_text:
-    weight: 5
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    type: boolean
   field_simple_text:
-    weight: 6
-    label: above
+    weight: 3
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
   field_ttu_contact:
     weight: 0
-    label: above
+    label: hidden
     settings:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
   field_ttu_link_text:
-    weight: 4
-    label: above
+    weight: 2
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
-  field_ttu_or_button:
-    weight: 2
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    type: boolean
 hidden:
   created: true
+  field_or_link_text: true
+  field_ttu_or_button: true
   uid: true
