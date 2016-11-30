@@ -1,58 +1,38 @@
-<!-- @file Instructions for subtheming using the Sass Starterkit. -->
-<!-- @defgroup sub_theming_sass -->
-<!-- @ingroup sub_theming -->
-# Sass Starterkit
+# TATE AND LYLE
 
-Below are instructions on how to create a Bootstrap sub-theme using a Sass
-preprocessor.
+Below are instructions on how to setup the tateandlyle theme.
 
 - [Prerequisites](#prerequisites)
-- [Additional Setup](#setup)
+- [Compiling theme](#compile)
 - [Overrides](#overrides)
+- [Notes to consider](#notes)
 
-## Prerequisites
-- Read the @link getting_started Getting Started @endlink and @link sub_theming Sub-theming @endlink documentation topics.
+## Prerequisites(#prerequisites)
 - You must understand the basic concept of using the [Sass] CSS pre-processor.
-- You must use a **[local Sass compiler](https://www.google.com/search?q=sass+compiler)**.
-- You must use the [Bootstrap Framework Source Files] ending in the `.scss`
-  extension, not files ending in `.css`.
+- You need to have `node` installed in your machine. If you don't have it installed
+run `sudo apt-get install nodejs`
+- Once you have the `node` in your machine, you can run `npm install` to install all the requirements for the theme.
 
-## Additional Setup {#setup}
-Download and extract the **latest** 3.x.x version of
-[Bootstrap Framework Source Files] into the root of your new sub-theme. After
-it has been extracted, the directory should be renamed (if needed) so it reads
-`./tateandlyle/bootstrap`.
-
-If for whatever reason you have an additional `bootstrap` directory wrapping the
-first `bootstrap` directory (e.g. `./tateandlyle/bootstrap/bootstrap`), remove the
-wrapping `bootstrap` directory. You will only ever need to touch these files if
-or when you upgrade your version of the [Bootstrap Framework].
-
-{.alert.alert-warning} **WARNING:** Do not modify the files inside of
-`./tateandlyle/bootstrap` directly. Doing so may cause issues when upgrading the
-[Bootstrap Framework] in the future.
+## Compiling theme {#compile}
+- To compile the theme for your dev environment, you can run `gulp watch`
+- To compile the theme for your production environment, run `gulp prod`
 
 ## Overrides {#overrides}
-The `./tateandlyle/sass/_default-variables.scss` file is generally where you will
+The `./tateandlyle/sass/variables/_override-variables.scss` file is generally where you will
 spend the majority of your time providing any default variables that should be
 used by the [Bootstrap Framework] instead of its own.
 
-The `./tateandlyle/sass/overrides.scss` file contains various Drupal overrides to
+The `./tateandlyle/sass/variables/_override-variables.scss` file contains various Drupal overrides to
 properly integrate with the [Bootstrap Framework]. It may contain a few
 enhancements, feel free to edit this file as you see fit.
 
 The `./tateandlyle/scss/style.scss` file is the glue that combines:
-`_default-variables.scss`, [Bootstrap Framework Source Files] and the 
-`overrides.scss` file together. Generally, you will not need to modify this
+`_override-variables.scss`, [Bootstrap Framework Source Files] and other sass
+files together. Generally, you will not need to modify this
 file unless you need to add or remove files to be imported. This is the file
-that you should compile to `./tateandlyle/css/style.css` (note the same file
-name, using a different extension of course).
+wher it should compile to `./tateandlyle/build/main.css`.
 
-#### See also:
-- @link theme_settings Theme Settings @endlink
-- @link templates Templates @endlink
-- @link plugins Plugin System @endlink
-
-[Bootstrap Framework]: http://getbootstrap.com
-[Bootstrap Framework Source Files]: https://github.com/twbs/bootstrap-sass
-[Sass]: http://sass-lang.com
+## Notes to consider {#notes}
+- Tate and Lyle theme uses `gulpStylelint` and `eslint` to maintain the coding standards.
+- Ensure all the `gulpStylelint` and `eslint` errors are fixed before pushing the code to the
+production environment.

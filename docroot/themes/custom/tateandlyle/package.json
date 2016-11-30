@@ -1,0 +1,25 @@
+{
+  "name": "tateandlyle",
+  "version": "1.0.0",
+  "description": "tateandlyle frontend build setup",
+  "main": "Gulpfile.js",
+  "scripts": {
+    "test": "eslint -f checkstyle js -o eslint.xml && stylelint css/**/*.css"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "bootstrap-sass": "^3.3.7",
+    "babel-preset-es2015": "6.18.0",
+    "browser-sync": "2.18.2 ",
+    "gulp": "3.9.1",
+    "gulp-autoprefixer": "3.1.1",
+    "gulp-babel": "6.1.2",
+    "gulp-eslint": "^3.0.1",
+    "gulp-imagemin": "2.4.0",
+    "gulp-sass": "2.3.2",
+    "gulp-sourcemaps": "1.9.1",
+    "gulp-stylelint": "^3.1.0",
+    "gulp-stylelint-console-reporter": "0.1.1",
+    "gulp-uglify": "^2.0.0"
+  }
+}
