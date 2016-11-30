@@ -170,7 +170,9 @@ $btn-default-border: $color-white !default;
 
 $btn-primary-color: $color-white !default;
 $btn-primary-bg: $brand-primary !default;
-$btn-primary-border: darken($btn-primary-bg, 5%) !default;
+$btn-primary-border: $brand-primary !default;
+$btn-success-hover: $brand-primary !default;
+$btn-success-focus: $brand-primary !default;
 
 $btn-success-color: $color-white !default;
 $btn-success-bg: $brand-primary !default;
@@ -355,7 +357,7 @@ $screen-md-max: ($screen-lg-min - 1) !default;
 $grid-columns: 12 !default;
 
 // Padding between columns. Gets divided in half for the left and right.
-$grid-gutter-width: 10px !default;
+$grid-gutter-width: 20px !default;
 
 // Navbar collapse
 // Point at which the navbar becomes uncollapsed.
