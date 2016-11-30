@@ -36,7 +36,7 @@ modules:
         enable: {  }
         uninstall: [acquia_connector]
     deploy:
-        enable: [acquia_connector, admin_toolbar]
+        enable: [acquia_connector, field_ui, admin_toolbar]
         uninstall: {  }
     local:
         enable: [dblog, devel, field_ui, seckit, views_ui, admin_toolbar]
