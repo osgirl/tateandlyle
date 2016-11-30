@@ -19,21 +19,13 @@ targetEntityType: node
 bundle: contact
 mode: default
 content:
-  field_email:
-    weight: 102
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
   field_phone_number:
-    weight: 101
-    label: above
+    weight: 0
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
-  links:
-    weight: 100
-    settings: {  }
-    third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_email: true
+  links: true
