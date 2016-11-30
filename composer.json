@@ -96,9 +96,6 @@
             },
             "drupal/paragraphs": {
                 "Field Group not working on node edit inside paragraph": "https://www.drupal.org/files/issues/field_group_not_working-2675136-53.patch"
-            },
-             "drupal/panelizer": {
-                "Implement admin UI for editing Panelizer defaults": "https://www.drupal.org/files/issues/panelizer-2664682-93.patch"
             }
         },
         "drupal-scaffold": {
