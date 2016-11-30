@@ -14,6 +14,7 @@ dependencies:
   - field_group
   - file
   - image
+  - lightning_core
   - lightning_media_image
   - link
   - menu_ui
