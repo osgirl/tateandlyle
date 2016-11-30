@@ -64,3 +64,16 @@ function tateandlyle_preprocess_paragraph(&$variables) {
     $variables['field_ttu_or_button'] = $variables['paragraph']->get('field_ttu_or_button')->value;
   }
 }
+
+/**
+ * Implements hook_preprocess_HOOK() for the page title template.
+ */
+function tateandlyle_preprocess_page_title(&$variables) {
+  $node = \Drupal::routeMatch()->getParameter('node');
+  if ($node && $node->bundle() == 'ingredient') {
+    $hide = $node->get('field_hide_title')->value;
+    if ($hide == '1') {
+      $variables['title_attributes']['class'][] = 'hide';
+    }
+  }
+}
