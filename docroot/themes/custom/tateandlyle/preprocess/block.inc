@@ -41,7 +41,7 @@ function tal_preprocess_block_single_item_promo($variables, $block) {
 /**
  * Preprocessor function for talk to us block type.
  */
-function tal_preprocess_talk_to_us($variables, $block) {
+function tal_preprocess_block_talk_to_us($variables, $block) {
   // Custom block type helper classes.
   $variables['bottom_link'] = TRUE;
 
@@ -51,7 +51,7 @@ function tal_preprocess_talk_to_us($variables, $block) {
 /**
  * Preprocessor function for banner block type.
  */
-function tal_preprocess_banner($variables, $block) {
+function tal_preprocess_block_banner($variables, $block) {
   $id = $variables['elements']['content']['#block_content']->get('id')->value;
   $video_id = $variables['elements']['content']['#block_content']->get('field_simple_text')->value;
   $variables['videos'] = FALSE;
@@ -63,6 +63,39 @@ function tal_preprocess_banner($variables, $block) {
     $variables['#attached']['drupalSettings']['tateandlyle']["banner-" . $id]['height'] = 261;
     $variables['#attached']['drupalSettings']['tateandlyle']["banner-" . $id]['width'] = 464;
     $variables['#attached']['library'][] = 'tateandlyle/buto-tv-script';
+  }
+
+  return $variables;
+}
+
+/**
+ * Preprocessor function for quote block type.
+ */
+function tal_preprocess_block_quote($variables, $block) {
+  // Check if background color is added.
+  $background_color_content = $block->get('field_qt_bg_color')->getValue();
+  $background_color_content = array_shift($background_color_content);
+
+  $font_color = $block->get('field_bg_color')->getValue();
+  $font_color = array_shift($font_color);
+
+  $image = $block->get('field_tal_image')->referencedEntities();
+  $image = array_shift($image);
+
+  $variables['is_icon'] = FALSE;
+  $variables['is_image'] = FALSE;
+
+  if (isset($background_color_content)) {
+    $variables['style'] = "background-color: " . $background_color_content['value'];
+  }
+
+  if (isset($image)) {
+    $image_url = file_create_url($image->getFileUri());
+    $variables['style'] = "background-image:" . $image_url;
+  }
+
+  if (!isset($image) && !isset($background_color_content)) {
+    $variables['style'] = "color:" . $font_color['value'];
   }
 
   return $variables;
