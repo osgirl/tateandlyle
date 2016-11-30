@@ -8,7 +8,7 @@ id: paragraph.passive_recruitment.field_pr_title
 field_name: field_pr_title
 entity_type: paragraph
 bundle: passive_recruitment
-label: Title
+label: 'Job Title'
 description: ''
 required: true
 translatable: false

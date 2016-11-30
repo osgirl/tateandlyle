@@ -2,20 +2,25 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.passive_recruitment.field_all_jobs_link
-    - field.field.paragraph.passive_recruitment.field_description
+    - field.field.paragraph.passive_recruitment.field_pr_description
+    - field.field.paragraph.passive_recruitment.field_pr_link
     - field.field.paragraph.passive_recruitment.field_pr_title
     - paragraphs.paragraphs_type.passive_recruitment
   module:
     - link
-    - text
 id: paragraph.passive_recruitment.default
 targetEntityType: paragraph
 bundle: passive_recruitment
 mode: default
 content:
-  field_all_jobs_link:
-    weight: 2
+  field_pr_description:
+    weight: 5
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_pr_link:
+    weight: 4
     label: hidden
     settings:
       trim_length: 80
@@ -25,12 +30,6 @@ content:
       target: ''
     third_party_settings: {  }
     type: link
-  field_description:
-    weight: 1
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    type: text_default
   field_pr_title:
     weight: 3
     label: hidden
