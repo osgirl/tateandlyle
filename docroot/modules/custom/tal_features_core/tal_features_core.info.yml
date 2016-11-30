@@ -7,6 +7,7 @@ package: tal
 dependencies:
   - block_content
   - country
+  - datetime
   - entity_browser
   - entity_reference_revisions
   - features
