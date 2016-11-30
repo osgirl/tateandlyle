@@ -2,16 +2,16 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_all_jobs_link
+    - field.storage.paragraph.field_pr_link
     - paragraphs.paragraphs_type.passive_recruitment
   module:
     - link
-id: paragraph.passive_recruitment.field_all_jobs_link
-field_name: field_all_jobs_link
+id: paragraph.passive_recruitment.field_pr_link
+field_name: field_pr_link
 entity_type: paragraph
 bundle: passive_recruitment
-label: 'All Jobs link'
-description: ''
+label: Link
+description: 'Link to the job page.'
 required: false
 translatable: false
 default_value: {  }
