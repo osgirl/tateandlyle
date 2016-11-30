@@ -39,7 +39,6 @@ modules:
     deploy:
         enable:
             - acquia_connector
-            - field_ui
             - admin_toolbar
         uninstall: {  }
     local:
