@@ -40,6 +40,8 @@ modules:
     deploy:
         enable:
             - acquia_connector
+            - shield
+            - admin_toolbar
         uninstall:
             - devel
             - field_ui
