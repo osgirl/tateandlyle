@@ -2,6 +2,8 @@ global-styling:
   css:
     theme:
       build/main.css: {}
+  js:
+    build/script.js: {}
   dependencies:
     - core/jquery
     - core/drupal
@@ -11,8 +13,20 @@ global-styling:
     - core/jquery.cookie
     - core/drupal.ajax
     - core/modernizr
+
+bootstrap-scripts:
   js:
-    build/script.js: {}
+    ../../contrib/bootstrap/js/drupal.bootstrap.js: {}
+    ../../contrib/bootstrap/js/dropdown.js: {}
+    ../../contrib/bootstrap/js/modal.js: {}
+    ../../contrib/bootstrap/js/popover.js: {}
+    ../../contrib/bootstrap/js/tooltip.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery.once
+    - core/jquery.ui
 
 buto-tv-script:
   js:

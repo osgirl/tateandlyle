@@ -43,7 +43,7 @@ function tal_preprocess_block_single_item_promo($variables, $block) {
  */
 function tal_preprocess_block_talk_to_us($variables, $block) {
   // Custom block type helper classes.
-  $variables['bottom_link'] = TRUE;
+  $variables['overlay_color'] = $variables['elements']['content']['#block_content']->get('field_bg_color')->value;
 
   return $variables;
 }

@@ -21,4 +21,5 @@ regions:
 
 libraries:
   - 'tateandlyle/global-styling'
+  - 'tateandlyle/bootstrap-scripts'
   - 'tateandlyle/buto-tv-script'

@@ -11,40 +11,40 @@ type: list_string
 settings:
   allowed_values:
     -
-      value: '#ffffff'
+      value: white
       label: White
     -
-      value: '#999999'
+      value: warm-grey
       label: Warm-grey
     -
-      value: '#000000'
+      value: black
       label: Black
     -
-      value: '#7373a8'
+      value: purple
       label: Purple
     -
-      value: '#14aae2'
+      value: blue
       label: Blue
     -
-      value: '#e64054'
+      value: red
       label: Red
     -
-      value: '#fafafa'
+      value: off-white
       label: Off-white
     -
-      value: '#666666'
+      value: mid-grey
       label: Mid-grey
     -
-      value: '#f99f1f'
+      value: yellow
       label: Yellow
     -
-      value: '#948671'
+      value: gold
       label: Gold
     -
-      value: '#949ca1'
+      value: silver
       label: Silver
     -
-      value: '#eaeaea'
+      value: light-grey
       label: light-grey
   allowed_values_function: ''
 module: options

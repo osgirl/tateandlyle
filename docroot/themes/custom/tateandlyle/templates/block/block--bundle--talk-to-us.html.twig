@@ -61,29 +61,19 @@
   {{ title_suffix }}
 
   {% block content %}
-    {{ content }}
-  {% endblock %}
-{% if bottom_link %}
-  <div class="container">
-  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">{{ "Open Small Modal" |t }}</button>
-  <!-- Modal -->
-    <div class="modal fade" id="myModal" role="dialog">
-      <div class="modal-dialog modal-sm">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">Modal Header</h4>
-          </div>
-          <div class="modal-body">
-            <p>{{ "This is a small modal."|t }}</p>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">{{ "Close"|t }}</button>
-          </div>
+    <div{{ attributes.addClass([overlay_color, "overlay__block"]) }}>
+      <div class="overlay__block--background">
+        {{ content.field_bg_image }}
+      </div>
+      <div class="overlay__block--content">
+        <div class="component-left">
+          {{ content.field_icon }}
+          {{ content.field_simple_text }}
+          {{ content.field_short_summary }}
         </div>
+          {{ content|without('field_bg_image', 'field_bg_color', 'field_icon', 'field_simple_text', 'field_short_summary')}}
       </div>
     </div>
-  </div>
-  {% endif %}
+  {% endblock %}
 </section>
 
