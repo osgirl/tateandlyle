@@ -41,7 +41,7 @@ function tal_preprocess_block_single_item_promo($variables, $block) {
 /**
  * Preprocessor function for talk to us block type.
  */
-function tal_preprocess_talk_to_us($variables, $block) {
+function tal_preprocess_block_talk_to_us($variables, $block) {
   // Custom block type helper classes.
   $variables['bottom_link'] = TRUE;
 
@@ -51,7 +51,7 @@ function tal_preprocess_talk_to_us($variables, $block) {
 /**
  * Preprocessor function for banner block type.
  */
-function tal_preprocess_banner($variables, $block) {
+function tal_preprocess_block_banner($variables, $block) {
   $id = $variables['elements']['content']['#block_content']->get('id')->value;
   $video_id = $variables['elements']['content']['#block_content']->get('field_simple_text')->value;
   $variables['videos'] = FALSE;
