@@ -34,7 +34,7 @@ function tateandlyle_preprocess_block(&$variables) {
     }
 
     // Call preprocessor function of different block types.
-    $preproces_block_list = array('single_item_promo', 'talk_to_us', 'banner');
+    $preproces_block_list = array('single_item_promo', 'talk_to_us', 'passive_recruitment', 'banner');
     if (in_array($bundle, $preproces_block_list)) {
       include_once "preprocess/block.inc";
       $variables = call_user_func("tal_preprocess_block_" . $bundle, $variables, $block);
@@ -62,5 +62,18 @@ function tateandlyle_preprocess_paragraph(&$variables) {
     $variables['field_simple_text'] = $variables['paragraph']->get('field_simple_text')->value;
     $variables['field_ttu_link_text'] = $variables['paragraph']->get('field_ttu_link_text')->value;
     $variables['field_ttu_or_button'] = $variables['paragraph']->get('field_ttu_or_button')->value;
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for the page title template.
+ */
+function tateandlyle_preprocess_page_title(&$variables) {
+  $node = \Drupal::routeMatch()->getParameter('node');
+  if ($node && $node->bundle() == 'ingredient') {
+    $hide = $node->get('field_hide_title')->value;
+    if ($hide == '1') {
+      $variables['title_attributes']['class'][] = 'hide';
+    }
   }
 }

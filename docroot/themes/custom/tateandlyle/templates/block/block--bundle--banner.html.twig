@@ -61,10 +61,21 @@
   {% endif %}
   {{ title_suffix }}
   {% block content %}
-    {% if videos  %}
-        <div{{ attributes.setAttribute('id', videoid) }}></div>
-    {% endif %}
-    {{ content }}
+  <div class="banner__overlay__block">
+    <div class="banner__overlay--background">
+      {{ content.field_bg_image }}
+    </div>
+    <div class="banner__overlay--content">
+      <div class="banner__overlay--left">
+        {{ content|without('field_bg_image', 'field_simple_text')}}
+      </div>
+      {% if videos  %}
+        <div class="banner__overlay--right">
+          <div{{ attributes.setAttribute('id', videoid) }}></div>
+        </div>
+      {% endif %}
+    </div>
+    </div>
   {% endblock %}
 </section>
 
