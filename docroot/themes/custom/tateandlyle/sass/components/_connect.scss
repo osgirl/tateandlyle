@@ -4,10 +4,14 @@
 }
 
 .overlay__block--background {
-  .img-responsive {
-    width: 100%;
-    min-height: 500px;
-    object-fit: cover;
+  display: none;
+  @media (min-width: $screen-sm-lsp) {
+    display: block;
+    .img-responsive {
+      width: 100%;
+      min-height: 500px;
+      object-fit: cover;
+    }
     @media (min-width: $screen-sm) {
       min-height: 425px;
     }
@@ -15,13 +19,14 @@
 }
 
 .overlay__block--content {
+  @extend .max-content-width;
   @extend %absolute-center;
   @extend %vertical-center;
-  @extend .max-content-width;
   background: $color-white;
   position: absolute;
   text-align: center;
   width: 90%;
+
   @media (min-width: $screen-sm) {
     display: table;
     text-align: left;
@@ -105,7 +110,7 @@
     }
 
     .field--name-field-ttu-link-text,
-    .field--name-field-all-jobs-link {
+    .field--name-field-pr-link {
       @media (min-width: $screen-sm) {
         position: absolute;
         bottom: 10%;
@@ -116,6 +121,10 @@
         background: url("../images/icons/cta-arrow-blue.svg") no-repeat;
         background-size: cover;
       }
+    }
+
+    .field--name-field-pr-description {
+      color: $gray-dark;
     }
   }
 
@@ -133,6 +142,61 @@
     }
   }
 }
+
+.overlay__block--content {
+  @media (max-width: $screen-sm-lsp-max) {
+    position: static;
+    transform: none;
+  }
+}
+
+.recruitment__block {
+  .overlay__block--background {
+    @media (min-width: $screen-sm-lsp) {
+      .img-responsive {
+        min-height: 536px;
+      }
+    }
+    @media (min-width: $screen-sm) {
+      .img-responsive {
+        min-height: 488px;
+      }
+    }
+  }
+  .component-left {
+    @media (min-width: $screen-sm) {
+      display: table-caption;
+      width: 100%;
+
+      .inline--description {
+        display: inline-block;
+        padding-right: 20px;
+        vertical-align: middle;
+      }
+    }
+
+    @media (min-width: $screen-md) {
+      display: table-cell;
+      width: 33.33%;
+      .inline--description {
+        display: block;
+        padding-right: 0;
+      }
+    }
+  }
+  .field--name-field-all-jobs-link a {
+    border: 1px solid $color-white;
+    color: $color-white;
+    display: inline-block;
+    padding: 8px 20px;
+    &::after {
+      @extend %svg-icon-small;
+      background: url("../images/icons/cta-arrow-white.svg") no-repeat;
+      background-size: cover;
+    }
+  }
+}
+
 
 .white .component-left,
 .off-white .component-left {

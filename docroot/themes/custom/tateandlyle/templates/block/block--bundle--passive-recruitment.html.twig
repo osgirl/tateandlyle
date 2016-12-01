@@ -53,28 +53,33 @@
     'clearfix',
   ]
 %}
-
 <section{{ attributes.addClass(classes) }}>
   {{ title_prefix }}
   {% if label %}
     <h2{{ title_attributes.addClass('block-title') }}>{{ label }}</h2>
   {% endif %}
   {{ title_suffix }}
+
   {% block content %}
-  <div class="banner__overlay__block">
-    <div class="banner__overlay--background">
-      {{ content.field_bg_image }}
-    </div>
-    <div class="banner__overlay--content">
-      <div class="banner__overlay--left">
-        {{ content|without('field_bg_image', 'field_simple_text')}}
+    <div{{ attributes.addClass([overlay_color, "overlay__block recruitment__block"]) }}>
+      <div class="overlay__block--background">
+        {{ content.field_bg_image }}
       </div>
-      {% if videos  %}
-        <div class="banner__overlay--right">
-          <div{{ attributes.setAttribute('id', videoid) }}></div>
+      <div class="overlay__block--content">
+        <div class="component-left">
+        <div class="inline--description">
+            {{ content.field_icon }}
+          </div>
+          <div class="inline--description">
+            {{ content.field_simple_text }}
+            {{ content.field_description }}
+          </div>
+          <div class="inline--description">
+            {{ content.field_all_jobs_link}}
+          </div>
         </div>
-      {% endif %}
-    </div>
+          {{ content|without('field_bg_image', 'field_bg_color', 'field_icon', 'field_simple_text', 'field_description', 'field_all_jobs_link')}}
+      </div>
     </div>
   {% endblock %}
 </section>
