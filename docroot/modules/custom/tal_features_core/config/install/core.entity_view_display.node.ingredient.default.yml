@@ -4,7 +4,6 @@ dependencies:
   config:
     - field.field.node.ingredient.body
     - field.field.node.ingredient.field_common_names
-    - field.field.node.ingredient.field_hide_title
     - field.field.node.ingredient.field_in_applications
     - field.field.node.ingredient.field_in_trends_solutions
     - field.field.node.ingredient.field_in_types
@@ -12,15 +11,8 @@ dependencies:
     - node.type.ingredient
   module:
     - entity_reference_revisions
-    - panelizer
     - text
     - user
-third_party_settings:
-  panelizer:
-    enable: false
-    custom: false
-    allow: false
-    default: default
 id: node.ingredient.default
 targetEntityType: node
 bundle: ingredient
@@ -70,7 +62,4 @@ content:
     third_party_settings: {  }
   links:
     weight: 100
-    settings: {  }
-    third_party_settings: {  }
-hidden:
-  field_hide_title: true
+hidden: {  }
