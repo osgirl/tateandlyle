@@ -125,6 +125,7 @@
 
     .field--name-field-pr-description {
       color: $gray-dark;
+      margin-bottom: 25px;
     }
   }
 
@@ -154,7 +155,7 @@
   .overlay__block--background {
     @media (min-width: $screen-sm-lsp) {
       .img-responsive {
-        min-height: 536px;
+        min-height: 600px;
       }
     }
     @media (min-width: $screen-sm) {
@@ -164,9 +165,14 @@
     }
   }
   .component-left {
+    .field--name-field-description {
+      margin-bottom: 10px;
+    }
+
     @media (min-width: $screen-sm) {
       display: table-caption;
       width: 100%;
+
 
       .inline--description {
         display: inline-block;
