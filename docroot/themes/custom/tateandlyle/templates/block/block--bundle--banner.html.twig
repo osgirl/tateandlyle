@@ -67,7 +67,9 @@
     </div>
     <div class="banner__overlay--content">
       <div class="banner__overlay--left">
-        {{ content|without('field_bg_image', 'field_simple_text')}}
+        <div class="banner--inner">
+          {{ content|without('field_bg_image', 'field_simple_text')}}
+        </div>
       </div>
       {% if videos  %}
         <div class="banner__overlay--right">

@@ -1,0 +1,80 @@
+.banner__overlay__block {
+  position: relative;
+  min-height: 262px;
+  @media (min-width: $screen-sm) {
+    min-height: 350px;
+  }
+}
+
+.banner__overlay--background {
+  .img-responsive {
+    min-height: 262px;
+    width: 100%;
+    object-fit: cover;
+    @media (min-width: $screen-sm) {
+      min-height: 350px;
+    }
+  }
+}
+
+.banner__overlay--content {
+  @extend %full-absolute;
+  position: absolute;
+  display: table;
+  min-height: 262px;
+  width: 100%;
+  @media (min-width: $screen-sm) {
+    min-height: 350px;
+  }
+  .banner__overlay--left,
+  .banner__overlay--right {
+    display: table-cell;
+    padding-top: 40px;
+    width: 50%;
+    @media (min-width: $screen-sm-lsp) {
+      padding-top: 0;
+      vertical-align: middle;
+    }
+  }
+
+  .banner__overlay--left {
+    background: $color-white-translucent;
+  }
+
+  .banner--inner {
+    width: 80%;
+    margin: auto;
+  }
+
+  .field--name-field-banner-title {
+    color: $gray-base;
+    font-size: $font-size-h1-sm;
+    @media (min-width: $screen-sm) {
+      font-size: $font-size-h1;
+    }
+  }
+
+  .field--name-field-short-summary {
+    display: none;
+    @media (min-width: $screen-sm-lsp) {
+      display: block;
+    }
+  }
+}
+
+// Important to override inline style.
+.butoflashplayer {
+  display: none;
+  @media (min-width: $screen-sm-lsp) {
+    display: block;
+  }
+  height: 261px !important;
+  width: 100%;
+  padding: 0 !important;
+  max-width: 464px;
+  margin: auto;
+  object {
+    width: 100% !important;
+    height: 100% !important;
+  }
+}

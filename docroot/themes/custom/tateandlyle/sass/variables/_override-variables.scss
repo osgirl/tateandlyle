@@ -67,6 +67,7 @@ $font-size-large: ceil(($font-size-base * 1.25)) !default; // ~20px
 $font-size-small: ceil(($font-size-base * 0.875)) !default; // ~14px
 
 $font-size-h1: floor(($font-size-base * 3)) !default; // ~48px
+$font-size-h1-sm: floor(($font-size-base * 2.5)) !default; // ~40px
 $font-size-h2: floor(($font-size-base * 1.875)) !default; // ~30px
 $font-size-h3: ceil(($font-size-base * 1.5)) !default; // ~24px
 $font-size-h4: ceil(($font-size-base * 1.25)) !default; // ~20px
