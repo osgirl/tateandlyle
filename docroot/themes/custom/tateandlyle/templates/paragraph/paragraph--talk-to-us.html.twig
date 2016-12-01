@@ -68,11 +68,10 @@ view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
 </div>
 {% else %}
     {% if content.field_simple_text %}
-        {{ field_simple_text }}
+        <div class="field--name-field-simple-text">{{ field_simple_text }}</div>
     {% else %}
-        {{ field_ttu_contact_title }}
+        <div class="field--name-field-simple-text">{{ field_ttu_contact_title }}</div>
     {% endif %}
-    <div class="field--name-field-simple-text">{{ "Call us "|t }}</div>
     <a class="field--name-field-phone-number" href="tel:{{ field_ttu_contact_phone }}"> {{ field_ttu_contact_phone }} </a>
     <div class="bottom_link">
         {% if field_or_link_text == '1' %}
