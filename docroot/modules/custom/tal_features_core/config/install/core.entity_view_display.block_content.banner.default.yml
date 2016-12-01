@@ -7,6 +7,7 @@ dependencies:
     - field.field.block_content.banner.field_bg_image
     - field.field.block_content.banner.field_short_summary
     - field.field.block_content.banner.field_simple_text
+    - image.style.banner_1366_x_350
   module:
     - image
 id: block_content.banner.default
@@ -15,17 +16,17 @@ bundle: banner
 mode: default
 content:
   field_banner_title:
-    weight: 3
+    weight: 0
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
   field_bg_image:
-    weight: 1
+    weight: 2
     label: hidden
     settings:
-      image_style: ''
+      image_style: banner_1366_x_350
       image_link: ''
     third_party_settings: {  }
     type: image
@@ -36,7 +37,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_simple_text:
-    weight: 2
+    weight: 3
     label: hidden
     settings:
       link_to_entity: false

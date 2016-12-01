@@ -34,7 +34,7 @@ function tateandlyle_preprocess_block(&$variables) {
     }
 
     // Call preprocessor function of different block types.
-    $preproces_block_list = array('single_item_promo', 'talk_to_us', 'banner');
+    $preproces_block_list = array('single_item_promo', 'talk_to_us', 'passive_recruitment', 'banner');
     if (in_array($bundle, $preproces_block_list)) {
       include_once "preprocess/block.inc";
       $variables = call_user_func("tal_preprocess_block_" . $bundle, $variables, $block);
