@@ -3,6 +3,14 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.company_story.field_author
+    - field.field.node.company_story.field_category
+    - field.field.node.company_story.field_date
+    - field.field.node.company_story.field_downloads
+    - field.field.node.company_story.field_next_article
+    - field.field.node.company_story.field_prev_article
+    - field.field.node.company_story.field_reusable_component
+    - field.field.node.company_story.field_story_description
     - node.type.company_story
   module:
     - user
@@ -13,4 +21,12 @@ mode: teaser
 content:
   links:
     weight: 100
-hidden: {  }
+hidden:
+  field_author: true
+  field_category: true
+  field_date: true
+  field_downloads: true
+  field_next_article: true
+  field_prev_article: true
+  field_reusable_component: true
+  field_story_description: true
