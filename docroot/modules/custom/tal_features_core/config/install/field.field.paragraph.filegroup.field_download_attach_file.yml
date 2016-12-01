@@ -1,0 +1,26 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_download_attach_file
+    - paragraphs.paragraphs_type.filegroup
+  module:
+    - file
+id: paragraph.filegroup.field_download_attach_file
+field_name: field_download_attach_file
+entity_type: paragraph
+bundle: filegroup
+label: File
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'pdf doc docx xls xlsx pps ppsx avi qt mov'
+  max_filesize: ''
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file
