@@ -14,6 +14,15 @@
   }
 }
 
+.max-content-width-sm {
+  @media (min-width: $screen-sm) {
+    max-width: 708px;
+  }
+  @media (min-width: $screen-md) {
+    max-width: 943px;
+  }
+}
+
 .modal-backdrop {
   display: none;
 }
