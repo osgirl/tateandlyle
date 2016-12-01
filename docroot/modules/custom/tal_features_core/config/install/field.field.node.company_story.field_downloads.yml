@@ -1,0 +1,65 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_downloads
+    - node.type.company_story
+    - paragraphs.paragraphs_type.related_downloads
+  module:
+    - entity_reference_revisions
+id: node.company_story.field_downloads
+field_name: field_downloads
+entity_type: node
+bundle: company_story
+label: 'Related Downloads'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      related_downloads: related_downloads
+    target_bundles_drag_drop:
+      block_reference:
+        weight: 12
+        enabled: false
+      related_downloads:
+        enabled: true
+        weight: 13
+      component_accordion_body:
+        weight: 13
+        enabled: false
+      component_accordion_items:
+        weight: 14
+        enabled: false
+      downloads:
+        weight: 15
+        enabled: false
+      ingredient_accordion:
+        weight: 16
+        enabled: false
+      ingredient_accordion_items:
+        weight: 17
+        enabled: false
+      passive_recruitment:
+        weight: 18
+        enabled: false
+      talk_to_us:
+        weight: 19
+        enabled: false
+      wysiwyg:
+        weight: 20
+        enabled: false
+      wysiwyg_with_block_reference:
+        weight: 21
+        enabled: false
+      wysiwyg_with_country_and_region:
+        weight: 22
+        enabled: false
+      filegroup:
+        enabled: false
+        weight: 18
+field_type: entity_reference_revisions

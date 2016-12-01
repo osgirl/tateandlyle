@@ -1,0 +1,27 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_file_language
+    - paragraphs.paragraphs_type.filegroup
+    - taxonomy.vocabulary.languages
+id: paragraph.filegroup.field_file_language
+field_name: field_file_language
+entity_type: paragraph
+bundle: filegroup
+label: 'File language'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      languages: languages
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

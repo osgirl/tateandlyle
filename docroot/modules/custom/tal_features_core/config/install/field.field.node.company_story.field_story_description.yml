@@ -1,0 +1,62 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_story_description
+    - node.type.company_story
+    - paragraphs.paragraphs_type.wysiwyg_with_block_reference
+  module:
+    - entity_reference_revisions
+id: node.company_story.field_story_description
+field_name: field_story_description
+entity_type: node
+bundle: company_story
+label: 'Story Description'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      wysiwyg_with_block_reference: wysiwyg_with_block_reference
+    target_bundles_drag_drop:
+      related_downloads:
+        weight: 13
+        enabled: false
+      block_reference:
+        weight: 14
+        enabled: false
+      component_accordion_body:
+        weight: 15
+        enabled: false
+      component_accordion_items:
+        weight: 16
+        enabled: false
+      downloads:
+        weight: 17
+        enabled: false
+      ingredient_accordion:
+        weight: 18
+        enabled: false
+      ingredient_accordion_items:
+        weight: 19
+        enabled: false
+      passive_recruitment:
+        weight: 20
+        enabled: false
+      talk_to_us:
+        weight: 21
+        enabled: false
+      wysiwyg:
+        weight: 22
+        enabled: false
+      wysiwyg_with_block_reference:
+        enabled: true
+        weight: 23
+      wysiwyg_with_country_and_region:
+        weight: 24
+        enabled: false
+field_type: entity_reference_revisions
