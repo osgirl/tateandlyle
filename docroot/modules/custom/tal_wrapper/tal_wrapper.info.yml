@@ -1,0 +1,7 @@
+name: 'TAL Wrapper'
+description: 'Parent Wrapper module for managing customisations for TAL'
+type: module
+core: 8.x
+package: tal
+dependencies:
+  - tal_features_core
