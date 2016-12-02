@@ -101,3 +101,17 @@ function tal_preprocess_paragraph_wysiwyg_with_country_and_region($variables, $p
 
   return $variables;
 }
+
+/**
+ * Preprocessor function for "ingredient accrdion" paragraph type.
+ */
+function tal_preprocess_paragraph_ingredient_accordion($variables, $paragraph) {
+  // Checks if we need to put bordered around the paragraph.
+  $variables['show_border'] = FALSE;
+
+  if ($paragraph->get('field_in_border_title')->value) {
+    $variables['show_border'] = TRUE;
+  }
+
+  return $variables;
+}
