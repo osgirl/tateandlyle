@@ -28,34 +28,34 @@ mode: default
 content:
   body:
     weight: 106
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: text_default
   field_common_names:
     weight: 105
-    label: above
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
   field_in_applications:
     weight: 102
-    label: above
+    label: hidden
     settings:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
   field_in_trends_solutions:
     weight: 103
-    label: above
+    label: hidden
     settings:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
   field_in_types:
     weight: 101
-    label: above
+    label: hidden
     settings:
       link: true
     third_party_settings: {  }
@@ -63,7 +63,7 @@ content:
   field_ingredients_content:
     type: entity_reference_revisions_entity_view
     weight: 104
-    label: above
+    label: hidden
     settings:
       view_mode: default
       link: ''
