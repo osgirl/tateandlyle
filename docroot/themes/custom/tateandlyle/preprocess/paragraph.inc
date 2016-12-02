@@ -13,30 +13,20 @@ use Drupal\field\Entity\FieldConfig;
 function tal_preprocess_paragraph_talk_to_us($variables, $paragraph) {
   $contact = $paragraph->get('field_ttu_contact')->referencedEntities();
   // Sets filed button text value.
-  $variables['field_button_text'] = '';
-  if ($paragraph->get('field_button_text')->value) {
-    $variables['field_button_text'] = $paragraph->get('field_button_text')->value;
-  }
+  $variables['field_button_text'] = $paragraph->get('field_button_text')->value;
+
   // Sets filed link text value.
-  $variables['field_or_link_text'] = '';
-  if ($paragraph->get('field_or_link_text')->value) {
-    $variables['field_or_link_text'] = $paragraph->get('field_or_link_text')->value;
-  }
+  $variables['field_or_link_text'] = $paragraph->get('field_or_link_text')->value;
+
   // Sets filed simple text value.
-  $variables['field_simple_text'] = '';
-  if ($paragraph->get('field_simple_text')->value) {
-    $variables['field_simple_text'] = $paragraph->get('field_simple_text')->value;
-  }
+  $variables['field_simple_text'] = $paragraph->get('field_simple_text')->value;
+
   // Sets filed talk to us text value.
-  $variables['field_ttu_link_text'] = '';
-  if ($paragraph->get('field_ttu_link_text')->value) {
-    $variables['field_ttu_link_text'] = $paragraph->get('field_ttu_link_text')->value;
-  }
+  $variables['field_ttu_link_text'] = $paragraph->get('field_ttu_link_text')->value;
+
   // Sets filed talk to us or button text value.
-  $variables['field_ttu_or_button'] = '';
-  if ($paragraph->get('field_ttu_or_button')->value) {
-    $variables['field_ttu_or_button'] = $paragraph->get('field_ttu_or_button')->value;
-  }
+  $variables['field_ttu_or_button'] = $paragraph->get('field_ttu_or_button')->value;
+
   // Sets contact phone and title text values.
   $variables['field_ttu_contact_phone'] = '';
   $variables['field_ttu_contact_title'] = '';
