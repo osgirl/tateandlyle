@@ -9,7 +9,7 @@ field_name: field_ttu_or_button
 entity_type: paragraph
 bundle: talk_to_us
 label: 'Or Button'
-description: ''
+description: 'Only Or Button will be visible. It will hide all other content in the connect block (Contact, title, bottom link text). Except wysiwyg.'
 required: false
 translatable: false
 default_value:
