@@ -101,7 +101,7 @@ function tal_preprocess_block_quote($variables, $block) {
 
   if (isset($image)) {
     $image_url = file_create_url($image->getFileUri());
-    $variables['style'] = "background-image:" . $image_url;
+    $variables['style'] = 'background-image: url("' . $image_url . '")';
   }
 
   if (!isset($image) && !isset($background_color_content)) {
