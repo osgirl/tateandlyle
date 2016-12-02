@@ -38,7 +38,8 @@ function tateandlyle_preprocess_block(&$variables) {
       'single_item_promo',
       'talk_to_us',
       'passive_recruitment',
-      'banner'
+      'banner',
+      'quote'
     );
     if (in_array($bundle, $preproces_block_list)) {
       include_once "preprocess/block.inc";

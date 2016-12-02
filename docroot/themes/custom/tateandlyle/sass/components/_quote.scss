@@ -65,6 +65,9 @@
 }
 
 .block--quote {
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: $color-white;
   padding: 55px 20px;
   @media (min-width: $screen-sm-lsp) {
     .field--name-field-simple-text,
@@ -87,10 +90,24 @@
       padding: 8px 20px;
 
       &::after {
-        @extend %svg-icon-small;
-        background: url("../images/icons/cta-arrow-white.svg") no-repeat;
-        background-size: cover;
+        content: $fa-var-angle-right;
+        font-family: $font-family-icon;
+        padding-left: 10px;
       }
+
+      &:hover {
+        color: $link-hover-color;
+      }
+    }
+  }
+
+  hr {
+    border-color: inherit;
+    width: 50px;
+    margin-bottom: 10px;
+    margin-left: 0;
+    @media (min-width: $screen-sm-lsp) {
+      margin-left: auto;
     }
   }
 
