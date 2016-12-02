@@ -44,42 +44,14 @@ set classes = [
 view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
 ]
 %}
-{% if field_ttu_or_button == '1' %}
-<div class="container">
-    <!-- Modal -->
-    <div class="field--name-field-simple-text">{{ "Or" |t }}</div>
-    <button type="button" class="btn btn-primary field--name-field-button-text" data-toggle="modal" data-target="#myModal">{{ field_button_text }}</button>
-    <div class="modal fade" id="myModal" role="dialog">
-        <div class="modal-dialog modal-sm">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">{{ "Modal Header"|t }}</h4>
-                </div>
-                <div class="modal-body">
-                    <p>{{ "This is a small modal."|t }}</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">{{ "Close"|t }}</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-{% else %}
-    {% if content.field_simple_text %}
-        <div class="field--name-field-simple-text">{{ field_simple_text }}</div>
-    {% else %}
-        <div class="field--name-field-simple-text">{{ field_ttu_contact_title }}</div>
-    {% endif %}
-    <a class="field--name-field-phone-number" href="tel:{{ field_ttu_contact_phone }}"> {{ field_ttu_contact_phone }} </a>
-    <div class="bottom_link">
-        {% if field_or_link_text == '1' %}
-            <a href="#" class="field--name-field-ttu-link-text" data-toggle="modal" data-target="#myModal">{{ field_ttu_link_text }}</a>
-        {% else %}
-            <a href="#" class="field--name-field-ttu-link-text" data-toggle="modal" data-target="#myModal">{{ "Connect with "|t }}{{ field_ttu_contact_title }}</a>
-        {% endif %}
-
+{% if content.field_in_wysiwyg1|render|trim %}
+    {{ content.field_in_wysiwyg1 }}
+{% elseif contact %}
+    {% if field_ttu_or_button == '1' %}
+    <div class="container">
+        <!-- Modal -->
+        <div class="field--name-field-simple-text">{{ "Or" |t }}</div>
+        <button type="button" class="btn btn-primary field--name-field-button-text" data-toggle="modal" data-target="#myModal">{{ field_button_text }}</button>
         <div class="modal fade" id="myModal" role="dialog">
             <div class="modal-dialog modal-sm">
                 <div class="modal-content">
@@ -97,4 +69,36 @@ view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
             </div>
         </div>
     </div>
+    {% else  %}
+        {% if content.field_simple_text|render|trim %}
+            <div class="field--name-field-simple-text">{{ field_simple_text }}</div>
+        {% else %}
+            <div class="field--name-field-simple-text">{{ field_ttu_contact_title }}</div>
+        {% endif %}
+        <a class="field--name-field-phone-number" href="tel:{{ field_ttu_contact_phone }}"> {{ field_ttu_contact_phone }} </a>
+        <div class="bottom_link">
+            {% if field_or_link_text == '1' %}
+                <a href="#" class="field--name-field-ttu-link-text" data-toggle="modal" data-target="#myModal">{{ field_ttu_link_text }}</a>
+            {% else %}
+                <a href="#" class="field--name-field-ttu-link-text" data-toggle="modal" data-target="#myModal">{{ "Connect with "|t }}{{ field_ttu_contact_title }}</a>
+            {% endif %}
+
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">{{ "Modal Header"|t }}</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>{{ "This is a small modal."|t }}</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">{{ "Close"|t }}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
 {% endif %}

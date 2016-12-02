@@ -4,4 +4,4 @@ dependencies: {  }
 id: talk_to_us
 label: 'Talk to us'
 revision: 1
-description: ''
+description: 'Adds a "Talk to us" reusable component.'
