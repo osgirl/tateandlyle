@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit81838f9681052ab4b22a3c9818b87ea6
+class ComposerStaticInitf51d9ebda5ee78555354c4275ecafdc8
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -3395,7 +3395,10 @@ class ComposerStaticInit81838f9681052ab4b22a3c9818b87ea6
         'PHPUnitTask' => __DIR__ . '/..' . '/phing/phing/classes/phing/tasks/ext/phpunit/PHPUnitTask.php',
         'PHPUnitTestRunner' => __DIR__ . '/..' . '/phing/phing/classes/phing/tasks/ext/phpunit/PHPUnitTestRunner.php',
         'PHPUnitUtil' => __DIR__ . '/..' . '/phing/phing/classes/phing/tasks/ext/phpunit/PHPUnitUtil.php',
+        'PHPUnit\\Framework\\Assert' => __DIR__ . '/..' . '/phpunit/phpunit/src/ForwardCompatibility/Assert.php',
+        'PHPUnit\\Framework\\BaseTestListener' => __DIR__ . '/..' . '/phpunit/phpunit/src/ForwardCompatibility/BaseTestListener.php',
         'PHPUnit\\Framework\\TestCase' => __DIR__ . '/..' . '/phpunit/phpunit/src/ForwardCompatibility/TestCase.php',
+        'PHPUnit\\Framework\\TestListener' => __DIR__ . '/..' . '/phpunit/phpunit/src/ForwardCompatibility/TestListener.php',
         'PHPUnit_Exception' => __DIR__ . '/..' . '/phpunit/phpunit/src/Exception.php',
         'PHPUnit_Extensions_GroupTestSuite' => __DIR__ . '/..' . '/phpunit/phpunit/src/Extensions/GroupTestSuite.php',
         'PHPUnit_Extensions_PhptTestCase' => __DIR__ . '/..' . '/phpunit/phpunit/src/Extensions/PhptTestCase.php',
@@ -6426,10 +6429,10 @@ class ComposerStaticInit81838f9681052ab4b22a3c9818b87ea6
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit81838f9681052ab4b22a3c9818b87ea6::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit81838f9681052ab4b22a3c9818b87ea6::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit81838f9681052ab4b22a3c9818b87ea6::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit81838f9681052ab4b22a3c9818b87ea6::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitf51d9ebda5ee78555354c4275ecafdc8::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitf51d9ebda5ee78555354c4275ecafdc8::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitf51d9ebda5ee78555354c4275ecafdc8::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInitf51d9ebda5ee78555354c4275ecafdc8::$classMap;
 
         }, null, ClassLoader::class);
     }
