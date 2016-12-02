@@ -23,13 +23,13 @@ mode: default
 content:
   field_bg_color:
     weight: 12
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: list_default
   field_bg_image:
     weight: 5
-    label: above
+    label: hidden
     settings:
       image_style: ''
       image_link: ''
@@ -37,40 +37,40 @@ content:
     type: image
   field_qt_bg_color:
     weight: 11
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: list_default
   field_qt_person_role:
     weight: 8
-    label: above
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
   field_qt_quote_person:
     weight: 7
-    label: above
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
   field_short_summary:
     weight: 6
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: basic_string
   field_simple_text:
     weight: 4
-    label: above
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
   field_tal_image:
     weight: 2
-    label: above
+    label: hidden
     settings:
       image_style: ''
       image_link: ''
@@ -78,7 +78,7 @@ content:
     type: image
   field_tal_link:
     weight: 9
-    label: above
+    label: hidden
     settings:
       trim_length: 80
       url_only: false
