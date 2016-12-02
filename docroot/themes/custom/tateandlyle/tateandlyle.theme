@@ -34,16 +34,9 @@ function tateandlyle_preprocess_block(&$variables) {
     }
 
     // Call preprocessor function of different block types.
-    $preproces_block_list = array(
-      'single_item_promo',
-      'talk_to_us',
-      'passive_recruitment',
-      'banner',
-      'quote'
-    );
-    if (in_array($bundle, $preproces_block_list)) {
-      include_once "preprocess/block.inc";
-      $variables = call_user_func("tal_preprocess_block_" . $bundle, $variables, $block);
+    include_once "preprocess/block.inc";
+    if (function_exists ('tal_preprocess_block_' . $bundle)) {
+      $variables = call_user_func('tal_preprocess_block_' . $bundle, $variables, $block);
     }
   }
 }
@@ -53,23 +46,11 @@ function tateandlyle_preprocess_block(&$variables) {
  */
 function tateandlyle_preprocess_paragraph(&$variables) {
   $bundle = $variables['paragraph']->getType();
-  if ($bundle == 'talk_to_us') {
-    $contact = $variables['paragraph']->get('field_ttu_contact')->referencedEntities();
-    $variables['contact'] = TRUE;
-    if (!empty($contact)) {
-      $variables['field_ttu_contact_phone'] = $contact[0]->get('field_phone_number')->value;
-      $variables['field_ttu_contact_title'] = $contact[0]->label();
-      $variables['field_button_text'] = $variables['paragraph']->get('field_button_text')->value;
-      $variables['field_or_link_text'] = $variables['paragraph']->get('field_or_link_text')->value;
-      $variables['field_simple_text'] = $variables['paragraph']->get('field_simple_text')->value;
-      $variables['field_ttu_link_text'] = $variables['paragraph']->get('field_ttu_link_text')->value;
-      $variables['field_ttu_or_button'] = $variables['paragraph']->get('field_ttu_or_button')->value;
-    }
-    else {
-      $variables['contact'] = FALSE;
-      $variables['field_ttu_contact_phone'] = '';
-      $variables['field_ttu_contact_title'] = '';
-    }
+
+  // Call preprocessor function of different block types.
+  include_once "preprocess/paragraph.inc";
+  if (function_exists ('tal_preprocess_paragraph_' . $bundle)) {
+    $variables = call_user_func('tal_preprocess_paragraph_' . $bundle, $variables, $variables['paragraph']);
   }
 }
 
@@ -83,5 +64,18 @@ function tateandlyle_preprocess_page_title(&$variables) {
     if ($hide == '1') {
       $variables['title_attributes']['class'][] = 'hide';
     }
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for the node.
+ */
+function tateandlyle_preprocess_node(&$variables) {
+  $bundle = $variables['node']->getType();
+
+  // Call preprocessor function of different block types.
+  include_once "preprocess/node.inc";
+  if (function_exists ('tal_preprocess_node_' . $bundle)) {
+    $variables = call_user_func('tal_preprocess_node_' . $bundle, $variables, $variables['node']);
   }
 }
