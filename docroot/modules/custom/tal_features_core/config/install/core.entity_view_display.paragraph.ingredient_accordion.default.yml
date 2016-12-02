@@ -13,28 +13,22 @@ targetEntityType: paragraph
 bundle: ingredient_accordion
 mode: default
 content:
-  field_field_in_submenu_title:
-    weight: 0
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
   field_in_accordion_items:
     type: entity_reference_revisions_entity_view
     weight: 2
-    label: above
+    label: hidden
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
   field_in_border_title:
     weight: 1
-    label: above
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
 hidden:
   created: true
+  field_field_in_submenu_title: true
   uid: true

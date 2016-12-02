@@ -19,33 +19,33 @@ mode: default
 content:
   field_field_in_submenu_title:
     weight: 0
-    label: above
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
   field_in_border_title:
     weight: 1
-    label: above
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
   field_in_country:
     weight: 4
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: country_default
   field_in_region:
     weight: 5
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: list_default
   field_in_wysiwyg1:
     weight: 2
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: text_default

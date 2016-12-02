@@ -11,6 +11,9 @@ type: list_string
 settings:
   allowed_values:
     -
+      value: All
+      label: All
+    -
       value: Americas
       label: Americas
     -
