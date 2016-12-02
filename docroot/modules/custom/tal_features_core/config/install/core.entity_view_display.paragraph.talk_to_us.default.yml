@@ -3,12 +3,15 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.talk_to_us.field_button_text
+    - field.field.paragraph.talk_to_us.field_in_wysiwyg1
     - field.field.paragraph.talk_to_us.field_or_link_text
     - field.field.paragraph.talk_to_us.field_simple_text
     - field.field.paragraph.talk_to_us.field_ttu_contact
     - field.field.paragraph.talk_to_us.field_ttu_link_text
     - field.field.paragraph.talk_to_us.field_ttu_or_button
     - paragraphs.paragraphs_type.talk_to_us
+  module:
+    - text
 id: paragraph.talk_to_us.default
 targetEntityType: paragraph
 bundle: talk_to_us
@@ -21,6 +24,12 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+  field_in_wysiwyg1:
+    weight: 4
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
   field_simple_text:
     weight: 3
     label: hidden
