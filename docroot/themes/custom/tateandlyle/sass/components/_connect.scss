@@ -191,7 +191,9 @@
     }
   }
   .field--name-field-all-jobs-link {
-    margin-top: 35px;
+    @media (min-width: $screen-md) {
+      margin-top: 35px;
+    }
     a {
       border: 1px solid;
       color: $color-white;
