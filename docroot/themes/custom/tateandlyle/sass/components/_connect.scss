@@ -190,25 +190,43 @@
       }
     }
   }
-  .field--name-field-all-jobs-link a {
-    border: 1px solid $color-white;
-    color: $color-white;
-    display: inline-block;
-    padding: 8px 20px;
-    &::after {
-      @extend %svg-icon-small;
-      background: url("../images/icons/cta-arrow-white.svg") no-repeat;
-      background-size: cover;
+  .field--name-field-all-jobs-link {
+    margin-top: 35px;
+    a {
+      border: 1px solid;
+      color: $color-white;
+      display: inline-block;
+      padding: 8px 20px;
+      &::after {
+        content: $fa-var-angle-right;
+        font-family: $font-family-icon;
+        padding-left: 10px;
+      }
+
+      &:hover {
+        color: $link-hover-color;
+      }
+    }
+  }
+
+  .component-left,
+  .connect__block {
+    @media (min-width: $screen-sm) {
+      vertical-align: top;
     }
   }
 }
 
-
 .white .component-left,
 .off-white .component-left {
   color: $gray-dark;
-  .field--name-field-simple-text {
+  .field--name-field-simple-text,
+  .field--name-field-all-jobs-link a {
     color: $gray-base;
+  }
+
+  .field--name-field-all-jobs-link a:hover {
+    color: $link-hover-color;
   }
 }
 
@@ -226,6 +244,9 @@
 
 .blue .component-left {
   background-color: $brand-primary;
+  .field--name-field-all-jobs-link a:hover {
+    color: $gray-base;
+  }
 }
 
 .red .component-left {

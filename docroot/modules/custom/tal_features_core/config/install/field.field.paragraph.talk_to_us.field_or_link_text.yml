@@ -8,8 +8,8 @@ id: paragraph.talk_to_us.field_or_link_text
 field_name: field_or_link_text
 entity_type: paragraph
 bundle: talk_to_us
-label: 'Or Link Text'
-description: ''
+label: 'Bottom Link Text'
+description: 'Override bottom link text label.'
 required: false
 translatable: false
 default_value:
