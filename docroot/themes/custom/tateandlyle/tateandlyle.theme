@@ -35,7 +35,7 @@ function tateandlyle_preprocess_block(&$variables) {
 
     // Call preprocessor function of different block types.
     include_once "preprocess/block.inc";
-    if (function_exists ('tal_preprocess_block_' . $bundle)) {
+    if (function_exists('tal_preprocess_block_' . $bundle)) {
       $variables = call_user_func('tal_preprocess_block_' . $bundle, $variables, $block);
     }
   }
@@ -49,7 +49,7 @@ function tateandlyle_preprocess_paragraph(&$variables) {
 
   // Call preprocessor function of different block types.
   include_once "preprocess/paragraph.inc";
-  if (function_exists ('tal_preprocess_paragraph_' . $bundle)) {
+  if (function_exists('tal_preprocess_paragraph_' . $bundle)) {
     $variables = call_user_func('tal_preprocess_paragraph_' . $bundle, $variables, $variables['paragraph']);
   }
 }
@@ -75,7 +75,7 @@ function tateandlyle_preprocess_node(&$variables) {
 
   // Call preprocessor function of different block types.
   include_once "preprocess/node.inc";
-  if (function_exists ('tal_preprocess_node_' . $bundle)) {
+  if (function_exists('tal_preprocess_node_' . $bundle)) {
     $variables = call_user_func('tal_preprocess_node_' . $bundle, $variables, $variables['node']);
   }
 }

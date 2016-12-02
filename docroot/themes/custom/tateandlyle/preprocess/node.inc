@@ -28,3 +28,21 @@ function tal_preprocess_node_ingredient($variables, $node) {
 
   return $variables;
 }
+
+/**
+ * Preprocessor function for "company_story" bundle.
+ */
+function tal_preprocess_node_company_story($variables, $node) {
+  $node = $variables['node'];
+  $previous = $node->get('field_prev_article')->referencedEntities();
+  $variables['prevurl'] = '';
+  if (!empty($previous)) {
+    $variables['prevurl'] = $previous[0]->url();
+  }
+  $next = $node->get('field_next_article')->referencedEntities();
+  $variables['nexturl'] = '';
+  if (!empty($next)) {
+    $variables['nexturl'] = $next[0]->url();
+  }
+  return $variables;
+}
