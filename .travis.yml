@@ -2,6 +2,7 @@
 sudo: required
 language: php
 dist: trusty
+group: deprecated
 
 php:
   - 7
@@ -26,6 +27,11 @@ addons:
   ssh_known_hosts:
    - svn-19900.prod.hosting.acquia.com
    - staging-15867.prod.hosting.acquia.com
+  apt:
+    packages:
+    - mysql-server-5.6
+    - mysql-client-core-5.6
+    - mysql-client-5.6
 
 # @see https://docs.travis-ci.com/user/notifications
 notifications:
@@ -45,7 +51,7 @@ before_install:
   - echo "always_populate_raw_post_data = -1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
   - git config --global user.name "Travis-CI"
   - git config --global user.email "noreply@travis-ci.org"
-  - mysql -u root -e "CREATE DATABASE drupal; CREATE USER 'drupal'@'localhost' IDENTIFIED BY 'drupal'; GRANT ALL ON drupal.* TO 'drupal'@'localhost';"
+  - mysql -u root -e 'CREATE DATABASE drupal;'
 
 install:
   # Load composer dependencies.
@@ -63,8 +69,6 @@ install:
   - sh -e /etc/init.d/xvfb start
   # Installs chromedriver to vendor/bin.
   - ./vendor/acquia/blt/scripts/linux/install-chrome.sh $TRAVIS_BUILD_DIR/vendor/bin
-  # Use JDK 8.
-  - jdk_switcher use oraclejdk8
 
 before_script:
   # Clear drush release history cache, to pick up new releases.
