@@ -115,3 +115,45 @@ function tal_preprocess_paragraph_ingredient_accordion($variables, $paragraph) {
 
   return $variables;
 }
+
+/**
+ * Preprocessor function for "wysiwyg_with_block_reference" paragraph type.
+ */
+function tal_preprocess_paragraph_wysiwyg_with_block_reference($variables, $paragraph) {
+  // Checks if we need to put bordered around the paragraph.
+  $variables['show_border'] = FALSE;
+
+  if ($paragraph->get('field_in_border_title')->value) {
+    $variables['show_border'] = TRUE;
+  }
+
+  return $variables;
+}
+
+/**
+ * Preprocessor function for "wysiwyg" paragraph type.
+ */
+function tal_preprocess_paragraph_wysiwyg($variables, $paragraph) {
+  // Checks if we need to put bordered around the paragraph.
+  $variables['show_border'] = FALSE;
+
+  if ($paragraph->get('field_in_border_title')->value) {
+    $variables['show_border'] = TRUE;
+  }
+
+  return $variables;
+}
+
+/**
+ * Preprocessor function for "block_reference" paragraph type.
+ */
+function tal_preprocess_paragraph_block_reference($variables, $paragraph) {
+  // Checks if we need to put bordered around the paragraph.
+  $variables['show_border'] = FALSE;
+
+  if ($paragraph->get('field_in_border_title')->value) {
+    $variables['show_border'] = TRUE;
+  }
+
+  return $variables;
+}
