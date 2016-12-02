@@ -58,11 +58,19 @@
       <h2{{ title_attributes.addClass('block-title') }}>{{ content.field_simple_text }}</h2>
     {{ title_suffix }}
 
-    <div class="block-person-icon">{{ content.field_bg_image }}</div>
+    <div class="quote__content">
 
-    <div class="block-quote">{{ content.field_short_summary }}</div>
-    <div class="block-person-name">{{ content.field_qt_quote_person }}</div>
-    <div class="block-person-role">{{ content.field_qt_person_role }}</div>
+      <div class="quote__content--left">
+        <div class="block-person-icon">{{ content.field_bg_image }}</div>
+      </div>
+
+      <div class="quote__content--right">
+        <div class="block-quote">{{ content.field_short_summary }}</div>
+        <div class="block-person-name">{{ content.field_qt_quote_person }}</div>
+        <div class="block-person-role">{{ content.field_qt_person_role }}</div>
+      </div>
+    </div>
+
     <div class="block-readmore-link">{{ content.field_tal_link }}</div>
 </section>
 
