@@ -11,7 +11,7 @@ field_name: field_in_wysiwyg1
 entity_type: paragraph
 bundle: talk_to_us
 label: WYSIWYG
-description: ''
+description: 'Wysiwyg content is added, then it will override all other fields in this connect block and only WYSIWYG content will be shown.'
 required: false
 translatable: true
 default_value: {  }
