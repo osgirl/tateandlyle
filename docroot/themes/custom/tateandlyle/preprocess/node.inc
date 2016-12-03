@@ -46,3 +46,12 @@ function tal_preprocess_node_company_story($variables, $node) {
   }
   return $variables;
 }
+
+/**
+ * Preprocessor function for "Icon" bundle.
+ */
+function tal_preprocess_node_icon($variables, $node) {
+
+  $variables['title_attributes']['class'] = 'hide';
+  return $variables;
+}
