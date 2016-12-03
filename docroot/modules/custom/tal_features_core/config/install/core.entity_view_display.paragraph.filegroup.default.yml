@@ -14,13 +14,13 @@ mode: default
 content:
   field_download_attach_file:
     weight: 1
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: file_default
   field_file_language:
     weight: 0
-    label: above
+    label: hidden
     settings:
       link: true
     third_party_settings: {  }
