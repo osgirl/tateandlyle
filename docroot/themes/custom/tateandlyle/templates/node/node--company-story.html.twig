@@ -92,7 +92,10 @@
   {% endif %}
 
   <div{{ content_attributes.addClass('content') }}>
-    {{ content }}
+    {{ content.field_date }} | {{ content.field_category }}
+    {{ content.field_story_description }}
+    {{ content.field_author }}
+    {{ content.field_downloads }}
   </div>
   <div class="row">
     {% if prevurl %}
@@ -121,5 +124,6 @@
     </div>
     {% endif %}
   </div>
+  {{ content.field_reusable_component }}
 
 </article>
