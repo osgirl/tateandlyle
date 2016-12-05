@@ -12,7 +12,7 @@ entity_type: paragraph
 bundle: wysiwyg_with_country_and_region
 label: WYSIWYG
 description: ''
-required: false
+required: true
 translatable: true
 default_value: {  }
 default_value_callback: ''
