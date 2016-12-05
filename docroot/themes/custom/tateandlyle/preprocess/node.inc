@@ -20,7 +20,6 @@ function tal_preprocess_node_ingredient($variables, $node) {
     $url = Url::fromUserInput('#', array('fragment' => 'paragraph-' . $paragraph->id()));
     $submenu_text[] = Link::fromTextAndUrl($paragraph->get('field_field_in_submenu_title')->value, $url);
   }
-  kint($submenu_text);
   // Initialize variable with submenu list.
   $variables['submenu'] = array();
   if (!empty($submenu_text)) {
