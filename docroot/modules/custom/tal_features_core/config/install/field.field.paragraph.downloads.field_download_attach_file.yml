@@ -10,9 +10,9 @@ id: paragraph.downloads.field_download_attach_file
 field_name: field_download_attach_file
 entity_type: paragraph
 bundle: downloads
-label: 'Attach file'
+label: 'Add a new file'
 description: ''
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
