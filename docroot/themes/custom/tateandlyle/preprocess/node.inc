@@ -6,7 +6,7 @@
  */
 
 use Drupal\Core\Url;
-use Drupal\Core\LINK;
+use Drupal\Core\Link;
 
 /**
  * Preprocessor function for "Ingredient" bundle.
