@@ -30,8 +30,9 @@ function tal_preprocess_paragraph_talk_to_us($variables, $paragraph) {
   // Sets contact phone and title text values.
   $variables['field_ttu_contact_phone'] = '';
   $variables['field_ttu_contact_title'] = '';
-
+  $variables['contact'] = FALSE;
   if (!empty($contact)) {
+    $variables['contact'] = TRUE;
     $contact = array_shift($contact);
 
     $variables['field_ttu_contact_phone'] = $contact->get('field_phone_number')->value;
