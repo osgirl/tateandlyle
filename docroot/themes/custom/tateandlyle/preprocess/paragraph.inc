@@ -48,7 +48,11 @@ function tal_preprocess_paragraph_talk_to_us($variables, $paragraph) {
 function tal_preprocess_paragraph_wysiwyg_with_country_and_region($variables, $paragraph) {
   // Checks if we need to put bordered around the paragraph.
   $variables['show_border'] = FALSE;
-
+  $parent = $paragraph->getParentEntity();
+  $variables['parent_node_title'] = '';
+  if (method_exists($parent, 'getTitle')) {
+    $variables['parent_node_title'] = $parent->getTitle();
+  }
   if ($paragraph->get('field_in_border_title')->value) {
     $variables['show_border'] = TRUE;
   }
