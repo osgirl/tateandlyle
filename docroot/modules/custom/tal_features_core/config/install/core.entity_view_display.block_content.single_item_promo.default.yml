@@ -28,13 +28,13 @@ content:
     third_party_settings: {  }
   field_bg_color:
     weight: 1
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: list_default
   field_icon:
     weight: 3
-    label: above
+    label: hidden
     settings:
       view_mode: dispaly_icon_image
       link: false
@@ -42,14 +42,14 @@ content:
     type: entity_reference_entity_view
   field_simple_text:
     weight: 4
-    label: above
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
   field_sip_image:
     weight: 2
-    label: above
+    label: hidden
     settings:
       image_style: ''
       image_link: ''
@@ -57,7 +57,7 @@ content:
     type: image
   field_sip_vertical:
     weight: 6
-    label: above
+    label: hidden
     settings:
       format: default
       format_custom_false: ''
@@ -66,7 +66,7 @@ content:
     type: boolean
   field_tal_link:
     weight: 5
-    label: above
+    label: hidden
     settings:
       trim_length: 80
       url_only: false

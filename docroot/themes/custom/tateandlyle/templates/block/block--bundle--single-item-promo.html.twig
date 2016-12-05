@@ -53,20 +53,26 @@
     'clearfix',
   ]
 %}
-<section{{ attributes.addClass(classes) }} style="background-color: {{ bg_color }}">
-    {% if is_icon %}
-        <div class="block-icon">{{ content.field_icon }}</div>
-    {% endif %}
+<section{{ attributes.addClass('block--single-item-promo') }} style="background-color: {{ bg_color }}">
+    <div class="item__promo">
+        {% if is_image %}
+            <div class="block-image item__promo--component">{{ content.field_sip_image }}</div>
+        {% endif %}
 
-    {% if is_image %}
-        <div class="block-image">{{ content.field_sip_image }}</div>
-    {% endif %}
+        <div class="item__promo-content">
 
-    {{ title_prefix }}
-      <h2{{ title_attributes.addClass('block-title') }}>{{ content.field_simple_text }}</h2>
-    {{ title_suffix }}
+            {% if is_icon %}
+                <div class="block-icon item__promo--component">{{ content.field_icon }}</div>
+            {% endif %}
+            <div class="item__promo--summary">
+                {{ title_prefix }}
+                  <h3{{ title_attributes.addClass('block-title') }}>{{ content.field_simple_text }}</h3>
+                {{ title_suffix }}
 
-    <div class="block-summary">{{ content.body }}</div>
-    <div class="block-readmore">{{ content.field_tal_link }}</div>
+                <div class="block-summary">{{ content.body }}</div>
+            </div>
+            <div class="block-readmore item__promo--component">{{ content.field_tal_link }}</div>
+        </div>
+    </div>
 </section>
 

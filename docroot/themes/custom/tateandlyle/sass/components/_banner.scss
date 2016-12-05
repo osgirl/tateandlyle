@@ -64,7 +64,8 @@
 }
 
 // Important to override inline style.
-.butoflashplayer {
+.butoflashplayer,
+.butohtml5player {
   display: none;
   @media (min-width: $screen-sm-lsp) {
     display: block;
@@ -74,7 +75,8 @@
   padding: 0 !important;
   max-width: 464px;
   margin: auto;
-  object {
+  object,
+  video {
     width: 100% !important;
     height: 100% !important;
   }
