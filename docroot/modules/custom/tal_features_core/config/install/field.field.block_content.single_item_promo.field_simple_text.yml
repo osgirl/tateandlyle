@@ -10,7 +10,7 @@ entity_type: block_content
 bundle: single_item_promo
 label: Title
 description: ''
-required: false
+required: true
 translatable: true
 default_value: {  }
 default_value_callback: ''
