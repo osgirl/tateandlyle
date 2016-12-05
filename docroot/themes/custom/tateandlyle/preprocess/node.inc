@@ -5,6 +5,9 @@
  * The primary file to hold preprocessor functions of different node bundles.
  */
 
+use Drupal\Core\Url;
+use Drupal\Core\LINK;
+
 /**
  * Preprocessor function for "Ingredient" bundle.
  */
@@ -14,9 +17,9 @@ function tal_preprocess_node_ingredient($variables, $node) {
   // Collect all submenu texts from different paragraph types.
   $submenu_text = array();
   foreach ($paragraphs as $paragraph) {
-    $submenu_text[] = $paragraph->get('field_field_in_submenu_title')->value;
+    $url = Url::fromUserInput('#', array('fragment' => 'paragraph-' . $paragraph->id()));
+    $submenu_text[] = Link::fromTextAndUrl($paragraph->get('field_field_in_submenu_title')->value, $url);
   }
-
   // Initialize variable with submenu list.
   $variables['submenu'] = array();
   if (!empty($submenu_text)) {

@@ -46,7 +46,7 @@ show_border ? 'paragraph--show-border',
 ]
 %}
 <div class="container">
-    <div{{ content_attributes.addClass(classes) }}>
+    <div{{ content_attributes.addClass(classes) }} id="paragraph-{{ paragraph.id.value }}">
         <div class="title">{{ content.field_in_border_title }}</div>
         <div class="field--in-wysiwyg">{{ content.field_in_wysiwyg1 }}</div>
         {% if all_regions %}

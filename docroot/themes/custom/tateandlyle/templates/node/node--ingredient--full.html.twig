@@ -86,7 +86,11 @@ view_mode ? view_mode|clean_class,
     {{ title_suffix }}
     {{ content.body }}
     <div{{ content_attributes.addClass('content') }}>
-        <div class="ingredient--submenu">{{ submenu }}</div>
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="ingredient--submenu">{{ submenu }}</div>
+            </div>
+        </nav>
 
         {{ content.field_ingredients_content }}
         {{ content.field_in_applications }}
