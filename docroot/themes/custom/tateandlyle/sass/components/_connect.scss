@@ -200,7 +200,7 @@
       display: inline-block;
       padding: 8px 20px;
       &::after {
-        content: $fa-var-angle-right;
+        content: "\f105";
         font-family: $font-family-icon;
         padding-left: 10px;
       }
@@ -220,7 +220,8 @@
 }
 
 .white .component-left,
-.off-white .component-left {
+.off-white .component-left,
+.light-grey .component-left {
   color: $gray-dark;
   .field--name-field-simple-text,
   .field--name-field-all-jobs-link a {

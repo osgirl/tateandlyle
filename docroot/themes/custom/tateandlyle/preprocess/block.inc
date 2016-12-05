@@ -27,7 +27,7 @@ function tal_preprocess_block_single_item_promo($variables, $block) {
     $variables['attributes']['class'] .= ' block--vertical';
   }
 
-  if (isset($icon)) {
+  if (!empty($icon)) {
     $variables['is_icon'] = TRUE;
   }
 
