@@ -1,31 +1,31 @@
-16:55:20.583 INFO [1] org.openqa.grid.selenium.GridLauncher - Launching a standalone Selenium Server
-16:55:20.635 INFO [1] org.openqa.selenium.server.SeleniumServer - Writing debug logs to /home/travis/build/acquia-pso/tateandlyle/reports/selenium2.log
-16:55:20.635 INFO [1] org.openqa.selenium.server.SeleniumServer - Java: Oracle Corporation 25.101-b13
-16:55:20.635 INFO [1] org.openqa.selenium.server.SeleniumServer - OS: Linux 3.19.0-66-generic amd64
-16:55:20.662 INFO [1] org.openqa.selenium.server.SeleniumServer - v2.53.1, with Core v2.53.1. Built from revision a36b8b1
-16:55:20.757 INFO [1] org.openqa.selenium.remote.server.DefaultDriverSessions - Driver provider org.openqa.selenium.ie.InternetExplorerDriver registration is skipped:
+17:04:16.975 INFO [1] org.openqa.grid.selenium.GridLauncher - Launching a standalone Selenium Server
+17:04:17.022 INFO [1] org.openqa.selenium.server.SeleniumServer - Writing debug logs to /home/travis/build/acquia-pso/tateandlyle/reports/selenium2.log
+17:04:17.023 INFO [1] org.openqa.selenium.server.SeleniumServer - Java: Oracle Corporation 25.101-b13
+17:04:17.023 INFO [1] org.openqa.selenium.server.SeleniumServer - OS: Linux 3.19.0-66-generic amd64
+17:04:17.049 INFO [1] org.openqa.selenium.server.SeleniumServer - v2.53.1, with Core v2.53.1. Built from revision a36b8b1
+17:04:17.140 INFO [1] org.openqa.selenium.remote.server.DefaultDriverSessions - Driver provider org.openqa.selenium.ie.InternetExplorerDriver registration is skipped:
 registration capabilities Capabilities [{ensureCleanSession=true, browserName=internet explorer, version=, platform=WINDOWS}] does not match the current platform LINUX
-16:55:20.758 INFO [1] org.openqa.selenium.remote.server.DefaultDriverSessions - Driver provider org.openqa.selenium.edge.EdgeDriver registration is skipped:
+17:04:17.141 INFO [1] org.openqa.selenium.remote.server.DefaultDriverSessions - Driver provider org.openqa.selenium.edge.EdgeDriver registration is skipped:
 registration capabilities Capabilities [{browserName=MicrosoftEdge, version=, platform=WINDOWS}] does not match the current platform LINUX
-16:55:20.758 INFO [1] org.openqa.selenium.remote.server.DefaultDriverProvider - Driver class not found: com.opera.core.systems.OperaDriver
-16:55:20.758 INFO [1] org.openqa.selenium.remote.server.DefaultDriverFactory - Driver provider com.opera.core.systems.OperaDriver is not registered
-16:55:20.763 INFO [1] org.openqa.selenium.remote.server.DefaultDriverSessions - Driver provider org.openqa.selenium.safari.SafariDriver registration is skipped:
+17:04:17.141 INFO [1] org.openqa.selenium.remote.server.DefaultDriverProvider - Driver class not found: com.opera.core.systems.OperaDriver
+17:04:17.141 INFO [1] org.openqa.selenium.remote.server.DefaultDriverFactory - Driver provider com.opera.core.systems.OperaDriver is not registered
+17:04:17.146 INFO [1] org.openqa.selenium.remote.server.DefaultDriverSessions - Driver provider org.openqa.selenium.safari.SafariDriver registration is skipped:
 registration capabilities Capabilities [{browserName=safari, version=, platform=MAC}] does not match the current platform LINUX
-16:55:20.764 INFO [1] org.openqa.selenium.remote.server.DefaultDriverProvider - Driver class not found: org.openqa.selenium.htmlunit.HtmlUnitDriver
-16:55:20.764 INFO [1] org.openqa.selenium.remote.server.DefaultDriverFactory - Driver provider org.openqa.selenium.htmlunit.HtmlUnitDriver is not registered
-16:55:20.872 INFO [1] org.openqa.selenium.server.SeleniumServer - RemoteWebDriver instances should connect to: http://127.0.0.1:4444/wd/hub
-16:55:20.872 INFO [1] org.openqa.grid.selenium.GridLauncher - Selenium Server is up and running
-16:55:21.594 INFO [14] org.openqa.selenium.remote.server.DriverServlet - Executing: [new session: Capabilities [{build=146, browser=firefox, tunnel-identifier=146.1, name=Behat feature suite, browserName=chrome, ignoreZoomSetting=false, tags=[Travis-CI, PHP 7.0.13]}]])
-16:55:21.622 INFO [20] org.openqa.selenium.remote.server.DefaultDriverProvider - Creating a new session for Capabilities [{build=146, browser=firefox, tunnel-identifier=146.1, name=Behat feature suite, browserName=chrome, ignoreZoomSetting=false, tags=[Travis-CI, PHP 7.0.13]}]
-16:55:23.985 INFO [14] org.openqa.selenium.remote.server.DriverServlet - Done: [new session: Capabilities [{build=146, browser=firefox, tunnel-identifier=146.1, name=Behat feature suite, browserName=chrome, ignoreZoomSetting=false, tags=[Travis-CI, PHP 7.0.13]}]]
-16:55:23.992 INFO [13] org.openqa.selenium.remote.server.DriverServlet - Executing: [get: http://127.0.0.1:8888/])
-16:55:24.375 INFO [13] org.openqa.selenium.remote.server.DriverServlet - Done: [get: http://127.0.0.1:8888/]
-16:55:24.392 INFO [13] org.openqa.selenium.remote.server.DriverServlet - Executing: [find element: By.xpath: //html])
-16:55:24.435 INFO [13] org.openqa.selenium.remote.server.DriverServlet - Done: [find element: By.xpath: //html]
-16:55:24.440 INFO [13] org.openqa.selenium.remote.server.DriverServlet - Executing: [get text: 0 [[ChromeDriver: chrome on LINUX (5496f67c6cb589c69cc3ef22e1bf53c6)] -> xpath: //html]])
-16:55:24.499 INFO [13] org.openqa.selenium.remote.server.DriverServlet - Done: [get text: 0 [[ChromeDriver: chrome on LINUX (5496f67c6cb589c69cc3ef22e1bf53c6)] -> xpath: //html]]
-16:55:24.506 INFO [13] org.openqa.selenium.remote.server.DriverServlet - Executing: [delete all cookies])
-16:55:24.514 INFO [13] org.openqa.selenium.remote.server.DriverServlet - Done: [delete all cookies]
-16:55:24.545 INFO [13] org.openqa.selenium.remote.server.DriverServlet - Executing: [delete session: 67b4e96d-678a-4fde-9818-1eec5a30eb7f])
-16:55:24.614 INFO [13] org.openqa.selenium.remote.server.DriverServlet - Done: [delete session: 67b4e96d-678a-4fde-9818-1eec5a30eb7f]
-16:55:24.661 INFO [15] org.openqa.selenium.server.SeleniumServer - Shutting down...
+17:04:17.147 INFO [1] org.openqa.selenium.remote.server.DefaultDriverProvider - Driver class not found: org.openqa.selenium.htmlunit.HtmlUnitDriver
+17:04:17.147 INFO [1] org.openqa.selenium.remote.server.DefaultDriverFactory - Driver provider org.openqa.selenium.htmlunit.HtmlUnitDriver is not registered
+17:04:17.251 INFO [1] org.openqa.selenium.server.SeleniumServer - RemoteWebDriver instances should connect to: http://127.0.0.1:4444/wd/hub
+17:04:17.251 INFO [1] org.openqa.grid.selenium.GridLauncher - Selenium Server is up and running
+17:04:18.028 INFO [14] org.openqa.selenium.remote.server.DriverServlet - Executing: [new session: Capabilities [{build=149, browser=firefox, tunnel-identifier=149.1, name=Behat feature suite, browserName=chrome, ignoreZoomSetting=false, tags=[Travis-CI, PHP 7.0.13]}]])
+17:04:18.053 INFO [20] org.openqa.selenium.remote.server.DefaultDriverProvider - Creating a new session for Capabilities [{build=149, browser=firefox, tunnel-identifier=149.1, name=Behat feature suite, browserName=chrome, ignoreZoomSetting=false, tags=[Travis-CI, PHP 7.0.13]}]
+17:04:20.307 INFO [14] org.openqa.selenium.remote.server.DriverServlet - Done: [new session: Capabilities [{build=149, browser=firefox, tunnel-identifier=149.1, name=Behat feature suite, browserName=chrome, ignoreZoomSetting=false, tags=[Travis-CI, PHP 7.0.13]}]]
+17:04:20.313 INFO [13] org.openqa.selenium.remote.server.DriverServlet - Executing: [get: http://127.0.0.1:8888/])
+17:04:20.687 INFO [13] org.openqa.selenium.remote.server.DriverServlet - Done: [get: http://127.0.0.1:8888/]
+17:04:20.700 INFO [13] org.openqa.selenium.remote.server.DriverServlet - Executing: [find element: By.xpath: //html])
+17:04:20.743 INFO [13] org.openqa.selenium.remote.server.DriverServlet - Done: [find element: By.xpath: //html]
+17:04:20.747 INFO [13] org.openqa.selenium.remote.server.DriverServlet - Executing: [get text: 0 [[ChromeDriver: chrome on LINUX (be7f91c379d46f83580800feb13090e7)] -> xpath: //html]])
+17:04:20.793 INFO [13] org.openqa.selenium.remote.server.DriverServlet - Done: [get text: 0 [[ChromeDriver: chrome on LINUX (be7f91c379d46f83580800feb13090e7)] -> xpath: //html]]
+17:04:20.798 INFO [13] org.openqa.selenium.remote.server.DriverServlet - Executing: [delete all cookies])
+17:04:20.812 INFO [13] org.openqa.selenium.remote.server.DriverServlet - Done: [delete all cookies]
+17:04:20.839 INFO [13] org.openqa.selenium.remote.server.DriverServlet - Executing: [delete session: bd23d91f-1a14-4ad6-9355-103a6888c65e])
+17:04:20.914 INFO [13] org.openqa.selenium.remote.server.DriverServlet - Done: [delete session: bd23d91f-1a14-4ad6-9355-103a6888c65e]
+17:04:20.964 INFO [15] org.openqa.selenium.server.SeleniumServer - Shutting down...
