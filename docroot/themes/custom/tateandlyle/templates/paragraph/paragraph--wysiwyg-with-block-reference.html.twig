@@ -46,5 +46,8 @@ show_border ? 'paragraph--show-border',
 %}
 <div{{ attributes.addClass(classes) }} id="paragraph-{{ paragraph.id.value }}">
     <div class="field--in-border-title">{{ content.field_in_border_title }}</div>
-    {{ content }}
+    {{ content.field_in_wysiwyg1 }}
+    {{ content.field_block_component }}
+    {{ content.field_in_wysiwyg2 }}
+
 </div>
