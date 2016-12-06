@@ -151,9 +151,18 @@
   }
 
   .item__promo-content {
-    padding: 25px;
+    padding: 25px 25px 50px;
+    @media (min-width: $screen-sm) {
+      width: 70%;
+      margin: auto;
+    }
   }
 
+  .block-title,
+  .block-icon,
+  .block-summary {
+    margin-bottom: 20px;
+  }
 
   .item__promo-content .block-readmore.item__promo--component {
     margin-left: 0;

@@ -25,3 +25,12 @@
   vertical-align: middle;
   width: 15px;
 }
+
+%inner-content-width {
+  max-width: 1108px;
+  margin-left: 20px;
+  margin-right: 20px;
+  @media (min-width: $screen-md) {
+    margin: auto;
+  }
+}
