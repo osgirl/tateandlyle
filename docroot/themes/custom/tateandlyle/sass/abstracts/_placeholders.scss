@@ -1,0 +1,36 @@
+%vertical-center {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+%absolute-center {
+  left: 0;
+  margin-left: auto;
+  margin-right: auto;
+  right: 0;
+}
+
+%full-absolute {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+
+%svg-icon-small {
+  content: " ";
+  display: inline-block;
+  height: 15px;
+  margin-left: 5px;
+  vertical-align: middle;
+  width: 15px;
+}
+
+%inner-content-width {
+  max-width: 1108px;
+  margin-left: 20px;
+  margin-right: 20px;
+  @media (min-width: $screen-md) {
+    margin: auto;
+  }
+}

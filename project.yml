@@ -1,0 +1,54 @@
+project:
+    machine_name: tatelylecom
+    prefix: TAL
+    human_name: 'Tate and Lyle.Com'
+    profile:
+        name: lightning
+    local:
+        protocol: http
+        hostname: '${project.machine_name}.local'
+git:
+    default_branch: master
+    remotes:
+        - 'tatelylecom@svn-19900.prod.hosting.acquia.com:tatelylecom.git'
+drush:
+    aliases:
+        remote: '${project.machine_name}.test'
+        local: self
+        ci: self
+    default_alias: '${drush.aliases.local}'
+target-hooks:
+    frontend-setup:
+        dir: '${docroot}'
+        command: 'echo ''No frontend-setup configured.'''
+    frontend-build:
+        dir: '${docroot}'
+        command: 'echo ''No frontend-build configured.'''
+    post-deploy-build:
+        dir: '${docroot}'
+        command: 'echo ''No post-deploy build configured.'''
+    post-setup-build:
+        dir: '${docroot}'
+        command: 'echo ''No post-setup build configured.'''
+import: null
+modules:
+    ci:
+        enable: {  }
+        uninstall: [acquia_connector]
+    deploy:
+        enable: [acquia_connector, admin_toolbar]
+        uninstall: {  }
+    local:
+        enable: [dblog, devel, field_ui, seckit, views_ui, admin_toolbar]
+        uninstall: [acsf, acquia_connector, dblog, shield]
+behat:
+    config: '${repo.root}/tests/behat/local.yml'
+    profile: local
+    run-server: false
+    server-url: 'http://127.0.0.1:8888'
+    launch-phantom: true
+    paths:
+        - '${docroot}/modules'
+        - '${repo.root}/tests/behat'
+    tags: ~ajax
+

@@ -1,0 +1,5 @@
+langcode: en
+status: true
+dependencies: {  }
+id: wysiwyg_with_country_and_region
+label: 'WYSIWYG with country and region'

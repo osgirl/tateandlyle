@@ -1,0 +1,30 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.ingredient.body
+    - field.field.node.ingredient.field_common_names
+    - field.field.node.ingredient.field_hide_title
+    - field.field.node.ingredient.field_in_applications
+    - field.field.node.ingredient.field_in_trends_solutions
+    - field.field.node.ingredient.field_in_types
+    - field.field.node.ingredient.field_ingredients_content
+    - node.type.ingredient
+  module:
+    - user
+id: node.ingredient.teaser
+targetEntityType: node
+bundle: ingredient
+mode: teaser
+content:
+  links:
+    weight: 100
+hidden:
+  body: true
+  field_common_names: true
+  field_hide_title: true
+  field_in_applications: true
+  field_in_trends_solutions: true
+  field_in_types: true
+  field_ingredients_content: true

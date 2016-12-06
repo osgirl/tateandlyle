@@ -1,0 +1,36 @@
+html,
+body {
+  font-size: 100%;
+  height: 100%;
+}
+
+img {
+  max-width: 100%;
+}
+
+h2,
+h3,
+h4,
+h5 {
+  font-family: $font-family-sans-serif-Med;
+}
+
+.container {
+  width: 100%;
+  padding: 0;
+}
+
+.main-container {
+  margin: auto;
+  max-width: 1366px;
+}
+
+.page-header {
+  @extend %inner-content-width;
+  border-bottom: none;
+  margin-top: 36px;
+}
+
+.region-header {
+  @extend %inner-content-width;
+}

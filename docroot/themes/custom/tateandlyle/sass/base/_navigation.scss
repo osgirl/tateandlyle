@@ -1,0 +1,49 @@
+.content .navbar {
+  background: none;
+  box-shadow: none;
+  border: none;
+}
+
+.navbar.container {
+  max-width: $screen-lg;
+}
+
+.region-header .name {
+  display: none;
+}
+
+// Ingredients Menu.
+
+.ingredient--submenu {
+  border-bottom: 1px solid $color-warm-gray;
+  background-color: $color-white;
+  padding-top: 20px;
+  ul {
+    display: table;
+    list-style: none;
+    margin: auto;
+    margin-bottom: 0;
+    max-width: $screen-lg;
+    padding-left: 0;
+    width: 100%;
+
+    li {
+      @media (min-width: $screen-sm) {
+        display: table-cell;
+        vertical-align: bottom;
+      }
+
+      a {
+        display: block;
+        font-size: 14px;
+        padding: 10px 11px;
+        text-align: center;
+        text-transform: uppercase;
+        &:hover {
+          background: $gray-base;
+          color: $color-white;
+        }
+      }
+    }
+  }
+}

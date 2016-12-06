@@ -1,0 +1,131 @@
+.quote__content {
+  @extend .max-content-width-sm;
+  display: table;
+  margin: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 100%;
+  @media (min-width: $screen-sm-lsp) {
+    border: 1px solid;
+    padding: 40px 30px;
+  }
+
+  .field--name-field-short-summary {
+    font-size: $font-size-h4;
+    font-family: $font-family-sans-serif-light;
+    line-height: 1;
+    margin-bottom: 30px;
+    text-indent: -19px;
+    @media (min-width: $screen-sm-lsp) {
+      font-size: $font-size-h3;
+    }
+
+    &::before {
+      content: open-quote;
+    }
+
+    &::after {
+      content: close-quote;
+    }
+
+    &::before,
+    &::after {
+      font-family: $font-family-sans-serif-Med;
+      font-size: $font-size-h1-sm;
+      line-height: 0;
+      position: relative;
+      top: 14px;
+    }
+  }
+
+  .field--name-field-qt-quote-person {
+    font-family: $font-family-sans-serif-Med;
+  }
+
+  .field--name-field-bg-image img {
+    border-radius: 100%;
+    border: 1px solid;
+    padding: 5px;
+  }
+}
+
+.quote__content--left,
+.quote__content--right {
+  @media (min-width: $screen-sm-lsp) {
+    display: table-cell;
+    vertical-align: middle;
+    padding: 30px;
+  }
+}
+
+.quote__content--right {
+  @media (min-width: $screen-sm-lsp) {
+    padding: 30px 60px;
+  }
+}
+
+.block--quote {
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: $color-white;
+  padding: 55px 20px;
+  @media (min-width: $screen-sm-lsp) {
+    .field--name-field-simple-text,
+    .field--name-field-tal-link {
+      text-align: center;
+    }
+  }
+
+  .field--name-field-tal-link {
+    margin-top: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+    @media (min-width: $screen-sm-lsp) {
+      padding: 0;
+    }
+
+    a {
+      border: 1px solid;
+      color: inherit;
+      padding: 8px 20px;
+
+      &::after {
+        content: "\f105";
+        font-family: $font-family-icon;
+        padding-left: 10px;
+      }
+
+      &:hover {
+        color: $link-hover-color;
+      }
+    }
+  }
+
+  hr {
+    border-color: inherit;
+    width: 50px;
+    margin-bottom: 10px;
+    margin-left: 0;
+    @media (min-width: $screen-sm-lsp) {
+      margin: auto;
+    }
+  }
+
+  .block-title {
+    color: inherit;
+    font-family: $font-family-sans-serif-Med;
+    font-size: $font-size-h3;
+    margin-bottom: 40px;
+    @media (min-width: $screen-sm-lsp) {
+      font-size: $font-size-h2;
+    }
+  }
+}
+
+.quote__content--left {
+  padding-bottom: 20px;
+  @media (min-width: $screen-sm-lsp) {
+    border-right: 1px solid;
+    min-width: 205px;
+  }
+}

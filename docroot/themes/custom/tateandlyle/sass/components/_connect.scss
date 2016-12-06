@@ -1,0 +1,286 @@
+.overlay__block {
+  position: relative;
+  min-height: 425px;
+}
+
+.overlay__block--background {
+  display: none;
+  @media (min-width: $screen-sm-lsp) {
+    display: block;
+    .img-responsive {
+      width: 100%;
+      min-height: 500px;
+      object-fit: cover;
+    }
+    @media (min-width: $screen-sm) {
+      min-height: 425px;
+    }
+  }
+}
+
+.overlay__block--content {
+  @extend .max-content-width;
+  @extend %absolute-center;
+  @extend %vertical-center;
+  background: $color-white;
+  position: absolute;
+  text-align: center;
+  width: 90%;
+
+  @media (min-width: $screen-sm) {
+    display: table;
+    text-align: left;
+    min-height: 260px;
+  }
+
+  .component-left {
+    color: $color-white;
+    padding: 36px;
+    @media (min-width: $screen-sm) {
+      display: table-cell;
+      vertical-align: middle;
+      width: 33.33%;
+
+      .field--name-field-icon {
+        margin-bottom: 15px;
+      }
+    }
+
+    .field--name-field-simple-text {
+      color: $color-white;
+      font-size: $font-size-h3;
+      font-family: $font-family-sans-serif-Med;
+      line-height: 1.2;
+      @media (min-width: $screen-sm) {
+        font-size: $font-size-h2;
+      }
+    }
+  }
+
+  .field--name-field-short-summary {
+    font-size: $font-size-base;
+  }
+
+  .component-left,
+  .connect__block {
+    color: $color-white;
+    padding: 22px;
+    @media (min-width: $screen-sm) {
+      display: table-cell;
+      padding: 20px 72px 57px 36px;
+      vertical-align: middle;
+      width: 33.33%;
+    }
+  }
+
+  .connect__block {
+    border-bottom: 1px solid $color-warm-gray;
+    color: $gray-base;
+    @media (min-width: $screen-sm) {
+      border-bottom: none;
+      position: relative;
+
+      &::after {
+        content: " ";
+        background: $color-warm-gray;
+        height: 72%;
+        position: absolute;
+        right: 0;
+        top: 14%;
+        width: 1px;
+      }
+    }
+
+    .field--name-field-simple-text,
+    .field--name-field-pr-title {
+      font-size: $font-size-h3;
+      margin-bottom: 5px;
+    }
+
+    .field--name-field-phone-number {
+      font-size: $font-size-h4;
+      @media (min-width: $screen-sm) {
+        font-size: $font-size-h2;
+      }
+    }
+
+    .field--name-field-button-text {
+      @extend .btn;
+      @extend .btn-primary;
+      &::after {
+        @extend %svg-icon-small;
+        background: url("../images/icons/cta-arrow-white.svg") no-repeat;
+        background-size: cover;
+      }
+    }
+
+    .field--name-field-ttu-link-text,
+    .field--name-field-pr-link {
+      @media (min-width: $screen-sm) {
+        position: absolute;
+        bottom: 10%;
+      }
+
+      &::after {
+        @extend %svg-icon-small;
+        background: url("../images/icons/cta-arrow-blue.svg") no-repeat;
+        background-size: cover;
+      }
+    }
+
+    .field--name-field-pr-description {
+      color: $gray-dark;
+      margin-bottom: 25px;
+    }
+  }
+
+  .icon {
+    h2 {
+      display: none;
+    }
+
+    img {
+      max-width: 45px;
+      margin: auto;
+      @media (min-width: $screen-sm) {
+        margin: 0;
+      }
+    }
+  }
+}
+
+.overlay__block--content {
+  @media (max-width: $screen-sm-lsp-max) {
+    position: static;
+    transform: none;
+  }
+}
+
+.recruitment__block {
+  .overlay__block--background {
+    @media (min-width: $screen-sm-lsp) {
+      .img-responsive {
+        min-height: 600px;
+      }
+    }
+    @media (min-width: $screen-sm) {
+      .img-responsive {
+        min-height: 488px;
+      }
+    }
+  }
+  .component-left {
+    .field--name-field-description {
+      margin-bottom: 10px;
+    }
+
+    @media (min-width: $screen-sm) {
+      display: table-caption;
+      width: 100%;
+
+
+      .inline--description {
+        display: inline-block;
+        padding-right: 20px;
+        vertical-align: middle;
+      }
+    }
+
+    @media (min-width: $screen-md) {
+      display: table-cell;
+      width: 33.33%;
+      .inline--description {
+        display: block;
+        padding-right: 0;
+      }
+    }
+  }
+  .field--name-field-all-jobs-link {
+    @media (min-width: $screen-md) {
+      margin-top: 35px;
+    }
+    a {
+      border: 1px solid;
+      color: $color-white;
+      display: inline-block;
+      padding: 8px 20px;
+      &::after {
+        content: "\f105";
+        font-family: $font-family-icon;
+        padding-left: 10px;
+      }
+
+      &:hover {
+        color: $link-hover-color;
+      }
+    }
+  }
+
+  .component-left,
+  .connect__block {
+    @media (min-width: $screen-sm) {
+      vertical-align: top;
+    }
+  }
+}
+
+.white .component-left,
+.off-white .component-left,
+.light-grey .component-left {
+  color: $gray-dark;
+  .field--name-field-simple-text,
+  .field--name-field-all-jobs-link a {
+    color: $gray-base;
+  }
+
+  .field--name-field-all-jobs-link a:hover {
+    color: $link-hover-color;
+  }
+}
+
+.warm-grey .component-left {
+  background-color: $color-warm-gray;
+}
+
+.black .component-left {
+  background-color: $gray-base;
+}
+
+.purple .component-left {
+  background-color: $color-purple;
+}
+
+.blue .component-left {
+  background-color: $brand-primary;
+  .field--name-field-all-jobs-link a:hover {
+    color: $gray-base;
+  }
+}
+
+.red .component-left {
+  background-color: $color-red;
+}
+
+.off-white .component-left {
+  background-color: $color-off-white;
+}
+
+.mid-grey .component-left {
+  background-color: $gray-dark;
+}
+
+.yellow .component-left {
+  background-color: $color-yellow;
+}
+
+.gold .component-left {
+  background-color: $color-gold;
+}
+
+.silver .component-left {
+  background-color: $color-silver;
+}
+
+.light-grey .component-left {
+  background-color: $color-light-gray;
+}

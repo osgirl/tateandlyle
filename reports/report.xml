@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<testsuites>
+  <testsuite name="default" tests="0"/>
+  <testsuite name="Lightning Content Types">
+    <testcase name="Make sure that the content types provided by Lightning at installation are present." time="2.254" status="passed"/>
+    <testcase name="Ensure that the WYSIWYG editor is present." time="0.123" status="failed">
+      <failure type="Behat\Mink\Exception\DriverException"><![CDATA[Given I am logged in as a user with the administrator role:
+
+Could not open connection: The path to the driver executable must be set by the webdriver.chrome.driver system property; for more information, see https://github.com/SeleniumHQ/selenium/wiki/ChromeDriver. The latest version can be downloaded from http://chromedriver.storage.googleapis.com/index.html]]></failure>
+    </testcase>
+  </testsuite>
+</testsuites>

@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: accordion_with_tabs
+label: 'Accordion with Tabs'
+revision: 1
+description: 'Create Accordion component and place them on any page.'

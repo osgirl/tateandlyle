@@ -1,0 +1,116 @@
+<?php
+
+/**
+ * @file
+ * Theme specific functionality.
+ */
+
+use Drupal\Component\Utility\Html;
+use Drupal\Core\Render\Markup;
+use Drupal\Core\Render\Element;
+
+/**
+ * Implements hook_preprocess_html().
+ */
+function STARTERKIT_preprocess_html(&$variables) {
+
+  $path = \Drupal::service('path.current')->getPath();
+  $alias = trim(\Drupal::service('path.alias_manager')
+    ->getAliasByPath($path), '/');
+
+  // Body classes for sidebars.
+  if (isset($variables['page']['sidebar_first']) && isset($variables['page']['sidebar_second'])) {
+    $variables['attributes']['class'][] = Html::cleanCssIdentifier('body-sidebars-both');
+  }
+  elseif (isset($variables['page']['sidebar_first'])) {
+    $variables['attributes']['class'][] = Html::cleanCssIdentifier('body-sidebars-first');
+  }
+  elseif (isset($variables['page']['sidebar_second'])) {
+    $variables['attributes']['class'][] = Html::cleanCssIdentifier('body-sidebars-second');
+  }
+  else {
+    $variables['attributes']['class'][] = Html::cleanCssIdentifier('body-sidebars-none');
+  }
+
+  // Alias path class.
+  $alias_class = preg_replace("/\//", '-', $alias);
+  if (!empty($alias_class) && strpos($alias_class, 'node') !== 0) {
+    $variables['attributes']['class'][] = Html::cleanCssIdentifier('alias--' . $alias_class);
+  }
+
+  // If is homepage.
+  $variables['attributes']['class'][] = \Drupal::service('path.matcher')
+    ->isFrontPage() ? 'frontpage' : '';
+
+  // Node type class.
+  $variables['attributes']['class'][] = isset($variables['node_type']) ? 'nodetype--' . $variables['node_type'] : '';
+
+  // Logged in class.
+  $variables['attributes']['class'][] = $variables['logged_in'] ? 'log-in' : 'log-out';
+
+  // Auth roles classes.
+  if ($variables['logged_in']) {
+    $user_roles = user_role_names(TRUE);
+    foreach ($user_roles as $role => $title) {
+      $variables['attributes']['class'][] = Html::cleanCssIdentifier('role--' . $role);
+    }
+  }
+
+}
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function STARTERKIT_preprocess_page(&$variables) {
+
+  // Check if page is panel pages.
+  $route_options = \Drupal::routeMatch()->getRouteObject()->getOptions();
+  if (isset($route_options['parameters']['page_manager_page'])) {
+    $variables['attributes']['class'][] = Html::cleanCssIdentifier('page-panel');
+  }
+  else {
+    $variables['attributes']['class'][] = Html::cleanCssIdentifier('page-standard');
+  }
+
+}
+
+/**
+ * Implements template_preprocess_block().
+ */
+function STARTERKIT_preprocess_block(&$variables) {
+  // Custom block type helper classes.
+  if (isset($variables['elements']['content']['#block_content'])) {
+    $bundle = $variables['elements']['content']['#block_content']->bundle();
+    $bundle_class = str_replace('_', '-', $bundle);
+    if (isset($variables['attributes']['class'])) {
+      $variables['attributes']['class'] = Html::cleanCssIdentifier('block--' . $bundle_class);
+      $variables['attributes']['data-bundle-class'] = $bundle_class;
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_node().
+ */
+function STARTERKIT_preprocess_node(&$variables) {
+  // Helper variables for multiple nodes.
+  if (!empty($variables['elements']['#entity_type'])) {
+    $variables['attributes']['class'][] = Html::cleanCssIdentifier('entity--type-' . $variables['elements']['#entity_type']);
+  }
+}
+
+/**
+ * Implements hook_preprocess_region().
+ */
+function STARTERKIT_preprocess_region(&$variables) {
+  $elements = $variables['elements'];
+  $region_children = Element::children($elements);
+  $variables['region'] = $elements['#region'];
+  // Utility regional classes for $content.
+  $variables['content'] = array();
+  foreach ($region_children as $k => $v) {
+    $region_classes = Html::cleanCssIdentifier('regioncol--' . ($k + 1) . '-of-' . count($region_children));
+    $variables['content'][] = '<div class="' . $region_classes . '">' . $variables['elements'][$v]['#markup'] . '</div>';
+  }
+  $variables['content'] = Markup::create(implode($variables['content']));
+}

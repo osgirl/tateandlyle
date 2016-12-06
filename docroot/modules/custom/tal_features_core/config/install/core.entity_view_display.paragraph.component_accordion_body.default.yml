@@ -1,0 +1,54 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.component_accordion_body.field_simple_summary
+    - field.field.paragraph.component_accordion_body.field_simple_text
+    - field.field.paragraph.component_accordion_body.field_tal_link
+    - field.field.paragraph.component_accordion_body.field_tal_more
+    - paragraphs.paragraphs_type.component_accordion_body
+  module:
+    - link
+id: paragraph.component_accordion_body.default
+targetEntityType: paragraph
+bundle: component_accordion_body
+mode: default
+content:
+  field_simple_summary:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_simple_text:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_tal_link:
+    weight: 2
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+  field_tal_more:
+    weight: 3
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+hidden:
+  created: true
+  uid: true

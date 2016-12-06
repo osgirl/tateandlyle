@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: passive_recruitment
+label: 'Passive Recruitment'
+revision: 1
+description: 'Block type for Passive Recruitment blocks.'

@@ -1,0 +1,83 @@
+.banner__overlay__block {
+  position: relative;
+  min-height: 262px;
+  @media (min-width: $screen-sm) {
+    min-height: 350px;
+  }
+}
+
+.banner__overlay--background {
+  .img-responsive {
+    min-height: 262px;
+    width: 100%;
+    object-fit: cover;
+    @media (min-width: $screen-sm) {
+      min-height: 350px;
+    }
+  }
+}
+
+.banner__overlay--content {
+  .banner__overlay--left,
+  .banner__overlay--right {
+    bottom: 0;
+    position: absolute;
+    top: 0;
+    width: 50%;
+  }
+
+  .banner__overlay--left {
+    background: $color-white-translucent;
+    left: 0;
+    right: 50%;
+    padding-top: 40px;
+  }
+
+  .banner__overlay--right {
+    left: 50%;
+    right: 0;
+    @media (min-width: $screen-sm) {
+      padding-top: 40px;
+    }
+  }
+
+  .banner--inner {
+    width: 80%;
+    margin: auto;
+  }
+
+  .field--name-field-banner-title {
+    color: $gray-base;
+    font-size: $font-size-h1-sm;
+    margin-bottom: 10px;
+    @media (min-width: $screen-sm) {
+      font-size: $font-size-h1;
+    }
+  }
+
+  .field--name-field-short-summary {
+    display: none;
+    @media (min-width: $screen-sm-lsp) {
+      display: block;
+    }
+  }
+}
+
+// Important to override inline style.
+.butoflashplayer,
+.butohtml5player {
+  display: none;
+  @media (min-width: $screen-sm-lsp) {
+    display: block;
+  }
+  height: 261px !important;
+  width: 100%;
+  padding: 0 !important;
+  max-width: 464px;
+  margin: auto;
+  object,
+  video {
+    width: 100% !important;
+    height: 100% !important;
+  }
+}

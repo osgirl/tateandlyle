@@ -1,0 +1,41 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.block_reference.field_block_component
+    - field.field.paragraph.block_reference.field_field_in_submenu_title
+    - field.field.paragraph.block_reference.field_in_border_title
+    - paragraphs.paragraphs_type.block_reference
+  module:
+    - workbench_moderation
+id: paragraph.block_reference.default
+targetEntityType: paragraph
+bundle: block_reference
+mode: default
+content:
+  field_block_component:
+    weight: 8
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+  field_field_in_submenu_title:
+    weight: 6
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_in_border_title:
+    weight: 7
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+hidden:
+  created: true
+  status: true
+  uid: true

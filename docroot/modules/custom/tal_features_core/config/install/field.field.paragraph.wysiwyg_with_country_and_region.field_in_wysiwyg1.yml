@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_in_wysiwyg1
+    - paragraphs.paragraphs_type.wysiwyg_with_country_and_region
+  module:
+    - text
+id: paragraph.wysiwyg_with_country_and_region.field_in_wysiwyg1
+field_name: field_in_wysiwyg1
+entity_type: paragraph
+bundle: wysiwyg_with_country_and_region
+label: WYSIWYG
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -1,0 +1,28 @@
+.max-content-width {
+  max-width: 587px;
+
+  @media (min-width: $screen-sm-lsp) and (orientation: landscape) {
+    max-width: 607px;
+  }
+
+  @media (min-width: $screen-sm) {
+    max-width: 798px;
+  }
+
+  @media (min-width: $screen-md) {
+    max-width: 1108px;
+  }
+}
+
+.max-content-width-sm {
+  @media (min-width: $screen-sm) {
+    max-width: 708px;
+  }
+  @media (min-width: $screen-md) {
+    max-width: 943px;
+  }
+}
+
+.modal-backdrop {
+  display: none;
+}
