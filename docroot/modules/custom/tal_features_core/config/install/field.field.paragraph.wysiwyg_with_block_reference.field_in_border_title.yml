@@ -8,7 +8,7 @@ id: paragraph.wysiwyg_with_block_reference.field_in_border_title
 field_name: field_in_border_title
 entity_type: paragraph
 bundle: wysiwyg_with_block_reference
-label: 'Add border title'
+label: 'Border title'
 description: ''
 required: false
 translatable: true

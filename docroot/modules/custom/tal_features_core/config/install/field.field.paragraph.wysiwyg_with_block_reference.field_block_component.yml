@@ -3,6 +3,7 @@ status: true
 dependencies:
   config:
     - block_content.type.basic
+    - block_content.type.quote
     - field.storage.paragraph.field_block_component
     - paragraphs.paragraphs_type.wysiwyg_with_block_reference
 id: paragraph.wysiwyg_with_block_reference.field_block_component
@@ -20,8 +21,9 @@ settings:
   handler_settings:
     target_bundles:
       basic: basic
+      quote: quote
     sort:
       field: _none
     auto_create: false
-    auto_create_bundle: ''
+    auto_create_bundle: basic
 field_type: entity_reference
