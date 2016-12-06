@@ -19,11 +19,15 @@
     padding-top: 0;
   }
 
-  .block-title {
-    background: $color-white;
-    margin-bottom: 65px;
-    margin-top: -20px;
+  .block-title,
+  .field--in-border-title {
+    margin-bottom: 40px;
     text-align: center;
+    @media (min-width: $screen-sm-lsp) {
+      background: $color-white;
+      margin-bottom: 65px;
+      margin-top: -20px;
+    }
   }
 
   .nav-tabs {

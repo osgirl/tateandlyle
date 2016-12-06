@@ -30,6 +30,7 @@
   @media (min-width: $screen-sm) {
     display: table;
     text-align: left;
+    min-height: 260px;
   }
 
   .component-left {
@@ -39,6 +40,10 @@
       display: table-cell;
       vertical-align: middle;
       width: 33.33%;
+
+      .field--name-field-icon {
+        margin-bottom: 15px;
+      }
     }
 
     .field--name-field-simple-text {
@@ -62,7 +67,7 @@
     padding: 22px;
     @media (min-width: $screen-sm) {
       display: table-cell;
-      padding: 36px;
+      padding: 20px 72px 57px 36px;
       vertical-align: middle;
       width: 33.33%;
     }

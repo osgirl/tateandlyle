@@ -1,0 +1,77 @@
+.paragraph--type--ingredient-accordion {
+  @extend .tabs__accordion;
+  @media (min-width: $screen-sm-lsp) and (orientation: landscape) {
+    max-width: 607px;
+  }
+
+  @media (min-width: $screen-sm) {
+    max-width: 798px;
+  }
+
+  @media (min-width: $screen-md) {
+    max-width: 1108px;
+  }
+}
+
+.paragraph--show-border {
+  @extend .max-content-width;
+  margin: auto;
+  margin-top: 40px;
+  padding-top: 0;
+  @media (max-width: $screen-sm-max) {
+    margin-left: 20px;
+    margin-right: 20px;
+    max-width: none;
+  }
+
+  @media (min-width: $screen-sm) {
+    border: 1px solid;
+    padding: 60px;
+    padding-top: 0;
+  }
+
+  @media (min-width: $screen-md) {
+    padding: 100px;
+    padding-top: 0;
+  }
+
+  .title,
+  .field--in-border-title {
+    color: $gray-base;
+    font-size: $font-size-h2;
+    margin-bottom: 40px;
+    text-align: center;
+    @media (min-width: $screen-sm-lsp) {
+      background: $color-white;
+      margin-bottom: 65px;
+      margin-top: -20px;
+    }
+  }
+
+  strong {
+    color: $gray-base;
+    font-size: $font-size-h3;
+  }
+
+  p {
+    clear: left;
+  }
+
+  .field--available-countries-text {
+    border-top: 2px solid $color-warm-gray;
+    color: $gray-base;
+    font-size: $font-size-h3;
+    padding-top: 30px;
+  }
+
+  .in--country-count {
+    @extend .h1;
+    margin-bottom: 0;
+    margin-top: 14px;
+  }
+
+  .field--in-country ul {
+    padding-top: 24px;
+    color: $gray-base;
+  }
+}

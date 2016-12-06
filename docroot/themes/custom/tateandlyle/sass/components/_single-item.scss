@@ -138,6 +138,7 @@
   .item__promo,
   .item__promo--summary,
   .item__promo--component,
+  .item__promo-content,
   .block-readmore {
     display: block;
     padding: 0;
@@ -148,6 +149,11 @@
       margin: auto;
     }
   }
+
+  .item__promo-content {
+    padding: 25px;
+  }
+
 
   .item__promo-content .block-readmore.item__promo--component {
     margin-left: 0;
