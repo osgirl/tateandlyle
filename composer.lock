@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "2d622019abd57d74ed97f2a415d890a7",
-    "content-hash": "ae963ab742dc750cef2f20be8b7d69e0",
+    "hash": "1378beb7c2bf4d1427e0cc119811119f",
+    "content-hash": "568ef9c354b8f4e044e709b2ed39e7c5",
     "packages": [
         {
             "name": "acquia/blt",
@@ -1094,16 +1094,16 @@
         },
         {
             "name": "drupal/acquia_connector",
-            "version": "8.1.6",
+            "version": "8.1.7",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/acquia_connector",
-                "reference": "07d3fc1894071949e8d934ce6cfb3b5c0d3f1bd6"
+                "reference": "535f27b1ee669e277e52390a198a1605192bbe88"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/acquia_connector-8.x-1.6.zip",
-                "reference": "07d3fc1894071949e8d934ce6cfb3b5c0d3f1bd6",
+                "url": "https://ftp.drupal.org/files/projects/acquia_connector-8.x-1.7.zip",
+                "reference": null,
                 "shasum": null
             },
             "require": {
@@ -1129,7 +1129,7 @@
             ],
             "description": "Allows Drupal to securely communicate with the Acquia Subscription, and checks for updates to Acquia Drupal.",
             "homepage": "https://www.drupal.org/project/acquia_connector",
-            "time": "2016-10-26 13:52:51"
+            "time": "2016-11-30 14:34:37"
         },
         {
             "name": "drupal/acsf",
@@ -1319,16 +1319,16 @@
         },
         {
             "name": "drupal/cog",
-            "version": "8.1.1",
+            "version": "8.1.2",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/cog.git",
-                "reference": "d8624f38bb1633ddd1f643b26abf00c7ba54af80"
+                "reference": "b201bc3a9c4d32984c09f1d733fe31b62380aee6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/cog-8.x-1.1.zip",
-                "reference": "d8624f38bb1633ddd1f643b26abf00c7ba54af80",
+                "url": "https://ftp.drupal.org/files/projects/cog-8.x-1.2.zip",
+                "reference": null,
                 "shasum": null
             },
             "require": {
@@ -1355,19 +1355,19 @@
             "keywords": [
                 "Drupal"
             ],
-            "time": "2016-11-18 19:03:11"
+            "time": "2016-12-02 17:50:19"
         },
         {
             "name": "drupal/config_rewrite",
-            "version": "8.1.0-beta1",
+            "version": "8.1.0-beta2",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/config_rewrite.git",
-                "reference": "33bfc8e9994705a1ca7681c0190c7b3247f99e72"
+                "reference": "f2464d7c9b73f485733ba95cafca5aa4a9a659a8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/config_rewrite-8.x-1.0-beta1.zip",
+                "url": "https://ftp.drupal.org/files/projects/config_rewrite-8.x-1.0-beta2.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -1386,7 +1386,7 @@
             ],
             "description": "Changes configuration YAML from config/install|optional with YAML from config/rewrite.",
             "homepage": "https://www.drupal.org/project/config_rewrite",
-            "time": "2016-10-31 21:06:00"
+            "time": "2016-12-05 19:34:47"
         },
         {
             "name": "drupal/config_update",
@@ -2837,7 +2837,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://ftp.drupal.org/files/projects/paragraphs-8.x-1.0.zip",
-                "reference": "7d70adcb69416f35eb2d2596340461df8efda009",
+                "reference": null,
                 "shasum": null
             },
             "require": {
@@ -2867,7 +2867,8 @@
                     "dev-8.x-1.x": "8.1.x-dev"
                 },
                 "patches_applied": {
-                    "Field Group not working on node edit inside paragraph": "https://www.drupal.org/files/issues/field_group_not_working-2675136-53.patch"
+                    "Field Group not working on node edit inside paragraph": "https://www.drupal.org/files/issues/field_group_not_working-2675136-53.patch",
+                    "Empty required fields not providing meaningful error messages": "https://www.drupal.org/files/issues/empty-required-error-message-2788607-15.patch"
                 }
             },
             "notification-url": "https://packagist.drupal-composer.org/downloads/",
@@ -5094,16 +5095,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "5.7.0",
+            "version": "5.7.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "00d72b8dbd2bb7d6f02a820e6db5cb70df6ac55c"
+                "reference": "336aff0ac52e306c98e7455bc3e8d7b0bf777a5e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/00d72b8dbd2bb7d6f02a820e6db5cb70df6ac55c",
-                "reference": "00d72b8dbd2bb7d6f02a820e6db5cb70df6ac55c",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/336aff0ac52e306c98e7455bc3e8d7b0bf777a5e",
+                "reference": "336aff0ac52e306c98e7455bc3e8d7b0bf777a5e",
                 "shasum": ""
             },
             "require": {
@@ -5172,7 +5173,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2016-12-01 17:04:00"
+            "time": "2016-12-03 08:33:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -8602,16 +8603,16 @@
         },
         {
             "name": "drupal/devel",
-            "version": "8.1.0-alpha1",
+            "version": "8.1.0-beta1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/devel",
-                "reference": "930b7b89c2fa2047ebbb0fb3ba53f45a67409242"
+                "reference": "e6fdb5fcf7c7de92e6b0d72425cd627642f227ac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/devel-8.x-1.0-alpha1.zip",
-                "reference": "930b7b89c2fa2047ebbb0fb3ba53f45a67409242",
+                "url": "https://ftp.drupal.org/files/projects/devel-8.x-1.0-beta1.zip",
+                "reference": null,
                 "shasum": null
             },
             "require": {
@@ -8619,13 +8620,12 @@
             },
             "replace": {
                 "drupal/devel_generate": "self.version",
-                "drupal/devel_node_access": "self.version",
                 "drupal/kint": "self.version",
                 "drupal/webprofiler": "self.version"
             },
             "suggest": {
-                "drupal/core": "Required by drupal/devel_generate, drupal/devel_node_access, drupal/kint, drupal/webprofiler",
-                "drupal/menu_ui": "Required by drupal/devel_node_access"
+                "drupal/core": "Required by drupal/devel_generate, drupal/kint, drupal/webprofiler",
+                "symfony/var-dumper": "Pretty print complex values better with var-dumper available"
             },
             "type": "drupal-module",
             "extra": {
@@ -8647,7 +8647,7 @@
             ],
             "description": "Various blocks, pages, and functions for developers.",
             "homepage": "http://drupal.org/project/devel",
-            "time": "2016-06-23 14:14:07"
+            "time": "2016-12-03 10:25:23"
         },
         {
             "name": "drupal/drupal-driver",
