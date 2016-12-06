@@ -16,7 +16,7 @@
 .paragraph--show-border {
   @extend .max-content-width;
   margin: auto;
-  margin-top: 40px;
+  margin-top: 60px;
   padding-top: 0;
   @media (max-width: $screen-sm-max) {
     margin-left: 20px;
@@ -25,7 +25,7 @@
   }
 
   @media (min-width: $screen-sm) {
-    border: 1px solid;
+    border: 1px solid $color-warm-gray;
     padding: 60px;
     padding-top: 0;
   }
@@ -43,8 +43,13 @@
     text-align: center;
     @media (min-width: $screen-sm-lsp) {
       background: $color-white;
+      display: table;
       margin-bottom: 65px;
+      margin-left: auto;
+      margin-right: auto;
       margin-top: -20px;
+      padding-left: 10px;
+      padding-right: 10px;
     }
   }
 
@@ -73,5 +78,16 @@
   .field--in-country ul {
     padding-top: 24px;
     color: $gray-base;
+  }
+}
+
+.page-node-type-ingredient {
+  .field--name-body {
+    @extend %inner-content-width;
+  }
+
+  .content .navbar {
+    @extend %inner-content-width;
+    position: static;
   }
 }

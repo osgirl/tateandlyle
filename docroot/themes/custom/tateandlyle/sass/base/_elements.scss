@@ -26,5 +26,11 @@ h5 {
 }
 
 .page-header {
+  @extend %inner-content-width;
   border-bottom: none;
+  margin-top: 36px;
+}
+
+.region-header {
+  @extend %inner-content-width;
 }
