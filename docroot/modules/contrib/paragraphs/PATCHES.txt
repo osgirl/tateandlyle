@@ -5,3 +5,7 @@ Field Group not working on node edit inside paragraph
 Source: https://www.drupal.org/files/issues/field_group_not_working-2675136-53.patch
 
 
+Empty required fields not providing meaningful error messages
+Source: https://www.drupal.org/files/issues/empty-required-error-message-2788607-15.patch
+
+

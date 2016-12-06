@@ -3,5 +3,12 @@ nav.breadcrumb {
   margin-bottom: 5px;
   ol {
     @extend .no-ul-list;
+    li:before {
+      content: '/';
+      padding: 0 3px 0 .5px;
+    }
+    li:first-child:before{
+      content: normal;
+    }
   }
 }

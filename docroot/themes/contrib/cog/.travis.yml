@@ -12,6 +12,7 @@ env:
     - COGNIZANT_DIR=$DOCROOT/themes/custom/cognizant
 
 cache:
+  yarn: true
   bundler: true
   apt: true
   directories:
@@ -20,7 +21,6 @@ cache:
   - "$HOME/.drush/cache"
   - "$HOME/.npm"
   - "$HOME/.nvm"
-  - "$HOME/.yarn-cache"
   - "$COGNIZANT_DIR/node_modules"
 
 mysql:
@@ -71,12 +71,11 @@ install:
   - drush en cog -y
   - drush cog "Cognizant"
 
-  # Set up front end dependencies.
+  # Set up front-end dependencies.
   - cd $COGNIZANT_DIR
 
   - ./install-node.sh 6.9.0
   - nvm use 6.9.0
-  - npm i -g yarn --cache-min 999999999
   - yarn install --force
 
 # Run cog tasks.

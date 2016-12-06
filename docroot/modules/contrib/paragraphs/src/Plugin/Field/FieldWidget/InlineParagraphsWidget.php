@@ -757,26 +757,27 @@ class InlineParagraphsWidget extends WidgetBase {
       }
     }
 
+    $elements += array(
+        '#element_validate' => array(array($this, 'multipleElementValidate')),
+        '#required' => $this->fieldDefinition->isRequired(),
+        '#title' => $title,
+        '#field_name' => $field_name,
+        '#cardinality' => $cardinality,
+        '#max_delta' => $max-1,
+      );
+
     if ($real_item_count > 0) {
       $elements += array(
         '#theme' => 'field_multiple_value_form',
-        '#field_name' => $field_name,
-        '#cardinality' => $cardinality,
         '#cardinality_multiple' => $is_multiple,
-        '#required' => $this->fieldDefinition->isRequired(),
-        '#title' => $title,
         '#description' => $description,
-        '#max_delta' => $max-1,
       );
     }
     else {
       $elements += [
         '#type' => 'container',
         '#theme_wrappers' => ['container'],
-        '#field_name' => $field_name,
-        '#cardinality' => $cardinality,
         '#cardinality_multiple' => TRUE,
-        '#max_delta' => $max-1,
         'title' => [
           '#type' => 'html_tag',
           '#tag' => 'strong',
@@ -1060,6 +1061,20 @@ class InlineParagraphsWidget extends WidgetBase {
         $display->extractFormValues($entity, $element['subform'], $form_state);
         $display->validateFormValues($entity, $element['subform'], $form_state);
       }
+    }
+
+    static::setWidgetState($element['#field_parents'], $field_name, $form_state, $widget_state);
+  }
+
+  /**
+   * Validate multiple element items.
+   */
+  public function multipleElementValidate($element, FormStateInterface $form_state, $form) {
+    $field_name = $this->fieldDefinition->getName();
+    $widget_state = static::getWidgetState($element['#field_parents'], $field_name, $form_state);
+
+    if ($element['#required'] && $widget_state['real_item_count'] < 1) {
+      $form_state->setError($element, t('@name field is required.', array('@name' => $element['#title'])));
     }
 
     static::setWidgetState($element['#field_parents'], $field_name, $form_state, $widget_state);

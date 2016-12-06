@@ -4,7 +4,8 @@ description: 'Acquia D8 starter theme'
 # core: 8.x
 base theme: cog
 libraries:
-  - STARTERKIT/lib
+  - STARTERKIT/fonts
+  - STARTERKIT/global
 regions:
   branding: Branding
   header: Header
@@ -15,8 +16,8 @@ regions:
   post_content: 'Post content'
   footer: Footer
 
-# Information added by Drupal.org packaging script on 2016-11-18
-version: '8.x-1.1'
+# Information added by Drupal.org packaging script on 2016-12-02
+version: '8.x-1.2'
 core: '8.x'
 project: 'cog'
-datestamp: 1479499749
+datestamp: 1480703289

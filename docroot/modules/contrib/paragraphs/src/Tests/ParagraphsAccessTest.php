@@ -159,4 +159,39 @@ class ParagraphsAccessTest extends WebTestBase {
     $node = $this->getNodeByTitle('delete_permissions');
     $this->assertUrl('node/' . $node->id());
   }
+
+  /**
+   * Tests displaying error message on empty paragraph required field.
+   */
+  public function testEmptyRequiredField() {
+    $admin_user = $this->drupalCreateUser(array(
+      'administer node fields',
+      'administer paragraph form display',
+      'administer node form display',
+      'create paragraphed_content_demo content',
+      'edit any paragraphed_content_demo content',
+    ));
+    $this->drupalLogin($admin_user);
+
+    // Add required field to paragraphed content type.
+    $field_title = 'Content Test';
+    $this->drupalPostForm('admin/structure/types/manage/paragraphed_content_demo/fields/add-field', [
+      'new_storage_type' => 'field_ui:entity_reference:node',
+      'label' => $field_title,
+      'field_name' => 'content',
+    ], t('Save and continue'));
+    $this->drupalPostForm(NULL, [], t('Save field settings'));
+    $edit = [
+      'required' => TRUE,
+      'settings[handler_settings][target_bundles][paragraphed_content_demo]' => TRUE,
+    ];
+    $this->drupalPostForm(NULL, $edit, 'Save settings');
+    $this->assertText('Saved ' . $field_title . ' configuration.');
+
+    // Create paragraph with empty required field.
+    $title = 'Empty';
+    $this->drupalGet('node/add/paragraphed_content_demo');
+    $this->drupalPostForm(NULL, ['title[0][value]' => $title], t('Save'));
+    $this->assertText($field_title . ' field is required');
+  }
 }
