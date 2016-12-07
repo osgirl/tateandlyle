@@ -4,10 +4,11 @@
 }
 
 %absolute-center {
-  left: 0;
+  left: 50%;
   margin-left: auto;
   margin-right: auto;
-  right: 0;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 %full-absolute {

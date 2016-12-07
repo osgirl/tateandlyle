@@ -65,7 +65,7 @@ show_border ? 'paragraph--show-border',
                 <span class="in--country-summary-text">{{ "Some of these include:"|t }}</span>
                 <div class="field--in-country">{{ list_country }}</div>
                 {% if country_count > 8 %}
-                  <div class="in--country-read-more"><a href="#">{{ "See list of countries"|t }}</a></div>
+                  <div class="in--country-read-more"><button type="button" class="btn">{{ "See list of countries"|t }}</button></div>
                 {% endif %}
             {% endif %}
             {% if region_count > 0 %}

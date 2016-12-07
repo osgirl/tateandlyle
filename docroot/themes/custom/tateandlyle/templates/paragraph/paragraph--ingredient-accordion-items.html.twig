@@ -44,20 +44,18 @@ set classes = [
 view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
 ]
 %}
-<div class="panel-group" id="accordion">
-    <div class="panel panel-primary">
-        <div class="panel-heading">
-            <h4 class="panel-title">
-                <a data-toggle="collapse" data-parent="#accordion" href="#accordion-{{ paragraph.id.value }}">
-                    {{ content.field_in_accordion_header }}
-                </a>
-            </h4>
-        </div>
-        <!-- panel body -->
-        <div id="accordion-{{ paragraph.id.value }}" class="panel-collapse collapse in">
-            <div class="panel-body">
-                {{ content.field_in_accordion_body }}
-            </div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4 class="panel-title">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse-{{ paragraph.id.value }}">
+                {{ content.field_in_accordion_header }}
+            </a>
+        </h4>
+    </div>
+    <!-- panel body -->
+    <div id="collapse-{{ paragraph.id.value }}" class="panel-collapse collapse">
+        <div class="panel-body">
+            {{ content.field_in_accordion_body }}
         </div>
     </div>
 </div>
