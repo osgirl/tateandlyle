@@ -774,6 +774,7 @@ class InlineParagraphsWidget extends WidgetBase {
       );
     }
     else {
+      $require_class = $this->fieldDefinition->isRequired() ? 'form-required' : '';
       $elements += [
         '#type' => 'container',
         '#theme_wrappers' => ['container'],
@@ -782,6 +783,7 @@ class InlineParagraphsWidget extends WidgetBase {
           '#type' => 'html_tag',
           '#tag' => 'strong',
           '#value' => $title,
+          '#attributes' => array('class' => $require_class),
         ],
         'text' => [
           '#type' => 'container',
