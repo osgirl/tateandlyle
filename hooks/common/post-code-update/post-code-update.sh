@@ -24,6 +24,6 @@ repo_type="$6"
 
 deploy_updates
 
-. /var/www/html/$site.$target_env/vendor/bin/drush @$site.$target_env fra -y -d
+drush @$site.$target_env fra -y -d
 
 exit $status
