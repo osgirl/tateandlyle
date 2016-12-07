@@ -71,11 +71,24 @@ function tal_preprocess_paragraph_wysiwyg_with_country_and_region($variables, $p
     $selected_countries_name[] = $countries[$country['value']];
   }
 
-  // Populate the variable with the selected countries.
-  $variables['list_country']  = array(
-    '#theme' => 'item_list',
-    '#items' => $selected_countries_name,
-  );
+  // Add four countries in a chunk.
+  $chunks = array_chunk($selected_countries_name, 4, TRUE);
+
+  foreach ($chunks as $i => $chunk) {
+    // Populate the variable with the selected countries.
+    $variables['list_country'][$i]  = array(
+      '#theme' => 'item_list',
+      '#items' => $chunk,
+    );
+    // Need to add a wrapper if countries are more than 8.
+    if ($i == 2) {
+      $variables['list_country'][$i]['#prefix'] = '<div class="more-countries">';
+    }
+  }
+
+  if ($i >= 2) {
+    $variables['list_country'][$i]['#suffix'] = '</div>';
+  }
 
   $regions = $paragraph->get('field_in_region')->getValue();
   $regions_name = array();
