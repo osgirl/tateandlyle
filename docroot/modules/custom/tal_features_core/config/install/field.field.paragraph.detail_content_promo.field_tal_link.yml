@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_tal_link
+    - paragraphs.paragraphs_type.detail_content_promo
+  module:
+    - link
+id: paragraph.detail_content_promo.field_tal_link
+field_name: field_tal_link
+entity_type: paragraph
+bundle: detail_content_promo
+label: 'Content title link'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 0
+field_type: link
