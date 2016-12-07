@@ -12,7 +12,7 @@
       min-height: 500px;
       object-fit: cover;
     }
-    @media (min-width: $screen-sm) {
+    @media (min-width: $screen-md) {
       min-height: 425px;
     }
   }
@@ -21,24 +21,24 @@
 .overlay__block--content {
   @extend .max-content-width;
   @extend %absolute-center;
-  @extend %vertical-center;
   background: $color-white;
+  max-width: 1108px;
   position: absolute;
   text-align: center;
   width: 90%;
 
-  @media (min-width: $screen-sm) {
+  @media (min-width: $screen-md) {
     display: table;
     text-align: left;
-    min-height: 260px;
+    height: 260px;
   }
 
   .component-left {
     color: $color-white;
     padding: 36px;
-    @media (min-width: $screen-sm) {
+    @media (min-width: $screen-md) {
       display: table-cell;
-      vertical-align: middle;
+      vertical-align: top;
       width: 33.33%;
 
       .field--name-field-icon {
@@ -59,13 +59,14 @@
 
   .field--name-field-short-summary {
     font-size: $font-size-base;
+    margin-top: 5px;
   }
 
   .component-left,
   .connect__block {
     color: $color-white;
     padding: 22px;
-    @media (min-width: $screen-sm) {
+    @media (min-width: $screen-md) {
       display: table-cell;
       padding: 20px 72px 57px 36px;
       vertical-align: middle;
@@ -76,7 +77,7 @@
   .connect__block {
     border-bottom: 1px solid $color-warm-gray;
     color: $gray-base;
-    @media (min-width: $screen-sm) {
+    @media (min-width: $screen-md) {
       border-bottom: none;
       position: relative;
 
@@ -93,13 +94,19 @@
 
     .field--name-field-simple-text,
     .field--name-field-pr-title {
+      display: inline-block;
       font-size: $font-size-h3;
+      padding-right: 5px;
       margin-bottom: 5px;
+      @media (min-width: $screen-md) {
+        display: block;
+        padding-right: 0;
+      }
     }
 
     .field--name-field-phone-number {
       font-size: $font-size-h4;
-      @media (min-width: $screen-sm) {
+      @media (min-width: $screen-md) {
         font-size: $font-size-h2;
       }
     }
@@ -116,7 +123,7 @@
 
     .field--name-field-ttu-link-text,
     .field--name-field-pr-link {
-      @media (min-width: $screen-sm) {
+      @media (min-width: $screen-md) {
         position: absolute;
         bottom: 10%;
       }
@@ -142,7 +149,7 @@
     img {
       max-width: 45px;
       margin: auto;
-      @media (min-width: $screen-sm) {
+      @media (min-width: $screen-md) {
         margin: 0;
       }
     }
@@ -163,7 +170,7 @@
         min-height: 600px;
       }
     }
-    @media (min-width: $screen-sm) {
+    @media (min-width: $screen-md) {
       .img-responsive {
         min-height: 488px;
       }
@@ -174,7 +181,7 @@
       margin-bottom: 10px;
     }
 
-    @media (min-width: $screen-sm) {
+    @media (min-width: $screen-md) {
       display: table-caption;
       width: 100%;
 
@@ -218,7 +225,7 @@
 
   .component-left,
   .connect__block {
-    @media (min-width: $screen-sm) {
+    @media (min-width: $screen-md) {
       vertical-align: top;
     }
   }
