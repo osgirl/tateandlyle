@@ -2,7 +2,6 @@
 sudo: required
 language: php
 dist: trusty
-group: deprecated
 
 php:
   - 7
@@ -25,18 +24,15 @@ cache:
 
 addons:
   ssh_known_hosts:
-   - svn-19900.prod.hosting.acquia.com
-   - staging-15867.prod.hosting.acquia.com
-  apt:
-    packages:
-    - mysql-server-5.6
-    - mysql-client-core-5.6
-    - mysql-client-5.6
+  # - svn-4786.devcloud.hosting.acquia.com
+    - svn-19900.prod.hosting.acquia.com
+    - staging-15867.prod.hosting.acquia.com
 
 # @see https://docs.travis-ci.com/user/notifications
 notifications:
 # - hipchat: [api token]@[room id or name]
-- slack: 'acquiatateandlyle:xoxp-95247241510-95258465223-107279737395-c957a8dd9eb8454af0a963195e21a3a5#travisci'
+# - slack: '<account>:<token>#[channel]'
+  - slack: 'acquiatateandlyle:xoxp-95247241510-95258465223-107279737395-c957a8dd9eb8454af0a963195e21a3a5#travisci'
 
 before_install:
   # Enable aliases for non-interactive shell.
@@ -50,7 +46,7 @@ before_install:
   - echo "always_populate_raw_post_data = -1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
   - git config --global user.name "Travis-CI"
   - git config --global user.email "noreply@travis-ci.org"
-  - mysql -u root -e 'CREATE DATABASE drupal;'
+  - mysql -u root -e "CREATE DATABASE drupal; CREATE USER 'drupal'@'localhost' IDENTIFIED BY 'drupal'; GRANT ALL ON drupal.* TO 'drupal'@'localhost';"
 
 install:
   # Load composer dependencies.
@@ -68,6 +64,8 @@ install:
   - sh -e /etc/init.d/xvfb start
   # Installs chromedriver to vendor/bin.
   - ./vendor/acquia/blt/scripts/linux/install-chrome.sh $TRAVIS_BUILD_DIR/vendor/bin
+  # Use JDK 8.
+  - jdk_switcher use oraclejdk8
 
 before_script:
   # Clear drush release history cache, to pick up new releases.
@@ -75,10 +73,10 @@ before_script:
   # Verify that no git diffs (caused by line ending variation) exist.
   # - git diff --exit-code
   # The local.hostname must be set to 127.0.0.1:8888 because we are using drush runserver to run the site on Travis CI.
-  - drupal yaml:update:value project.yml project.local.hostname '127.0.0.1:8888'
+  - drupal yaml:update:value blt/project.yml project.local.hostname '127.0.0.1:8888'
 
 script:
-  - blt -Dbehat.run-server=true -Dcreate_alias=false -Dbehat.launch-phantom=true ci:build:validate:test
+  - blt -Dbehat.run-server=true -Dcreate_alias=false -Dbehat.launch-phantom=true ci:build:validate:test -Dblt.verbose=true
 
 deploy:
    - provider: script
