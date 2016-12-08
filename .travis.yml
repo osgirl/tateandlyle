@@ -36,8 +36,7 @@ addons:
 # @see https://docs.travis-ci.com/user/notifications
 notifications:
 # - hipchat: [api token]@[room id or name]
-- slack: 'acquiatateandlyle:xoxp-95247241510-95258465223-107279737395
--c957a8dd9eb8454af0a963195e21a3a5#travisci'
+- slack: 'acquiatateandlyle:xoxp-95247241510-95258465223-107279737395-c957a8dd9eb8454af0a963195e21a3a5#travisci'
 
 before_install:
   # Enable aliases for non-interactive shell.
