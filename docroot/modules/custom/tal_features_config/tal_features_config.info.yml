@@ -3,8 +3,10 @@ description: 'Hold site wide configurations.'
 type: module
 core: 8.x
 dependencies:
+  - block
   - node
   - search_api
   - search_api_solr
+  - views
 version: 8.x-1.0
 package: tal

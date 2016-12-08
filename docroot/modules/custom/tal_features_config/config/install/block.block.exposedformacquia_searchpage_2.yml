@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.acquia_search
+  module:
+    - views
+  theme:
+    - tateandlyle
+id: exposedformacquia_searchpage_2
+theme: tateandlyle
+region: content
+weight: 0
+provider: null
+plugin: 'views_exposed_filter_block:acquia_search-page'
+settings:
+  id: 'views_exposed_filter_block:acquia_search-page'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+visibility: {  }
