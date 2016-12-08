@@ -6,17 +6,22 @@ dependencies:
     - node.type.iframe_content
   module:
     - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
 id: node.iframe_content.default
 targetEntityType: node
 bundle: iframe_content
 mode: default
 content:
   field_iframe_code:
-    weight: 101
-    label: above
+    weight: 0
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: basic_string
-  links:
-    weight: 100
-hidden: {  }
+hidden:
+  links: true
