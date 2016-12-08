@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitcec0927d9aba172cc054876c50bee339
+class ComposerStaticInit3d5e080e3618c85321acb22511c62753
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -76,7 +76,6 @@ class ComposerStaticInitcec0927d9aba172cc054876c50bee339
             'Symfony\\Component\\Config\\' => 25,
             'Symfony\\Component\\ClassLoader\\' => 30,
             'Symfony\\Cmf\\Component\\Routing\\' => 30,
-            'Symfony\\Bridge\\Twig\\' => 20,
             'Symfony\\Bridge\\PsrHttpMessage\\' => 30,
             'Stecman\\Component\\Symfony\\Console\\BashCompletion\\' => 49,
         ),
@@ -280,10 +279,6 @@ class ComposerStaticInitcec0927d9aba172cc054876c50bee339
         array (
             0 => __DIR__ . '/..' . '/symfony-cmf/routing',
         ),
-        'Symfony\\Bridge\\Twig\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/symfony/twig-bridge',
-        ),
         'Symfony\\Bridge\\PsrHttpMessage\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/psr-http-message-bridge',
@@ -415,6 +410,17 @@ class ComposerStaticInitcec0927d9aba172cc054876c50bee339
     );
 
     public static $prefixesPsr0 = array (
+        'v' => 
+        array (
+            'vierbergenlars\\SemVer\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/vierbergenlars/php-semver/src',
+            ),
+            'vierbergenlars\\LibJs\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/vierbergenlars/php-semver/src',
+            ),
+        ),
         'T' => 
         array (
             'Twig_' => 
@@ -506,6 +512,10 @@ class ComposerStaticInitcec0927d9aba172cc054876c50bee339
         ),
         'A' => 
         array (
+            'Asm89\\Twig\\Lint\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/asm89/twig-lint/src',
+            ),
             'Asm89\\Stack' => 
             array (
                 0 => __DIR__ . '/..' . '/asm89/stack-cors/src',
@@ -521,12 +531,16 @@ class ComposerStaticInitcec0927d9aba172cc054876c50bee339
         'AbstractPropertySetterTask' => __DIR__ . '/..' . '/phing/phing/classes/phing/tasks/ext/property/AbstractPropertySetterTask.php',
         'AbstractSAXParser' => __DIR__ . '/..' . '/phing/phing/classes/phing/parser/AbstractSAXParser.php',
         'AbstractSelectorContainer' => __DIR__ . '/..' . '/phing/phing/classes/phing/types/selectors/AbstractSelectorContainer.php',
+        'Acquia\\Blt\\Annotations\\Update' => __DIR__ . '/..' . '/acquia/blt/src/Annotations/Update.php',
         'Acquia\\Blt\\Composer\\Plugin' => __DIR__ . '/..' . '/acquia/blt/src/Composer/Plugin.php',
         'Acquia\\Blt\\Console\\Command\\ComposerMungeCommand' => __DIR__ . '/..' . '/acquia/blt/src/Console/Command/ComposerMungeCommand.php',
+        'Acquia\\Blt\\Console\\Command\\UpdateCommand' => __DIR__ . '/..' . '/acquia/blt/src/Console/Command/UpdateCommand.php',
         'Acquia\\Blt\\Console\\Command\\YamlMungeCommand' => __DIR__ . '/..' . '/acquia/blt/src/Console/Command/YamlMungeCommand.php',
         'Acquia\\Blt\\Drush\\Command\\BltDoctor' => __DIR__ . '/..' . '/acquia/blt/src/Drush/Command/BltDoctorCommand.php',
         'Acquia\\Blt\\Tests\\BltProjectTestBase' => __DIR__ . '/..' . '/acquia/blt/tests/phpunit/src/BltProjectTestBase.php',
         'Acquia\\Blt\\Tests\\BltTestBase' => __DIR__ . '/..' . '/acquia/blt/tests/phpunit/src/BltTestBase.php',
+        'Acquia\\Blt\\Update\\Updater' => __DIR__ . '/..' . '/acquia/blt/src/Update/Updater.php',
+        'Acquia\\Blt\\Update\\Updates' => __DIR__ . '/..' . '/acquia/blt/src/Update/Updates.php',
         'AdhocTask' => __DIR__ . '/..' . '/phing/phing/classes/phing/tasks/system/AdhocTask.php',
         'AdhocTaskdefTask' => __DIR__ . '/..' . '/phing/phing/classes/phing/tasks/system/AdhocTaskdefTask.php',
         'AdhocTypedefTask' => __DIR__ . '/..' . '/phing/phing/classes/phing/tasks/system/AdhocTypedefTask.php',
@@ -604,6 +618,15 @@ class ComposerStaticInitcec0927d9aba172cc054876c50bee339
         'Arg' => __DIR__ . '/..' . '/phing/phing/classes/phing/tasks/ext/SymfonyConsole/Arg.php',
         'Asm89\\Stack\\Cors' => __DIR__ . '/..' . '/asm89/stack-cors/src/Asm89/Stack/Cors.php',
         'Asm89\\Stack\\CorsService' => __DIR__ . '/..' . '/asm89/stack-cors/src/Asm89/Stack/CorsService.php',
+        'Asm89\\Twig\\Lint\\Command\\LintCommand' => __DIR__ . '/..' . '/asm89/twig-lint/src/Asm89/Twig/Lint/Command/LintCommand.php',
+        'Asm89\\Twig\\Lint\\Console\\Application' => __DIR__ . '/..' . '/asm89/twig-lint/src/Asm89/Twig/Lint/Console/Application.php',
+        'Asm89\\Twig\\Lint\\Extension\\StubbedCore' => __DIR__ . '/..' . '/asm89/twig-lint/src/Asm89/Twig/Lint/Extension/StubbedCore.php',
+        'Asm89\\Twig\\Lint\\Output\\CsvOutput' => __DIR__ . '/..' . '/asm89/twig-lint/src/Asm89/Twig/Lint/Output/CsvOutput.php',
+        'Asm89\\Twig\\Lint\\Output\\FullOutput' => __DIR__ . '/..' . '/asm89/twig-lint/src/Asm89/Twig/Lint/Output/FullOutput.php',
+        'Asm89\\Twig\\Lint\\Output\\OutputInterface' => __DIR__ . '/..' . '/asm89/twig-lint/src/Asm89/Twig/Lint/Output/OutputInterface.php',
+        'Asm89\\Twig\\Lint\\StubbedEnvironment' => __DIR__ . '/..' . '/asm89/twig-lint/src/Asm89/Twig/Lint/StubbedEnvironment.php',
+        'Asm89\\Twig\\Lint\\StubbedTokenParserBroker' => __DIR__ . '/..' . '/asm89/twig-lint/src/Asm89/Twig/Lint/StubbedTokenParserBroker.php',
+        'Asm89\\Twig\\Lint\\TokenParser\\CatchAll' => __DIR__ . '/..' . '/asm89/twig-lint/src/Asm89/Twig/Lint/TokenParser/CatchAll.php',
         'AssignedVar' => __DIR__ . '/..' . '/phing/phing/classes/phing/tasks/ext/CapsuleTask.php',
         'AttribTask' => __DIR__ . '/..' . '/phing/phing/classes/phing/tasks/system/AttribTask.php',
         'AutoloaderTask' => __DIR__ . '/..' . '/phing/phing/classes/phing/tasks/ext/AutoloaderTask.php',
@@ -3898,6 +3921,9 @@ class ComposerStaticInitcec0927d9aba172cc054876c50bee339
         'PhpParser\\Comment' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Comment.php',
         'PhpParser\\Comment\\Doc' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Comment/Doc.php',
         'PhpParser\\Error' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Error.php',
+        'PhpParser\\ErrorHandler' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/ErrorHandler.php',
+        'PhpParser\\ErrorHandler\\Collecting' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/ErrorHandler/Collecting.php',
+        'PhpParser\\ErrorHandler\\Throwing' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/ErrorHandler/Throwing.php',
         'PhpParser\\Lexer' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Lexer.php',
         'PhpParser\\Lexer\\Emulative' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Lexer/Emulative.php',
         'PhpParser\\Node' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Node.php',
@@ -3973,6 +3999,7 @@ class ComposerStaticInitcec0927d9aba172cc054876c50bee339
         'PhpParser\\Node\\Expr\\ClosureUse' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Node/Expr/ClosureUse.php',
         'PhpParser\\Node\\Expr\\ConstFetch' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Node/Expr/ConstFetch.php',
         'PhpParser\\Node\\Expr\\Empty_' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Node/Expr/Empty_.php',
+        'PhpParser\\Node\\Expr\\Error' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Node/Expr/Error.php',
         'PhpParser\\Node\\Expr\\ErrorSuppress' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Node/Expr/ErrorSuppress.php',
         'PhpParser\\Node\\Expr\\Eval_' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Node/Expr/Eval_.php',
         'PhpParser\\Node\\Expr\\Exit_' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Node/Expr/Exit_.php',
@@ -4002,6 +4029,7 @@ class ComposerStaticInitcec0927d9aba172cc054876c50bee339
         'PhpParser\\Node\\Name' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Node/Name.php',
         'PhpParser\\Node\\Name\\FullyQualified' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Node/Name/FullyQualified.php',
         'PhpParser\\Node\\Name\\Relative' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Node/Name/Relative.php',
+        'PhpParser\\Node\\NullableType' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Node/NullableType.php',
         'PhpParser\\Node\\Param' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Node/Param.php',
         'PhpParser\\Node\\Scalar' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Node/Scalar.php',
         'PhpParser\\Node\\Scalar\\DNumber' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Node/Scalar/DNumber.php',
@@ -4034,6 +4062,7 @@ class ComposerStaticInitcec0927d9aba172cc054876c50bee339
         'PhpParser\\Node\\Stmt\\Echo_' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Node/Stmt/Echo_.php',
         'PhpParser\\Node\\Stmt\\ElseIf_' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Node/Stmt/ElseIf_.php',
         'PhpParser\\Node\\Stmt\\Else_' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Node/Stmt/Else_.php',
+        'PhpParser\\Node\\Stmt\\Finally_' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Node/Stmt/Finally_.php',
         'PhpParser\\Node\\Stmt\\For_' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Node/Stmt/For_.php',
         'PhpParser\\Node\\Stmt\\Foreach_' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Node/Stmt/Foreach_.php',
         'PhpParser\\Node\\Stmt\\Function_' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Node/Stmt/Function_.php',
@@ -4212,6 +4241,7 @@ class ComposerStaticInitcec0927d9aba172cc054876c50bee339
         'Psy\\CodeCleaner\\MagicConstantsPass' => __DIR__ . '/..' . '/psy/psysh/src/Psy/CodeCleaner/MagicConstantsPass.php',
         'Psy\\CodeCleaner\\NamespaceAwarePass' => __DIR__ . '/..' . '/psy/psysh/src/Psy/CodeCleaner/NamespaceAwarePass.php',
         'Psy\\CodeCleaner\\NamespacePass' => __DIR__ . '/..' . '/psy/psysh/src/Psy/CodeCleaner/NamespacePass.php',
+        'Psy\\CodeCleaner\\PassableByReferencePass' => __DIR__ . '/..' . '/psy/psysh/src/Psy/CodeCleaner/PassableByReferencePass.php',
         'Psy\\CodeCleaner\\StaticConstructorPass' => __DIR__ . '/..' . '/psy/psysh/src/Psy/CodeCleaner/StaticConstructorPass.php',
         'Psy\\CodeCleaner\\StrictTypesPass' => __DIR__ . '/..' . '/psy/psysh/src/Psy/CodeCleaner/StrictTypesPass.php',
         'Psy\\CodeCleaner\\UseStatementPass' => __DIR__ . '/..' . '/psy/psysh/src/Psy/CodeCleaner/UseStatementPass.php',
@@ -4273,10 +4303,13 @@ class ComposerStaticInitcec0927d9aba172cc054876c50bee339
         'Psy\\Output\\ShellOutput' => __DIR__ . '/..' . '/psy/psysh/src/Psy/Output/ShellOutput.php',
         'Psy\\ParserFactory' => __DIR__ . '/..' . '/psy/psysh/src/Psy/ParserFactory.php',
         'Psy\\Readline\\GNUReadline' => __DIR__ . '/..' . '/psy/psysh/src/Psy/Readline/GNUReadline.php',
+        'Psy\\Readline\\HoaConsole' => __DIR__ . '/..' . '/psy/psysh/src/Psy/Readline/HoaConsole.php',
         'Psy\\Readline\\Libedit' => __DIR__ . '/..' . '/psy/psysh/src/Psy/Readline/Libedit.php',
         'Psy\\Readline\\Readline' => __DIR__ . '/..' . '/psy/psysh/src/Psy/Readline/Readline.php',
         'Psy\\Readline\\Transient' => __DIR__ . '/..' . '/psy/psysh/src/Psy/Readline/Transient.php',
         'Psy\\Reflection\\ReflectionConstant' => __DIR__ . '/..' . '/psy/psysh/src/Psy/Reflection/ReflectionConstant.php',
+        'Psy\\Reflection\\ReflectionLanguageConstruct' => __DIR__ . '/..' . '/psy/psysh/src/Psy/Reflection/ReflectionLanguageConstruct.php',
+        'Psy\\Reflection\\ReflectionLanguageConstructParameter' => __DIR__ . '/..' . '/psy/psysh/src/Psy/Reflection/ReflectionLanguageConstructParameter.php',
         'Psy\\Shell' => __DIR__ . '/..' . '/psy/psysh/src/Psy/Shell.php',
         'Psy\\TabCompletion\\AutoCompleter' => __DIR__ . '/..' . '/psy/psysh/src/Psy/TabCompletion/AutoCompleter.php',
         'Psy\\TabCompletion\\Matcher\\AbstractContextAwareMatcher' => __DIR__ . '/..' . '/psy/psysh/src/Psy/TabCompletion/Matcher/AbstractContextAwareMatcher.php',
@@ -4301,6 +4334,10 @@ class ComposerStaticInitcec0927d9aba172cc054876c50bee339
         'Psy\\VarDumper\\Dumper' => __DIR__ . '/..' . '/psy/psysh/src/Psy/VarDumper/Dumper.php',
         'Psy\\VarDumper\\Presenter' => __DIR__ . '/..' . '/psy/psysh/src/Psy/VarDumper/Presenter.php',
         'Psy\\VarDumper\\PresenterAware' => __DIR__ . '/..' . '/psy/psysh/src/Psy/VarDumper/PresenterAware.php',
+        'Psy\\VersionUpdater\\Checker' => __DIR__ . '/..' . '/psy/psysh/src/Psy/VersionUpdater/Checker.php',
+        'Psy\\VersionUpdater\\GitHubChecker' => __DIR__ . '/..' . '/psy/psysh/src/Psy/VersionUpdater/GitHubChecker.php',
+        'Psy\\VersionUpdater\\IntervalChecker' => __DIR__ . '/..' . '/psy/psysh/src/Psy/VersionUpdater/IntervalChecker.php',
+        'Psy\\VersionUpdater\\NoopChecker' => __DIR__ . '/..' . '/psy/psysh/src/Psy/VersionUpdater/NoopChecker.php',
         'ReadableSelector' => __DIR__ . '/..' . '/phing/phing/classes/phing/types/selectors/ReadableSelector.php',
         'Reader' => __DIR__ . '/..' . '/phing/phing/classes/phing/system/io/Reader.php',
         'RecorderEntry' => __DIR__ . '/..' . '/phing/phing/classes/phing/tasks/system/RecorderEntry.php',
@@ -4823,47 +4860,6 @@ class ComposerStaticInitcec0927d9aba172cc054876c50bee339
         'Symfony\\Bridge\\PsrHttpMessage\\Tests\\Fixtures\\ServerRequest' => __DIR__ . '/..' . '/symfony/psr-http-message-bridge/Tests/Fixtures/ServerRequest.php',
         'Symfony\\Bridge\\PsrHttpMessage\\Tests\\Fixtures\\Stream' => __DIR__ . '/..' . '/symfony/psr-http-message-bridge/Tests/Fixtures/Stream.php',
         'Symfony\\Bridge\\PsrHttpMessage\\Tests\\Fixtures\\UploadedFile' => __DIR__ . '/..' . '/symfony/psr-http-message-bridge/Tests/Fixtures/UploadedFile.php',
-        'Symfony\\Bridge\\Twig\\AppVariable' => __DIR__ . '/..' . '/symfony/twig-bridge/AppVariable.php',
-        'Symfony\\Bridge\\Twig\\Command\\DebugCommand' => __DIR__ . '/..' . '/symfony/twig-bridge/Command/DebugCommand.php',
-        'Symfony\\Bridge\\Twig\\Command\\LintCommand' => __DIR__ . '/..' . '/symfony/twig-bridge/Command/LintCommand.php',
-        'Symfony\\Bridge\\Twig\\DataCollector\\TwigDataCollector' => __DIR__ . '/..' . '/symfony/twig-bridge/DataCollector/TwigDataCollector.php',
-        'Symfony\\Bridge\\Twig\\Extension\\AssetExtension' => __DIR__ . '/..' . '/symfony/twig-bridge/Extension/AssetExtension.php',
-        'Symfony\\Bridge\\Twig\\Extension\\CodeExtension' => __DIR__ . '/..' . '/symfony/twig-bridge/Extension/CodeExtension.php',
-        'Symfony\\Bridge\\Twig\\Extension\\DumpExtension' => __DIR__ . '/..' . '/symfony/twig-bridge/Extension/DumpExtension.php',
-        'Symfony\\Bridge\\Twig\\Extension\\ExpressionExtension' => __DIR__ . '/..' . '/symfony/twig-bridge/Extension/ExpressionExtension.php',
-        'Symfony\\Bridge\\Twig\\Extension\\FormExtension' => __DIR__ . '/..' . '/symfony/twig-bridge/Extension/FormExtension.php',
-        'Symfony\\Bridge\\Twig\\Extension\\HttpFoundationExtension' => __DIR__ . '/..' . '/symfony/twig-bridge/Extension/HttpFoundationExtension.php',
-        'Symfony\\Bridge\\Twig\\Extension\\HttpKernelExtension' => __DIR__ . '/..' . '/symfony/twig-bridge/Extension/HttpKernelExtension.php',
-        'Symfony\\Bridge\\Twig\\Extension\\LogoutUrlExtension' => __DIR__ . '/..' . '/symfony/twig-bridge/Extension/LogoutUrlExtension.php',
-        'Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension' => __DIR__ . '/..' . '/symfony/twig-bridge/Extension/ProfilerExtension.php',
-        'Symfony\\Bridge\\Twig\\Extension\\RoutingExtension' => __DIR__ . '/..' . '/symfony/twig-bridge/Extension/RoutingExtension.php',
-        'Symfony\\Bridge\\Twig\\Extension\\SecurityExtension' => __DIR__ . '/..' . '/symfony/twig-bridge/Extension/SecurityExtension.php',
-        'Symfony\\Bridge\\Twig\\Extension\\StopwatchExtension' => __DIR__ . '/..' . '/symfony/twig-bridge/Extension/StopwatchExtension.php',
-        'Symfony\\Bridge\\Twig\\Extension\\TranslationExtension' => __DIR__ . '/..' . '/symfony/twig-bridge/Extension/TranslationExtension.php',
-        'Symfony\\Bridge\\Twig\\Extension\\YamlExtension' => __DIR__ . '/..' . '/symfony/twig-bridge/Extension/YamlExtension.php',
-        'Symfony\\Bridge\\Twig\\Form\\TwigRenderer' => __DIR__ . '/..' . '/symfony/twig-bridge/Form/TwigRenderer.php',
-        'Symfony\\Bridge\\Twig\\Form\\TwigRendererEngine' => __DIR__ . '/..' . '/symfony/twig-bridge/Form/TwigRendererEngine.php',
-        'Symfony\\Bridge\\Twig\\Form\\TwigRendererEngineInterface' => __DIR__ . '/..' . '/symfony/twig-bridge/Form/TwigRendererEngineInterface.php',
-        'Symfony\\Bridge\\Twig\\Form\\TwigRendererInterface' => __DIR__ . '/..' . '/symfony/twig-bridge/Form/TwigRendererInterface.php',
-        'Symfony\\Bridge\\Twig\\NodeVisitor\\Scope' => __DIR__ . '/..' . '/symfony/twig-bridge/NodeVisitor/Scope.php',
-        'Symfony\\Bridge\\Twig\\NodeVisitor\\TranslationDefaultDomainNodeVisitor' => __DIR__ . '/..' . '/symfony/twig-bridge/NodeVisitor/TranslationDefaultDomainNodeVisitor.php',
-        'Symfony\\Bridge\\Twig\\NodeVisitor\\TranslationNodeVisitor' => __DIR__ . '/..' . '/symfony/twig-bridge/NodeVisitor/TranslationNodeVisitor.php',
-        'Symfony\\Bridge\\Twig\\Node\\DumpNode' => __DIR__ . '/..' . '/symfony/twig-bridge/Node/DumpNode.php',
-        'Symfony\\Bridge\\Twig\\Node\\FormEnctypeNode' => __DIR__ . '/..' . '/symfony/twig-bridge/Node/FormEnctypeNode.php',
-        'Symfony\\Bridge\\Twig\\Node\\FormThemeNode' => __DIR__ . '/..' . '/symfony/twig-bridge/Node/FormThemeNode.php',
-        'Symfony\\Bridge\\Twig\\Node\\RenderBlockNode' => __DIR__ . '/..' . '/symfony/twig-bridge/Node/RenderBlockNode.php',
-        'Symfony\\Bridge\\Twig\\Node\\SearchAndRenderBlockNode' => __DIR__ . '/..' . '/symfony/twig-bridge/Node/SearchAndRenderBlockNode.php',
-        'Symfony\\Bridge\\Twig\\Node\\StopwatchNode' => __DIR__ . '/..' . '/symfony/twig-bridge/Node/StopwatchNode.php',
-        'Symfony\\Bridge\\Twig\\Node\\TransDefaultDomainNode' => __DIR__ . '/..' . '/symfony/twig-bridge/Node/TransDefaultDomainNode.php',
-        'Symfony\\Bridge\\Twig\\Node\\TransNode' => __DIR__ . '/..' . '/symfony/twig-bridge/Node/TransNode.php',
-        'Symfony\\Bridge\\Twig\\TokenParser\\DumpTokenParser' => __DIR__ . '/..' . '/symfony/twig-bridge/TokenParser/DumpTokenParser.php',
-        'Symfony\\Bridge\\Twig\\TokenParser\\FormThemeTokenParser' => __DIR__ . '/..' . '/symfony/twig-bridge/TokenParser/FormThemeTokenParser.php',
-        'Symfony\\Bridge\\Twig\\TokenParser\\StopwatchTokenParser' => __DIR__ . '/..' . '/symfony/twig-bridge/TokenParser/StopwatchTokenParser.php',
-        'Symfony\\Bridge\\Twig\\TokenParser\\TransChoiceTokenParser' => __DIR__ . '/..' . '/symfony/twig-bridge/TokenParser/TransChoiceTokenParser.php',
-        'Symfony\\Bridge\\Twig\\TokenParser\\TransDefaultDomainTokenParser' => __DIR__ . '/..' . '/symfony/twig-bridge/TokenParser/TransDefaultDomainTokenParser.php',
-        'Symfony\\Bridge\\Twig\\TokenParser\\TransTokenParser' => __DIR__ . '/..' . '/symfony/twig-bridge/TokenParser/TransTokenParser.php',
-        'Symfony\\Bridge\\Twig\\Translation\\TwigExtractor' => __DIR__ . '/..' . '/symfony/twig-bridge/Translation/TwigExtractor.php',
-        'Symfony\\Bridge\\Twig\\TwigEngine' => __DIR__ . '/..' . '/symfony/twig-bridge/TwigEngine.php',
         'Symfony\\Cmf\\Component\\Routing\\Candidates\\Candidates' => __DIR__ . '/..' . '/symfony-cmf/routing/Candidates/Candidates.php',
         'Symfony\\Cmf\\Component\\Routing\\Candidates\\CandidatesInterface' => __DIR__ . '/..' . '/symfony-cmf/routing/Candidates/CandidatesInterface.php',
         'Symfony\\Cmf\\Component\\Routing\\ChainRouteCollection' => __DIR__ . '/..' . '/symfony-cmf/routing/ChainRouteCollection.php',
@@ -6421,6 +6417,19 @@ class ComposerStaticInitcec0927d9aba172cc054876c50bee339
         'phpseclib\\System\\SSH\\Agent' => __DIR__ . '/..' . '/phpseclib/phpseclib/phpseclib/System/SSH/Agent.php',
         'phpseclib\\System\\SSH\\Agent\\Identity' => __DIR__ . '/..' . '/phpseclib/phpseclib/phpseclib/System/SSH/Agent/Identity.php',
         'rSTTask' => __DIR__ . '/..' . '/phing/phing/classes/phing/tasks/ext/rSTTask.php',
+        'vierbergenlars\\LibJs\\JSArray' => __DIR__ . '/..' . '/vierbergenlars/php-semver/src/vierbergenlars/LibJs/JSArray.php',
+        'vierbergenlars\\LibJs\\JString' => __DIR__ . '/..' . '/vierbergenlars/php-semver/src/vierbergenlars/LibJs/JString.php',
+        'vierbergenlars\\LibJs\\Object' => __DIR__ . '/..' . '/vierbergenlars/php-semver/src/vierbergenlars/LibJs/Object.php',
+        'vierbergenlars\\LibJs\\RegExp' => __DIR__ . '/..' . '/vierbergenlars/php-semver/src/vierbergenlars/LibJs/RegExp.php',
+        'vierbergenlars\\LibJs\\Util' => __DIR__ . '/..' . '/vierbergenlars/php-semver/src/vierbergenlars/LibJs/Util.php',
+        'vierbergenlars\\SemVer\\Internal\\Comparator' => __DIR__ . '/..' . '/vierbergenlars/php-semver/src/vierbergenlars/SemVer/internal.php',
+        'vierbergenlars\\SemVer\\Internal\\Exports' => __DIR__ . '/..' . '/vierbergenlars/php-semver/src/vierbergenlars/SemVer/internal.php',
+        'vierbergenlars\\SemVer\\Internal\\G' => __DIR__ . '/..' . '/vierbergenlars/php-semver/src/vierbergenlars/SemVer/internal.php',
+        'vierbergenlars\\SemVer\\Internal\\Range' => __DIR__ . '/..' . '/vierbergenlars/php-semver/src/vierbergenlars/SemVer/internal.php',
+        'vierbergenlars\\SemVer\\Internal\\SemVer' => __DIR__ . '/..' . '/vierbergenlars/php-semver/src/vierbergenlars/SemVer/internal.php',
+        'vierbergenlars\\SemVer\\SemVerException' => __DIR__ . '/..' . '/vierbergenlars/php-semver/src/vierbergenlars/SemVer/SemVerException.php',
+        'vierbergenlars\\SemVer\\expression' => __DIR__ . '/..' . '/vierbergenlars/php-semver/src/vierbergenlars/SemVer/expression.php',
+        'vierbergenlars\\SemVer\\version' => __DIR__ . '/..' . '/vierbergenlars/php-semver/src/vierbergenlars/SemVer/version.php',
         'zsdtBaseTask' => __DIR__ . '/..' . '/phing/phing/classes/phing/tasks/ext/zendserverdeploymenttool/zsdtBaseTask.php',
         'zsdtPackTask' => __DIR__ . '/..' . '/phing/phing/classes/phing/tasks/ext/zendserverdeploymenttool/zsdtPackTask.php',
         'zsdtValidateTask' => __DIR__ . '/..' . '/phing/phing/classes/phing/tasks/ext/zendserverdeploymenttool/zsdtValidateTask.php',
@@ -6429,10 +6438,10 @@ class ComposerStaticInitcec0927d9aba172cc054876c50bee339
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitcec0927d9aba172cc054876c50bee339::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitcec0927d9aba172cc054876c50bee339::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInitcec0927d9aba172cc054876c50bee339::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInitcec0927d9aba172cc054876c50bee339::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit3d5e080e3618c85321acb22511c62753::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit3d5e080e3618c85321acb22511c62753::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit3d5e080e3618c85321acb22511c62753::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit3d5e080e3618c85321acb22511c62753::$classMap;
 
         }, null, ClassLoader::class);
     }

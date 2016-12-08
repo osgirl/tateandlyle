@@ -1,5 +1,7 @@
 # BLT installation
 
+*Please do not clone BLT as a means of using it. The only reason to clone BLT is to contribute outside the context of a particular Drupal site.*
+
 ## System requirements
 
 You must have the following tools on the command line of your *host operating system*:
@@ -20,6 +22,7 @@ Ensure that [Xcode](https://itunes.apple.com/us/app/xcode/id497799835?mt=12) is 
 Then install the  minimum dependencies for BLT. The preferred method is via Homebrew, though you could install these yourself without a package manager.
 
         /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+        brew tap homebrew/dupes; brew tap homebrew/versions; brew tap homebrew/homebrew-php;
         brew install php56 git composer drush
         composer global require "hirak/prestissimo:^0.3"
 

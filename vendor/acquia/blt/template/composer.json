@@ -8,7 +8,7 @@
         }
     ],
     "require": {
-        "cweagans/composer-patches":                  "dev-master#5456199acdcc16b243814aa45259f4c56272a634 as 1.5.0",
+        "cweagans/composer-patches":                  "^1.6.0",
         "drupal/acquia_connector":                    "^8.1.5",
         "drupal/acsf":                                "^8.1.32",
         "drupal/cog":                                 "^8.1.0",
@@ -16,10 +16,9 @@
         "drupal/features":                            "^8.3.0",
         "drupal/lightning":                           "^8.1.12",
         "drupal/memcache" :                           "^8.2.0-alpha2",
-        "drupal/search_api":                          "8.1.0-alpha14",
-        "drupal/search_api_solr":                     "8.1.0-alpha3",
         "drupal/seckit":                              "^8.1.0-alpha2",
         "drupal/security_review":                     "8.*",
+        "drupal/shield":                              "^8.1.0",
         "drupal-composer/drupal-security-advisories": "8.0.x-dev",
         "drush/drush":                                "^9.0"
     },
@@ -46,6 +45,9 @@
             "initial": {
                 "sites/default/default.services.yml": "sites/default/services.yml",
                 "sites/default/default.settings.php": "sites/default/settings.php"
+            },
+            "excludes": {
+                "sites/development.services.yml": "sites/development.services.yml"
             }
         },
         "enable-patching": true,
