@@ -58,3 +58,11 @@ function tal_preprocess_node_icon($variables, $node) {
   $variables['title_attributes']['class'] = 'hide';
   return $variables;
 }
+
+/**
+ * Preprocessor function for "iframe_content" bundle.
+ */
+function tal_preprocess_node_iframe_content($variables, $node) {
+  $variables['raw_field_iframe_code'] = $node->get('field_iframe_code')->value;
+  return $variables;
+}
