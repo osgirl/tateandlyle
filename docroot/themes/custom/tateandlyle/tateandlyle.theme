@@ -22,6 +22,7 @@ function tateandlyle_theme_suggestions_block_alter(array &$suggestions, array $v
  * Implements template_preprocess_block().
  */
 function tateandlyle_preprocess_block(&$variables) {
+ // kint($variables);
   // Custom block type helper classes.
   if (isset($variables['elements']['content']['#block_content'])) {
     $block = $variables['elements']['content']['#block_content'];
@@ -32,7 +33,7 @@ function tateandlyle_preprocess_block(&$variables) {
       $variables['attributes']['class'] = Html::cleanCssIdentifier('block--' . $bundle_class);
       $variables['attributes']['data-bundle-class'] = $bundle_class;
     }
-
+    $variables['id'] = $variables['elements']['#id'];
     // Call preprocessor function of different block types.
     include_once "preprocess/block.inc";
     if (function_exists('tal_preprocess_block_' . $bundle)) {
@@ -77,5 +78,17 @@ function tateandlyle_preprocess_node(&$variables) {
   include_once "preprocess/node.inc";
   if (function_exists('tal_preprocess_node_' . $bundle)) {
     $variables = call_user_func('tal_preprocess_node_' . $bundle, $variables, $variables['node']);
+  }
+}
+
+/**
+ * Implements hook_preprocess_field_HOOK() for the node.
+ */
+function tateandlyle_preprocess_field(&$variables) {
+  $variables['field_unique_id'] = '';
+  if ($variables['field_name'] == "field_at_tab_content1" || $variables['field_name'] == "field_at_tab_content2" || $variables['field_name'] == "field_in_accordion_items") {
+    $element = $variables['element'];
+    $entity = $element['#object'];
+    $variables['field_unique_id'] = $entity->getEntityTypeId() . $entity->id() . $variables['field_name'];
   }
 }
