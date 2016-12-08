@@ -11,6 +11,34 @@
   @media (min-width: $screen-md) {
     max-width: 1108px;
   }
+
+  .panel-group {
+    border-left: 1px solid $color-warm-gray;
+    border-right: 1px solid $color-warm-gray;
+    @media (min-width: $screen-sm) {
+      border: none;
+    }
+
+    .panel {
+      border-top: 1px solid $color-warm-gray;
+      margin-top: -1px;
+
+      .panel-title a.collapsed {
+        background-color: $color-off-white;
+      }
+    }
+  }
+
+  .field--in-border-title {
+    margin-left: 0;
+    text-align: left;
+
+    @media (min-width: $screen-sm) {
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
 }
 
 .paragraph--show-border {
@@ -37,26 +65,32 @@
 
   .title,
   .field--in-border-title {
+    @extend %title-border-top;
     color: $gray-base;
     font-family: $font-family-sans-serif-Med;
-    font-size: $font-size-h2;
+    font-size: $font-size-h3;
     margin-bottom: 40px;
-    text-align: center;
-    @media (min-width: $screen-sm-lsp) {
+
+    @media (min-width: $screen-sm) {
       background: $color-white;
       display: table;
+      font-size: $font-size-h2;
       margin-bottom: 65px;
       margin-left: auto;
       margin-right: auto;
       margin-top: -20px;
       padding-left: 10px;
       padding-right: 10px;
+      text-align: center;
     }
   }
 
   strong {
     color: $gray-base;
-    font-size: $font-size-h3;
+    font-size: $font-size-h4;
+    @media (min-width: $screen-sm) {
+      font-size: $font-size-h3;
+    }
   }
 
   p {

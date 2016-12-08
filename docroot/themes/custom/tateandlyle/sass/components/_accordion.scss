@@ -125,13 +125,17 @@
     }
 
     .panel-title {
-      font-size: $font-size-h3;
+      font-size: $font-size-h4;
       padding: 0;
+      @media (min-width: $screen-sm) {
+        font-size: $font-size-h3;
+      }
       a {
         background-color: $color-off-white;
         color: $brand-primary;
         display: block;
         padding: 20px;
+        padding-right: 60px;
         position: relative;
 
         &::after {

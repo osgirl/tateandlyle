@@ -27,8 +27,13 @@ h5 {
 
 .page-header {
   @extend %inner-content-width;
+  @extend %title-border-top;
   border-bottom: none;
   margin-top: 36px;
+  font-size: $font-size-h2;
+  @media (min-width: $screen-sm) {
+    font-size: $font-size-h1;
+  }
 }
 
 .region-header {

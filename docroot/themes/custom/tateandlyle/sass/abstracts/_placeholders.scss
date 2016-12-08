@@ -35,3 +35,20 @@
     margin: auto;
   }
 }
+
+%title-border-top {
+  &::before {
+    background-color: $gray-base;
+    content: " ";
+    display: block;
+    height: 1px;
+    margin-bottom: 15px;
+    width: 30px;
+  }
+
+  @media (min-width: $screen-sm) {
+    &::before {
+      content: none;
+    }
+  }
+}
