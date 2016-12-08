@@ -1,4 +1,2 @@
 bundle: tal
-excluded:
-  - search_api.index.acquia_search_index
 required: true
