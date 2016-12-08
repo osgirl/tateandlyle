@@ -44,8 +44,8 @@ spi:
     variables: {  }
     time: 0
   cron_interval: 28800
-  site_name: 'TAL Abhishek Local'
-  site_machine_name: tal_abhishek_local
+  site_name: 'Tate And Lyle'
+  site_machine_name: tal_acq_network_settings
 mapping:
   acquia_spi_send_node_user:
     - acquia_connector.settings
