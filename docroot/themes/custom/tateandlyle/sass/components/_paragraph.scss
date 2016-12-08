@@ -44,7 +44,8 @@
 .paragraph--show-border {
   @extend .max-content-width;
   margin: auto;
-  margin-top: 60px;
+  margin-bottom: 50px;
+  margin-top: 50px;
   padding-top: 0;
   @media (max-width: $screen-sm-max) {
     margin-left: 20px;
@@ -87,6 +88,7 @@
 
   strong {
     color: $gray-base;
+    font-family: $font-family-sans-serif;
     font-size: $font-size-h4;
     @media (min-width: $screen-sm) {
       font-size: $font-size-h3;
@@ -104,19 +106,21 @@
     padding-top: 30px;
   }
 
-  .in--country-count {
-    @extend .h1;
+  .in--country-count,
+  .in--region-count {
+    @extend .h4;
+    font-family: $font-family-sans-serif-Med;
     margin-bottom: 2px;
     margin-top: 14px;
+    @media (min-width: $screen-sm) {
+      font-family: $font-family-sans-serif;
+      font-size: $font-size-h1;
+    }
   }
 
-  .field--in-country {
-    clear: both;
+  .field--in-country,
+  .field--in-region {
     margin-top: 24px;
-    overflow: hidden;
-    @media (min-width: $screen-sm) {
-      width: 50%;
-    }
 
     ul {
       color: $gray-base;
@@ -127,6 +131,27 @@
       width: 50%;
     }
   }
+
+  .field--in-region {
+    @media (min-width: $screen-sm) {
+      margin-top: 45px;
+    }
+  }
+}
+
+.contact_us_more {
+  margin-top: 5px;
+  &::after {
+    @extend %right-brand-arrow;
+  }
+}
+
+.region--country {
+  clear: both;
+  overflow: auto;
+  @media (min-width: $screen-sm) {
+    clear: none;
+  }
 }
 
 .field--in-country .more-countries {
@@ -134,8 +159,13 @@
 }
 
 .in--country-read-more {
+  clear: both;
+  padding: 1px;
   text-align: center;
-  margin-top: 30px;
+
+  .more--countries {
+    margin-top: 30px;
+  }
 }
 
 .in--country-read-more .btn {

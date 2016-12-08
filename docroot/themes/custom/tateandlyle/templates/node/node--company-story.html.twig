@@ -92,14 +92,16 @@
   {% endif %}
 
   <div{{ content_attributes.addClass('content') }}>
-    {{ content.field_date }} | {{ content.field_category }}
+    <div class="date--category">
+      {{ content.field_date }} | {{ content.field_category }}
+    </div>
     {{ content.field_story_description }}
     {{ content.field_author }}
     {{ content.field_downloads }}
   </div>
-  <div class="row">
+  <div class="row news--articles">
     {% if prevurl %}
-    <div class="col-md-4">
+    <div class="col-sm-4 previous--articles">
       <a href="{{ prevurl }}">
         {{ "Previous article"|t }}
       <span>
@@ -108,13 +110,13 @@
       </a>
     </div>
     {% endif %}
-    <div class="col-md-4">
+    <div class="col-sm-4 all--articles">
         <a href="#">
             {{ "View all company news"|t }}
         </a>
     </div>
     {% if nexturl %}
-    <div class="col-md-4">
+    <div class="col-sm-4 next--articles">
       <a href="{{ nexturl }}">
         {{ "Next article"|t }}
       <span>

@@ -52,3 +52,10 @@
     }
   }
 }
+
+%right-brand-arrow {
+  content: $fa-var-angle-right;
+  color: $brand-primary;
+  font-family: $font-family-icon;
+  padding-left: 10px;
+}
