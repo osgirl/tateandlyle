@@ -47,7 +47,7 @@ view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
 <div class="panel panel-default">
     <div class="panel-heading">
         <h4 class="panel-title">
-            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse-{{ paragraph.id.value }}">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#{{ field_unique_id }}" href="#collapse-{{ paragraph.id.value }}">
                 {{ content.field_at_accordion_header }}
             </a>
         </h4>

@@ -165,3 +165,25 @@ function tal_preprocess_paragraph_block_reference($variables, $paragraph) {
 
   return $variables;
 }
+
+/**
+ * Preprocessor function for "component_accordion_items" paragraph type.
+ */
+function tal_preprocess_paragraph_component_accordion_items($variables, $paragraph) {
+  $parent = $paragraph->getParentEntity();
+  $parent_field_name = $paragraph->toArray();
+  $field_name = $parent_field_name['parent_field_name'][0]['value'];
+  $variables['field_unique_id'] = $parent->getEntityTypeId() . $parent->id() . $field_name;
+  return $variables;
+}
+
+/**
+ * Preprocessor function for "component_accordion_items" paragraph type.
+ */
+function tal_preprocess_paragraph_ingredient_accordion_items($variables, $paragraph) {
+  $parent = $paragraph->getParentEntity();
+  $parent_field_name = $paragraph->toArray();
+  $field_name = $parent_field_name['parent_field_name'][0]['value'];
+  $variables['field_unique_id'] = $parent->getEntityTypeId() . $parent->id() . $field_name;
+  return $variables;
+}

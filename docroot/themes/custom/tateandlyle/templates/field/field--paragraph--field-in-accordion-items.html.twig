@@ -56,7 +56,7 @@
 {% if label_hidden %}
   {% if multiple %}
     <div{{ attributes.addClass(classes, 'field--items') }}>
-      <div class="panel-group panel-accordion" id="accordion1">
+      <div class="panel-group panel-accordion" id="{{ field_unique_id }}">
         {% for item in items %}
           {{ item.content }}
         {% endfor %}
