@@ -28,17 +28,48 @@
     width: 100%;
 
     li {
+      display: none;
       @media (min-width: $screen-sm) {
         display: table-cell;
         vertical-align: bottom;
+        word-break: break-word;
+      }
+
+      &:first-child() {
+        display: block;
+        @media (min-width: $screen-sm) {
+          display: table-cell;
+        }
+        a {
+          position: relative;
+          background: $gray-base;
+          color: $color-white;
+          &::after {
+            color: $color-white;
+            content: $fa-var-angle-down;
+            font-family: $font-family-icon;
+            padding-left: 10px;
+            position: absolute;
+            right: 20px;
+          }
+          @media (min-width: $screen-sm) {
+            background: $color-white;
+            color: $gray-base;
+            &::after {
+              content: none;
+            }
+          }
+        }
       }
 
       a {
         display: block;
         font-size: 14px;
         padding: 10px 11px;
-        text-align: center;
         text-transform: uppercase;
+        @media (min-width: $screen-sm) {
+          text-align: center;
+        }
         &:hover {
           background: $gray-base;
           color: $color-white;

@@ -4,10 +4,11 @@
 }
 
 %absolute-center {
-  left: 0;
+  left: 50%;
   margin-left: auto;
   margin-right: auto;
-  right: 0;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 %full-absolute {
@@ -32,5 +33,22 @@
   margin-right: 20px;
   @media (min-width: $screen-md) {
     margin: auto;
+  }
+}
+
+%title-border-top {
+  &::before {
+    background-color: $gray-base;
+    content: " ";
+    display: block;
+    height: 1px;
+    margin-bottom: 15px;
+    width: 30px;
+  }
+
+  @media (min-width: $screen-sm) {
+    &::before {
+      content: none;
+    }
   }
 }
