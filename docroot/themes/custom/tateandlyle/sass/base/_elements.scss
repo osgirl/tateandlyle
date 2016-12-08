@@ -26,16 +26,23 @@ h5 {
 }
 
 .page-header {
-  @extend %inner-content-width;
-  @extend %title-border-top;
+  @extend %inner-content-width-padding;
+  @extend %title-border-bottom;
   border-bottom: none;
   margin-top: 36px;
   font-size: $font-size-h2;
   @media (min-width: $screen-sm) {
+    font-size: $font-size-h1-sm;
+  }
+  @media (min-width: $screen-md) {
     font-size: $font-size-h1;
+    margin: auto;
   }
 }
 
 .region-header {
-  @extend %inner-content-width;
+  @extend %inner-content-width-padding;
+  @media (min-width: $screen-sm) {
+    margin: auto;
+  }
 }

@@ -44,8 +44,8 @@
 .paragraph--show-border {
   @extend .max-content-width;
   margin: auto;
-  margin-bottom: 50px;
-  margin-top: 50px;
+  margin-bottom: 25px;
+  margin-top: 25px;
   padding-top: 0;
   @media (max-width: $screen-sm-max) {
     margin-left: 20px;
@@ -55,6 +55,8 @@
 
   @media (min-width: $screen-sm) {
     border: 1px solid $color-warm-gray;
+    margin-bottom: 50px;
+    margin-top: 50px;
     padding: 60px;
     padding-top: 0;
   }
@@ -190,7 +192,10 @@
 
 .page-node-type-ingredient {
   .field--name-body {
-    @extend %inner-content-width;
+    @extend %inner-content-width-padding;
+    @media (min-width: $screen-sm) {
+      margin: auto;
+    }
   }
 
   .content .navbar {

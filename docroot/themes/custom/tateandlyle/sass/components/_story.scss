@@ -1,15 +1,18 @@
 .page-node-type-company-story {
   .region-content {
-    @extend .max-content-width;
-    margin-left: 20px;
-    margin-right: 20px;
+    @extend %inner-content-width-padding;
     @media (min-width: $screen-md) {
       margin: auto;
     }
+
     .content,
     .page-header {
       max-width: 878px;
       margin-left: 0;
+    }
+
+    .page-header {
+      padding-left: 0;
     }
 
     .paragraph {
@@ -39,68 +42,82 @@
         display: inline-block;
       }
     }
+  }
+}
 
-    .news--articles {
-      background-color: $color-off-white;
-      display: table;
-      margin-bottom: 70px;
-      margin-top: 70px;
-      width: 100%;
+.news--articles {
+  background-color: $color-off-white;
+  display: table;
+  margin-bottom: 70px;
+  margin-top: 70px;
+  width: 100%;
 
-      .col-sm-4 {
-        display: table-cell;
-        float: none;
-        position: relative;
-        vertical-align: middle;
-        a {
-          display: block;
-          padding: 30px 20px;
+  .col-sm-4 {
+    float: none;
+    padding-left: 0;
+    padding-right: 0;
+    position: relative;
+    text-align: center;
+    @media (min-width: $screen-sm) {
+      display: table-cell;
+      text-align: left;
+      vertical-align: middle;
+    }
+    a {
+      display: block;
+      padding: 30px 20px;
 
-          span {
-            display: block;
-            font-family: $font-family-sans-serif-Med;
-            margin-top: 15px;
-          }
-        }
+      span {
+        display: block;
+        font-family: $font-family-sans-serif-Med;
+        margin-top: 15px;
+      }
+    }
+  }
+
+  .all--articles {
+    text-align: center;
+    a {
+      border-top: 1px solid $color-warm-gray;
+      border-bottom: 1px solid $color-warm-gray;
+
+      @media (min-width: $screen-sm) {
+        border: none;
+        border-left: 1px solid $color-warm-gray;
+        border-right: 1px solid $color-warm-gray;
       }
 
-      .all--articles {
-        text-align: center;
-        a {
-          border-left: 1px solid $color-warm-gray;
-          border-right: 1px solid $color-warm-gray;
-
-          &::after {
-            @extend %right-brand-arrow;
-          }
-        }
+      &::after {
+        @extend %right-brand-arrow;
       }
+    }
+  }
 
-      .previous--articles,
-      .next--articles {
-        &::after {
-          @extend %right-brand-arrow;
-          font-size: $font-size-h3;
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-        }
-      }
+  .previous--articles,
+  .next--articles {
+    &::after {
+      @extend %right-brand-arrow;
+      font-size: $font-size-h3;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
 
-      .next--articles {
-        &::after {
-          right: 25px;
-        }
-      }
+  .next--articles {
+    &::after {
+      right: 10px;
+    }
+  }
 
-      .previous--articles {
-        text-align: right;
+  .previous--articles {
+    @media (min-width: $screen-sm) {
+      text-align: right;
+    }
 
-        &::after {
-          content: $fa-var-angle-left;
-          left: 25px;
-        }
-      }
+    &::after {
+      content: $fa-var-angle-left;
+      left: 0;
     }
   }
 }
