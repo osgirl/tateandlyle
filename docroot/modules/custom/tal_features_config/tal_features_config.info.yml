@@ -1,0 +1,10 @@
+name: 'TAL Core configurations'
+description: 'Hold site wide configurations.'
+type: module
+core: 8.x
+dependencies:
+  - node
+  - search_api
+  - search_api_solr
+version: 8.x-1.0
+package: tal
