@@ -51,9 +51,10 @@ show_border ? 'paragraph--show-border',
         <div class="field--in-wysiwyg">{{ content.field_in_wysiwyg1 }}</div>
         {% if all_regions %}
             <div class="field--available-countries-text">{{ parent_node_title }}{{ " is available globally"|t }}</div>
-            <div class="contact_us_more"><a href="#">{{ "Contact us for information >"|t }}</a></div>
+            <div class="contact_us_more"><a href="#">{{ "Contact us for information"|t }}</a></div>
             {% else %}
-                <div class="field--available-countries-text">{{ parent_node_title }}{{ " is available in:"|t }}</div>
+            <div class="field--available-countries-text">{{ parent_node_title }}{{ " is available in:"|t }}</div>
+            <div class="col-sm-6 region--country">
             {% if country_count > 0 %}
                 <div class="in--country-count">
                 {% trans %}
@@ -64,11 +65,11 @@ show_border ? 'paragraph--show-border',
                 </div>
                 <span class="in--country-summary-text">{{ "Some of these include:"|t }}</span>
                 <div class="field--in-country">{{ list_country }}</div>
-                {% if country_count > 8 %}
-                  <div class="in--country-read-more"><button type="button" class="btn">{{ "See list of countries"|t }}</button></div>
-                {% endif %}
+            </div>
             {% endif %}
+
             {% if region_count > 0 %}
+            <div class="col-sm-6 region--country">
                 <div class="in--region-count">
                     {% trans %}
                     {{ region_count }} Region
@@ -77,6 +78,11 @@ show_border ? 'paragraph--show-border',
                     {% endtrans %}
                 </div>
                 <div class="field--in-region">{{ list_regions }}</div>
+            </div>
+            {% endif %}
+
+            {% if country_count > 8 %}
+              <div class="in--country-read-more"><div class="more--countries"><button type="button" class="btn">{{ "See list of countries"|t }}</button></div></div>
             {% endif %}
         {% endif %}
     </div>
