@@ -1,0 +1,136 @@
+.block-detail-content-promo {
+  color: $color-white;
+  padding-bottom: 30px;
+  padding-top: 30px;
+  max-width: 1108px;
+  margin: 50px auto;
+
+  @media (min-width: $screen-sm) {
+    padding: 58px 10px;
+    padding-bottom: 100px;
+  }
+
+  .field--name-field-banner-title {
+    @extend %title-border-top;
+    font-size: $font-size-h2;
+    margin-bottom: 35px;
+    padding-left: 20px;
+
+    @media (min-width: $screen-sm) {
+      text-align: center;
+    }
+
+    &::before {
+      background-color: $color-white;
+      opacity: 0.5;
+    }
+  }
+
+  .field--name-field-simple-text {
+    color: inherit;
+    margin-top: 0;
+
+    @media (max-width: $screen-sm-max) {
+      font-size: $font-size-h4;
+    }
+
+    a {
+      color: inherit;
+      display: block;
+
+      &:hover {
+        color: inherit;
+        opacity: 0.5;
+      }
+
+      &::after {
+        @extend %right-brand-arrow;
+        color: inherit;
+      }
+    }
+  }
+
+  .field--name-field-file-icon {
+    margin-bottom: 5px;
+    @media (min-width: $screen-sm) {
+      margin-bottom: 20px;
+    }
+
+    img {
+      max-width: 38px;
+
+      @media (min-width: $screen-sm) {
+        margin: auto;
+      }
+    }
+  }
+
+  .field--name-field-all-jobs-link {
+    margin-top: 35px;
+    margin-left: 20px;
+    @media (min-width: $screen-sm) {
+      margin-left: 0;
+      text-align: center;
+    }
+
+    a {
+      @extend .btn-primary;
+      color: $color-white;
+      display: inline;
+      padding: 8px 20px;
+
+      &::after {
+        content: $fa-var-angle-right;
+        font-family: $font-family-icon;
+        padding-left: 10px;
+      }
+
+      &:hover {
+        color: $link-hover-color;
+      }
+    }
+  }
+
+  .field--name-field-dcp-content-section {
+    @media (min-width: $screen-sm) {
+      display: table;
+      max-width: 1108px;
+      margin: auto;
+    }
+
+    & > .field--item {
+      padding: 10px 20px;
+
+      @media (min-width: $screen-sm) {
+        border-right: 1px solid;
+        color: inherit;
+        display: table-cell;
+        max-width: 288px;
+        padding: 10px 20px;
+        text-align: center;
+        vertical-align: top;
+      }
+
+      &:last-child {
+        border-right: 0;
+      }
+    }
+  }
+
+  .field--name-field-dcp-link {
+    margin-top: 10px;
+
+    @media (min-width: $screen-sm) {
+      margin-top: 20px;
+    }
+
+    a {
+      color: inherit;
+
+      &::after {
+        @extend %right-brand-arrow;
+      }
+    }
+  }
+}
+
