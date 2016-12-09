@@ -20,12 +20,12 @@ deployed_tag="$4"
 repo_url="$5"
 repo_type="$6"
 
+drush_alias=${site}'.'${target_env}
+
 acsf_file="/mnt/files/$AH_SITE_GROUP.$AH_SITE_ENVIRONMENT/files-private/sites.json"
 if [ ! -f $acsf_file ]; then
   . /var/www/html/$site.$target_env/vendor/acquia/blt/scripts/cloud-hooks/functions.sh
   deploy_updates
-  drush fra -y -d
+  drush @${drush_alias} fra -y
   exit $status
 fi
-
-
