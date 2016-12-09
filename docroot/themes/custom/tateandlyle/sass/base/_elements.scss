@@ -20,11 +20,6 @@ h5 {
   padding: 0;
 }
 
-.main-container {
-  margin: auto;
-  max-width: 1366px;
-}
-
 .page-header {
   @extend %inner-content-width-padding;
   @extend %title-border-bottom;

@@ -49,6 +49,16 @@ function tal_preprocess_block_talk_to_us($variables, $block) {
 }
 
 /**
+ * Preprocessor function for detail content promo block type.
+ */
+function tal_preprocess_block_detail_content_promo($variables, $block) {
+  // Custom block type helper classes.
+  $variables['overlay_color'] = $variables['elements']['content']['#block_content']->get('field_bg_color')->value;
+
+  return $variables;
+}
+
+/**
  * Preprocessor function for passive recruitment block type.
  */
 function tal_preprocess_block_passive_recruitment($variables, $block) {
