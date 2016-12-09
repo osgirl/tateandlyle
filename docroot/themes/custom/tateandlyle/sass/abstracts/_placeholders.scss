@@ -36,6 +36,12 @@
   }
 }
 
+%inner-content-width-padding {
+  max-width: 1148px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
 %title-border-top {
   &::before {
     background-color: $gray-base;
@@ -51,4 +57,28 @@
       content: none;
     }
   }
+}
+
+%title-border-bottom {
+  &::after {
+    background-color: $gray-base;
+    content: " ";
+    display: block;
+    height: 1px;
+    margin-top: 15px;
+    width: 30px;
+  }
+
+  @media (min-width: $screen-sm) {
+    &::after {
+      content: none;
+    }
+  }
+}
+
+%right-brand-arrow {
+  content: $fa-var-angle-right;
+  color: $brand-primary;
+  font-family: $font-family-icon;
+  padding-left: 10px;
 }
