@@ -51,13 +51,6 @@ modules:
     enable: [acquia_connector, admin_toolbar]
     uninstall: {  }
 behat:
-  config: '${repo.root}/tests/behat/local.yml'
-  profile: local
-  run-server: false
-  server-url: 'http://127.0.0.1:8888'
-  launch-phantom: true
   paths:
-    - '${docroot}/modules'
     - '${repo.root}/tests/behat'
-  tags: ~ajax
-
+import: '${repo.root}/blt/build.xml'
