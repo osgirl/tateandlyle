@@ -25,6 +25,8 @@ if [ ! -f $acsf_file ]; then
   . /var/www/html/$site.$target_env/vendor/acquia/blt/scripts/cloud-hooks/functions.sh
   deploy_updates
   drush @$site.$target_env fra -y -d
+  drush @self fra -y -d
   exit $status
 fi
+
 
