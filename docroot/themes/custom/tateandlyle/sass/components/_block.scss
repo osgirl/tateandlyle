@@ -1,0 +1,57 @@
+.block.white,
+.block.off-white,
+.block.light-grey {
+  color: $gray-base;
+  a:hover {
+    color: $brand-primary;
+    opacity: 1;
+  }
+}
+
+.block.warm-grey {
+  background-color: $color-warm-gray;
+}
+
+.block.black {
+  background-color: $gray-base;
+}
+
+.block.purple {
+  background-color: $color-purple;
+}
+
+.block.blue {
+  background-color: $brand-primary;
+
+  .field--name-field-all-jobs-link a {
+    border: 1px solid $color-white;
+  }
+}
+
+.block.red {
+  background-color: $color-red;
+}
+
+.block.off-white {
+  background-color: $color-off-white;
+}
+
+.block.mid-grey {
+  background-color: $gray-dark;
+}
+
+.block.yellow {
+  background-color: $color-yellow;
+}
+
+.block.gold {
+  background-color: $color-gold;
+}
+
+.block.silver {
+  background-color: $color-silver;
+}
+
+.block.light-grey {
+  background-color: $color-light-gray;
+}
