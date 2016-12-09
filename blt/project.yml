@@ -33,11 +33,11 @@ target-hooks:
 import: null
 modules:
   local:
-    enable: [dblog, devel, field_ui, seckit, views_ui, admin_toolbar]
-    uninstall: [acsf, acquia_connector, dblog, shield]
+    enable: [dblog, acquia_connector, devel, field_ui, seckit, views_ui, admin_toolbar]
+    uninstall: [acsf, dblog, shield]
   ci:
-    enable: {  }
-    uninstall: [acquia_connector, shield]
+    enable: [acquia_connector]
+    uninstall: [shield]
   dev:
     enable: [acquia_connector, shield]
     uninstall: {  }
