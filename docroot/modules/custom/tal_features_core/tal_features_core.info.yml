@@ -5,6 +5,8 @@ core: 8.x
 version: 8.x-1.0
 package: tal
 dependencies:
+  - acquia_connector
+  - acquia_search
   - block_content
   - country
   - datetime
@@ -24,6 +26,8 @@ dependencies:
   - panelizer
   - paragraphs
   - path
+  - search_api
+  - search_api_solr
   - taxonomy
   - text
   - user
