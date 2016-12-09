@@ -5,6 +5,7 @@ dependencies:
     - field.field.node.iframe_content.field_iframe_code
     - node.type.iframe_content
   module:
+    - panelizer
     - user
 third_party_settings:
   panelizer:

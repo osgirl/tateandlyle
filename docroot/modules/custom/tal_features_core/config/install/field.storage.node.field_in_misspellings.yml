@@ -3,17 +3,15 @@ status: true
 dependencies:
   module:
     - node
-id: node.field_common_names
-field_name: field_common_names
+id: node.field_in_misspellings
+field_name: field_in_misspellings
 entity_type: node
-type: string
+type: string_long
 settings:
-  max_length: 255
-  is_ascii: false
   case_sensitive: false
 module: core
 locked: false
-cardinality: -1
+cardinality: 1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false

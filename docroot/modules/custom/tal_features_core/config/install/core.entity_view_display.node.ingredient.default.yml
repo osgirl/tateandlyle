@@ -3,9 +3,11 @@ status: true
 dependencies:
   config:
     - field.field.node.ingredient.body
-    - field.field.node.ingredient.field_common_names
     - field.field.node.ingredient.field_hide_title
+    - field.field.node.ingredient.field_iframe_code
+    - field.field.node.ingredient.field_in_aliases
     - field.field.node.ingredient.field_in_applications
+    - field.field.node.ingredient.field_in_misspellings
     - field.field.node.ingredient.field_in_trends_solutions
     - field.field.node.ingredient.field_in_types
     - field.field.node.ingredient.field_ingredients_content
@@ -32,13 +34,18 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: text_default
-  field_common_names:
-    weight: 105
-    label: hidden
-    settings:
-      link_to_entity: false
+  field_iframe_code:
+    weight: 107
+    label: above
+    settings: {  }
     third_party_settings: {  }
-    type: string
+    type: basic_string
+  field_in_aliases:
+    weight: 109
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
   field_in_applications:
     weight: 102
     label: hidden
@@ -46,6 +53,12 @@ content:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
+  field_in_misspellings:
+    weight: 108
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
   field_in_trends_solutions:
     weight: 103
     label: hidden

@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_in_misspellings
+    - node.type.ingredient
+id: node.ingredient.field_in_misspellings
+field_name: field_in_misspellings
+entity_type: node
+bundle: ingredient
+label: Misspellings
+description: 'Add other words for the title so that it will be used in Autocomplete of Ingredient finder.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long
