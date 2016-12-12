@@ -28,7 +28,8 @@
         "drupal/bootstrap": "^8.3.0",
         "drupal/config_rewrite": "^8.1@beta",
         "drupal/country": "8.*",
-        "drupal/shield": "^8.1.0"
+        "drupal/shield": "^8.1.0",
+        "drupal/facets": "8.1.0-alpha2"
     },
     "require-dev": {
         "behat/behat": "^3.1",

@@ -1,0 +1,96 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - field.storage.node.field_in_applications
+    - field.storage.node.field_in_trends_solutions
+    - field.storage.node.field_in_types
+    - search_api.server.acquia_search_server
+  module:
+    - search_api
+    - node
+id: acquia_search_index
+name: 'Acquia Search Solr Index'
+description: ''
+read_only: false
+field_settings:
+  search_api_language:
+    label: 'Item language'
+    datasource_id: null
+    property_path: search_api_language
+    type: string
+    indexed_locked: true
+    type_locked: true
+  body:
+    label: Body
+    datasource_id: 'entity:node'
+    property_path: body
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.body
+  title:
+    label: Title
+    datasource_id: 'entity:node'
+    property_path: title
+    type: text
+  field_in_applications:
+    label: Applications
+    datasource_id: 'entity:node'
+    property_path: field_in_applications
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_in_applications
+  field_in_trends_solutions:
+    label: 'Trends && solutions'
+    datasource_id: 'entity:node'
+    property_path: field_in_trends_solutions
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_in_trends_solutions
+  field_in_types:
+    label: 'Types of Ingredients'
+    datasource_id: 'entity:node'
+    property_path: field_in_types
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_in_types
+processor_settings:
+  add_url:
+    plugin_id: add_url
+    settings: {  }
+  language:
+    plugin_id: language
+    settings: {  }
+options:
+  index_directly: false
+  cron_limit: 50
+  processors:
+    language:
+      status: '1'
+      weight: -50
+      settings: {  }
+      processorPluginId: language
+datasource_settings:
+  'entity:node':
+    plugin_id: 'entity:node'
+    settings:
+      default: '0'
+      bundles:
+        ingredient: ingredient
+        company_story: '0'
+        contact: '0'
+        icon: '0'
+        landing_page: '0'
+        page: '0'
+      languages:
+        - en
+tracker_settings:
+  default:
+    plugin_id: default
+    settings: {  }
+server: acquia_search_server

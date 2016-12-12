@@ -12,6 +12,7 @@ dependencies:
   - datetime
   - entity_browser
   - entity_reference_revisions
+  - facets
   - features
   - field
   - field_group
@@ -31,4 +32,5 @@ dependencies:
   - taxonomy
   - text
   - user
+  - views
   - workbench_moderation
