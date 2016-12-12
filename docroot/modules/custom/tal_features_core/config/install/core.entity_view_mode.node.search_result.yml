@@ -2,7 +2,11 @@ langcode: en
 status: false
 dependencies:
   module:
+    - lightning_core
     - node
+third_party_settings:
+  lightning_core:
+    description: ''
 id: node.search_result
 label: 'Search result highlighting input'
 targetEntityType: node

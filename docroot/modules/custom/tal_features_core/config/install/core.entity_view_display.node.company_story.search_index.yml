@@ -1,0 +1,99 @@
+langcode: en
+status: false
+dependencies:
+  config:
+    - core.entity_view_mode.node.search_index
+    - field.field.node.company_story.body
+    - field.field.node.company_story.field_author
+    - field.field.node.company_story.field_category
+    - field.field.node.company_story.field_date
+    - field.field.node.company_story.field_downloads
+    - field.field.node.company_story.field_image
+    - field.field.node.company_story.field_next_article
+    - field.field.node.company_story.field_prev_article
+    - field.field.node.company_story.field_reusable_component
+    - field.field.node.company_story.field_story_description
+    - node.type.company_story
+  module:
+    - datetime
+    - entity_reference_revisions
+    - panelizer
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.company_story.search_index
+targetEntityType: node
+bundle: company_story
+mode: search_index
+content:
+  field_author:
+    weight: 3
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_category:
+    weight: 1
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+  field_date:
+    weight: 0
+    label: hidden
+    settings:
+      timezone_override: ''
+      format_type: company_date_format
+    third_party_settings: {  }
+    type: datetime_default
+  field_downloads:
+    type: entity_reference_revisions_entity_view
+    weight: 4
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+  field_next_article:
+    weight: 6
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+  field_prev_article:
+    weight: 5
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+  field_reusable_component:
+    type: entity_reference_revisions_entity_view
+    weight: 7
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+  field_story_description:
+    type: entity_reference_revisions_entity_view
+    weight: 2
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+  links:
+    weight: 8
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  body: true
+  field_image: true

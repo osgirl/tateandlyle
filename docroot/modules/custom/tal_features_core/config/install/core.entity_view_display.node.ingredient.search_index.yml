@@ -1,8 +1,8 @@
 langcode: en
-status: true
+status: false
 dependencies:
   config:
-    - core.entity_view_mode.node.full
+    - core.entity_view_mode.node.search_index
     - field.field.node.ingredient.body
     - field.field.node.ingredient.field_hide_title
     - field.field.node.ingredient.field_iframe_code
@@ -14,7 +14,6 @@ dependencies:
     - field.field.node.ingredient.field_ingredients_content
     - node.type.ingredient
   module:
-    - entity_reference_revisions
     - panelizer
     - text
     - user
@@ -24,52 +23,24 @@ third_party_settings:
     custom: false
     allow: false
     default: default
-id: node.ingredient.full
+id: node.ingredient.search_index
 targetEntityType: node
 bundle: ingredient
-mode: full
+mode: search_index
 content:
   body:
-    weight: 106
+    weight: 0
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: text_default
-  field_in_applications:
-    weight: 102
-    label: hidden
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-  field_in_trends_solutions:
-    weight: 103
-    label: hidden
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-  field_in_types:
-    weight: 101
-    label: hidden
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-  field_ingredients_content:
-    type: entity_reference_revisions_entity_view
-    weight: 104
-    label: hidden
-    settings:
-      view_mode: default
-      link: ''
-    third_party_settings: {  }
-  links:
-    weight: 100
-    settings: {  }
-    third_party_settings: {  }
 hidden:
   field_hide_title: true
   field_iframe_code: true
   field_in_aliases: true
+  field_in_applications: true
   field_in_misspellings: true
+  field_in_trends_solutions: true
+  field_in_types: true
+  field_ingredients_content: true
+  links: true
