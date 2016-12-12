@@ -1,12 +1,19 @@
 .banner__overlay__block {
-  position: relative;
-  min-height: 262px;
+  @media (min-width: $screen-xs) {
+    position: relative;
+    min-height: 262px;
+  }
   @media (min-width: $screen-sm) {
     min-height: 350px;
   }
 }
 
 .banner__overlay--background {
+  display: none;
+  @media (min-width: $screen-xs) {
+    display: block;
+  }
+
   .img-responsive {
     min-height: 262px;
     width: 100%;
@@ -20,17 +27,21 @@
 .banner__overlay--content {
   .banner__overlay--left,
   .banner__overlay--right {
-    bottom: 0;
-    position: absolute;
-    top: 0;
-    width: 50%;
+    @media (min-width: $screen-xs) {
+      bottom: 0;
+      position: absolute;
+      top: 0;
+      width: 50%;
+    }
   }
 
   .banner__overlay--left {
-    background: $color-white-translucent;
-    left: 0;
-    right: 50%;
-    padding-top: 40px;
+    @media (min-width: $screen-xs) {
+      background: $color-white-translucent;
+      left: 0;
+      right: 50%;
+      padding-top: 40px;
+    }
   }
 
   .banner__overlay--right {
@@ -42,20 +53,31 @@
   }
 
   .banner--inner {
-    width: 80%;
-    margin: auto;
+    margin-left: 20px;
+    @media (min-width: $screen-xs) {
+      width: 80%;
+      margin: auto;
+    }
   }
 
   .field--name-field-banner-title {
+    @extend %title-border-bottom;
     color: $gray-base;
-    font-size: $font-size-h1-sm;
+    font-size: $font-size-h2;
     margin-bottom: 10px;
+    @media (min-width: $screen-xs) {
+      font-size: $font-size-h1-sm;
+    }
     @media (min-width: $screen-sm) {
+      font-size: $font-size-h2-l;
+    }
+    @media (min-width: $screen-md) {
       font-size: $font-size-h1;
     }
   }
 
   .field--name-field-short-summary {
+    color: $gray-base;
     display: none;
     @media (min-width: $screen-sm-lsp) {
       display: block;

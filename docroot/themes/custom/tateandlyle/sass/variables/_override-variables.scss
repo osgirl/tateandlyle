@@ -10,6 +10,7 @@ $bootstrap-sass-asset-helper: false !default;
 $color-white: #FFFFFF;
 $color-white-translucent: rgba(255, 255, 255, 0.9);
 $gray-base: #000000 !default;
+$gray-base-translucent: rgba(0, 0, 0, 0.4);
 $gray-darker: lighten($gray-base, 13.5%) !default; // #222
 $gray-dark: #666666;
 $gray: lighten($gray-base, 33.5%) !default; // #555
@@ -69,6 +70,7 @@ $font-size-small: ceil(($font-size-base * 0.875)) !default; // ~14px
 
 $font-size-h1: floor(($font-size-base * 3)) !default; // ~48px
 $font-size-h1-sm: floor(($font-size-base * 2.5)) !default; // ~40px
+$font-size-h2-l: floor(($font-size-base * 2.375)) !default; // ~38px
 $font-size-h2: floor(($font-size-base * 1.875)) !default; // ~30px
 $font-size-h3: ceil(($font-size-base * 1.5)) !default; // ~24px
 $font-size-h4: ceil(($font-size-base * 1.25)) !default; // ~20px
@@ -310,7 +312,7 @@ $zindex-modal: 1050 !default;
 
 // Extra small screen / phone
 // Deprecated `$screen-xs` as of v3.0.1
-$screen-xs: 375px !default;
+$screen-xs: 376px !default;
 // Deprecated `$screen-xs-min` as of v3.2.0
 $screen-xs-min: $screen-xs !default;
 // Deprecated `$screen-phone` as of v3.0.1

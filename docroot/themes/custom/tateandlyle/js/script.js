@@ -13,6 +13,7 @@
     attach: function () {
       $(".panel-accordion").each(function () {
         $(this).find(".collapse").first().addClass("in");
+        $(this).find(".accordion-toggle").first().removeClass("collapsed");
       });
 
       $(".in--country-read-more button").click(function () {
