@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: search_api_views__ingredient_finder__page_1
+name: 'search_api_views:ingredient_finder:page_1'
+filter_key: null
+url_processor: query_string
