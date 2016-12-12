@@ -22,6 +22,7 @@ function tal_preprocess_block_single_item_promo($variables, $block) {
   $variables['is_icon'] = FALSE;
   $variables['is_image'] = FALSE;
   $variables['bg_color'] = $background_color_content['value'];
+  $variables['overlay_color'] = $variables['elements']['content']['#block_content']->get('field_bg_color')->value;
 
   if ($is_vertical) {
     $variables['attributes']['class'] .= ' block--vertical';
@@ -110,6 +111,7 @@ function tal_preprocess_block_quote($variables, $block) {
   }
 
   if (isset($image)) {
+    $variables['is_image'] = TRUE;
     $image_url = file_create_url($image->getFileUri());
     $variables['style'] = 'background-image: url("' . $image_url . '")';
   }

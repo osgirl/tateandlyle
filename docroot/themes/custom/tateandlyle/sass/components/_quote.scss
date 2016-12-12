@@ -45,7 +45,11 @@
   .field--name-field-bg-image img {
     border-radius: 100%;
     border: 1px solid;
+    max-width: 89px;
     padding: 5px;
+    @media (min-width: $screen-sm) {
+      max-width: 167px;
+    }
   }
 }
 
@@ -64,11 +68,19 @@
   }
 }
 
+.bg-image,
+.no-bg-image {
+  padding: 55px 20px;
+}
+
+.bg-image {
+  background-color: $gray-base-translucent;
+}
+
 .block--quote {
   background-size: cover;
   background-repeat: no-repeat;
   color: $color-white;
-  padding: 55px 20px;
   @media (min-width: $screen-sm-lsp) {
     .field--name-field-simple-text,
     .field--name-field-tal-link {
@@ -96,14 +108,14 @@
       }
 
       &:hover {
-        color: $link-hover-color;
+        color: $color-white;
       }
     }
   }
 
   hr {
     border-color: inherit;
-    width: 50px;
+    width: 30px;
     margin-bottom: 10px;
     margin-left: 0;
     @media (min-width: $screen-sm-lsp) {
