@@ -4,7 +4,6 @@ dependencies:
   config:
     - core.entity_view_mode.node.full
     - field.field.node.ingredient.body
-    - field.field.node.ingredient.field_common_names
     - field.field.node.ingredient.field_hide_title
     - field.field.node.ingredient.field_in_applications
     - field.field.node.ingredient.field_in_trends_solutions
@@ -33,13 +32,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: text_default
-  field_common_names:
-    weight: 105
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
   field_in_applications:
     weight: 102
     label: hidden
