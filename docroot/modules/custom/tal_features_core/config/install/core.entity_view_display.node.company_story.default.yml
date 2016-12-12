@@ -2,10 +2,12 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.company_story.body
     - field.field.node.company_story.field_author
     - field.field.node.company_story.field_category
     - field.field.node.company_story.field_date
     - field.field.node.company_story.field_downloads
+    - field.field.node.company_story.field_image
     - field.field.node.company_story.field_next_article
     - field.field.node.company_story.field_prev_article
     - field.field.node.company_story.field_reusable_component
@@ -15,6 +17,7 @@ dependencies:
     - datetime
     - entity_reference_revisions
     - panelizer
+    - text
     - user
 third_party_settings:
   panelizer:
@@ -27,8 +30,14 @@ targetEntityType: node
 bundle: company_story
 mode: default
 content:
+  body:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
   field_author:
-    weight: 3
+    weight: 4
     label: inline
     settings:
       link_to_entity: false
@@ -51,21 +60,21 @@ content:
     type: datetime_default
   field_downloads:
     type: entity_reference_revisions_entity_view
-    weight: 4
+    weight: 5
     label: hidden
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
   field_next_article:
-    weight: 6
+    weight: 7
     label: hidden
     settings:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
   field_prev_article:
-    weight: 5
+    weight: 6
     label: hidden
     settings:
       link: true
@@ -73,7 +82,7 @@ content:
     type: entity_reference_label
   field_reusable_component:
     type: entity_reference_revisions_entity_view
-    weight: 7
+    weight: 8
     label: hidden
     settings:
       view_mode: default
@@ -81,14 +90,15 @@ content:
     third_party_settings: {  }
   field_story_description:
     type: entity_reference_revisions_entity_view
-    weight: 2
+    weight: 3
     label: hidden
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
   links:
-    weight: 8
+    weight: 9
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_image: true

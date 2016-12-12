@@ -6,7 +6,10 @@ dependencies:
     - field.field.node.ingredient.body
     - field.field.node.ingredient.field_common_names
     - field.field.node.ingredient.field_hide_title
+    - field.field.node.ingredient.field_iframe_code
+    - field.field.node.ingredient.field_in_aliases
     - field.field.node.ingredient.field_in_applications
+    - field.field.node.ingredient.field_in_misspellings
     - field.field.node.ingredient.field_in_trends_solutions
     - field.field.node.ingredient.field_in_types
     - field.field.node.ingredient.field_ingredients_content
@@ -75,3 +78,6 @@ content:
     third_party_settings: {  }
 hidden:
   field_hide_title: true
+  field_iframe_code: true
+  field_in_aliases: true
+  field_in_misspellings: true

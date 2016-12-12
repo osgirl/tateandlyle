@@ -29,6 +29,7 @@ dependencies:
   - path
   - search_api
   - search_api_solr
+  - tal_downloads
   - taxonomy
   - text
   - user
