@@ -50,10 +50,16 @@
     'block',
     'block-' ~ configuration.provider|clean_class,
     'block-' ~ plugin_id|clean_class,
+    'block--quote',
     'clearfix',
   ]
 %}
-<section{{ attributes.addClass('block--quote') }} style="{{ style }}">
+<section{{ attributes.addClass(classes) }} style="{{ style }}">
+  {% if is_image %}
+    <div class="bg-image">
+  {% else %}
+    <div class="no-bg-image">
+  {% endif %}
     {{ title_prefix }}
       <hr />
       <h2{{ title_attributes.addClass('block-title') }}>{{ content.field_simple_text }}</h2>
@@ -73,5 +79,6 @@
     </div>
 
     <div class="block-readmore-link">{{ content.field_tal_link }}</div>
+  </div>
 </section>
 

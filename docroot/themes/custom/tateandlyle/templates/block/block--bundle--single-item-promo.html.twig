@@ -50,10 +50,12 @@
     'block',
     'block-' ~ configuration.provider|clean_class,
     'block-' ~ plugin_id|clean_class,
+    overlay_color,
+    'block--single-item-promo',
     'clearfix',
   ]
 %}
-<section{{ attributes.addClass('block--single-item-promo') }} style="background-color: {{ bg_color }}">
+<section{{ attributes.addClass(classes) }}">
     <div class="item__promo">
         {% if is_image %}
             <div class="block-image item__promo--component">{{ content.field_sip_image }}</div>

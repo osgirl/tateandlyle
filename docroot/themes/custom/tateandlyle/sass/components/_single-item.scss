@@ -1,5 +1,6 @@
 .block--single-item-promo {
   @extend .max-content-width;
+  color: $color-white;
   margin: auto;
   margin-bottom: 50px;
   margin-top: 50px;
@@ -12,7 +13,7 @@
 
 .item__promo {
   text-align: center;
-  color: $color-white;
+  color: inherit;
   @media (min-width: $screen-sm) {
     display: table;
     text-align: left;
@@ -44,9 +45,13 @@
   .block-readmore {
     display: block;
     margin-top: 15px;
+    @media (min-width: $screen-sm) {
+      margin-top: 5px;
+    }
     @media (min-width: $screen-md) {
       display: table-cell;
       margin-left: 0;
+      margin-top: 15px;
       vertical-align: bottom;
       width: 30%;
     }
@@ -58,8 +63,8 @@
     }
 
     @media (min-width: $screen-md) {
-      width: 70%;
-      padding-right: 26px;
+      width: 65%;
+      padding-right: 20px;
     }
   }
 
@@ -67,9 +72,16 @@
     img {
       margin: auto;
       height: auto;
-      max-height: 174px;
+      max-height: 180px;
+      width: auto;
+      @media (max-width: $screen-sm-lsp-max) {
+        height: auto;
+        max-height: 180px;
+        width: 100%;
+        object-fit: cover;
+      }
       @media (min-width: $screen-sm) {
-        height: 174px;
+        height: 180px;
         margin: 0;
         max-width: none;
         max-height: none;
@@ -90,14 +102,15 @@
     }
   }
 
-  .field--name-field-simple-text {
-    color: $color-white;
+  .field--name-field-simple-text,
+  .block-title {
+    color: inherit;
   }
 
   .field--name-field-tal-link {
     a {
       border: 1px solid;
-      color: $color-white;
+      color: inherit;
       display: inline-block;
       padding: 8px 15px;
       &::after {
@@ -111,6 +124,36 @@
       }
     }
   }
+
+  @media (max-width: $screen-sm-lsp-max) {
+    .item__promo-content {
+      position: relative;
+    }
+
+    .block-icon {
+      left: 20px;
+      margin-bottom: 0;
+      position: absolute;
+      top: 15px;
+
+      .field--name-field-image {
+        margin-left: 0;
+      }
+
+      & + .item__promo--summary {
+        text-align: left;
+        .block-title {
+          margin-left: 60px;
+          min-height: 50px;
+          margin-bottom: 0;
+        }
+
+        & + .block-readmore {
+          text-align: left;
+        }
+      }
+    }
+  }
 }
 
 .item__promo-content {
@@ -119,21 +162,12 @@
     display: table-cell;
   }
   @media (min-width: $screen-md) {
-    padding: 26px;
+    padding: 26px 20px;
   }
 }
 
 .block--vertical {
   text-align: center;
-
-  @media (max-width: $screen-sm-lsp-max) {
-
-    .item__promo .field--name-field-sip-image img {
-      height: auto;
-      max-height: 174px;
-      max-width: 100%;
-    }
-  }
 
   .item__promo,
   .item__promo--summary,
