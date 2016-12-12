@@ -1,0 +1,16 @@
+<?php
+
+/**
+ * @file
+ * Write theme related functions here.
+ */
+
+/**
+ * Implements hook_page_attachments().
+ */
+function tal_theme_page_attachments(array &$attachments) {
+  $theme = \Drupal::theme()->getActiveTheme()->getName();
+  if ($theme == 'seven') {
+    $attachments['#attached']['library'][] = 'tal_theme/extra.admin';
+  }
+}
