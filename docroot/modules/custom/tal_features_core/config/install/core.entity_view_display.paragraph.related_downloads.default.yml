@@ -9,7 +9,7 @@ dependencies:
     - field.field.paragraph.related_downloads.field_file_icon
     - paragraphs.paragraphs_type.related_downloads
   module:
-    - entity_reference_revisions
+    - tal_downloads
 id: paragraph.related_downloads.default
 targetEntityType: paragraph
 bundle: related_downloads
@@ -36,7 +36,7 @@ content:
     third_party_settings: {  }
     type: string
   field_file_group:
-    type: entity_reference_revisions_entity_view
+    type: tal_filegroup
     weight: 4
     label: hidden
     settings:
