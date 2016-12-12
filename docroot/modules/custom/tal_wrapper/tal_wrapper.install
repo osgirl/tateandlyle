@@ -2,5 +2,17 @@
 
 /**
  * @file
- * Contains install and update functions for TAL Wrapper.
+ * Install, update and uninstall functions for the tal_wrapper module.
  */
+
+use Drupal\field\Entity\FieldStorageConfig;
+
+/**
+ * Deletes field field_common_names.
+ */
+function tal_wrapper_update_8002() {
+  // Deletes all instances of fields in node wherever it is used in node.
+  // This can be used to delete if it is used in one node type.
+  $field = FieldStorageConfig::loadByName('node', 'field_common_names');
+  $field->delete();
+}
