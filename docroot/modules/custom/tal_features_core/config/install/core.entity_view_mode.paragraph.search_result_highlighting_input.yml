@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - lightning_core
+    - paragraphs
+third_party_settings:
+  lightning_core:
+    description: ''
+id: paragraph.search_result_highlighting_input
+label: 'Search result highlighting input'
+targetEntityType: paragraph
+cache: true
