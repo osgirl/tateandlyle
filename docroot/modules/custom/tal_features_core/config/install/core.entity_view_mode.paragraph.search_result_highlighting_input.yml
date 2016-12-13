@@ -1,13 +1,13 @@
 langcode: en
-status: false
+status: true
 dependencies:
   module:
     - lightning_core
-    - node
+    - paragraphs
 third_party_settings:
   lightning_core:
     description: ''
-id: node.search_result
+id: paragraph.search_result_highlighting_input
 label: 'Search result highlighting input'
-targetEntityType: node
+targetEntityType: paragraph
 cache: true
