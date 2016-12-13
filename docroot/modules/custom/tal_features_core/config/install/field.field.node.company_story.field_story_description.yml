@@ -4,7 +4,7 @@ dependencies:
   config:
     - field.storage.node.field_story_description
     - node.type.company_story
-    - paragraphs.paragraphs_type.wysiwyg_and_block_reference
+    - paragraphs.paragraphs_type.wysiwyg_with_block_reference
   module:
     - entity_reference_revisions
 id: node.company_story.field_story_description
@@ -21,7 +21,7 @@ settings:
   handler: 'default:paragraph'
   handler_settings:
     target_bundles:
-      wysiwyg_and_block_reference: wysiwyg_and_block_reference
+      wysiwyg_with_block_reference: wysiwyg_with_block_reference
     target_bundles_drag_drop:
       related_downloads:
         weight: 13
@@ -32,9 +32,6 @@ settings:
       component_accordion_body:
         weight: 15
         enabled: false
-      wysiwyg_and_block_reference:
-        enabled: true
-        weight: 16
       component_accordion_items:
         weight: 16
         enabled: false
@@ -47,24 +44,18 @@ settings:
       ingredient_accordion_items:
         weight: 19
         enabled: false
-      detail_content_promo:
-        weight: 20
-        enabled: false
       passive_recruitment:
         weight: 20
         enabled: false
       talk_to_us:
         weight: 21
         enabled: false
-      filegroup:
-        weight: 22
-        enabled: false
       wysiwyg:
         weight: 22
         enabled: false
       wysiwyg_with_block_reference:
+        enabled: true
         weight: 23
-        enabled: false
       wysiwyg_with_country_and_region:
         weight: 24
         enabled: false

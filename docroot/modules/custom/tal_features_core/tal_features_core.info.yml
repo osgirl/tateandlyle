@@ -7,6 +7,7 @@ package: tal
 dependencies:
   - acquia_connector
   - acquia_search
+  - block
   - block_content
   - country
   - datetime
@@ -17,11 +18,16 @@ dependencies:
   - field
   - field_group
   - file
+  - help
   - image
+  - inline_entity_form
   - lightning_core
+  - lightning_layout
   - lightning_media_image
+  - lightning_workflow
   - link
   - menu_ui
+  - metatag
   - node
   - options
   - panelizer
@@ -29,6 +35,7 @@ dependencies:
   - path
   - search_api
   - search_api_solr
+  - system
   - tal_downloads
   - taxonomy
   - text

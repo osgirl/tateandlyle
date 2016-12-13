@@ -1,0 +1,7 @@
+name: Ingredient search
+type: module
+description: Ingredieant search page and search filer form modifications.
+core: 8.x
+package: tal
+dependencies:
+  - tal_features_core

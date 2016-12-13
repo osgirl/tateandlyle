@@ -6,3 +6,4 @@ package: tal
 dependencies:
   - tal_features_core
   - tal_downloads
+  - tal_ingredient_search
