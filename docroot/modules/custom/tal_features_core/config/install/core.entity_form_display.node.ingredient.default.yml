@@ -58,12 +58,9 @@ content:
     type: string_textarea
   field_in_applications:
     weight: 8
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: options_select
   field_in_misspellings:
     weight: 27
     settings:
@@ -73,20 +70,14 @@ content:
     type: string_textarea
   field_in_trends_solutions:
     weight: 9
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: options_select
   field_in_types:
     weight: 7
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: options_select
   field_ingredients_content:
     type: entity_reference_paragraphs
     weight: 11
