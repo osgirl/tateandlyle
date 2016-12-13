@@ -87,7 +87,8 @@
       }
 
       &:hover {
-        color: $link-hover-color;
+        background-color: $link-hover-color;
+        color: $color-white;
       }
     }
   }

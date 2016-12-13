@@ -50,6 +50,7 @@
     'block',
     'block-' ~ configuration.provider|clean_class,
     'block-' ~ plugin_id|clean_class,
+    'block--connect',
     'clearfix',
   ]
 %}
@@ -62,9 +63,6 @@
 
   {% block content %}
     <div{{ attributes.addClass([overlay_color, "overlay__block recruitment__block"]) }}>
-      <div class="overlay__block--background">
-        {{ content.field_bg_image }}
-      </div>
       <div class="overlay__block--content">
         <div class="component-left">
         <div class="inline--description">

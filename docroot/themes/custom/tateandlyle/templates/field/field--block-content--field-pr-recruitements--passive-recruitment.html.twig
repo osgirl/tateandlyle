@@ -56,11 +56,11 @@
 {% if label_hidden %}
   {% if multiple %}
     {% for item in items %}
-      <div{{ item.attributes.addClass('field--item connect__block') }}>{{ item.content }}</div>
+      <div{{ item.attributes.addClass('field--item connect__block') }}>{{ item.content }}<hr /></div>
     {% endfor %}
   {% else %}
     {% for item in items %}
-      <div{{ attributes.addClass(classes, 'field--item connect__block') }}>{{ item.content }}</div>
+      <div{{ attributes.addClass(classes, 'field--item connect__block') }}>{{ item.content }}<hr /></div>
     {% endfor %}
   {% endif %}
 {% else %}
