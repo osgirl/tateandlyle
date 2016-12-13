@@ -13,7 +13,7 @@ entity_type: block_content
 bundle: detail_content_promo
 label: 'Content Section'
 description: ''
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
@@ -26,12 +26,12 @@ settings:
       block_reference:
         weight: 14
         enabled: false
-      detail_content_promo:
-        enabled: true
-        weight: 15
       component_accordion_body:
         weight: 15
         enabled: false
+      detail_content_promo:
+        enabled: true
+        weight: 15
       component_accordion_items:
         weight: 16
         enabled: false
@@ -64,5 +64,8 @@ settings:
         enabled: false
       wysiwyg_with_country_and_region:
         weight: 26
+        enabled: false
+      wysiwyg_and_block_reference:
+        weight: 28
         enabled: false
 field_type: entity_reference_revisions
