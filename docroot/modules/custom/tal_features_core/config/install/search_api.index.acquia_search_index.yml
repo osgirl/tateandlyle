@@ -6,10 +6,12 @@ dependencies:
     - field.storage.node.field_in_applications
     - field.storage.node.field_in_trends_solutions
     - field.storage.node.field_in_types
+    - field.storage.paragraph.field_in_wysiwyg2
     - search_api.server.acquia_search_server
   module:
     - search_api
     - node
+    - paragraphs
 id: acquia_search_index
 name: 'Acquia Search Solr Index'
 description: ''
@@ -59,6 +61,19 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_in_types
+  field_in_wysiwyg2:
+    label: WYSIWYG
+    datasource_id: 'entity:paragraph'
+    property_path: field_in_wysiwyg2
+    type: text
+    dependencies:
+      config:
+        - field.storage.paragraph.field_in_wysiwyg2
+  type:
+    label: 'Content type'
+    datasource_id: 'entity:node'
+    property_path: type
+    type: string
 processor_settings:
   add_url:
     plugin_id: add_url
@@ -81,14 +96,36 @@ datasource_settings:
     settings:
       default: '0'
       bundles:
+        company_story: company_story
         ingredient: ingredient
-        company_story: '0'
         contact: '0'
         icon: '0'
+        iframe_content: '0'
         landing_page: '0'
         page: '0'
       languages:
         - en
+  'entity:paragraph':
+    plugin_id: 'entity:paragraph'
+    settings:
+      default: '0'
+      bundles:
+        wysiwyg_and_block_reference: wysiwyg_and_block_reference
+        block_reference: '0'
+        component_accordion_body: '0'
+        component_accordion_items: '0'
+        detail_content_promo: '0'
+        downloads: '0'
+        filegroup: '0'
+        ingredient_accordion: '0'
+        ingredient_accordion_items: '0'
+        passive_recruitment: '0'
+        related_downloads: '0'
+        talk_to_us: '0'
+        wysiwyg: '0'
+        wysiwyg_with_block_reference: '0'
+        wysiwyg_with_country_and_region: '0'
+      languages: {  }
 tracker_settings:
   default:
     plugin_id: default

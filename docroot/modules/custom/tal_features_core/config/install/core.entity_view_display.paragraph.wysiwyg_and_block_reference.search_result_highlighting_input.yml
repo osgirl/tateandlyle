@@ -1,0 +1,25 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.search_result_highlighting_input
+    - field.field.paragraph.wysiwyg_and_block_reference.field_block_component
+    - field.field.paragraph.wysiwyg_and_block_reference.field_in_wysiwyg2
+    - paragraphs.paragraphs_type.wysiwyg_and_block_reference
+  module:
+    - text
+id: paragraph.wysiwyg_and_block_reference.search_result_highlighting_input
+targetEntityType: paragraph
+bundle: wysiwyg_and_block_reference
+mode: search_result_highlighting_input
+content:
+  field_in_wysiwyg2:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+hidden:
+  created: true
+  field_block_component: true
+  uid: true

@@ -2,7 +2,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.teaser
+    - core.entity_view_mode.node.search_result
     - field.field.node.company_story.body
     - field.field.node.company_story.field_author
     - field.field.node.company_story.field_category
@@ -15,16 +15,27 @@ dependencies:
     - field.field.node.company_story.field_story_description
     - node.type.company_story
   module:
+    - panelizer
+    - text
     - user
-id: node.company_story.teaser
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.company_story.search_result
 targetEntityType: node
 bundle: company_story
-mode: teaser
+mode: search_result
 content:
-  links:
-    weight: 100
+  body:
+    type: text_default
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
 hidden:
-  body: true
   field_author: true
   field_category: true
   field_date: true
@@ -34,3 +45,4 @@ hidden:
   field_prev_article: true
   field_reusable_component: true
   field_story_description: true
+  links: true

@@ -4,7 +4,6 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.ingredient.body
-    - field.field.node.ingredient.field_common_names
     - field.field.node.ingredient.field_hide_title
     - field.field.node.ingredient.field_iframe_code
     - field.field.node.ingredient.field_in_aliases
@@ -25,7 +24,6 @@ content:
     weight: 100
 hidden:
   body: true
-  field_common_names: true
   field_hide_title: true
   field_iframe_code: true
   field_in_aliases: true
