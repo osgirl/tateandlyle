@@ -1,31 +1,30 @@
-.overlay__block {
-  position: relative;
-  min-height: 425px;
-}
+.block--connect {
+  padding: 50px 20px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  @media (max-width: $screen-xxs-max) {
+    background: $color-white !important;  // Override Inline Style.
+    .overlay__block {
+      border: 1px solid $color-warm-gray;
+    }
+  }
 
-.overlay__block--background {
-  display: none;
-  @media (min-width: $screen-sm-lsp) {
-    display: block;
-    .img-responsive {
-      width: 100%;
-      min-height: 500px;
-      object-fit: cover;
-    }
-    @media (min-width: $screen-md) {
-      min-height: 425px;
-    }
+  @media (min-width: $screen-sm) {
+    padding: 66px 72px;
+  }
+
+  @media (min-width: $screen-md) {
+    padding: 90px 20px;
   }
 }
 
 .overlay__block--content {
   @extend .max-content-width;
-  @extend %absolute-center;
   background: $color-white;
+  margin: auto;
   max-width: 1108px;
-  position: absolute;
   text-align: center;
-  width: 90%;
+  width: 100%;
 
   @media (min-width: $screen-md) {
     display: table;
@@ -59,13 +58,16 @@
 
   .field--name-field-short-summary {
     font-size: $font-size-base;
-    margin-top: 5px;
+    margin-top: 20px;
   }
 
   .component-left,
   .connect__block {
     color: $color-white;
-    padding: 22px;
+    padding: 20px;
+    @media (min-width: $screen-sm-lsp) {
+      padding: 29px 116px 36px 116px;
+    }
     @media (min-width: $screen-md) {
       display: table-cell;
       padding: 20px 72px 57px 36px;
@@ -75,11 +77,39 @@
   }
 
   .connect__block {
-    border-bottom: 1px solid $color-warm-gray;
     color: $gray-base;
+    text-align: left;
+
+    hr {
+      margin-top: 36px;
+      margin-bottom: 2px;
+      border-color: $color-warm-gray;
+    }
+
+    @media (min-width: $screen-xs) {
+      text-align: center;
+    }
+
+    @media (min-width: $screen-sm-lsp) {
+      padding: 30px 20px;
+    }
+
+    @media (min-width: $screen-sm) {
+      padding: 30px 60px;
+    }
+
+    @media (min-width: $screen-md) {
+      padding: 20px 72px 57px 36px;
+      text-align: left;
+    }
+
     @media (min-width: $screen-md) {
       border-bottom: none;
       position: relative;
+
+      hr {
+        display: none;
+      }
 
       &::after {
         content: " ";
@@ -105,7 +135,10 @@
     }
 
     .field--name-field-phone-number {
-      font-size: $font-size-h4;
+      display: block;
+      font-family: $font-family-sans-serif-Med;
+      font-size: $font-size-h3;
+      margin-bottom: 20px;
       @media (min-width: $screen-md) {
         font-size: $font-size-h2;
       }
@@ -141,6 +174,28 @@
     }
   }
 
+  & > .connect__block:last-child {
+
+    @media (min-width: $screen-sm-lsp) {
+      padding-top: 0;
+    }
+
+    @media (min-width: $screen-md) {
+      padding: 20px 72px 57px 36px;
+      text-align: left;
+    }
+
+    @media (min-width: $screen-md) {
+      &::after {
+        content: none;
+      }
+    }
+
+    hr {
+      display: none;
+    }
+  }
+
   .icon {
     h2 {
       display: none;
@@ -164,18 +219,6 @@
 }
 
 .recruitment__block {
-  .overlay__block--background {
-    @media (min-width: $screen-sm-lsp) {
-      .img-responsive {
-        min-height: 600px;
-      }
-    }
-    @media (min-width: $screen-md) {
-      .img-responsive {
-        min-height: 488px;
-      }
-    }
-  }
   .component-left {
     .field--name-field-description {
       margin-bottom: 10px;
@@ -207,18 +250,11 @@
       margin-top: 35px;
     }
     a {
-      border: 1px solid;
-      color: $color-white;
-      display: inline-block;
-      padding: 8px 20px;
+      @extend .btn-white;
       &::after {
         content: "\f105";
         font-family: $font-family-icon;
         padding-left: 10px;
-      }
-
-      &:hover {
-        color: $link-hover-color;
       }
     }
   }

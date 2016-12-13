@@ -50,10 +50,11 @@
     'block',
     'block-' ~ configuration.provider|clean_class,
     'block-' ~ plugin_id|clean_class,
+    'block--connect',
     'clearfix',
   ]
 %}
-<section{{ attributes.addClass(classes) }}>
+<section{{ attributes.addClass(classes) }} style="{{ style }}">
   {{ title_prefix }}
   {% if label %}
     <h2{{ title_attributes.addClass('block-title') }}>{{ label }}</h2>
@@ -61,10 +62,7 @@
   {{ title_suffix }}
 
   {% block content %}
-    <div{{ attributes.addClass([overlay_color, "overlay__block"]) }}>
-      <div class="overlay__block--background">
-        {{ content.field_bg_image }}
-      </div>
+    <div class= "{{ overlay_color }} overlay__block">
       <div class="overlay__block--content">
         <div class="component-left">
           {{ content.field_icon }}

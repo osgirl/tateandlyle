@@ -1,6 +1,6 @@
-.block.white,
-.block.off-white,
-.block.light-grey {
+.block-bg.white,
+.block-bg.off-white,
+.block-bg.light-grey {
   color: $gray-base;
   a:hover {
     color: $brand-primary;
@@ -15,19 +15,19 @@
   }
 }
 
-.block.warm-grey {
+.block-bg.warm-grey {
   background-color: $color-warm-gray;
 }
 
-.block.black {
+.block-bg.black {
   background-color: $gray-base;
 }
 
-.block.purple {
+.block-bg.purple {
   background-color: $color-purple;
 }
 
-.block.blue {
+.block-bg.blue {
   background-color: $brand-primary;
 
   .field--name-field-all-jobs-link a {
@@ -39,30 +39,30 @@
   }
 }
 
-.block.red {
+.block-bg.red {
   background-color: $color-red;
 }
 
-.block.off-white {
+.block-bg.off-white {
   background-color: $color-off-white;
 }
 
-.block.mid-grey {
+.block-bg.mid-grey {
   background-color: $gray-dark;
 }
 
-.block.yellow {
+.block-bg.yellow {
   background-color: $color-yellow;
 }
 
-.block.gold {
+.block-bg.gold {
   background-color: $color-gold;
 }
 
-.block.silver {
+.block-bg.silver {
   background-color: $color-silver;
 }
 
-.block.light-grey {
+.block-bg.light-grey {
   background-color: $color-light-gray;
 }

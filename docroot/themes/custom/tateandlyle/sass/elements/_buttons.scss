@@ -4,6 +4,23 @@
 
 .btn-primary {
   background: $brand-primary;
-  border-color: $brand-primary;
+  border: none;
   padding: 8px 20px;
+
+  &:hover {
+    background: $brand-primary;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
+  }
+}
+
+.btn-white {
+  border: 1px solid;
+  color: inherit;
+  display: inline-block;
+  padding: 8px 15px;
+
+  &:hover {
+    color: inherit;
+    border: 2px solid;
+  }
 }
