@@ -215,6 +215,11 @@ display:
     display_options:
       display_extenders: {  }
       path: search/ingredients/results
+      exposed_block: true
+      cache:
+        type: none
+      defaults:
+        cache: false
     cache_metadata:
       max-age: 0
       contexts:

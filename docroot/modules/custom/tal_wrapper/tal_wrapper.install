@@ -23,3 +23,10 @@ function tal_wrapper_update_8002() {
 function tal_wrapper_update_8003() {
   \Drupal::service('module_installer')->install(['tal_downloads']);
 }
+
+/**
+ * Remove old search index..
+ */
+function tal_wrapper_update_8004() {
+  \Drupal::configFactory()->getEditable('search_api.index.acquia_search_index')->delete();
+}
