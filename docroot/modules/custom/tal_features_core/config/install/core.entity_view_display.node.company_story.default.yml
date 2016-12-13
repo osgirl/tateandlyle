@@ -2,10 +2,12 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.company_story.body
     - field.field.node.company_story.field_author
     - field.field.node.company_story.field_category
     - field.field.node.company_story.field_date
     - field.field.node.company_story.field_downloads
+    - field.field.node.company_story.field_image
     - field.field.node.company_story.field_next_article
     - field.field.node.company_story.field_prev_article
     - field.field.node.company_story.field_reusable_component
@@ -91,4 +93,6 @@ content:
     weight: 8
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  body: true
+  field_image: true
