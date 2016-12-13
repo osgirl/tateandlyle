@@ -31,7 +31,7 @@ class TalFileGroupFormatter extends EntityReferenceRevisionsEntityFormatter {
     }
     elseif ($count > 1) {
       // @todo: Show dropdown for multiple versions if count > 1.
-      return parent::viewElements($items, $langcode);
+      return $this->viewMultiple($items, $langcode);
     }
 
     return $elements;
@@ -50,8 +50,8 @@ class TalFileGroupFormatter extends EntityReferenceRevisionsEntityFormatter {
    *   A renderable array for a themed field with its label and all its values.
    */
   private function viewMultiple(FieldItemListInterface $items, $langcode) {
-    // @todo: Add code for language revision dropdown.
-    return parent::view($items, $langcode);
+    $form = \Drupal::formBuilder()->getForm('Drupal\tal_downloads\Form\ChooseLanguage');
+    return $form;
   }
 
 }
