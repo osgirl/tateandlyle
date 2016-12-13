@@ -109,18 +109,11 @@
 
   .field--name-field-tal-link {
     a {
-      border: 1px solid;
-      color: inherit;
-      display: inline-block;
-      padding: 8px 15px;
+      @extend .btn-white;
       &::after {
         content: "\f105";
         font-family: $font-family-icon;
         padding-left: 10px;
-      }
-
-      &:hover {
-        color: $link-hover-color;
       }
     }
   }

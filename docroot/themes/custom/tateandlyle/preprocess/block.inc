@@ -46,6 +46,15 @@ function tal_preprocess_block_talk_to_us($variables, $block) {
   // Custom block type helper classes.
   $variables['overlay_color'] = $variables['elements']['content']['#block_content']->get('field_bg_color')->value;
 
+  $image = $block->get('field_bg_image')->referencedEntities();
+  $image = array_shift($image);
+
+  if (isset($image)) {
+    $variables['is_image'] = TRUE;
+    $image_url = file_create_url($image->getFileUri());
+    $variables['style'] = 'background-image: url("' . $image_url . '")';
+  }
+
   return $variables;
 }
 
@@ -65,6 +74,15 @@ function tal_preprocess_block_detail_content_promo($variables, $block) {
 function tal_preprocess_block_passive_recruitment($variables, $block) {
   // Custom block type helper classes.
   $variables['overlay_color'] = $variables['elements']['content']['#block_content']->get('field_bg_color')->value;
+
+  $image = $block->get('field_bg_image')->referencedEntities();
+  $image = array_shift($image);
+
+  if (isset($image)) {
+    $variables['is_image'] = TRUE;
+    $image_url = file_create_url($image->getFileUri());
+    $variables['style'] = 'background-image: url("' . $image_url . '")';
+  }
 
   return $variables;
 }

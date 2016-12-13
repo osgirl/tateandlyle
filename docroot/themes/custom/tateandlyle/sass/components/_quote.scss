@@ -97,18 +97,12 @@
     }
 
     a {
-      border: 1px solid;
-      color: inherit;
-      padding: 8px 20px;
+      @extend .btn-white;
 
       &::after {
         content: "\f105";
         font-family: $font-family-icon;
         padding-left: 10px;
-      }
-
-      &:hover {
-        color: $color-white;
       }
     }
   }
