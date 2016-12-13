@@ -14,6 +14,8 @@ abstract class WebTestBase extends SimpletestWebTestBase {
 
   use StringTranslationTrait;
   use ExampleContentTrait;
+  use BlockTestTrait;
+  use TestHelperTrait;
 
   /**
    * Modules to enable for this test.
@@ -24,10 +26,10 @@ abstract class WebTestBase extends SimpletestWebTestBase {
     'views',
     'node',
     'search_api',
-    'search_api_test_backend',
     'facets',
     'block',
     'facets_search_api_dependency',
+    'taxonomy',
   ];
 
   /**

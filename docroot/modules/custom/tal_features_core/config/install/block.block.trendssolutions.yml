@@ -1,0 +1,31 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.trends_solutions
+  module:
+    - facets
+    - system
+id: trendssolutions
+theme: tateandlyle
+region: content
+weight: 0
+provider: null
+plugin: 'facet_block:trends_solutions'
+settings:
+  id: 'facet_block:trends_solutions'
+  label: 'Trends & Solutions'
+  provider: facets
+  label_display: visible
+visibility:
+  other_facet:
+    id: other_facet
+    facets: ''
+    facet_value: ''
+    negate: false
+    context_mapping: {  }
+  request_path:
+    id: request_path
+    pages: /search/ingredients
+    negate: false
+    context_mapping: {  }

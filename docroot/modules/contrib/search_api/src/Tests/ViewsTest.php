@@ -3,24 +3,37 @@
 namespace Drupal\search_api\Tests;
 
 use Drupal\Component\Utility\Html;
+use Drupal\Core\StringTranslation\StringTranslationTrait;
+use Drupal\Core\Url;
+use Drupal\entity_test\Entity\EntityTestMulRevChanged;
+use Drupal\language\Entity\ConfigurableLanguage;
 use Drupal\search_api\Entity\Index;
-use Drupal\search_api\Utility;
+use Drupal\search_api\SearchApiException;
+use Drupal\simpletest\WebTestBase as SimpletestWebTestBase;
+use Symfony\Component\DependencyInjection\ContainerInterface;
+use Drupal\search_api\Utility\Utility;
 
 /**
  * Tests the Views integration of the Search API.
  *
  * @group search_api
  */
-class ViewsTest extends WebTestBase {
+class ViewsTest extends SimpletestWebTestBase {
 
   use ExampleContentTrait;
+  use StringTranslationTrait;
 
   /**
    * Modules to enable for this test.
    *
    * @var string[]
    */
-  public static $modules = array('search_api_test_views', 'views_ui');
+  public static $modules = array(
+    'search_api_test_views',
+    'views_ui',
+    'language',
+    'rest',
+  );
 
   /**
    * A search index ID.
@@ -35,12 +48,40 @@ class ViewsTest extends WebTestBase {
   public function setUp() {
     parent::setUp();
 
-    $this->setUpExampleStructure();
+    // Add a second language.
+    ConfigurableLanguage::createFromLangcode('nl')->save();
+
     \Drupal::getContainer()
       ->get('search_api.index_task_manager')
       ->addItemsAll(Index::load($this->indexId));
     $this->insertExampleContent();
     $this->indexItems($this->indexId);
+
+    // Do not use a batch for tracking the initial items after creating an
+    // index when running the tests via the GUI. Otherwise, it seems Drupal's
+    // Batch API gets confused and the test fails.
+    if (php_sapi_name() != 'cli') {
+      \Drupal::state()->set('search_api_use_tracking_batch', FALSE);
+    }
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  protected function installModulesFromClassProperty(ContainerInterface $container) {
+    // This will just set the Drupal state to include the necessary bundles for
+    // our test entity type. Otherwise, fields from those bundles won't be found
+    // and thus removed from the test index. (We can't do it in setUp(), before
+    // calling the parent method, since the container isn't set up at that
+    // point.)
+    $bundles = array(
+      'entity_test_mulrev_changed' => array('label' => 'Entity Test Bundle'),
+      'item' => array('label' => 'item'),
+      'article' => array('label' => 'article'),
+    );
+    \Drupal::state()->set('entity_test_mulrev_changed.bundles', $bundles);
+
+    parent::installModulesFromClassProperty($container);
   }
 
   /**
@@ -88,13 +129,21 @@ class ViewsTest extends WebTestBase {
     $this->assertNoText('You must include at least one positive keyword with 3 characters or more', "$label didn't display a warning.");
 
     $this->checkResults(array('id[value]' => 2), array(2), 'Search with ID filter');
-    // @todo Enable "between" again. See #2624870.
-//    $query = array(
-//      'id[min]' => 2,
-//      'id[max]' => 4,
-//      'id_op' => 'between',
-//    );
-//    $this->checkResults($query, array(2, 3, 4), 'Search with ID "in between" filter');
+
+    $query = array(
+      'id[min]' => 2,
+      'id[max]' => 4,
+      'id_op' => 'between',
+    );
+    $this->checkResults($query, array(2, 3, 4), 'Search with ID "in between" filter');
+
+    $query = array(
+      'id[min]' => 2,
+      'id[max]' => 4,
+      'id_op' => 'not between',
+    );
+    $this->checkResults($query, array(1, 5), 'Search with ID "not in between" filter');
+
     $query = array(
       'id[value]' => 2,
       'id_op' => '>',
@@ -114,19 +163,50 @@ class ViewsTest extends WebTestBase {
     );
     $this->checkResults($query, array(1, 2, 3, 4, 5), 'Search with ID "not empty" filter');
 
-    $this->checkResults(array('keywords[value]' => 'apple'), array(2, 4), 'Search with Keywords filter');
-    // @todo Enable "between" again. See #2624870.
-//    $query = array(
-//      'keywords[min]' => 'aardvark',
-//      'keywords[max]' => 'calypso',
-//      'keywords_op' => 'between',
-//    );
-//    $this->checkResults($query, array(2, 4, 5), 'Search with Keywords "in between" filter');
+    $yesterday = strtotime('-1DAY');
     $query = array(
-      'keywords[value]' => 'radish',
+      'created[value]' => date('Y-m-d', $yesterday),
+      'created_op' => '>',
+    );
+    $this->checkResults($query, array(1, 2, 3, 4, 5), 'Search with "Created after" filter');
+    $query = array(
+      'created[value]' => date('Y-m-d', $yesterday),
+      'created_op' => '<',
+    );
+    $this->checkResults($query, array(), 'Search with "Created before" filter');
+    $query = array(
+      'created_op' => 'empty',
+    );
+    $this->checkResults($query, array(), 'Search with "empty creation date" filter');
+    $query = array(
+      'created_op' => 'not empty',
+    );
+    $this->checkResults($query, array(1, 2, 3, 4, 5), 'Search with "not empty creation date" filter');
+
+    $this->checkResults(array('keywords[value]' => 'apple'), array(2, 4), 'Search with Keywords filter');
+    $query = array(
+      'keywords[min]' => 'aardvark',
+      'keywords[max]' => 'calypso',
+      'keywords_op' => 'between',
+    );
+    $this->checkResults($query, array(2, 4, 5), 'Search with Keywords "in between" filter');
+
+    // For the keywords filters with comparison operators, exclude entity 1
+    // since that contains all the uppercase and special characters weirdness.
+    $query = array(
+      'id[value]' => 1,
+      'id_op' => '!=',
+      'keywords[value]' => 'melon',
       'keywords_op' => '>=',
     );
-    $this->checkResults($query, array(1, 4, 5), 'Search with Keywords "greater than or equal" filter');
+    $this->checkResults($query, array(2, 4, 5), 'Search with Keywords "greater than or equal" filter');
+    $query = array(
+      'id[value]' => 1,
+      'id_op' => '!=',
+      'keywords[value]' => 'banana',
+      'keywords_op' => '<',
+    );
+    $this->checkResults($query, array(2, 4), 'Search with Keywords "less than" filter');
     $query = array(
       'keywords[value]' => 'orange',
       'keywords_op' => '!=',
@@ -135,11 +215,32 @@ class ViewsTest extends WebTestBase {
     $query = array(
       'keywords_op' => 'empty',
     );
-    $this->checkResults($query, array(3), 'Search with Keywords "empty" filter');
+    $label = 'Search with Keywords "empty" filter';
+    $this->checkResults($query, array(3), $label, 'all/all/all');
     $query = array(
       'keywords_op' => 'not empty',
     );
     $this->checkResults($query, array(1, 2, 4, 5), 'Search with Keywords "not empty" filter');
+
+    $query = array(
+      'language' => array('***LANGUAGE_site_default***'),
+    );
+    $this->checkResults($query, array(1, 2, 3, 4, 5), 'Search with "Page content language" filter');
+    $query = array(
+      'language' => array('en'),
+    );
+    $this->checkResults($query, array(1, 2, 3, 4, 5), 'Search with "English" language filter');
+    $query = array(
+      'language' => array('und'),
+    );
+    $this->checkResults($query, array(), 'Search with "Not specified" language filter');
+    $query = array(
+      'language' => array(
+        '***LANGUAGE_language_interface***',
+        'zxx',
+      ),
+    );
+    $this->checkResults($query, array(1, 2, 3, 4, 5), 'Search with multiple languages filter');
 
     $query = array(
       'search_api_fulltext' => 'foo to test',
@@ -148,6 +249,97 @@ class ViewsTest extends WebTestBase {
       'keywords_op' => 'not empty',
     );
     $this->checkResults($query, array(4), 'Search with multiple filters');
+
+    // Test contextual filters. Configured contextual filters are:
+    // 1: datasource
+    // 2: type (not = true)
+    // 3: keywords (break_phrase = true)
+    $this->checkResults(array(), array(4, 5), 'Search with arguments', 'entity:entity_test_mulrev_changed/item/grape');
+
+    // "Type" doesn't have "break_phrase" enabled, so the second argument won't
+    // have any effect.
+    $this->checkResults(array(), array(2, 4, 5), 'Search with arguments', 'all/item+article/strawberry+apple');
+
+    $this->checkResults(array(), array(), 'Search with unknown datasource argument', 'entity:foobar/all/all');
+
+    $query = array(
+      'id[value]' => 1,
+      'id_op' => '!=',
+      'keywords[value]' => 'melon',
+      'keywords_op' => '>=',
+    );
+    $this->checkResults($query, array(2, 5), 'Search with arguments and filters', 'entity:entity_test_mulrev_changed/all/orange');
+
+    // Make sure the datasource filter works correctly with multiple selections.
+    $index = Index::load($this->indexId);
+    $index->addDatasource($index->createPlugin('datasource', 'entity:user'));
+    $index->save();
+
+    $query = array(
+      'datasource' => array('entity:user', 'entity:entity_test_mulrev_changed'),
+      'datasource_op' => 'or',
+    );
+    $this->checkResults($query, array(1, 2, 3, 4, 5), 'Search with multiple datasource filters (OR)');
+
+    $query = array(
+      'datasource' => array('entity:user', 'entity:entity_test_mulrev_changed'),
+      'datasource_op' => 'and',
+    );
+    $this->checkResults($query, array(), 'Search with multiple datasource filters (AND)');
+
+    $query = array(
+      'datasource' => array('entity:user'),
+      'datasource_op' => 'not',
+    );
+    $this->checkResults($query, array(1, 2, 3, 4, 5), 'Search for non-user results');
+
+    $query = array(
+      'datasource' => array('entity:entity_test_mulrev_changed'),
+      'datasource_op' => 'not',
+    );
+    $this->checkResults($query, array(), 'Search for non-test entity results');
+
+    $query = array(
+      'datasource' => array('entity:user', 'entity:entity_test_mulrev_changed'),
+      'datasource_op' => 'not',
+    );
+    $this->checkResults($query, array(), 'Search for results of no available datasource');
+
+    // Make sure there was a display plugin created for this view.
+    $displays = \Drupal::getContainer()->get('plugin.manager.search_api.display')
+      ->getInstances();
+
+    if ($displays === array()) {
+      throw new SearchApiException("No displays are loaded, tests will fail.");
+    }
+
+    $display_id = 'views_page:search_api_test_view__page_1';
+    $this->assertTrue(array_key_exists($display_id, $displays), 'A display plugin was created for the test view page display.');
+    $this->assertTrue(array_key_exists('views_block:search_api_test_view__block_1', $displays), 'A display plugin was created for the test view block display.');
+    $this->assertTrue(array_key_exists('views_rest:search_api_test_view__rest_export_1', $displays), 'A display plugin was created for the test view block display.');
+    $view_url = Url::fromUserInput('/search-api-test')->toString();
+    $this->assertEqual($view_url, $displays[$display_id]->getUrl()->toString(), 'Display returns the correct path.');
+    $this->assertEqual('database_search_index', $displays[$display_id]->getIndex()->id(), 'Display returns the correct search index.');
+
+    $admin_user = $this->drupalCreateUser([
+      'administer search_api',
+      'access administration pages',
+      'administer views',
+    ]);
+    $this->drupalLogin($admin_user);
+
+    // Delete the page display for the view.
+    $this->drupalGet('admin/structure/views/view/search_api_test_view');
+    $this->drupalPostForm(NULL, [], $this->t('Delete Page'));
+    $this->drupalPostForm(NULL, [], $this->t('Save'));
+
+    drupal_flush_all_caches();
+
+    $displays = \Drupal::getContainer()->get('plugin.manager.search_api.display')
+      ->getInstances();
+    $this->assertFalse(array_key_exists('views_page:search_api_test_view__page_1', $displays), 'A display plugin was created for the test view page display.');
+    $this->assertTrue(array_key_exists('views_block:search_api_test_view__block_1', $displays), 'A display plugin was created for the test view block display.');
+    $this->assertTrue(array_key_exists('views_rest:search_api_test_view__rest_export_1', $displays), 'A display plugin was created for the test view block display.');
   }
 
   /**
@@ -160,9 +352,11 @@ class ViewsTest extends WebTestBase {
    *   results.
    * @param string $label
    *   (optional) A label for this search, to include in assert messages.
+   * @param string $arguments
+   *   (optional) A string to append to the search path.
    */
-  protected function checkResults(array $query, array $expected_results = NULL, $label = 'Search') {
-    $this->drupalGet('search-api-test', array('query' => $query));
+  protected function checkResults(array $query, array $expected_results = NULL, $label = 'Search', $arguments = '') {
+    $this->drupalGet('search-api-test/' . $arguments, array('query' => $query));
 
     if (isset($expected_results)) {
       $count = count($expected_results);
@@ -190,15 +384,43 @@ class ViewsTest extends WebTestBase {
    * Test Views admin UI and field handlers.
    */
   public function testViewsAdmin() {
-    $admin_user = $this->drupalCreateUser(array(
+    // Add some Dutch nodes.
+    foreach (array(1, 2, 3, 4, 5) as $id) {
+      $entity = EntityTestMulRevChanged::load($id);
+      $entity = $entity->addTranslation('nl', array(
+        'body' => "dutch node $id",
+        'category' => "dutch category $id",
+        'keywords' => array("dutch $id A", "dutch $id B"),
+      ));
+      $entity->save();
+    }
+    $this->entities = EntityTestMulRevChanged::loadMultiple();
+    $this->indexItems($this->indexId);
+
+    // For viewing the user name and roles of the user associated with test
+    // entities, the logged-in user needs to have the permission to administer
+    // both users and permissions.
+    $permissions = array(
       'administer search_api',
       'access administration pages',
       'administer views',
-    ));
-    $this->drupalLogin($admin_user);
+      'administer users',
+      'administer permissions',
+    );
+    $this->drupalLogin($this->drupalCreateUser($permissions));
 
     $this->drupalGet('admin/structure/views/view/search_api_test_view');
     $this->assertResponse(200);
+
+    // Set the user IDs associated with our test entities.
+    $users[] = $this->createUser();
+    $users[] = $this->createUser();
+    $users[] = $this->createUser();
+    $this->entities[1]->setOwnerId($users[0]->id())->save();
+    $this->entities[2]->setOwnerId($users[0]->id())->save();
+    $this->entities[3]->setOwnerId($users[1]->id())->save();
+    $this->entities[4]->setOwnerId($users[1]->id())->save();
+    $this->entities[5]->setOwnerId($users[2]->id())->save();
 
     // Switch to "Fields" row style.
     $this->clickLink($this->t('Rendered entity'));
@@ -214,7 +436,7 @@ class ViewsTest extends WebTestBase {
     // Add the "User ID" relationship.
     $this->clickLink($this->t('Add relationships'));
     $edit = array(
-      'name[search_api_datasource_database_search_index_entity_entity_test.user_id]' => 'search_api_datasource_database_search_index_entity_entity_test.user_id',
+      'name[search_api_datasource_database_search_index_entity_entity_test_mulrev_changed.user_id]' => 'search_api_datasource_database_search_index_entity_entity_test_mulrev_changed.user_id',
     );
     $this->drupalPostForm(NULL, $edit, $this->t('Add and configure relationships'));
     $this->drupalPostForm(NULL, array(), $this->t('Apply'));
@@ -222,11 +444,11 @@ class ViewsTest extends WebTestBase {
     // Add new fields. First check that the listing seems correct.
     $this->clickLink($this->t('Add fields'));
     $this->assertResponse(200);
-    $this->assertText($this->t('Test entity datasource'));
+    $this->assertText($this->t('Test entity - revisions and data table datasource'));
     $this->assertText($this->t('Authored on'));
     $this->assertText($this->t('Body (indexed field)'));
     $this->assertText($this->t('Index Test index'));
-    $this->assertText($this->t('Entity ID'));
+    $this->assertText($this->t('Item ID'));
     $this->assertText($this->t('Excerpt'));
     $this->assertText($this->t('The search result excerpted to show found search terms'));
     $this->assertText($this->t('Relevance'));
@@ -239,12 +461,14 @@ class ViewsTest extends WebTestBase {
     // Then add some fields.
     $fields = array(
       'views.counter',
-      'search_api_datasource_database_search_index_entity_entity_test.id',
+      'search_api_datasource_database_search_index_entity_entity_test_mulrev_changed.id',
       'search_api_index_database_search_index.search_api_datasource',
-      'search_api_datasource_database_search_index_entity_entity_test.body',
+      'search_api_datasource_database_search_index_entity_entity_test_mulrev_changed.body',
       'search_api_index_database_search_index.category',
       'search_api_index_database_search_index.keywords',
-      'search_api_datasource_database_search_index_entity_entity_test.user_id',
+      'search_api_datasource_database_search_index_entity_entity_test_mulrev_changed.user_id',
+      'search_api_entity_user.name',
+      'search_api_entity_user.roles',
     );
     $edit = array();
     foreach ($fields as $field) {
@@ -253,7 +477,24 @@ class ViewsTest extends WebTestBase {
     $this->drupalPostForm(NULL, $edit, $this->t('Add and configure fields'));
     $this->assertResponse(200);
 
+    // @todo For some strange reason, the "roles" field form is not included
+    //   automatically in the series of field forms shown to us by Views. Deal
+    //   with this graciously (since it's not really our fault, I hope), but it
+    //   would be great to have this working normally.
+    $get_field_id = function ($key) {
+      return Utility::splitPropertyPath($key, TRUE, '.')[1];
+    };
+    $fields = array_map($get_field_id, $fields);
+    $fields = array_combine($fields, $fields);
     for ($i = 0; $i < count($fields); ++$i) {
+      $field = $this->submitFieldsForm();
+      if (!$field) {
+        break;
+      }
+      unset($fields[$field]);
+    }
+    foreach ($fields as $field) {
+      $this->drupalGet('admin/structure/views/nojs/handler/search_api_test_view/page_1/field/' . $field);
       $this->submitFieldsForm();
     }
 
@@ -279,32 +520,58 @@ class ViewsTest extends WebTestBase {
         'body',
         'category',
         'keywords',
-        // @todo This currently doesn't work correctly in the test environment.
-//        'user_id',
+        'user_id',
+        'user_id:name',
+        'user_id:roles',
       );
       foreach ($fields as $field) {
-        if ($field != 'search_api_datasource') {
-          $data = Utility::extractFieldValues($entity->get($field));
-          if (!$data) {
-            $data = array('[EMPTY]');
+        $field_entity = $entity;
+        while (strpos($field, ':')) {
+          list($direct_property, $field) = Utility::splitPropertyPath($field, FALSE);
+          if (empty($field_entity->{$direct_property}[0]->entity)) {
+            continue 2;
           }
+          $field_entity = $field_entity->{$direct_property}[0]->entity;
         }
-        else {
-          $data = array('entity:entity_test');
+        // Check that both the English and the Dutch entity are present in the
+        // results, with their correct field values.
+        $entities = array($field_entity);
+        if ($field_entity->hasTranslation('nl')) {
+          $entities[] = $field_entity->getTranslation('nl');
         }
-        $prefix = "#$id [$field] ";
-        $text = $prefix . implode("|$prefix", $data);
-        $this->assertText($text, "Correct value displayed for field $field on entity #$id (\"$text\")");
+        foreach ($entities as $i => $field_entity) {
+          if ($field != 'search_api_datasource') {
+            $data = Utility::extractFieldValues($field_entity->get($field));
+            if (!$data) {
+              $data = array('[EMPTY]');
+            }
+          }
+          else {
+            $data = array('entity:entity_test_mulrev_changed');
+          }
+          $row_num = 2 * $id + $i - 1;
+          $prefix = "#$row_num [$field] ";
+          $text = $prefix . implode("|$prefix", $data);
+          $translated = $i ? ' [translated]' : '';
+          $this->assertText($text, "Correct value displayed for field $field on entity #$id (\"$text\")$translated");
+        }
       }
     }
   }
 
   /**
    * Submits the field handler config form currently displayed.
+   *
+   * @return string|null
+   *   The field ID of the field whose form was submitted. Or NULL if the
+   *   current page is no field form.
    */
   protected function submitFieldsForm() {
     $url_parts = explode('/', $this->getUrl());
     $field = array_pop($url_parts);
+    if (array_pop($url_parts) != 'field') {
+      return NULL;
+    }
 
     $edit['options[fallback_options][multi_separator]'] = '|';
     $edit['options[alter][alter_text]'] = TRUE;
@@ -340,9 +607,19 @@ class ViewsTest extends WebTestBase {
         $edit['options[field_rendering]'] = FALSE;
         $edit['options[fallback_options][display_methods][user][display_method]'] = 'id';
         break;
+
+      case 'name':
+        break;
+
+      case 'roles':
+        $edit['options[field_rendering]'] = FALSE;
+        $edit['options[fallback_options][display_methods][user_role][display_method]'] = 'id';
+        break;
     }
 
     $this->submitPluginForm($edit);
+
+    return $field;
   }
 
   /**

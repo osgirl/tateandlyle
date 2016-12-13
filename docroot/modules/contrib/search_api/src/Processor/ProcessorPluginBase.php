@@ -2,14 +2,16 @@
 
 namespace Drupal\search_api\Processor;
 
-use Drupal\Component\Render\FormattableMarkup;
 use Drupal\search_api\Datasource\DatasourceInterface;
 use Drupal\search_api\IndexInterface;
+use Drupal\search_api\Item\ItemInterface;
 use Drupal\search_api\Plugin\IndexPluginBase;
 use Drupal\search_api\Query\QueryInterface;
 use Drupal\search_api\Query\ResultSetInterface;
 use Drupal\search_api\SearchApiException;
-use Drupal\search_api\Utility;
+use Drupal\search_api\Utility\FieldsHelperInterface;
+use Drupal\search_api\Utility\Utility;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Defines a base class from which other processors may extend.
@@ -45,6 +47,48 @@ use Drupal\search_api\Utility;
 abstract class ProcessorPluginBase extends IndexPluginBase implements ProcessorInterface {
 
   /**
+   * The fields helper.
+   *
+   * @var \Drupal\search_api\Utility\FieldsHelperInterface|null
+   */
+  protected $fieldsHelper;
+
+  /**
+   * {@inheritdoc}
+   */
+  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
+    /** @var static $processor */
+    $processor = parent::create($container, $configuration, $plugin_id, $plugin_definition);
+
+    $processor->setFieldsHelper($container->get('search_api.fields_helper'));
+
+    return $processor;
+  }
+
+  /**
+   * Retrieves the fields helper.
+   *
+   * @return \Drupal\search_api\Utility\FieldsHelperInterface
+   *   The fields helper.
+   */
+  public function getFieldsHelper() {
+    return $this->fieldsHelper ?: \Drupal::service('search_api.fields_helper');
+  }
+
+  /**
+   * Sets the fields helper.
+   *
+   * @param \Drupal\search_api\Utility\FieldsHelperInterface $fields_helper
+   *   The new fields helper.
+   *
+   * @return $this
+   */
+  public function setFieldsHelper(FieldsHelperInterface $fields_helper) {
+    $this->fieldsHelper = $fields_helper;
+    return $this;
+  }
+
+  /**
    * {@inheritdoc}
    */
   public static function supportsIndex(IndexInterface $index) {
@@ -54,17 +98,31 @@ abstract class ProcessorPluginBase extends IndexPluginBase implements ProcessorI
   /**
    * {@inheritdoc}
    */
-  public function supportsStage($stage_identifier) {
+  public function supportsStage($stage) {
     $plugin_definition = $this->getPluginDefinition();
-    return isset($plugin_definition['stages'][$stage_identifier]);
+    return isset($plugin_definition['stages'][$stage]);
   }
 
   /**
    * {@inheritdoc}
    */
-  public function getDefaultWeight($stage) {
+  public function getWeight($stage) {
+    if (isset($this->configuration['weights'][$stage])) {
+      return $this->configuration['weights'][$stage];
+    }
     $plugin_definition = $this->getPluginDefinition();
-    return isset($plugin_definition['stages'][$stage]) ? (int) $plugin_definition['stages'][$stage] : 0;
+    if (isset($plugin_definition['stages'][$stage])) {
+      return (int) $plugin_definition['stages'][$stage];
+    }
+    return 0;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function setWeight($stage, $weight) {
+    $this->configuration['weights'][$stage] = $weight;
+    return $this;
   }
 
   /**
@@ -84,12 +142,48 @@ abstract class ProcessorPluginBase extends IndexPluginBase implements ProcessorI
   /**
    * {@inheritdoc}
    */
-  public function alterPropertyDefinitions(array &$properties, DatasourceInterface $datasource = NULL) {}
+  public function getPropertyDefinitions(DatasourceInterface $datasource = NULL) {
+    return array();
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function addFieldValues(ItemInterface $item) {}
 
   /**
    * {@inheritdoc}
    */
   public function preIndexSave() {}
+
+  /**
+   * {@inheritdoc}
+   */
+  public function alterIndexedItems(array &$items) {}
+
+  /**
+   * {@inheritdoc}
+   */
+  public function preprocessIndexItems(array $items) {}
+
+  /**
+   * {@inheritdoc}
+   */
+  public function preprocessSearchQuery(QueryInterface $query) {}
+
+  /**
+   * {@inheritdoc}
+   */
+  public function postprocessSearchResults(ResultSetInterface $results) {}
+
+  /**
+   * {@inheritdoc}
+   */
+  public function requiresReindexing(array $old_settings = NULL, array $new_settings = NULL) {
+    // Only require re-indexing for processors that actually run during the
+    // indexing process.
+    return $this->supportsStage(ProcessorInterface::STAGE_PREPROCESS_INDEX);
+  }
 
   /**
    * Ensures that a field with certain properties is indexed on the index.
@@ -116,21 +210,23 @@ abstract class ProcessorPluginBase extends IndexPluginBase implements ProcessorI
     $field = $this->findField($datasource_id, $property_path, $type);
 
     if (!$field) {
-      $property = Utility::retrieveNestedProperty($this->index->getPropertyDefinitions($datasource_id), $property_path);
+      $properties = $this->index->getPropertyDefinitions($datasource_id);
+      $property = $this->getFieldsHelper()
+        ->retrieveNestedProperty($properties, $property_path);
       if (!$property) {
-        $args['%property'] = Utility::createCombinedId($datasource_id, $property_path);
-        $args['%processor'] = $this->label();
-        $message = new FormattableMarkup('Could not find property %property which is required by the %processor processor.', $args);
-        throw new SearchApiException($message);
+        $property_id = Utility::createCombinedId($datasource_id, $property_path);
+        $processor_label = $this->label();
+        throw new SearchApiException("Could not find property '$property_id' which is required by the '$processor_label' processor.");
       }
-      $field = Utility::createFieldFromProperty($this->index, $property, $datasource_id, $property_path, NULL, $type);
+      $field = $this->getFieldsHelper()
+        ->createFieldFromProperty($this->index, $property, $datasource_id, $property_path, NULL, $type);
+      $this->index->addField($field);
     }
 
     $field->setIndexedLocked();
     if (isset($type)) {
       $field->setTypeLocked();
     }
-    $this->index->addField($field);
     return $field;
   }
 
@@ -151,8 +247,8 @@ abstract class ProcessorPluginBase extends IndexPluginBase implements ProcessorI
    */
   protected function findField($datasource_id, $property_path, $type = NULL) {
     foreach ($this->index->getFieldsByDatasource($datasource_id) as $field) {
-      if ($field->getPropertyPath() == $property_path) {
-        if (!isset($type) || $field->getType() == $type) {
+      if ($field->getPropertyPath() === $property_path) {
+        if (!isset($type) || $field->getType() === $type) {
           return $field;
         }
       }
@@ -172,11 +268,15 @@ abstract class ProcessorPluginBase extends IndexPluginBase implements ProcessorI
    *
    * @return \Drupal\search_api\Item\FieldInterface[]
    *   All fields with the given property path.
+   *
+   * @deprecated Will be removed by 8.x-1.0 RC1. Use
+   *   \Drupal\search_api\Utility\FieldsHelperInterface::filterForPropertyPath()
+   *   instead.
    */
   protected function filterForPropertyPath(array $fields, $property_path) {
     $found_fields = array();
     foreach ($fields as $field_id => $field) {
-      if ($field->getPropertyPath() == $property_path) {
+      if ($field->getPropertyPath() === $property_path) {
         $found_fields[$field_id] = $field;
       }
     }
@@ -184,27 +284,33 @@ abstract class ProcessorPluginBase extends IndexPluginBase implements ProcessorI
   }
 
   /**
-   * {@inheritdoc}
+   * Extracts property values from items.
+   *
+   * Values are taken from existing fields on the item, where present, and are
+   * otherwise extracted from the item's underlying object.
+   *
+   * @param \Drupal\search_api\Item\ItemInterface[] $items
+   *   The items from which properties should be extracted.
+   * @param string[][] $required_properties
+   *   The properties that should be extracted, keyed by datasource ID and
+   *   property path, with the values being the IDs that the values should be
+   *   put under in the return value.
+   * @param bool $load
+   *   (optional) If FALSE, only field values already present will be returned.
+   *   Otherwise, fields will be extracted (and underlying objects loaded) if
+   *   necessary.
+   *
+   * @return mixed[][][]
+   *   Arrays of field values, keyed by items' indexes in $items and the given
+   *   field IDs from $required_properties.
+   *
+   * @deprecated Will be removed by 8.x-1.0 RC1. Use
+   *   \Drupal\search_api\Utility\FieldsHelperInterface::extractItemValues()
+   *   instead.
    */
-  public function preprocessIndexItems(array &$items) {}
-
-  /**
-   * {@inheritdoc}
-   */
-  public function preprocessSearchQuery(QueryInterface $query) {}
-
-  /**
-   * {@inheritdoc}
-   */
-  public function postprocessSearchResults(ResultSetInterface $results) {}
-
-  /**
-   * {@inheritdoc}
-   */
-  public function requiresReindexing(array $old_settings = NULL, array $new_settings = NULL) {
-    // Only require re-indexing for processors that actually run during the
-    // indexing process.
-    return $this->supportsStage(ProcessorInterface::STAGE_PREPROCESS_INDEX);
+  protected function extractItemValues(array $items, array $required_properties, $load = TRUE) {
+    return $this->getFieldsHelper()
+      ->extractItemValues($items, $required_properties, $load);
   }
 
 }

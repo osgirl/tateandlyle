@@ -2,7 +2,6 @@
 
 namespace Drupal\facets\Result;
 
-
 use Drupal\Core\Url;
 
 /**
@@ -29,8 +28,8 @@ interface ResultInterface {
   /**
    * Returns the count for the result.
    *
-   * @return mixed
-   *   The amount of items for the result.
+   * @return int|null
+   *   The amount of items for the result or NULL.
    */
   public function getCount();
 
@@ -85,7 +84,7 @@ interface ResultInterface {
   /**
    * Returns children results.
    *
-   * @return \Drupal\facets\Result\ResultInterface $children
+   * @return \Drupal\facets\Result\ResultInterface[] $children
    *   The children results.
    */
   public function getChildren();

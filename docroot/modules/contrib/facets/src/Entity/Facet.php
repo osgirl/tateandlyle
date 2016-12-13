@@ -15,9 +15,9 @@ use Drupal\facets\FacetInterface;
  *     "storage" = "Drupal\Core\Config\Entity\ConfigEntityStorage",
  *     "list_builder" = "Drupal\facets\FacetListBuilder",
  *     "form" = {
- *       "default" = "Drupal\facets\Form\FacetForm",
+ *       "default" = "Drupal\facets\Form\FacetSettingsForm",
  *       "edit" = "Drupal\facets\Form\FacetForm",
- *       "display" = "Drupal\facets\Form\FacetDisplayForm",
+ *       "settings" = "Drupal\facets\Form\FacetSettingsForm",
  *       "delete" = "Drupal\facets\Form\FacetDeleteConfirmForm",
  *     },
  *   },
@@ -40,7 +40,6 @@ use Drupal\facets\FacetInterface;
  *     "query_type_name",
  *     "facet_source_id",
  *     "widget",
- *     "widget_configs",
  *     "query_operator",
  *     "exclude",
  *     "only_visible_when_facet_source_is_visible",
@@ -49,10 +48,9 @@ use Drupal\facets\FacetInterface;
  *     "facet_configs",
  *   },
  *   links = {
- *     "canonical" = "/admin/config/search/facets",
  *     "add-form" = "/admin/config/search/facets/add-facet",
  *     "edit-form" = "/admin/config/search/facets/{facets_facet}/edit",
- *     "display-form" = "/admin/config/search/facets/{facets_facet}/display",
+ *     "settings-form" = "/admin/config/search/facets/{facets_facet}/settings",
  *     "delete-form" = "/admin/config/search/facets/{facets_facet}/delete",
  *   }
  * )
@@ -88,18 +86,18 @@ class Facet extends ConfigEntityBase implements FacetInterface {
   protected $description;
 
   /**
-   * The plugin name of the widget.
+   * The widget plugin definition.
    *
-   * @var string
+   * @var array
    */
   protected $widget;
 
   /**
-   * Configuration for the widget. This is a key-value stored array.
+   * The widget plugin instance.
    *
-   * @var array
+   * @var \Drupal\facets\Widget\WidgetPluginBase
    */
-  protected $widget_configs = [];
+  protected $widgetInstance;
 
   /**
    * The operator to hand over to the query, currently AND | OR.
@@ -165,13 +163,6 @@ class Facet extends ConfigEntityBase implements FacetInterface {
    * @var \Drupal\facets\Result\ResultInterface[]
    */
   protected $results = [];
-
-  /**
-   * The results.
-   *
-   * @var \Drupal\facets\Result\ResultInterface[]
-   */
-  protected $unfiltered_results = [];
 
   /**
    * An array of active values.
@@ -258,13 +249,6 @@ class Facet extends ConfigEntityBase implements FacetInterface {
   protected $weight;
 
   /**
-   * {@inheritdoc}
-   */
-  public function __construct(array $values, $entity_type) {
-    parent::__construct($values, $entity_type);
-  }
-
-  /**
    * Returns the widget plugin manager.
    *
    * @return \Drupal\facets\Widget\WidgetPluginManager
@@ -294,14 +278,6 @@ class Facet extends ConfigEntityBase implements FacetInterface {
   /**
    * {@inheritdoc}
    */
-  public function setWidget($widget) {
-    $this->widget = $widget;
-    return $this;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
   public function getQueryTypes() {
     return $this->query_type_name;
   }
@@ -309,8 +285,37 @@ class Facet extends ConfigEntityBase implements FacetInterface {
   /**
    * {@inheritdoc}
    */
+  public function setWidget($id, array $configuration = NULL) {
+    if ($configuration === NULL) {
+      $instance = $this->getWidgetManager()->createInstance($id);
+      // Get the default configuration for this plugin.
+      $configuration = $instance->getConfiguration();
+    }
+    $this->widget = ['type' => $id, 'config' => $configuration];
+
+    // Unset the widget instance, if exists.
+    unset($this->widgetInstance);
+
+    return $this;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
   public function getWidget() {
     return $this->widget;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getWidgetInstance() {
+    if (!isset($this->widgetInstance)) {
+      $definition = $this->getWidget();
+      $this->widgetInstance = $this->getWidgetManager()
+        ->createInstance($definition['type'], (array) $definition['config']);
+    }
+    return $this->widgetInstance;
   }
 
   /**
@@ -363,8 +368,8 @@ class Facet extends ConfigEntityBase implements FacetInterface {
     $query_types = $facet_source->getQueryTypesForFacet($this);
 
     // Get our widget configured for this facet.
-    /** @var \Drupal\facets\Widget\WidgetInterface $widget */
-    $widget = $this->getWidgetManager()->createInstance($this->getWidget());
+    /** @var \Drupal\facets\Widget\WidgetPluginInterface $widget */
+    $widget = $this->getWidgetInstance();
     // Give the widget the chance to select a preferred query type. This is
     // useful with a date widget, as it needs to select the date query type.
     return $widget->getQueryType($query_types);
@@ -381,7 +386,7 @@ class Facet extends ConfigEntityBase implements FacetInterface {
    * {@inheritdoc}
    */
   public function getQueryOperator() {
-    return $this->query_operator ?: 'OR';
+    return $this->query_operator ?: 'or';
   }
 
   /**
@@ -479,11 +484,14 @@ class Facet extends ConfigEntityBase implements FacetInterface {
    * {@inheritdoc}
    */
   public function getFacetSource() {
-
     if (!$this->facet_source_instance && $this->facet_source_id) {
       /* @var $facet_source_plugin_manager \Drupal\facets\FacetSource\FacetSourcePluginManager */
       $facet_source_plugin_manager = \Drupal::service('plugin.manager.facets.facet_source');
-      $this->facet_source_instance = $facet_source_plugin_manager->createInstance($this->facet_source_id, ['facet' => $this]);
+      if (!$facet_source_plugin_manager->hasDefinition($this->facet_source_id)) {
+        return;
+      }
+      $this->facet_source_instance = $facet_source_plugin_manager
+        ->createInstance($this->facet_source_id, ['facet' => $this]);
     }
 
     return $this->facet_source_instance;
@@ -535,13 +543,13 @@ class Facet extends ConfigEntityBase implements FacetInterface {
       [
         'id' => $source_id,
         'name' => $this->facet_source_id,
+        'filter_key' => 'f',
+        'url_processor' => 'query_string',
       ],
       'facets_facet_source'
     );
-    $facet_source->save();
 
-    $this->facetSourceConfig = $facet_source;
-    return $this->facetSourceConfig;
+    return $facet_source;
   }
 
   /**
@@ -565,20 +573,6 @@ class Facet extends ConfigEntityBase implements FacetInterface {
         }
       }
     }
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function setUnfilteredResults(array $all_results = []) {
-    $this->unfiltered_results = $all_results;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function getUnfilteredResults() {
-    return $this->unfiltered_results;
   }
 
   /**
@@ -649,14 +643,13 @@ class Facet extends ConfigEntityBase implements FacetInterface {
    * {@inheritdoc}
    */
   public function getProcessorsByStage($stage, $only_enabled = TRUE) {
-    $processors = $this->loadProcessors();
+    $processors = $this->getProcessors($only_enabled);
     $processor_settings = $this->getProcessorConfigs();
     $processor_weights = array();
 
-    // Get a list of all processors meeting the criteria (stage and, optionally,
-    // enabled) along with their effective weights (user-set or default).
+    // Get a list of all processors for given stage.
     foreach ($processors as $name => $processor) {
-      if ($processor->supportsStage($stage) && !($only_enabled && empty($processor_settings[$name]))) {
+      if ($processor->supportsStage($stage)) {
         if (!empty($processor_settings[$name]['weights'][$stage])) {
           $processor_weights[$name] = $processor_settings[$name]['weights'][$stage];
         }
@@ -728,20 +721,6 @@ class Facet extends ConfigEntityBase implements FacetInterface {
   /**
    * {@inheritdoc}
    */
-  public function setWidgetConfigs(array $widget_configs) {
-    $this->widget_configs = $widget_configs;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function getWidgetConfigs() {
-    return $this->widget_configs;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
   public function setFacetConfigs(array $facet_configs) {
     $this->facet_configs = $facet_configs;
   }
@@ -765,6 +744,19 @@ class Facet extends ConfigEntityBase implements FacetInterface {
    */
   public function setWeight($weight) {
     $this->weight = $weight;
+    return $this;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function calculateDependencies() {
+    parent::calculateDependencies();
+    $facet_dependencies = $this->getFacetSource()->calculateDependencies();
+    if (!empty($facet_dependencies)) {
+      $this->addDependencies($facet_dependencies);
+    }
+
     return $this;
   }
 

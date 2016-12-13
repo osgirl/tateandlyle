@@ -77,7 +77,7 @@ class ExcludeSpecifiedItemsProcessorTest extends UnitTestCase {
    * Tests no filtering happens.
    */
   public function testNoFilter() {
-    $facet = new Facet([], 'facet');
+    $facet = new Facet([], 'facets_facet');
     $facet->setResults($this->originalResults);
     $facet->addProcessor([
       'processor_id' => 'exclude_specified_items',
@@ -100,7 +100,7 @@ class ExcludeSpecifiedItemsProcessorTest extends UnitTestCase {
    * Tests filtering happens for string filter.
    */
   public function testStringFilter() {
-    $facet = new Facet([], 'facet');
+    $facet = new Facet([], 'facets_facet');
     $facet->setResults($this->originalResults);
     $facet->addProcessor([
       'processor_id' => 'exclude_specified_items',
@@ -124,12 +124,68 @@ class ExcludeSpecifiedItemsProcessorTest extends UnitTestCase {
   }
 
   /**
+   * Tests filtering happens for string filter.
+   */
+  public function testMultiString() {
+    $facet = new Facet([], 'facets_facet');
+    $facet->setResults($this->originalResults);
+    $facet->addProcessor([
+      'processor_id' => 'exclude_specified_items',
+      'weights' => [],
+      'settings' => [
+        'exclude' => 'alpaca',
+        'regex' => 0,
+      ],
+    ]);
+    $this->processor->setConfiguration([
+      'exclude' => 'llama,badger',
+      'regex' => 0,
+    ]);
+    $filtered_results = $this->processor->build($facet, $this->originalResults);
+
+    $this->assertCount((count($this->originalResults) - 2), $filtered_results);
+
+    foreach ($filtered_results as $result) {
+      $this->assertNotEquals('llama', $result->getDisplayValue());
+      $this->assertNotEquals('badger', $result->getDisplayValue());
+    }
+  }
+
+  /**
+   * Tests filtering happens for string filter.
+   */
+  public function testMultiStringTrim() {
+    $facet = new Facet([], 'facets_facet');
+    $facet->setResults($this->originalResults);
+    $facet->addProcessor([
+      'processor_id' => 'exclude_specified_items',
+      'weights' => [],
+      'settings' => [
+        'exclude' => 'alpaca',
+        'regex' => 0,
+      ],
+    ]);
+    $this->processor->setConfiguration([
+      'exclude' => 'llama, badger',
+      'regex' => 0,
+    ]);
+    $filtered_results = $this->processor->build($facet, $this->originalResults);
+
+    $this->assertCount((count($this->originalResults) - 2), $filtered_results);
+
+    foreach ($filtered_results as $result) {
+      $this->assertNotEquals('llama', $result->getDisplayValue());
+      $this->assertNotEquals('badger', $result->getDisplayValue());
+    }
+  }
+
+  /**
    * Tests filtering happens for regex filter.
    *
    * @dataProvider provideRegexTests
    */
   public function testRegexFilter($regex, $expected_results) {
-    $facet = new Facet([], 'facet');
+    $facet = new Facet([], 'facets_facet');
     $facet->setResults($this->originalResults);
     $facet->addProcessor([
       'processor_id' => 'exclude_specified_items',

@@ -3,7 +3,6 @@
 namespace Drupal\facets\Plugin\facets\facet_source;
 
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\facets\Exception\InvalidQueryTypeException;
 use Drupal\facets\FacetInterface;
 use Drupal\search_api\Backend\BackendInterface;
@@ -16,8 +15,6 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  */
 abstract class SearchApiBaseFacetSource extends FacetSourcePluginBase {
 
-  use StringTranslationTrait;
-
   /**
    * The search index.
    *
@@ -28,9 +25,9 @@ abstract class SearchApiBaseFacetSource extends FacetSourcePluginBase {
   /**
    * The search result cache.
    *
-   * @var \Drupal\search_api\Query\ResultsCacheInterface
+   * @var \Drupal\search_api\Utility\QueryHelper
    */
-  protected $searchApiResultsCache;
+  protected $searchApiQueryHelper;
 
   /**
    * {@inheritdoc}
@@ -43,7 +40,7 @@ abstract class SearchApiBaseFacetSource extends FacetSourcePluginBase {
     $this->pluginDefinition = $plugin_definition;
     $this->pluginId = $plugin_id;
     $this->configuration = $configuration;
-    $this->searchApiResultsCache = $search_results_cache;
+    $this->searchApiQueryHelper = $search_results_cache;
   }
 
   /**
@@ -53,9 +50,9 @@ abstract class SearchApiBaseFacetSource extends FacetSourcePluginBase {
     /** @var \Drupal\facets\QueryType\QueryTypePluginManager $query_type_plugin_manager */
     $query_type_plugin_manager = $container->get('plugin.manager.facets.query_type');
 
-    /** @var \Drupal\search_api\Query\ResultsCacheInterface $results_cache */
-    $search_results_cache = $container->get('search_api.results_static_cache');
-    return new static($configuration, $plugin_id, $plugin_definition, $query_type_plugin_manager, $search_results_cache);
+    /** @var \Drupal\search_api\Utility\QueryHelper $query_helper */
+    $query_helper = $container->get('search_api.query_helper');
+    return new static($configuration, $plugin_id, $plugin_definition, $query_type_plugin_manager, $query_helper);
   }
 
   /**
@@ -66,8 +63,8 @@ abstract class SearchApiBaseFacetSource extends FacetSourcePluginBase {
     $form['field_identifier'] = [
       '#type' => 'select',
       '#options' => $this->getFields(),
-      '#title' => $this->t('Facet field'),
-      '#description' => $this->t('Choose the indexed field.'),
+      '#title' => $this->t('Field'),
+      '#description' => $this->t('The field from the selected facet source which contains the data to build a facet for.<br> The field types supported are <strong>boolean</strong>, <strong>date</strong>, <strong>decimal</strong>, <strong>integer</strong> and <strong>string</strong>.'),
       '#required' => TRUE,
       '#default_value' => $this->facet->getFieldIdentifier(),
     ];
@@ -81,11 +78,19 @@ abstract class SearchApiBaseFacetSource extends FacetSourcePluginBase {
   public function getFields() {
     $indexed_fields = [];
     $fields = $this->index->getFields();
+    // Get the Search API Server.
+    $server = $this->index->getServerInstance();
+    // Get the Search API Backend.
+    $backend = $server->getBackend();
     foreach ($fields as $field) {
-      $indexed_fields[$field->getFieldIdentifier()] = $field->getLabel();
+      $query_types = $this->getQueryTypesForDataType($backend, $field->getDataTypePlugin()->getPluginId());
+      if (!empty($query_types)) {
+        $indexed_fields[$field->getFieldIdentifier()] = $field->getLabel() . ' (' . $field->getPropertyPath() . ')';
+      }
     }
     return $indexed_fields;
   }
+
 
   /**
    * {@inheritdoc}
@@ -106,7 +111,7 @@ abstract class SearchApiBaseFacetSource extends FacetSourcePluginBase {
       }
     }
 
-    throw new InvalidQueryTypeException($this->t("No available query types were found for facet @facet", ['@facet' => $facet->getName()]));
+    throw new InvalidQueryTypeException("No available query types were found for facet {$facet->getName()}");
   }
 
   /**
@@ -136,7 +141,6 @@ abstract class SearchApiBaseFacetSource extends FacetSourcePluginBase {
       case 'decimal':
       case 'integer':
       case 'string':
-      case 'text':
         $query_types['string'] = 'search_api_string';
         break;
     }

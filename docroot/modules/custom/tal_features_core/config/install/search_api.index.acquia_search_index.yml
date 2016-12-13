@@ -6,24 +6,15 @@ dependencies:
     - field.storage.node.field_in_applications
     - field.storage.node.field_in_trends_solutions
     - field.storage.node.field_in_types
-    - field.storage.paragraph.field_in_wysiwyg2
     - search_api.server.acquia_search_server
   module:
     - search_api
     - node
-    - paragraphs
 id: acquia_search_index
 name: 'Acquia Search Solr Index'
 description: ''
 read_only: false
 field_settings:
-  search_api_language:
-    label: 'Item language'
-    datasource_id: null
-    property_path: search_api_language
-    type: string
-    indexed_locked: true
-    type_locked: true
   body:
     label: Body
     datasource_id: 'entity:node'
@@ -61,25 +52,135 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_in_types
-  field_in_wysiwyg2:
-    label: WYSIWYG
-    datasource_id: 'entity:paragraph'
-    property_path: field_in_wysiwyg2
-    type: text
-    dependencies:
-      config:
-        - field.storage.paragraph.field_in_wysiwyg2
-  type:
-    label: 'Content type'
+  status:
+    label: 'Publishing status'
     datasource_id: 'entity:node'
-    property_path: type
+    property_path: status
+    type: boolean
+    indexed_locked: true
+    type_locked: true
+  uid:
+    label: 'Authored by'
+    datasource_id: 'entity:node'
+    property_path: uid
+    type: integer
+    indexed_locked: true
+    type_locked: true
+  search_api_node_grants:
+    label: 'Node access information'
+    property_path: search_api_node_grants
     type: string
+    indexed_locked: true
+    type_locked: true
+    hidden: true
 processor_settings:
   add_url:
     plugin_id: add_url
-    settings: {  }
-  language:
-    plugin_id: language
+    settings:
+      weights:
+        preprocess_index: -30
+  aggregated_field:
+    plugin_id: aggregated_field
+    settings:
+      fields: {  }
+      weights:
+        preprocess_index: -10
+  content_access:
+    plugin_id: content_access
+    settings:
+      weights:
+        preprocess_index: -10
+        preprocess_query: -10
+  highlight:
+    plugin_id: highlight
+    settings:
+      highlight: always
+      excerpt: true
+      excerpt_length: 256
+      prefix: '<strong>'
+      suffix: '</strong>'
+      weights:
+        postprocess_query: 0
+      exclude_fields: {  }
+  html_filter:
+    plugin_id: html_filter
+    settings:
+      fields:
+        - search_api_language
+        - body
+        - title
+        - field_in_applications
+        - field_in_trends_solutions
+        - field_in_types
+      title: true
+      alt: true
+      tags:
+        h1: 5
+        h2: 3
+        h3: 2
+        strong: 2
+        b: 2
+        em: 1
+        u: 1
+      weights:
+        preprocess_index: -10
+        preprocess_query: -10
+  ignorecase:
+    plugin_id: ignorecase
+    settings:
+      fields:
+        - search_api_language
+        - body
+        - title
+        - field_in_applications
+        - field_in_trends_solutions
+        - field_in_types
+      weights:
+        preprocess_index: -10
+        preprocess_query: -10
+  ignore_character:
+    plugin_id: ignore_character
+    settings:
+      fields:
+        - search_api_language
+        - body
+        - title
+        - field_in_applications
+        - field_in_trends_solutions
+        - field_in_types
+      ignorable: '[''¿¡!?,.:;]'
+      strip:
+        character_sets:
+          Pc: Pc
+          Pd: Pd
+          Pe: Pe
+          Pf: Pf
+          Pi: Pi
+          Po: Po
+          Ps: Ps
+          Cc: 0
+          Cf: 0
+          Co: 0
+          Mc: 0
+          Me: 0
+          Mn: 0
+          Sc: 0
+          Sk: 0
+          Sm: 0
+          So: 0
+          Zl: 0
+          Zp: 0
+          Zs: 0
+      weights:
+        preprocess_index: -10
+        preprocess_query: -10
+  node_status:
+    plugin_id: node_status
+    settings:
+      weights:
+        preprocess_index: -10
+  rendered_item:
+    plugin_id: rendered_item
     settings: {  }
 options:
   index_directly: false
@@ -94,38 +195,14 @@ datasource_settings:
   'entity:node':
     plugin_id: 'entity:node'
     settings:
-      default: '0'
       bundles:
-        company_story: company_story
-        ingredient: ingredient
-        contact: '0'
-        icon: '0'
-        iframe_content: '0'
-        landing_page: '0'
-        page: '0'
+        default: false
+        selected:
+          - ingredient
       languages:
-        - en
-  'entity:paragraph':
-    plugin_id: 'entity:paragraph'
-    settings:
-      default: '0'
-      bundles:
-        wysiwyg_and_block_reference: wysiwyg_and_block_reference
-        block_reference: '0'
-        component_accordion_body: '0'
-        component_accordion_items: '0'
-        detail_content_promo: '0'
-        downloads: '0'
-        filegroup: '0'
-        ingredient_accordion: '0'
-        ingredient_accordion_items: '0'
-        passive_recruitment: '0'
-        related_downloads: '0'
-        talk_to_us: '0'
-        wysiwyg: '0'
-        wysiwyg_with_block_reference: '0'
-        wysiwyg_with_country_and_region: '0'
-      languages: {  }
+        default: false
+        selected:
+          - en
 tracker_settings:
   default:
     plugin_id: default

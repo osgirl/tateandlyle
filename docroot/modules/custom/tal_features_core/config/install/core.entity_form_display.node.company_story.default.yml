@@ -2,13 +2,10 @@ langcode: en
 status: true
 dependencies:
   config:
-    - entity_browser.browser.image_browser
-    - field.field.node.company_story.body
     - field.field.node.company_story.field_author
     - field.field.node.company_story.field_category
     - field.field.node.company_story.field_date
     - field.field.node.company_story.field_downloads
-    - field.field.node.company_story.field_image
     - field.field.node.company_story.field_next_article
     - field.field.node.company_story.field_prev_article
     - field.field.node.company_story.field_reusable_component
@@ -16,31 +13,21 @@ dependencies:
     - node.type.company_story
   module:
     - datetime
-    - entity_browser
     - paragraphs
     - path
-    - text
     - workbench_moderation
 id: node.company_story.default
 targetEntityType: node
 bundle: company_story
 mode: default
 content:
-  body:
-    weight: 2
-    settings:
-      rows: 9
-      summary_rows: 3
-      placeholder: ''
-    third_party_settings: {  }
-    type: text_textarea_with_summary
   created:
     type: datetime_timestamp
-    weight: 12
+    weight: 10
     settings: {  }
     third_party_settings: {  }
   field_author:
-    weight: 5
+    weight: 3
     settings:
       size: 60
       placeholder: ''
@@ -55,13 +42,13 @@ content:
     third_party_settings: {  }
     type: entity_reference_autocomplete
   field_date:
-    weight: 6
+    weight: 4
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
   field_downloads:
     type: entity_reference_paragraphs
-    weight: 7
+    weight: 5
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -69,20 +56,8 @@ content:
       add_mode: dropdown
       form_display_mode: default
     third_party_settings: {  }
-  field_image:
-    type: entity_browser_file
-    weight: 4
-    settings:
-      entity_browser: image_browser
-      field_widget_edit: true
-      field_widget_remove: true
-      view_mode: default
-      preview_image_style: thumbnail
-      open: true
-      selection_mode: selection_append
-    third_party_settings: {  }
   field_next_article:
-    weight: 9
+    weight: 7
     settings:
       match_operator: CONTAINS
       size: 60
@@ -90,7 +65,7 @@ content:
     third_party_settings: {  }
     type: entity_reference_autocomplete
   field_prev_article:
-    weight: 8
+    weight: 6
     settings:
       match_operator: CONTAINS
       size: 60
@@ -99,7 +74,7 @@ content:
     type: entity_reference_autocomplete
   field_reusable_component:
     type: entity_reference_paragraphs
-    weight: 10
+    weight: 8
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -109,7 +84,7 @@ content:
     third_party_settings: {  }
   field_story_description:
     type: entity_reference_paragraphs
-    weight: 3
+    weight: 2
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -119,20 +94,20 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 15
+    weight: 13
     settings: {  }
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 13
+    weight: 11
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 14
+    weight: 12
     third_party_settings: {  }
   title:
     type: string_textfield
@@ -143,7 +118,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 11
+    weight: 9
     settings:
       match_operator: CONTAINS
       size: 60

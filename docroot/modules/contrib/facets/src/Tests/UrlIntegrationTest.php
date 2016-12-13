@@ -6,6 +6,7 @@ use Drupal\Core\Url;
 use Drupal\facets\FacetInterface;
 use Drupal\facets\Entity\Facet;
 use Drupal\facets\FacetSourceInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Tests the overall functionality of the Facets admin UI.
@@ -21,7 +22,6 @@ class UrlIntegrationTest extends WebTestBase {
     'views',
     'node',
     'search_api',
-    'search_api_test_backend',
     'facets',
     'block',
     'facets_search_api_dependency',
@@ -42,35 +42,31 @@ class UrlIntegrationTest extends WebTestBase {
   }
 
   /**
+   * {@inheritdoc}
+   */
+  protected function installModulesFromClassProperty(ContainerInterface $container) {
+    // This will just set the Drupal state to include the necessary bundles for
+    // our test entity type. Otherwise, fields from those bundles won't be found
+    // and thus removed from the test index. (We can't do it in setUp(), before
+    // calling the parent method, since the container isn't set up at that
+    // point.)
+    $bundles = array(
+      'entity_test_mulrev_changed' => array('label' => 'Entity Test Bundle'),
+      'item' => array('label' => 'item'),
+      'article' => array('label' => 'article'),
+    );
+    \Drupal::state()->set('entity_test_mulrev_changed.bundles', $bundles);
+
+    parent::installModulesFromClassProperty($container);
+  }
+
+  /**
    * Tests various url integration things.
    */
   public function testUrlIntegration() {
     $id = 'facet';
     $name = '&^Facet@#1';
-    $facet_add_page = 'admin/config/search/facets/add-facet';
-
-    $this->drupalGet($facet_add_page);
-
-    $form_values = [
-      'id' => $id,
-      'status' => 1,
-      'url_alias' => $id,
-      'name' => $name,
-      'weight' => 3,
-      'facet_source_id' => 'search_api_views:search_api_test_view:page_1',
-      'facet_source_configs[search_api_views:search_api_test_view:page_1][field_identifier]' => 'type',
-    ];
-    $this->drupalPostForm(NULL, ['facet_source_id' => 'search_api_views:search_api_test_view:page_1'], $this->t('Configure facet source'));
-    $this->drupalPostForm(NULL, $form_values, $this->t('Save'));
-
-    $block_values = [
-      'plugin_id' => 'facet_block:' . $id,
-      'settings' => [
-        'region' => 'footer',
-        'id' => str_replace('_', '-', $id),
-      ],
-    ];
-    $this->drupalPlaceBlock($block_values['plugin_id'], $block_values['settings']);
+    $this->createFacet($name, $id);
 
     $url = Url::fromUserInput('/search-api-test-fulltext', ['query' => ['f[0]' => 'facet:item']]);
     $this->checkClickedFacetUrl($url);
@@ -80,7 +76,7 @@ class UrlIntegrationTest extends WebTestBase {
     $this->assertTrue($facet instanceof FacetInterface);
     $config = $facet->getFacetSourceConfig();
     $this->assertTrue($config instanceof FacetSourceInterface);
-    $this->assertEqual(NULL, $config->getFilterKey());
+    $this->assertEqual('f', $config->getFilterKey());
 
     $facet = NULL;
     $config = NULL;
@@ -136,36 +132,12 @@ class UrlIntegrationTest extends WebTestBase {
    */
   public function testColonValue() {
     $id = 'water_bear';
-    $url_alias = 'bear';
     $name = 'Water bear';
-
-    $facet_add_page = 'admin/config/search/facets/add-facet';
-
-    // Create the facet.
-    $this->drupalGet($facet_add_page);
-
-    $form_values = [
-      'id' => $id,
-      'status' => 1,
-      'url_alias' => $url_alias,
-      'name' => $name,
-      'weight' => 1,
-      'facet_source_id' => 'search_api_views:search_api_test_view:page_1',
-      'facet_source_configs[search_api_views:search_api_test_view:page_1][field_identifier]' => 'keywords',
-    ];
-    $this->drupalPostForm(NULL, ['facet_source_id' => 'search_api_views:search_api_test_view:page_1'], $this->t('Configure facet source'));
-    $this->drupalPostForm(NULL, $form_values, $this->t('Save'));
-
-    // Create / place the block.
-    $block_settings = [
-      'region' => 'footer',
-      'id' => str_replace('_', '-', $id),
-    ];
-    $this->drupalPlaceBlock('facet_block:' . $id, $block_settings);
+    $this->createFacet($name, $id, 'keywords');
 
     // Add a new entity that has a colon in one of it's keywords.
     $entity_test_storage = \Drupal::entityTypeManager()
-      ->getStorage('entity_test');
+      ->getStorage('entity_test_mulrev_changed');
     $entity_test_storage->create([
       'name' => 'Entity with colon',
       'body' => 'test test',
@@ -178,40 +150,20 @@ class UrlIntegrationTest extends WebTestBase {
 
     // Go to the overview and test that we have the expected links.
     $this->drupalGet('search-api-test-fulltext');
-    $this->assertLink('test:colon');
-    $this->assertLink('orange');
-    $this->assertLink('banana');
+    $this->assertFacetLabel('test:colon');
+    $this->assertFacetLabel('orange');
+    $this->assertFacetLabel('banana');
 
     // Click the link with the colon.
     $this->clickLink('test:colon');
     $this->assertResponse(200);
 
     // Make sure 'test:colon' is active.
-    $url = Url::fromUserInput('/search-api-test-fulltext', ['query' => ['f[0]' => 'bear:test:colon']]);
+    $url = Url::fromUserInput('/search-api-test-fulltext', ['query' => ['f[0]' => 'water_bear:test:colon']]);
     $this->assertUrl($url);
-    $this->assertLink('(-) test:colon');
-    $this->assertLink('orange');
-    $this->assertLink('banana');
-  }
-
-  /**
-   * Checks that the url after clicking a facet is as expected.
-   *
-   * @param \Drupal\Core\Url $url
-   *   The expected url we end on.
-   */
-  protected function checkClickedFacetUrl(Url $url) {
-    $this->drupalGet('search-api-test-fulltext');
-    $this->assertResponse(200);
-    $this->assertLink('item');
-    $this->assertLink('article');
-
-    $this->clickLink('item');
-
-    $this->assertResponse(200);
-    $this->assertLink('(-) item');
-    $this->assertLink('article');
-    $this->assertUrl($url);
+    $this->checkFacetIsActive('test:colon');
+    $this->assertFacetLabel('orange');
+    $this->assertFacetLabel('banana');
   }
 
 }

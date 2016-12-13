@@ -5,12 +5,10 @@
  * Provides a Solr-based service class for the Search API.
  */
 
-use Drupal\Core\Form\FormStateInterface;
 use \Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\search_api\Entity\Server;
 use Drupal\search_api\SearchApiException;
 use Drupal\search_api\ServerInterface;
-use Drupal\search_api_solr\Plugin\search_api\backend\SearchApiSolrBackend;
 
 /**
  * Implements hook_help().
@@ -56,28 +54,28 @@ function search_api_solr_cron() {
       ->execute();
 
     $count = 0;
+    /** @var \Drupal\search_api\ServerInterface $server */
     foreach (Server::loadMultiple($ids) as $server) {
       try {
-        /** @var \Solarium\Client $solarium_client */
-        $solarium_client = $server->getBackend()->getSolrConnection();
+        /** @var \Drupal\search_api_solr\SolrBackendInterface $backend */
+        $backend = $server->getBackend();
+        $connector = $backend->getSolrConnector();
         if ($action != 'spellcheck') {
-          $update = $solarium_client->createUpdate();
-          $update->addOptimize(TRUE, FALSE);
-          $solarium_client->update($update);
+          $connector->optimize();
         }
         else {
-          $solarium_query = $solarium_client->createSelect();
+          $solarium_query = $connector->getSelectQuery();
           $solarium_query->setRows(0);
 
           $spellcheck = $solarium_query->getSpellcheck();
           $spellcheck->setBuild(TRUE);
 
-          $solarium_client->select($solarium_query);
+          $connector->execute($solarium_query);
         }
         ++$count;
       }
       catch(SearchApiException $e) {
-        watchdog_exception('search_api_solr', $e, '%type while optimizing Solr server @server: !message in %function (line %line of %file).', array('@server' => $server->label()));
+        watchdog_exception('search_api_solr', $e, '%type while optimizing Solr server @server: @message in %function (line %line of %file).', array('@server' => $server->label()));
       }
     }
     if ($count) {
@@ -89,6 +87,9 @@ function search_api_solr_cron() {
         \Drupal::logger('search_api_solr')->info('Rebuilt spellcheck dictionary on @count Solr server(s).', $vars);
       }
     }
+
+    // Delete cached endpoint data once a day.
+    \Drupal::state()->delete('search_api_solr.endpoint.data');
   }
 }
 
@@ -103,13 +104,15 @@ function search_api_solr_search_api_server_update(ServerInterface $server) {
 }
 
 /**
- * Implements hook_form_FORM_ID_alter().
+ * Implements hook_entity_type_alter().
  */
-function search_api_solr_form_search_api_index_edit_form_alter(array &$form, FormStateInterface $form_state, $form_id) {
-  /** @var \Drupal\search_api\IndexInterface $index */
-  $index = $form_state->getFormObject()->getEntity();
-  $backend = $index->hasValidServer() ? $index->getServerInstance()->getBackend() : NULL;
-  if ($backend instanceof SearchApiSolrBackend) {
-    $form['options']['index_directly']['#description'] .= ' ' . t('This feature is well supported for Solr 4 and above, but could cause latency and timeout problems with Solr 3. Not recommended with that version.');
+function search_api_solr_entity_type_alter(array &$entity_types) {
+  if (\Drupal::moduleHandler()->moduleExists('devel')) {
+    /** @var $entity_types \Drupal\Core\Entity\EntityTypeInterface[] */
+    foreach ($entity_types as $entity_type_id => $entity_type) {
+      if ($entity_type->hasViewBuilderClass() && $entity_type->hasLinkTemplate('canonical')) {
+        $entity_type->setLinkTemplate('devel-solr', "/devel/$entity_type_id/{{$entity_type_id}}/solr");
+      }
+    }
   }
 }
