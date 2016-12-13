@@ -2,10 +2,10 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_common_names
+    - field.storage.node.field_in_common_names
     - node.type.ingredient
-id: node.ingredient.field_common_names
-field_name: field_common_names
+id: node.ingredient.field_in_common_names
+field_name: field_in_common_names
 entity_type: node
 bundle: ingredient
 label: 'Common names'
@@ -15,4 +15,4 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }
-field_type: string
+field_type: string_long
