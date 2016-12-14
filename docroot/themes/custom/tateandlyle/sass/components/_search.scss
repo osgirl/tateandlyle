@@ -1,0 +1,71 @@
+.tal-ingredient-finder-wrapper,
+.region-content-bottom {
+  @extend %inner-content-width-padding;
+  margin: auto;
+  clear: both;
+  overflow: hidden;
+}
+
+.tal-ingredient-finder-wrapper {
+  .views-exposed-form {
+    background: $brand-primary;
+    padding: 30px 28px;
+
+    .control-label {
+      color: $color-white;
+      font-size: $font-size-h3;
+      font-family: $font-family-sans-serif-Med;
+      padding-right: 44px;
+    }
+  }
+
+  .page--tal-ingredient-finder-summary {
+    @extend .max-width-summary;
+  }
+}
+
+.region-content-bottom {
+  @media (min-width: $screen-sm) {
+    width: 100%;
+    display: table;
+  }
+}
+
+.block-facets {
+  @extend .col-sm-4;
+  @media (min-width: $screen-sm) {
+    display: table-cell;
+    float: none;
+    padding-left: 47px;
+    padding-right: 47px;
+    border-right: 1px solid #181818;
+  }
+
+  .block-title {
+    font-size: $font-size-h3;
+    font-family: $font-family-sans-serif-Med;
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 0;
+
+    .facet-item {
+      line-height: 1.8;
+    }
+
+    a {
+      text-decoration: underline;
+    }
+  }
+
+  &:nth-of-type(1) {
+    @media (min-width: $screen-sm) {
+      padding-left: 0;
+    }
+  }
+
+  &:last-child {
+    border-right: 0;
+  }
+}

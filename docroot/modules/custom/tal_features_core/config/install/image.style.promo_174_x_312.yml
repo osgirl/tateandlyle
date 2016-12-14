@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies: {  }
+name: promo_174_x_312
+label: 'Promo 174 x 312'
+effects:
+  d67ec7bf-cb7c-44f3-9e87-0bd7d27a03eb:
+    uuid: d67ec7bf-cb7c-44f3-9e87-0bd7d27a03eb
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 312
+      height: 174
