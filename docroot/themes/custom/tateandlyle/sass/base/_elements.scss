@@ -39,10 +39,3 @@ h5 {
     margin: auto;
   }
 }
-
-.region-header {
-  @extend %inner-content-width-padding;
-  @media (min-width: $screen-sm) {
-    margin: auto;
-  }
-}

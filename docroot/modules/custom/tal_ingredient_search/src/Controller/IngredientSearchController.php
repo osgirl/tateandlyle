@@ -35,6 +35,8 @@ class IngredientSearchController extends ControllerBase {
         '#prefix' => '<div class="tal-category-facet-title">',
         '#suffix' => '</div>',
       ),
+      '#prefix' => '<div class="tal-ingredient-finder-wrapper">',
+      '#suffix' => '</div>',
     );
 
     return $build;
