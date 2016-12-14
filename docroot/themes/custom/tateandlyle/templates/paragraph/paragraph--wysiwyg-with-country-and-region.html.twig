@@ -48,6 +48,10 @@ show_border ? 'paragraph--show-border',
 <div class="container">
     <div{{ content_attributes.addClass(classes) }} id="paragraph-{{ paragraph.id.value }}">
         <div class="title">{{ content.field_in_border_title }}</div>
+        {% if common_names %}
+        <span>{{ "Also know as"|t }}</span>
+        <div class="common-names">{{ common_names }}</div>
+        {% endif %}
         <div class="field--in-wysiwyg">{{ content.field_in_wysiwyg1 }}</div>
         {% if all_regions %}
             <div class="field--available-countries-text">{{ parent_node_title }}{{ " is available globally"|t }}</div>
