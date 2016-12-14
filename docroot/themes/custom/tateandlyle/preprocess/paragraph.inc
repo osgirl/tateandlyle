@@ -50,6 +50,10 @@ function tal_preprocess_paragraph_wysiwyg_with_country_and_region($variables, $p
   $variables['show_border'] = FALSE;
   $parent = $paragraph->getParentEntity();
   $variables['parent_node_title'] = '';
+  $variables['common_names'] = '';
+  if ($parent->bundle() == "ingredient") {
+    $variables['common_names'] = $parent->get('field_in_common_names')->value;
+  }
   if (method_exists($parent, 'getTitle')) {
     $variables['parent_node_title'] = $parent->getTitle();
   }

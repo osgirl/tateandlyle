@@ -3,11 +3,10 @@ status: true
 dependencies:
   config:
     - field.field.node.ingredient.body
-    - field.field.node.ingredient.field_common_names
     - field.field.node.ingredient.field_hide_title
-    - field.field.node.ingredient.field_iframe_code
     - field.field.node.ingredient.field_in_aliases
     - field.field.node.ingredient.field_in_applications
+    - field.field.node.ingredient.field_in_common_names
     - field.field.node.ingredient.field_in_misspellings
     - field.field.node.ingredient.field_in_trends_solutions
     - field.field.node.ingredient.field_in_types
@@ -30,45 +29,45 @@ bundle: ingredient
 mode: default
 content:
   body:
-    weight: 106
+    weight: 5
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: text_default
-  field_iframe_code:
-    weight: 107
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
   field_in_aliases:
-    weight: 109
-    label: above
+    weight: 8
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: basic_string
   field_in_applications:
-    weight: 102
+    weight: 2
     label: hidden
     settings:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
+  field_in_common_names:
+    weight: 6
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
   field_in_misspellings:
-    weight: 108
-    label: above
+    weight: 7
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: basic_string
   field_in_trends_solutions:
-    weight: 103
+    weight: 3
     label: hidden
     settings:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
   field_in_types:
-    weight: 101
+    weight: 1
     label: hidden
     settings:
       link: true
@@ -76,16 +75,15 @@ content:
     type: entity_reference_label
   field_ingredients_content:
     type: entity_reference_revisions_entity_view
-    weight: 104
+    weight: 4
     label: hidden
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
   links:
-    weight: 100
+    weight: 0
     settings: {  }
     third_party_settings: {  }
 hidden:
-  field_common_names: true
   field_hide_title: true

@@ -3,11 +3,10 @@ status: true
 dependencies:
   config:
     - field.field.node.ingredient.body
-    - field.field.node.ingredient.field_common_names
     - field.field.node.ingredient.field_hide_title
-    - field.field.node.ingredient.field_iframe_code
     - field.field.node.ingredient.field_in_aliases
     - field.field.node.ingredient.field_in_applications
+    - field.field.node.ingredient.field_in_common_names
     - field.field.node.ingredient.field_in_misspellings
     - field.field.node.ingredient.field_in_trends_solutions
     - field.field.node.ingredient.field_in_types
@@ -42,15 +41,8 @@ content:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
-  field_iframe_code:
-    weight: 26
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textarea
   field_in_aliases:
-    weight: 28
+    weight: 14
     settings:
       rows: 5
       placeholder: ''
@@ -61,8 +53,15 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: options_select
+  field_in_common_names:
+    weight: 12
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
   field_in_misspellings:
-    weight: 27
+    weight: 13
     settings:
       rows: 5
       placeholder: ''
@@ -120,5 +119,4 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-hidden:
-  field_common_names: true
+hidden: {  }
