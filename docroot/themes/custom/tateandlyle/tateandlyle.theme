@@ -8,6 +8,7 @@
  */
 
 use Drupal\Component\Utility\Html;
+use Drupal\Core\Url;
 
 /**
  * Implements hook_theme_suggestions_HOOK_alter() for form templates.
@@ -22,8 +23,15 @@ function tateandlyle_theme_suggestions_block_alter(array &$suggestions, array $v
  * Implements template_preprocess_block().
  */
 function tateandlyle_preprocess_block(&$variables) {
- // kint($variables);
   // Custom block type helper classes.
+  if (isset($variables['elements']['#plugin_id']) && $variables['elements']['#plugin_id'] == 'continue_search') {
+    $text = !empty($variables['content']['#link_text']) ? $variables['content']['#link_text'] : t('All matching ingredients');
+    $query = \Drupal::request()->getQueryString();
+    $url = Url::fromUserInput('/search/ingredients/results?' . $query);
+    $url->setOption('attributes', array('class' => array('continue-search-link')));
+    $variables['link'] = \Drupal::l($text, $url);
+    $variables['#cache']['contexts'] = ['url.query_args'];
+  }
   if (isset($variables['elements']['content']['#block_content'])) {
     $block = $variables['elements']['content']['#block_content'];
     $bundle = $variables['elements']['content']['#block_content']->bundle();
