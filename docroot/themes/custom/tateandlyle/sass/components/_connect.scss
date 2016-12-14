@@ -10,7 +10,7 @@
   }
 
   @media (min-width: $screen-sm) {
-    padding: 66px 72px;
+    padding: 70px;
   }
 
   @media (min-width: $screen-md) {
@@ -218,33 +218,122 @@
   }
 }
 
+.block--connect .recruitment__block {
+  border: none;
+}
+
 .recruitment__block {
+
+  .overlay__block--content {
+    display: table;
+  }
+
   .component-left {
     .field--name-field-description {
-      margin-bottom: 10px;
+      margin-bottom: 20px;
+      @media (min-width: $screen-sm) {
+        margin-bottom: 10px;
+      }
     }
 
-    @media (min-width: $screen-md) {
+    @media (min-width: $screen-sm) {
       display: table-caption;
+      text-align: left;
+      padding: 20px;
       width: 100%;
 
-
       .inline--description {
-        display: inline-block;
+        display: table-cell;
+        width: 45%;
         padding-right: 20px;
         vertical-align: middle;
+      }
+
+      .inline--button {
+        padding-right: 0;
+        padding-left: 50px;
+        text-align: right;
+        vertical-align: bottom;
+      }
+
+      .inline--icon {
+        width: 10%;
       }
     }
 
     @media (min-width: $screen-md) {
+      padding: 20px 72px 57px 36px;
       display: table-cell;
       width: 33.33%;
       .inline--description {
         display: block;
+        width: 100%;
+        text-align: left;
         padding-right: 0;
+        padding-left: 0;
+      }
+    }
+
+    .field--name-field-simple-text {
+      margin-bottom: 20px;
+      margin-top: 20px;
+      @media (min-width: $screen-sm) {
+        margin-bottom: 2px;
+        margin-top: 0;
       }
     }
   }
+
+  .overlay__block--content > .connect__block {
+    @media (min-width: $screen-sm) {
+      text-align: left;
+      padding: 40px 30px;
+      position: relative;
+      display: table-cell;
+
+      hr {
+        display: none;
+      }
+
+      &::after {
+        content: " ";
+        background: $color-warm-gray;
+        height: 72%;
+        position: absolute;
+        right: 0;
+        top: 14%;
+        width: 1px;
+      }
+    }
+
+    &:last-child {
+      padding-top: 0;
+
+      @media (min-width: $screen-sm) {
+        padding-top: 40px;
+      }
+
+      &::after {
+        content: none;
+      }
+    }
+
+    .field--name-field-pr-title {
+      margin-bottom: 18px;
+    }
+
+    @media (max-width: $screen-sm-max) {
+      .field--name-field-pr-title {
+        font-size: $font-size-h5;
+        font-family: $font-family-sans-serif-Med;
+      }
+
+      .field--name-field-pr-description {
+        margin-bottom: 18px;
+      }
+    }
+  }
+
   .field--name-field-all-jobs-link {
     @media (min-width: $screen-md) {
       margin-top: 35px;
