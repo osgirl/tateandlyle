@@ -20,7 +20,7 @@ class IngredientSearchController extends ControllerBase {
     $view = Views::getView('ingredient_finder');
     $view->setDisplay('page_1');
 
-    $output = $this->t('<p>Our extraordinary ingredients are a product of scientific and technical expertise, meticulous research and innovation and listening to and working with our customers.</p>');
+    $output = '<p>' . $this->t('Our extraordinary ingredients are a product of scientific and technical expertise, meticulous research and innovation and listening to and working with our customers.') . '</p>';
 
     // Assemble the markup.
     $build = array(

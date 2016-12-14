@@ -9,6 +9,7 @@
  * Preprocessor function for single item promo block type.
  */
 function tal_preprocess_block_single_item_promo($variables, $block) {
+  $variables['bundle'] = $block->bundle();
   // Checks if vertical orientation is enabled in the block.
   $is_vertical = $block->get('field_sip_vertical')->getValue();
   $is_vertical = array_shift($is_vertical)['value'];
@@ -22,7 +23,7 @@ function tal_preprocess_block_single_item_promo($variables, $block) {
   $variables['is_icon'] = FALSE;
   $variables['is_image'] = FALSE;
   $variables['bg_color'] = $background_color_content['value'];
-  $variables['overlay_color'] = $variables['elements']['content']['#block_content']->get('field_bg_color')->value;
+  $variables['overlay_color'] = $block->get('field_bg_color')->value;
 
   if ($is_vertical) {
     $variables['attributes']['class'] .= ' block--vertical';
@@ -44,7 +45,7 @@ function tal_preprocess_block_single_item_promo($variables, $block) {
  */
 function tal_preprocess_block_talk_to_us($variables, $block) {
   // Custom block type helper classes.
-  $variables['overlay_color'] = $variables['elements']['content']['#block_content']->get('field_bg_color')->value;
+  $variables['overlay_color'] = $block->get('field_bg_color')->value;
 
   $image = $block->get('field_bg_image')->referencedEntities();
   $image = array_shift($image);
@@ -67,7 +68,7 @@ function tal_preprocess_block_detail_content_promo($variables, $block) {
     $variables['content_count'] = 'dcp-content-' . count($field_dcp_content);
   }
   // Custom block type helper classes.
-  $variables['overlay_color'] = $variables['elements']['content']['#block_content']->get('field_bg_color')->value;
+  $variables['overlay_color'] = $block->get('field_bg_color')->value;
 
   return $variables;
 }
@@ -77,7 +78,7 @@ function tal_preprocess_block_detail_content_promo($variables, $block) {
  */
 function tal_preprocess_block_passive_recruitment($variables, $block) {
   // Custom block type helper classes.
-  $variables['overlay_color'] = $variables['elements']['content']['#block_content']->get('field_bg_color')->value;
+  $variables['overlay_color'] = $block->get('field_bg_color')->value;
 
   $image = $block->get('field_bg_image')->referencedEntities();
   $image = array_shift($image);
@@ -95,8 +96,8 @@ function tal_preprocess_block_passive_recruitment($variables, $block) {
  * Preprocessor function for banner block type.
  */
 function tal_preprocess_block_banner($variables, $block) {
-  $id = $variables['elements']['content']['#block_content']->get('id')->value;
-  $video_id = $variables['elements']['content']['#block_content']->get('field_simple_text')->value;
+  $id = $block->get('id')->value;
+  $video_id = $block->get('field_simple_text')->value;
   $variables['videos'] = FALSE;
   if (!empty($video_id)) {
     $variables['videos'] = TRUE;
