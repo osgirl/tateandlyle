@@ -10,6 +10,7 @@ dependencies:
     - field.field.block_content.single_item_promo.field_sip_image
     - field.field.block_content.single_item_promo.field_sip_vertical
     - field.field.block_content.single_item_promo.field_tal_link
+    - image.style.promo_174_x_312
   module:
     - image
     - link
@@ -51,7 +52,7 @@ content:
     weight: 2
     label: hidden
     settings:
-      image_style: ''
+      image_style: promo_174_x_312
       image_link: ''
     third_party_settings: {  }
     type: image
