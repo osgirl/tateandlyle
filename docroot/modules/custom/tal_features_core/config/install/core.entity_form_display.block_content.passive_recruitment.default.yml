@@ -23,20 +23,20 @@ bundle: passive_recruitment
 mode: default
 content:
   field_all_jobs_link:
-    weight: 5
+    weight: 6
     settings:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
     type: link_default
   field_bg_color:
-    weight: 4
+    weight: 5
     settings: {  }
     third_party_settings: {  }
     type: options_select
   field_bg_image:
     type: entity_browser_file
-    weight: 3
+    weight: 4
     settings:
       entity_browser: image_browser
       field_widget_edit: true
@@ -47,14 +47,14 @@ content:
       selection_mode: selection_append
     third_party_settings: {  }
   field_description:
-    weight: 1
+    weight: 2
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
     type: text_textarea
   field_icon:
-    weight: 2
+    weight: 3
     settings:
       match_operator: CONTAINS
       size: 60
@@ -63,7 +63,7 @@ content:
     type: entity_reference_autocomplete
   field_pr_recruitements:
     type: entity_reference_paragraphs
-    weight: 6
+    weight: 7
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -72,7 +72,7 @@ content:
       form_display_mode: default
     third_party_settings: {  }
   field_simple_text:
-    weight: 0
+    weight: 1
     settings:
       size: 60
       placeholder: ''
@@ -80,7 +80,7 @@ content:
     type: string_textfield
   info:
     type: string_textfield
-    weight: 7
+    weight: 0
     settings:
       size: 60
       placeholder: ''

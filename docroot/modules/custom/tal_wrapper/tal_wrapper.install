@@ -44,7 +44,9 @@ function tal_wrapper_update_8005() {
 function tal_wrapper_update_8006() {
   // Deleting field_common_names completely.
   $field = FieldStorageConfig::loadByName('node', 'field_common_names');
-  $field->delete();
+  if (!empty($fields)) {
+    $field->delete();
+  }
   // Deleting iframe_code_field from ingredient content.
   $properties = [
     'entity_type' => 'node',
