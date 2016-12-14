@@ -14,13 +14,13 @@ bundle: passive_recruitment
 mode: default
 content:
   field_pr_description:
-    weight: 5
+    weight: 1
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: basic_string
   field_pr_link:
-    weight: 4
+    weight: 2
     label: hidden
     settings:
       trim_length: 80
@@ -31,7 +31,7 @@ content:
     third_party_settings: {  }
     type: link
   field_pr_title:
-    weight: 3
+    weight: 0
     label: hidden
     settings:
       link_to_entity: false

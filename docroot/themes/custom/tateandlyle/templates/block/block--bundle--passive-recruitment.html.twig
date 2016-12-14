@@ -54,7 +54,7 @@
     'clearfix',
   ]
 %}
-<section{{ attributes.addClass(classes) }}>
+<section{{ attributes.addClass(classes) }} style="{{ style }}">
   {{ title_prefix }}
   {% if label %}
     <h2{{ title_attributes.addClass('block-title') }}>{{ label }}</h2>
@@ -62,17 +62,17 @@
   {{ title_suffix }}
 
   {% block content %}
-    <div{{ attributes.addClass([overlay_color, "overlay__block recruitment__block"]) }}>
+    <div class= "{{ overlay_color }} overlay__block recruitment__block">
       <div class="overlay__block--content">
         <div class="component-left">
-        <div class="inline--description">
+        <div class="inline--description inline--icon">
             {{ content.field_icon }}
           </div>
           <div class="inline--description">
             {{ content.field_simple_text }}
             {{ content.field_description }}
           </div>
-          <div class="inline--description">
+          <div class="inline--description inline--button">
             {{ content.field_all_jobs_link}}
           </div>
         </div>

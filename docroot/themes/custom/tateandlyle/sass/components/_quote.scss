@@ -70,7 +70,13 @@
 
 .bg-image,
 .no-bg-image {
-  padding: 55px 20px;
+  padding: 25px 20px;
+  @media (min-width: $screen-sm) {
+    padding: 40px 20px;
+  }
+  @media (min-width: $screen-md) {
+    padding: 50px 20px 67px 20px;
+  }
 }
 
 .bg-image {

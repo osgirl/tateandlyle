@@ -45,9 +45,11 @@
   .block-readmore {
     display: block;
     margin-top: 15px;
+
     @media (min-width: $screen-sm) {
       margin-top: 5px;
     }
+
     @media (min-width: $screen-md) {
       display: table-cell;
       margin-left: 0;
@@ -74,12 +76,14 @@
       height: auto;
       max-height: 180px;
       width: auto;
+
       @media (max-width: $screen-sm-lsp-max) {
         height: auto;
         max-height: 180px;
         width: 100%;
         object-fit: cover;
       }
+
       @media (min-width: $screen-sm) {
         height: 180px;
         margin: 0;
@@ -151,9 +155,11 @@
 
 .item__promo-content {
   padding: 20px;
+
   @media (min-width: $screen-sm) {
     display: table-cell;
   }
+
   @media (min-width: $screen-md) {
     padding: 26px 20px;
   }
