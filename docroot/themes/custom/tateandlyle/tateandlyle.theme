@@ -23,7 +23,7 @@ function tateandlyle_theme_suggestions_block_alter(array &$suggestions, array $v
  * Implements hook_theme_suggestions_HOOK_alter() for field templates.
  */
 function tateandlyle_theme_suggestions_field_alter(array &$suggestions, array $variables) {
-  if ($variables['element']['#field_type'] == 'entity_reference' &&  $variables['element']['#entity_type'] == 'paragraph')  {
+  if ($variables['element']['#field_type'] == 'entity_reference' &&  $variables['element']['#entity_type'] == 'paragraph') {
     $entities = $variables['element']['#items']->referencedEntities();
     $entity = array_shift($entities);
     array_splice($suggestions, 1, 0, 'field__paragraph__field_entity_reference_' . $entity->bundle());
@@ -35,10 +35,16 @@ function tateandlyle_theme_suggestions_field_alter(array &$suggestions, array $v
  */
 function tateandlyle_preprocess_block(&$variables) {
   // Custom block type helper classes.
-  if (isset($variables['elements']['#plugin_id']) && $variables['elements']['#plugin_id'] == 'continue_search') {
+  if (isset($variables['elements']['#plugin_id']) && $variables['elements']['#plugin_id'] == 'continue_or_browse') {
     $text = !empty($variables['content']['#link_text']) ? $variables['content']['#link_text'] : t('All matching ingredients');
     $query = \Drupal::request()->getQueryString();
-    $url = Url::fromUserInput('/search/ingredients/results?' . $query);
+    if (!empty($query)) {
+      $query = '?' . $query;
+    }
+    else {
+      $query = '';
+    }
+    $url = Url::fromUserInput('/search/ingredients' . $query);
     $url->setOption('attributes', array('class' => array('continue-search-link')));
     $variables['link'] = \Drupal::l($text, $url);
     $variables['#cache']['contexts'] = ['url.query_args'];
