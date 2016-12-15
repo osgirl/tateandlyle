@@ -25,3 +25,11 @@
     padding: 7px 14px;
   }
 }
+
+.btn-white-extra-padding {
+  @extend .btn-white;
+  padding: 13px 22px;
+  &:hover {
+    padding: 12px 21px;
+  }
+}
