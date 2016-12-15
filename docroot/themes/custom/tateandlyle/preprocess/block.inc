@@ -9,7 +9,6 @@
  * Preprocessor function for single item promo block type.
  */
 function tal_preprocess_block_single_item_promo($variables, $block) {
-  $variables['bundle'] = $block->bundle();
   // Checks if vertical orientation is enabled in the block.
   $is_vertical = $block->get('field_sip_vertical')->getValue();
   $is_vertical = array_shift($is_vertical)['value'];
