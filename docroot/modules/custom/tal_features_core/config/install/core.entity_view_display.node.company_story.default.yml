@@ -33,7 +33,7 @@ content:
   body:
     type: text_default
     weight: 1
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
   field_author:
