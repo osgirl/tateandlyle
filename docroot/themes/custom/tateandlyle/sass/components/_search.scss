@@ -1,5 +1,5 @@
 .tal-ingredient-finder-wrapper,
-.region-content-bottom {
+.path-search .region-content-bottom {
   @extend %inner-content-width-padding;
   margin: auto;
   clear: both;
@@ -9,63 +9,172 @@
 .tal-ingredient-finder-wrapper {
   .views-exposed-form {
     background: $brand-primary;
-    padding: 30px 28px;
+    padding: 20px 22px;
+
+    @media (min-width: $screen-sm) {
+      padding: 30px 28px;
+    }
 
     .control-label {
       color: $color-white;
       font-size: $font-size-h3;
       font-family: $font-family-sans-serif-Med;
-      padding-right: 44px;
+      margin-bottom: 14px;
+
+      @media (min-width: $screen-sm) {
+        margin-bottom: 0;
+        max-width: 190px;
+        padding-right: 44px;
+      }
+
+      @media (min-width: $screen-md) {
+        max-width: none;
+      }
+    }
+
+    @media (max-width: $screen-xs-max) {
+      position: relative;
+
+      .form-control {
+        margin-right: 45px;
+        padding-right: 45px;
+      }
+
+      .form-actions {
+        bottom: 20px;
+        display: inline-block;
+        position: absolute;
+        right: 22px;
+      }
     }
   }
 
   .page--tal-ingredient-finder-summary {
     @extend .max-width-summary;
+    margin-bottom: 30px;
+  }
+
+  .tal-category-facet-title {
+    font-size: $font-size-h3;
+    margin-bottom: 13px;
+    margin-top: 28px;
+
+    @media (min-width: $screen-sm) {
+      margin-bottom: 50px;
+      margin-top: 38px;
+    }
+
+    @media (min-width: $screen-md) {
+      font-size: $font-size-h2;
+    }
+  }
+
+  .form-inline {
+
+    .input--wrapper {
+      color: $color-white;
+      @media (min-width: $screen-sm) {
+        display: inline-block;
+        position: relative;
+        top: 16px;
+        vertical-align: middle;
+      }
+
+      .input--title {
+        display: none;
+        margin-bottom: 4px;
+        margin-top: 6px;
+        @media (min-width: $screen-sm) {
+          display: block;
+        }
+      }
+    }
+
+    .form-control {
+      height: 40px;
+      border: none;
+      border-radius: 0;
+      @media (min-width: $screen-sm) {
+        min-width: 425px;
+      }
+    }
+  }
+
+  .form-submit {
+    @extend .btn-white;
+    color: $color-white;
+    padding: 7px;
+    font-size: 0;
+
+    .glyphicon {
+      font-size: $font-size-h3;
+    }
+
+    &:hover {
+      box-shadow: none;
+      color: $color-white;
+      padding: 6px;
+    }
   }
 }
 
-.region-content-bottom {
+.path-search .region-content-bottom {
+  margin-bottom: 60px;
+
   @media (min-width: $screen-sm) {
     width: 100%;
     display: table;
   }
 }
 
-.block-facets {
-  @extend .col-sm-4;
-  @media (min-width: $screen-sm) {
-    display: table-cell;
-    float: none;
-    padding-left: 47px;
-    padding-right: 47px;
-    border-right: 1px solid #181818;
-  }
-
-  .block-title {
-    font-size: $font-size-h3;
-    font-family: $font-family-sans-serif-Med;
-  }
-
-  ul {
-    list-style: none;
-    padding-left: 0;
-
-    .facet-item {
-      line-height: 1.8;
-    }
-
-    a {
-      text-decoration: underline;
-    }
-  }
-
-  &:nth-of-type(1) {
+.path-search {
+  .block-facets {
+    @extend .col-sm-4;
     @media (min-width: $screen-sm) {
-      padding-left: 0;
+      border-right: 1px solid #181818;
+      display: table-cell;
+      float: none;
+      padding-left: 19px;
+      padding-right: 19px;
     }
-  }
 
-  &:last-child {
-    border-right: 0;
+    @media (min-width: $screen-md) {
+      padding-left: 47px;
+      padding-right: 47px;
+    }
+
+    .block-title {
+      margin-top: 37px;
+      margin-bottom: 28px;
+      font-size: $font-size-h3;
+      font-family: $font-family-sans-serif-Med;
+      @media (min-width: $screen-sm) {
+        margin-top: 0;
+      }
+    }
+
+    ul {
+      list-style: none;
+      margin-bottom: 0;
+      padding-left: 0;
+
+      .facet-item {
+        line-height: 1.7;
+      }
+
+      a {
+        text-decoration: underline;
+      }
+    }
+
+    &:nth-of-type(1) {
+      @media (min-width: $screen-sm) {
+        padding-left: 0;
+      }
+    }
+
+    &:last-child {
+      border-right: 0;
+    }
   }
 }

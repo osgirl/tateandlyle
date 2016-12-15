@@ -8,7 +8,7 @@ dependencies:
     - system
 id: types
 theme: tateandlyle
-region: content
+region: content_bottom
 weight: 0
 provider: null
 plugin: 'facet_block:types'
