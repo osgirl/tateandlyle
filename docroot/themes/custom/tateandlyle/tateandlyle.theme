@@ -25,9 +25,8 @@ function tateandlyle_theme_suggestions_block_alter(array &$suggestions, array $v
 function tateandlyle_theme_suggestions_field_alter(array &$suggestions, array $variables) {
   if ($variables['element']['#field_type'] == 'entity_reference' &&  $variables['element']['#entity_type'] == 'paragraph')  {
     $entities = $variables['element']['#items']->referencedEntities();
-    foreach ($entities as $entity) {
-      array_splice($suggestions, 1, 0, 'field__paragraph__field_entity_reference_' . $entity->bundle());
-    }
+    $entity = array_shift($entities);
+    array_splice($suggestions, 1, 0, 'field__paragraph__field_entity_reference_' . $entity->bundle());
   }
 }
 
@@ -114,13 +113,12 @@ function tateandlyle_preprocess_field(&$variables) {
 
   if ($variables['element']['#field_type'] == 'entity_reference' &&  $variables['element']['#entity_type'] == 'paragraph')  {
     $entities = $variables['element']['#items']->referencedEntities();
-    foreach ($entities as $entity) {
-      $bundle = $entity->bundle();
-      // Call preprocessor function of different block types.
-      include_once "preprocess/block.inc";
-      if (function_exists('tal_preprocess_block_' . $bundle)) {
-        $variables = call_user_func('tal_preprocess_block_' . $bundle, $variables, $entity);
-      }
+    $entity = array_shift($entities);
+    $bundle = $entity->bundle();
+    // Call preprocessor function of different block types.
+    include_once "preprocess/block.inc";
+    if (function_exists('tal_preprocess_block_' . $bundle)) {
+      $variables = call_user_func('tal_preprocess_block_' . $bundle, $variables, $entity);
     }
   }
 }
