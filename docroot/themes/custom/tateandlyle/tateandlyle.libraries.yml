@@ -36,3 +36,9 @@ frame-manager:
     build/frame-manager.js: {}
   dependencies:
     - core/jquery
+
+addthis-share:
+  js:
+    http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-583ffa2e2d1c4f9a: {}
+  dependencies:
+    - core/jquery

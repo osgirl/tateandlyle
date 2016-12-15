@@ -50,19 +50,24 @@
     'block',
     'block-' ~ configuration.provider|clean_class,
     'block-' ~ plugin_id|clean_class,
+    'block-continue-search',
     'clearfix',
   ]
 %}
 <section{{ attributes.addClass(classes) }}>
-  {{ title_prefix }}
-  {% if label %}
-    <h2{{ title_attributes.addClass('block-title') }}>{{ label }}</h2>
-  {% endif %}
-  {{ title_suffix }}
-  {{ link }}
-  {{ content['#block_description'] }}
-  {% block content %}
-    {{ content }}
-  {% endblock %}
+  <div class="continue__search">
+    {{ title_prefix }}
+    {% if label %}
+      <h2{{ title_attributes.addClass('block-title') }}>{{ label }}</h2>
+    {% endif %}
+    {{ title_suffix }}
+    <div class="continue__search--description">
+      {{ content['#block_description'] }}
+    </div>
+    {{ link }}
+    {% block content %}
+      {{ content }}
+    {% endblock %}
+  </div>
 </section>
 

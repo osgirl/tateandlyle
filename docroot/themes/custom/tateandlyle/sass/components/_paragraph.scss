@@ -105,7 +105,20 @@
     border-top: 2px solid $color-warm-gray;
     color: $gray-base;
     font-size: $font-size-h3;
+    margin-top: 30px;
     padding-top: 30px;
+  }
+
+  .common-names {
+    color: $gray-base;
+    font-family: $font-family-sans-serif-Med;
+    font-size: $font-size-h4;
+    margin-bottom: 20px;
+    @media (min-width: $screen-sm) {
+      font-size: $font-size-h3;
+      margin-bottom: 12px;
+      margin-top: 4px;
+    }
   }
 
   .in--country-count,
@@ -113,7 +126,7 @@
     @extend .h4;
     font-family: $font-family-sans-serif-Med;
     margin-bottom: 2px;
-    margin-top: 14px;
+    margin-top: 18px;
     @media (min-width: $screen-sm) {
       font-family: $font-family-sans-serif;
       font-size: $font-size-h1;
@@ -152,7 +165,15 @@
   clear: both;
   overflow: auto;
   @media (min-width: $screen-sm) {
+    border-right: 1px solid $color-warm-gray;
     clear: none;
+  }
+}
+
+.regions--wrapper {
+  @media (min-width: $screen-sm) {
+    border-right: none;
+    padding-left: 44px;
   }
 }
 

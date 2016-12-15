@@ -44,3 +44,12 @@ h5 {
   clear: both;
   overflow: hidden;
 }
+
+.right__sidebar {
+  padding-left: 30px;
+  padding-right: 30px;
+  @media (min-width: $screen-md) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
