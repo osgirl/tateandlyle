@@ -4,8 +4,10 @@ dependencies:
   config:
     - field.field.node.ingredient.body
     - field.field.node.ingredient.field_hide_title
+    - field.field.node.ingredient.field_image
     - field.field.node.ingredient.field_in_aliases
     - field.field.node.ingredient.field_in_applications
+    - field.field.node.ingredient.field_in_banner
     - field.field.node.ingredient.field_in_common_names
     - field.field.node.ingredient.field_in_misspellings
     - field.field.node.ingredient.field_in_trends_solutions
@@ -47,6 +49,14 @@ content:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
+  field_in_banner:
+    type: entity_reference_entity_view
+    weight: 0
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
   field_in_common_names:
     weight: 6
     label: hidden
@@ -87,3 +97,4 @@ content:
     third_party_settings: {  }
 hidden:
   field_hide_title: true
+  field_image: true
