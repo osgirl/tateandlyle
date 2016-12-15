@@ -11,7 +11,7 @@ field_name: field_image
 entity_type: node
 bundle: company_story
 label: Image
-description: ''
+description: 'Image for search result display.'
 required: false
 translatable: true
 default_value: {  }

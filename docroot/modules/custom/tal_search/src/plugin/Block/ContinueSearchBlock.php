@@ -9,8 +9,8 @@ use Drupal\Core\Form\FormStateInterface;
  * Provides continue search block for search page.
  *
  * @Block(
- *   id = "continue_search",
- *   admin_label = @Translation("Continue search"),
+ *   id = "continue_or_browse",
+ *   admin_label = @Translation("Continue Search or Browse Ingredient"),
  *   category = @Translation("Blocks")
  * )
  */
