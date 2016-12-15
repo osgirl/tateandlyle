@@ -48,7 +48,6 @@ modules:
     ci:
         enable: {  }
         uninstall:
-            - acquia_connector
             - shield
     dev:
         enable:
