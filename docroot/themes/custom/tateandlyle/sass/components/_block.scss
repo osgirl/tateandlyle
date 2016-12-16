@@ -12,6 +12,19 @@
     .field--name-field-simple-summary {
       color: $gray-dark;
     }
+
+    .field--name-field-simple-text a:hover {
+      color: $brand-primary;
+      opacity: 1;
+    }
+  }
+
+  .field--name-field-banner-title,
+  .block-title {
+
+    &::before {
+      background-color: $gray-base;
+    }
   }
 }
 

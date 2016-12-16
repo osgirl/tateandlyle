@@ -10,7 +10,8 @@
     padding-bottom: 100px;
   }
 
-  .field--name-field-banner-title {
+  .field--name-field-banner-title,
+  .block-title {
     @extend %title-border-top;
     font-size: $font-size-h2;
     font-family: $font-family-sans-serif-Med;
@@ -29,6 +30,7 @@
 
   .field--name-field-simple-text {
     color: inherit;
+    margin-bottom: 16px;
     margin-top: 0;
 
     @media (max-width: $screen-sm-max) {
@@ -52,10 +54,7 @@
   }
 
   .field--name-field-file-icon {
-    margin-bottom: 5px;
-    @media (min-width: $screen-sm) {
-      margin-bottom: 20px;
-    }
+    margin-bottom: 20px;
 
     img {
       max-width: 38px;
@@ -136,3 +135,56 @@
   }
 }
 
+.dcp-content-4 {
+
+  @media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+    padding: 15px 63px 0 63px;
+
+    .field--name-field-dcp-content-section > .field--item {
+      border-right: none;
+      display: block;
+      float: left;
+      max-width: none;
+      padding: 10px 44px;
+      padding-bottom: 53px;
+      width: 50%;
+    }
+
+    .field--name-field-simple-text {
+      margin-bottom: 7px;
+    }
+  }
+
+  .field--name-field-banner-title,
+  .block-title {
+    margin-bottom: 10px;
+    @media (min-width: $screen-sm) {
+      margin-bottom: 30px;
+    }
+    @media (min-width: $screen-md) {
+      margin-bottom: 77px;
+    }
+  }
+
+  .field--name-field-simple-text {
+    margin-bottom: 5px;
+
+    @media (min-width: $screen-md) {
+      margin-bottom: 16px;
+      min-height: 52px;
+    }
+  }
+
+  .field--name-field-dcp-content-section > .field--item {
+    @media (min-width: $screen-md) {
+      padding: 10px 38px;
+    }
+  }
+
+  .field--name-field-dcp-link {
+    margin-top: 5px;
+    @media (min-width: $screen-sm) {
+      margin-top: 22px;
+    }
+  }
+}

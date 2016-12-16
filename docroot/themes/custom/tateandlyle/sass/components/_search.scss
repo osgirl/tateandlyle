@@ -1,9 +1,24 @@
 .tal-ingredient-finder-wrapper,
-.path-search .region-content-bottom {
+.path-search .content__bottom {
   @extend %inner-content-width-padding;
   margin: auto;
   clear: both;
   overflow: hidden;
+}
+
+.path-search .content__bottom {
+  .col-md-9 {
+    @media (min-width: $screen-md) {
+      padding-right: 10px;
+      width: 70%;
+    }
+  }
+
+  .col-md-3 {
+    @media (min-width: $screen-md) {
+      width: 30%;
+    }
+  }
 }
 
 .tal-ingredient-finder-wrapper {
@@ -51,7 +66,11 @@
 
   .page--tal-ingredient-finder-summary {
     @extend .max-width-summary;
+    display: none;
     margin-bottom: 30px;
+    @media (min-width: $screen-sm) {
+      display: block;
+    }
   }
 
   .tal-category-facet-title {
