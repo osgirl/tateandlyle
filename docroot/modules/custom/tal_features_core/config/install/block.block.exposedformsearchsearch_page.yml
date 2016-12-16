@@ -7,8 +7,6 @@ dependencies:
     - facets
     - system
     - views
-  theme:
-    - tateandlyle
 id: exposedformsearchsearch_page
 theme: tateandlyle
 region: header
