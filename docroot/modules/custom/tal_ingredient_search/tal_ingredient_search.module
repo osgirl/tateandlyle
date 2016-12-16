@@ -41,7 +41,7 @@ function tal_ingredient_search_form_views_exposed_form_alter(&$form, FormStateIn
     // Update the label with the node count value.
     $count = \Drupal::state()->get('tal_ingredient_search.node_ingredient_count', 0);
 
-    $form['#info']['filter-search_api_fulltext']['label'] = $form['#info']['filter-search_api_fulltext']['label'] . ' ' . \Drupal::translation()->formatPlural($count, '@count ingredient', t('@count ingredients'));
+    $form['#info']['filter-search_api_fulltext']['label'] = $form['#info']['filter-search_api_fulltext']['label'] . ' ' . \Drupal::translation()->formatPlural($count, '@count ingredient', t('@count ingredients:'));
 
     // Add a placeholder text to the search text field.
     $form['search_api_fulltext']['#attributes'] = array('placeholder' => t('Ingredient name here…'));
