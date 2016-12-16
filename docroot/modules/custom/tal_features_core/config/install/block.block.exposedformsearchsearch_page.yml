@@ -1,23 +1,26 @@
 langcode: en
 status: true
 dependencies:
+  config:
+    - views.view.search
   module:
     - facets
     - system
-    - tal_search
-id: continueorbrowse
+    - views
+  theme:
+    - tateandlyle
+id: exposedformsearchsearch_page
 theme: tateandlyle
-region: sidebar_second
-weight: -9
+region: header
+weight: 0
 provider: null
-plugin: continue_or_browse
+plugin: 'views_exposed_filter_block:search-search_page'
 settings:
-  id: continue_or_browse
-  label: 'Continue search'
-  provider: tal_search
+  id: 'views_exposed_filter_block:search-search_page'
+  label: ''
+  provider: views
   label_display: visible
-  block_description: 'View the full ingredient results in our ingredient finder.'
-  link_text: 'All matching ingredients'
+  views_label: ''
 visibility:
   other_facet:
     id: other_facet

@@ -105,6 +105,16 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_in_misspellings
+  changed:
+    label: Changed
+    datasource_id: 'entity:node'
+    property_path: changed
+    type: date
+  type:
+    label: 'Content type'
+    datasource_id: 'entity:node'
+    property_path: type
+    type: string
 processor_settings:
   add_url:
     plugin_id: add_url
@@ -230,6 +240,7 @@ datasource_settings:
       bundles:
         default: false
         selected:
+          - company_story
           - ingredient
       languages:
         default: false
