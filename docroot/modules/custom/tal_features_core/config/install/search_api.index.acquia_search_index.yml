@@ -47,7 +47,7 @@ field_settings:
       config:
         - field.storage.node.field_in_applications
   field_in_trends_solutions:
-    label: 'Trends && solutions'
+    label: 'Trends & solutions'
     datasource_id: 'entity:node'
     property_path: field_in_trends_solutions
     type: string
