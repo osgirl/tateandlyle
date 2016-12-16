@@ -3,7 +3,7 @@ status: true
 id: tateandlyle_local_actions
 theme: tateandlyle
 region: content
-weight: -3
+weight: -6
 provider: null
 plugin: local_actions_block
 settings:

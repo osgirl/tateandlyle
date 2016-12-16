@@ -45,12 +45,17 @@ display:
           sort_asc_label: Asc
           sort_desc_label: Desc
       pager:
-        type: mini
+        type: full
         options:
           items_per_page: 10
           offset: 0
           id: 0
           total_pages: null
+          tags:
+            previous: ‹‹
+            next: ››
+            first: '« First'
+            last: 'Last »'
           expose:
             items_per_page: false
             items_per_page_label: 'Items per page'
@@ -59,13 +64,15 @@ display:
             items_per_page_options_all_label: '- All -'
             offset: false
             offset_label: Offset
-          tags:
-            previous: ‹‹
-            next: ››
+          quantity: 9
       style:
         type: default
       row:
         type: search_api
+        options:
+          view_modes:
+            'entity:node':
+              ingredient: search_result
       fields:
         search_api_language:
           table: search_api_index_acquia_search_index
@@ -136,7 +143,7 @@ display:
           expose:
             operator_id: search_api_fulltext_op
             label: Search
-            description: 'Use ingredient names, brands, types, scientific names etc.'
+            description: ''
             use_operator: false
             operator: search_api_fulltext_op
             identifier: search_api_fulltext
@@ -147,19 +154,21 @@ display:
               authenticated: authenticated
               anonymous: '0'
               administrator: '0'
-              page_creator: '0'
               layout_manager: '0'
-              page_reviewer: '0'
-              landing_page_creator: '0'
-              landing_page_reviewer: '0'
               media_creator: '0'
               media_manager: '0'
+              landing_page_creator: '0'
+              landing_page_reviewer: '0'
+              page_creator: '0'
+              page_reviewer: '0'
               company_story_creator: '0'
               company_story_reviewer: '0'
               contact_creator: '0'
               contact_reviewer: '0'
               icon_creator: '0'
               icon_reviewer: '0'
+              iframe_content_creator: '0'
+              iframe_content_reviewer: '0'
               ingredient_creator: '0'
               ingredient_reviewer: '0'
           is_grouped: false
@@ -174,12 +183,52 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
+          parse_mode: terms
           min_length: 3
           fields:
             body: body
             title: title
+            field_in_aliases: field_in_aliases
+            field_in_common_names: field_in_common_names
+            field_in_misspellings: field_in_misspellings
           plugin_id: search_api_fulltext
-      sorts: {  }
+      sorts:
+        created:
+          id: created
+          table: search_api_index_acquia_search_index
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: DESC
+          exposed: true
+          expose:
+            label: 'Published date'
+          plugin_id: search_api
+        title:
+          id: title
+          table: search_api_index_acquia_search_index
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: true
+          expose:
+            label: 'Alphabetical order'
+          plugin_id: search_api
+        search_api_relevance:
+          id: search_api_relevance
+          table: search_api_index_acquia_search_index
+          field: search_api_relevance
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: DESC
+          exposed: true
+          expose:
+            label: 'Best Match'
+          plugin_id: search_api
       title: 'Ingredient finder'
       header:
         area:
@@ -195,6 +244,16 @@ display:
             value: 'Our extraordinary ingredients are a product of scientific and technical expertise, meticulous research and innovation and listening to and working with our customers.'
             format: rich_text
           plugin_id: text
+        result:
+          id: result
+          table: views
+          field: result
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          content: "<div class=\"tal--ingredient-search-results-total-page\"><b>@total search results</b></div>\n<div class=\"tal--ingredient-search-results-current-page-number\">Showing @start to @end<div>"
+          plugin_id: result
       footer: {  }
       empty: {  }
       relationships: {  }

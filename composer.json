@@ -99,6 +99,9 @@
             "drupal/paragraphs": {
                 "Field Group not working on node edit inside paragraph": "https://www.drupal.org/files/issues/field_group_not_working-2675136-53.patch",
                 "Empty required fields not providing meaningful error messages": "https://www.drupal.org/files/issues/empty-required-error-message-2788607-17.patch"
+            },
+            "drupal/search_api": {
+                "search_api_node_grants is a reserved value and cannot be used as the machine name of a normal field": "https://www.drupal.org/files/issues/2761749-12--db_defaults_node_access_field_id.patch"
             }
         },
         "drupal-scaffold": {

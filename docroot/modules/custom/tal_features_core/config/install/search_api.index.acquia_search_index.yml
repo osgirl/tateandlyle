@@ -6,6 +6,9 @@ dependencies:
     - field.storage.node.field_in_applications
     - field.storage.node.field_in_trends_solutions
     - field.storage.node.field_in_types
+    - field.storage.node.field_in_aliases
+    - field.storage.node.field_in_common_names
+    - field.storage.node.field_in_misspellings
     - search_api.server.acquia_search_server
   module:
     - search_api
@@ -15,6 +18,13 @@ name: 'Acquia Search Solr Index'
 description: ''
 read_only: false
 field_settings:
+  node_grants:
+    label: 'Node access information'
+    property_path: node_grants
+    type: string
+    indexed_locked: true
+    type_locked: true
+    hidden: true
   body:
     label: Body
     datasource_id: 'entity:node'
@@ -66,13 +76,35 @@ field_settings:
     type: integer
     indexed_locked: true
     type_locked: true
-  search_api_node_grants:
-    label: 'Node access information'
-    property_path: search_api_node_grants
-    type: string
-    indexed_locked: true
-    type_locked: true
-    hidden: true
+  created:
+    label: 'Authored on'
+    datasource_id: 'entity:node'
+    property_path: created
+    type: date
+  field_in_aliases:
+    label: Aliases
+    datasource_id: 'entity:node'
+    property_path: field_in_aliases
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_in_aliases
+  field_in_common_names:
+    label: 'Common names'
+    datasource_id: 'entity:node'
+    property_path: field_in_common_names
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_in_common_names
+  field_in_misspellings:
+    label: Misspellings
+    datasource_id: 'entity:node'
+    property_path: field_in_misspellings
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_in_misspellings
 processor_settings:
   add_url:
     plugin_id: add_url

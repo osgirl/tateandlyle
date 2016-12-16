@@ -3,7 +3,7 @@ status: true
 id: tateandlyle_page_title
 theme: tateandlyle
 region: content
-weight: -6
+weight: -9
 provider: null
 plugin: page_title_block
 settings:
