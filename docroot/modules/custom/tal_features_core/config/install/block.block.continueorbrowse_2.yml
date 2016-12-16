@@ -8,7 +8,7 @@ dependencies:
 id: continueorbrowse_2
 theme: tateandlyle
 region: sidebar_second
-weight: -7
+weight: -8
 provider: null
 plugin: continue_or_browse
 settings:
@@ -27,6 +27,6 @@ visibility:
     context_mapping: {  }
   request_path:
     id: request_path
-    pages: search/ingredient/results
+    pages: /search/ingredient/results
     negate: false
     context_mapping: {  }
