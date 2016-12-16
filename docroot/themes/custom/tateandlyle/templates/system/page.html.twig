@@ -111,6 +111,11 @@
         {% endblock %}
       {% endif %}
 
+      {# Content Top #}
+      {% block content_top %}
+          {{ page.content_top }}
+      {% endblock %}
+
       {# Sidebar First #}
       {% if page.sidebar_first %}
         {% block sidebar_first %}
@@ -120,7 +125,41 @@
         {% endblock %}
       {% endif %}
 
+      {# Highlighted #}
+      {% if page.highlighted %}
+        {% block highlighted %}
+          <div class="highlighted">{{ page.highlighted }}</div>
+        {% endblock %}
+      {% endif %}
+
+      {# Breadcrumbs #}
+      {% if breadcrumb %}
+        {% block breadcrumb %}
+          {{ breadcrumb }}
+        {% endblock %}
+      {% endif %}
+
+      {# Action Links #}
+      {% if action_links %}
+        {% block action_links %}
+          <ul class="action-links">{{ action_links }}</ul>
+        {% endblock %}
+      {% endif %}
+
+      {# Help #}
+      {% if page.help %}
+        {% block help %}
+          {{ page.help }}
+        {% endblock %}
+      {% endif %}
+
       {# Content #}
+      {% block content %}
+        <a id="main-content"></a>
+        {{ page.content }}
+      {% endblock %}
+
+      {# Content Bottom #}
       {%
         set content_classes = [
           page.sidebar_first and page.sidebar_second ? 'col-md-6',
@@ -129,57 +168,25 @@
           page.sidebar_first is empty and page.sidebar_second is empty ? 'col-sm-12'
         ]
       %}
-      <section{{ content_attributes.addClass(content_classes) }}>
 
-        {# Highlighted #}
-        {% if page.highlighted %}
-          {% block highlighted %}
-            <div class="highlighted">{{ page.highlighted }}</div>
+      <div class="content__bottom">
+        <section{{ content_attributes.addClass(content_classes) }}>
+
+          {# Content Bottom #}
+          {% block content_bottom %}
+            {{ page.content_bottom }}
+          {% endblock %}
+        </section>
+
+        {# Sidebar Second #}
+        {% if page.sidebar_second %}
+          {% block sidebar_second %}
+            <aside class="col-md-3 right__sidebar" role="complementary">
+              {{ page.sidebar_second }}
+            </aside>
           {% endblock %}
         {% endif %}
-
-        {# Breadcrumbs #}
-        {% if breadcrumb %}
-          {% block breadcrumb %}
-            {{ breadcrumb }}
-          {% endblock %}
-        {% endif %}
-
-        {# Action Links #}
-        {% if action_links %}
-          {% block action_links %}
-            <ul class="action-links">{{ action_links }}</ul>
-          {% endblock %}
-        {% endif %}
-
-        {# Help #}
-        {% if page.help %}
-          {% block help %}
-            {{ page.help }}
-          {% endblock %}
-        {% endif %}
-
-
-        {# Content #}
-        {% block content %}
-          <a id="main-content"></a>
-          {{ page.content }}
-        {% endblock %}
-
-        {# Content Bottom #}
-        {% block content_bottom %}
-          {{ page.content_bottom }}
-        {% endblock %}
-      </section>
-
-      {# Sidebar Second #}
-      {% if page.sidebar_second %}
-        {% block sidebar_second %}
-          <aside class="col-md-3 right__sidebar" role="complementary">
-            {{ page.sidebar_second }}
-          </aside>
-        {% endblock %}
-      {% endif %}
+      </div>
     </div>
   </div>
 {% endblock %}
