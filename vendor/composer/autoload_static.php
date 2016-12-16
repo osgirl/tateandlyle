@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit0c4b76fe1ff2ec469e6f68938489dd0b
+class ComposerStaticInit9c9b99ec671855f3192c915e9e412b35
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -541,6 +541,10 @@ class ComposerStaticInit0c4b76fe1ff2ec469e6f68938489dd0b
         'Acquia\\Blt\\Tests\\BltTestBase' => __DIR__ . '/..' . '/acquia/blt/tests/phpunit/src/BltTestBase.php',
         'Acquia\\Blt\\Update\\Updater' => __DIR__ . '/..' . '/acquia/blt/src/Update/Updater.php',
         'Acquia\\Blt\\Update\\Updates' => __DIR__ . '/..' . '/acquia/blt/src/Update/Updates.php',
+        'Acquia\\LightningExtension\\Context\\DisplayModeContext' => __DIR__ . '/../..' . '/docroot/profiles/contrib/lightning/src/LightningExtension/Context/DisplayModeContext.php',
+        'Acquia\\LightningExtension\\Context\\UndoContext' => __DIR__ . '/../..' . '/docroot/profiles/contrib/lightning/src/LightningExtension/Context/UndoContext.php',
+        'Acquia\\LightningExtension\\Context\\UtilityContext' => __DIR__ . '/../..' . '/docroot/profiles/contrib/lightning/src/LightningExtension/Context/UtilityContext.php',
+        'Acquia\\Lightning\\UpgradeBuild' => __DIR__ . '/../..' . '/docroot/profiles/contrib/lightning/src/UpgradeBuild.php',
         'AdhocTask' => __DIR__ . '/..' . '/phing/phing/classes/phing/tasks/system/AdhocTask.php',
         'AdhocTaskdefTask' => __DIR__ . '/..' . '/phing/phing/classes/phing/tasks/system/AdhocTaskdefTask.php',
         'AdhocTypedefTask' => __DIR__ . '/..' . '/phing/phing/classes/phing/tasks/system/AdhocTypedefTask.php',
@@ -6445,10 +6449,10 @@ class ComposerStaticInit0c4b76fe1ff2ec469e6f68938489dd0b
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit0c4b76fe1ff2ec469e6f68938489dd0b::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit0c4b76fe1ff2ec469e6f68938489dd0b::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit0c4b76fe1ff2ec469e6f68938489dd0b::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit0c4b76fe1ff2ec469e6f68938489dd0b::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit9c9b99ec671855f3192c915e9e412b35::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit9c9b99ec671855f3192c915e9e412b35::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit9c9b99ec671855f3192c915e9e412b35::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit9c9b99ec671855f3192c915e9e412b35::$classMap;
 
         }, null, ClassLoader::class);
     }

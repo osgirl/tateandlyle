@@ -5,15 +5,18 @@ dependencies:
     - core.entity_view_mode.node.search_result
     - field.field.node.ingredient.body
     - field.field.node.ingredient.field_hide_title
+    - field.field.node.ingredient.field_image
     - field.field.node.ingredient.field_in_aliases
     - field.field.node.ingredient.field_in_applications
+    - field.field.node.ingredient.field_in_banner
+    - field.field.node.ingredient.field_in_common_names
     - field.field.node.ingredient.field_in_misspellings
     - field.field.node.ingredient.field_in_trends_solutions
     - field.field.node.ingredient.field_in_types
     - field.field.node.ingredient.field_ingredients_content
     - node.type.ingredient
   module:
-    - entity_reference_revisions
+    - image
     - panelizer
     - text
     - user
@@ -29,45 +32,33 @@ bundle: ingredient
 mode: search_result
 content:
   body:
-    weight: 106
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    type: text_default
-  field_in_applications:
-    weight: 102
+    type: text_summary_or_trimmed
+    weight: 1
     label: hidden
     settings:
-      link: true
+      trim_length: 174
     third_party_settings: {  }
-    type: entity_reference_label
-  field_in_trends_solutions:
-    weight: 103
-    label: hidden
+  field_image:
+    type: image
+    weight: 2
+    label: above
     settings:
-      link: true
+      image_style: ''
+      image_link: ''
     third_party_settings: {  }
-    type: entity_reference_label
-  field_in_types:
-    weight: 101
+  field_in_common_names:
+    type: basic_string
+    weight: 0
     label: hidden
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-  field_ingredients_content:
-    type: entity_reference_revisions_entity_view
-    weight: 104
-    label: hidden
-    settings:
-      view_mode: default
-      link: ''
-    third_party_settings: {  }
-  links:
-    weight: 100
     settings: {  }
     third_party_settings: {  }
 hidden:
   field_hide_title: true
   field_in_aliases: true
+  field_in_applications: true
+  field_in_banner: true
   field_in_misspellings: true
+  field_in_trends_solutions: true
+  field_in_types: true
+  field_ingredients_content: true
+  links: true

@@ -131,7 +131,7 @@ class ContentAccess extends ProcessorPluginBase {
         'processor_id' => $this->getPluginId(),
         'hidden' => TRUE,
       );
-      $properties['search_api_node_grants'] = new ProcessorProperty($definition);
+      $properties['node_grants'] = new ProcessorProperty($definition);
     }
 
     return $properties;
@@ -163,7 +163,7 @@ class ContentAccess extends ProcessorPluginBase {
 
     $fields = $item->getFields();
     $fields = $this->getFieldsHelper()
-      ->filterForPropertyPath($fields, NULL, 'search_api_node_grants');
+      ->filterForPropertyPath($fields, NULL, 'node_grants');
     foreach ($fields as $field) {
       // Collect grant information for the node.
       if (!$node->access('view', $anonymous_user)) {
@@ -197,7 +197,7 @@ class ContentAccess extends ProcessorPluginBase {
       }
     }
 
-    $field = $this->ensureField(NULL, 'search_api_node_grants', 'string');
+    $field = $this->ensureField(NULL, 'node_grants', 'string');
     $field->setHidden();
   }
 
@@ -351,7 +351,7 @@ class ContentAccess extends ProcessorPluginBase {
     $access_conditions->addConditionGroup($enabled_conditions);
 
     // Filter by the user's node access grants.
-    $node_grants_field = $this->findField(NULL, 'search_api_node_grants', 'string');
+    $node_grants_field = $this->findField(NULL, 'node_grants', 'string');
     if (!$node_grants_field) {
       return;
     }

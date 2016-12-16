@@ -3,7 +3,7 @@ status: true
 id: tateandlyle_local_tasks
 theme: tateandlyle
 region: content
-weight: -5
+weight: -8
 provider: null
 plugin: local_tasks_block
 settings:

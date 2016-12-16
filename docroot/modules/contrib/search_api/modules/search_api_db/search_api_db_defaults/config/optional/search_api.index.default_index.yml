@@ -62,7 +62,7 @@ field_settings:
   node_grants:
     label: 'Node access information'
     type: string
-    property_path: search_api_node_grants
+    property_path: node_grants
     index_locked: true
     type_locked: true
     hidden: true

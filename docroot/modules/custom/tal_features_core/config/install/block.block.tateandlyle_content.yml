@@ -6,7 +6,7 @@ dependencies:
 id: tateandlyle_content
 theme: tateandlyle
 region: content
-weight: -2
+weight: -4
 provider: null
 plugin: system_main_block
 settings:

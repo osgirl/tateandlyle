@@ -1,12 +1,12 @@
 {
     "name": "drupal/lightning",
-    "description": "The best of Drupal, curated by Acquia",
+    "description": "The best of Drupal, curated by Acquia.",
     "type": "drupal-profile",
     "license": "GPL-2.0+",
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require-dev": {
-        "drush/drush": "^9.0",
+        "drush/drush": "^8.0",
         "drupal/drupal-extension": "^3.2",
         "drupal-composer/drupal-scaffold": "^2.0.0",
         "behat/behat": "^3.0",
@@ -20,7 +20,8 @@
         "symfony/css-selector": "~2.8",
         "drupal/devel": "^8.0.0",
         "squizlabs/php_codesniffer": "2.*",
-        "se/selenium-server-standalone": "^2.53"
+        "se/selenium-server-standalone": "^2.53",
+        "composer/composer": "^1.2"
     },
     "config": {
         "bin-dir": "bin/"
@@ -40,12 +41,16 @@
             "./bin/phing push",
             "./bin/phing package"
         ],
+        "upgrade-build": "Acquia\\Lightning\\UpgradeBuild::execute",
         "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold"
     },
     "extra": {
+        "packagist.drupal-composer.org": {
+            "discover-make-files": false
+        },
         "installer-paths": {
             "docroot/core": [
-                "drupal/core"
+                "type:drupal-core"
             ],
             "modules/contrib/{$name}": [
                 "type:drupal-module"
@@ -60,7 +65,7 @@
                 "2700597 - Explicitly set the Panels IPE URL root when saving in Panelizer":
                 "https://www.drupal.org/files/issues/panelizer-ipe-url-root-handling.patch",
                 "2664682 - Implement admin UI for editing Panelizer defaults":
-                "https://www.drupal.org/files/issues/2664682-89.patch",
+                "https://www.drupal.org/files/issues/panelizer-2664682-93.patch",
                 "2793841 - Properly integrate with Panels IPE":
                 "https://www.drupal.org/files/issues/panelizer-panels-ipe-tempstore-id.patch"
             },
@@ -80,14 +85,6 @@
                 "2780691 - Incorrect EntityRevision paramconverter service definition causes a fatal error":
                 "https://www.drupal.org/files/issues/workbench_moderation-invalid_service_definition.patch"
             },
-            "drush/drush": {
-                "Adding composer.json support to make-convert command":
-                "https://github.com/drush-ops/drush/commit/ce82b946d49b09cd33da5ca84feb24a6c35f8f8e.patch",
-                "The batch table may not exist by the time _drush_backend_batch_process() is called in 8.x-1.x":
-                "https://github.com/drush-ops/drush/commit/c389aebb7d3e26ff0f544684d8b3ec3528107e55.diff",
-                "Fix composer branch-alias constraint":
-                "https://github.com/drush-ops/drush/commit/83436c8ea505223a1868dce130d4ca1b4e558711.diff"
-            },
             "drupal/multiversion": {
                 "2822915 - Migration source plugin makes bad assumptions that can lead to data loss":
                 "https://www.drupal.org/files/issues/2822915-2.patch",
@@ -102,7 +99,13 @@
             },
             "drupal/core": {
                 "2652138 - ImageFormatter does not support SVGs":
-                "https://www.drupal.org/files/issues/2652138-28.patch"
+                "https://www.drupal.org/files/issues/2652138-28.patch",
+                "2765525 - Add AJAX command to add style sheets to CKEditor instances":
+                "https://www.drupal.org/files/issues/2765525-30-8.2.x.patch"
+            },
+            "drupal/entity_embed": {
+                "2832504 - Send the CKEditor instance ID to the embed.preview route":
+                "https://www.drupal.org/files/issues/2832504-2.patch"
             }
         }
     },
@@ -141,6 +144,9 @@
     "autoload": {
         "psr-4": {
             "Acquia\\LightningExtension\\": "src/LightningExtension"
-        }
+        },
+        "classmap": [
+            "src/UpgradeBuild.php"
+        ]
     }
 }

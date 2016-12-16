@@ -1,0 +1,33 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.ingredient_finder
+  module:
+    - facets
+    - system
+    - views
+id: exposedformingredient_finderpage_1
+theme: tateandlyle
+region: content
+weight: -5
+provider: null
+plugin: 'views_exposed_filter_block:ingredient_finder-page_1'
+settings:
+  id: 'views_exposed_filter_block:ingredient_finder-page_1'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+visibility:
+  other_facet:
+    id: other_facet
+    facets: ''
+    facet_value: ''
+    negate: false
+    context_mapping: {  }
+  request_path:
+    id: request_path
+    pages: /search/ingredients/results
+    negate: false
+    context_mapping: {  }

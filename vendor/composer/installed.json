@@ -1790,17 +1790,17 @@
     },
     {
         "name": "phpunit/phpunit",
-        "version": "5.7.3",
-        "version_normalized": "5.7.3.0",
+        "version": "5.7.4",
+        "version_normalized": "5.7.4.0",
         "source": {
             "type": "git",
             "url": "https://github.com/sebastianbergmann/phpunit.git",
-            "reference": "de164acc2f2bb0b79beb892a36260264b2a03233"
+            "reference": "af91da3f2671006ff5d0628023de3b7ac4d1ef09"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/de164acc2f2bb0b79beb892a36260264b2a03233",
-            "reference": "de164acc2f2bb0b79beb892a36260264b2a03233",
+            "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/af91da3f2671006ff5d0628023de3b7ac4d1ef09",
+            "reference": "af91da3f2671006ff5d0628023de3b7ac4d1ef09",
             "shasum": ""
         },
         "require": {
@@ -1821,7 +1821,7 @@
             "sebastian/diff": "~1.2",
             "sebastian/environment": "^1.3.4 || ^2.0",
             "sebastian/exporter": "~2.0",
-            "sebastian/global-state": "~1.0",
+            "sebastian/global-state": "^1.0 || ^2.0",
             "sebastian/object-enumerator": "~2.0",
             "sebastian/resource-operations": "~1.0",
             "sebastian/version": "~1.0|~2.0",
@@ -1837,7 +1837,7 @@
             "ext-xdebug": "*",
             "phpunit/php-invoker": "~1.1"
         },
-        "time": "2016-12-09 02:48:53",
+        "time": "2016-12-13 16:19:44",
         "bin": [
             "phpunit"
         ],
@@ -1969,17 +1969,17 @@
     },
     {
         "name": "twig/twig",
-        "version": "v1.28.2",
-        "version_normalized": "1.28.2.0",
+        "version": "v1.29.0",
+        "version_normalized": "1.29.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/twigphp/Twig.git",
-            "reference": "b22ce0eb070e41f7cba65d78fe216de29726459c"
+            "reference": "74f723e542368ca2080b252740be5f1113ebb898"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/twigphp/Twig/zipball/b22ce0eb070e41f7cba65d78fe216de29726459c",
-            "reference": "b22ce0eb070e41f7cba65d78fe216de29726459c",
+            "url": "https://api.github.com/repos/twigphp/Twig/zipball/74f723e542368ca2080b252740be5f1113ebb898",
+            "reference": "74f723e542368ca2080b252740be5f1113ebb898",
             "shasum": ""
         },
         "require": {
@@ -1989,11 +1989,11 @@
             "symfony/debug": "~2.7",
             "symfony/phpunit-bridge": "~3.2@dev"
         },
-        "time": "2016-11-23 18:41:40",
+        "time": "2016-12-13 17:28:18",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "1.28-dev"
+                "dev-master": "1.29-dev"
             }
         },
         "installation-source": "dist",
@@ -3695,29 +3695,29 @@
     },
     {
         "name": "drupal/coder",
-        "version": "8.2.9",
-        "version_normalized": "8.2.9.0",
+        "version": "8.2.10",
+        "version_normalized": "8.2.10.0",
         "source": {
             "type": "git",
             "url": "https://git.drupal.org/project/coder",
-            "reference": "b08682bd939cf7d3ac7034bee792aa17f80e19d7"
+            "reference": "c835ff5c1733676fe0d3f3b861e814d570baaa6f"
         },
         "dist": {
             "type": "zip",
-            "url": "https://ftp.drupal.org/files/projects/coder-8.x-2.9.zip",
-            "reference": "b08682bd939cf7d3ac7034bee792aa17f80e19d7",
+            "url": "https://ftp.drupal.org/files/projects/coder-8.x-2.10.zip",
+            "reference": null,
             "shasum": null
         },
         "require": {
             "ext-mbstring": "*",
             "php": ">=5.4.0",
-            "squizlabs/php_codesniffer": ">=2.7.0",
+            "squizlabs/php_codesniffer": ">=2.7.0 <3.0",
             "symfony/yaml": ">=2.0.0"
         },
         "require-dev": {
             "phpunit/phpunit": ">=3.7"
         },
-        "time": "2016-09-17 16:49:15",
+        "time": "2016-12-09 21:57:53",
         "type": "library",
         "installation-source": "dist",
         "notification-url": "https://packagist.drupal-composer.org/downloads/",
@@ -5567,7 +5567,8 @@
         "extra": {
             "patches_applied": {
                 "Ignore front end vendor folders to improve directory search performance": "https://www.drupal.org/files/issues/ignore_front_end_vendor-2329453-116.patch",
-                "2652138 - ImageFormatter does not support SVGs": "https://www.drupal.org/files/issues/2652138-28.patch"
+                "2652138 - ImageFormatter does not support SVGs": "https://www.drupal.org/files/issues/2652138-28.patch",
+                "2765525 - Add AJAX command to add style sheets to CKEditor instances": "https://www.drupal.org/files/issues/2765525-30-8.2.x.patch"
             }
         },
         "installation-source": "dist",
@@ -5595,17 +5596,17 @@
     },
     {
         "name": "drupal/acsf",
-        "version": "8.1.33",
-        "version_normalized": "8.1.33.0",
+        "version": "8.1.34",
+        "version_normalized": "8.1.34.0",
         "source": {
             "type": "git",
             "url": "https://git.drupal.org/project/acsf",
-            "reference": "424bbf7be91b366556548210c7d1abebebcd7169"
+            "reference": "3b78754799284ea5e5ee2cae0e251333ebc343d2"
         },
         "dist": {
             "type": "zip",
-            "url": "https://ftp.drupal.org/files/projects/acsf-8.x-1.33.zip",
-            "reference": "424bbf7be91b366556548210c7d1abebebcd7169",
+            "url": "https://ftp.drupal.org/files/projects/acsf-8.x-1.34.zip",
+            "reference": null,
             "shasum": null
         },
         "require": {
@@ -5626,14 +5627,14 @@
             "drupal/core": "Required by drupal/acsf_duplication, drupal/acsf_sso, drupal/acsf_theme, drupal/acsf_variables",
             "drupal/samlauth": "Required by drupal/acsf_sso"
         },
-        "time": "2016-11-03 10:35:47",
+        "time": "2016-12-14 11:04:29",
         "type": "drupal-module",
         "extra": {
             "branch-alias": {
                 "dev-8.x-1.x": "8.1.x-dev"
             }
         },
-        "installation-source": "dist",
+        "installation-source": "source",
         "autoload": {
             "psr-4": {
                 "Drupal\\acsf\\": "src/"
@@ -5864,6 +5865,40 @@
         ],
         "description": "Defines a simple country field type.",
         "homepage": "http://drupal.org/project/country"
+    },
+    {
+        "name": "drupal/entity",
+        "version": "8.1.0-alpha4",
+        "version_normalized": "8.1.0.0-alpha4",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupal.org/project/entity",
+            "reference": "879356bbf75608f86d8fb89d76a21dc1e99a39ae"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://ftp.drupal.org/files/projects/entity-8.x-1.0-alpha4.zip",
+            "reference": null,
+            "shasum": null
+        },
+        "require": {
+            "drupal/core": "~8.1",
+            "drupal/system": ">=8.1.0"
+        },
+        "time": "2016-10-12 10:12:36",
+        "type": "drupal-module",
+        "extra": {
+            "branch-alias": {
+                "dev-8.x-1.x": "8.1.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packagist.drupal-composer.org/downloads/",
+        "license": [
+            "GPL-2.0+"
+        ],
+        "description": "Provides expanded entity APIs, which will be moved to Drupal core one day.",
+        "homepage": "http://drupal.org/project/entity"
     },
     {
         "name": "drupal/facets",
@@ -6671,7 +6706,7 @@
                 "2747739 - Mega Patch 8.x-3.0-alpha2 --> 54f0ac6e": "https://www.drupal.org/files/issues/panelizer--8.x-3.0-alpha2--54f0ac6e.patch",
                 "2701349 - Generate new UUIDs for displays when switching from default to field storage": "https://www.drupal.org/files/issues/2701349-2.patch",
                 "2700597 - Explicitly set the Panels IPE URL root when saving in Panelizer": "https://www.drupal.org/files/issues/panelizer-ipe-url-root-handling.patch",
-                "2664682 - Implement admin UI for editing Panelizer defaults": "https://www.drupal.org/files/issues/2664682-89.patch",
+                "2664682 - Implement admin UI for editing Panelizer defaults": "https://www.drupal.org/files/issues/panelizer-2664682-93.patch",
                 "2793841 - Properly integrate with Panels IPE": "https://www.drupal.org/files/issues/panelizer-panels-ipe-tempstore-id.patch"
             }
         },
@@ -6839,40 +6874,6 @@
             "php",
             "twitter"
         ]
-    },
-    {
-        "name": "drupal/entity",
-        "version": "8.1.0-alpha3",
-        "version_normalized": "8.1.0.0-alpha3",
-        "source": {
-            "type": "git",
-            "url": "https://git.drupal.org/project/entity",
-            "reference": "70a105ae063c54bf59e67f9e41cb9121374acb7c"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://ftp.drupal.org/files/projects/entity-8.x-1.0-alpha3.zip",
-            "reference": "70a105ae063c54bf59e67f9e41cb9121374acb7c",
-            "shasum": null
-        },
-        "require": {
-            "drupal/core": "~8.1",
-            "drupal/system": ">=8.1.0"
-        },
-        "time": "2016-04-27 08:54:12",
-        "type": "drupal-module",
-        "extra": {
-            "branch-alias": {
-                "dev-8.x-1.x": "8.1.x-dev"
-            }
-        },
-        "installation-source": "dist",
-        "notification-url": "https://packagist.drupal-composer.org/downloads/",
-        "license": [
-            "GPL-2.0+"
-        ],
-        "description": "Provides expanded entity APIs, which will be moved to Drupal core one day.",
-        "homepage": "http://drupal.org/project/entity"
     },
     {
         "name": "drupal/media_entity",
@@ -7247,6 +7248,9 @@
         "extra": {
             "branch-alias": {
                 "dev-8.x-1.x": "8.1.x-dev"
+            },
+            "patches_applied": {
+                "2832504 - Send the CKEditor instance ID to the embed.preview route": "https://www.drupal.org/files/issues/2832504-2.patch"
             }
         },
         "installation-source": "dist",
@@ -7358,17 +7362,17 @@
     },
     {
         "name": "drupal/lightning",
-        "version": "8.1.13",
-        "version_normalized": "8.1.13.0",
+        "version": "8.1.14",
+        "version_normalized": "8.1.14.0",
         "source": {
             "type": "git",
             "url": "https://git.drupal.org/project/lightning.git",
-            "reference": "c97e8a550743fc7ab811269f1237a9421da4ec0a"
+            "reference": "000fda4e17d24a7c7f5956f2958aa64469f70564"
         },
         "dist": {
             "type": "zip",
-            "url": "https://ftp.drupal.org/files/projects/lightning-8.x-1.13.zip",
-            "reference": "c97e8a550743fc7ab811269f1237a9421da4ec0a",
+            "url": "https://ftp.drupal.org/files/projects/lightning-8.x-1.14.zip",
+            "reference": null,
             "shasum": null
         },
         "require": {
@@ -7380,7 +7384,6 @@
             "drupal/ckeditor": "8.*",
             "drupal/config": "8.*",
             "drupal/config_update": "^8.1.1",
-            "drupal/conflict": "8.1.0-alpha1",
             "drupal/contact": "8.*",
             "drupal/contextual": "8.*",
             "drupal/core": "~8.2.0",
@@ -7389,7 +7392,6 @@
             "drupal/dblog": "8.*",
             "drupal/editor": "8.*",
             "drupal/embed": "^8.1.0",
-            "drupal/entity": "8.1.0-alpha3",
             "drupal/entity_browser": "^8.1.0",
             "drupal/entity_embed": "^8.1.0",
             "drupal/entity_reference": "8.*",
@@ -7401,7 +7403,6 @@
             "drupal/image": "8.*",
             "drupal/inline_entity_form": "^8.1.0",
             "drupal/key_value": "^8.1.0",
-            "drupal/layout_plugin": "8.1.0-alpha23",
             "drupal/media_entity": "^8.1.0",
             "drupal/media_entity_document": "^8.1.0",
             "drupal/media_entity_image": "^8.1.0",
@@ -7437,6 +7438,7 @@
         },
         "replace": {
             "drupal/lightning_core": "self.version",
+            "drupal/lightning_landing_page": "self.version",
             "drupal/lightning_layout": "self.version",
             "drupal/lightning_media": "self.version",
             "drupal/lightning_media_document": "self.version",
@@ -7444,6 +7446,7 @@
             "drupal/lightning_media_instagram": "self.version",
             "drupal/lightning_media_twitter": "self.version",
             "drupal/lightning_media_video": "self.version",
+            "drupal/lightning_page": "self.version",
             "drupal/lightning_preview": "self.version",
             "drupal/lightning_workflow": "self.version"
         },
@@ -7451,11 +7454,12 @@
             "behat/behat": "^3.0",
             "behat/mink": "~1.7",
             "behat/mink-goutte-driver": "~1.2",
+            "composer/composer": "^1.2",
             "drupal-composer/drupal-scaffold": "^2.0.0",
             "drupal/coder": "8.*",
             "drupal/devel": "^8.0.0",
             "drupal/drupal-extension": "^3.2",
-            "drush/drush": "^9.0",
+            "drush/drush": "^8.0",
             "jcalderonzumba/gastonjs": "~1.0.2",
             "mikey179/vfsstream": "~1.2",
             "phing/phing": "^2.14",
@@ -7465,13 +7469,14 @@
             "symfony/css-selector": "~2.8"
         },
         "suggest": {
-            "drupal/core": "Required by drupal/lightning_core, drupal/lightning_layout, drupal/lightning_media, drupal/lightning_media_document, drupal/lightning_media_image, drupal/lightning_media_instagram, drupal/lightning_media_twitter, drupal/lightning_media_video, drupal/lightning_preview, drupal/lightning_workflow",
+            "drupal/core": "Required by drupal/lightning_core, drupal/lightning_page, drupal/lightning_layout, drupal/lightning_landing_page, drupal/lightning_media, drupal/lightning_media_document, drupal/lightning_media_image, drupal/lightning_media_instagram, drupal/lightning_media_twitter, drupal/lightning_media_video, drupal/lightning_preview, drupal/lightning_workflow",
             "drupal/entity_browser": "Required by drupal/lightning_media",
             "drupal/entity_embed": "Required by drupal/lightning_media",
             "drupal/file": "Required by drupal/lightning_media_document",
             "drupal/image": "Required by drupal/lightning_media, drupal/lightning_media_image",
             "drupal/inline_entity_form": "Required by drupal/lightning_media, drupal/lightning_workflow",
-            "drupal/lightning_core": "Required by drupal/lightning_layout, drupal/lightning_media, drupal/lightning_workflow",
+            "drupal/lightning_core": "Required by drupal/lightning_page, drupal/lightning_layout, drupal/lightning_media, drupal/lightning_workflow",
+            "drupal/lightning_layout": "Required by drupal/lightning_landing_page",
             "drupal/lightning_media": "Required by drupal/lightning_media_document, drupal/lightning_media_image, drupal/lightning_media_instagram, drupal/lightning_media_twitter, drupal/lightning_media_video",
             "drupal/lightning_workflow": "Required by drupal/lightning_preview",
             "drupal/media_entity": "Required by drupal/lightning_media",
@@ -7493,12 +7498,15 @@
             "drupal/workbench_moderation": "Required by drupal/lightning_workflow",
             "drupal/workspace": "Required by drupal/lightning_preview"
         },
-        "time": "2016-11-16 21:08:22",
+        "time": "2016-12-14 10:35:56",
         "type": "drupal-profile",
         "extra": {
+            "packagist.drupal-composer.org": {
+                "discover-make-files": false
+            },
             "installer-paths": {
                 "docroot/core": [
-                    "drupal/core"
+                    "type:drupal-core"
                 ],
                 "modules/contrib/{$name}": [
                     "type:drupal-module"
@@ -7509,7 +7517,7 @@
                     "2747739 - Mega Patch 8.x-3.0-alpha2 --> 54f0ac6e": "https://www.drupal.org/files/issues/panelizer--8.x-3.0-alpha2--54f0ac6e.patch",
                     "2701349 - Generate new UUIDs for displays when switching from default to field storage": "https://www.drupal.org/files/issues/2701349-2.patch",
                     "2700597 - Explicitly set the Panels IPE URL root when saving in Panelizer": "https://www.drupal.org/files/issues/panelizer-ipe-url-root-handling.patch",
-                    "2664682 - Implement admin UI for editing Panelizer defaults": "https://www.drupal.org/files/issues/2664682-89.patch",
+                    "2664682 - Implement admin UI for editing Panelizer defaults": "https://www.drupal.org/files/issues/panelizer-2664682-93.patch",
                     "2793841 - Properly integrate with Panels IPE": "https://www.drupal.org/files/issues/panelizer-panels-ipe-tempstore-id.patch"
                 },
                 "drupal/panels": {
@@ -7523,11 +7531,6 @@
                     "2668006 - Provide logical access control for when IPE should be applied to moderated nodes": "https://www.drupal.org/files/issues/2668006-2.patch",
                     "2780691 - Incorrect EntityRevision paramconverter service definition causes a fatal error": "https://www.drupal.org/files/issues/workbench_moderation-invalid_service_definition.patch"
                 },
-                "drush/drush": {
-                    "Adding composer.json support to make-convert command": "https://github.com/drush-ops/drush/commit/ce82b946d49b09cd33da5ca84feb24a6c35f8f8e.patch",
-                    "The batch table may not exist by the time _drush_backend_batch_process() is called in 8.x-1.x": "https://github.com/drush-ops/drush/commit/c389aebb7d3e26ff0f544684d8b3ec3528107e55.diff",
-                    "Fix composer branch-alias constraint": "https://github.com/drush-ops/drush/commit/83436c8ea505223a1868dce130d4ca1b4e558711.diff"
-                },
                 "drupal/multiversion": {
                     "2822915 - Migration source plugin makes bad assumptions that can lead to data loss": "https://www.drupal.org/files/issues/2822915-2.patch",
                     "2825477 - ContentEntityStorageTrait uses current entity as original, which breaks things": "https://www.drupal.org/files/issues/2825477-2.patch"
@@ -7537,7 +7540,11 @@
                     "2820105 - User references are not replicated": "https://www.drupal.org/files/issues/2820105-10.patch"
                 },
                 "drupal/core": {
-                    "2652138 - ImageFormatter does not support SVGs": "https://www.drupal.org/files/issues/2652138-28.patch"
+                    "2652138 - ImageFormatter does not support SVGs": "https://www.drupal.org/files/issues/2652138-28.patch",
+                    "2765525 - Add AJAX command to add style sheets to CKEditor instances": "https://www.drupal.org/files/issues/2765525-30-8.2.x.patch"
+                },
+                "drupal/entity_embed": {
+                    "2832504 - Send the CKEditor instance ID to the embed.preview route": "https://www.drupal.org/files/issues/2832504-2.patch"
                 }
             },
             "branch-alias": {
@@ -7548,7 +7555,10 @@
         "autoload": {
             "psr-4": {
                 "Acquia\\LightningExtension\\": "src/LightningExtension"
-            }
+            },
+            "classmap": [
+                "src/UpgradeBuild.php"
+            ]
         },
         "notification-url": "https://packagist.drupal-composer.org/downloads/",
         "license": [
@@ -7766,6 +7776,9 @@
         "extra": {
             "branch-alias": {
                 "dev-8.x-1.x": "8.1.x-dev"
+            },
+            "patches_applied": {
+                "search_api_node_grants is a reserved value and cannot be used as the machine name of a normal field": "https://www.drupal.org/files/issues/2761749-12--db_defaults_node_access_field_id.patch"
             }
         },
         "installation-source": "dist",
@@ -7926,17 +7939,17 @@
     },
     {
         "name": "symfony/var-dumper",
-        "version": "v3.2.0",
-        "version_normalized": "3.2.0.0",
+        "version": "v3.2.1",
+        "version_normalized": "3.2.1.0",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/var-dumper.git",
-            "reference": "86f4e8aeb07bd5fb467f6bdd599a30298d19fa5f"
+            "reference": "f722532b0966e9b6fc631e682143c07b2cf583a0"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/var-dumper/zipball/86f4e8aeb07bd5fb467f6bdd599a30298d19fa5f",
-            "reference": "86f4e8aeb07bd5fb467f6bdd599a30298d19fa5f",
+            "url": "https://api.github.com/repos/symfony/var-dumper/zipball/f722532b0966e9b6fc631e682143c07b2cf583a0",
+            "reference": "f722532b0966e9b6fc631e682143c07b2cf583a0",
             "shasum": ""
         },
         "require": {
@@ -7949,7 +7962,7 @@
         "suggest": {
             "ext-symfony_debug": ""
         },
-        "time": "2016-11-29 10:33:09",
+        "time": "2016-12-11 14:34:22",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -8440,11 +8453,6 @@
         "extra": {
             "branch-alias": {
                 "dev-master": "9.0.x-dev"
-            },
-            "patches_applied": {
-                "Adding composer.json support to make-convert command": "https://github.com/drush-ops/drush/commit/ce82b946d49b09cd33da5ca84feb24a6c35f8f8e.patch",
-                "The batch table may not exist by the time _drush_backend_batch_process() is called in 8.x-1.x": "https://github.com/drush-ops/drush/commit/c389aebb7d3e26ff0f544684d8b3ec3528107e55.diff",
-                "Fix composer branch-alias constraint": "https://github.com/drush-ops/drush/commit/83436c8ea505223a1868dce130d4ca1b4e558711.diff"
             }
         },
         "installation-source": "dist",
