@@ -51,7 +51,11 @@
 
   .page--tal-ingredient-finder-summary {
     @extend .max-width-summary;
+    display: none;
     margin-bottom: 30px;
+    @media (min-width: $screen-sm) {
+      display: block;
+    }
   }
 
   .tal-category-facet-title {

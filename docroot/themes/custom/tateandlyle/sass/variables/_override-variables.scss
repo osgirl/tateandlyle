@@ -487,21 +487,21 @@ $nav-pills-active-link-hover-color: $link-hover-color !default;
 //
 //##
 
-$pagination-color: $navbar-inverse-bg !default;
-$pagination-bg: $color-white !default;
-$pagination-border: $navbar-inverse-link-hover-color !default;
+$pagination-color: $gray-base !default;
+$pagination-bg: $color-light-gray !default;
+$pagination-border: $color-light-gray !default;
 
-$pagination-hover-color: $link-hover-color !default;
-$pagination-hover-bg: $gray-lighter !default;
-$pagination-hover-border: $navbar-inverse-bg !default;
+$pagination-hover-color: $color-white !default;
+$pagination-hover-bg: $brand-primary !default;
+$pagination-hover-border: $brand-primary !default;
 
 $pagination-active-color: $color-white !default;
-$pagination-active-bg: $navbar-inverse-bg !default;
-$pagination-active-border: $navbar-inverse-bg !default;
+$pagination-active-bg: $brand-primary !default;
+$pagination-active-border: $brand-primary !default;
 
 $pagination-disabled-color: $gray-light !default;
-$pagination-disabled-bg: $color-white !default;
-$pagination-disabled-border: $navbar-inverse-link-hover-color !default;
+$pagination-disabled-bg: $color-off-white !default;
+$pagination-disabled-border: $color-off-white !default;
 
 
 //== Pager

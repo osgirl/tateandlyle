@@ -1,0 +1,18 @@
+.pager-nav {
+  background-color: $color-off-white;
+  border-bottom: 1px solid $color-warm-gray;
+  border-top: 1px solid $color-warm-gray;
+}
+
+.pagination {
+  border-radius: 0;
+
+  & > li {
+    &:first-child > a,
+    &:first-child > span,
+    &:last-child > a,
+    &:last-child > span {
+      border-radius: 0;
+    }
+  }
+}
