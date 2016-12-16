@@ -37,6 +37,7 @@ dependencies:
   - search_api_solr
   - system
   - tal_downloads
+  - tal_ingredient_search
   - tal_search
   - taxonomy
   - text

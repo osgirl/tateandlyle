@@ -45,5 +45,8 @@ function tal_ingredient_search_form_views_exposed_form_alter(&$form, FormStateIn
 
     // Add a placeholder text to the search text field.
     $form['search_api_fulltext']['#attributes'] = array('placeholder' => t('Ingredient name here…'));
+    $form['sort_by']['#prefix'] = '<div class="hidden">';
+    $form['sort_by']['#suffix'] = '</div>';
+
   }
 }
