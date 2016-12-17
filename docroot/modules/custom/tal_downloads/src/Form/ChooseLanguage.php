@@ -2,8 +2,11 @@
 
 namespace Drupal\tal_downloads\Form;
 
+use Drupal\Core\Ajax\AjaxResponse;
+use Drupal\Core\Ajax\ReplaceCommand;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\paragraphs\Entity\Paragraph;
 
 /**
  * Implements the ajax demo form controller.
@@ -18,66 +21,109 @@ use Drupal\Core\Form\FormStateInterface;
 class ChooseLanguage extends FormBase {
 
   /**
-   * Form with 'add more' and 'remove' buttons.
+   * Form for language selection options.
    *
-   * This example shows a button to "add more" - add another textfield, and
-   * the corresponding "remove" button.
+   * @param array $form
+   *   Form to render Language selection dropdown.
+   * @param \Drupal\Core\Form\FormStateInterface $form_state
+   *   FormState object.
+   * @param mixed $filegroup_ids
+   *   Entity id of filegroup paragraph.
+   *
+   * @return array
+   *   Renderable form array.
    */
-  public function buildForm(array $form, FormStateInterface $form_state) {
+  public function buildForm(array $form, FormStateInterface $form_state, $filegroup_ids = NULL) {
+    // Generate a unique salt for placeholder id.
+    $id = substr(md5(rand()), 0, 5);
+
     $form['actions'] = [
       '#type' => 'actions',
     ];
-
-    $options = $this->getLanguages();
     $form['change_language'] = [
       '#type' => 'select',
-      '#options' => $options,
+      '#options' => $this->getLanguageOptions($filegroup_ids),
       '#ajax' => [
-        'callback' => '::addmoreCallback',
-        'wrapper' => 'names-fieldset-wrapper',
+        'event' => 'change',
+        'callback' => array($this, 'showDownloadLink'),
       ],
+      '#suffix' => '<span id="download-link-' . $id . '"></span>',
     ];
-    $form_state->setCached(FALSE);
+    $form['id'] = array(
+      '#type' => 'hidden',
+      '#default_value' => $id,
+    );
 
+    $form_state->setCached(FALSE);
     return $form;
   }
-
   /**
    * {@inheritdoc}
    */
   public function getFormId() {
     return 'tal_downloads_language_selection';
   }
-
   /**
    * Final submit handler.
    *
    * Reports what values were finally set.
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    // @todo: Add ajax callback for language selection.
     $output = t('Language Selected.');
     drupal_set_message($output);
   }
-
   /**
    * Fetches terms from language vocabulary for form options.
    *
    * @return array
    *   Options for language selection form.
    */
-  private function getLanguages() {
-    $vid = 'languages';
+  private function getLanguageOptions($filegroup_ids) {
+    $entities = Paragraph::loadMultiple($filegroup_ids);
     $options = array(
       0 => t('Choose version'),
     );
-    $terms = \Drupal::service('entity_type.manager')
-      ->getStorage("taxonomy_term")
-      ->loadTree($vid, $parent = 0, $max_depth = NULL, $load_entities = FALSE);
-    foreach ($terms as $term) {
-      $options[$term->tid] = $term->name;
+    foreach ($entities as $entity_id => $entity) {
+      $term = $entity->get('field_file_language')->referencedEntities();
+      $options[$entity_id] = $term[0]->getName();
     }
     return $options;
+  }
+  /**
+   * Ajax Callback function for language selection.
+   *
+   * @param array $form
+   *   Form to render Language selection dropdown.
+   * @param \Drupal\Core\Form\FormStateInterface $form_state
+   *   FormState object.
+   *
+   * @return \Drupal\Core\Ajax\AjaxResponse
+   *   AjaxResoponse with Download link and size details.
+   */
+  public function showDownloadLink(array &$form, FormStateInterface $form_state) {
+    $response = new AjaxResponse();
+    $message['#markup'] = '<span class="download-inactive">Download</span>';
+
+    // Current paragraph entity id.
+    $pid = $form_state->getValue('change_language');
+    $id = $form_state->getValue('id');
+
+    if (!empty($pid)) {
+      $item = Paragraph::load($pid);
+      $file = $item->get('field_download_attach_file')->referencedEntities()[0];
+      $element = array(
+        '#theme' => 'tal_download_link',
+        '#file' => $file,
+        '#attributes' => array(
+          'class' => 'tal-file-download-link',
+        ),
+      );
+      $message['element'] = $element;
+    }
+
+    $response->addCommand(new ReplaceCommand('#download-link-' . $id, $message));
+
+    return $response;
   }
 
 }

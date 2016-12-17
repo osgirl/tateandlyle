@@ -18,12 +18,10 @@ use Drupal\entity_reference_revisions\Plugin\Field\FieldFormatter\EntityReferenc
  * )
  */
 class TalFileGroupFormatter extends EntityReferenceRevisionsEntityFormatter {
-
   /**
    * {@inheritdoc}
    */
   public function viewElements(FieldItemListInterface $items, $langcode) {
-
     $count = $items->count();
     // Render file details directly if only one file is present.
     if ($count == 1) {
@@ -33,10 +31,8 @@ class TalFileGroupFormatter extends EntityReferenceRevisionsEntityFormatter {
       // @todo: Show dropdown for multiple versions if count > 1.
       return $this->viewMultiple($items, $langcode);
     }
-
     return $elements;
   }
-
   /**
    * Builds a renderable array for field with multiple languages.
    *
@@ -50,7 +46,10 @@ class TalFileGroupFormatter extends EntityReferenceRevisionsEntityFormatter {
    *   A renderable array for a themed field with its label and all its values.
    */
   private function viewMultiple(FieldItemListInterface $items, $langcode) {
-    $form = \Drupal::formBuilder()->getForm('Drupal\tal_downloads\Form\ChooseLanguage');
+    foreach ($this->getEntitiesToView($items, $langcode) as $delta => $entity) {
+      $filegroup_ids[] = $entity->id();
+    }
+    $form = \Drupal::formBuilder()->getForm('Drupal\tal_downloads\Form\ChooseLanguage', $filegroup_ids);
     return $form;
   }
 
