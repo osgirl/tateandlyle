@@ -30,10 +30,10 @@ target-hooks:
   post-setup-build:
     dir: '${docroot}'
     command: 'echo ''No post-setup build configured.'''
-import: null
+import: '${repo.root}/blt/build.xml'
 modules:
   local:
-    enable: [dblog, acquia_connector, devel, field_ui, seckit, views_ui, admin_toolbar]
+    enable: [dblog, acquia_connector, devel, field_ui, seckit, views_ui]
     uninstall: [acsf, dblog, shield]
   ci:
     enable: {  }
@@ -53,4 +53,3 @@ modules:
 behat:
   paths:
     - '${repo.root}/tests/behat'
-import: '${repo.root}/blt/build.xml'
