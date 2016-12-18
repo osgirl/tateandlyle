@@ -40,7 +40,6 @@ modules:
             - field_ui
             - seckit
             - views_ui
-            - admin_toolbar
         uninstall:
             - acsf
             - dblog

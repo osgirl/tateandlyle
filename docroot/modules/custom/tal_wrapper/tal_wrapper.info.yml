@@ -4,7 +4,7 @@ type: module
 core: 8.x
 package: tal
 dependencies:
-  - tal_features_core
   - tal_downloads
   - tal_ingredient_search
   - tal_search
+  - admin_toolbar

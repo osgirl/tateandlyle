@@ -8,9 +8,26 @@
 use Drupal\field\Entity\FieldStorageConfig;
 
 /**
+ * Implements hook_install().
+ *
+ * Perform actions to further customize the site after Lightning has been
+ * installed. This module is automatically enabled via the lightning.extend.yml
+ * file.
+ *
+ * @see system_install()
+ */
+function tal_wrapper_install() {
+
+  // Enable and set tateandlyle as default theme.
+  \Drupal::service('theme_installer')->install(array('tateandlyle'), TRUE);
+  \Drupal::configFactory()->getEditable('system.theme')->set('default', 'tateandlyle')->save(TRUE);
+}
+
+/**
  * Deletes field field_common_names.
  */
 function tal_wrapper_update_8002() {
+
   // Deletes all instances of fields in node wherever it is used in node.
   // This can be used to delete if it is used in one node type.
   $field = FieldStorageConfig::loadByName('node', 'field_common_names');
@@ -21,6 +38,7 @@ function tal_wrapper_update_8002() {
  * Enables tal_downloads module.
  */
 function tal_wrapper_update_8003() {
+
   \Drupal::service('module_installer')->install(['tal_downloads']);
 }
 
@@ -28,6 +46,7 @@ function tal_wrapper_update_8003() {
  * Remove old search index..
  */
 function tal_wrapper_update_8004() {
+
   \Drupal::configFactory()->getEditable('search_api.index.acquia_search_index')->delete();
 }
 
@@ -35,6 +54,7 @@ function tal_wrapper_update_8004() {
  * Enables tal_search module.
  */
 function tal_wrapper_update_8005() {
+
   \Drupal::service('module_installer')->install(['tal_search']);
 }
 
@@ -42,6 +62,7 @@ function tal_wrapper_update_8005() {
  * Removes a field from node type ingredient.
  */
 function tal_wrapper_update_8006() {
+
   // Deleting field_common_names completely.
   $field = FieldStorageConfig::loadByName('node', 'field_common_names');
   if (!empty($fields)) {
