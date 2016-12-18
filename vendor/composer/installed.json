@@ -5751,16 +5751,16 @@
     },
     {
         "name": "drupal/cog",
-        "version": "8.1.2",
-        "version_normalized": "8.1.2.0",
+        "version": "8.1.3",
+        "version_normalized": "8.1.3.0",
         "source": {
             "type": "git",
             "url": "https://git.drupal.org/project/cog.git",
-            "reference": "b201bc3a9c4d32984c09f1d733fe31b62380aee6"
+            "reference": "c4ff61fc0fd5042f2c35a19a50e32ade59af3057"
         },
         "dist": {
             "type": "zip",
-            "url": "https://ftp.drupal.org/files/projects/cog-8.x-1.2.zip",
+            "url": "https://ftp.drupal.org/files/projects/cog-8.x-1.3.zip",
             "reference": null,
             "shasum": null
         },
@@ -5773,7 +5773,7 @@
         "suggest": {
             "drupal/core": "Required by drupal/STARTERKIT"
         },
-        "time": "2016-12-02 17:50:19",
+        "time": "2016-12-16 17:14:40",
         "type": "drupal-theme",
         "extra": {
             "branch-alias": {
@@ -7362,16 +7362,16 @@
     },
     {
         "name": "drupal/lightning",
-        "version": "8.1.14",
-        "version_normalized": "8.1.14.0",
+        "version": "8.1.15",
+        "version_normalized": "8.1.15.0",
         "source": {
             "type": "git",
             "url": "https://git.drupal.org/project/lightning.git",
-            "reference": "000fda4e17d24a7c7f5956f2958aa64469f70564"
+            "reference": "4aaaec9854b218a69195eba91b38da1f212907d8"
         },
         "dist": {
             "type": "zip",
-            "url": "https://ftp.drupal.org/files/projects/lightning-8.x-1.14.zip",
+            "url": "https://ftp.drupal.org/files/projects/lightning-8.x-1.15.zip",
             "reference": null,
             "shasum": null
         },
@@ -7498,7 +7498,7 @@
             "drupal/workbench_moderation": "Required by drupal/lightning_workflow",
             "drupal/workspace": "Required by drupal/lightning_preview"
         },
-        "time": "2016-12-14 10:35:56",
+        "time": "2016-12-16 19:29:12",
         "type": "drupal-profile",
         "extra": {
             "packagist.drupal-composer.org": {
