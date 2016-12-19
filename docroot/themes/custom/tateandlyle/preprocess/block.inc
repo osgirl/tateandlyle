@@ -67,7 +67,12 @@ function tal_preprocess_block_detail_content_promo($variables, $block) {
     $variables['content_count'] = 'dcp-content-' . count($field_dcp_content);
   }
   // Custom block type helper classes.
+  $color = $block->get('field_bg_color')->value;
   $variables['overlay_color'] = $block->get('field_bg_color')->value;
+
+  if (!isset($color)) {
+    $variables['overlay_color'] = 'no__bg';
+  }
 
   return $variables;
 }

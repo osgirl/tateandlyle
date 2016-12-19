@@ -1,3 +1,8 @@
+.block--quote {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
 .quote__content {
   @extend .max-content-width-sm;
   display: table;

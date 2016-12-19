@@ -107,7 +107,7 @@
   </div>
   <div class="row news--articles">
     {% if prevurl %}
-    <div class="col-sm-4 previous--articles">
+    <div class="col-sm-4 col-xs-6 previous--articles">
       <a href="{{ prevurl }}">
         {{ "Previous article"|t }}
       <span>
@@ -116,13 +116,13 @@
       </a>
     </div>
     {% endif %}
-    <div class="col-sm-4 all--articles">
+    <div class="col-sm-4 col-xs-6 all--articles">
         <a href="#">
             {{ "View all company news"|t }}
         </a>
     </div>
     {% if nexturl %}
-    <div class="col-sm-4 next--articles">
+    <div class="col-sm-4 col-xs-6 next--articles">
       <a href="{{ nexturl }}">
         {{ "Next article"|t }}
       <span>

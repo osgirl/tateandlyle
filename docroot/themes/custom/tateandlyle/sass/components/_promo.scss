@@ -142,12 +142,12 @@
 
     .field--name-field-dcp-content-section > .field--item {
       border-right: none;
-      display: block;
-      float: left;
+      display: inline-block;
+      float: none;
       max-width: none;
       padding: 10px 44px;
       padding-bottom: 53px;
-      width: 50%;
+      width: 48%;
     }
 
     .field--name-field-simple-text {
