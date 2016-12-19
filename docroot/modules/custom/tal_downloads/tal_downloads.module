@@ -26,33 +26,35 @@ function template_preprocess_tal_download_link(array &$variables) {
   $file_entity = $variables['file'];
   $options = array();
 
-  $file_size = $file_entity->getSize();
-  $url = file_create_url($file_entity->getFileUri());
-  $variables['#cache']['contexts'][] = 'url.site';
+  if (!empty($file_entity)) {
+    $file_size = $file_entity->getSize();
+    $url = file_create_url($file_entity->getFileUri());
+    $variables['#cache']['contexts'][] = 'url.site';
 
-  $mime_type = $file_entity->getMimeType();
-  // Set options as per anchor format described at
-  // http://microformats.org/wiki/file-format-examples
-  $options['attributes']['type'] = $mime_type . '; length=' . $file_entity->getSize();
+    $mime_type = $file_entity->getMimeType();
+    // Set options as per anchor format described at
+    // http://microformats.org/wiki/file-format-examples
+    $options['attributes']['type'] = $mime_type . '; length=' . $file_entity->getSize();
 
-  // Use the description as the link text if available.
-  $link_text = t('Downloads');
+    // Use the description as the link text if available.
+    $link_text = t('Download');
 
-  // Classes to add to the file field for icons.
-  $classes = array(
-    'file',
-    // Add a specific class for each and every mime type.
-    'file--mime-' . strtr($mime_type, array('/' => '-', '.' => '-')),
-    // Add a more general class for groups of well known MIME types.
-    'file--' . file_icon_class($mime_type),
-  );
+    // Classes to add to the file field for icons.
+    $classes = array(
+      'file',
+      // Add a specific class for each and every mime type.
+      'file--mime-' . strtr($mime_type, array('/' => '-', '.' => '-')),
+      // Add a more general class for groups of well known MIME types.
+      'file--' . file_icon_class($mime_type),
+    );
 
-  $variables['link'] = Link::fromTextAndUrl($link_text, Url::fromUri($url, $options));
-  $variables['file_size'] = format_size($file_size);
+    $variables['link'] = Link::fromTextAndUrl($link_text, Url::fromUri($url, $options));
+    $variables['file_size'] = format_size($file_size);
+    $variables['content'] = $variables['content']['#markup'];
+  }
 
   // Set file classes to the options array.
   $variables['attributes'] = new Attribute($variables['attributes']);
-  $variables['attributes']->addClass($classes);
 }
 
 /**
@@ -63,6 +65,7 @@ function tal_downloads_theme() {
     'tal_download_link' => array(
       'variables' => array(
         'file' => NULL,
+        'content' => NULL,
         'attributes' => array(),
       ),
     ),
