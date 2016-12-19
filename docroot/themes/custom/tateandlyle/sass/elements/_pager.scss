@@ -2,6 +2,7 @@
   background-color: $color-off-white;
   border-bottom: 1px solid $color-warm-gray;
   border-top: 1px solid $color-warm-gray;
+  margin-top: -1px;
 }
 
 .pagination {
@@ -15,4 +16,15 @@
       border-radius: 0;
     }
   }
+
+  .pager__item--first,
+  .pager__item--previous,
+  .pager__item--next,
+  .pager__item--last {
+    a {
+      background-color: transparent;
+      border: none;
+    }
+  }
 }
+

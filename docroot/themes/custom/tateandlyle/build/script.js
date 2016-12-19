@@ -23,17 +23,19 @@
 
   Drupal.behaviors.scrollFix = {
     attach: function () {
-      var position = $(".ingredient--submenu").offset().top;
-      var nav = $(".ingredient--submenu");
+      if ($(".ingredient--submenu").length) {
+        var position = $(".ingredient--submenu").offset().top;
+        var nav = $(".ingredient--submenu");
 
-      $(window).scroll(function () {
-        if ($(this).scrollTop() > position) {
-          nav.addClass("navbar-fixed-top");
-        }
-        else {
-          nav.removeClass("navbar-fixed-top");
-        }
-      });
+        $(window).scroll(function () {
+          if ($(this).scrollTop() > position) {
+            nav.addClass("navbar-fixed-top");
+          }
+          else {
+            nav.removeClass("navbar-fixed-top");
+          }
+        });
+      }
     }
   };
 })(jQuery, Drupal);

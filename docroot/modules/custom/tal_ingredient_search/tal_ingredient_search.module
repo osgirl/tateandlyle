@@ -44,7 +44,7 @@ function tal_ingredient_search_form_views_exposed_form_alter(&$form, FormStateIn
     $form['#info']['filter-search_api_fulltext']['label'] = $form['#info']['filter-search_api_fulltext']['label'] . ' ' . \Drupal::translation()->formatPlural($count, '@count ingredient', t('@count ingredients:'));
 
     // Add a placeholder text to the search text field.
-    $form['search_api_fulltext']['#attributes'] = array('placeholder' => t('Ingredient name here…'));
+    $form['s']['#attributes'] = array('placeholder' => t('Ingredient name here…'));
     $form['sort_by']['#prefix'] = '<div class="hidden">';
     $form['sort_by']['#suffix'] = '</div>';
 
