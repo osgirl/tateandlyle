@@ -1,7 +1,11 @@
 .tal--ingredient-search-results-total-page {
   color: $gray-base;
-  font-size: $font-size-h2;
+  font-size: $font-size-h3;
   font-family: $font-family-sans-serif-Med;
+
+  @media (min-width: $screen-md) {
+    font-size: $font-size-h2;
+  }
 }
 
 .view-ingredient-finder,
@@ -21,8 +25,11 @@
     article {
 
       h2 {
+        font-size: $font-size-h4;
         font-family: $font-family-sans-serif;
-        font-size: $font-size-h3;
+        @media (min-width: $screen-sm) {
+          font-size: $font-size-h3;
+        }
       }
     }
   }
@@ -30,8 +37,10 @@
 
 .search-result {
   .search__description {
-    float: left;
-    width: 70%;
+    @media (min-width: $screen-sm) {
+      float: left;
+      width: 70%;
+    }
 
     h2 {
       margin-top: 0;
@@ -44,8 +53,12 @@
   }
 
   .field--name-field-image {
-    float: right;
-    width: 30%;
+    display: none;
+    @media (min-width: $screen-sm) {
+      display: block;
+      float: right;
+      width: 30%;
+    }
 
     img {
       float: right;
@@ -53,19 +66,30 @@
   }
 }
 
+//Search Right Sidebar.
+
 .right__sidebar {
+  margin-bottom: 20px;
+
   .block-facets {
     background-color: $color-off-white;
+    border: none;
+    padding: 27px 18px 0 18px;
+    @media (min-width: $screen-sm) {
+      display: block;
+      float: left;
+      padding-bottom: 50px;
+    }
 
     @media (min-width: $screen-md) {
-      border: none;
       border-top: 1px solid $color-warm-gray;
-      display: block;
+      float: none;
       padding: 25px 20px 34px 20px;
       width: 100%;
 
       &:last-child {
         border-bottom: 1px solid $color-warm-gray;
+        margin-bottom: 20px;
       }
     }
   }
@@ -74,6 +98,7 @@
 
     .block-title {
       font-size: $font-size-base;
+      margin-top: 0;
     }
 
     &:first-child {
@@ -94,4 +119,79 @@
       }
     }
   }
+
+  //Top Ingredients Sidebar.
+
+  .block-views-blocksearch-top-ingredient-results-block {
+    background: $color-off-white;
+    border-bottom: 1px solid $color-warm-gray;
+    border-top: 1px solid $color-warm-gray;
+    padding: 26px 17px 5px 19px;
+    margin-bottom: 20px;
+
+    .block-title {
+      margin-bottom: 28px;
+      margin-top: 0;
+      font-size: $font-size-h3;
+
+      @media (min-width: $screen-md) {
+        font-size: $font-size-h2;
+      }
+    }
+
+    .views-row {
+      border-bottom: 0;
+      padding-bottom: 25px;
+      padding-top: 17px;
+
+      .search__description {
+        float: none;
+        width: 100%;
+      }
+    }
+  }
+}
+
+//Search Sort.
+
+.tal-search-sort-by {
+  .control-label {
+    color: $gray-base;
+    padding-right: 15px;
+  }
+
+  .control-label,
+  .select-wrapper {
+    display: inline-block;
+  }
+
+  select {
+    appearance: none;
+    background: url("../images/icons/dropdown-black.svg") no-repeat 95%;
+    border: none;
+    border-bottom: 1px solid $color-warm-gray;
+    border-radius: 0;
+    border-top: 1px solid $color-warm-gray;
+    box-shadow: none;
+    outline: none;
+    padding: 7px;
+    padding-right: 15px;
+  }
+}
+
+.tal--sortorder {
+  margin-top: 15px;
+  @media (min-width: $screen-sm) {
+    float: right;
+  }
+}
+
+.tal--search-total-results {
+  @media (min-width: $screen-sm) {
+    display: inline-block;
+  }
+}
+
+.block-tal-ingredient-search .tal-search-sort-by {
+  display: none;
 }

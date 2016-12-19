@@ -14,7 +14,8 @@
       color: $gray-dark;
     }
 
-    .field--name-field-simple-text a:hover {
+    .field--name-field-simple-text a:hover,
+    .field--name-field-dcp-link a:hover {
       color: $brand-primary;
       opacity: 1;
     }
