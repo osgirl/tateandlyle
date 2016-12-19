@@ -36,6 +36,8 @@ class ChooseLanguage extends FormBase {
   public function buildForm(array $form, FormStateInterface $form_state, $filegroup_ids = NULL) {
     // Generate a unique salt for placeholder id.
     $id = substr(md5(rand()), 0, 5);
+    $inactive_link = $this->getEmptyWrapper($id);
+    $suffix = render($inactive_link);
 
     $form['actions'] = [
       '#type' => 'actions',
@@ -47,7 +49,7 @@ class ChooseLanguage extends FormBase {
         'event' => 'change',
         'callback' => array($this, 'showDownloadLink'),
       ],
-      '#suffix' => '<span id="download-link-' . $id . '"></span>',
+      '#suffix' => $suffix,
     ];
     $form['id'] = array(
       '#type' => 'hidden',
@@ -109,7 +111,6 @@ class ChooseLanguage extends FormBase {
    */
   public function showDownloadLink(array &$form, FormStateInterface $form_state) {
     $response = new AjaxResponse();
-    $message['#markup'] = '<span class="download-inactive">Download</span>';
 
     // Current paragraph entity id.
     $pid = $form_state->getValue('change_language');
@@ -123,14 +124,40 @@ class ChooseLanguage extends FormBase {
         '#file' => $file,
         '#attributes' => array(
           'class' => 'tal-file-download-link',
+          'id' => 'download-link-' . $id,
         ),
       );
       $message['element'] = $element;
+    }
+    else {
+      $message = $this->getEmptyWrapper($id);
     }
 
     $response->addCommand(new ReplaceCommand('#download-link-' . $id, $message));
 
     return $response;
+  }
+
+  /**
+   * Renderable empty wrapper element for download link.
+   *
+   * @param int $id
+   *   Unique id for wrapper element.
+   *
+   * @return mixed|array
+   *   Returns empty renderable array with unique wrapper id.
+   */
+  private function getEmptyWrapper($id) {
+    $message['element'] = [
+      '#theme' => 'tal_download_link',
+      '#content' => $this->t('<span class="download-inactive">Download</span>'),
+      '#attributes' => array(
+        'class' => 'tal-file-download-link',
+        'id' => 'download-link-' . $id,
+      ),
+    ];
+
+    return $message;
   }
 
 }
