@@ -56,10 +56,21 @@
 .right__sidebar {
   .block-facets {
     background-color: $color-off-white;
-    border: none;
-    display: block;
-    padding: 25px 20px 34px 20px;
-    width: 100%;
+
+    @media (min-width: $screen-md) {
+      border: none;
+      border-top: 1px solid $color-warm-gray;
+      display: block;
+      padding: 25px 20px 34px 20px;
+      width: 100%;
+
+      &:last-child {
+        border-bottom: 1px solid $color-warm-gray;
+      }
+    }
+  }
+
+  .block-facets {
 
     .block-title {
       font-size: $font-size-base;

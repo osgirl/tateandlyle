@@ -5,6 +5,11 @@
       margin: auto;
     }
 
+    .paragraph--show-border {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
     .content,
     .page-header {
       max-width: 878px;
@@ -32,6 +37,11 @@
         float: left;
         padding-right: 20px;
       }
+
+      .quote__content img {
+        float: none;
+        padding: 5px;
+      }
     }
 
     .date--category {
@@ -53,13 +63,13 @@
   width: 100%;
 
   .col-sm-4 {
-    float: none;
     padding-left: 0;
     padding-right: 0;
     position: relative;
     text-align: center;
     @media (min-width: $screen-sm) {
       display: table-cell;
+      float: none;
       text-align: left;
       vertical-align: middle;
     }
@@ -77,6 +87,11 @@
 
   .all--articles {
     text-align: center;
+
+    @media (max-width: $screen-xs-max) {
+      display: none;
+    }
+
     a {
       border-top: 1px solid $color-warm-gray;
       border-bottom: 1px solid $color-warm-gray;
@@ -111,6 +126,14 @@
   }
 
   .previous--articles {
+
+    a {
+      border-right: 1px solid $color-warm-gray;
+      @media (min-width: $screen-sm) {
+        border-right: none;
+      }
+    }
+
     @media (min-width: $screen-sm) {
       text-align: right;
     }

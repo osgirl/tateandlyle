@@ -143,7 +143,7 @@ display:
           expose:
             operator_id: search_api_fulltext_op
             label: Search
-            description: ''
+            description: 'Use ingredient names, brands, types, scientific names etc.'
             use_operator: false
             operator: search_api_fulltext_op
             identifier: s
