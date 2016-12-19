@@ -8,3 +8,4 @@ dependencies:
   - tal_ingredient_search
   - tal_search
   - admin_toolbar
+  - search
