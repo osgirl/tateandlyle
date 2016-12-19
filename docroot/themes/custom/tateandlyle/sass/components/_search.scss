@@ -1,14 +1,19 @@
 .path-search main,
-.path-search .region-content-bottom {
+.path-search .region-content-bottom,
+.block-views-exposed-filter-blocksearch-search-page,
+.block-views-exposed-filter-blockingredient-finder-page-1 {
   @extend %inner-content-width-padding;
   margin: auto;
   clear: both;
   overflow: hidden;
 }
 
+.path-search .region-content-top {
+  margin-bottom: 40px;
+}
+
 .path-search .page-header {
-  padding-left: 0;
-  padding-right: 0;
+  margin-bottom: 30px;
 }
 
 .path-search main {
@@ -47,7 +52,7 @@
 
       @media (min-width: $screen-sm) {
         margin-bottom: 0;
-        max-width: 190px;
+        max-width: 185px;
         padding-right: 44px;
       }
 

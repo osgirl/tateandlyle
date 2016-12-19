@@ -58,7 +58,6 @@
     "no-extra-semi": 2,
     "no-floating-decimal": 2,
     "no-func-assign": 2,
-    "no-inner-declarations": [2, "both"],
     "no-implicit-coercion": [2, { "boolean": true, "number": true, "string": true }],
     "no-invalid-regexp": 2,
     "no-irregular-whitespace": 2,

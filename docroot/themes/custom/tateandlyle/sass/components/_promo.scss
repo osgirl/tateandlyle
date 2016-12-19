@@ -119,6 +119,7 @@
   }
 
   .field--name-field-dcp-link {
+    font-family: $font-family-sans-serif-Med;
     margin-top: 10px;
 
     @media (min-width: $screen-sm) {
@@ -130,6 +131,12 @@
 
       &::after {
         @extend %right-brand-arrow;
+        color: inherit;
+      }
+
+      &:hover {
+        color: inherit;
+        opacity: 0.5;
       }
     }
   }
