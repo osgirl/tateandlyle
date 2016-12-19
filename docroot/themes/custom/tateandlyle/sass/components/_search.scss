@@ -1,9 +1,14 @@
-.tal-ingredient-finder-wrapper,
-.path-search main {
+.path-search main,
+.path-search .region-content-bottom {
   @extend %inner-content-width-padding;
   margin: auto;
   clear: both;
   overflow: hidden;
+}
+
+.path-search .page-header {
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .path-search main {

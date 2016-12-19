@@ -227,3 +227,14 @@
     @extend %inner-content-width;
   }
 }
+
+.path-node .paragraph {
+  .block--connect {
+    padding: 0;
+  }
+
+  .overlay__block--content .icon img {
+    float: none;
+    padding-right: 0;
+  }
+}
