@@ -44,3 +44,9 @@ h5 {
   clear: both;
   overflow: hidden;
 }
+
+.right__sidebar {
+  @media (min-width: $screen-md) {
+    float: right;
+  }
+}
