@@ -1,0 +1,30 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - facets
+    - system
+    - tal_ingredient_search
+id: talsearchsortoptions
+theme: tateandlyle
+region: content
+weight: -5
+provider: null
+plugin: search_sort_oprions
+settings:
+  id: search_sort_oprions
+  label: 'TAL Search Sort Options'
+  provider: tal_ingredient_search
+  label_display: visible
+visibility:
+  other_facet:
+    id: other_facet
+    facets: ''
+    facet_value: ''
+    negate: false
+    context_mapping: {  }
+  request_path:
+    id: request_path
+    pages: /search/ingredients/results
+    negate: false
+    context_mapping: {  }
