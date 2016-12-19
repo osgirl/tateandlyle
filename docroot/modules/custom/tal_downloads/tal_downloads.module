@@ -71,3 +71,23 @@ function tal_downloads_theme() {
     ),
   );
 }
+
+/**
+ * Implements hook_preprocess_paragraph().
+ */
+function tal_downloads_preprocess_paragraph(&$variables) {
+  // Add count of available filegroup languages.
+  $bundle = $variables['paragraph']->getType();
+  if ($bundle == 'related_downloads') {
+    $filegroups = $variables['elements']['#paragraph']->get('field_file_group');
+    $count = $filegroups->count();
+    if ($count > 1) {
+      $variables['content']['filegroup_count'] = [
+        '#markup' => t('Available in %count languages', array('%count' => $count)),
+        '#weight' => 2,
+        '#prefix' => '<span class="filegroup-count">',
+        '#sufix' => '</span>',
+      ];
+    }
+  }
+}
