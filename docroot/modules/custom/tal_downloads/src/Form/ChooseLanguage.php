@@ -55,14 +55,18 @@ class ChooseLanguage extends FormBase {
     );
 
     $form_state->setCached(FALSE);
+
     return $form;
   }
+
   /**
    * {@inheritdoc}
    */
   public function getFormId() {
+
     return 'tal_downloads_language_selection';
   }
+
   /**
    * Final submit handler.
    *
@@ -72,6 +76,7 @@ class ChooseLanguage extends FormBase {
     $output = t('Language Selected.');
     drupal_set_message($output);
   }
+
   /**
    * Fetches terms from language vocabulary for form options.
    *
@@ -87,8 +92,10 @@ class ChooseLanguage extends FormBase {
       $term = $entity->get('field_file_language')->referencedEntities();
       $options[$entity_id] = $term[0]->getName();
     }
+
     return $options;
   }
+
   /**
    * Ajax Callback function for language selection.
    *

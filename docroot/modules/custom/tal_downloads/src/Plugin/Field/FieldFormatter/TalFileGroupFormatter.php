@@ -18,6 +18,7 @@ use Drupal\entity_reference_revisions\Plugin\Field\FieldFormatter\EntityReferenc
  * )
  */
 class TalFileGroupFormatter extends EntityReferenceRevisionsEntityFormatter {
+
   /**
    * {@inheritdoc}
    */
@@ -31,8 +32,10 @@ class TalFileGroupFormatter extends EntityReferenceRevisionsEntityFormatter {
       // @todo: Show dropdown for multiple versions if count > 1.
       return $this->viewMultiple($items, $langcode);
     }
+
     return $elements;
   }
+
   /**
    * Builds a renderable array for field with multiple languages.
    *
@@ -50,6 +53,7 @@ class TalFileGroupFormatter extends EntityReferenceRevisionsEntityFormatter {
       $filegroup_ids[] = $entity->id();
     }
     $form = \Drupal::formBuilder()->getForm('Drupal\tal_downloads\Form\ChooseLanguage', $filegroup_ids);
+
     return $form;
   }
 
