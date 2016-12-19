@@ -36,7 +36,7 @@ function tal_preprocess_node_ingredient($variables, $node) {
     $parameters = UrlHelper::parse($path);
     $keyword = isset($parameters['query']['s']) ? $parameters['query']['s'] : '';
     $variables['field_in_common_names'] = search_excerpt($keyword, $node->get('field_in_common_names')->value);
-    $variables['body'] = search_excerpt($parameters['query']['s'], $node->get('body')->value);
+    $variables['body'] = search_excerpt($keyword, $node->get('body')->value);
   }
 
   return $variables;
