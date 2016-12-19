@@ -2,8 +2,8 @@ langcode: en
 status: true
 id: tateandlyle_page_title
 theme: tateandlyle
-region: content
-weight: -9
+region: content_top
+weight: -11
 provider: null
 plugin: page_title_block
 settings:

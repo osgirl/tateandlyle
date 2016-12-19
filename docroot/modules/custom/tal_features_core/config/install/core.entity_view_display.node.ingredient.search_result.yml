@@ -41,7 +41,7 @@ content:
   field_image:
     type: image
     weight: 2
-    label: above
+    label: hidden
     settings:
       image_style: ''
       image_link: ''
