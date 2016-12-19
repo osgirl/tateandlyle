@@ -16,6 +16,7 @@ settings:
           items:
             - Bold
             - Italic
+            - Underline
         -
           name: Links
           items:
@@ -35,6 +36,13 @@ settings:
           name: Tools
           items:
             - Source
+        -
+          name: Justification
+          items:
+            - JustifyLeft
+            - JustifyCenter
+            - JustifyRight
+            - JustifyBlock
   plugins:
     stylescombo:
       styles: ''
