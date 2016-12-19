@@ -5,6 +5,7 @@ dependencies:
     - search_api.index.acquia_search_index
   module:
     - search_api
+    - tal_ingredient_search
     - user
 id: ingredient_finder
 label: 'Ingredient finder'
@@ -293,6 +294,15 @@ display:
           empty: false
           content: "<div class=\"tal--ingredient-search-results-total-page\"><b>@total search results</b></div>\n<div class=\"tal--ingredient-search-results-current-page-number\">Showing @start to @end</div>"
           plugin_id: result
+        tal_ingredient_search_area:
+          id: tal_ingredient_search_area
+          table: views
+          field: tal_ingredient_search_area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          plugin_id: sortorder
       footer: {  }
       empty: {  }
       relationships: {  }
