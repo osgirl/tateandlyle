@@ -281,7 +281,7 @@ display:
           empty: true
           tokenize: false
           content:
-            value: 'Our extraordinary ingredients are a product of scientific and technical expertise, meticulous research and innovation and listening to and working with our customers.'
+            value: '<p>Our extraordinary ingredients are a product of scientific and technical expertise, meticulous research and innovation and listening to and working with our customers.</p>'
             format: rich_text
           plugin_id: text
         result:
@@ -292,7 +292,7 @@ display:
           group_type: group
           admin_label: ''
           empty: false
-          content: "<div class=\"tal--ingredient-search-results-total-page\"><b>@total search results</b></div>\n<div class=\"tal--ingredient-search-results-current-page-number\">Showing @start to @end</div>"
+          content: "<div class=\"tal--search-total-results\">\n<div class=\"tal--ingredient-search-results-total-page\"><b>@total search results</b></div>\n<div class=\"tal--ingredient-search-results-current-page-number\">Showing @start to @end</div>\n</div>"
           plugin_id: result
         tal_ingredient_search_area:
           id: tal_ingredient_search_area
