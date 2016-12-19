@@ -4,3 +4,17 @@
  * @file
  * Module file for functionality.
  */
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_alter().
+ */
+function tal_search_form_views_exposed_form_alter(&$form, FormStateInterface $form_state) {
+  if ($form['#id'] == 'views-exposed-form-search-search-page') {
+    // Add a placeholder text to the search text field.
+    $form['search_api_fulltext']['#attributes'] = array('placeholder' => t('Search...'));
+    $form['sort_by']['#prefix'] = '<div class="hide">';
+    $form['sort_by']['#suffix'] = '</div>';
+  }
+}

@@ -2,6 +2,7 @@
 
 namespace Drupal\tal_search\Plugin\Block;
 
+use Drupal\block\BlockForm;
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Form\FormStateInterface;
 
@@ -25,6 +26,7 @@ class ContinueSearchBlock extends BlockBase {
     $build['#label_display'] = $this->configuration['label_display'];
     $build['#block_description'] = $this->configuration['block_description'];
     $build['#link_text'] = $this->configuration['link_text'];
+    $build['#link_url'] = $this->configuration['link_url'];
 
     return $build;
   }
@@ -47,6 +49,12 @@ class ContinueSearchBlock extends BlockBase {
       '#default_value' => isset($config['link_text']) ? $config['link_text'] : $this->t('All matching ingredients'),
       '#required' => TRUE,
     );
+    $form['link_url'] = array(
+      '#type' => 'checkbox',
+      '#description' => $this->t('If checked the url of the link will be on Browse "Ingredient Finder(/search/ingredients)" page. Else on the "Ingredient results(/search/ingredients/results)" page.'),
+      '#title' => $this->t('Link url'),
+      '#default_value' => isset($config['link_url']) ? $config['link_url'] : 0,
+    );
     return $form;
   }
 
@@ -54,8 +62,10 @@ class ContinueSearchBlock extends BlockBase {
    * {@inheritdoc}
    */
   public function blockSubmit($form, FormStateInterface $form_state) {
+    $form['visibility']['request_path']['#value'] = '/search';
     $this->configuration['block_description'] = $form_state->getValue('block_description');
     $this->configuration['link_text'] = $form_state->getValue('link_text');
+    $this->configuration['link_url'] = $form_state->getValue('link_url');
   }
 
 }
