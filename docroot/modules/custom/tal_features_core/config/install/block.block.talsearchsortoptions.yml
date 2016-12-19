@@ -5,8 +5,6 @@ dependencies:
     - facets
     - system
     - tal_ingredient_search
-  theme:
-    - tateandlyle
 id: talsearchsortoptions
 theme: tateandlyle
 region: content
