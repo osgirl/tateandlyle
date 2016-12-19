@@ -1,0 +1,86 @@
+.tal--ingredient-search-results-total-page {
+  color: $gray-base;
+  font-size: $font-size-h2;
+  font-family: $font-family-sans-serif-Med;
+}
+
+.view-ingredient-finder,
+.view-search {
+
+  .view-content {
+    margin-top: 15px;
+  }
+
+  .views-row {
+    border-bottom: 1px solid $color-warm-gray;
+    border-top: 1px solid $color-warm-gray;
+    padding-top: 20px;
+    padding-bottom: 22px;
+    margin-top: -1px;
+
+    article {
+
+      h2 {
+        font-family: $font-family-sans-serif;
+        font-size: $font-size-h3;
+      }
+    }
+  }
+}
+
+.search-result {
+  .search__description {
+    float: left;
+    width: 70%;
+
+    h2 {
+      margin-top: 0;
+      margin-bottom: 3px;
+    }
+
+    .common--names {
+      margin-bottom: 5px;
+    }
+  }
+
+  .field--name-field-image {
+    float: right;
+    width: 30%;
+
+    img {
+      float: right;
+    }
+  }
+}
+
+.right__sidebar {
+  .block-facets {
+    background-color: $color-off-white;
+    border: none;
+    display: block;
+    padding: 25px 20px 34px 20px;
+    width: 100%;
+
+    .block-title {
+      font-size: $font-size-base;
+    }
+
+    &:first-child {
+      padding-left: 20px;
+    }
+
+    label {
+      padding-left: 14px;
+      cursor: pointer;
+    }
+
+    .facet-item {
+      &:hover {
+
+        label {
+          color: $brand-primary;
+        }
+      }
+    }
+  }
+}

@@ -35,7 +35,7 @@ display:
       exposed_form:
         type: basic
         options:
-          submit_button: Apply
+          submit_button: Search
           reset_button: false
           reset_button_label: Reset
           exposed_sorts_label: 'Sort by'
@@ -232,7 +232,7 @@ display:
           group_type: group
           admin_label: ''
           empty: false
-          content: "<div class=\"tal--ingredient-search-results-total-page\"><b>@total search results</b></div>\n<div class=\"tal--ingredient-search-results-current-page-number\">Showing @start to @end<div>"
+          content: "<div class=\"tal--ingredient-search-results-total-page\"><b>@total search results</b></div>\n<div class=\"tal--ingredient-search-results-current-page-number\">Showing @start to @end</div>"
           plugin_id: result
       footer: {  }
       empty: {  }

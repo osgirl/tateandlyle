@@ -58,32 +58,34 @@ show_border ? 'paragraph--show-border',
             <div class="contact_us_more"><a href="#">{{ "Contact us for information"|t }}</a></div>
             {% else %}
             <div class="field--available-countries-text">{{ parent_node_title }}{{ " is available in:"|t }}</div>
-            <div class="col-sm-6 region--country">
-            {% if country_count > 0 %}
-                <div class="in--country-count">
-                {% trans %}
-                    {{ country_count }} Country
-                {% plural country_count %}
-                    {{ country_count }} Countries
-                {% endtrans %}
-                </div>
-                <span class="in--country-summary-text">{{ "Some of these include:"|t }}</span>
-                <div class="field--in-country">{{ list_country }}</div>
-            </div>
-            {% endif %}
-
-            {% if region_count > 0 %}
-            <div class="col-sm-6 region--country regions--wrapper">
-                <div class="in--region-count">
+            <div class="country__region--wrap">
+                <div class="col-sm-6 region--country">
+                {% if country_count > 0 %}
+                    <div class="in--country-count">
                     {% trans %}
-                    {{ region_count }} Region
-                    {% plural region_count %}
-                    {{ region_count }} Regions
+                        {{ country_count }} Country
+                    {% plural country_count %}
+                        {{ country_count }} Countries
                     {% endtrans %}
+                    </div>
+                    <span class="in--country-summary-text">{{ "Some of these include:"|t }}</span>
+                    <div class="field--in-country">{{ list_country }}</div>
                 </div>
-                <div class="field--in-region">{{ list_regions }}</div>
+                {% endif %}
+
+                {% if region_count > 0 %}
+                <div class="col-sm-6 region--country regions--wrapper">
+                    <div class="in--region-count">
+                        {% trans %}
+                        {{ region_count }} Region
+                        {% plural region_count %}
+                        {{ region_count }} Regions
+                        {% endtrans %}
+                    </div>
+                    <div class="field--in-region">{{ list_regions }}</div>
+                </div>
+                {% endif %}
             </div>
-            {% endif %}
 
             {% if country_count > 8 %}
               <div class="in--country-read-more"><div class="more--countries"><button type="button" class="btn">{{ "See list of countries"|t }}</button></div></div>

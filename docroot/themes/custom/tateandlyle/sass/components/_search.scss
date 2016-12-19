@@ -1,15 +1,15 @@
 .tal-ingredient-finder-wrapper,
-.path-search .content__bottom {
+.path-search main {
   @extend %inner-content-width-padding;
   margin: auto;
   clear: both;
   overflow: hidden;
 }
 
-.path-search .content__bottom {
+.path-search main {
   .col-md-9 {
     @media (min-width: $screen-md) {
-      padding-right: 10px;
+      padding-right: 30px;
       width: 70%;
     }
   }
@@ -21,7 +21,11 @@
   }
 }
 
-.tal-ingredient-finder-wrapper {
+.tal-ingredient-finder-wrapper,
+.block-views-exposed-filter-blocksearch-search-page,
+.block-views-exposed-filter-blockingredient-finder-page-1 {
+
+  form,
   .views-exposed-form {
     background: $brand-primary;
     padding: 20px 22px;

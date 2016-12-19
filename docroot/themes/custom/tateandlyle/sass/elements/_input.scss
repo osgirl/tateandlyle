@@ -1,0 +1,20 @@
+.facets-checkbox {
+  appearance: none;
+  outline: none;
+}
+
+.facets-checkbox {
+  background: url("../images/icons/checkbox-unchecked-black.svg") no-repeat;
+  display: inline-block;
+  height: 20px;
+  vertical-align: middle;
+  width: 20px;
+}
+
+.facets-checkbox:checked {
+  background: url("../images/icons/checkbox-checked-blue.svg") no-repeat;
+}
+
+.facet-item:hover .facets-checkbox {
+  background: url("../images/icons/checkbox-checked-blue.svg") no-repeat;
+}

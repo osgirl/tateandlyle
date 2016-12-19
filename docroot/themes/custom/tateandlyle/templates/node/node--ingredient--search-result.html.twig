@@ -77,17 +77,26 @@ view_mode ? view_mode|clean_class,
 %}
 {% set queryParams = app.request.query.all %}
 <article{{ attributes.addClass(classes) }}>
-
-    {{ title_prefix }}
-    {% if not page %}
-        <h2{{ title_attributes }}>
-            <a href="{{ url }}" rel="bookmark">{{ label }}</a>
-        </h2>
-    {% endif %}
-    {{ title_suffix }}
     <div{{ content_attributes.addClass('content') }}>
-        {{ field_in_common_names }}
-        {{ search_excerpt(keyword, content.body) }}
+
+        <div class="search__description">
+
+            {{ title_prefix }}
+            {% if not page %}
+                <h2{{ title_attributes }}>
+                    <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+                </h2>
+            {% endif %}
+            {{ title_suffix }}
+
+            <p class="common--names">
+                {{ field_in_common_names }}
+            </p>
+            <div class="search__description-text">
+                {{ body }}
+            </div>
+        </div>
+
         {{ content.field_image }}
     </div>
 
