@@ -57,6 +57,12 @@ function tal_preprocess_node_company_story($variables, $node) {
   if (!empty($next)) {
     $variables['nexturl'] = $next[0]->url();
   }
+  if ($variables['view_mode'] == 'search_result') {
+    $path = \Drupal::request()->getUri();
+    $parameters = UrlHelper::parse($path);
+    $keyword = isset($parameters['query']['s']) ? $parameters['query']['s'] : '';
+    $variables['body'] = search_excerpt($keyword, $node->get('body')->value);
+  }
   return $variables;
 }
 
