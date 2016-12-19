@@ -152,9 +152,12 @@
   }
 }
 
+//Search Sort.
+
 .tal-search-sort-by {
   .control-label {
     color: $gray-base;
+    padding-right: 15px;
   }
 
   .control-label,
@@ -163,11 +166,32 @@
   }
 
   select {
+    appearance: none;
+    background: url("../images/icons/dropdown-black.svg") no-repeat 95%;
     border: none;
     border-bottom: 1px solid $color-warm-gray;
     border-radius: 0;
     border-top: 1px solid $color-warm-gray;
     box-shadow: none;
+    outline: none;
     padding: 7px;
+    padding-right: 15px;
   }
+}
+
+.tal--sortorder {
+  margin-top: 15px;
+  @media (min-width: $screen-sm) {
+    float: right;
+  }
+}
+
+.tal--search-total-results {
+  @media (min-width: $screen-sm) {
+    display: inline-block;
+  }
+}
+
+.block-tal-ingredient-search .tal-search-sort-by {
+  display: none;
 }
