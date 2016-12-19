@@ -81,3 +81,11 @@ function tal_wrapper_update_8006() {
     }
   }
 }
+
+/**
+ * Enables core Search module.
+ */
+function tal_wrapper_update_8007() {
+
+  \Drupal::service('module_installer')->install(['search']);
+}
