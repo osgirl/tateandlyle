@@ -26,14 +26,22 @@ class TalFileGroupFormatter extends EntityReferenceRevisionsEntityFormatter {
     $count = $items->count();
     // Render file details directly if only one file is present.
     if ($count == 1) {
-      return parent::viewElements($items, $langcode);
+      foreach ($this->getEntitiesToView($items, $langcode) as $delta => $entity) {
+        $file = $entity->get('field_download_attach_file')->referencedEntities()[$delta];
+        $elements[$delta] = array(
+          '#theme' => 'tal_download_link',
+          '#file' => $file,
+          '#attributes' => array(
+            'class' => 'tal-file-download-link',
+          ),
+        );
+      }
+      return $elements;
     }
     elseif ($count > 1) {
-      // @todo: Show dropdown for multiple versions if count > 1.
       return $this->viewMultiple($items, $langcode);
     }
 
-    return $elements;
   }
 
   /**
