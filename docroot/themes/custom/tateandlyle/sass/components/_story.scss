@@ -33,7 +33,8 @@
         margin-bottom: 0;
       }
 
-      img {
+      .field--type-text-long img,
+      .field--type-text-with-summary img {
         float: left;
         padding-right: 20px;
       }
