@@ -76,27 +76,21 @@ view_mode ? view_mode|clean_class,
 ]
 %}
 <article{{ attributes.addClass(classes) }}>
-
-    {{ title_prefix }}
-    {% if not page %}
-        <h2{{ title_attributes }}>
-            <a href="{{ url }}" rel="bookmark">{{ label }}</a>
-        </h2>
+   {% if not hide_title %}
+      {{ content.body }}
+   {% else %}
+       <div class="tal--ingredient-banner">{{ content.field_in_banner }}</div>
     {% endif %}
-    {{ title_suffix }}
-    {{ content.body }}
     <div{{ content_attributes.addClass('content') }}>
         <nav class="navbar navbar-default">
             <div class="container">
                 <div class="ingredient--submenu">{{ submenu }}</div>
             </div>
         </nav>
-
         {{ content.field_ingredients_content }}
         {{ content.field_in_applications }}
         {{ content.field_in_trends_solutions }}
         {{ content.field_in_types }}
-
     </div>
 
 </article>

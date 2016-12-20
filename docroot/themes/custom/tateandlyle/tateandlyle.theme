@@ -23,7 +23,7 @@ function tateandlyle_theme_suggestions_block_alter(array &$suggestions, array $v
  * Implements hook_theme_suggestions_HOOK_alter() for field templates.
  */
 function tateandlyle_theme_suggestions_field_alter(array &$suggestions, array $variables) {
-  if ($variables['element']['#field_type'] == 'entity_reference' &&  $variables['element']['#entity_type'] == 'paragraph') {
+  if ($variables['element']['#field_type'] == 'entity_reference' &&  ($variables['element']['#entity_type'] == 'paragraph' || $variables['element']['#entity_type'] == 'node')) {
     $entities = $variables['element']['#items']->referencedEntities();
     $entity = array_shift($entities);
     array_splice($suggestions, 1, 0, 'field__paragraph__field_entity_reference_' . $entity->bundle());
@@ -92,8 +92,7 @@ function tateandlyle_preprocess_paragraph(&$variables) {
 function tateandlyle_preprocess_page_title(&$variables) {
   $node = \Drupal::routeMatch()->getParameter('node');
   if ($node && $node->bundle() == 'ingredient') {
-    $hide = $node->get('field_hide_title')->value;
-    if ($hide == '1') {
+    if ($node->get('field_hide_title')->value) {
       $variables['title_attributes']['class'][] = 'hide';
     }
   }
