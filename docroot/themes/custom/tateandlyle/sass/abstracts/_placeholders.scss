@@ -82,3 +82,75 @@
   font-family: $font-family-icon;
   padding-left: 10px;
 }
+
+%border__block {
+  @extend .max-content-width;
+  margin: auto;
+  margin-bottom: 25px;
+  margin-top: 25px;
+  padding-top: 0;
+  @media (max-width: $screen-sm-max) {
+    margin-left: 20px;
+    margin-right: 20px;
+    max-width: none;
+  }
+
+  @media (min-width: $screen-sm) {
+    border: 1px solid $color-warm-gray;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    padding: 60px;
+    padding-top: 0;
+  }
+
+  @media (min-width: $screen-md) {
+    padding: 112px;
+    padding-bottom: 100px;
+    padding-top: 0;
+  }
+}
+
+%border__block--title {
+  @extend %title-border-top;
+  color: $gray-base;
+  font-family: $font-family-sans-serif-Med;
+  font-size: $font-size-h3;
+  margin-bottom: 40px;
+
+  @media (min-width: $screen-sm) {
+    background: $color-white;
+    display: table;
+    font-size: $font-size-h2;
+    margin-bottom: 65px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+  }
+}
+
+%bordered-select {
+  appearance: none;
+  background: url("../images/icons/dropdown-black.svg") no-repeat 95%;
+  border: none;
+  border-bottom: 1px solid $color-warm-gray;
+  border-radius: 0;
+  border-top: 1px solid $color-warm-gray;
+  box-shadow: none;
+  height: 40px;
+  outline: none;
+  padding: 7px;
+  padding-right: 30px;
+}
+
+%download-icon {
+  background: url("../images/icons/buttoncta-arrow-white.png") no-repeat;
+  background-size: cover;
+  content: " ";
+  display: inline-block;
+  height: 15px;
+  margin-left: 10px;
+  width: 15px;
+}

@@ -86,7 +86,7 @@ function tal_downloads_preprocess_paragraph(&$variables) {
         '#markup' => t('Available in %count languages', array('%count' => $count)),
         '#weight' => 2,
         '#prefix' => '<span class="filegroup-count">',
-        '#sufix' => '</span>',
+        '#suffix' => '</span>',
       ];
     }
   }

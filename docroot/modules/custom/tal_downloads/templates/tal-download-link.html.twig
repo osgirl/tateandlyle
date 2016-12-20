@@ -14,10 +14,10 @@
  * @ingroup themeable
  */
 #}
-<div {{ attributes }}">
+<div class="tal__download--button" {{ attributes }}>
     {% if link %}
-        <span>{{ link }}</span>
-        <span class="file-size">{{ file_size }}</span>
+        <p class="file-size">{{ file_size }}</p>
+        <button class="btn btn-primary">{{ link }}</button>
     {% endif %}
     {% if content %}
         {{ content }}

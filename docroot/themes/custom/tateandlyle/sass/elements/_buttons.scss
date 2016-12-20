@@ -11,6 +11,10 @@
     background: $brand-primary;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
   }
+
+  a {
+    color: $color-white;
+  }
 }
 
 .btn-white {
@@ -32,4 +36,12 @@
   &:hover {
     padding: 12px 21px;
   }
+}
+
+.btn-primary-inactive {
+  background: $color-light-gray;
+  border: 1px solid $color-light-gray;
+  color: $color-white;
+  cursor: not-allowed;
+  padding: 8px 20px;
 }

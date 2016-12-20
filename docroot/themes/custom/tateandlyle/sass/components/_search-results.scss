@@ -166,16 +166,7 @@
   }
 
   select {
-    appearance: none;
-    background: url("../images/icons/dropdown-black.svg") no-repeat 95%;
-    border: none;
-    border-bottom: 1px solid $color-warm-gray;
-    border-radius: 0;
-    border-top: 1px solid $color-warm-gray;
-    box-shadow: none;
-    outline: none;
-    padding: 7px;
-    padding-right: 15px;
+    @extend %bordered-select;
   }
 }
 
