@@ -17,7 +17,7 @@
 <div class="tal__download--button" {{ attributes }}>
     {% if link %}
         <p class="file-size">{{ file_size }}</p>
-        <button class="btn btn-primary">{{ link }}</button>
+        <span class="btn--download">{{ link }}</span>
     {% endif %}
     {% if content %}
         {{ content }}
