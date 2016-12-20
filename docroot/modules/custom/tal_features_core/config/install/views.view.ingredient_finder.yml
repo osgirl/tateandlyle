@@ -233,18 +233,6 @@ display:
           reduce_duplicates: false
           plugin_id: search_api_options
       sorts:
-        created:
-          id: created
-          table: search_api_index_acquia_search_index
-          field: created
-          relationship: none
-          group_type: group
-          admin_label: ''
-          order: DESC
-          exposed: true
-          expose:
-            label: 'Authored on'
-          plugin_id: search_api
         title:
           id: title
           table: search_api_index_acquia_search_index
@@ -268,6 +256,18 @@ display:
           exposed: true
           expose:
             label: 'Best Match'
+          plugin_id: search_api
+        changed:
+          id: changed
+          table: search_api_index_acquia_search_index
+          field: changed
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: DESC
+          exposed: true
+          expose:
+            label: 'Published date'
           plugin_id: search_api
       title: 'Ingredient finder'
       header:
