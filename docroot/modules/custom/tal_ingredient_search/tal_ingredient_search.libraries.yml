@@ -1,0 +1,5 @@
+tal_ingredient_sortoptions:
+  js:
+    js/tal_ingredient_sortoptions.js: {}
+  dependencies:
+    - core/jquery
