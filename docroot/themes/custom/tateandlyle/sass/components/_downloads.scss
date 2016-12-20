@@ -5,25 +5,36 @@
 
   .field--name-field-downloads-border-title {
     @extend %border__block--title;
+    @media (max-width: $screen-xs-max) {
+      margin-bottom: 25px;
+    }
   }
 
   .paragraph--type--related-downloads {
     border-bottom: 1px solid $color-warm-gray;
-    display: table;
-    width: 100%;
     padding-top: 20px;
     padding-bottom: 20px;
+
+    @media (min-width: $screen-md) {
+      display: table;
+      width: 100%;
+    }
   }
 
   .inline-content {
     padding-right: 10px;
-    max-width: 312px;
     vertical-align: top;
+    @media (min-width: $screen-md) {
+      display: table-cell;
+    }
   }
 
   .field--name-field-file-display-name {
     color: $gray-base;
-    font-size: $font-size-h3;
+    font-size: $font-size-h5;
+    @media (min-width: $screen-sm) {
+      font-size: $font-size-h3;
+    }
   }
 
   .field--name-field-file-description {
@@ -32,6 +43,17 @@
 
   .filegroup-count em {
     font-style: normal;
+  }
+
+  .filegroup-count + .field--name-field-file-description {
+    position: relative;
+    left: -19%;
+    @media (min-width: $screen-sm) {
+      left: -12%;
+    }
+    @media (min-width: $screen-md) {
+      position: static;
+    }
   }
 
   .download-inactive {
@@ -44,35 +66,76 @@
 
   .tal-downloads-language-selection,
   .field--name-field-file-group {
-    display: table-cell;
-    vertical-align: bottom;
+    margin-top: 20px;
     text-align: right;
-    width: 53%;
+    vertical-align: bottom;
+    @media (min-width: $screen-md) {
+      display: table-cell;
+      margin-top: 0;
+      width: 53%;
+    }
+  }
+
+  .field--name-field-file-group {
+    text-align: center;
+    @media (min-width: $screen-sm) {
+      text-align: right;
+    }
   }
 
   .form-item-change-language,
   .form-item-change-language + div {
-    display: inline-block;
     margin-bottom: 0;
-    vertical-align: bottom;
+    text-align: center;
+    margin-top: 25px;
+    @media (min-width: $screen-sm) {
+      display: inline-block;
+      margin-top: 0;
+      text-align: right;
+      vertical-align: bottom;
+    }
   }
 
   .form-item-change-language {
-    margin-right: 10px;
+    @media (min-width: $screen-sm) {
+      margin-right: 10px;
+    }
+
+    .input-group {
+      @media (max-width: $screen-xs-max) {
+        display: block;
+        overflow: hidden;
+      }
+    }
   }
 
   .inline-icon {
-    width: 10%;
+    width: 15%;
+    @media (min-width: $screen-sm) {
+      width: 10%;
+    }
 
     img {
-      margin: auto;
       max-width: 41px;
-      padding-top: 7px;
+
+      @media (min-width: $screen-sm) {
+        padding-top: 7px;
+      }
+
+      @media (min-width: $screen-md) {
+        margin: auto;
+      }
     }
   }
 
   .inline-description {
-    width: 37%;
+    width: 83%;
+    @media (min-width: $screen-sm) {
+      width: 88%;
+    }
+    @media (min-width: $screen-md) {
+      width: 37%;
+    }
   }
 
   .input-group-addon {
@@ -84,22 +147,37 @@
   }
 
   .tal-file-download-link {
-    text-align: right;
+    text-align: center;
+    @media (min-width: $screen-sm) {
+      text-align: right;
+    }
   }
 
-  .btn-primary {
-    a::after {
-      @extend %download-icon;
-    }
+  .btn--download {
+    a {
+      @extend .btn;
+      @extend .btn-primary;
+      display: block;
+      padding-bottom: 9px;
+      padding-top: 9px;
+      width: 100%;
 
-    &:hover {
-      background-color: $color-white;
-      border: 1px solid $brand-primary;
-      box-shadow: none;
-      padding: 7px 19px;
+      @media (min-width: $screen-sm) {
+        display: inline-block;
+        width: auto;
+      }
 
-      a {
+      &::after {
+        @extend %download-icon;
+      }
+
+      &:hover {
+        background-color: $color-white;
+        border: 1px solid $brand-primary;
+        box-shadow: none;
         color: $brand-primary;
+        padding: 8px 19px;
+
         &::after {
           background: url("../images/icons/buttoncta-arrow-blue.svg") no-repeat;
         }
