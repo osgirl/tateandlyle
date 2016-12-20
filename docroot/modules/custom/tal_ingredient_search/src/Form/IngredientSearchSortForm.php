@@ -32,21 +32,26 @@ class IngredientSearchSortForm extends FormBase {
       '#type' => 'select',
       '#title' => t('Sort by:'),
       '#options' => array(
-        'created' => t('Published on'),
+        'changed' => t('Published on'),
         'title' => t('Alphabetical order'),
         'search_api_relevance' => t('Best Match'),
       ),
       '#default_value' => isset($parameters['query']['sort_by']) ? $parameters['query']['sort_by'] : '',
       '#attributes' => array(
-        'onchange' => 'jQuery(\'#' . $this->getFormId() . '\').submit();',
+        'id' => 'tal-sort-by',
       ),
     );
-
+    $form['keyword'] = array(
+      '#type' => 'hidden',
+      '#defaut_value' => '',
+    );
     $form['save'] = array(
       '#type' => 'submit',
       '#value' => $this->t('Save'),
       '#attributes' => array('class' => array('hidden')),
     );
+
+    $form['#attached']['library'][] = 'tal_ingredient_search/tal_ingredient_sortoptions';
 
     return $form;
   }
@@ -59,6 +64,9 @@ class IngredientSearchSortForm extends FormBase {
     // and rediect to the serch result page.
     $path = \Drupal::request()->getUri();
     $parameters = UrlHelper::parse($path);
+    if (empty($parameters['query']['s'])) {
+      $parameters['query']['s'] = $form_state->getValue('keyword');
+    }
     $parameters['query']['sort_by'] = $form_state->getValue('sort_by');
     $routing_name = \Drupal::routeMatch()->getRouteName();
     $form_state->setRedirect($routing_name, $parameters['query']);
