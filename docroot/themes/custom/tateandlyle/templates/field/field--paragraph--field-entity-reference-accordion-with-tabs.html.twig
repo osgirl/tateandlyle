@@ -53,21 +53,23 @@ set classes = [
 'clearfix',
 ]
 %}
+{% for item in items %}
 <section{{ attributes.addClass(classes) }}>
     {% block content %}
         <div class="tabs__accordion">
-            {% if content.field_border_title %}
-                <h2{{ title_attributes.addClass('block-title') }}>{{ content.field_border_title }}</h2>
+            {% if item.content.field_border_title %}
+                <h2{{ title_attributes.addClass('block-title') }}>{{ item.content.field_border_title }}</h2>
             {% endif %}
             <ul class="nav nav-tabs">
-                <li role="presentation" class="active"><a href="#tab1{{ id }}" data-toggle="tab">{{ content.field_at_tab_title1}}</a></li>
-                <li role="presentation"><a href="#tab2{{ id }}" data-toggle="tab">{{ content.field_at_tab_title2 }}</a></li>
+                <li role="presentation" class="active"><a href="#tab1{{ id }}" data-toggle="tab">{{ item.content.field_at_tab_title1}}</a></li>
+                <li role="presentation"><a href="#tab2{{ id }}" data-toggle="tab">{{ item.content.field_at_tab_title2 }}</a></li>
             </ul>
             <div class="tab-content">
-                <div class="tab-pane fade in active" id="tab1{{ id }}">{{ content.field_at_tab_content1 }}</div>
-                <div class="tab-pane fade" id="tab2{{ id }}">{{ content.field_at_tab_content2 }}</div>
+                <div class="tab-pane fade in active" id="tab1{{ id }}">{{ item.content.field_at_tab_content1 }}</div>
+                <div class="tab-pane fade" id="tab2{{ id }}">{{ item.content.field_at_tab_content2 }}</div>
             </div>
             {# content #}
         </div>
     {% endblock %}
 </section>
+{% endfor %}

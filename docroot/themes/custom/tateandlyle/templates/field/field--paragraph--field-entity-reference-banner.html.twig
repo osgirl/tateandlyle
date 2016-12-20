@@ -53,7 +53,7 @@ set classes = [
 'clearfix',
 ]
 %}
-
+{% for item in items %}
 <section{{ attributes.addClass(classes) }}>
     {{ title_prefix }}
     {% if label %}
@@ -63,12 +63,12 @@ set classes = [
     {% block content %}
         <div class="banner__overlay__block">
             <div class="banner__overlay--background">
-                {{ content.field_bg_image }}
+                {{ item.content.field_bg_image }}
             </div>
             <div class="banner__overlay--content">
                 <div class="banner__overlay--left">
                     <div class="banner--inner">
-                        {{ content|without('field_bg_image', 'field_simple_text')}}
+                        {{ item.content|without('field_bg_image', 'field_simple_text')}}
                     </div>
                 </div>
                 {% if videos  %}
@@ -80,3 +80,4 @@ set classes = [
         </div>
     {% endblock %}
 </section>
+{% endfor %}
