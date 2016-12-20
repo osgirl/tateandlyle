@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInited8f8fbec4b29dbf9033548e5b1ba7ca
+class ComposerStaticInit29c6712962c3e847ce5da252558efa5f
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -126,6 +126,7 @@ class ComposerStaticInited8f8fbec4b29dbf9033548e5b1ba7ca
             'Drupal\\Core\\' => 12,
             'Drupal\\Console\\' => 15,
             'Drupal\\Component\\' => 17,
+            'DrupalComposer\\DrupalScaffold\\' => 30,
             'Doctrine\\Instantiator\\' => 22,
             'Doctrine\\Common\\Cache\\' => 22,
             'DeepCopy\\' => 9,
@@ -371,6 +372,10 @@ class ComposerStaticInited8f8fbec4b29dbf9033548e5b1ba7ca
         array (
             0 => __DIR__ . '/../..' . '/docroot/core/lib/Drupal/Component',
         ),
+        'DrupalComposer\\DrupalScaffold\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/drupal-composer/drupal-scaffold/src',
+        ),
         'Doctrine\\Instantiator\\' => 
         array (
             0 => __DIR__ . '/..' . '/doctrine/instantiator/src/Doctrine/Instantiator',
@@ -539,12 +544,12 @@ class ComposerStaticInited8f8fbec4b29dbf9033548e5b1ba7ca
         'Acquia\\Blt\\Drush\\Command\\BltDoctor' => __DIR__ . '/..' . '/acquia/blt/src/Drush/Command/BltDoctorCommand.php',
         'Acquia\\Blt\\Tests\\BltProjectTestBase' => __DIR__ . '/..' . '/acquia/blt/tests/phpunit/src/BltProjectTestBase.php',
         'Acquia\\Blt\\Tests\\BltTestBase' => __DIR__ . '/..' . '/acquia/blt/tests/phpunit/src/BltTestBase.php',
+        'Acquia\\Blt\\Update\\DoPackagistConverter' => __DIR__ . '/..' . '/acquia/blt/src/Update/DoPackagistConverter.php',
         'Acquia\\Blt\\Update\\Updater' => __DIR__ . '/..' . '/acquia/blt/src/Update/Updater.php',
         'Acquia\\Blt\\Update\\Updates' => __DIR__ . '/..' . '/acquia/blt/src/Update/Updates.php',
         'Acquia\\LightningExtension\\Context\\DisplayModeContext' => __DIR__ . '/../..' . '/docroot/profiles/contrib/lightning/src/LightningExtension/Context/DisplayModeContext.php',
         'Acquia\\LightningExtension\\Context\\UndoContext' => __DIR__ . '/../..' . '/docroot/profiles/contrib/lightning/src/LightningExtension/Context/UndoContext.php',
         'Acquia\\LightningExtension\\Context\\UtilityContext' => __DIR__ . '/../..' . '/docroot/profiles/contrib/lightning/src/LightningExtension/Context/UtilityContext.php',
-        'Acquia\\Lightning\\UpgradeBuild' => __DIR__ . '/../..' . '/docroot/profiles/contrib/lightning/src/UpgradeBuild.php',
         'AdhocTask' => __DIR__ . '/..' . '/phing/phing/classes/phing/tasks/system/AdhocTask.php',
         'AdhocTaskdefTask' => __DIR__ . '/..' . '/phing/phing/classes/phing/tasks/system/AdhocTaskdefTask.php',
         'AdhocTypedefTask' => __DIR__ . '/..' . '/phing/phing/classes/phing/tasks/system/AdhocTypedefTask.php',
@@ -957,6 +962,10 @@ class ComposerStaticInited8f8fbec4b29dbf9033548e5b1ba7ca
         'Doctrine\\Instantiator\\Instantiator' => __DIR__ . '/..' . '/doctrine/instantiator/src/Doctrine/Instantiator/Instantiator.php',
         'Doctrine\\Instantiator\\InstantiatorInterface' => __DIR__ . '/..' . '/doctrine/instantiator/src/Doctrine/Instantiator/InstantiatorInterface.php',
         'Drupal' => __DIR__ . '/../..' . '/docroot/core/lib/Drupal.php',
+        'DrupalComposer\\DrupalScaffold\\FileFetcher' => __DIR__ . '/..' . '/drupal-composer/drupal-scaffold/src/FileFetcher.php',
+        'DrupalComposer\\DrupalScaffold\\Handler' => __DIR__ . '/..' . '/drupal-composer/drupal-scaffold/src/Handler.php',
+        'DrupalComposer\\DrupalScaffold\\InitialFileFetcher' => __DIR__ . '/..' . '/drupal-composer/drupal-scaffold/src/InitialFileFetcher.php',
+        'DrupalComposer\\DrupalScaffold\\Plugin' => __DIR__ . '/..' . '/drupal-composer/drupal-scaffold/src/Plugin.php',
         'Drupal\\Component\\Annotation\\AnnotationBase' => __DIR__ . '/../..' . '/docroot/core/lib/Drupal/Component/Annotation/AnnotationBase.php',
         'Drupal\\Component\\Annotation\\AnnotationInterface' => __DIR__ . '/../..' . '/docroot/core/lib/Drupal/Component/Annotation/AnnotationInterface.php',
         'Drupal\\Component\\Annotation\\Plugin' => __DIR__ . '/../..' . '/docroot/core/lib/Drupal/Component/Annotation/Plugin.php',
@@ -6449,10 +6458,10 @@ class ComposerStaticInited8f8fbec4b29dbf9033548e5b1ba7ca
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInited8f8fbec4b29dbf9033548e5b1ba7ca::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInited8f8fbec4b29dbf9033548e5b1ba7ca::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInited8f8fbec4b29dbf9033548e5b1ba7ca::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInited8f8fbec4b29dbf9033548e5b1ba7ca::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit29c6712962c3e847ce5da252558efa5f::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit29c6712962c3e847ce5da252558efa5f::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit29c6712962c3e847ce5da252558efa5f::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit29c6712962c3e847ce5da252558efa5f::$classMap;
 
         }, null, ClassLoader::class);
     }

@@ -1,5 +1,6 @@
 # Ignore configuration files that may contain sensitive information.
-local.*
+local.settings.php
+local.drushrc.php
 *.local
 project.local.yml
 
@@ -8,6 +9,7 @@ docroot/core
 
 # Ignore paths that contain user-generated content.
 docroot/sites/*/files
+docroot/sites/*/files-private
 docroot/sites/*/private
 
 # Ignore contrib modules. These should be created during build process.

@@ -1,13 +1,7 @@
 name: Basic Page
 package: Lightning
-# core: 8.x
+core: 8.x
 type: module
 description: Provides a "Basic Page" content type that is, indeed, very basic.
 dependencies:
   - lightning_core
-
-# Information added by Drupal.org packaging script on 2016-12-16
-version: '8.x-1.15'
-core: '8.x'
-project: 'lightning'
-datestamp: 1481918287

@@ -12,6 +12,7 @@
 /docroot/libraries/contrib
 /docroot/modules/contrib
 /docroot/sites/*/files
+/docroot/sites/*/files-private
 /docroot/sites/*/private
 /docroot/themes/contrib
 /drush/contrib
@@ -24,7 +25,7 @@
 /.gitignore
 .git
 example.*
-local.*
-*.local.*
+local.settings.php
+local.drushrc.php
 node_modules
 /vendor

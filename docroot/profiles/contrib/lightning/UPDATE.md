@@ -14,34 +14,6 @@ that your site owns it. So, to bring your site fully up-to-date with the latest
 default configuration, you must follow the appropriate set(s) of instructions in
 the "Manual update steps" section of this file.
 
-## Lightning 2
-There will be no future bug fixes or security updates for Lightning 1.x, so you
-should update to Lightning 2 as soon as possible.
-
-The good news is that Lightning 2 is a seamless upgrade from Lightning 1.x. The
-only change is the switch to the official Drupal.org packagist. If you use the
-prebuilt tarball, there are no additional update instructions. If you manage
-your codebase with composer, you'll need to take an additional step to switch to
-the new package repository. We have provided a script which can make the
-requisite changes to your project's root `composer.json`.
-
-To run it, once you have successfully updated to Lightning 1.14 which includes
-the script, go to your project and do the following:
-
-    $ cd docroot/path/to/lightning/profile #usually docroot/profiles/contrib/lightning
-    $ composer run upgrade-build
-
-This will search for the nearest ```composer.json``` with a declared dependency
-on the ```drupal/lightning``` package, and alter it to use the official
-repository. Any dependencies in the ```drupal``` vendor namespace (e.g.
-```drupal/redirect```) will get their version constraint rewritten for
-compatibility with the official repository's format. Once you have run the
-script, you will need to return to your project's root directory and run
-`composer update`.
-
-For more information on the switch to the official packagist, see our
-[Packagist Switch Announcement](http://lightning.acquia.com/blog/packagist-switch).
-
 ## Updating Lightning
 
 ### Composer
@@ -82,14 +54,21 @@ use. For example, if you are currently running Beta 1 and are trying to update
 to Beta 3, you will need to follow the instructions for updating from Beta 1 to
 Beta 2, then from Beta 2 to Beta 3, in that order.
 
-## 1.14 to 1.15
+## 2.0.0 to 2.0.1
 There are no manual update steps for this version.
+
+## 1.14 to 2.0.0
+Once you have followed the instructions contained in 1.14 to update to 2.0.0,
+there are no further manual update steps.
 
 ## 1.13 to 1.14
 There are no manual update steps for this version. However, Lightning 1.14
 contains a script which will modify your root project's composer.json file in
 order to switch your project to the official Drupal.org Packagist and up date
 you to Lightning 2.0.0.
+
+If you use the tarball to manage your codebase, you can update directly to the
+2.x branch with no manual update steps.
 
 ## 1.12 to 1.13
 There are no manual update steps for this version.
