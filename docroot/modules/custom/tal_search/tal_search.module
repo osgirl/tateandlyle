@@ -17,4 +17,9 @@ function tal_search_form_views_exposed_form_alter(&$form, FormStateInterface $fo
     $form['sort_by']['#prefix'] = '<div class="hide">';
     $form['sort_by']['#suffix'] = '</div>';
   }
+  if ($form['#id'] == 'views-exposed-form-search-top-ingredient-results-block') {
+    // Add a placeholder text to the search text field.
+    $form['#prefix'] = '<div class="hide">';
+    $form['#suffix'] = '</div>';
+  }
 }
