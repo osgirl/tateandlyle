@@ -1,3 +1,12 @@
+.block-banner {
+  margin-top: 25px;
+  margin-bottom: 25px;
+  @media (min-width: $screen-sm) {
+    margin-bottom: 50px;
+    margin-top: 50px;
+  }
+}
+
 .banner__overlay__block {
   @media (min-width: $screen-xs) {
     position: relative;
