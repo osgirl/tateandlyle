@@ -1,0 +1,109 @@
+.file--downloads {
+  @extend %border__block;
+  margin-left: auto;
+  margin-right: auto;
+
+  .field--name-field-downloads-border-title {
+    @extend %border__block--title;
+  }
+
+  .paragraph--type--related-downloads {
+    border-bottom: 1px solid $color-warm-gray;
+    display: table;
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .inline-content {
+    padding-right: 10px;
+    max-width: 312px;
+    vertical-align: top;
+  }
+
+  .field--name-field-file-display-name {
+    color: $gray-base;
+    font-size: $font-size-h3;
+  }
+
+  .field--name-field-file-description {
+    margin-top: 15px;
+  }
+
+  .filegroup-count em {
+    font-style: normal;
+  }
+
+  .download-inactive {
+    @extend .btn-primary-inactive;
+    display: block;
+    &::after {
+      @extend %download-icon;
+    }
+  }
+
+  .tal-downloads-language-selection,
+  .field--name-field-file-group {
+    display: table-cell;
+    vertical-align: bottom;
+    text-align: right;
+    width: 53%;
+  }
+
+  .form-item-change-language,
+  .form-item-change-language + div {
+    display: inline-block;
+    margin-bottom: 0;
+    vertical-align: bottom;
+  }
+
+  .form-item-change-language {
+    margin-right: 10px;
+  }
+
+  .inline-icon {
+    width: 10%;
+
+    img {
+      margin: auto;
+      max-width: 41px;
+      padding-top: 7px;
+    }
+  }
+
+  .inline-description {
+    width: 37%;
+  }
+
+  .input-group-addon {
+    display: none;
+  }
+
+  select {
+    @extend %bordered-select;
+  }
+
+  .tal-file-download-link {
+    text-align: right;
+  }
+
+  .btn-primary {
+    a::after {
+      @extend %download-icon;
+    }
+
+    &:hover {
+      background-color: $color-white;
+      border: 1px solid $brand-primary;
+      box-shadow: none;
+      padding: 7px 19px;
+
+      a {
+        color: $brand-primary;
+        &::after {
+          background: url("../images/icons/buttoncta-arrow-blue.svg") no-repeat;
+        }
+      }
+    }
+  }
+}
