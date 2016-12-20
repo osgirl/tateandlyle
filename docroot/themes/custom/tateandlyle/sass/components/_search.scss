@@ -16,6 +16,14 @@
   margin-bottom: 30px;
 }
 
+.path-search .region-secondary-top {
+  display: table;
+  width: 100%;
+  @media (min-width: $screen-md) {
+    display: block;
+  }
+}
+
 .path-search main {
   .col-md-9 {
     @media (min-width: $screen-md) {
