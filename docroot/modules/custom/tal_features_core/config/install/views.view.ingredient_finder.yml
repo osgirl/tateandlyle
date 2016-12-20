@@ -303,6 +303,15 @@ display:
           admin_label: ''
           empty: false
           plugin_id: sortorder
+        tal_ingredient_overlay:
+          id: tal_ingredient_overlay
+          table: views
+          field: tal_ingredient_overlay
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          plugin_id: Overlay_button
       footer: {  }
       empty: {  }
       relationships: {  }

@@ -62,6 +62,26 @@ function tal_ingredient_search_views_data() {
       'id' => 'sortorder',
     ),
   );
+  $data['views']['tal_ingredient_overlay'] = array(
+    'title' => t('Tal overlay button'),
+    'help' => t('Provide overlay button to the search results.'),
+    'area' => array(
+      'id' => 'Overlay_button',
+    ),
+  );
 
   return $data;
+}
+
+/**
+ * Implements hook_theme().
+ */
+function tal_ingredient_search_theme() {
+  return array(
+    'tal_search_result_overlay' => array(
+      'variables' => array(
+        'blocks' => array(),
+      ),
+    ),
+  );
 }
