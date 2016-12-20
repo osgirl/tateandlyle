@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_downloads_border_title
+    - node.type.company_story
+id: node.company_story.field_downloads_border_title
+field_name: field_downloads_border_title
+entity_type: node
+bundle: company_story
+label: 'Related Downloads Border Title'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

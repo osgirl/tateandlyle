@@ -65,7 +65,7 @@ function tal_wrapper_update_8006() {
 
   // Deleting field_common_names completely.
   $field = FieldStorageConfig::loadByName('node', 'field_common_names');
-  if (!empty($fields)) {
+  if (!empty($field)) {
     $field->delete();
   }
   // Deleting iframe_code_field from ingredient content.
@@ -88,4 +88,23 @@ function tal_wrapper_update_8006() {
 function tal_wrapper_update_8007() {
 
   \Drupal::service('module_installer')->install(['search']);
+}
+
+/**
+ * Removes a Border title field from Related Downloads paragraph type.
+ */
+function tal_wrapper_update_8008() {
+
+  // Deleting field_border_title from ingredient content.
+  $properties = [
+    'entity_type' => 'paragraph',
+    'bundle' => 'related_downloads',
+    'include_deleted' => TRUE,
+  ];
+  $fields = \Drupal::entityManager()->getStorage('field_config')->loadByProperties($properties);
+  foreach ($fields as $field) {
+    if ($field->getName() == 'field_border_title') {
+      $field->delete();
+    }
+  }
 }

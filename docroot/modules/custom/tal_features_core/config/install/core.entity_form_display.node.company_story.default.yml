@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.company_story.field_category
     - field.field.node.company_story.field_date
     - field.field.node.company_story.field_downloads
+    - field.field.node.company_story.field_downloads_border_title
     - field.field.node.company_story.field_image
     - field.field.node.company_story.field_next_article
     - field.field.node.company_story.field_prev_article
@@ -36,7 +37,7 @@ content:
     third_party_settings: {  }
   created:
     type: datetime_timestamp
-    weight: 12
+    weight: 13
     settings: {  }
     third_party_settings: {  }
   field_author:
@@ -61,7 +62,7 @@ content:
     type: datetime_default
   field_downloads:
     type: entity_reference_paragraphs
-    weight: 7
+    weight: 8
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -69,6 +70,13 @@ content:
       add_mode: dropdown
       form_display_mode: default
     third_party_settings: {  }
+  field_downloads_border_title:
+    weight: 7
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
   field_image:
     type: entity_browser_file
     weight: 3
@@ -82,7 +90,7 @@ content:
       selection_mode: selection_append
     third_party_settings: {  }
   field_next_article:
-    weight: 9
+    weight: 10
     settings:
       match_operator: CONTAINS
       size: 60
@@ -90,7 +98,7 @@ content:
     third_party_settings: {  }
     type: entity_reference_autocomplete
   field_prev_article:
-    weight: 8
+    weight: 9
     settings:
       match_operator: CONTAINS
       size: 60
@@ -99,7 +107,7 @@ content:
     type: entity_reference_autocomplete
   field_reusable_component:
     type: entity_reference_paragraphs
-    weight: 10
+    weight: 11
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -119,20 +127,20 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 15
+    weight: 16
     settings: {  }
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 13
+    weight: 14
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 14
+    weight: 15
     third_party_settings: {  }
   title:
     type: string_textfield
@@ -143,7 +151,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 11
+    weight: 12
     settings:
       match_operator: CONTAINS
       size: 60

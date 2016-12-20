@@ -2,7 +2,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.related_downloads.field_border_title
     - field.field.paragraph.related_downloads.field_file_description
     - field.field.paragraph.related_downloads.field_file_display_name
     - field.field.paragraph.related_downloads.field_file_group
@@ -16,13 +15,6 @@ targetEntityType: paragraph
 bundle: related_downloads
 mode: default
 content:
-  field_border_title:
-    weight: 6
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
   field_file_description:
     weight: 10
     settings:
