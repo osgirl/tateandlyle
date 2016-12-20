@@ -45,3 +45,9 @@
   cursor: not-allowed;
   padding: 8px 20px;
 }
+
+.btn-secondary {
+  background: $color-off-white;
+  border: 1px solid $color-warm-gray;
+  color: $color-warm-gray;
+}
