@@ -38,6 +38,8 @@ function tal_preprocess_node_ingredient($variables, $node) {
     $variables['field_in_common_names'] = search_excerpt($keyword, $node->get('field_in_common_names')->value);
     $variables['body'] = search_excerpt($keyword, $node->get('body')->value);
   }
+  // Initialise the variable.
+  $variables['hide_title'] = $node->get('field_hide_title')->value;
 
   return $variables;
 }
