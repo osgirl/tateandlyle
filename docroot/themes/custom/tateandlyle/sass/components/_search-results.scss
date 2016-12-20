@@ -76,13 +76,12 @@
     border: none;
     padding: 27px 18px 0 18px;
     @media (min-width: $screen-sm) {
-      display: block;
-      float: left;
       padding-bottom: 50px;
     }
 
     @media (min-width: $screen-md) {
       border-top: 1px solid $color-warm-gray;
+      display: block;
       float: none;
       padding: 25px 20px 34px 20px;
       width: 100%;
@@ -106,8 +105,9 @@
     }
 
     label {
-      padding-left: 14px;
       cursor: pointer;
+      font-weight: normal;
+      outline: none;
     }
 
     .facet-item {

@@ -28,6 +28,16 @@
       background-color: $gray-base;
     }
   }
+
+  .field--name-field-all-jobs-link {
+    a:hover {
+      background: $brand-primary;
+      border: none;
+      box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
+      color: $color-white;
+      padding: 8px 20px;
+    }
+  }
 }
 
 .block-bg.warm-grey {
