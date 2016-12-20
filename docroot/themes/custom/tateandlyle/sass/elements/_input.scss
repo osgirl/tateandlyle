@@ -1,20 +1,25 @@
 .facets-checkbox {
-  appearance: none;
+  display: none;
   outline: none;
 }
 
-.facets-checkbox {
+.facets-checkbox + label::before {
+  content: " ";
   background: url("../images/icons/checkbox-unchecked-black.svg") no-repeat;
+  background-size: cover;
   display: inline-block;
-  height: 20px;
+  height: 16px;
+  margin-right: 14px;
   vertical-align: middle;
-  width: 20px;
+  width: 16px;
 }
 
-.facets-checkbox:checked {
+.facets-checkbox:checked + label::before {
   background: url("../images/icons/checkbox-checked-blue.svg") no-repeat;
+  background-size: cover;
 }
 
-.facet-item:hover .facets-checkbox {
+.facet-item:hover .facets-checkbox + label::before {
   background: url("../images/icons/checkbox-checked-blue.svg") no-repeat;
+  background-size: cover;
 }
