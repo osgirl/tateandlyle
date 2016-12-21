@@ -43,10 +43,10 @@ modules:
     uninstall: {  }
   test:
     enable: [acquia_connector, shield]
-    uninstall: [devel, field_ui, views_ui]
+    uninstall: [devel, views_ui]
   prod:
     enable: [acquia_connector, shield]
-    uninstall: [devel, field_ui, views_ui]
+    uninstall: [devel, views_ui]
   deploy:
     enable: [acquia_connector, admin_toolbar]
     uninstall: {  }
