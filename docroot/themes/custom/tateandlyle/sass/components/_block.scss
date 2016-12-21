@@ -91,3 +91,14 @@
 .block-bg.light-grey {
   background-color: $color-light-gray;
 }
+
+// Block Reference custom blocks.
+
+.paragraph--type--block-reference {
+
+  .tabs__accordion {
+    border: 0;
+    margin-top: 0;
+    padding: 0;
+  }
+}

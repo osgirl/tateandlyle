@@ -158,6 +158,27 @@
   }
 }
 
+// Clear All Filters.
+.clear__all {
+  text-align: right;
+}
+
+.block-facets--checkbox {
+  .block-title,
+  .clear__all {
+    display: inline-block;
+    width: 48%;
+  }
+}
+
+.clear-all-filters-button {
+  &::after {
+    @extend %svg-icon-small;
+    background: url("../images/icons/clear-blue.svg") no-repeat;
+    vertical-align: baseline;
+  }
+}
+
 //Search Sort.
 
 .tal-search-sort-by {
