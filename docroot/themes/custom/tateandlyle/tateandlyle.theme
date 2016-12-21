@@ -107,7 +107,14 @@ function tateandlyle_preprocess_field(&$variables) {
     $entity = $element['#object'];
     $variables['field_unique_id'] = $entity->getEntityTypeId() . $entity->id() . $variables['field_name'];
   }
-
+  if ($variables['field_name'] == 'field_ingredients_content') {
+    if (!empty($variables['items'])) {
+      foreach ($variables['items'] as $key => $val) {
+        $values = $val['content']['#paragraph']->toArray();
+        $variables['items'][$key]['type'] = $values['type'][0]['target_id'];
+      }
+    }
+  }
   if ($variables['element']['#field_type'] == 'entity_reference' &&  $variables['element']['#entity_type'] == 'paragraph') {
     $entities = $variables['element']['#items']->referencedEntities();
     $entity = array_shift($entities);

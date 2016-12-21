@@ -43,7 +43,7 @@ set classes = [
 view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
 ]
 %}
-<div{{ attributes.addClass(classes) }}>
+<div{{ attributes.addClass(classes) }} id="paragraph-{{ paragraph.id.value }}">
     <div class="inline-content inline-icon">
         {{ content.field_file_icon }}
     </div>
@@ -52,5 +52,5 @@ view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
         {{ content.filegroup_count }}
         {{ content.field_file_description }}
     </div>
-    {{ content | without('field_file_icon', 'field_file_display_name', 'field_file_description', 'filegroup_count') }}
+    {{ content | without('field_file_icon', 'field_file_display_name', 'field_file_description', 'filegroup_count', 'field_field_in_submenu_title') }}
 </div>

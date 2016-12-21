@@ -5,8 +5,8 @@ dependencies:
     - field.storage.node.field_ingredients_content
     - node.type.ingredient
     - paragraphs.paragraphs_type.block_reference
-    - paragraphs.paragraphs_type.downloads
     - paragraphs.paragraphs_type.ingredient_accordion
+    - paragraphs.paragraphs_type.related_downloads
     - paragraphs.paragraphs_type.wysiwyg
     - paragraphs.paragraphs_type.wysiwyg_with_block_reference
     - paragraphs.paragraphs_type.wysiwyg_with_country_and_region
@@ -27,18 +27,18 @@ settings:
   handler_settings:
     target_bundles:
       block_reference: block_reference
-      downloads: downloads
       ingredient_accordion: ingredient_accordion
       wysiwyg: wysiwyg
       wysiwyg_with_block_reference: wysiwyg_with_block_reference
       wysiwyg_with_country_and_region: wysiwyg_with_country_and_region
+      related_downloads: related_downloads
     target_bundles_drag_drop:
       block_reference:
         enabled: true
         weight: 7
       downloads:
-        enabled: true
         weight: 8
+        enabled: false
       ingredient_accordion:
         enabled: true
         weight: 9
@@ -51,4 +51,31 @@ settings:
       wysiwyg_with_country_and_region:
         enabled: true
         weight: 12
+      component_accordion_body:
+        weight: 17
+        enabled: false
+      component_accordion_items:
+        weight: 18
+        enabled: false
+      detail_content_promo:
+        weight: 19
+        enabled: false
+      filegroup:
+        weight: 21
+        enabled: false
+      ingredient_accordion_items:
+        weight: 23
+        enabled: false
+      passive_recruitment:
+        weight: 24
+        enabled: false
+      related_downloads:
+        enabled: true
+        weight: 25
+      talk_to_us:
+        weight: 26
+        enabled: false
+      wysiwyg_and_block_reference:
+        weight: 28
+        enabled: false
 field_type: entity_reference_revisions
