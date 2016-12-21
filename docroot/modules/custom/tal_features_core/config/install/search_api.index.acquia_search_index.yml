@@ -37,7 +37,7 @@ field_settings:
     label: Title
     datasource_id: 'entity:node'
     property_path: title
-    type: text
+    type: string
   field_in_applications:
     label: Applications
     datasource_id: 'entity:node'

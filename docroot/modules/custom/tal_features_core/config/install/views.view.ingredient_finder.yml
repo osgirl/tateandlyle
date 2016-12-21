@@ -155,13 +155,13 @@ display:
               authenticated: authenticated
               anonymous: '0'
               administrator: '0'
-              page_creator: '0'
               layout_manager: '0'
-              page_reviewer: '0'
-              landing_page_creator: '0'
-              landing_page_reviewer: '0'
               media_creator: '0'
               media_manager: '0'
+              landing_page_creator: '0'
+              landing_page_reviewer: '0'
+              page_creator: '0'
+              page_reviewer: '0'
               company_story_creator: '0'
               company_story_reviewer: '0'
               contact_creator: '0'
@@ -188,7 +188,6 @@ display:
           min_length: 3
           fields:
             body: body
-            title: title
             field_in_aliases: field_in_aliases
             field_in_common_names: field_in_common_names
             field_in_misspellings: field_in_misspellings
@@ -233,18 +232,6 @@ display:
           reduce_duplicates: false
           plugin_id: search_api_options
       sorts:
-        title:
-          id: title
-          table: search_api_index_acquia_search_index
-          field: title
-          relationship: none
-          group_type: group
-          admin_label: ''
-          order: ASC
-          exposed: true
-          expose:
-            label: 'Alphabetical order'
-          plugin_id: search_api
         search_api_relevance:
           id: search_api_relevance
           table: search_api_index_acquia_search_index
@@ -268,6 +255,18 @@ display:
           exposed: true
           expose:
             label: 'Published date'
+          plugin_id: search_api
+        title:
+          id: title
+          table: search_api_index_acquia_search_index
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: true
+          expose:
+            label: 'Alphabetical order'
           plugin_id: search_api
       title: 'Ingredient finder'
       header:
@@ -301,7 +300,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          empty: false
+          empty: true
           plugin_id: sortorder
         tal_ingredient_overlay:
           id: tal_ingredient_overlay
@@ -310,7 +309,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          empty: true
+          empty: false
           plugin_id: Overlay_button
       footer: {  }
       empty: {  }
