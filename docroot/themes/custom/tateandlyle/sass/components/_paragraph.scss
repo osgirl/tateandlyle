@@ -177,11 +177,17 @@
 }
 
 .page-node-type-ingredient {
-  .field--name-body {
+  .field--name-body,
+  article > .field--type-text-with-summary {
     @extend %inner-content-width-padding;
     @media (min-width: $screen-sm) {
       margin: auto;
     }
+  }
+
+  .paragraph--type--downloads,
+  .paragraph--type--wysiwyg {
+    @extend %border__block;
   }
 
   .content .navbar {
@@ -190,9 +196,6 @@
 }
 
 .path-node .paragraph {
-  .block--connect {
-    padding: 0;
-  }
 
   .overlay__block--content .icon img {
     float: none;
