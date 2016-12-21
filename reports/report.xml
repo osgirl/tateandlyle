@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <testsuites>
   <testsuite name="default" tests="0"/>
-  <testsuite name="Web drivers" tests="2" failures="0" skipped="0" errors="0" time="2.965">
-    <testcase name="Load a page with Javascript" time="2.905" status="passed"/>
-    <testcase name="Load a page without Javascript" time="0.019" status="passed"/>
+  <testsuite name="Web drivers" tests="2" failures="0" skipped="0" errors="0" time="2.885">
+    <testcase name="Load a page with Javascript" time="2.835" status="passed"/>
+    <testcase name="Load a page without Javascript" time="0.018" status="passed"/>
   </testsuite>
 </testsuites>
