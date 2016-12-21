@@ -10,10 +10,13 @@
     Drupal.behaviors.SearchSortOrder = {
         attach: function (context) {
             // Fetch the search keyword the submit the form on change.
-            jQuery('#tal-sort-by').change(function() {
+            jQuery('.form-select').change(function(e) {
+                var element = e.target;
                 var keyword = jQuery('#edit-s').val();
-                jQuery('#tal-search-sort-by :input[name="keyword"]').val(keyword);
-                jQuery('#tal-search-sort-by').submit();
+                var form = jQuery(element).closest("form").get();
+
+                jQuery('input[name="keyword"]', form).val(keyword);
+                jQuery(form).submit();
             });
         },
     };
