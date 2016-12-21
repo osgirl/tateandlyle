@@ -218,6 +218,11 @@
 
 .view-ingredient-finder {
   .view-header {
+
+    & > p {
+      display: none;
+    }
+
     .btn {
       font-size: $font-size-base;
       margin-top: 15px;
