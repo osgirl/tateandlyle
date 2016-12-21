@@ -99,10 +99,12 @@
     {{ content.field_story_description }}
     {{ content.field_author }}
   </div>
-  <div class="row file--downloads">
-    {{ content.field_downloads_border_title }}
-    {{ content.field_downloads }}
-  </div>
+  {% if content.field_downloads|render %}
+    <div class="row file--downloads">
+      {{ content.field_downloads_border_title }}
+      {{ content.field_downloads }}
+    </div>
+  {% endif %}
   <div class="addthis--wrapper">
     <div class="addthis_inline_share_toolbox"></div>
   </div>
