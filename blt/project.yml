@@ -59,7 +59,6 @@ modules:
             - shield
         uninstall:
             - devel
-            - field_ui
             - views_ui
     prod:
         enable:
@@ -67,7 +66,6 @@ modules:
             - shield
         uninstall:
             - devel
-            - field_ui
             - views_ui
     deploy:
         enable:
