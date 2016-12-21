@@ -35,7 +35,7 @@ function template_preprocess_tal_download_link(array &$variables) {
     // Set options as per anchor format described at
     // http://microformats.org/wiki/file-format-examples
     $options['attributes']['type'] = $mime_type . '; length=' . $file_entity->getSize();
-
+    $options['attributes']['target'] = '_blank';
     // Use the description as the link text if available.
     $link_text = t('Download');
 

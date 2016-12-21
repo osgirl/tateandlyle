@@ -52,7 +52,7 @@ class ContinueSearchBlock extends BlockBase {
     $form['link_url'] = array(
       '#type' => 'checkbox',
       '#description' => $this->t('If checked the url of the link will be on Browse "Ingredient Finder(/search/ingredients)" page. Else on the "Ingredient results(/search/ingredients/results)" page.'),
-      '#title' => $this->t('Link url'),
+      '#title' => $this->t('Show on Ingredient Finder'),
       '#default_value' => isset($config['link_url']) ? $config['link_url'] : 0,
     );
     return $form;

@@ -2,6 +2,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.related_downloads.field_field_in_submenu_title
     - field.field.paragraph.related_downloads.field_file_description
     - field.field.paragraph.related_downloads.field_file_display_name
     - field.field.paragraph.related_downloads.field_file_group
@@ -14,6 +15,13 @@ targetEntityType: paragraph
 bundle: related_downloads
 mode: default
 content:
+  field_field_in_submenu_title:
+    weight: 5
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
   field_file_description:
     weight: 3
     label: hidden
