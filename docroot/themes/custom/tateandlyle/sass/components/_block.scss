@@ -92,13 +92,74 @@
   background-color: $color-light-gray;
 }
 
+.block--quote.warm-grey {
+  color: $color-warm-gray;
+}
+
+.block--quote.black {
+  color: $gray-base;
+}
+
+.block--quote.purple {
+  color: $color-purple;
+}
+
+.block--quote.blue {
+  color: $brand-primary;
+}
+
+.block--quote.red {
+  color: $color-red;
+}
+
+.block--quote.white {
+  color: $color-white;
+}
+
+.block--quote.off-white {
+  color: $color-off-white;
+}
+
+.block--quote.mid-grey {
+  color: $gray-dark;
+}
+
+.block--quote.yellow {
+  color: $color-yellow;
+}
+
+.block--quote.gold {
+  color: $color-gold;
+}
+
+.block--quote.silver {
+  color: $color-silver;
+}
+
+.block--quote.light-grey {
+  color: $color-light-gray;
+}
+
 // Block Reference custom blocks.
 
 .paragraph--type--block-reference {
+  & > .block {
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
 
-  .tabs__accordion {
-    border: 0;
-    margin-top: 0;
-    padding: 0;
+  & > .block--connect {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    @media (min-width: $screen-xs) {
+      margin-top: 50px;
+      margin-bottom: 50px;
+    }
+  }
+
+  .block--single-item-promo {
+    .field--name-body {
+      padding-left: 0;
+    }
   }
 }
