@@ -177,7 +177,7 @@
 }
 
 .page-node-type-ingredient {
-  .field--name-body,
+  article > .field--name-body,
   article > .field--type-text-with-summary {
     @extend %inner-content-width-padding;
     @media (min-width: $screen-sm) {

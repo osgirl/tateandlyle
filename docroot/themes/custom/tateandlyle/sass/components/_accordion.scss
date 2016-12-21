@@ -6,10 +6,10 @@
 .tabs__accordion {
   @extend .max-content-width-sm;
   margin: auto;
-  margin-top: 60px;
   padding-top: 0;
   @media (min-width: $screen-sm) {
     border: 1px solid $color-warm-gray;
+    margin-top: 60px;
     padding: 60px;
     padding-top: 0;
   }

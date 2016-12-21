@@ -55,9 +55,9 @@ set classes = [
 ]
 %}
 {% for item in items %}
-<section{{ attributes.addClass(classes) }}>
+<section{{ attributes.addClass(classes) }} style="{{ style }}">
     {% block content %}
-        <div{{ attributes.addClass([overlay_color, "overlay__block recruitment__block"]) }}>
+        <div class= "{{ overlay_color }} overlay__block recruitment__block">
             <div class="overlay__block--content">
                 <div class="component-left">
                     <div class="inline--description">

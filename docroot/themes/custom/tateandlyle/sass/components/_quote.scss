@@ -1,6 +1,10 @@
 .block--quote {
   margin-top: 50px;
   margin-bottom: 50px;
+
+  &.no__bg {
+    color: $gray-base;
+  }
 }
 
 .quote__content {
