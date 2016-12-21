@@ -3,3 +3,10 @@ tal_ingredient_sortoptions:
     js/tal_ingredient_sortoptions.js: {}
   dependencies:
     - core/jquery
+
+tal_ingredient_clear_all_facets:
+  js:
+    js/tal_ingredient_clear_all_facets.js: {}
+  dependencies:
+    - core/jquery
+    - facets/drupal.facets.checkbox-widget

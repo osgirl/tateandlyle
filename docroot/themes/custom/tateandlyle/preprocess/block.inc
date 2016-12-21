@@ -5,6 +5,8 @@
  * The primary file to hold preprocessor functions of different block types.
  */
 
+use Drupal\Core\Url;
+
 /**
  * Preprocessor function for single item promo block type.
  */
@@ -54,6 +56,37 @@ function tal_preprocess_block_talk_to_us($variables, $block) {
     $image_url = file_create_url($image->getFileUri());
     $variables['style'] = 'background-image: url("' . $image_url . '")';
   }
+
+  return $variables;
+}
+
+/**
+ * Preprocessor function for facet block block type.
+ */
+function tal_preprocess_block_facet_block($variables, $block) {
+  // Custom block type helper classes.
+  $variables['#attached']['library'][] = 'tal_ingredient_search/tal_ingredient_clear_all_facets';
+  return $variables;
+}
+
+/**
+ * Preprocessor function for continue or browse block type.
+ */
+function tal_preprocess_block_continue_or_browse($variables, $block) {
+  // Custom block type helper classes.
+  $text = !empty($variables['content']['#link_text']) ? $variables['content']['#link_text'] : t('All matching ingredients');
+  $link_url = !empty($variables['content']['#link_url']) ? $variables['content']['#link_url'] : 0;
+  if ($link_url) {
+    $url = Url::fromUserInput('/search/ingredients');
+  }
+  else {
+    $query = \Drupal::request()->getQueryString();
+    $query = !empty($query) ? '?' . $query : '';
+    $url = Url::fromUserInput('/search/ingredients/results' . $query);
+  }
+  $url->setOption('attributes', array('class' => array('continue-search-link')));
+  $variables['link'] = \Drupal::l($text, $url);
+  $variables['#cache']['contexts'] = ['url.query_args'];
 
   return $variables;
 }

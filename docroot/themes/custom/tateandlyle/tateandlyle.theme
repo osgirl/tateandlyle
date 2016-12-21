@@ -8,7 +8,6 @@
  */
 
 use Drupal\Component\Utility\Html;
-use Drupal\Core\Url;
 
 /**
  * Implements hook_theme_suggestions_HOOK_alter() for form templates.
@@ -34,26 +33,12 @@ function tateandlyle_theme_suggestions_field_alter(array &$suggestions, array $v
  * Implements template_preprocess_block().
  */
 function tateandlyle_preprocess_block(&$variables) {
-  // Custom block type helper classes.
-  if (isset($variables['elements']['#plugin_id']) && $variables['elements']['#plugin_id'] == 'continue_or_browse') {
-    $text = !empty($variables['content']['#link_text']) ? $variables['content']['#link_text'] : t('All matching ingredients');
-    $link_url = !empty($variables['content']['#link_url']) ? $variables['content']['#link_url'] : 0;
-    if ($link_url) {
-      $url = Url::fromUserInput('/search/ingredients');
-    }
-    else {
-      $query = \Drupal::request()->getQueryString();
-      if (!empty($query)) {
-        $query = '?' . $query;
-      }
-      else {
-        $query = '';
-      }
-      $url = Url::fromUserInput('/search/ingredients/results' . $query);
-    }
-    $url->setOption('attributes', array('class' => array('continue-search-link')));
-    $variables['link'] = \Drupal::l($text, $url);
-    $variables['#cache']['contexts'] = ['url.query_args'];
+  $bundle = '';
+  $block = '';
+  if (isset($variables['elements']['#base_plugin_id'])
+    && ($variables['elements']['#base_plugin_id'] == 'continue_or_browse'
+    || $variables['elements']['#base_plugin_id'] == 'facet_block')) {
+    $bundle = $variables['elements']['#base_plugin_id'];
   }
   if (isset($variables['elements']['content']['#block_content'])) {
     $block = $variables['elements']['content']['#block_content'];
@@ -65,7 +50,8 @@ function tateandlyle_preprocess_block(&$variables) {
       $variables['attributes']['data-bundle-class'] = $bundle_class;
     }
     $variables['id'] = $variables['elements']['#id'];
-    // Call preprocessor function of different block types.
+  }
+  if (!empty($bundle)) {
     include_once "preprocess/block.inc";
     if (function_exists('tal_preprocess_block_' . $bundle)) {
       $variables = call_user_func('tal_preprocess_block_' . $bundle, $variables, $block);

@@ -27,6 +27,6 @@ visibility:
     context_mapping: {  }
   request_path:
     id: request_path
-    pages: /search/ingredient/results
+    pages: /search/ingredients/results
     negate: false
     context_mapping: {  }
