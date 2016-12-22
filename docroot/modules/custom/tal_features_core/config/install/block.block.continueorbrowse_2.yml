@@ -18,6 +18,7 @@ settings:
   label_display: visible
   block_description: 'You can also browse all ingredients by their type, application area or trend that applies.'
   link_text: 'Browse all ingredients'
+  link_url: 1
 visibility:
   other_facet:
     id: other_facet
