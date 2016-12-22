@@ -42,7 +42,7 @@ field_settings:
     label: Applications
     datasource_id: 'entity:node'
     property_path: field_in_applications
-    type: string
+    type: integer
     dependencies:
       config:
         - field.storage.node.field_in_applications
@@ -50,7 +50,7 @@ field_settings:
     label: 'Trends & solutions'
     datasource_id: 'entity:node'
     property_path: field_in_trends_solutions
-    type: string
+    type: integer
     dependencies:
       config:
         - field.storage.node.field_in_trends_solutions
@@ -58,7 +58,7 @@ field_settings:
     label: 'Types of Ingredients'
     datasource_id: 'entity:node'
     property_path: field_in_types
-    type: string
+    type: integer
     dependencies:
       config:
         - field.storage.node.field_in_types
