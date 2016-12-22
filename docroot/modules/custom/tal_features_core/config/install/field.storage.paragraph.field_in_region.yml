@@ -12,7 +12,7 @@ settings:
   allowed_values:
     -
       value: All
-      label: All
+      label: Global
     -
       value: Americas
       label: Americas
@@ -20,8 +20,14 @@ settings:
       value: 'Asia Pacific'
       label: 'Asia Pacific'
     -
-      value: 'Europe, Middle East and Africa'
-      label: 'Europe, Middle East and Africa'
+      value: Europe
+      label: Europe
+    -
+      value: 'Middle East'
+      label: 'Middle East'
+    -
+      value: Africa
+      label: Africa
   allowed_values_function: ''
 module: options
 locked: false
