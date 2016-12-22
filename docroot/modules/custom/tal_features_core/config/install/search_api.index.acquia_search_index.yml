@@ -115,6 +115,11 @@ field_settings:
     datasource_id: 'entity:node'
     property_path: type
     type: string
+  title_1:
+    label: Title
+    datasource_id: 'entity:node'
+    property_path: title
+    type: text
 processor_settings:
   add_url:
     plugin_id: add_url
