@@ -1,4 +1,6 @@
 #views-form-media-media-page-list .views-field-thumbnail__target-id,
 #entity-browser-media-browser-form .views-field-thumbnail__target-id {
+.node-icon-edit-form .image-style-thumbnail,
+.view-content .views-field-thumbnail__target-id .image-style-medium{
   background-color: #AFAFAF;
 }
