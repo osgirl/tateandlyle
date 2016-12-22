@@ -191,6 +191,7 @@ display:
             field_in_aliases: field_in_aliases
             field_in_common_names: field_in_common_names
             field_in_misspellings: field_in_misspellings
+            title_1: title_1
           plugin_id: search_api_fulltext
         type:
           id: type
