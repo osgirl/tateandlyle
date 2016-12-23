@@ -176,8 +176,8 @@ function tal_preprocess_block_quote($variables, $block) {
     $variables['style'] = 'background-image: url("' . $image_url . '")';
   }
 
+  $variables['text_color'] = $font_color['value'];
   if (!isset($image) && !isset($background_color_content)) {
-    $variables['text_color'] = $font_color['value'];
     $variables['background'] = 'no__bg';
   }
 
