@@ -16,11 +16,64 @@ dependencies:
     - image.style.thumbnail
     - node.type.ingredient
   module:
+    - field_group
     - image
     - paragraphs
     - path
     - text
     - workbench_moderation
+third_party_settings:
+  field_group:
+    group_ingredients_basic:
+      children:
+        - title
+        - field_hide_title
+        - body
+        - field_image
+      parent_name: ''
+      weight: 0
+      label: Basic
+      format_type: tab
+      format_settings:
+        formatter: closed
+        description: ''
+        classes: ''
+        id: ''
+        required_fields: true
+        direction: vertical
+    group_ingredients_categories:
+      children:
+        - field_in_applications
+        - field_in_types
+        - field_in_trends_solutions
+        - field_in_common_names
+        - field_in_misspellings
+        - field_in_aliases
+      parent_name: ''
+      weight: 2
+      label: Categories
+      format_type: tab
+      format_settings:
+        description: ''
+        classes: ''
+        id: ''
+        required_fields: true
+        direction: vertical
+        formatter: closed
+    group_ingredients_content:
+      children:
+        - field_in_banner
+        - field_ingredients_content
+      parent_name: ''
+      weight: 3
+      label: Content
+      format_type: tab
+      format_settings:
+        formatter: closed
+        description: ''
+        classes: ''
+        id: ''
+        required_fields: true
 id: node.ingredient.default
 targetEntityType: node
 bundle: ingredient
