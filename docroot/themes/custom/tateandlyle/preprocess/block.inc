@@ -156,7 +156,8 @@ function tal_preprocess_block_quote($variables, $block) {
   // Check if background color is added.
   $background_color_content = $block->get('field_qt_bg_color')->getValue();
   $background_color_content = array_shift($background_color_content);
-
+  $top_title = $block->get('field_simple_text')->value;
+  $bottom_link = $block->get('field_tal_link')->value;
   $font_color = $block->get('field_bg_color')->getValue();
   $font_color = array_shift($font_color);
 
@@ -175,7 +176,14 @@ function tal_preprocess_block_quote($variables, $block) {
     $image_url = file_create_url($image->getFileUri());
     $variables['style'] = 'background-image: url("' . $image_url . '")';
   }
-
+  $variables['top_title'] = FALSE;
+  $variables['bottom_link'] = FALSE;
+  if (!empty($bottom_link)) {
+    $variables['bottom_link'] = TRUE;
+  }
+  if (!empty($top_title)) {
+    $variables['top_title'] = TRUE;
+  }
   $variables['text_color'] = $font_color['value'];
   if (!isset($image) && !isset($background_color_content)) {
     $variables['background'] = 'no__bg';
