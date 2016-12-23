@@ -56,13 +56,10 @@ background,
         {% else %}
         <div class="no-bg-image">
             {% endif %}
-            {{ title_prefix }}
             <hr />
-            {% for item in items %}
-              <h2{{ title_attributes.addClass('block-title') }}>{{ item.content.field_simple_text }}</h2>
-            {% endfor %}
-            {{ title_suffix }}
-
+            {% if top_title %}
+                  <h2{{ title_attributes.addClass('block-title') }}>{{ item.content.field_simple_text }}</h2>
+            {% endif %}
             <div class="quote__content">
 
                 <div class="quote__content--left">
@@ -75,8 +72,9 @@ background,
                     <div class="block-person-role">{{ item.content.field_qt_person_role }}</div>
                 </div>
             </div>
-
-            <div class="block-readmore-link">{{ item.content.field_tal_link }}</div>
+            {% if bottom_link %}
+                <div class="block-readmore-link">{{ item.content.field_tal_link }}</div>
+            {% endif %}
         </div>
 </section>
 {% endfor %}
