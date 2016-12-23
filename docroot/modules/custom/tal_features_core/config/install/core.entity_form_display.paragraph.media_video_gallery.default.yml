@@ -1,0 +1,47 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.media_video_gallery.field_image
+    - field.field.paragraph.media_video_gallery.field_simple_text
+    - field.field.paragraph.media_video_gallery.field_simple_text1
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.media_video_gallery
+  module:
+    - image
+    - workbench_moderation
+id: paragraph.media_video_gallery.default
+targetEntityType: paragraph
+bundle: media_video_gallery
+mode: default
+content:
+  field_image:
+    type: entity_browser_file
+    weight: 8
+    settings:
+      entity_browser: image_browser
+      field_widget_edit: true
+      field_widget_remove: true
+      view_mode: default
+      preview_image_style: thumbnail
+      open: true
+      selection_mode: selection_append
+    third_party_settings: {  }
+  field_simple_text:
+    weight: 6
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_simple_text1:
+    weight: 7
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+hidden:
+  created: true
+  status: true
+  uid: true
