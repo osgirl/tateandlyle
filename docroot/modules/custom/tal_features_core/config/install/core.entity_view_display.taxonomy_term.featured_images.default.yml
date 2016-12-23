@@ -1,0 +1,29 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.featured_images.field_featured_image
+    - taxonomy.vocabulary.featured_images
+  module:
+    - image
+    - text
+id: taxonomy_term.featured_images.default
+targetEntityType: taxonomy_term
+bundle: featured_images
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+  field_featured_image:
+    weight: 1
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+hidden: {  }
