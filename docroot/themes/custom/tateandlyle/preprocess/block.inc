@@ -157,7 +157,8 @@ function tal_preprocess_block_quote($variables, $block) {
   $background_color_content = $block->get('field_qt_bg_color')->getValue();
   $background_color_content = array_shift($background_color_content);
   $top_title = $block->get('field_simple_text')->value;
-  $bottom_link = $block->get('field_tal_link')->value;
+  $bottom_link = $block->get('field_tal_link')->getValue();
+
   $font_color = $block->get('field_bg_color')->getValue();
   $font_color = array_shift($font_color);
 
@@ -188,6 +189,5 @@ function tal_preprocess_block_quote($variables, $block) {
   if (!isset($image) && !isset($background_color_content)) {
     $variables['background'] = 'no__bg';
   }
-
   return $variables;
 }
