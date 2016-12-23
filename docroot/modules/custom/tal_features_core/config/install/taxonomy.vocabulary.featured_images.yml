@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'Featured Images'
+vid: featured_images
+description: ''
+hierarchy: 0
+weight: 0
