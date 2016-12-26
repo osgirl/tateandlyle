@@ -53,10 +53,17 @@
     'block--quote',
     text_color,
     background,
+    top_bottom,
     'clearfix',
   ]
 %}
-<section{{ attributes.addClass(classes) }} style="{{ style }}">
+
+{% if top_bottom %}
+  <section{{ attributes.addClass(classes) }} style="{{ style }}">
+{% else %}
+  <section{{ attributes.addClass(classes).addClass('no--top--bottom') }}>
+{% endif %}
+
   {% if is_image %}
     <div class="bg-image">
   {% else %}
@@ -66,16 +73,27 @@
       <hr />
       <h2{{ title_attributes.addClass('block-title') }}>{{ content.field_simple_text }}</h2>
   {% endif %}
-    <div class="quote__content">
 
-      <div class="quote__content--left">
-        <div class="block-person-icon">{{ content.field_bg_image }}</div>
-      </div>
+  {% if top_bottom %}
+    <div class="quote__main">
+    {% else %}
+    <div class="quote__main" style="{{ style }}">
+  {% endif %}
 
-      <div class="quote__content--right">
-        <div class="block-quote">{{ content.field_short_summary }}</div>
-        <div class="block-person-name">{{ content.field_qt_quote_person }}</div>
-        <div class="block-person-role">{{ content.field_qt_person_role }}</div>
+    {% if background_color %}
+      <div class="quote__content {{ content.field_qt_bg_color.0['#markup'] }}">
+    {% else %}
+      <div class="quote__content">
+    {% endif %}
+        <div class="quote__content--left">
+          <div class="block-person-icon">{{ content.field_bg_image }}</div>
+        </div>
+
+        <div class="quote__content--right">
+          <div class="block-quote">{{ content.field_short_summary }}</div>
+          <div class="block-person-name">{{ content.field_qt_quote_person }}</div>
+          <div class="block-person-role">{{ content.field_qt_person_role }}</div>
+        </div>
       </div>
     </div>
   {% if(bottom_link) %}

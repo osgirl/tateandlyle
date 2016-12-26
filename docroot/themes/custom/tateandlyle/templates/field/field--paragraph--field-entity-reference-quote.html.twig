@@ -46,35 +46,54 @@ set classes = [
 'block--quote',
 text_color,
 background,
+top_bottom,
 'clearfix',
 ]
 %}
 {% for item in items %}
-<section{{ attributes.addClass(classes) }} style="{{ style }}">
+{% if top_bottom %}
+    <section{{ attributes.addClass(classes) }} style="{{ style }}">
+{% else %}
+    <section{{ attributes.addClass(classes).addClass('no--top--bottom') }}>
+{% endif %}
+
     {% if is_image %}
-    <div class="bg-image">
-        {% else %}
+        <div class="bg-image">
+    {% else %}
         <div class="no-bg-image">
-            {% endif %}
+    {% endif %}
+        {% if(top_title) %}
             <hr />
-            {% if top_title %}
-                  <h2{{ title_attributes.addClass('block-title') }}>{{ item.content.field_simple_text }}</h2>
+            <h2{{ title_attributes.addClass('block-title') }}>{{ content.field_simple_text }}</h2>
+        {% endif %}
+
+        {% if top_bottom %}
+            <div class="quote__main">
+        {% else %}
+            <div class="quote__main" style="{{ style }}">
+        {% endif %}
+
+            {% if background_color %}
+                <div class="quote__content {{ item.content.field_qt_bg_color.0['#markup'] }}">
+            {% else %}
+                <div class="quote__content">
             {% endif %}
-            <div class="quote__content">
+                    <div class="quote__content--left">
+                        <div class="block-person-icon">{{ item.content.field_bg_image }}</div>
+                    </div>
 
-                <div class="quote__content--left">
-                    <div class="block-person-icon">{{ item.content.field_bg_image }}</div>
-                </div>
-
-                <div class="quote__content--right">
-                    <div class="block-quote">{{ item.content.field_short_summary }}</div>
-                    <div class="block-person-name">{{ item.content.field_qt_quote_person }}</div>
-                    <div class="block-person-role">{{ item.content.field_qt_person_role }}</div>
+                    <div class="quote__content--right">
+                        <div class="block-quote">{{ item.content.field_short_summary }}</div>
+                        <div class="block-person-name">{{ item.content.field_qt_quote_person }}</div>
+                        <div class="block-person-role">{{ item.content.field_qt_person_role }}</div>
+                    </div>
                 </div>
             </div>
-            {% if bottom_link %}
+
+            {% if(bottom_link) %}
                 <div class="block-readmore-link">{{ item.content.field_tal_link }}</div>
             {% endif %}
-        </div>
-</section>
+
+            </div>
+        </section>
 {% endfor %}
