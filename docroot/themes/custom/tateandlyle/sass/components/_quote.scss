@@ -23,10 +23,16 @@
     font-size: $font-size-h4;
     font-family: $font-family-sans-serif-light;
     line-height: 1;
-    margin-bottom: 30px;
+    margin-bottom: 18px;
+    margin-top: 16px;
     text-indent: -19px;
     @media (min-width: $screen-sm-lsp) {
       font-size: $font-size-h3;
+      margin-top: 0;
+    }
+
+    @media (min-width: $screen-md) {
+      margin-bottom: 55px;
     }
 
     &::before {
@@ -148,5 +154,43 @@
   @media (min-width: $screen-sm-lsp) {
     border-right: 1px solid;
     min-width: 205px;
+  }
+}
+
+.no--top--bottom {
+
+  .bg-image,
+  .no-bg-image {
+    padding: 0;
+  }
+
+  .bg-image {
+    background-color: $color-white;
+  }
+
+  .White,
+  .Off-white,
+  .light-grey {
+    color: $gray-base;
+  }
+
+  .quote__content--left,
+  .quote__content--right {
+    padding-bottom: 0;
+    padding-top: 0;
+  }
+
+  .quote__main {
+    @extend %inner-content-width;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .quote__content {
+    border: none;
+    padding: 16px 28px 25px 40px;
+    @media (min-width: $screen-sm-lsp) {
+      padding: 40px 30px;
+    }
   }
 }
