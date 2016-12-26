@@ -187,7 +187,15 @@ function tal_preprocess_block_quote($variables, $block) {
   }
   $variables['text_color'] = $font_color['value'];
   if (!isset($image) && !isset($background_color_content)) {
-    $variables['background'] = 'no__bg';
+    $variables['background'] = 'noblock--bg';
+  }
+  if (!empty($top_title) || !empty($bottom_link)) {
+    $variables['top_bottom'] = 'top--bottom';
+  }
+
+  $variables['background_color'] = FALSE;
+  if (isset($background_color_content) && !isset($image)) {
+    $variables['background_color'] = TRUE;
   }
   return $variables;
 }
