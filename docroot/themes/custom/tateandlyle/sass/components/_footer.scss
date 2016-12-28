@@ -1,0 +1,23 @@
+footer {
+  background-color: $gray-base;
+
+  a {
+    color: $color-white;
+  }
+
+  .nav > li > a {
+    padding: 0;
+
+    &:hover {
+      background-color: transparent;
+    }
+  }
+}
+
+.region-footer {
+  @extend %inner-content-width;
+  overflow: hidden;
+  padding-bottom: 30px;
+  padding-top: 60px;
+}
+
