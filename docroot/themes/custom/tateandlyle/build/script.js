@@ -12,11 +12,11 @@
   Drupal.behaviors.collapse = {
     attach: function () {
       $(".in--country-read-more button").click(function () {
-        $(".field--in-country .more-countries").addClass("show");
+        $(".field--in-country .more-countries").addClass("view");
       });
 
       $(".ingredient--submenu ul li").first().click(function () {
-        $(".ingredient--submenu ul li").toggleClass("show");
+        $(".ingredient--submenu ul li").toggleClass("view");
       });
     }
   };
@@ -36,6 +36,16 @@
           }
         });
       }
+
+      // Manage the offset of Anchor scroll links.
+      function anchorOffset() {
+        if (location.hash.length !== 0) {
+          window.scrollTo(window.scrollX, window.scrollY - 180);
+        }
+      }
+
+      window.addEventListener("hashchange", anchorOffset);
+      window.setTimeout(anchorOffset, 1);
     }
   };
 })(jQuery, Drupal);
