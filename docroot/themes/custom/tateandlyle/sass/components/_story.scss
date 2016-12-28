@@ -53,6 +53,34 @@
         display: inline-block;
       }
     }
+
+    .quote__main,
+    .block--single-item-promo,
+    .block--content-promo {
+      margin-left: 0;
+      margin-right: 0;
+      @media (min-width: $screen-md) {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+
+    .block--accordion-with-tabs {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  .paragraph {
+
+    .block--connect {
+      padding-left: 0;
+      padding-right: 0;
+      @media (min-width: $screen-xs) {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+    }
   }
 }
 

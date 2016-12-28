@@ -225,38 +225,7 @@
   }
 
   .field--name-field-block-title {
-    font-size: $font-size-h3;
-    font-family: $font-family-sans-serif-Med;
-    margin-bottom: 30px;
-    padding-left: 21px;
-    padding-right: 30px;
-
-    @media (min-width: $screen-sm-lsp) {
-      background: $color-white;
-      display: table;
-      margin-bottom: 44px;
-      margin-left: auto;
-      margin-right: auto;
-      margin-top: -20px;
-      text-align: center;
-      padding-left: 10px;
-      padding-right: 10px;
-      max-width: 346px;
-    }
-
-    @media (min-width: $screen-sm) {
-      margin-bottom: 30px;
-    }
-
-    @media (min-width: $screen-md) {
-      margin-bottom: 58px;
-    }
-
-    @media (min-width: $screen-md-lg) {
-      font-size: $font-size-h2;
-      margin-bottom: 36px;
-      max-width: none;
-    }
+    @extend %border--title--less-space;
   }
 
   .field--name-field-promo-content {

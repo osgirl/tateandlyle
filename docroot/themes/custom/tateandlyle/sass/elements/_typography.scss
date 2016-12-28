@@ -8,3 +8,26 @@
     }
   }
 }
+
+blockquote {
+  border-left: 0;
+  p {
+    &::before {
+      content: open-quote;
+    }
+
+    &::after {
+      content: close-quote;
+    }
+
+    &::before,
+    &::after {
+      display: inline-block;
+      line-height: 0;
+    }
+  }
+}
+
+strong {
+  font-family: $font-family-sans-serif-bold;
+}
