@@ -31,7 +31,7 @@ content:
     weight: 5
     label: hidden
     settings:
-      image_style: ''
+      image_style: quote_167_x_167
       image_link: ''
     third_party_settings: {  }
     type: image
