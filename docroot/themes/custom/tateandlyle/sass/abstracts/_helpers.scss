@@ -14,12 +14,21 @@
   }
 }
 
-.max-content-width-sm {
+.max-content-width-sm-inner {
   @media (min-width: $screen-sm) {
     max-width: 708px;
   }
   @media (min-width: $screen-md) {
-    max-width: 943px;
+    max-width: 971px;
+  }
+}
+
+.max-content-width-sm {
+  @media (min-width: $screen-md) {
+    max-width: 800px;
+  }
+  @media (min-width: $screen-md-lg) {
+    max-width: 1108px;
   }
 }
 
