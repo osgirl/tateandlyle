@@ -150,6 +150,20 @@ function tal_preprocess_block_banner($variables, $block) {
 }
 
 /**
+ * Preprocessor function for freedom wysiwyg block type.
+ */
+function tal_preprocess_block_freefrom_wysiwyg($variables, $block) {
+  // Custom block type helper classes.
+  $title = $block->get('field_block_title')->value;
+
+  if (isset($title)) {
+    $variables['title_present'] = 'border--block';
+  }
+
+  return $variables;
+}
+
+/**
  * Preprocessor function for quote block type.
  */
 function tal_preprocess_block_quote($variables, $block) {

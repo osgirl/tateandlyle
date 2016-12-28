@@ -8,7 +8,7 @@
 }
 
 .quote__content {
-  @extend .max-content-width-sm;
+  @extend .max-content-width-sm-inner;
   display: table;
   margin: auto;
   padding-left: 20px;

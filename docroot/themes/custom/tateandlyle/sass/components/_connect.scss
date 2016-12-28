@@ -1,11 +1,13 @@
 .block--connect {
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 50px 20px;
+  padding: 50px 30px;
   margin-bottom: 40px;
   margin-top: 40px;
   @media (max-width: $screen-xxs-max) {
     background: $color-white !important;  // Override Inline Style.
+    padding-top: 0;
+    padding-bottom: 0;
     .overlay__block {
       border: 1px solid $color-warm-gray;
     }
