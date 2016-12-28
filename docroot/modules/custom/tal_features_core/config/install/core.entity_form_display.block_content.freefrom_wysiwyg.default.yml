@@ -1,0 +1,47 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.freefrom_wysiwyg
+    - field.field.block_content.freefrom_wysiwyg.body
+    - field.field.block_content.freefrom_wysiwyg.field_block_title
+    - field.field.block_content.freefrom_wysiwyg.field_tal_link
+  module:
+    - link
+    - text
+    - workbench_moderation
+id: block_content.freefrom_wysiwyg.default
+targetEntityType: block_content
+bundle: freefrom_wysiwyg
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 2
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+  field_block_title:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_tal_link:
+    weight: 3
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+  info:
+    type: string_textfield
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

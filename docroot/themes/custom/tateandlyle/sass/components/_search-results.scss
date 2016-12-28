@@ -67,6 +67,7 @@
 
     img {
       float: right;
+      max-width: 197px;
     }
   }
 }
@@ -139,10 +140,6 @@
       margin-bottom: 28px;
       margin-top: 0;
       font-size: $font-size-h3;
-
-      @media (min-width: $screen-md) {
-        font-size: $font-size-h2;
-      }
     }
 
     .views-row {

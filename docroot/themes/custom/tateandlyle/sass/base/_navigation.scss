@@ -59,12 +59,13 @@
           background: $gray-base;
           color: $color-white;
           &::after {
-            color: $color-white;
-            content: $fa-var-angle-down;
-            font-family: $font-family-icon;
+            @extend %svg-icon-small;
+            background: url("../images/icons/cta-drop-down-arrow-white.svg") no-repeat;
+            background-size: cover;
             padding-left: 10px;
             position: absolute;
-            right: 20px;
+            margin-top: 3px;
+            right: 15px;
           }
           @media (min-width: $screen-sm) {
             background: $color-white;

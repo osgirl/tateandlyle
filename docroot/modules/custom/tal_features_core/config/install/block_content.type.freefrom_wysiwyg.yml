@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: freefrom_wysiwyg
+label: 'Freefrom WYSIWYG'
+revision: 1
+description: 'Use this block type to add formatted text blocks. You can place them anywhere on the site.'
