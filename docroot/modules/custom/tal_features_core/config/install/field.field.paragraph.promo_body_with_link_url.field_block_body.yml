@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_block_body
+    - paragraphs.paragraphs_type.promo_body_with_link_url
+  module:
+    - text
+id: paragraph.promo_body_with_link_url.field_block_body
+field_name: field_block_body
+entity_type: paragraph
+bundle: promo_body_with_link_url
+label: Body
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long
