@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit797df87cfd00e295957f38f8d92c8d1c
+class ComposerStaticInit3e4c3e926a106a5be424ba73b513b4e9
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -30,6 +30,10 @@ class ComposerStaticInit797df87cfd00e295957f38f8d92c8d1c
         array (
             'phpseclib\\' => 10,
             'phpDocumentor\\Reflection\\' => 25,
+        ),
+        'g' => 
+        array (
+            'grasmash\\DrupalSecurityWarning\\' => 31,
         ),
         'c' => 
         array (
@@ -155,6 +159,10 @@ class ComposerStaticInit797df87cfd00e295957f38f8d92c8d1c
             0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
             1 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
             2 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
+        ),
+        'grasmash\\DrupalSecurityWarning\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/grasmash/drupal-security-warning/src',
         ),
         'cweagans\\Composer\\' => 
         array (
@@ -5951,6 +5959,7 @@ class ComposerStaticInit797df87cfd00e295957f38f8d92c8d1c
         'Twig_Extension_Sandbox' => __DIR__ . '/..' . '/twig/twig/lib/Twig/Extension/Sandbox.php',
         'Twig_Extension_Staging' => __DIR__ . '/..' . '/twig/twig/lib/Twig/Extension/Staging.php',
         'Twig_Extension_StringLoader' => __DIR__ . '/..' . '/twig/twig/lib/Twig/Extension/StringLoader.php',
+        'Twig_FactoryRuntimeLoader' => __DIR__ . '/..' . '/twig/twig/lib/Twig/FactoryRuntimeLoader.php',
         'Twig_FileExtensionEscapingStrategy' => __DIR__ . '/..' . '/twig/twig/lib/Twig/FileExtensionEscapingStrategy.php',
         'Twig_Filter' => __DIR__ . '/..' . '/twig/twig/lib/Twig/Filter.php',
         'Twig_FilterCallableInterface' => __DIR__ . '/..' . '/twig/twig/lib/Twig/FilterCallableInterface.php',
@@ -6351,6 +6360,7 @@ class ComposerStaticInit797df87cfd00e295957f38f8d92c8d1c
         'cweagans\\Composer\\PatchEvent' => __DIR__ . '/..' . '/cweagans/composer-patches/src/PatchEvent.php',
         'cweagans\\Composer\\PatchEvents' => __DIR__ . '/..' . '/cweagans/composer-patches/src/PatchEvents.php',
         'cweagans\\Composer\\Patches' => __DIR__ . '/..' . '/cweagans/composer-patches/src/Patches.php',
+        'grasmash\\DrupalSecurityWarning\\Composer\\Plugin' => __DIR__ . '/..' . '/grasmash/drupal-security-warning/src/Composer/Plugin.php',
         'phpDocumentor\\Reflection\\DocBlock' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock.php',
         'phpDocumentor\\Reflection\\DocBlockFactory' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlockFactory.php',
         'phpDocumentor\\Reflection\\DocBlockFactoryInterface' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlockFactoryInterface.php',
@@ -6458,10 +6468,10 @@ class ComposerStaticInit797df87cfd00e295957f38f8d92c8d1c
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit797df87cfd00e295957f38f8d92c8d1c::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit797df87cfd00e295957f38f8d92c8d1c::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit797df87cfd00e295957f38f8d92c8d1c::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit797df87cfd00e295957f38f8d92c8d1c::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit3e4c3e926a106a5be424ba73b513b4e9::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit3e4c3e926a106a5be424ba73b513b4e9::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit3e4c3e926a106a5be424ba73b513b4e9::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit3e4c3e926a106a5be424ba73b513b4e9::$classMap;
 
         }, null, ClassLoader::class);
     }

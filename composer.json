@@ -28,7 +28,8 @@
         "drupal/country": "*",
         "drupal/shield": "^1.0.0",
         "drupal/facets": "1.0.0-alpha6",
-        "acquia/lightning": "2.0.1"
+        "acquia/lightning": "2.0.1",
+        "drupal/improved_multi_select": "^1.3"
     },
     "require-dev": {
         "behat/behat": "^3.1",
