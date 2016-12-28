@@ -10,7 +10,7 @@
         <!-- Rebuild caches. -->
         <drush command="cc drush" alias="${drush.alias}"/>
         <!-- Add features-revert tal_features_core. -->
-        <!-- drush command="fr tal_features_core" assume="yes" alias="${drush.alias}"></drush -->
+        <drush command="fr" assume="yes" alias="${drush.alias}" param="tal_features_core"></drush>
         <!-- Rebuild caches. -->
         <drush command="cr" alias="${drush.alias}"/>
     </target>
