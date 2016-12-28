@@ -8690,6 +8690,9 @@
             "drupal": {
                 "version": "8.x-1.0-alpha6",
                 "datestamp": "1475863512"
+            },
+            "patches_applied": {
+                "Call to undefined method NodeType::hasTranslation inTranslateEntityProcessor": "https://www.drupal.org/files/issues/2823545-3.patch"
             }
         },
         "installation-source": "dist",

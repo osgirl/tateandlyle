@@ -104,6 +104,9 @@
             },
             "acquia/lightning": {
                 "New LightningExtension subcontexts do not autoload": "https://www.drupal.org/files/issues/2836258-3-lightning-extension-autoload.patch"
+            },
+            "drupal/facets": {
+                "Call to undefined method NodeType::hasTranslation inTranslateEntityProcessor": "https://www.drupal.org/files/issues/2823545-3.patch"
             }
         },
         "drupal-scaffold": {
