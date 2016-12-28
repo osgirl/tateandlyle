@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "2b8d9c7e3fa9f28027b29ace4f5fa6ec",
+    "content-hash": "2322c5c3f4d49bb7e1837ce062523dad",
     "packages": [
         {
             "name": "acquia/blt",
@@ -2840,6 +2840,9 @@
                 "drupal": {
                     "version": "8.x-1.0-alpha6",
                     "datestamp": "1475863512"
+                },
+                "patches_applied": {
+                    "Call to undefined method NodeType::hasTranslation inTranslateEntityProcessor": "https://www.drupal.org/files/issues/2823545-3.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
