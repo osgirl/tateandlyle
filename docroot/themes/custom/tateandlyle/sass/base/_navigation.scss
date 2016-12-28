@@ -2,6 +2,7 @@
   background: none;
   box-shadow: none;
   border: none;
+  min-height: none;
 }
 
 .navbar.container {
@@ -22,8 +23,15 @@
 .ingredient--submenu {
   border-bottom: 1px solid $color-warm-gray;
   background-color: $color-white;
-  padding-top: 20px;
-  margin-bottom: 38px;
+  margin-top: 20px;
+  @media (min-width: $screen-sm) {
+    margin-bottom: 38px;
+  }
+
+  &.navbar-fixed-top {
+    margin-top: 0;
+  }
+
   ul {
     display: table;
     list-style: none;

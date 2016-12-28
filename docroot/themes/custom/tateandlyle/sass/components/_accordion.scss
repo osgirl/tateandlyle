@@ -5,8 +5,13 @@
 
 .tabs__accordion {
   @extend .max-content-width-sm;
-  margin: auto;
+  margin: 50px 30px;
   padding-top: 0;
+
+  @media (min-width: $screen-sm-lsp) {
+    margin: auto;
+  }
+
   @media (min-width: $screen-sm) {
     border: 1px solid $color-warm-gray;
     margin-top: 60px;

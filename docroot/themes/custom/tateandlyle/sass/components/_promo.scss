@@ -197,3 +197,188 @@
     }
   }
 }
+
+//Content Promo.
+
+.block--content-promo {
+  color: $gray-base;
+  margin: 50px 30px;
+
+  @media (min-width: $screen-sm-lsp) {
+    border: 1px solid $color-warm-gray;
+    padding: 0 50px 48px 50px;
+  }
+
+  @media (min-width: $screen-sm) {
+    padding: 0 60px 33px 60px;
+  }
+
+  @media (min-width: $screen-md) {
+    margin: 50px auto;
+    padding: 0 10px 54px 10px;
+    max-width: 800px;
+  }
+
+  @media (min-width: $screen-md-lg) {
+    padding: 0 42px 50px 42px;
+    max-width: 1108px;
+  }
+
+  .field--name-field-block-title {
+    font-size: $font-size-h3;
+    font-family: $font-family-sans-serif-Med;
+    margin-bottom: 30px;
+    padding-left: 21px;
+    padding-right: 30px;
+
+    @media (min-width: $screen-sm-lsp) {
+      background: $color-white;
+      display: table;
+      margin-bottom: 44px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: -20px;
+      text-align: center;
+      padding-left: 10px;
+      padding-right: 10px;
+      max-width: 346px;
+    }
+
+    @media (min-width: $screen-sm) {
+      margin-bottom: 30px;
+    }
+
+    @media (min-width: $screen-md) {
+      margin-bottom: 58px;
+    }
+
+    @media (min-width: $screen-md-lg) {
+      font-size: $font-size-h2;
+      margin-bottom: 36px;
+      max-width: none;
+    }
+  }
+
+  .field--name-field-promo-content {
+
+    @media (min-width: $screen-md) {
+      display: table;
+      width: 100%;
+    }
+
+    & > .field--item {
+      @extend .col-md-4;
+      border-bottom: 1px solid $color-warm-gray;
+      padding-bottom: 16px;
+      padding-left: 21px;
+      padding-top: 27px;
+
+      @media (min-width: $screen-sm-lsp) {
+        padding-bottom: 18px;
+        padding-left: 28px;
+        padding-top: 18px;
+      }
+
+      @media (min-width: $screen-sm) {
+        padding-left: 0;
+      }
+
+      @media (min-width: $screen-md) {
+        border-bottom: 0;
+        border-right: 1px solid $color-warm-gray;
+        display: table-cell;
+        float: none;
+        padding: 0 30px 40px 30px;
+        position: relative;
+
+        &:last-child {
+          border-right: 0;
+        }
+      }
+
+      &:first-child {
+        padding-top: 0;
+      }
+
+      &:last-child {
+        padding-bottom: 0;
+        border-bottom: 0;
+      }
+
+      @media (min-width: $screen-md-lg) {
+        padding-top: 20px;
+        padding-left: 40px;
+        padding-right: 50px;
+      }
+    }
+  }
+
+  .field--name-field-block-body {
+    font-family: $font-family-sans-serif-light;
+    font-size: $font-size-h5;
+    margin-bottom: 9px;
+
+    @media (min-width: $screen-md) {
+      margin-bottom: 20px;
+      font-size: $font-size-h3;
+    }
+
+    p {
+      line-height: 1.1;
+      text-indent: -4px;
+      @media (min-width: $screen-md) {
+        text-indent: -6px;
+      }
+
+      &::before {
+        content: open-quote;
+      }
+
+      &::after {
+        content: close-quote;
+      }
+
+      &::before,
+      &::after {
+        display: inline-block;
+        line-height: 0;
+      }
+    }
+  }
+
+  .field--name-field-tal-link {
+    max-width: 80%;
+    @media (min-width: $screen-sm) {
+      max-width: none;
+    }
+
+    @media (min-width: $screen-md) {
+      padding-right: 40px;
+      position: absolute;
+      bottom: 0;
+    }
+
+    a::after {
+      @extend %right-brand-arrow;
+    }
+  }
+
+  @media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+    .field--name-field-block-body,
+    .field--name-field-tal-link {
+      display: inline-block;
+      padding-right: 55px;
+      vertical-align: top;
+    }
+
+    .field--name-field-block-body {
+      margin-bottom: 0;
+      padding-left: 12px;
+      width: 56%;
+    }
+
+    .field--name-field-tal-link {
+      width: 42%;
+    }
+  }
+}

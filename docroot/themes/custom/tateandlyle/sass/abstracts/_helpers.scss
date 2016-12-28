@@ -34,3 +34,9 @@
 .inline-content {
   display: inline-block;
 }
+
+.view {
+  @media (max-width: $screen-xs-max) {
+    display: block !important;
+  }
+}
