@@ -16,6 +16,7 @@ return array(
     'Acquia\\Blt\\Annotations\\Update' => $vendorDir . '/acquia/blt/src/Annotations/Update.php',
     'Acquia\\Blt\\Composer\\Plugin' => $vendorDir . '/acquia/blt/src/Composer/Plugin.php',
     'Acquia\\Blt\\Console\\Command\\ComposerMungeCommand' => $vendorDir . '/acquia/blt/src/Console/Command/ComposerMungeCommand.php',
+    'Acquia\\Blt\\Console\\Command\\ConfigurePhantomJsCommand' => $vendorDir . '/acquia/blt/src/Console/Command/ConfigurePhantomJsCommand.php',
     'Acquia\\Blt\\Console\\Command\\UpdateCommand' => $vendorDir . '/acquia/blt/src/Console/Command/UpdateCommand.php',
     'Acquia\\Blt\\Console\\Command\\YamlMungeCommand' => $vendorDir . '/acquia/blt/src/Console/Command/YamlMungeCommand.php',
     'Acquia\\Blt\\Drush\\Command\\BltDoctor' => $vendorDir . '/acquia/blt/src/Drush/Command/BltDoctorCommand.php',

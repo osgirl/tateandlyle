@@ -57,7 +57,11 @@
   </target>
 
   <!-- We intentionally do not run setup:behat because we'd like to delay setting values in local.yml until just before they are run. -->
-  <target name="setup:settings" depends="setup:drupal:settings, setup:drush:settings" description="Creates settings files for Drupal and drush.">
+  <target name="setup:settings" depends="setup:drupal:settings, setup:drush:settings, setup:console:settings" description="Creates settings files for Drupal and drush.">
+  </target>
+
+  <target name="setup:console:settings" description="Initializes Drupal console config.">
+    <exec dir="${repo.root}" command="${composer.bin}/drupal init --quiet" logoutput="true" checkreturn="true" level="${blt.exec_level}" passthru="true"/>
   </target>
 
   <!-- Run Drupal settings setup for each multisite. -->
@@ -289,6 +293,18 @@
     <drush command="fra" assume="yes" alias="${drush.alias}">
       <option name="bundle">${bundle}</option>
     </drush>
+    <if>
+      <equals arg1="${cm.features.no-overrides}" arg2="true"/>
+      <then>
+        <exec command="${drush.bin} @${drush.alias} fl --bundle=${bundle} | grep -Ei '(changed|conflicts|added)( *)$'" outputProperty="features.overrides"/>
+        <if>
+          <istrue value="${features.overrides}"/>
+          <then>
+            <fail>A feature in the ${bundle} bundle is overridden. You must re-export this feature to incorporate the changes.</fail>
+          </then>
+        </if>
+      </then>
+    </if>
   </target>
 
   <target name="setup:toggle-modules" description="Enables and uninstalls specified modules.">

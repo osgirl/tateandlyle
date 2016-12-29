@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit46790f0c3dc2fdc0a19652028634325f
+class ComposerStaticInit3c544f4b48d35f93de4501931dc1f088
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -547,6 +547,7 @@ class ComposerStaticInit46790f0c3dc2fdc0a19652028634325f
         'Acquia\\Blt\\Annotations\\Update' => __DIR__ . '/..' . '/acquia/blt/src/Annotations/Update.php',
         'Acquia\\Blt\\Composer\\Plugin' => __DIR__ . '/..' . '/acquia/blt/src/Composer/Plugin.php',
         'Acquia\\Blt\\Console\\Command\\ComposerMungeCommand' => __DIR__ . '/..' . '/acquia/blt/src/Console/Command/ComposerMungeCommand.php',
+        'Acquia\\Blt\\Console\\Command\\ConfigurePhantomJsCommand' => __DIR__ . '/..' . '/acquia/blt/src/Console/Command/ConfigurePhantomJsCommand.php',
         'Acquia\\Blt\\Console\\Command\\UpdateCommand' => __DIR__ . '/..' . '/acquia/blt/src/Console/Command/UpdateCommand.php',
         'Acquia\\Blt\\Console\\Command\\YamlMungeCommand' => __DIR__ . '/..' . '/acquia/blt/src/Console/Command/YamlMungeCommand.php',
         'Acquia\\Blt\\Drush\\Command\\BltDoctor' => __DIR__ . '/..' . '/acquia/blt/src/Drush/Command/BltDoctorCommand.php',
@@ -6468,10 +6469,10 @@ class ComposerStaticInit46790f0c3dc2fdc0a19652028634325f
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit46790f0c3dc2fdc0a19652028634325f::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit46790f0c3dc2fdc0a19652028634325f::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit46790f0c3dc2fdc0a19652028634325f::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit46790f0c3dc2fdc0a19652028634325f::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit3c544f4b48d35f93de4501931dc1f088::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit3c544f4b48d35f93de4501931dc1f088::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit3c544f4b48d35f93de4501931dc1f088::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit3c544f4b48d35f93de4501931dc1f088::$classMap;
 
         }, null, ClassLoader::class);
     }
