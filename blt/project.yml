@@ -52,12 +52,10 @@ modules:
     dev:
         enable:
             - acquia_connector
-            - shield
         uninstall: {  }
     test:
         enable:
             - acquia_connector
-            - shield
         uninstall:
             - devel
             - views_ui

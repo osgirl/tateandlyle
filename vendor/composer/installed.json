@@ -1882,17 +1882,17 @@
     },
     {
         "name": "phpunit/phpunit",
-        "version": "5.7.4",
-        "version_normalized": "5.7.4.0",
+        "version": "5.7.5",
+        "version_normalized": "5.7.5.0",
         "source": {
             "type": "git",
             "url": "https://github.com/sebastianbergmann/phpunit.git",
-            "reference": "af91da3f2671006ff5d0628023de3b7ac4d1ef09"
+            "reference": "50fd2be8f3e23e91da825f36f08e5f9633076ffe"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/af91da3f2671006ff5d0628023de3b7ac4d1ef09",
-            "reference": "af91da3f2671006ff5d0628023de3b7ac4d1ef09",
+            "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/50fd2be8f3e23e91da825f36f08e5f9633076ffe",
+            "reference": "50fd2be8f3e23e91da825f36f08e5f9633076ffe",
             "shasum": ""
         },
         "require": {
@@ -1929,7 +1929,7 @@
             "ext-xdebug": "*",
             "phpunit/php-invoker": "~1.1"
         },
-        "time": "2016-12-13T16:19:44+00:00",
+        "time": "2016-12-28T07:18:51+00:00",
         "bin": [
             "phpunit"
         ],
@@ -6212,7 +6212,6 @@
         },
         "require-dev": {
             "drupal/colorbox": "*",
-            "drupal/core": "*",
             "drupal/media_entity": "*",
             "drupal/media_entity_embeddable_video": "*"
         },
@@ -6454,9 +6453,6 @@
         "require": {
             "drupal/core": "~8.0"
         },
-        "require-dev": {
-            "drupal/core": "*"
-        },
         "type": "drupal-module",
         "extra": {
             "branch-alias": {
@@ -6657,7 +6653,6 @@
             "drupal/layout_plugin": ">=1.0.0-alpha22"
         },
         "require-dev": {
-            "drupal/core": "*",
             "drupal/page_manager": "*"
         },
         "type": "drupal-module",
@@ -7551,9 +7546,6 @@
         "require": {
             "drupal/core": "*"
         },
-        "require-dev": {
-            "drupal/core": "*"
-        },
         "type": "drupal-module",
         "extra": {
             "branch-alias": {
@@ -7807,7 +7799,6 @@
             "drupal/core": "~8.0"
         },
         "require-dev": {
-            "drupal/core": "*",
             "drupal/ctools": "*",
             "drupal/inline_entity_form": "*",
             "drupal/media_entity": "*",
@@ -7890,7 +7881,6 @@
             "drupal/core": "~8.0"
         },
         "require-dev": {
-            "drupal/core": "*",
             "drupal/search_api_solr": "*"
         },
         "type": "drupal-module",
@@ -8679,7 +8669,6 @@
             "drupal/core": "~8.0"
         },
         "require-dev": {
-            "drupal/core": "*",
             "drupal/search_api": "~1.0"
         },
         "type": "drupal-module",
@@ -8689,7 +8678,7 @@
             },
             "drupal": {
                 "version": "8.x-1.0-alpha6",
-                "datestamp": "1475863512"
+                "datestamp": "1482263583"
             },
             "patches_applied": {
                 "Call to undefined method NodeType::hasTranslation inTranslateEntityProcessor": "https://www.drupal.org/files/issues/2823545-3.patch"
@@ -8815,7 +8804,7 @@
         "dist": {
             "type": "zip",
             "url": "https://ftp.drupal.org/files/projects/improved_multi_select-8.x-1.3.zip",
-            "reference": null,
+            "reference": "8.x-1.3",
             "shasum": "d04b2554c1a853f1f09b7a25a31158628648dc9c"
         },
         "require": {
@@ -8880,7 +8869,7 @@
         "dist": {
             "type": "zip",
             "url": "https://ftp.drupal.org/files/projects/memcache-8.x-2.0-alpha2.zip",
-            "reference": "8.x-2.0-alpha2",
+            "reference": null,
             "shasum": "dedad417e274e06a064e282135ce2f05b2c2c6ba"
         },
         "require": {
@@ -9005,7 +8994,6 @@
             "drupal/entity_reference_revisions": "*"
         },
         "require-dev": {
-            "drupal/core": "*",
             "drupal/diff": "*",
             "drupal/replicate": "*",
             "drupal/search_api": "*",
@@ -9129,7 +9117,6 @@
             "drupal/core": "^8.1"
         },
         "require-dev": {
-            "drupal/core": "*",
             "drupal/search_api_db": "*"
         },
         "type": "drupal-module",
@@ -9191,9 +9178,6 @@
             "drupal/core": "~8.0",
             "drupal/search_api": "*",
             "solarium/solarium": "3.6.*"
-        },
-        "require-dev": {
-            "drupal/core": "*"
         },
         "type": "drupal-module",
         "extra": {
@@ -9404,6 +9388,88 @@
         "homepage": "https://www.drupal.org/project/shield",
         "support": {
             "source": "http://cgit.drupalcode.org/shield"
+        }
+    },
+    {
+        "name": "drupal/webform",
+        "version": "5.0.0-beta4",
+        "version_normalized": "5.0.0.0-beta4",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupal.org/project/webform",
+            "reference": "8.x-5.0-beta4"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://ftp.drupal.org/files/projects/webform-8.x-5.0-beta4.zip",
+            "reference": null,
+            "shasum": "cd448b95df1f5b8b8f1d5ae1ee2a901ebadc995d"
+        },
+        "require": {
+            "drupal/core": "*"
+        },
+        "require-dev": {
+            "drupal/devel": "*"
+        },
+        "type": "drupal-module",
+        "extra": {
+            "branch-alias": {
+                "dev-5.x": "5.x-dev"
+            },
+            "drupal": {
+                "version": "8.x-5.0-beta4",
+                "datestamp": "1482752282"
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "license": [
+            "GPL-2.0+"
+        ],
+        "authors": [
+            {
+                "name": "Jacob Rockowitz (jrockowitz)",
+                "homepage": "https://www.drupal.org/u/jrockowitz",
+                "role": "Maintainer"
+            },
+            {
+                "name": "Liam Morland",
+                "homepage": "https://www.drupal.org/user/493050"
+            },
+            {
+                "name": "fenstrat",
+                "homepage": "https://www.drupal.org/user/362649"
+            },
+            {
+                "name": "jrockowitz",
+                "homepage": "https://www.drupal.org/user/371407"
+            },
+            {
+                "name": "podarok",
+                "homepage": "https://www.drupal.org/user/116002"
+            },
+            {
+                "name": "quicksketch",
+                "homepage": "https://www.drupal.org/user/35821"
+            },
+            {
+                "name": "sanchiz",
+                "homepage": "https://www.drupal.org/user/1671246"
+            },
+            {
+                "name": "tedbow",
+                "homepage": "https://www.drupal.org/user/240860"
+            },
+            {
+                "name": "torotil",
+                "homepage": "https://www.drupal.org/user/865256"
+            }
+        ],
+        "description": "Enables the creation of webforms and questionnaires.",
+        "homepage": "https://drupal.org/project/webform",
+        "support": {
+            "source": "http://cgit.drupalcode.org/webform",
+            "issues": "https://drupal.org/project/issues/webform"
         }
     },
     {
