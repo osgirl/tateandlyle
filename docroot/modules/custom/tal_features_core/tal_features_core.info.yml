@@ -50,4 +50,5 @@ dependencies:
   - text
   - user
   - views
+  - webform
   - workbench_moderation
