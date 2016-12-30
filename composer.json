@@ -14,7 +14,7 @@
         "drupal/console": "1.0.0-beta5",
         "drupal/core": "^8.0",
         "drupal/features": "^3.0.0",
-        "drupal/memcache": "2.0.0-alpha2",
+        "drupal/memcache": "2.x-dev",
         "drupal/search_api": "1.0.0-beta3",
         "drupal/search_api_solr": "1.0.0-beta1",
         "drupal/security_review": "*",
