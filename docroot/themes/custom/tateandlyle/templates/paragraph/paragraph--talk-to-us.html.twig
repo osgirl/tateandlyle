@@ -46,29 +46,29 @@ view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
 %}
 {% if content.field_in_wysiwyg1|render|trim %}
     {{ content.field_in_wysiwyg1 }}
-{% elseif contact %}
-    {% if field_ttu_or_button == '1' %}
-    <div class="container">
-        <!-- Modal -->
-        <button type="button" class="btn btn-primary field--name-field-button-text" data-toggle="modal" data-target="#myModal">{{ field_button_text }}</button>
-        <div class="modal fade" id="myModal" role="dialog">
-            <div class="modal-dialog modal-sm">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">{{ "Modal Header"|t }}</h4>
-                    </div>
-                    <div class="modal-body">
-                        <p>{{ "This is a small modal."|t }}</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">{{ "Close"|t }}</button>
+    {% else %}
+        {% if field_ttu_or_button == '1' %}
+            <div class="container">
+                <!-- Modal -->
+                <button type="button" class="btn btn-primary field--name-field-button-text" data-toggle="modal" data-target="#myModal">{{ field_button_text }}</button>
+                <div class="modal fade" id="myModal" role="dialog">
+                    <div class="modal-dialog modal-sm">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">{{ "Modal Header"|t }}</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p>{{ "This is a small modal."|t }}</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">{{ "Close"|t }}</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    {% else  %}
+        {% else  %}
         {% if content.field_simple_text|render|trim %}
             <div class="field--name-field-simple-text">{{ field_simple_text }}</div>
         {% else %}
