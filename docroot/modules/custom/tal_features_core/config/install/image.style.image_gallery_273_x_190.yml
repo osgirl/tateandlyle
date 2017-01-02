@@ -1,0 +1,14 @@
+langcode: en
+status: true
+dependencies: {  }
+name: image_gallery_273_x_190
+label: 'Image Gallery 273 x 190'
+effects:
+  8ea5fbec-241a-4db2-8dba-a6afdb3b2b77:
+    uuid: 8ea5fbec-241a-4db2-8dba-a6afdb3b2b77
+    id: image_scale
+    weight: 1
+    data:
+      width: 273
+      height: 190
+      upscale: false

@@ -1,0 +1,19 @@
+
+{#
+/**
+* @file
+* Default theme implementation for image gallery.
+*
+* @ingroup themeable
+*/
+#}
+
+<div class="tal--image-gallery">
+    <div class="tal--image-gallery-featured">{{ featured }}</div>
+    <div class="tal--image-gallery-categories">
+        {% for category in categories %}
+             <h1 class="tal--carousel-title">{{ category.name }}</h1>
+            <div class="carousel">{{ category.carousel }}</div>
+        {% endfor %}
+    </div>
+</div>

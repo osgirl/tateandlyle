@@ -1,0 +1,5 @@
+name: Image Gallery
+type: module
+description: Custom image gallery.
+core: 8.x
+package: tal
