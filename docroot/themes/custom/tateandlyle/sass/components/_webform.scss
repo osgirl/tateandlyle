@@ -1,0 +1,97 @@
+.webform-submission-newsletter-subsciption-form {
+  @extend %inner-content-width;
+  background-color: $color-purple;
+  color: $color-white;
+  margin-bottom: 50px;
+  margin-top: 50px;
+  padding: 20px;
+  padding-bottom: 37px;
+  text-align: center;
+
+  @media(min-width: $screen-sm) {
+    padding: 30px 72px;
+  }
+
+  @media(min-width: $screen-md) {
+    padding: 50px;
+  }
+
+  .newsletter--icon {
+    background: url("../images/icons/notification-white.svg") no-repeat 95%;
+    background-size: contain;
+    height: 45px;
+    display: inline-block;
+    width: 45px;
+  }
+
+  .webform--title {
+    color: $color-white;
+    margin-top: 21px;
+    margin-bottom: 21px;
+
+    @media(min-width: $screen-sm) {
+      font-size: $font-size-h3;
+      margin-bottom: 14px;
+      margin-top: 26px;
+    }
+
+    @media(min-width: $screen-md) {
+      font-size: $font-size-h2;
+      margin-bottom: 17px;
+    }
+  }
+
+  .webform--description {
+    margin-bottom: 26px;
+    @media(min-width: $screen-md) {
+      margin-bottom: 31px;
+    }
+  }
+
+  form {
+    @media(min-width: $screen-md) {
+      max-width: 445px;
+      margin: auto;
+    }
+  }
+
+  input {
+    border: none;
+    border-radius: 0;
+    height: 40px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @media(min-width: $screen-sm) {
+      margin-bottom: 30px;
+      max-width: 425px;
+    }
+  }
+
+  .form-actions {
+    margin-bottom: 0;
+  }
+
+  button {
+    @extend .btn-white;
+    background: transparent;
+    display: block;
+    width: 100%;
+
+    @media(min-width: $screen-sm) {
+      display: inline-block;
+      width: auto;
+    }
+
+    &:hover {
+      background: transparent;
+      box-shadow: none;
+    }
+
+    &::after {
+      @extend %right-brand-arrow;
+      color: $color-white;
+    }
+  }
+}

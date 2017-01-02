@@ -6,7 +6,7 @@ template: false
 id: newsletter_subsciption
 title: 'Newsletter Subsciption'
 description: 'Newsletter Subscription Description'
-elements: "newsletter_heading:\n  '#type': markup\n  '#markup': \"<h3>Sign up for the trends newsletter</h3>\\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Integer tristique elit a felis mattis facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing\"\nemail_address:\n  '#type': email\n  '#title': 'Sign up for the trends newsletter'\n  '#title_display': invisible\n  '#description_display': invisible\n  '#placeholder': 'Email Address'\n  '#required': true\n  '#unique': true\n"
+elements: "newsletter_heading:\r\n  '#type': markup\r\n  '#markup': \"<span class='newsletter--icon'></span><h4 class='webform--title'>Sign up for the trends newsletter</h4><p class='webform--description'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer tristique elit a felis mattis facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing</p>\"\r\nemail_address:\r\n  '#type': email\r\n  '#title': 'Sign up for the trends newsletter'\r\n  '#title_display': invisible\r\n  '#description_display': invisible\r\n  '#placeholder': 'Email Address'\r\n  '#required': true\r\n  '#unique': true\r\n"
 css: ''
 javascript: ''
 settings:
