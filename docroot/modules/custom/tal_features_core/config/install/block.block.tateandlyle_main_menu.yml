@@ -6,9 +6,8 @@ dependencies:
   module:
     - system
 id: tateandlyle_main_menu
-theme: tateandlyle
-region: navigation
-weight: 0
+region: header
+weight: -10
 provider: null
 plugin: 'system_menu_block:main'
 settings:
