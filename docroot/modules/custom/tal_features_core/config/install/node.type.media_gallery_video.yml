@@ -8,7 +8,7 @@ third_party_settings:
     available_menus:
       - main
     parent: 'main:'
-name: 'Media Gallery : video'
+name: Video
 type: media_gallery_video
 description: 'Use Video content type to create video carousel on video galley page.'
 help: ''

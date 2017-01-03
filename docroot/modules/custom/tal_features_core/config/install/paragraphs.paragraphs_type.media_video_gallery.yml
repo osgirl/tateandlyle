@@ -2,4 +2,4 @@ langcode: en
 status: true
 dependencies: {  }
 id: media_video_gallery
-label: 'Media video gallery'
+label: Video

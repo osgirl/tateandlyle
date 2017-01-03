@@ -47,9 +47,11 @@ dependencies:
   - tal_downloads
   - tal_ingredient_search
   - tal_search
+  - tal_video_embed_buto
   - taxonomy
   - text
   - user
+  - video_embed_field
   - views
   - webform
   - workbench_moderation

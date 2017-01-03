@@ -7,27 +7,33 @@ dependencies:
     - node.type.media_gallery_video
   module:
     - entity_reference_revisions
+    - panelizer
     - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
 id: node.media_gallery_video.default
 targetEntityType: node
 bundle: media_gallery_video
 mode: default
 content:
   field_category:
-    weight: 102
-    label: above
+    weight: 0
+    label: hidden
     settings:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
   field_media_video_gallery:
     type: entity_reference_revisions_entity_view
-    weight: 101
-    label: above
+    weight: 1
+    label: hidden
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
-  links:
-    weight: 100
-hidden: {  }
+hidden:
+  links: true
