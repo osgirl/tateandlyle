@@ -8,12 +8,19 @@
 */
 #}
 
-<div class="tal--video-gallery">
-    <div class="tal--video-gallery-featured">{{ featured }}</div>
-    <div class="tal--video-gallery-categories">
+<div class="tal--image-gallery">
+    <div class="tal--image-gallery-featured">
+        {% if featured %}
+            <h1>{{ "Featured Images"|t }}</h1>
+            {{ featured }}
+        {%  endif %}
+    </div>
+    <div class="tal--image-gallery-categories">
         {% for category in categories %}
-             <h1 class="tal--carousel-title">{{ category.name }}</h1>
-            <div class="carousel">{{ category.carousel }}</div>
+            {%  if (category.carousel) %}
+                <h1 class="tal--carousel-title">{{ category.name }}</h1>
+                <div class="carousel">{{ category.carousel }}</div>
+            {% endif %}
         {% endfor %}
     </div>
 </div>

@@ -10,8 +10,10 @@
 
 <div class="tal--image-gallery">
     <div class="tal--image-gallery-featured">
+        {% if featured %}
         <h1>{{ "Featured Images"|t }}</h1>
         {{ featured }}
+        {%  endif %}
     </div>
     <div class="tal--image-gallery-categories">
         {% for category in categories %}
