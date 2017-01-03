@@ -1,4 +1,4 @@
-tal_image_gallery:
+tal_video_gallery:
   path: 'video-gallery'
   defaults:
     _controller: 'Drupal\tal_video_gallery\Controller\VideoGalleryController::page'

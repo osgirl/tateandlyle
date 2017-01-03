@@ -19,6 +19,7 @@ class VideoGalleryController extends ControllerBase {
     $build = [
       '#theme' => 'tal_video_gallery',
       '#categories' => $this->buildVideoGallery(),
+      '#featured' => $this->buildFeaturedVideoBlock(),
     ];
 
     return $build;
@@ -40,18 +41,51 @@ class VideoGalleryController extends ControllerBase {
 
     foreach ($terms as $term) {
       $args = [$term->tid];
-      $carousel[] = [
-        'name' => $term->name,
-        'carousel' => [
-          '#type' => 'view',
-          '#name' => 'video_gallery',
-          '#display_id' => 'video_term_block',
-          '#arguments' => $args,
-        ],
-      ];
+      if ($term->name != 'Featured') {
+        $carousel[] = [
+          'name' => $term->name,
+          'carousel' => [
+            '#type' => 'view',
+            '#name' => 'video_gallery',
+            '#display_id' => 'video_term_block',
+            '#arguments' => $args,
+          ],
+        ];
+      }
     }
 
     return $carousel;
+  }
+
+  /**
+   * Returns promoted video and featured video blocks.
+   */
+  private function buildFeaturedVideoBlock() {
+    // Render array.
+    $build = [];
+    // Generate Promoted video block.
+    $view = Views::getView('video_gallery');
+    $view->setDisplay('promoted_video_block');
+    $view->preExecute();
+    $view->execute();
+
+    $build['promoted_video'] = $view->buildRenderable('promoted_video_block');
+    $build['promoted_video']['#prefix'] = '<div class="tal--promoted-image video">';
+    $build['promoted_video']['#suffix'] = '</div>';
+
+    // Generate featured videos block.
+    $view = Views::getView('video_gallery');
+    $view->setDisplay('featured_video_block');
+    $view->preExecute();
+    $view->execute();
+
+    $build['featured_videos'] = $view->buildRenderable('featured_video_block');
+    $build['featured_videos']['#prefix'] = '<div class="tal--featured-image video">';
+    $build['featured_videos']['#suffix'] = '</div>';
+    $build['#prefix'] = '<div class="tal--image-gallery-featured-block-wrapper">';
+    $build['#suffix'] = '</div>';
+
+    return $build;
   }
 
 }

@@ -9,7 +9,7 @@ id: node.media_gallery_video.field_category
 field_name: field_category
 entity_type: node
 bundle: media_gallery_video
-label: 'Media Gallery'
+label: 'Media gallery category'
 description: ''
 required: false
 translatable: true
