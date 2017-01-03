@@ -19,6 +19,7 @@ class ImageGalleryController extends ControllerBase {
     $build = [
       '#theme' => 'tal_image_gallery',
       '#categories' => $this->buildImageGallery(),
+      '#featured' => $this->buildFeaturedImagesBlock(),
     ];
 
     return $build;
@@ -39,14 +40,50 @@ class ImageGalleryController extends ControllerBase {
     $view->setDisplay('default');
 
     foreach ($terms as $term) {
-      $args = [$term->tid];
-      $view->setArguments($args);
-      $view->preExecute();
-      $view->execute();
-      $carousel[] = ['name' => $term->name, 'carousel' => $view->buildRenderable('default')];
+      if ($term->name != 'Featured') {
+        $args = [$term->tid];
+        $view->setArguments($args);
+        $view->preExecute();
+        $view->execute();
+        $carousel[] = [
+          'name' => $term->name,
+          'carousel' => $view->buildRenderable('default'),
+        ];
+      }
     }
 
     return $carousel;
+  }
+
+  /**
+   * Returns promoted image and featured image blocks.
+   */
+  private function buildFeaturedImagesBlock() {
+    // Render array.
+    $build = [];
+    // Generate Promoted image block.
+    $view = Views::getView('image_gallery');
+    $view->setDisplay('block');
+    $view->preExecute();
+    $view->execute();
+
+    $build['promoted_image'] = $view->buildRenderable('block');
+    $build['promoted_image']['#prefix'] = '<div class="tal--promoted-image">';
+    $build['promoted_image']['#suffix'] = '</div>';
+
+    // Generate featured images block.
+    $view = Views::getView('image_gallery');
+    $view->setDisplay('block_1');
+    $view->preExecute();
+    $view->execute();
+
+    $build['featured_images'] = $view->buildRenderable('block_1');
+    $build['featured_images']['#prefix'] = '<div class="tal--featured-image">';
+    $build['featured_images']['#suffix'] = '</div>';
+    $build['#prefix'] = '<div class="tal--image-gallery-featured-block-wrapper">';
+    $build['#suffix'] = '</div>';
+
+    return $build;
   }
 
 }

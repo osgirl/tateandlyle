@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies: {  }
+name: image_gallery_featured_images_240_x_170
+label: 'Image Gallery : Featured Images 240 x 170'
+effects:
+  1c9147ab-b2ba-426e-943c-02aa57f3c339:
+    uuid: 1c9147ab-b2ba-426e-943c-02aa57f3c339
+    id: image_resize
+    weight: 1
+    data:
+      width: 240
+      height: 170
