@@ -4,6 +4,7 @@ dependencies:
   config:
     - field.field.paragraph.media_video_gallery.field_buto_video
     - field.field.paragraph.media_video_gallery.field_simple_text1
+    - image.style.image_gallery_273_x_190
     - paragraphs.paragraphs_type.media_video_gallery
   module:
     - video_embed_field
@@ -16,12 +17,10 @@ content:
     weight: 0
     label: hidden
     settings:
-      responsive: true
-      width: 854
-      height: 480
-      autoplay: true
+      image_style: image_gallery_273_x_190
+      link_image_to: ''
     third_party_settings: {  }
-    type: video_embed_field_video
+    type: video_embed_field_thumbnail
   field_simple_text1:
     weight: 1
     label: hidden

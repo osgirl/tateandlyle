@@ -1,0 +1,7 @@
+tal_image_gallery:
+  path: 'video-gallery'
+  defaults:
+    _controller: 'Drupal\tal_video_gallery\Controller\VideoGalleryController::page'
+    _title: 'Video Gallery'
+  requirements:
+    _permission: 'access content'
