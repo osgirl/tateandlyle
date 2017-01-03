@@ -20,3 +20,21 @@ function tal_wrapper_install() {
   \Drupal::service('theme_installer')->install(array('tateandlyle'), TRUE);
   \Drupal::configFactory()->getEditable('system.theme')->set('default', 'tateandlyle')->save(TRUE);
 }
+
+/**
+ * Removes a field from paragraph type field_image.
+ */
+function tal_wrapper_update_8010() {
+  // Deleting iframe_code_field from ingredient content.
+  $properties = [
+    'entity_type' => 'paragraph',
+    'bundle' => 'media_video_gallery',
+    'include_deleted' => TRUE,
+  ];
+  $fields = \Drupal::entityTypeManager()->getStorage('field_config')->loadByProperties($properties);
+  foreach ($fields as $field) {
+    if ($field->getName() == 'field_simple_text' || $field->getName() == 'field_image') {
+      $field->delete();
+    }
+  }
+}
