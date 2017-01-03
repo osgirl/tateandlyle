@@ -4,11 +4,10 @@ dependencies: {  }
 name: image_gallery_273_x_190
 label: 'Image Gallery 273 x 190'
 effects:
-  8ea5fbec-241a-4db2-8dba-a6afdb3b2b77:
-    uuid: 8ea5fbec-241a-4db2-8dba-a6afdb3b2b77
-    id: image_scale
+  59033f01-d475-4bd6-ba66-fc3f4fdf6729:
+    uuid: 59033f01-d475-4bd6-ba66-fc3f4fdf6729
+    id: image_resize
     weight: 1
     data:
       width: 273
       height: 190
-      upscale: false

@@ -16,11 +16,13 @@ $gray-dark: #666666;
 $gray: lighten($gray-base, 33.5%) !default; // #555
 $gray-light: lighten($gray-base, 46.7%) !default; // #777
 $gray-lighter: lighten($gray-base, 93.5%) !default; // #eee
+$gray-base-light: #181818;
 $color-warm-gray: #999999;
 $color-light-gray: #EAEAEA;
 $color-purple: #7373A8;
 $color-red: #E64054;
 $color-off-white: #FAFAFA;
+$color-off-white-dark: #F8F8F8;
 $color-yellow: #F99F1F;
 $color-gold: #948671;
 $color-silver: #949CA1;
