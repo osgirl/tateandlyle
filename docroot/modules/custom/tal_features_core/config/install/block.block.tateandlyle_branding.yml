@@ -4,9 +4,8 @@ dependencies:
   module:
     - system
 id: tateandlyle_branding
-theme: tateandlyle
 region: header
-weight: 0
+weight: -11
 provider: null
 plugin: system_branding_block
 settings:
