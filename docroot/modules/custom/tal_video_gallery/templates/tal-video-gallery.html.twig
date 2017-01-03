@@ -1,0 +1,19 @@
+
+{#
+/**
+* @file
+* Default theme implementation for video gallery.
+*
+* @ingroup themeable
+*/
+#}
+
+<div class="tal--video-gallery">
+    <div class="tal--video-gallery-featured">{{ featured }}</div>
+    <div class="tal--video-gallery-categories">
+        {% for category in categories %}
+             <h1 class="tal--carousel-title">{{ category.name }}</h1>
+            <div class="carousel">{{ category.carousel }}</div>
+        {% endfor %}
+    </div>
+</div>

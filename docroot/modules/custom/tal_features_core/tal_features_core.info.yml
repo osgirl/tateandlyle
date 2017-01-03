@@ -48,6 +48,7 @@ dependencies:
   - tal_ingredient_search
   - tal_search
   - tal_video_embed_buto
+  - tal_video_gallery
   - taxonomy
   - text
   - user
