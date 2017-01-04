@@ -7,6 +7,5 @@ dependencies:
   - tal_downloads
   - tal_ingredient_search
   - tal_search
-  - tal_image_gallery
   - admin_toolbar
   - search

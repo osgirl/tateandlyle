@@ -22,6 +22,20 @@ function tal_wrapper_install() {
 }
 
 /**
+ * Installs some requited modules.
+ */
+function tal_wrapper_update_8011() {
+  \Drupal::service('module_installer')->install(
+    [
+      'colorbox',
+      'tal_image_gallery',
+      'tal_video_embed_buto',
+      'tal_video_gallery',
+    ]
+  );
+}
+
+/**
  * Removes a field from paragraph type field_image.
  */
 function tal_wrapper_update_8010() {

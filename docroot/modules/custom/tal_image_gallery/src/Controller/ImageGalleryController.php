@@ -21,7 +21,7 @@ class ImageGalleryController extends ControllerBase {
       '#categories' => $this->buildImageGallery(),
       '#featured' => $this->buildFeaturedImagesBlock(),
     ];
-
+    $build['#attached']['library'][] = 'tal_image_gallery/tal_image_gallery_download_image';
     return $build;
   }
 
