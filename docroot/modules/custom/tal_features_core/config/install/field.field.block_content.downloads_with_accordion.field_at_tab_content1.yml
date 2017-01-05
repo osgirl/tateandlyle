@@ -11,7 +11,7 @@ id: block_content.downloads_with_accordion.field_at_tab_content1
 field_name: field_at_tab_content1
 entity_type: block_content
 bundle: downloads_with_accordion
-label: 'Add Download Iteam'
+label: 'Add Download Item'
 description: ''
 required: false
 translatable: true
