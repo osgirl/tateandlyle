@@ -10,6 +10,12 @@
 
   .field--name-field-downloads-border-title {
     @extend %border__block--title;
+    font-size: $font-size-h3;
+
+    @media (min-width: $screen-md) {
+      font-size: $font-size-h2;
+    }
+
     @media (max-width: $screen-xs-max) {
       margin-bottom: 25px;
     }
@@ -52,7 +58,7 @@
 
   .filegroup-count + .field--name-field-file-description {
     position: relative;
-    left: -19%;
+    left: -20%;
     @media (min-width: $screen-sm) {
       left: -12%;
     }
@@ -121,10 +127,12 @@
     }
 
     img {
-      max-width: 41px;
+      padding-top: 7px;
+      max-width: 30px;
+      height: auto;
 
       @media (min-width: $screen-sm) {
-        padding-top: 7px;
+        max-width: 41px;
       }
 
       @media (min-width: $screen-md) {
