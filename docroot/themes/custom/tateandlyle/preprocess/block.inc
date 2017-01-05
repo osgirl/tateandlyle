@@ -213,3 +213,13 @@ function tal_preprocess_block_quote($variables, $block) {
   }
   return $variables;
 }
+
+/**
+ * Preprocessor function for download block type.
+ */
+function tal_preprocess_block_download($variables, $block) {
+  $class = isset($variables['attributes']['class']) ? $variables['attributes']['class'] : '';
+  $variables['attributes']['class'] = 'file--downloads ' . $class;
+
+  return $variables;
+}
