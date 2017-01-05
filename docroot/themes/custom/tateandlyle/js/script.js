@@ -8,7 +8,6 @@
  */
 (function ($, Drupal) {
   "use strict";
-
   Drupal.behaviors.collapse = {
     attach: function () {
       $(".in--country-read-more button").click(function () {
@@ -17,6 +16,30 @@
 
       $(".ingredient--submenu ul li").first().click(function () {
         $(".ingredient--submenu ul li").toggleClass("view");
+      });
+    }
+  };
+
+  Drupal.behaviors.carousel = {
+    attach: function () {
+      $("#carousel-example-generic").carousel({
+        interval: 4000
+      });
+
+      $(".carousel .item").each(function () {
+        var next = $(this).next();
+
+        if (!next.length) {
+          next = $(this).siblings(":first");
+        }
+        next.children(":first-child").clone().appendTo($(this));
+        for (var i = 0; i < 2; i++) {
+          next = next.next();
+          if (!next.length) {
+            next = $(this).siblings(":first");
+          }
+          next.children(":first-child").clone().appendTo($(this));
+        }
       });
     }
   };
