@@ -69,6 +69,14 @@
       padding-left: 0;
       padding-right: 0;
     }
+
+    .file--downloads {
+      @media (max-width: $screen-sm-max) {
+        margin-left: 0;
+        margin-right: 0;
+        max-width: none;
+      }
+    }
   }
 
   .paragraph {
