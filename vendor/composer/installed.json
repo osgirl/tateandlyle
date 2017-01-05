@@ -3798,7 +3798,7 @@
             "type": "zip",
             "url": "https://api.github.com/repos/klausi/coder/zipball/c835ff5c1733676fe0d3f3b861e814d570baaa6f",
             "reference": "c835ff5c1733676fe0d3f3b861e814d570baaa6f",
-            "shasum": null
+            "shasum": ""
         },
         "require": {
             "ext-mbstring": "*",
@@ -3812,7 +3812,7 @@
         "time": "2016-12-09T21:57:53+00:00",
         "type": "library",
         "installation-source": "dist",
-        "notification-url": "https://packagist.drupal-composer.org/downloads/",
+        "notification-url": "https://packagist.org/downloads/",
         "license": [
             "GPL-2.0+"
         ],
@@ -5547,17 +5547,17 @@
     },
     {
         "name": "drupal/core",
-        "version": "8.2.4",
-        "version_normalized": "8.2.4.0",
+        "version": "8.2.5",
+        "version_normalized": "8.2.5.0",
         "source": {
             "type": "git",
             "url": "https://github.com/drupal-composer/drupal-core.git",
-            "reference": "0741cbf486fc55721b5dab050b37c721c80df097"
+            "reference": "fbf10f63dba6b312e1d1b67bac521db1648384f3"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/drupal-composer/drupal-core/zipball/0741cbf486fc55721b5dab050b37c721c80df097",
-            "reference": "0741cbf486fc55721b5dab050b37c721c80df097",
+            "url": "https://api.github.com/repos/drupal-composer/drupal-core/zipball/fbf10f63dba6b312e1d1b67bac521db1648384f3",
+            "reference": "fbf10f63dba6b312e1d1b67bac521db1648384f3",
             "shasum": ""
         },
         "require": {
@@ -5699,7 +5699,7 @@
             "phpunit/phpunit": "~4.8",
             "symfony/css-selector": "~2.8"
         },
-        "time": "2016-12-07T18:31:42+00:00",
+        "time": "2017-01-04T11:31:35+00:00",
         "type": "drupal-core",
         "extra": {
             "patches_applied": {
@@ -6212,7 +6212,6 @@
         },
         "require-dev": {
             "drupal/colorbox": "*",
-            "drupal/core": "*",
             "drupal/media_entity": "*",
             "drupal/media_entity_embeddable_video": "*"
         },
@@ -6454,9 +6453,6 @@
         "require": {
             "drupal/core": "~8.0"
         },
-        "require-dev": {
-            "drupal/core": "*"
-        },
         "type": "drupal-module",
         "extra": {
             "branch-alias": {
@@ -6657,7 +6653,6 @@
             "drupal/layout_plugin": ">=1.0.0-alpha22"
         },
         "require-dev": {
-            "drupal/core": "*",
             "drupal/page_manager": "*"
         },
         "type": "drupal-module",
@@ -7555,9 +7550,6 @@
         "require": {
             "drupal/core": "*"
         },
-        "require-dev": {
-            "drupal/core": "*"
-        },
         "type": "drupal-module",
         "extra": {
             "branch-alias": {
@@ -7811,7 +7803,6 @@
             "drupal/core": "~8.0"
         },
         "require-dev": {
-            "drupal/core": "*",
             "drupal/ctools": "*",
             "drupal/inline_entity_form": "*",
             "drupal/media_entity": "*",
@@ -7894,7 +7885,6 @@
             "drupal/core": "~8.0"
         },
         "require-dev": {
-            "drupal/core": "*",
             "drupal/search_api_solr": "*"
         },
         "type": "drupal-module",
@@ -9114,7 +9104,6 @@
             "drupal/entity_reference_revisions": "*"
         },
         "require-dev": {
-            "drupal/core": "*",
             "drupal/diff": "*",
             "drupal/replicate": "*",
             "drupal/search_api": "*",
@@ -9238,7 +9227,6 @@
             "drupal/core": "^8.1"
         },
         "require-dev": {
-            "drupal/core": "*",
             "drupal/search_api_db": "*"
         },
         "type": "drupal-module",
@@ -9248,7 +9236,7 @@
             },
             "drupal": {
                 "version": "8.x-1.0-beta3",
-                "datestamp": "1477302541"
+                "datestamp": "1483286941"
             },
             "patches_applied": {
                 "search_api_node_grants is a reserved value and cannot be used as the machine name of a normal field": "https://www.drupal.org/files/issues/2761749-12--db_defaults_node_access_field_id.patch"
@@ -9300,9 +9288,6 @@
             "drupal/core": "~8.0",
             "drupal/search_api": "*",
             "solarium/solarium": "3.6.*"
-        },
-        "require-dev": {
-            "drupal/core": "*"
         },
         "type": "drupal-module",
         "extra": {
@@ -10172,5 +10157,18 @@
         ],
         "description": "Drush is a command line shell and scripting interface for Drupal, a veritable Swiss Army knife designed to make life easier for those of us who spend some of our working hours hacking away at the command prompt.",
         "homepage": "http://www.drush.org"
+    },
+    {
+        "name": "jackmoore/colorbox",
+        "version": "1.6.4",
+        "version_normalized": "1.6.4.0",
+        "dist": {
+            "type": "zip",
+            "url": "https://github.com/jackmoore/colorbox/archive/1.6.4.zip",
+            "reference": null,
+            "shasum": null
+        },
+        "type": "drupal-library",
+        "installation-source": "dist"
     }
 ]
