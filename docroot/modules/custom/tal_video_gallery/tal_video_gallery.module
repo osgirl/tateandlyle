@@ -10,11 +10,11 @@
  */
 function tal_video_gallery_theme() {
   return array(
-    'tal_video_gallery' => array(
-      'variables' => array(
+    'tal_video_gallery' => [
+      'variables' => [
         'featured' => NULL,
         'categories' => NULL,
-      ),
-    ),
+      ],
+    ],
   );
 }
