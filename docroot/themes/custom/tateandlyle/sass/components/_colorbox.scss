@@ -1,0 +1,43 @@
+#colorbox,
+#colorbox div,
+#cboxContent,
+.cboxPhoto {
+  border-radius: 0;
+}
+
+.download-image {
+  bottom: 0;
+  display: inline-block;
+  margin-bottom: 10px;
+  position: absolute;
+  right: 10px;
+
+  &::after {
+    @extend %download-icon;
+  }
+}
+
+#cboxTitle {
+  background: transparent;
+  color: $color-white;
+  display: block !important;
+  font-size: $font-size-h4;
+  height: auto !important;
+  margin-bottom: 10px !important;
+  padding: 0 !important;
+  position: static;
+  width: 90%;
+}
+
+#cboxClose.cbox-close-plain {
+  background: $color-white;
+  border-radius: 100%;
+  color: $gray-base;
+  font-size: $font-size-h3;
+  height: 30px;
+  line-height: 0;
+  opacity: 1 !important;
+  right: 0;
+  top: 0;
+  width: 30px;
+}
