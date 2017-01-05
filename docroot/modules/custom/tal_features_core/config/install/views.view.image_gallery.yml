@@ -297,6 +297,18 @@ display:
           entity_type: node
           entity_field: changed
           plugin_id: date
+        delta:
+          id: delta
+          table: node__field_im_image
+          field: delta
+          relationship: reverse__node__field_image_category
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: false
+          expose:
+            label: ''
+          plugin_id: standard
       defaults:
         sorts: false
         pager: false
@@ -530,6 +542,18 @@ display:
           entity_type: node
           entity_field: changed
           plugin_id: date
+        delta:
+          id: delta
+          table: node__field_im_image
+          field: delta
+          relationship: reverse__node__field_image_category
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: false
+          expose:
+            label: ''
+          plugin_id: standard
       defaults:
         sorts: false
         pager: false
