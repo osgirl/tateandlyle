@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: download
+label: Download
+revision: 1
+description: 'Use this custom block to create a download section on the pages.'
