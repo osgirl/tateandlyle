@@ -48,6 +48,7 @@ dependencies:
   - tal_downloads
   - tal_image_gallery
   - tal_ingredient_search
+  - tal_mega_menu
   - tal_search
   - tal_video_embed_buto
   - tal_video_gallery
