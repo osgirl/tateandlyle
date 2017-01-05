@@ -1,6 +1,0 @@
-name: 'TAL Mega Menu'
-description: 'TAL Mega menu is used for site main navigation menu.'
-type: module
-core: 8.x
-package: tal
-

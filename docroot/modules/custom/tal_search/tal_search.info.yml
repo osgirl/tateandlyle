@@ -2,4 +2,3 @@ name: 'TAL Search'
 description: 'TAL Search related custom block and functionality.'
 type: module
 core: 8.x
-package: tal
