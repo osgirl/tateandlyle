@@ -54,3 +54,4 @@ modules:
 behat:
   paths:
     - '${repo.root}/tests/behat'
+  tags: '~javascript&&~example'
