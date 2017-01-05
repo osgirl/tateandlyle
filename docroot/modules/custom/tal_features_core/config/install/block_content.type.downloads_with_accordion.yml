@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: downloads_with_accordion
+label: 'Downloads with Accordion'
+revision: 1
+description: 'Use this custom block to add Related files into accordions.'

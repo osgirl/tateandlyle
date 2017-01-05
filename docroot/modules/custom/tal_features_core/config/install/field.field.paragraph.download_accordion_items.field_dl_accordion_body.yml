@@ -1,0 +1,80 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_dl_accordion_body
+    - paragraphs.paragraphs_type.download_accordion_items
+    - paragraphs.paragraphs_type.related_downloads
+  module:
+    - entity_reference_revisions
+id: paragraph.download_accordion_items.field_dl_accordion_body
+field_name: field_dl_accordion_body
+entity_type: paragraph
+bundle: download_accordion_items
+label: 'Accordion Body'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      related_downloads: related_downloads
+    target_bundles_drag_drop:
+      download_accordion_items:
+        weight: 19
+        enabled: false
+      block_reference:
+        weight: 20
+        enabled: false
+      component_accordion_body:
+        weight: 21
+        enabled: false
+      component_accordion_items:
+        weight: 22
+        enabled: false
+      detail_content_promo:
+        weight: 23
+        enabled: false
+      downloads:
+        weight: 24
+        enabled: false
+      filegroup:
+        weight: 25
+        enabled: false
+      ingredient_accordion:
+        weight: 26
+        enabled: false
+      ingredient_accordion_items:
+        weight: 27
+        enabled: false
+      media_video_gallery:
+        weight: 28
+        enabled: false
+      passive_recruitment:
+        weight: 29
+        enabled: false
+      promo_body_with_link_url:
+        weight: 30
+        enabled: false
+      related_downloads:
+        enabled: true
+        weight: 31
+      talk_to_us:
+        weight: 32
+        enabled: false
+      wysiwyg:
+        weight: 33
+        enabled: false
+      wysiwyg_and_block_reference:
+        weight: 34
+        enabled: false
+      wysiwyg_with_block_reference:
+        weight: 35
+        enabled: false
+      wysiwyg_with_country_and_region:
+        weight: 36
+        enabled: false
+field_type: entity_reference_revisions
