@@ -16,4 +16,5 @@
         <!-- Rebuild caches. -->
         <drush command="cr" alias="${drush.alias}"/>
     </target>
+    <target name="custom:tests:all" depends="tests:security-updates, tests:phpunit" hidden="true" />
 </project>
