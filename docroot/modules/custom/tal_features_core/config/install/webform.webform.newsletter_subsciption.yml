@@ -94,7 +94,7 @@ access:
 handlers:
   email:
     id: email
-    label: Email
+    label: 'Email To TAL'
     handler_id: email
     status: true
     weight: 0
@@ -104,9 +104,28 @@ handlers:
       bcc_mail: ''
       from_mail: default
       from_name: default
-      subject: default
-      body: 'Thanks for subscribing!'
+      subject: 'Tate & Lyle Trends & Insights new subscription!'
+      body: "<p>Submitted on [webform_submission:created]</p>\n\n<p>Submitted values are:</p>\n[webform_submission:values]"
       excluded_elements: {  }
+      html: true
+      attachments: false
+      debug: false
+  email_1:
+    id: email
+    label: 'Email To Subsciber'
+    handler_id: email_1
+    status: true
+    weight: 1
+    settings:
+      to_mail: '[webform_submission:values:email_address:raw]'
+      cc_mail: ''
+      bcc_mail: ''
+      from_mail: default
+      from_name: default
+      subject: 'Thank you for signing up to the Tate & Lyle Trends & Insights newsletter!'
+      body: "<p>Thank you for signing up to the Tate &amp; Lyle Trends &amp; Insights newsletter!<br />\nYou will soon start receiving our thoughts on trends about what we love &ndash; food!</p>\n\n<p><strong>Tate &amp; Lyle</strong><br />\nBecause we&rsquo;re food people<br />\n<br />\n<br />\nTo unsubscribe, <a href=\"mailto:communications@tateandlyle.com?subject=Unsubscribe%20from%20Trends%20and%20Insights%20Newsletter\">click here</a></p>"
+      excluded_elements:
+        email_address: email_address
       html: true
       attachments: false
       debug: false
