@@ -4,6 +4,7 @@ dependencies:
   config:
     - field.field.paragraph.filegroup.field_download_attach_file
     - field.field.paragraph.filegroup.field_file_language
+    - field.field.paragraph.filegroup.field_tal_link
     - paragraphs.paragraphs_type.filegroup
   module:
     - file
@@ -27,4 +28,5 @@ content:
     type: entity_reference_label
 hidden:
   created: true
+  field_tal_link: true
   uid: true
