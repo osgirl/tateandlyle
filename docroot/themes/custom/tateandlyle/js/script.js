@@ -71,4 +71,22 @@
       window.setTimeout(anchorOffset, 1);
     }
   };
+  Drupal.behaviors.showMoreDownloads = {
+    attach: function () {
+      $("body").once("download-event").each(function () {
+        var originalString = $("#download-more > a").text();
+
+        $("#download-more > a").click(function () {
+          $("#more-items-wrapper").slideToggle("slow", function () {
+            if ($("#download-more > a").text() != "Show less") {
+              $("#download-more > a").text(Drupal.t("Show less"));
+            }
+            else {
+              $("#download-more > a").text(originalString);
+            }
+          });
+        });
+      });
+    }
+  };
 })(jQuery, Drupal);

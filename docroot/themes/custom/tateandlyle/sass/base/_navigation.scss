@@ -142,3 +142,138 @@
     }
   }
 }
+
+.path-frontpage .region-header {
+  background-color: rgba(147, 156, 161, 0.1);
+}
+
+#block-talmainmenu {
+  .navbar {
+    border-top: 1px solid $color-warm-gray;
+    border-bottom: 1px solid $color-warm-gray;
+    max-width: 1168px;
+    margin-left: auto;
+    margin-right: auto;
+
+    .col-sm-4 {
+      @media (min-width: $screen-sm) {
+        padding: 33px;
+        padding-left: 0;
+        padding-right: 30px;
+
+        &:nth-child(3) {
+          border-left: 1px solid $color-warm-gray;
+          padding-left: 16px;
+        }
+      }
+    }
+  }
+
+  .navbar-nav > li > a {
+    font-family: $font-family-sans-serif-Med;
+    padding: 17px 18px 14px 18px;
+    text-transform: uppercase;
+  }
+
+  @media (min-width: $screen-sm) {
+
+    .navbar-nav > li,
+    .navbar-nav > li > a {
+      position: static;
+    }
+
+    .multi-column.columns-3 {
+      border: 1px solid $color-warm-gray;
+      border-radius: 0;
+      padding: 0 16px;
+      left: 0;
+      right: 0;
+    }
+  }
+
+  .level-1.open {
+    @media (min-width: $screen-sm) {
+      border: 1px solid $color-warm-gray;
+      border-top: 3px solid $brand-primary;
+      border-bottom: 0;
+      margin-bottom: -1px;
+      margin-top: -1px;
+    }
+
+    & > a {
+      background: $color-white;
+      box-shadow: none;
+      color: $gray-base;
+      position: relative;
+      z-index: 11;
+    }
+  }
+}
+
+.dropdown-menu {
+  z-index: 10;
+
+  h3 {
+    padding-left: 14px;
+  }
+
+  .focus--title {
+    font-family: $font-family-sans-serif;
+  }
+}
+
+.multi-column {
+
+  .form-group {
+    margin-bottom: 0;
+  }
+
+  .block-views {
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 30px;
+    padding-bottom: 54px;
+  }
+}
+
+.multi-column-dropdown {
+  @extend %no-list;
+}
+
+.level-3 .focus--title {
+  display: block;
+  padding: 9px 14px;
+  font-size: $font-size-small;
+  text-transform: uppercase;
+  &:hover {
+    background-color: $color-light-gray;
+    color: $gray-base;
+  }
+
+  &.is-active {
+    background-color: $gray-base;
+    color: $color-white;
+  }
+}
+
+.dsc .focus--title {
+  font-family: $font-family-sans-serif-Med;
+  font-size: $font-size-h3;
+  text-transform: none;
+  padding-bottom: 12px;
+  padding-top: 0;
+
+  &:hover {
+    background-color: transparent;
+    color: $brand-primary;
+  }
+
+  &::after {
+    @extend %right-brand-arrow;
+  }
+}
+
+.focus--description {
+  padding-left: 14px;
+}
+
