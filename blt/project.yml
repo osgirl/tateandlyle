@@ -34,7 +34,7 @@ target-hooks:
 import: '${repo.root}/blt/build.xml'
 modules:
   local:
-    enable: [dblog, acquia_connector, devel, field_ui, seckit, views_ui]
+    enable: [dblog, acquia_connector, devel, field_ui, seckit, views_ui, features_ui]
     uninstall: [acsf, dblog, shield]
   ci:
     enable: {  }
