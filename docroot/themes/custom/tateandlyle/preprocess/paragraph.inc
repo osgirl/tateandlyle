@@ -120,7 +120,17 @@ function tal_preprocess_paragraph_wysiwyg_with_country_and_region($variables, $p
 function tal_preprocess_paragraph_ingredient_accordion($variables, $paragraph) {
   // Checks if we need to put bordered around the paragraph.
   $variables['show_border'] = FALSE;
-
+  $parent = $paragraph->getParentEntity();
+  $variables['trends_solution'] = '';
+  if ($parent->bundle() == "ingredient") {
+    $values = $parent->toArray();
+    $variables['trends_solution'] = [
+      '#type' => 'view',
+      '#name' => 'trends_insight_ingredient_block',
+      '#display_id' => 'block_1',
+      '#arguments' => [(int) $values['nid'][0]['value']],
+    ];
+  }
   if ($paragraph->get('field_in_border_title')->value) {
     $variables['show_border'] = TRUE;
   }

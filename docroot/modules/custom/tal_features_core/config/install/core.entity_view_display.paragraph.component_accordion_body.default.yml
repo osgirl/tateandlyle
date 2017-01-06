@@ -2,24 +2,25 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.component_accordion_body.field_simple_summary
+    - field.field.paragraph.component_accordion_body.field_content_summary
     - field.field.paragraph.component_accordion_body.field_simple_text
     - field.field.paragraph.component_accordion_body.field_tal_link
     - field.field.paragraph.component_accordion_body.field_tal_more
     - paragraphs.paragraphs_type.component_accordion_body
   module:
     - link
+    - text
 id: paragraph.component_accordion_body.default
 targetEntityType: paragraph
 bundle: component_accordion_body
 mode: default
 content:
-  field_simple_summary:
-    weight: 1
+  field_content_summary:
+    weight: 2
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: basic_string
+    type: text_default
   field_simple_text:
     weight: 0
     label: hidden
@@ -28,7 +29,7 @@ content:
     third_party_settings: {  }
     type: string
   field_tal_link:
-    weight: 2
+    weight: 3
     label: hidden
     settings:
       trim_length: 80
@@ -39,7 +40,7 @@ content:
     third_party_settings: {  }
     type: link
   field_tal_more:
-    weight: 3
+    weight: 4
     label: hidden
     settings:
       trim_length: 80

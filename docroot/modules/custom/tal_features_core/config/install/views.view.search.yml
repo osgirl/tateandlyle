@@ -445,6 +445,7 @@ display:
       cache:
         type: none
         options: {  }
+      block_hide_empty: true
     cache_metadata:
       max-age: 0
       contexts:

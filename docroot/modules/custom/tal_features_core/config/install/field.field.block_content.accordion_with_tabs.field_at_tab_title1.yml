@@ -10,7 +10,7 @@ entity_type: block_content
 bundle: accordion_with_tabs
 label: 'Tab title 1'
 description: ''
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
