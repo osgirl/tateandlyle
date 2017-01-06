@@ -61,12 +61,16 @@
         <h2{{ title_attributes.addClass('block-title') }}>{{ content.field_border_title }}</h2>
       {% endif %}
       <ul class="nav nav-tabs">
-        <li role="presentation" class="active"><a href="#tab1{{ id }}" data-toggle="tab">{{ content.field_at_tab_title1}}</a></li>
-        <li role="presentation"><a href="#tab2{{ id }}" data-toggle="tab">{{ content.field_at_tab_title2 }}</a></li>
+        {% if content.field_at_tab_title1|render|striptags|trim and content.field_at_tab_title2|render|striptags|trim %}
+          <li role="presentation" class="active"><a href="#tab1{{ id }}" data-toggle="tab">{{ content.field_at_tab_title1}}</a></li>
+          <li role="presentation"><a href="#tab2{{ id }}" data-toggle="tab">{{ content.field_at_tab_title2 }}</a></li>
+        {% endif %}
       </ul>
       <div class="tab-content">
         <div class="tab-pane fade in active" id="tab1{{ id }}">{{ content.field_at_tab_content1 }}</div>
+          {% if content.field_at_tab_title1|render|striptags|trim and content.field_at_tab_title2|render|striptags|trim %}
         <div class="tab-pane fade" id="tab2{{ id }}">{{ content.field_at_tab_content2 }}</div>
+          {% endif %}
       </div>
       {# content #}
     </div>

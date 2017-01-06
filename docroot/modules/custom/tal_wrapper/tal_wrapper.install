@@ -14,11 +14,35 @@
  *
  * @see system_install()
  */
+
+use Drupal\taxonomy\Entity\Term;
+
+/**
+ * Install custom tateandlyle theme.
+ */
 function tal_wrapper_install() {
 
   // Enable and set tateandlyle as default theme.
   \Drupal::service('theme_installer')->install(array('tateandlyle'), TRUE);
   \Drupal::configFactory()->getEditable('system.theme')->set('default', 'tateandlyle')->save(TRUE);
+}
+
+/**
+ * Removes a field from paragraph type field_image.
+ */
+function tal_wrapper_update_8010() {
+  // Deleting iframe_code_field from ingredient content.
+  $properties = [
+    'entity_type' => 'paragraph',
+    'bundle' => 'media_video_gallery',
+    'include_deleted' => TRUE,
+  ];
+  $fields = \Drupal::entityTypeManager()->getStorage('field_config')->loadByProperties($properties);
+  foreach ($fields as $field) {
+    if ($field->getName() == 'field_simple_text' || $field->getName() == 'field_image') {
+      $field->delete();
+    }
+  }
 }
 
 /**
@@ -36,18 +60,29 @@ function tal_wrapper_update_8011() {
 }
 
 /**
- * Removes a field from paragraph type field_image.
+ * Creates a term "Trends and insight" under story category vocabulary.
  */
-function tal_wrapper_update_8010() {
+function tal_wrapper_update_8012() {
+  // Create a term "Featured" under media gallery vocabulary.
+  Term::create(array(
+    'name' => 'Trends and insight',
+    'vid' => 'story_category',
+  ))->save();
+}
+
+/**
+ * Removes a 'field_simple_summary' from paragraph type field_image.
+ */
+function tal_wrapper_update_8013() {
   // Deleting iframe_code_field from ingredient content.
   $properties = [
     'entity_type' => 'paragraph',
-    'bundle' => 'media_video_gallery',
+    'bundle' => 'component_accordion_body',
     'include_deleted' => TRUE,
   ];
   $fields = \Drupal::entityTypeManager()->getStorage('field_config')->loadByProperties($properties);
   foreach ($fields as $field) {
-    if ($field->getName() == 'field_simple_text' || $field->getName() == 'field_image') {
+    if ($field->getName() == 'field_simple_summary') {
       $field->delete();
     }
   }
