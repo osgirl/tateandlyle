@@ -2,12 +2,12 @@ langcode: en
 status: true
 dependencies: {  }
 name: image_gallery_promoted_image_518_x_360
-label: 'Image Gallery : Promoted Image 518 x 360'
+label: 'Image Gallery : Promoted Image 583 x 405'
 effects:
   cbd7524c-f755-4a32-9b32-7b5b6b1e73a6:
     uuid: cbd7524c-f755-4a32-9b32-7b5b6b1e73a6
     id: image_resize
     weight: 1
     data:
-      width: 518
-      height: 360
+      width: 583
+      height: 405
