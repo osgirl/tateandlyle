@@ -1,0 +1,32 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.download_accordion_items.field_dl_accordion_body
+    - field.field.paragraph.download_accordion_items.field_in_accordion_header
+    - paragraphs.paragraphs_type.download_accordion_items
+  module:
+    - entity_reference_revisions
+id: paragraph.download_accordion_items.default
+targetEntityType: paragraph
+bundle: download_accordion_items
+mode: default
+content:
+  field_dl_accordion_body:
+    type: entity_reference_revisions_entity_view
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+  field_in_accordion_header:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+hidden:
+  created: true
+  uid: true
