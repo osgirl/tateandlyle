@@ -26,15 +26,23 @@ function tal_mega_menu_install() {
   ));
   $menu->save();
   $items = [
-    '1' => 'OUR EXPERTISE',
-    '2' => 'PARTNER WITH US',
-    '3' => 'TRENDS & INSIGHT',
-    '4' => 'INGREDIENT FINDER',
+    '1' => 'Our Expertise',
+    '2' => 'Partner with us',
+    '3' => 'Trends & Insight',
+    '4' => 'Ingredient Finder',
+    '5' => 'Search',
   ];
   foreach ($items as $key => $title) {
+    $url = "internal:#";
+    if ($title == 'Ingredient Finder') {
+      $url = 'internal:/search/ingredients';
+    }
+    if ($title == 'Search') {
+      $url = 'internal:/search';
+    }
     $menu_link = MenuLinkContent::create([
       'title' => $title,
-      'link' => "internal:#",
+      'link' => $url,
       'menu_name' => 'main-menu',
       'expanded' => TRUE,
       'weight' => $key,

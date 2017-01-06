@@ -3,7 +3,6 @@
 namespace Drupal\tal_video_gallery\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
-use Drupal\views\Views;
 
 /**
  * Class videoGalleryController.
@@ -36,9 +35,6 @@ class VideoGalleryController extends ControllerBase {
 
     // Build video carousel for each category.
     $carousel = [];
-    $view = Views::getView('video_gallery');
-    $view->setDisplay('video_term_block');
-
     foreach ($terms as $term) {
       $args = [$term->tid];
       if ($term->name != 'Featured') {
@@ -53,7 +49,6 @@ class VideoGalleryController extends ControllerBase {
         ];
       }
     }
-
     return $carousel;
   }
 
@@ -63,23 +58,19 @@ class VideoGalleryController extends ControllerBase {
   private function buildFeaturedVideoBlock() {
     // Render array.
     $build = [];
-    // Generate Promoted video block.
-    $view = Views::getView('video_gallery');
-    $view->setDisplay('promoted_video_block');
-    $view->preExecute();
-    $view->execute();
-
-    $build['promoted_video'] = $view->buildRenderable('promoted_video_block');
+    $build['promoted_video'] = [
+      '#type' => 'view',
+      '#name' => 'video_gallery',
+      '#display_id' => 'promoted_video_block',
+    ];
     $build['promoted_video']['#prefix'] = '<div class="tal--promoted-image video">';
     $build['promoted_video']['#suffix'] = '</div>';
 
-    // Generate featured videos block.
-    $view = Views::getView('video_gallery');
-    $view->setDisplay('featured_video_block');
-    $view->preExecute();
-    $view->execute();
-
-    $build['featured_videos'] = $view->buildRenderable('featured_video_block');
+    $build['featured_videos'] = [
+      '#type' => 'view',
+      '#name' => 'video_gallery',
+      '#display_id' => 'featured_video_block',
+    ];
     $build['featured_videos']['#prefix'] = '<div class="tal--featured-image video">';
     $build['featured_videos']['#suffix'] = '</div>';
     $build['#prefix'] = '<div class="tal--image-gallery-featured-block-wrapper">';

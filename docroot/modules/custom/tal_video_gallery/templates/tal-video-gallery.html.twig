@@ -10,14 +10,14 @@
 
 <div class="tal--image-gallery">
     <div class="tal--image-gallery-featured">
-        {% if featured %}
+        {% if featured.promoted_video|render|striptags|trim != '' %}
             <h1>{{ "Featured Images"|t }}</h1>
             {{ featured }}
         {%  endif %}
     </div>
     <div class="tal--image-gallery-categories">
         {% for category in categories %}
-            {%  if (category.carousel) %}
+            {%  if (category.carousel|render|striptags|trim != '') %}
                 <h3 class="tal--carousel-title">{{ category.name }}</h3>
                 <div class="carousel">{{ category.carousel }}</div>
             {% endif %}
