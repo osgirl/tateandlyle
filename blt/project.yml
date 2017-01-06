@@ -41,6 +41,7 @@ modules:
             - field_ui
             - seckit
             - views_ui
+            - features_ui
         uninstall:
             - acsf
             - dblog

@@ -720,3 +720,7 @@ $settings['container_yamls'][] = __DIR__ . '/services.yml';
 require DRUPAL_ROOT . "/../vendor/acquia/blt/settings/blt.settings.php";
 $settings['install_profile'] = 'lightning';
 // require DRUPAL_ROOT . "/sites/default/settings/trusted_host.settings.php";
+
+// Lightning configuration.
+$config['lightning_core.settings']['content_roles']['creator']['enabled'] = false;
+$config['lightning_core.settings']['content_roles']['reviewer']['enabled'] = false;
