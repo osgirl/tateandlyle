@@ -6,11 +6,11 @@ template: false
 id: newsletter_subsciption
 title: 'Newsletter Subsciption'
 description: 'Newsletter Subscription Description'
-elements: "newsletter_heading:\n  '#type': markup\n  '#markup': '<span class=''newsletter--icon''></span><h4 class=''webform--title''>Sign up for the trends newsletter</h4><p class=''webform--description''>Stay on top of the latest trends in the fast moving world of food and beverages. Sign up for our monthly trends newsletter and read our thoughts and insights on our rapidly changing industry.</p>'\nemail_address:\n  '#type': email\n  '#title': 'Sign up for the trends newsletter'\n  '#title_display': invisible\n  '#description_display': invisible\n  '#placeholder': 'Email Address'\n  '#required': true\n  '#unique': true\n"
+elements: "newsletter_heading:\n  '#type': markup\n  '#markup': '<span class=''newsletter--icon''></span><h4 class=''webform--title''>Sign up for the trends newsletter</h4><p class=''webform--description''>Stay on top of the latest trends in the fast moving world of food and beverages. Sign up for our monthly trends newsletter and read our thoughts and insights on our rapidly changing industry.</p>'\nemail_address:\n  '#type': email\n  '#title': 'Sign up for the trends newsletter'\n  '#title_display': invisible\n  '#description_display': invisible\n  '#placeholder': 'Email Address'\n  '#required': true\n  '#required_error': 'Email Id is required.'\n  '#unique': true\n"
 css: ''
 javascript: ''
 settings:
-  page: true
+  page: false
   page_submit_path: ''
   page_confirm_path: ''
   form_submit_label: 'Sign up'
@@ -23,7 +23,7 @@ settings:
   form_prepopulate_source_entity: false
   form_novalidate: false
   form_unsaved: false
-  form_disable_back: false
+  form_disable_back: true
   form_autofocus: false
   form_details_toggle: false
   wizard_progress_bar: false
@@ -55,7 +55,7 @@ settings:
   confirmation_back: false
   confirmation_back_label: ''
   confirmation_back_attributes: {  }
-  limit_total: 1
+  limit_total: null
   limit_total_message: ''
   limit_user: null
   limit_user_message: ''
@@ -71,7 +71,8 @@ access:
       - authenticated
     users: {  }
   view_any:
-    roles: {  }
+    roles:
+      - administrator
     users: {  }
   update_any:
     roles: {  }
