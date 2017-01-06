@@ -14,7 +14,7 @@ settings:
   id: tal_mega_menu
   label: 'Tal Main Menu'
   provider: tal_mega_menu
-  label_display: visible
+  label_display: '0'
 visibility:
   other_facet:
     id: other_facet

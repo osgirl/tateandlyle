@@ -63,7 +63,7 @@ class TalMegaMenu extends BlockBase {
               $childData['types'] = $this->getBlockContent('types');
             }
             if ($url == "base:search") {
-
+              $childData['searchform'] = $this->getBlockContent('exposedformsearchsearch_page_2');
             }
           }
           $data['#data'][$k] = [
