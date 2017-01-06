@@ -6,7 +6,7 @@ template: false
 id: newsletter_subsciption
 title: 'Newsletter Subsciption'
 description: 'Newsletter Subscription Description'
-elements: "newsletter_heading:\r\n  '#type': markup\r\n  '#markup': \"<span class='newsletter--icon'></span><h4 class='webform--title'>Sign up for the trends newsletter</h4><p class='webform--description'>Stay on top of the latest trends in the fast moving world of food and beverages. Sign up for our monthly trends newsletter and read our thoughts and insights on our rapidly changing industry.</p>\"\r\nemail_address:\r\n  '#type': email\r\n  '#title': 'Sign up for the trends newsletter'\r\n  '#title_display': invisible\r\n  '#description_display': invisible\r\n  '#placeholder': 'Email Address'\r\n  '#required': true\r\n  '#unique': true\r\n"
+elements: "newsletter_heading:\n  '#type': markup\n  '#markup': '<span class=''newsletter--icon''></span><h4 class=''webform--title''>Sign up for the trends newsletter</h4><p class=''webform--description''>Stay on top of the latest trends in the fast moving world of food and beverages. Sign up for our monthly trends newsletter and read our thoughts and insights on our rapidly changing industry.</p>'\nemail_address:\n  '#type': email\n  '#title': 'Sign up for the trends newsletter'\n  '#title_display': invisible\n  '#description_display': invisible\n  '#placeholder': 'Email Address'\n  '#required': true\n  '#unique': true\n"
 css: ''
 javascript: ''
 settings:
@@ -26,7 +26,7 @@ settings:
   form_disable_back: false
   form_autofocus: false
   form_details_toggle: false
-  wizard_progress_bar: true
+  wizard_progress_bar: false
   wizard_progress_pages: false
   wizard_progress_percentage: false
   wizard_next_button_label: ''
@@ -34,7 +34,7 @@ settings:
   wizard_prev_button_label: ''
   wizard_prev_button_attributes: {  }
   wizard_start_label: ''
-  wizard_complete: true
+  wizard_complete: false
   wizard_complete_label: ''
   preview: 0
   preview_next_button_label: ''
@@ -49,13 +49,13 @@ settings:
   draft_saved_message: ''
   draft_loaded_message: ''
   confirmation_type: inline
-  confirmation_message: 'Thanks for subscribing!'
+  confirmation_message: "Thank you for signing up to the Tate &amp; Lyle Trends &amp; Insights newsletter!<br />\r\nYou will soon start receiving our thoughts on trends about what we love &ndash; food!"
   confirmation_url: ''
   confirmation_attributes: {  }
-  confirmation_back: true
+  confirmation_back: false
   confirmation_back_label: ''
   confirmation_back_attributes: {  }
-  limit_total: null
+  limit_total: 1
   limit_total_message: ''
   limit_user: null
   limit_user_message: ''
