@@ -115,7 +115,7 @@
   background: white;
   z-index: 99;
   padding: 1em;
-  @media (min-width: $screen-sm-lsp) {
+  @media (min-width: $screen-md) {
     width: auto;
     margin-top: 0;
     padding: 5px;
@@ -132,6 +132,9 @@
     @media (min-width: $screen-sm) {
       padding-top: 0;
       padding-bottom: 2px;
+    }
+    &:hover {
+      background: $color-light-gray;
     }
     &.is-active {
       background: black;
