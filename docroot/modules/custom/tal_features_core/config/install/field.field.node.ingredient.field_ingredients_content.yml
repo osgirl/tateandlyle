@@ -6,7 +6,7 @@ dependencies:
     - node.type.ingredient
     - paragraphs.paragraphs_type.block_reference
     - paragraphs.paragraphs_type.ingredient_accordion
-    - paragraphs.paragraphs_type.related_downloads
+    - paragraphs.paragraphs_type.ingredient_downloads
     - paragraphs.paragraphs_type.wysiwyg
     - paragraphs.paragraphs_type.wysiwyg_with_block_reference
     - paragraphs.paragraphs_type.wysiwyg_with_country_and_region
@@ -31,7 +31,7 @@ settings:
       wysiwyg: wysiwyg
       wysiwyg_with_block_reference: wysiwyg_with_block_reference
       wysiwyg_with_country_and_region: wysiwyg_with_country_and_region
-      related_downloads: related_downloads
+      ingredient_downloads: ingredient_downloads
     target_bundles_drag_drop:
       block_reference:
         enabled: true
@@ -63,6 +63,9 @@ settings:
       filegroup:
         weight: 21
         enabled: false
+      download_accordion_items:
+        weight: 23
+        enabled: false
       ingredient_accordion_items:
         weight: 23
         enabled: false
@@ -70,12 +73,21 @@ settings:
         weight: 24
         enabled: false
       related_downloads:
-        enabled: true
         weight: 25
+        enabled: false
       talk_to_us:
         weight: 26
         enabled: false
+      media_video_gallery:
+        weight: 28
+        enabled: false
       wysiwyg_and_block_reference:
         weight: 28
+        enabled: false
+      ingredient_downloads:
+        enabled: true
+        weight: 29
+      promo_body_with_link_url:
+        weight: 30
         enabled: false
 field_type: entity_reference_revisions
