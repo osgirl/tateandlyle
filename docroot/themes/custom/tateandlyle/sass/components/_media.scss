@@ -1,5 +1,9 @@
 .tal--image-gallery {
   padding: 0 20px;
+  @media (min-width: $screen-lg) {
+    width: 83%;
+    margin: 0 auto;
+  }
   @media (min-width: $screen-md) {
     padding: 0;
   }
@@ -60,4 +64,9 @@
   img {
     width: 100%;
   }
+}
+
+.tal--image-gallery-categories {
+  float: left;
+  width: 100%;
 }
