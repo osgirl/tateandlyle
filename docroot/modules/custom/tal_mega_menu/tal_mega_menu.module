@@ -22,6 +22,7 @@ function tal_mega_menu_theme() {
         'link' => NULL,
         'level' => NULL,
         'data' => NULL,
+        'class' => NULL,
       ],
     ],
     'tal_menu_col_level2' => [

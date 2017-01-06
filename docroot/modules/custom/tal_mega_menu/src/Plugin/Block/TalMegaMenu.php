@@ -53,6 +53,7 @@ class TalMegaMenu extends BlockBase {
       }
       switch ($level) {
         case 1:
+          $class = '';
           $childData = isset($item['#childdata']) && $item['#childdata'] ? $item['#childdata'] : '';
           if (isset($item['url']) && !empty($item['url'])) {
             $url = $item['url']->toUriString();
@@ -63,6 +64,7 @@ class TalMegaMenu extends BlockBase {
               $childData['types'] = $this->getBlockContent('types');
             }
             if ($url == "base:search") {
+              $class = 'search-menu';
               $childData['searchform'] = $this->getBlockContent('exposedformsearchsearch_page_2');
             }
           }
@@ -71,6 +73,7 @@ class TalMegaMenu extends BlockBase {
             '#link' => $item['title'],
             '#level' => $level,
             '#data' => $childData,
+            '#class' => $class,
           ];
           break;
 
