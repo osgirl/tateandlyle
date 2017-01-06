@@ -53,6 +53,9 @@ settings:
       media_video_gallery:
         weight: 28
         enabled: false
+      ingredient_downloads:
+        weight: 29
+        enabled: false
       passive_recruitment:
         weight: 29
         enabled: false
