@@ -2,6 +2,7 @@
 
 namespace Drupal\tal_mega_menu\Plugin\Block;
 
+use Drupal\block\Entity\Block;
 use Drupal\Core\Block\BlockBase;
 
 /**
@@ -19,23 +20,17 @@ class TalMegaMenu extends BlockBase {
    * {@inheritdoc}
    */
   public function build() {
-    /*$build = [
-    '#theme' => 'tal_video_gallery',
-    '#categories' => $this->buildVideoGallery(),
-    '#featured' => $this->buildFeaturedVideoBlock(),
-    ];*/
     $block_config = [
       'menu_name' => 'main-menu',
       'depth' => 3,
     ];
     // Get menu tree.
     $tree = tal_mega_menus_build_tree($block_config);
-    // Build menu class.
+    // Build menu html structure.
     $build = [
       '#theme' => 'tal_mega_menu',
       '#data' => $this->talBuildSubMenuParent($tree['#items'], 1),
     ];
-    $build['#markup'] = '<p>TEST</p>';
     return $build;
   }
 
@@ -56,15 +51,26 @@ class TalMegaMenu extends BlockBase {
         $item['#childdata'] = $this->talBuildSubMenuParent($item['below'], ++$level);
         --$level;
       }
-
       switch ($level) {
         case 1:
-          $childdata = isset($item['#childdata']) && $item['#childdata'] ? $item['#childdata'] : '';
+          $childData = isset($item['#childdata']) && $item['#childdata'] ? $item['#childdata'] : '';
+          if (isset($item['url']) && !empty($item['url'])) {
+            $url = $item['url']->toUriString();
+            if ($url == "base:search/ingredients") {
+              $childData['search'] = $this->getBlockContent('exposedformingredient_finderpage_1');
+              $childData['applications'] = $this->getBlockContent('applications');
+              $childData['trendssolutions'] = $this->getBlockContent('trendssolutions');
+              $childData['types'] = $this->getBlockContent('types');
+            }
+            if ($url == "base:search") {
+
+            }
+          }
           $data['#data'][$k] = [
             '#theme' => 'tal_menu_col_level1',
             '#link' => $item['title'],
             '#level' => $level,
-            '#data' => $childdata,
+            '#data' => $childData,
           ];
           break;
 
@@ -74,13 +80,13 @@ class TalMegaMenu extends BlockBase {
           if ($item['title'] == '<none>') {
             $url->setOption('attributes', array('class' => array('hide')));
           }
-          $childdata = isset($item['#childdata']) && $item['#childdata'] ? $item['#childdata'] : '';
+          $childData = isset($item['#childdata']) && $item['#childdata'] ? $item['#childdata'] : '';
           $level2_link = \Drupal::l($item['title'], $item['url']);
           $data['#data'][$k] = [
             '#theme' => 'tal_menu_col_level2',
             '#link' => $level2_link,
             '#level' => $level,
-            '#data' => $childdata,
+            '#data' => $childData,
           ];
           break;
 
@@ -105,6 +111,25 @@ class TalMegaMenu extends BlockBase {
     else {
       return '';
     }
+  }
+
+  /**
+   * Get content of the custom block.
+   */
+  public function getBlockContent($block_id) {
+    $block = Block::load($block_id);
+    $block_content = \Drupal::entityManager()
+      ->getViewBuilder('block')
+      ->view($block);
+
+    return array(
+      '#type' => 'container',
+      '#attributes' => array(
+        'class' => array("Myclass"),
+      ),
+      "element-content" => $block_content,
+      '#weight' => 0,
+    );
   }
 
 }
