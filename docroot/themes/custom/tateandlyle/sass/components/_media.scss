@@ -1,0 +1,63 @@
+.tal--image-gallery {
+  padding: 0 20px;
+  @media (min-width: $screen-md) {
+    padding: 0;
+  }
+  h1 {
+    margin: 30px 0 20px;
+    font-size: 24px;
+    font-weight: 700;
+    color: black;
+    text-transform: uppercase;
+  }
+}
+
+.tal--promoted-image {
+  width: 100%;
+  img {
+    width: 100%;
+  }
+  @media (min-width: $screen-sm) {
+    width: 50%;
+    float: left;
+  }
+}
+
+.view-image-gallery {
+  .title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 0 10px 10px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    background-color: black;
+    background-color: rgba(17, 17, 17, 0.7);
+  }
+  .views-row {
+    position: relative;
+    @media (min-width: $screen-md) {
+      float: left;
+      margin-right: 20px;
+    }
+  }
+}
+
+.tal--featured-image {
+  @media (min-width: $screen-md) {
+    width: 50%;
+    float: left;
+    margin-bottom: 20px;
+  }
+  .views-row {
+    margin-bottom: 20px;
+    &:nth-child(2), &:nth-child(2) {
+      margin-right: 0;
+    }
+  }
+  img {
+    width: 100%;
+  }
+}
