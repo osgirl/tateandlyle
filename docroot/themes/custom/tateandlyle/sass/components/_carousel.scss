@@ -47,6 +47,13 @@
       background-color: rgba(17, 17, 17, 0.7);
       width: 272px;
     }
+    .col-xs-3 {
+      padding: 0 10px;
+      .title {
+        left: 10px;
+        width: 238px;
+      }
+    }
   }
   &-indicators {
     display: none;
