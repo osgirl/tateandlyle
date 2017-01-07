@@ -15,8 +15,6 @@
  * @see system_install()
  */
 
-use Drupal\taxonomy\Entity\Term;
-
 /**
  * Install custom tateandlyle theme.
  */
@@ -57,33 +55,4 @@ function tal_wrapper_update_8011() {
       'tal_video_gallery',
     ]
   );
-}
-
-/**
- * Creates a term "Trends and insight" under story category vocabulary.
- */
-function tal_wrapper_update_8012() {
-  // Create a term "Featured" under media gallery vocabulary.
-  Term::create(array(
-    'name' => 'Trends and insight',
-    'vid' => 'story_category',
-  ))->save();
-}
-
-/**
- * Removes a 'field_simple_summary' from paragraph type field_image.
- */
-function tal_wrapper_update_8013() {
-  // Deleting iframe_code_field from ingredient content.
-  $properties = [
-    'entity_type' => 'paragraph',
-    'bundle' => 'component_accordion_body',
-    'include_deleted' => TRUE,
-  ];
-  $fields = \Drupal::entityTypeManager()->getStorage('field_config')->loadByProperties($properties);
-  foreach ($fields as $field) {
-    if ($field->getName() == 'field_simple_summary') {
-      $field->delete();
-    }
-  }
 }
