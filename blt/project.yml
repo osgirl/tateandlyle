@@ -63,7 +63,6 @@ modules:
     prod:
         enable:
             - acquia_connector
-            - shield
         uninstall:
             - devel
             - views_ui
@@ -75,4 +74,3 @@ modules:
 behat:
     paths:
         - '${repo.root}/tests/behat'
-    tags: '~javascript&&~example'

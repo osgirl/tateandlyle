@@ -4510,17 +4510,17 @@
     },
     {
         "name": "zendframework/zend-diactoros",
-        "version": "1.3.7",
-        "version_normalized": "1.3.7.0",
+        "version": "1.3.8",
+        "version_normalized": "1.3.8.0",
         "source": {
             "type": "git",
             "url": "https://github.com/zendframework/zend-diactoros.git",
-            "reference": "969ff423d3f201da3ff718a5831bb999bb0669b0"
+            "reference": "d9c1fd7c4b024179d49faf367da544b4eef7cfe8"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/zendframework/zend-diactoros/zipball/969ff423d3f201da3ff718a5831bb999bb0669b0",
-            "reference": "969ff423d3f201da3ff718a5831bb999bb0669b0",
+            "url": "https://api.github.com/repos/zendframework/zend-diactoros/zipball/d9c1fd7c4b024179d49faf367da544b4eef7cfe8",
+            "reference": "d9c1fd7c4b024179d49faf367da544b4eef7cfe8",
             "shasum": ""
         },
         "require": {
@@ -4532,9 +4532,9 @@
         },
         "require-dev": {
             "phpunit/phpunit": "^4.6 || ^5.5",
-            "squizlabs/php_codesniffer": "^2.3.1"
+            "zendframework/zend-coding-standard": "~1.0.0"
         },
-        "time": "2016-10-11T13:25:21+00:00",
+        "time": "2017-01-05T21:44:28+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -6063,7 +6063,7 @@
             },
             "drupal": {
                 "version": "8.x-1.1",
-                "datestamp": "1467086939"
+                "datestamp": "1483529942"
             },
             "patches_applied": {
                 "2668006 - Provide logical access control for when IPE should be applied to moderated nodes": "https://www.drupal.org/files/issues/2668006-2.patch",
@@ -8763,6 +8763,79 @@
         "support": {
             "source": "http://cgit.drupalcode.org/country",
             "issues": "http://drupal.org/project/issues/country"
+        }
+    },
+    {
+        "name": "drupal/default_content",
+        "version": "1.0.0-alpha3",
+        "version_normalized": "1.0.0.0-alpha3",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupal.org/project/default_content",
+            "reference": "8.x-1.0-alpha3"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://ftp.drupal.org/files/projects/default_content-8.x-1.0-alpha3.zip",
+            "reference": null,
+            "shasum": "6834ce4134fd20df56e7294e9aad033f1500d7dd"
+        },
+        "require": {
+            "drupal/core": "*"
+        },
+        "type": "drupal-module",
+        "extra": {
+            "branch-alias": {
+                "dev-1.x": "1.x-dev"
+            },
+            "drupal": {
+                "version": "8.x-1.0-alpha3",
+                "datestamp": "1473976439"
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "license": [
+            "GPL-2.0+"
+        ],
+        "authors": [
+            {
+                "name": "Berdir",
+                "homepage": "https://www.drupal.org/user/214652"
+            },
+            {
+                "name": "Sam152",
+                "homepage": "https://www.drupal.org/user/1485048"
+            },
+            {
+                "name": "andypost",
+                "homepage": "https://www.drupal.org/user/118908"
+            },
+            {
+                "name": "benjy",
+                "homepage": "https://www.drupal.org/user/1852732"
+            },
+            {
+                "name": "dawehner",
+                "homepage": "https://www.drupal.org/user/99340"
+            },
+            {
+                "name": "jibran",
+                "homepage": "https://www.drupal.org/user/1198144"
+            },
+            {
+                "name": "larowlan",
+                "homepage": "https://www.drupal.org/user/395439"
+            },
+            {
+                "name": "matslats",
+                "homepage": "https://www.drupal.org/user/140053"
+            }
+        ],
+        "description": "Imports default content when a module is enabled",
+        "homepage": "https://www.drupal.org/project/default_content",
+        "support": {
+            "source": "http://cgit.drupalcode.org/default_content"
         }
     },
     {

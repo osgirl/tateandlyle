@@ -1,0 +1,97 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/tatelylecom.local\/block\/1?_format=hal_json"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/block_content\/basic"
+        },
+        "http:\/\/drupal.org\/rest\/relation\/block_content\/basic\/revision_user": [
+            {
+                "href": "http:\/\/tatelylecom.local\/user\/1?_format=hal_json"
+            }
+        ]
+    },
+    "id": [
+        {
+            "value": "1"
+        }
+    ],
+    "uuid": [
+        {
+            "value": "1d84a4ee-02a3-4532-8020-37b70a151f63"
+        }
+    ],
+    "revision_id": [
+        {
+            "value": "1"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "type": [
+        {
+            "target_id": "basic"
+        }
+    ],
+    "info": [
+        {
+            "value": "Head Office Address",
+            "lang": "en"
+        }
+    ],
+    "changed": [
+        {
+            "value": "1483437912",
+            "lang": "en"
+        }
+    ],
+    "revision_created": [
+        {
+            "value": "1483357519"
+        }
+    ],
+    "_embedded": {
+        "http:\/\/drupal.org\/rest\/relation\/block_content\/basic\/revision_user": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/tatelylecom.local\/user\/1?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/user\/user"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "f8a083f8-2e8f-40d5-b6d3-055742a705c4"
+                    }
+                ]
+            }
+        ]
+    },
+    "revision_translation_affected": [
+        {
+            "value": "1",
+            "lang": "en"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": "1",
+            "lang": "en"
+        }
+    ],
+    "body": [
+        {
+            "value": "<p><strong>Head Office<\/strong><\/p>\r\n\r\n<p>Tate &amp; Lyle PLC, 1 Kingsway, London WC2B 6AT, United Kingdom<\/p>\r\n\r\n<p>&nbsp;<\/p>\r\n\r\n<p>+44 (0)20 7257 2100<\/p>\r\n\r\n<p><a href=\"hello@tateandlyle.com\">hello@tateandlyle.com<\/a><\/p>\r\n",
+            "format": "advanced_rich_text",
+            "summary": "",
+            "lang": "en"
+        }
+    ]
+}

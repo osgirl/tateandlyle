@@ -5,7 +5,7 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "acquia/blt": "^8.3",
+        "acquia/blt": "^8.6",
         "composer/installers": "^1.0.20",
         "cweagans/composer-patches": "^1.6.0",
         "drupal/acquia_connector": "^1.5.0",
@@ -33,7 +33,8 @@
         "drupal/webform": "5.0-beta4",
         "drupal/access_unpublished": "1.0-alpha2",
         "drupal/colorbox": "1.*",
-        "jackmoore/colorbox": "1.6.4"
+        "jackmoore/colorbox": "1.6.4",
+        "drupal/default_content": "1.0-alpha3"
     },
     "require-dev": {
         "behat/behat": "^3.1",
