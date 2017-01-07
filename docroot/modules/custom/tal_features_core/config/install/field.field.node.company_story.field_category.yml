@@ -9,7 +9,7 @@ id: node.company_story.field_category
 field_name: field_category
 entity_type: node
 bundle: company_story
-label: Category
+label: 'Article Category'
 description: ''
 required: false
 translatable: false

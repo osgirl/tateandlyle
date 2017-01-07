@@ -1,7 +1,7 @@
 langcode: en
 status: true
 dependencies: {  }
-name: 'Story Category'
+name: 'Article Category'
 vid: story_category
 description: ''
 hierarchy: 0
