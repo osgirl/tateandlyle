@@ -7,12 +7,12 @@ dependencies:
 id: talmainmenu
 theme: tateandlyle
 region: header
-weight: 0
+weight: -11
 provider: null
 plugin: tal_mega_menu
 settings:
   id: tal_mega_menu
-  label: 'Tal Main Menu'
+  label: 'Tal Mega Menu'
   provider: tal_mega_menu
   label_display: '0'
 visibility:
