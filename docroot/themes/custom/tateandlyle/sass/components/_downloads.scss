@@ -198,3 +198,42 @@
     }
   }
 }
+
+.more-less {
+  float: right;
+  margin-top: -20px;
+  font-size: 12px;
+  font-weight: lighter;
+  border: 1px solid #14AAE2;
+  border-radius: 50% 50%;
+  padding: 3px 3px 4px 5px;
+  color: $brand-primary;
+}
+
+.block--downloads-with-accordion {
+  max-width: 1168px;
+  width: 100%;
+  margin: 0 auto;
+  border: 1px solid #999999;
+  margin-bottom: 1em;
+  .panel {
+    border: 0;
+    margin: 0;
+  }
+  .panel-heading {
+    background: none;
+    padding: 1.5em;
+  }
+  .block-title {
+    position: relative;
+    top: -7px;
+    text-align: center;
+  }
+  .accordion-toggle {
+    color: $brand-primary;
+    font-size: 24px;
+  }
+  .accordion-toggle.collapsed {
+    color: black;
+  }
+}

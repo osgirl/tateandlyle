@@ -49,8 +49,10 @@ view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
         <h4 class="panel-title">
             <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#{{ field_unique_id }}" href="#collapse-{{ paragraph.id.value }}">
                 {{ content.field_in_accordion_header }}
+                <i class="more-less glyphicon glyphicon-plus"></i>
             </a>
         </h4>
+
     </div>
     <!-- panel body -->
     <div id="collapse-{{ paragraph.id.value }}" class="panel-collapse collapse">
