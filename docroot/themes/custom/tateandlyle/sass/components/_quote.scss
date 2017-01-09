@@ -15,7 +15,7 @@
   padding-right: 20px;
   width: 100%;
   @media (min-width: $screen-sm-lsp) {
-    border: 1px solid;
+    border: 1px solid $color-warm-gray;
     padding: 40px 30px;
   }
 
@@ -59,7 +59,7 @@
 
   .field--name-field-bg-image img {
     border-radius: 100%;
-    border: 1px solid;
+    border: 1px solid $color-warm-gray;
     max-width: 89px;
     padding: 5px;
     @media (min-width: $screen-sm) {
@@ -152,7 +152,7 @@
 .quote__content--left {
   padding-bottom: 20px;
   @media (min-width: $screen-sm-lsp) {
-    border-right: 1px solid;
+    border-right: 1px solid $color-warm-gray;
     min-width: 205px;
   }
 }
@@ -191,6 +191,21 @@
     padding: 16px 28px 25px 40px;
     @media (min-width: $screen-sm-lsp) {
       padding: 40px 30px;
+    }
+  }
+}
+
+.quote__content.White {
+  background: $color-off-white;
+  border: 0 none;
+  @media (min-width: $screen-sm) {
+    background: none;
+    border-top: 1px solid $color-warm-gray;
+    border-bottom: 1px solid $color-warm-gray;  
+  }
+  .field--name-field-short-summary {
+    &::before, &::after {
+     color: $gray-dark;
     }
   }
 }
