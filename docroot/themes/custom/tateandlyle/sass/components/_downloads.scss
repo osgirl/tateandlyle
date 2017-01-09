@@ -215,7 +215,7 @@
   max-width: 1168px;
   width: 100%;
   margin: 0 auto;
-  border: 1px solid #999999;
+  border: 1px solid $color-warm-gray;
   display: table;
   margin-bottom: 1em;
   > .field--items > .field--item {
@@ -229,6 +229,7 @@
     border: 0;
     background: $color-off-white;
     margin-top: 0;
+    padding: 40px;
   }
   .panel {
     border: 0;
