@@ -1,3 +1,10 @@
+.main-container .region-header {
+  @media (min-width: $screen-sm) {
+    max-width: 1168px;
+    margin: 0 auto;
+  }
+}
+
 .content .navbar {
   background: none;
   box-shadow: none;
@@ -162,7 +169,7 @@
   float: right;
 
   @media (min-width: $screen-sm) {
-    float: none;
+    float: left;
     width: 100%;
   }
 
@@ -481,22 +488,35 @@
 }
 
 #navbar1 {
-  margin-top: 0.7em;
+  margin-top: 0;
   margin-bottom: 0;
 }
 
 .navbar-header {
   width: 100%;
-  #block-mainnavigation {
-    @media (min-width: $screen-sm) {
-      float: right;
-    }
-    .navbar.navbar-default {
-      margin-bottom: 0;
-    }
-    #navbar1 {
-      background: white;
-      .navbar-nav li a {
+  @media (min-width: $screen-sm) {
+    float: none;
+  }
+}
+
+#block-mainnavigation {
+  .navbar-toggle {
+    display: none;
+  }
+  @media (min-width: $screen-sm) {
+    float: right;
+  }
+  .navbar.navbar-default {
+    margin-bottom: 0;
+  }
+  #navbar1 {
+    background: white;
+    .navbar-nav li {
+      border-bottom: 1px solid $color-light-gray;
+      @media (min-width: $screen-sm) {
+        border: 0;
+      }
+      a {
         text-transform: uppercase;
         font-size: 14px;
         padding-top: 13px;
@@ -514,5 +534,27 @@
         }
       }
     }
+  }
+}
+
+.logo.navbar-btn {
+  margin-top: -3.2em;
+  margin-left: 1em;
+  @media (min-width: $screen-sm) {
+    margin-top: 0;
+  }
+}
+
+#block-talmainmenu {
+  .navbar-toggle.collapsed {
+    position: absolute;
+    width: auto;
+    right: -2em !important;
+    left: inherit;
+    margin-bottom: 0;
+    background: transparent;
+  }
+  .navbar-toggle {
+    left: 3.5em;
   }
 }
