@@ -296,7 +296,7 @@ display:
           group_type: group
           admin_label: ''
           operator: '='
-          value: 'Trends and insight'
+          value: 'Trends and insights'
           group: 1
           exposed: false
           expose:

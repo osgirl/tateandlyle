@@ -26,6 +26,7 @@ dependencies:
   - filter
   - help
   - image
+  - improved_multi_select
   - inline_entity_form
   - lightning_core
   - lightning_layout
