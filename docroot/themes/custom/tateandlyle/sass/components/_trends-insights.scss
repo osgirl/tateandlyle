@@ -1,0 +1,62 @@
+.trends-solutions {
+  background-color: $color-purple;
+  color: $color-white;
+  margin-bottom: 50px;
+  margin-top: 50px;
+  padding: 30px;
+  padding-bottom: 60px;
+  text-align: center;
+
+  @media (min-width: $screen-sm) {
+    padding: 90px;
+    padding-top: 43px;
+    padding-bottom: 60px;
+  }
+
+  .views-field-title {
+    font-family: $font-family-sans-serif-bold;
+    font-size: $font-size-h4;
+    margin-bottom: 18px;
+    margin-top: 14px;
+
+    @media (min-width: $screen-sm) {
+      font-size: $font-size-h3;
+      margin-bottom: 23px;
+      margin-top: 29px;
+    }
+
+    a {
+      color: $color-white;
+    }
+  }
+
+  .view-trends-insight-ingredient-block p a {
+    color: $color-white;
+    font-family: $font-family-sans-serif-Med;
+  }
+
+  .trends--inner {
+    max-width: 881px;
+    margin: auto;
+    border: 1px solid $color-white;
+    padding: 23px;
+    padding-top: 30px;
+
+    @media (min-width: $screen-sm) {
+      padding: 30px 80px 40px;
+    }
+
+    @media (min-width: $screen-md) {
+      padding: 51px 225px 61px;
+    }
+  }
+}
+
+.trends--logo {
+  background: url("../images/icons/icontrends-white.png") no-repeat;
+  background-size: contain;
+  height: 40px;
+  margin: auto;
+  text-align: center;
+  width: 40px;
+}

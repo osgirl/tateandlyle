@@ -166,35 +166,36 @@
       text-align: right;
     }
   }
+}
 
-  .btn--download {
-    a {
-      @extend .btn;
-      @extend .btn-primary;
-      display: block;
-      padding-bottom: 9px;
-      padding-top: 9px;
-      width: 100%;
+.file--downloads .btn--download,
+.block--download .field--name-field-tal-link {
+  a {
+    @extend .btn;
+    @extend .btn-primary;
+    display: block;
+    padding-bottom: 9px;
+    padding-top: 9px;
+    width: 100%;
 
-      @media (min-width: $screen-sm) {
-        display: inline-block;
-        width: auto;
-      }
+    @media (min-width: $screen-sm) {
+      display: inline-block;
+      width: auto;
+    }
+
+    &::after {
+      @extend %download-icon;
+    }
+
+    &:hover {
+      background-color: $color-white;
+      border: 1px solid $brand-primary;
+      box-shadow: none;
+      color: $brand-primary;
+      padding: 8px 19px;
 
       &::after {
-        @extend %download-icon;
-      }
-
-      &:hover {
-        background-color: $color-white;
-        border: 1px solid $brand-primary;
-        box-shadow: none;
-        color: $brand-primary;
-        padding: 8px 19px;
-
-        &::after {
-          background: url("../images/icons/buttoncta-arrow-blue.svg") no-repeat;
-        }
+        background: url("../images/icons/buttoncta-arrow-blue.svg") no-repeat;
       }
     }
   }
@@ -212,6 +213,10 @@
     @media (max-width: $screen-xs-max) {
       margin-bottom: 25px;
     }
+  }
+
+  .field--name-field-tal-link {
+    margin-top: 11px;
   }
 }
 
