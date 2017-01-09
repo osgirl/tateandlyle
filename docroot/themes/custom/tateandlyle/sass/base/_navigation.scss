@@ -338,8 +338,9 @@
 
         .control-label {
           color: $gray-base;
-          font-size: 18px;
-          padding-right: 24px;
+          font-size: $font-size-h5;
+          padding-right: 20px;
+          vertical-align: middle;
         }
       }
 

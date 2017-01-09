@@ -48,8 +48,11 @@ show_border ? 'paragraph--show-border',
     <div class="field--in-border-title">{{ content.field_in_border_title }}</div>
     {{ content.field_in_accordion_items }}
 </div>
-<div class="trends-solutions">
-    {% if trends_solution|render|striptags|trim %}
-        {{ trends_solution  }}
-    {% endif %}
-</div>
+{% if trends_solution|render|striptags|trim %}
+    <div class="trends-solutions">
+        <div class="trends--inner">
+            <div class="trends--logo"></div>
+            {{ trends_solution  }}
+        </div>
+    </div>
+{% endif %}

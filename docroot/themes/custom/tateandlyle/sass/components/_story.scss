@@ -79,6 +79,23 @@
     }
   }
 
+  p {
+    line-height: 22px;
+  }
+
+  figure {
+    position: relative;
+
+    figcaption {
+      background-color: rgba(0, 0, 0, 0.9);
+      bottom: 0;
+      color: $color-white;
+      padding: 15px 28px;
+      position: absolute;
+      width: 100%;
+    }
+  }
+
   .paragraph {
 
     .block--connect {
