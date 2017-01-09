@@ -56,14 +56,14 @@ class TalMegaMenu extends BlockBase {
           $class = '';
           $childData = isset($item['#childdata']) && $item['#childdata'] ? $item['#childdata'] : '';
           if (isset($item['url']) && !empty($item['url'])) {
-            $url = $item['url']->toUriString();
-            if ($url == "base:search/ingredients") {
+            $url = $item['url']->getRouteName();
+            if ($url == "tal_ingredient_search") {
               $childData['search'] = $this->getBlockContent('exposedformingredient_finderpage_1');
               $childData['applications'] = $this->getBlockContent('applications');
               $childData['trendssolutions'] = $this->getBlockContent('trendssolutions');
               $childData['types'] = $this->getBlockContent('types');
             }
-            if ($url == "base:search") {
+            if ($url == "view.search.search_page") {
               $class = 'search-menu';
               $childData['searchform'] = $this->getBlockContent('exposedformsearchsearch_page_2');
             }
