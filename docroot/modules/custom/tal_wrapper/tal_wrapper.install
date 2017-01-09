@@ -5,6 +5,8 @@
  * Install, update and uninstall functions for the tal_wrapper module.
  */
 
+use Drupal\field\Entity\FieldStorageConfig;
+
 /**
  * Implements hook_install().
  *
@@ -54,5 +56,20 @@ function tal_wrapper_update_8011() {
       'tal_video_embed_buto',
       'tal_video_gallery',
     ]
+  );
+}
+
+/**
+ * Installs some requited modules.
+ */
+function tal_wrapper_update_8016() {
+  \Drupal::service('module_installer')->install(
+    ['improved_multi_select']
+  );
+  $field = FieldStorageConfig::loadByName('paragraph', 'field_in_country');
+  $field->delete();
+
+  \Drupal::service('module_installer')->uninstall(
+    ['improved_multi_select']
   );
 }
