@@ -109,12 +109,12 @@
     <div class="addthis_inline_share_toolbox"></div>
   </div>
   <div class="row news--articles">
-    {% if prevurl %}
+    {% if prev %}
     <div class="col-sm-4 col-xs-6 previous--articles">
-      <a href="{{ prevurl }}">
+      <a href="{{ prev.url }}">
         {{ "Previous article"|t }}
       <span>
-        {{ content.field_prev_article|render|striptags }}
+        {{ prev.title }}
       </span>
       </a>
     </div>
@@ -124,12 +124,12 @@
             {{ "View all company news"|t }}
         </a>
     </div>
-    {% if nexturl %}
+    {% if next %}
     <div class="col-sm-4 col-xs-6 next--articles">
-      <a href="{{ nexturl }}">
+      <a href="{{ next.url }}">
         {{ "Next article"|t }}
       <span>
-        {{ content.field_next_article|render|striptags }}
+        {{ next.title }}
       </span>
       </a>
     </div>

@@ -6,10 +6,9 @@
  */
 
 use Drupal\Core\Url;
-
 use Drupal\Core\Link;
-
 use Drupal\Component\Utility\UrlHelper;
+use Drupal\tal_wrapper\Utility\Utility as TalWrapperUtility;
 
 /**
  * Preprocessor function for "Ingredient" bundle.
@@ -51,16 +50,13 @@ function tal_preprocess_node_ingredient($variables, $node) {
  */
 function tal_preprocess_node_company_story($variables, $node) {
   $node = $variables['node'];
-  $previous = $node->get('field_prev_article')->referencedEntities();
-  $variables['prevurl'] = '';
-  if (!empty($previous)) {
-    $variables['prevurl'] = $previous[0]->url();
-  }
-  $next = $node->get('field_next_article')->referencedEntities();
-  $variables['nexturl'] = '';
-  if (!empty($next)) {
-    $variables['nexturl'] = $next[0]->url();
-  }
+
+  $nid = $node->id();
+  $bundle = 'company_story';
+
+  $variables['next'] = TalWrapperUtility::generateNextPrevious($nid, $bundle, 'next');
+  $variables['prev'] = TalWrapperUtility::generateNextPrevious($nid, $bundle, 'prev');
+
   if ($variables['view_mode'] == 'search_result') {
     $path = \Drupal::request()->getUri();
     $parameters = UrlHelper::parse($path);
