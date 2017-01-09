@@ -1,184 +1,40 @@
 <?php
 
-/**
- * @file
- * Contains Drupal\Console\Utils\Site.
- */
-
 namespace Drupal\Console\Utils;
 
-use Drupal\Core\DependencyInjection\ContainerBuilder;
-use Drupal\Core\Logger\LoggerChannelFactory;
-use Drupal\Core\Language\Language;
-use Drupal\Core\Language\LanguageManager;
-use Drupal\Core\Site\Settings;
-use Drupal\Core\Database\Database;
 use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\Finder\Finder;
-use Symfony\Component\Yaml\Parser;
-use Composer\Autoload\ClassLoader;
+use Drupal\Core\DependencyInjection\ContainerBuilder;
+use Drupal\Core\Logger\LoggerChannelFactory;
+use Drupal\Core\Language\LanguageManager;
+use Drupal\Core\Language\Language;
+use Drupal\Core\Site\Settings;
 
-/**
- * Class DrupalHelper
- * @package Drupal\Console\Utils
- */
 class Site
 {
-    const DRUPAL_AUTOLOAD = 'autoload.php';
-
-    const DEFAULT_SETTINGS_PHP = 'sites/default/settings.php';
-
-    const DRUPAL_INDEX = 'index.php';
+    protected $appRoot;
 
     /**
-     * @var string
+     * Site constructor.
+     *
+     * @param $appRoot
      */
-    private $root = null;
-
-    /**
-     * @var string
-     */
-    private $autoLoad = null;
-
-    /**
-     * @var bool
-     */
-    private $validInstance = false;
-
-    /**
-     * @var bool
-     */
-    private $installed = false;
-
-    /**
-     * @var Parser
-     */
-    protected $parser;
-
-    /**
-     * Translator constructor.
-     * @param Parser $parser
-     */
-    public function __construct(
-        Parser $parser
-    ) {
-        $this->parser = $parser;
+    public function __construct($appRoot)
+    {
+        $this->appRoot = $appRoot;
     }
 
-    /**
-     * @param  string $root
-     * @param  bool   $recursive
-     * @return bool
-     */
-    public function isValidRoot($root, $recursive=false)
+    public function loadLegacyFile($legacyFile, $relative = true)
     {
-        if (!$root) {
-            return false;
+        if ($relative) {
+            $legacyFile = realpath(
+                sprintf('%s/%s', $this->appRoot, $legacyFile)
+            );
         }
-
-        if ($root === '/' || preg_match('~^[a-z]:\\\\$~i', $root)) {
-            return false;
-        }
-
-        $autoLoad = sprintf('%s/%s', $root, self::DRUPAL_AUTOLOAD);
-        $index = sprintf('%s/%s', $root, self::DRUPAL_INDEX);
-
-        if (file_exists($autoLoad) && file_exists($index)) {
-            $this->root = $root;
-            $this->autoLoad = $autoLoad;
-            $this->validInstance = true;
-            return true;
-        }
-
-        if ($recursive) {
-            return $this->isValidRoot(realpath($root . '/../'), $recursive);
-        }
-
-        return false;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isConnectionInfo()
-    {
-        $settingsPath = sprintf('%s/%s', $this->root, self::DEFAULT_SETTINGS_PHP);
-
-        if (!file_exists($settingsPath)) {
-            return false;
-        }
-
-        if (Database::getConnectionInfo()) {
-            return true;
-        }
-
-        return false;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isValidInstance()
-    {
-        return $this->validInstance;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isInstalled()
-    {
-        return $this->installed;
-    }
-
-    /**
-     * @param bool $installed
-     */
-    public function setInstalled($installed)
-    {
-        $this->installed = $installed;
-    }
-
-    /**
-     * @return string
-     */
-    public function getRoot()
-    {
-        return $this->root;
-    }
-
-    /**
-     * @return string
-     */
-    public function getAutoLoad()
-    {
-        return $this->autoLoad;
-    }
-
-    /**
-     * @return Classloader
-     */
-    public function getAutoLoadClass()
-    {
-        return include $this->autoLoad;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isAutoload()
-    {
-        return ($this->autoLoad?true:false);
-    }
-
-    public function loadLegacyFile($legacyFile)
-    {
-        $legacyFile = realpath(
-            sprintf('%s/%s', $this->root, $legacyFile)
-        );
 
         if (file_exists($legacyFile)) {
             include_once $legacyFile;
+
             return true;
         }
 
@@ -186,47 +42,21 @@ class Site
     }
 
     /**
-     * @return mixed array
+     * @return array
      */
     public function getStandardLanguages()
     {
-        $standard_languages = LanguageManager::getStandardLanguageList();
+        $standardLanguages = LanguageManager::getStandardLanguageList();
         $languages = [];
-        foreach ($standard_languages as $langcode => $standard_language) {
-            $languages[$langcode] = $standard_language[0];
+        foreach ($standardLanguages as $langcode => $standardLanguage) {
+            $languages[$langcode] = $standardLanguage[0];
         }
 
         return $languages;
     }
 
-    public function setMinimalContainerPreKernel()
-    {
-        // Create a minimal mocked container to support calls to t() in the pre-kernel
-        // base system verification code paths below. The strings are not actually
-        // used or output for these calls.
-        $container = new ContainerBuilder();
-        $container->setParameter('language.default_values', Language::$defaultValues);
-        $container
-            ->register('language.default', 'Drupal\Core\Language\LanguageDefault')
-            ->addArgument('%language.default_values%');
-        $container
-            ->register('string_translation', 'Drupal\Core\StringTranslation\TranslationManager')
-            ->addArgument(new Reference('language.default'));
-
-        // Register the stream wrapper manager.
-        $container
-            ->register('stream_wrapper_manager', 'Drupal\Core\StreamWrapper\StreamWrapperManager')
-            ->addMethodCall('setContainer', array(new Reference('service_container')));
-        $container
-            ->register('file_system', 'Drupal\Core\File\FileSystem')
-            ->addArgument(new Reference('stream_wrapper_manager'))
-            ->addArgument(Settings::getInstance())
-            ->addArgument((new LoggerChannelFactory())->get('file'));
-
-        \Drupal::setContainer($container);
-    }
     /**
-     * @return mixed array
+     * @return array
      */
     public function getDatabaseTypes()
     {
@@ -235,7 +65,7 @@ class Site
 
         $finder = new Finder();
         $finder->directories()
-            ->in($this->root . '/core/lib/Drupal/Core/Database/Driver')
+            ->in($this->appRoot . '/core/lib/Drupal/Core/Database/Driver')
             ->depth('== 0');
 
         $databases = [];
@@ -257,6 +87,33 @@ class Site
         return $databases;
     }
 
+    protected function setMinimalContainerPreKernel()
+    {
+        // Create a minimal mocked container to support calls to t() in the pre-kernel
+        // base system verification code paths below. The strings are not actually
+        // used or output for these calls.
+        $container = new ContainerBuilder();
+        $container->setParameter('language.default_values', Language::$defaultValues);
+        $container
+            ->register('language.default', 'Drupal\Core\Language\LanguageDefault')
+            ->addArgument('%language.default_values%');
+        $container
+            ->register('string_translation', 'Drupal\Core\StringTranslation\TranslationManager')
+            ->addArgument(new Reference('language.default'));
+
+        // Register the stream wrapper manager.
+        $container
+            ->register('stream_wrapper_manager', 'Drupal\Core\StreamWrapper\StreamWrapperManager')
+            ->addMethodCall('setContainer', [new Reference('service_container')]);
+        $container
+            ->register('file_system', 'Drupal\Core\File\FileSystem')
+            ->addArgument(new Reference('stream_wrapper_manager'))
+            ->addArgument(Settings::getInstance())
+            ->addArgument((new LoggerChannelFactory())->get('file'));
+
+        \Drupal::setContainer($container);
+    }
+
     public function getDatabaseTypeDriver($driver)
     {
         // We cannot use Database::getConnection->getDriverClass() here, because
@@ -271,33 +128,47 @@ class Site
     }
 
     /**
-     * @return mixed array
+     * @return mixed
      */
-    public function getProfiles()
+    public function getAutoload()
     {
-        $finder = new Finder();
-        $finder->files()
-            ->name('*.info.yml')
-            ->in($this->root . '/core/profiles/')
-            ->in($this->root . '/profiles/')
-            ->contains('type: profile')
-            ->notContains('hidden: true')
-            ->depth('1');
+        $autoLoadFile = $this->appRoot.'/autoload.php';
 
-        $profiles = [];
-        foreach ($finder as $file) {
-            $profile_key = $file->getBasename('.info.yml');
-            $profiles[$profile_key] = $this->parser->parse($file->getContents());
-        }
-
-        return $profiles;
+        return include $autoLoadFile;
     }
 
     /**
-     * @return string
+     * @return boolean
      */
-    public function getDrupalVersion()
+    public function multisiteMode($uri)
     {
-        return \Drupal::VERSION;
+        if ($uri != 'default') {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function validMultisite($uri)
+    {
+        $multiSiteFile = sprintf(
+            '%s/sites/sites.php',
+            $this->appRoot
+        );
+
+        if (file_exists($multiSiteFile)) {
+            include $multiSiteFile;
+        } else {
+            return false;
+        }
+
+        if (isset($sites[$uri]) && is_dir($this->appRoot . "/sites/" . $sites[$uri])) {
+            return true;
+        }
+
+        return false;
     }
 }
