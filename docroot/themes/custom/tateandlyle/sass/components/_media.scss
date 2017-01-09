@@ -1,12 +1,17 @@
 .tal--image-gallery {
   padding: 0 20px;
+  @media (min-width: $screen-sm) {
+    width: 100% !important;
+  }
   @media (min-width: $screen-lg) {
-    width: 83%;
-    margin: 0 auto;
+    width: 83% !important;
   }
   @media (min-width: $screen-md) {
+    width: 83% !important;
+    margin: 0 auto;
     padding: 0;
   }
+
   h1 {
     margin: 30px 0 20px;
     font-size: 24px;
@@ -17,12 +22,18 @@
 }
 
 .tal--promoted-image {
-  img {
-    width: 100%;
-  }
-  @media (min-width: $screen-sm) {
+  width: 100%;
+  @media (min-width: $screen-lg) {
     width: 50%;
     float: left;
+  }
+  .view-image-gallery .views-row, .view-video-gallery .views-row {
+    @media (min-width: $screen-md) {
+      float: none;
+    }
+  }
+  img {
+    width: 100%;
   }
 }
 
@@ -43,21 +54,35 @@
     position: relative;
     @media (min-width: $screen-md) {
       float: left;
-      margin-right: 20px;
+      margin-right: 10px;
     }
   }
 }
 
 .tal--featured-image {
-  @media (min-width: $screen-md) {
+  width: 100%;
+  @media (min-width: $screen-lg) {
     width: 50%;
-    float: left;
-    margin-bottom: 20px;
+    display: inline-block;
+    float: right;
   }
   .views-row {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    width: 100%;
     &:nth-child(2), &:nth-child(2) {
       margin-right: 0;
+    }
+    @media (min-width: $screen-sm) {
+      width: 47%;
+      float: left;
+      padding: 0;
+      margin-right: 10px;
+      margin-left: 10px;
+    }
+    @media (min-width: $screen-lg) {
+      width: 48%;
+      margin-right: 10px;
+      margin-left: 0;
     }
   }
   img {
