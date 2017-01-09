@@ -158,18 +158,28 @@
 
 .tal--download-more a,
 .in--country-read-more .btn {
+  padding-top: 17px;
+  padding-bottom: 21px;
   background: $color-off-white;
   border-top: 1px solid $color-warm-gray;
   border-bottom: 1px solid $color-warm-gray;
   display: block;
-  padding: 28px;
   width: 100%;
   color: $gray-base;
+
+  @media (min-width: $screen-sm) {
+    padding: 28px;
+  }
+
   &::after {
     color: $brand-primary;
     content: $fa-var-angle-down;
     font-family: $font-family-icon;
     padding-left: 10px;
+  }
+
+  &.btn-less::after {
+    content: $fa-var-angle-up;
   }
 
   &:hover {
