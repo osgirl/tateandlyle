@@ -85,6 +85,7 @@
 
 %border__block {
   @extend .max-content-width;
+  clear: both;
   margin: auto;
   margin-bottom: 25px;
   margin-top: 25px;
