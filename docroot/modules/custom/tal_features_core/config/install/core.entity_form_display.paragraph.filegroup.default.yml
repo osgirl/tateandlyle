@@ -8,6 +8,7 @@ dependencies:
     - paragraphs.paragraphs_type.filegroup
   module:
     - file
+    - link
     - workbench_moderation
 id: paragraph.filegroup.default
 targetEntityType: paragraph
@@ -15,18 +16,24 @@ bundle: filegroup
 mode: default
 content:
   field_download_attach_file:
-    weight: 7
+    weight: 1
     settings:
       progress_indicator: throbber
     third_party_settings: {  }
     type: file_generic
   field_file_language:
-    weight: 6
+    weight: 0
     settings: {  }
     third_party_settings: {  }
     type: options_select
+  field_tal_link:
+    type: link_default
+    weight: 2
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
 hidden:
   created: true
-  field_tal_link: true
   status: true
   uid: true

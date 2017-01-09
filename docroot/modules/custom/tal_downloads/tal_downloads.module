@@ -65,6 +65,7 @@ function tal_downloads_theme() {
     'tal_download_link' => array(
       'variables' => array(
         'file' => NULL,
+        'external_download_link' => NULL,
         'content' => NULL,
         'attributes' => array(),
       ),
