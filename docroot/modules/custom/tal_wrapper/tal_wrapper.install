@@ -5,8 +5,6 @@
  * Install, update and uninstall functions for the tal_wrapper module.
  */
 
-use Drupal\field\Entity\FieldStorageConfig;
-
 /**
  * Implements hook_install().
  *
@@ -25,51 +23,4 @@ function tal_wrapper_install() {
   // Enable and set tateandlyle as default theme.
   \Drupal::service('theme_installer')->install(array('tateandlyle'), TRUE);
   \Drupal::configFactory()->getEditable('system.theme')->set('default', 'tateandlyle')->save(TRUE);
-}
-
-/**
- * Removes a field from paragraph type field_image.
- */
-function tal_wrapper_update_8010() {
-  // Deleting iframe_code_field from ingredient content.
-  $properties = [
-    'entity_type' => 'paragraph',
-    'bundle' => 'media_video_gallery',
-    'include_deleted' => TRUE,
-  ];
-  $fields = \Drupal::entityTypeManager()->getStorage('field_config')->loadByProperties($properties);
-  foreach ($fields as $field) {
-    if ($field->getName() == 'field_simple_text' || $field->getName() == 'field_image') {
-      $field->delete();
-    }
-  }
-}
-
-/**
- * Installs some requited modules.
- */
-function tal_wrapper_update_8011() {
-  \Drupal::service('module_installer')->install(
-    [
-      'colorbox',
-      'tal_image_gallery',
-      'tal_video_embed_buto',
-      'tal_video_gallery',
-    ]
-  );
-}
-
-/**
- * Installs some requited modules.
- */
-function tal_wrapper_update_8016() {
-  \Drupal::service('module_installer')->install(
-    ['improved_multi_select']
-  );
-  $field = FieldStorageConfig::loadByName('paragraph', 'field_in_country');
-  $field->delete();
-
-  \Drupal::service('module_installer')->uninstall(
-    ['improved_multi_select']
-  );
 }

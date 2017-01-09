@@ -10,8 +10,6 @@ dependencies:
     - field.field.node.company_story.field_downloads
     - field.field.node.company_story.field_image
     - field.field.node.company_story.field_ingredient
-    - field.field.node.company_story.field_next_article
-    - field.field.node.company_story.field_prev_article
     - field.field.node.company_story.field_reusable_component
     - field.field.node.company_story.field_story_description
     - node.type.company_story
@@ -52,8 +50,6 @@ hidden:
   field_date: true
   field_downloads: true
   field_ingredient: true
-  field_next_article: true
-  field_prev_article: true
   field_reusable_component: true
   field_story_description: true
   links: true
