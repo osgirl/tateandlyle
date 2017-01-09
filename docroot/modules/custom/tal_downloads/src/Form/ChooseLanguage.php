@@ -119,9 +119,11 @@ class ChooseLanguage extends FormBase {
     if (!empty($pid)) {
       $item = Paragraph::load($pid);
       $file = $item->get('field_download_attach_file')->referencedEntities()[0];
+      $link = $item->get('field_tal_link')->view('default');
       $element = array(
         '#theme' => 'tal_download_link',
         '#file' => $file,
+        '#external_download_link' => $link,
         '#attributes' => array(
           'class' => 'tal-file-download-link',
           'id' => 'download-link-' . $id,

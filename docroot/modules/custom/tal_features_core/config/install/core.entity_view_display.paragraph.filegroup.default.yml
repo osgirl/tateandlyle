@@ -8,6 +8,7 @@ dependencies:
     - paragraphs.paragraphs_type.filegroup
   module:
     - file
+    - link
 id: paragraph.filegroup.default
 targetEntityType: paragraph
 bundle: filegroup
@@ -26,7 +27,17 @@ content:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
+  field_tal_link:
+    type: link
+    weight: 2
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
 hidden:
   created: true
-  field_tal_link: true
   uid: true

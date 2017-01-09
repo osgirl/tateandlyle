@@ -28,9 +28,11 @@ class TalFileGroupFormatter extends EntityReferenceRevisionsEntityFormatter {
     if ($count == 1) {
       foreach ($this->getEntitiesToView($items, $langcode) as $delta => $entity) {
         $file = $entity->get('field_download_attach_file')->referencedEntities()[$delta];
+        $link = $entity->get('field_tal_link')->view('default');
         $elements[$delta] = array(
           '#theme' => 'tal_download_link',
           '#file' => $file,
+          '#external_download_link' => $link,
           '#attributes' => array(
             'class' => 'tal-file-download-link',
           ),
