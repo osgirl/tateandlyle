@@ -10,8 +10,6 @@ dependencies:
     - field.field.node.company_story.field_downloads_border_title
     - field.field.node.company_story.field_image
     - field.field.node.company_story.field_ingredient
-    - field.field.node.company_story.field_next_article
-    - field.field.node.company_story.field_prev_article
     - field.field.node.company_story.field_reusable_component
     - field.field.node.company_story.field_story_description
     - node.type.company_story
@@ -75,20 +73,6 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
-  field_next_article:
-    weight: 8
-    label: hidden
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-  field_prev_article:
-    weight: 7
-    label: hidden
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
   field_reusable_component:
     type: entity_reference_revisions_entity_view
     weight: 9
