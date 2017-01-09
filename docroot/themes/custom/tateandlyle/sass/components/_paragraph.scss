@@ -156,6 +156,7 @@
   }
 }
 
+.tal--download-more a,
 .in--country-read-more .btn {
   background: $color-off-white;
   border-top: 1px solid $color-warm-gray;
@@ -200,5 +201,13 @@
   .overlay__block--content .icon img {
     float: none;
     padding-right: 0;
+  }
+}
+
+.tal--download-more {
+  text-align: center;
+
+  a {
+    border-top: 0;
   }
 }

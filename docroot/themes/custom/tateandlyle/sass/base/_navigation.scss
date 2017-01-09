@@ -111,12 +111,9 @@
 
 .navbar-default .navbar-toggle:hover,
 .navbar-default .navbar-toggle:focus {
-  float: left;
   border: 0;
   margin: 0;
-  &:hover {
-    background: transparent;
-  }
+  background: transparent;
 }
 
 #block-tateandlyle-main-menu {
@@ -178,7 +175,7 @@
     margin-top: 0;
     margin-bottom: 0;
     border: 0;
-    float: left;
+    float: right;
 
     &:hover {
       background: transparent;
@@ -195,10 +192,14 @@
     @media (min-width: $screen-sm) {
       float: left;
       padding-bottom: 54px;
+      width: 33%;
     }
 
-    ul a {
-      text-decoration: none;
+    ul {
+      @extend %no-list;
+      a {
+        text-decoration: none;
+      }
     }
   }
 
@@ -307,11 +308,22 @@
       }
     }
 
-    .dropdown-toggle {
-      @media (max-width: $screen-xs-max) {
+    @media (max-width: $screen-xs-max) {
+      .dropdown-toggle {
         border-bottom: none;
+        float: right;
         padding: 19px;
+        padding-left: 10px;
         padding-right: 14px;
+      }
+
+      .control-label {
+        display: none;
+      }
+
+      form .form-actions {
+        right: 0;
+        top: 0;
       }
     }
 
@@ -345,8 +357,10 @@
 
       .form-inline .form-control {
         border: 1px solid $color-warm-gray;
-        min-width: 435px;
         width: 100%;
+        @media (min-width: $screen-sm) {
+          min-width: 435px;
+        }
       }
     }
 
@@ -475,7 +489,7 @@
 
     .navbar-header {
       background-color: $color-white;
-      padding: 47px 6px 10px;
+      padding: 12px 6px 10px;
     }
 
     .navbar-collapse {
@@ -484,6 +498,25 @@
       padding: 19px 30px;
       width: 86%;
     }
+  }
+
+  .user-logged-in {
+
+    #block-talmainmenu {
+
+      .navbar-header {
+        padding: 47px 6px 10px;
+      }
+
+      .level-1.search-menu {
+        top: 35px;
+      }
+    }
+  }
+
+  .logo.navbar-btn {
+    position: fixed;
+    z-index: 100;
   }
 }
 
@@ -542,19 +575,5 @@
   margin-left: 1em;
   @media (min-width: $screen-sm) {
     margin-top: 0;
-  }
-}
-
-#block-talmainmenu {
-  .navbar-toggle.collapsed {
-    position: absolute;
-    width: auto;
-    right: -2em !important;
-    left: inherit;
-    margin-bottom: 0;
-    background: transparent;
-  }
-  .navbar-toggle {
-    left: 3.5em;
   }
 }
