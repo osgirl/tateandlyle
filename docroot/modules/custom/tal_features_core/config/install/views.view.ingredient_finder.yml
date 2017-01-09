@@ -143,7 +143,7 @@ display:
           exposed: true
           expose:
             operator_id: search_api_fulltext_op
-            label: Search
+            label: 'Search'
             description: 'Use ingredient names, brands, types, scientific names etc.'
             use_operator: false
             operator: search_api_fulltext_op
@@ -158,20 +158,6 @@ display:
               layout_manager: '0'
               media_creator: '0'
               media_manager: '0'
-              landing_page_creator: '0'
-              landing_page_reviewer: '0'
-              page_creator: '0'
-              page_reviewer: '0'
-              company_story_creator: '0'
-              company_story_reviewer: '0'
-              contact_creator: '0'
-              contact_reviewer: '0'
-              icon_creator: '0'
-              icon_reviewer: '0'
-              iframe_content_creator: '0'
-              iframe_content_reviewer: '0'
-              ingredient_creator: '0'
-              ingredient_reviewer: '0'
           is_grouped: false
           group_info:
             label: ''
@@ -192,6 +178,20 @@ display:
             field_in_common_names: field_in_common_names
             field_in_misspellings: field_in_misspellings
             title_1: title_1
+            field_dl_accordion_body: field_dl_accordion_body
+            field_in_accordion_header: field_in_accordion_header
+            field_in_accordion_items: field_in_accordion_items
+            field_in_accordion_body: field_in_accordion_body
+            field_simple_text1: field_simple_text1
+            field_pr_description: field_pr_description
+            field_pr_title: field_pr_title
+            field_block_body: field_block_body
+            field_file_description: field_file_description
+            field_file_display_name: field_file_display_name
+            field_in_wysiwyg2: field_in_wysiwyg2
+            field_in_country: field_in_country
+            field_in_region: field_in_region
+            field_in_wysiwyg1: field_in_wysiwyg1
           plugin_id: search_api_fulltext
         type:
           id: type
