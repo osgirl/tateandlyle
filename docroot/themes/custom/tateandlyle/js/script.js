@@ -10,12 +10,20 @@
   "use strict";
   Drupal.behaviors.collapse = {
     attach: function () {
-      $(".in--country-read-more button").click(function () {
-        $(".field--in-country .more-countries").addClass("view");
-      });
+      $("body").once("more-event").each(function () {
+        var originalString = $(".in--country-read-more button").text();
 
-      $(".ingredient--submenu ul li").first().click(function () {
-        $(".ingredient--submenu ul li").toggleClass("view");
+        $(".in--country-read-more button").click(function () {
+          $(".field--in-country .more-countries").slideToggle("slow", function () {
+            $(".in--country-read-more button").toggleClass("btn-less");
+            if ($(".in--country-read-more button").text() !== "Show less") {
+              $(".in--country-read-more button").text(Drupal.t("Show less"));
+            }
+            else {
+              $(".in--country-read-more button").text(originalString);
+            }
+          });
+        });
       });
     }
   };
@@ -88,7 +96,8 @@
 
         $("#download-more > a").click(function () {
           $("#more-items-wrapper").slideToggle("slow", function () {
-            if ($("#download-more > a").text() != "Show less") {
+            $("#download-more > a").toggleClass("btn-less");
+            if ($("#download-more > a").text() !== "Show less") {
               $("#download-more > a").text(Drupal.t("Show less"));
             }
             else {

@@ -200,6 +200,21 @@
   }
 }
 
+.block--download {
+  .block-title {
+    @extend %border__block--title;
+    font-size: $font-size-h3;
+
+    @media (min-width: $screen-md) {
+      font-size: $font-size-h2;
+    }
+
+    @media (max-width: $screen-xs-max) {
+      margin-bottom: 25px;
+    }
+  }
+}
+
 .more-less {
   float: right;
   margin-top: -20px;

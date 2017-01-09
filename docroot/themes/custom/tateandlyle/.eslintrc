@@ -32,7 +32,7 @@
     "max-len": [2, 120, 2,
       { "ignoreComments": true, "ignoreUrls": true, "ignorePattern": "^\\s*var\\s.+=\\s*require\\s*\\(" }
     ],
-    "max-nested-callbacks": [2, 3],
+    "max-nested-callbacks": [2, 4],
     "max-params": [2, 4],
     "max-statements": 0,
     "new-cap": 2,
@@ -65,7 +65,7 @@
     "no-inline-comments": 2,
     "no-mixed-spaces-and-tabs": 2,
     "no-multiple-empty-lines": [2, { "max": 2, "maxEOF": 1 }],
-    "no-negated-condition": 2,
+    "no-negated-condition": 0,
     "no-nested-ternary": 2,
     "no-new-object": 2,
     "no-obj-calls": 2,
