@@ -48,6 +48,12 @@
       }
     }
 
+    .embedded-entity {
+      display: inline-block;
+      margin-right: 9px;
+      margin-top: 15px;
+    }
+
     p {
       margin-bottom: 0;
     }
@@ -108,6 +114,16 @@
 
     p {
       margin-bottom: 0;
+      @media(min-width: $screen-md-lg) {
+        display: inline-block;
+      }
+    }
+
+    .embedded-entity {
+      @media(min-width: $screen-md-lg) {
+        display: inline-block;
+        vertical-align: middle;
+      }
     }
 
     img {
