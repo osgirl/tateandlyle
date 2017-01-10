@@ -32,7 +32,7 @@ h5 {
   margin-top: 36px;
   font-size: $font-size-h2;
   @media (min-width: $screen-sm) {
-    font-size: $font-size-h1-sm;
+    font-size: $font-size-h2-l;
   }
   @media (min-width: $screen-md) {
     font-size: $font-size-h1;
@@ -49,4 +49,16 @@ h5 {
   @media (min-width: $screen-md) {
     float: right;
   }
+}
+
+.region-content article,
+.feed-icons,
+.path-user .region-content {
+  @extend %inner-content-width-padding;
+  margin: 0 auto;
+}
+
+.page-node-type-ingredient  article {
+  padding-left: 0;
+  padding-right: 0;
 }
