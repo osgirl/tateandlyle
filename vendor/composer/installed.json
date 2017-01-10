@@ -6453,18 +6453,18 @@
     },
     {
         "name": "drupal/workbench_moderation",
-        "version": "1.1.0",
-        "version_normalized": "1.1.0.0",
+        "version": "1.2.0",
+        "version_normalized": "1.2.0.0",
         "source": {
             "type": "git",
             "url": "https://git.drupal.org/project/workbench_moderation",
-            "reference": "8.x-1.1"
+            "reference": "8.x-1.2"
         },
         "dist": {
             "type": "zip",
-            "url": "https://ftp.drupal.org/files/projects/workbench_moderation-8.x-1.1.zip",
-            "reference": "8.x-1.1",
-            "shasum": "3af6ed1395f0c42c0a1644653561c4d2d6ad24dd"
+            "url": "https://ftp.drupal.org/files/projects/workbench_moderation-8.x-1.2.zip",
+            "reference": null,
+            "shasum": "3d37b29ed1e7fbf398160fe2494abc4361e4341c"
         },
         "require": {
             "drupal/core": "*"
@@ -6475,12 +6475,11 @@
                 "dev-1.x": "1.x-dev"
             },
             "drupal": {
-                "version": "8.x-1.1",
+                "version": "8.x-1.2",
                 "datestamp": "1483529942"
             },
             "patches_applied": {
-                "2668006 - Provide logical access control for when IPE should be applied to moderated nodes": "https://www.drupal.org/files/issues/2668006-2.patch",
-                "2780691 - Incorrect EntityRevision paramconverter service definition causes a fatal error": "https://www.drupal.org/files/issues/workbench_moderation-invalid_service_definition.patch"
+                "2668006 - Provide logical access control for when IPE should be applied to moderated nodes": "https://www.drupal.org/files/issues/2668006-2.patch"
             }
         },
         "installation-source": "dist",
@@ -7270,21 +7269,21 @@
     },
     {
         "name": "drupal/panelizer",
-        "version": "3.0.0-alpha2",
-        "version_normalized": "3.0.0.0-alpha2",
+        "version": "3.0.0-alpha3",
+        "version_normalized": "3.0.0.0-alpha3",
         "source": {
             "type": "git",
             "url": "https://git.drupal.org/project/panelizer",
-            "reference": "8.x-3.0-alpha2"
+            "reference": "8.x-3.0-alpha3"
         },
         "dist": {
             "type": "zip",
-            "url": "https://ftp.drupal.org/files/projects/panelizer-8.x-3.0-alpha2.zip",
-            "reference": "8.x-3.0-alpha2",
-            "shasum": "fc77ea854cad9ec21c0a4de75ae409f2d80dbf7c"
+            "url": "https://ftp.drupal.org/files/projects/panelizer-8.x-3.0-alpha3.zip",
+            "reference": null,
+            "shasum": "f862ae14f47cb486cd4719242763064e7d6ac387"
         },
         "require": {
-            "drupal/core": "~8.0",
+            "drupal/core": "*",
             "drupal/ctools_block": "*",
             "drupal/panels": "*",
             "drupal/panels_ipe": "*"
@@ -7295,14 +7294,10 @@
                 "dev-3.x": "3.x-dev"
             },
             "drupal": {
-                "version": "8.x-3.0-alpha2",
+                "version": "8.x-3.0-alpha3",
                 "datestamp": "1481832184"
             },
             "patches_applied": {
-                "2747739 - Mega Patch 8.x-3.0-alpha2 --> 54f0ac6e": "https://www.drupal.org/files/issues/panelizer--8.x-3.0-alpha2--54f0ac6e.patch",
-                "2701349 - Generate new UUIDs for displays when switching from default to field storage": "https://www.drupal.org/files/issues/2701349-2.patch",
-                "2700597 - Explicitly set the Panels IPE URL root when saving in Panelizer": "https://www.drupal.org/files/issues/panelizer-ipe-url-root-handling.patch",
-                "2664682 - Implement admin UI for editing Panelizer defaults": "https://www.drupal.org/files/issues/panelizer-2664682-93.patch",
                 "2793841 - Properly integrate with Panels IPE": "https://www.drupal.org/files/issues/panelizer-panels-ipe-tempstore-id.patch"
             }
         },
@@ -8280,6 +8275,345 @@
         }
     },
     {
+        "name": "sunra/php-simple-html-dom-parser",
+        "version": "v1.5.2",
+        "version_normalized": "1.5.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/sunra/php-simple-html-dom-parser.git",
+            "reference": "75b9b1cb64502d8f8c04dc11b5906b969af247c6"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/sunra/php-simple-html-dom-parser/zipball/75b9b1cb64502d8f8c04dc11b5906b969af247c6",
+            "reference": "75b9b1cb64502d8f8c04dc11b5906b969af247c6",
+            "shasum": ""
+        },
+        "require": {
+            "ext-mbstring": "*",
+            "php": ">=5.3.2"
+        },
+        "time": "2016-11-22T22:57:47+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Sunra\\PhpSimple\\HtmlDomParser": "Src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Sunra",
+                "email": "sunra@yandex.ru",
+                "homepage": "https://github.com/sunra"
+            },
+            {
+                "name": "S.C. Chen",
+                "homepage": "http://sourceforge.net/projects/simplehtmldom/"
+            }
+        ],
+        "description": "Composer adaptation of: A HTML DOM parser written in PHP5+ let you manipulate HTML in a very easy way! Require PHP 5+. Supports invalid HTML. Find tags on an HTML page with selectors just like jQuery. Extract contents from HTML in a single line.",
+        "homepage": "https://github.com/sunra/php-simple-html-dom-parser",
+        "keywords": [
+            "dom",
+            "html",
+            "parser"
+        ]
+    },
+    {
+        "name": "ezyang/htmlpurifier",
+        "version": "v4.8.0",
+        "version_normalized": "4.8.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/ezyang/htmlpurifier.git",
+            "reference": "d0c392f77d2f2a3dcf7fcb79e2a1e2b8804e75b2"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/ezyang/htmlpurifier/zipball/d0c392f77d2f2a3dcf7fcb79e2a1e2b8804e75b2",
+            "reference": "d0c392f77d2f2a3dcf7fcb79e2a1e2b8804e75b2",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.2"
+        },
+        "time": "2016-07-16T12:58:58+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "HTMLPurifier": "library/"
+            },
+            "files": [
+                "library/HTMLPurifier.composer.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "LGPL"
+        ],
+        "authors": [
+            {
+                "name": "Edward Z. Yang",
+                "email": "admin@htmlpurifier.org",
+                "homepage": "http://ezyang.com"
+            }
+        ],
+        "description": "Standards compliant HTML filter written in PHP",
+        "homepage": "http://htmlpurifier.org/",
+        "keywords": [
+            "html"
+        ]
+    },
+    {
+        "name": "caxy/php-htmldiff",
+        "version": "v0.1.3",
+        "version_normalized": "0.1.3.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/caxy/php-htmldiff.git",
+            "reference": "fe3af15ac85138d31ec7dd674a9840139327d7c0"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/caxy/php-htmldiff/zipball/fe3af15ac85138d31ec7dd674a9840139327d7c0",
+            "reference": "fe3af15ac85138d31ec7dd674a9840139327d7c0",
+            "shasum": ""
+        },
+        "require": {
+            "ezyang/htmlpurifier": "^4.7",
+            "php": ">=5.3.3",
+            "sunra/php-simple-html-dom-parser": "^1.5"
+        },
+        "require-dev": {
+            "doctrine/cache": "~1.0",
+            "phpunit/phpunit": "~4.8"
+        },
+        "suggest": {
+            "doctrine/cache": "Used for caching the calculated diffs using a Doctrine Cache Provider"
+        },
+        "time": "2016-07-21T15:37:40+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "0.1.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Caxy\\HtmlDiff": "lib/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "GPL-2.0"
+        ],
+        "authors": [
+            {
+                "name": "Josh Schroeder",
+                "email": "jschroeder@caxy.com",
+                "homepage": "http://www.caxy.com"
+            }
+        ],
+        "description": "A library for comparing two HTML files/snippets and highlighting the differences using simple HTML.",
+        "homepage": "https://github.com/caxy/php-htmldiff",
+        "keywords": [
+            "diff",
+            "html"
+        ]
+    },
+    {
+        "name": "mkalkbrenner/php-htmldiff-advanced",
+        "version": "0.0.8",
+        "version_normalized": "0.0.8.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/mkalkbrenner/php-htmldiff.git",
+            "reference": "3a714b48c9c3d3730baaf6d3949691e654cd37c9"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/mkalkbrenner/php-htmldiff/zipball/3a714b48c9c3d3730baaf6d3949691e654cd37c9",
+            "reference": "3a714b48c9c3d3730baaf6d3949691e654cd37c9",
+            "shasum": ""
+        },
+        "require": {
+            "caxy/php-htmldiff": ">=0.0.6",
+            "php": ">=5.5.0"
+        },
+        "time": "2016-07-25T17:07:32+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "files": [
+                "src/HtmlDiffAdvancedInterface.php",
+                "src/HtmlDiffAdvanced.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "GNU General Public License V2"
+        ],
+        "description": "An add-on for the php-htmldiff library for comparing two HTML files/snippets and highlighting the differences using simple HTML.",
+        "homepage": "https://github.com/mkalkbrenner/php-htmldiff",
+        "keywords": [
+            "diff",
+            "html"
+        ]
+    },
+    {
+        "name": "drupal/diff",
+        "version": "1.0.0-beta2",
+        "version_normalized": "1.0.0.0-beta2",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupal.org/project/diff",
+            "reference": "8.x-1.0-beta2"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://ftp.drupal.org/files/projects/diff-8.x-1.0-beta2.zip",
+            "reference": null,
+            "shasum": "efd25beac74fabace6e013858862a13cd517f3e4"
+        },
+        "require": {
+            "drupal/core": "~8.0",
+            "mkalkbrenner/php-htmldiff-advanced": "~0.0.8"
+        },
+        "type": "drupal-module",
+        "extra": {
+            "branch-alias": {
+                "dev-1.x": "1.x-dev"
+            },
+            "drupal": {
+                "version": "8.x-1.0-beta2",
+                "datestamp": "1476455639"
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "license": [
+            "GPL-2.0+"
+        ],
+        "authors": [
+            {
+                "name": "Miro Dietiker (miro_dietiker)",
+                "homepage": "https://www.drupal.org/u/miro_dietiker",
+                "role": "Maintainer"
+            },
+            {
+                "name": "Juampy NR (juampynr)",
+                "homepage": "https://www.drupal.org/u/juampynr",
+                "role": "Maintainer"
+            },
+            {
+                "name": "Lucian Hangea (lhangea)",
+                "homepage": "https://www.drupal.org/u/lhangea",
+                "role": "Maintainer"
+            },
+            {
+                "name": "Alan D.",
+                "homepage": "https://www.drupal.org/u/alan-d.",
+                "role": "Maintainer"
+            },
+            {
+                "name": "Brian Gilbert (realityloop).",
+                "homepage": "https://www.drupal.org/u/realityloop",
+                "role": "Maintainer"
+            },
+            {
+                "name": "miro_dietiker",
+                "homepage": "https://www.drupal.org/user/227761"
+            },
+            {
+                "name": "realityloop",
+                "homepage": "https://www.drupal.org/user/139189"
+            },
+            {
+                "name": "rötzi",
+                "homepage": "https://www.drupal.org/user/73064"
+            },
+            {
+                "name": "yhahn",
+                "homepage": "https://www.drupal.org/user/264833"
+            }
+        ],
+        "description": "Compares two entity revisions",
+        "homepage": "https://www.drupal.org/project/diff",
+        "support": {
+            "source": "http://cgit.drupalcode.org/diff",
+            "issues": "https://www.drupal.org/project/issues/diff"
+        }
+    },
+    {
+        "name": "drupal/contact_storage",
+        "version": "1.0.0-beta8",
+        "version_normalized": "1.0.0.0-beta8",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupal.org/project/contact_storage",
+            "reference": "8.x-1.0-beta8"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://ftp.drupal.org/files/projects/contact_storage-8.x-1.0-beta8.zip",
+            "reference": null,
+            "shasum": "01e9bd402351f02cf6519b841d355a61138e0d0f"
+        },
+        "require": {
+            "drupal/core": "*",
+            "drupal/token": "*"
+        },
+        "type": "drupal-module",
+        "extra": {
+            "branch-alias": {
+                "dev-1.x": "1.x-dev"
+            },
+            "drupal": {
+                "version": "8.x-1.0-beta8",
+                "datestamp": "1476400139"
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "license": [
+            "GPL-2.0+"
+        ],
+        "authors": [
+            {
+                "name": "Arla",
+                "homepage": "https://www.drupal.org/user/226712"
+            },
+            {
+                "name": "Berdir",
+                "homepage": "https://www.drupal.org/user/214652"
+            },
+            {
+                "name": "andypost",
+                "homepage": "https://www.drupal.org/user/118908"
+            },
+            {
+                "name": "jibran",
+                "homepage": "https://www.drupal.org/user/1198144"
+            },
+            {
+                "name": "larowlan",
+                "homepage": "https://www.drupal.org/user/395439"
+            }
+        ],
+        "description": "Provides storage and edit capability for contact messages.",
+        "homepage": "https://www.drupal.org/project/contact_storage",
+        "support": {
+            "source": "http://cgit.drupalcode.org/contact_storage"
+        }
+    },
+    {
         "name": "drupal/acquia_connector",
         "version": "1.7.0",
         "version_normalized": "1.7.0.0",
@@ -8369,17 +8703,17 @@
     },
     {
         "name": "acquia/lightning",
-        "version": "2.0.1",
-        "version_normalized": "2.0.1.0",
+        "version": "2.0.2",
+        "version_normalized": "2.0.2.0",
         "source": {
             "type": "git",
             "url": "https://github.com/acquia/lightning.git",
-            "reference": "dab1e2f5313323699e74f31c723777356ee20086"
+            "reference": "bd5c1b3926232b26299c1611b045ec60b374e76d"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/acquia/lightning/zipball/dab1e2f5313323699e74f31c723777356ee20086",
-            "reference": "dab1e2f5313323699e74f31c723777356ee20086",
+            "url": "https://api.github.com/repos/acquia/lightning/zipball/bd5c1b3926232b26299c1611b045ec60b374e76d",
+            "reference": "bd5c1b3926232b26299c1611b045ec60b374e76d",
             "shasum": ""
         },
         "require": {
@@ -8388,11 +8722,13 @@
             "drupal-composer/drupal-scaffold": "^2.0.0",
             "drupal/acquia_connector": "^1.1",
             "drupal/config_update": "^1.1",
+            "drupal/contact_storage": "^1.0",
             "drupal/core": "^8.2.0",
             "drupal/ctools": "3.0.0-alpha27",
+            "drupal/diff": "^1.0",
             "drupal/embed": "^1.0",
             "drupal/entity_browser": "^1.0",
-            "drupal/entity_embed": "^1.0",
+            "drupal/entity_embed": "1.0.0-beta2",
             "drupal/features": "^3.0",
             "drupal/inline_entity_form": "^1.0",
             "drupal/key_value": "^1.0",
@@ -8404,7 +8740,7 @@
             "drupal/metatag": "^1.0",
             "drupal/multiversion": "1.0.0-alpha12",
             "drupal/page_manager": "1.0.0-alpha24",
-            "drupal/panelizer": "3.0.0-alpha2",
+            "drupal/panelizer": "3.0.0-alpha3",
             "drupal/panels": "3.0.0-beta5",
             "drupal/pathauto": "^1.0",
             "drupal/replication": "1.0.0-alpha5",
@@ -8412,7 +8748,7 @@
             "drupal/token": "^1.0",
             "drupal/video_embed_field": "^1.0",
             "drupal/views_infinite_scroll": "^1.1",
-            "drupal/workbench_moderation": "1.1.0",
+            "drupal/workbench_moderation": "1.2.0",
             "drupal/workspace": "1.0.0-alpha4"
         },
         "require-dev": {
@@ -8432,7 +8768,7 @@
             "squizlabs/php_codesniffer": "2.*",
             "symfony/css-selector": "~2.8"
         },
-        "time": "2016-12-16T19:29:33+00:00",
+        "time": "2017-01-04T21:57:19+00:00",
         "type": "drupal-profile",
         "extra": {
             "packagist.drupal-composer.org": {
@@ -8448,10 +8784,6 @@
             },
             "patches": {
                 "drupal/panelizer": {
-                    "2747739 - Mega Patch 8.x-3.0-alpha2 --> 54f0ac6e": "https://www.drupal.org/files/issues/panelizer--8.x-3.0-alpha2--54f0ac6e.patch",
-                    "2701349 - Generate new UUIDs for displays when switching from default to field storage": "https://www.drupal.org/files/issues/2701349-2.patch",
-                    "2700597 - Explicitly set the Panels IPE URL root when saving in Panelizer": "https://www.drupal.org/files/issues/panelizer-ipe-url-root-handling.patch",
-                    "2664682 - Implement admin UI for editing Panelizer defaults": "https://www.drupal.org/files/issues/panelizer-2664682-93.patch",
                     "2793841 - Properly integrate with Panels IPE": "https://www.drupal.org/files/issues/panelizer-panels-ipe-tempstore-id.patch"
                 },
                 "drupal/panels": {
@@ -8462,8 +8794,7 @@
                     "2720169 - Scheduled Update Type entity should not have canonical link template": "https://www.drupal.org/files/issues/scheduled_updates-no-canonical-link-for-update-type.patch"
                 },
                 "drupal/workbench_moderation": {
-                    "2668006 - Provide logical access control for when IPE should be applied to moderated nodes": "https://www.drupal.org/files/issues/2668006-2.patch",
-                    "2780691 - Incorrect EntityRevision paramconverter service definition causes a fatal error": "https://www.drupal.org/files/issues/workbench_moderation-invalid_service_definition.patch"
+                    "2668006 - Provide logical access control for when IPE should be applied to moderated nodes": "https://www.drupal.org/files/issues/2668006-2.patch"
                 },
                 "drupal/multiversion": {
                     "2822915 - Migration source plugin makes bad assumptions that can lead to data loss": "https://www.drupal.org/files/issues/2822915-2.patch",
