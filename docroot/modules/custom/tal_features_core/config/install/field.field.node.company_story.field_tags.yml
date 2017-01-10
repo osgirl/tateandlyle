@@ -2,16 +2,16 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_category
+    - field.storage.node.field_tags
     - node.type.company_story
-    - taxonomy.vocabulary.story_category
-id: node.company_story.field_category
-field_name: field_category
+    - taxonomy.vocabulary.tags
+id: node.company_story.field_tags
+field_name: field_tags
 entity_type: node
 bundle: company_story
-label: 'Article Category'
+label: Tags
 description: ''
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
@@ -19,7 +19,7 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      story_category: story_category
+      tags: tags
     sort:
       field: _none
     auto_create: false

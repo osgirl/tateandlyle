@@ -13,7 +13,7 @@ entity_type: node
 bundle: company_story
 label: 'Story Description'
 description: ''
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
@@ -65,7 +65,19 @@ settings:
       wysiwyg_with_country_and_region:
         weight: 24
         enabled: false
+      download_accordion_items:
+        weight: 25
+        enabled: false
       wysiwyg_and_block_reference:
         enabled: true
         weight: 28
+      ingredient_downloads:
+        weight: 29
+        enabled: false
+      media_video_gallery:
+        weight: 30
+        enabled: false
+      promo_body_with_link_url:
+        weight: 32
+        enabled: false
 field_type: entity_reference_revisions
