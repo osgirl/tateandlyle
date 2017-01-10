@@ -30,10 +30,10 @@
 
   Drupal.behaviors.carousel = {
     attach: function () {
+      $('.carousel').carousel('pause');
       $("#carousel-example-generic").carousel({
         interval: 4000
       });
-
       $(".carousel .item").each(function () {
         var next = $(this).next();
 
