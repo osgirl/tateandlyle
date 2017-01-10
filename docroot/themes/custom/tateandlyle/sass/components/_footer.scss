@@ -45,12 +45,14 @@
 
       .field--type-text-with-summary {
         max-width: 160px;
+        img {
+          margin-right: 9px;
+        }
       }
     }
 
     .embedded-entity {
       display: inline-block;
-      margin-right: 9px;
       margin-top: 15px;
     }
 
@@ -116,6 +118,7 @@
       margin-bottom: 0;
       @media(min-width: $screen-md-lg) {
         display: inline-block;
+        vertical-align: middle;
       }
     }
 
@@ -144,6 +147,7 @@
 
   .nav > li > a {
     padding: 0;
+    margin-bottom: 4px;
 
     &:hover,
     &:focus {
