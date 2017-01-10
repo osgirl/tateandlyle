@@ -36,18 +36,18 @@ class ImageGalleryController extends ControllerBase {
 
     // Build image carousel for each category.
     $carousel = [];
-    $view = Views::getView('image_gallery');
-    $view->setDisplay('default');
 
     foreach ($terms as $term) {
+      $args = [$term->tid];
       if ($term->name != 'Featured') {
-        $args = [$term->tid];
-        $view->setArguments($args);
-        $view->preExecute();
-        $view->execute();
         $carousel[] = [
           'name' => $term->name,
-          'carousel' => $view->buildRenderable('default'),
+          'carousel' => [
+            '#type' => 'view',
+            '#name' => 'image_gallery',
+            '#display_id' => 'default',
+            '#arguments' => $args,
+          ],
         ];
       }
     }
