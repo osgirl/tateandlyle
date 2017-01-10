@@ -1,8 +1,24 @@
 .page-node-type-company-story {
+  .page-header {
+    margin-bottom: 0;
+    @media (min-width: $screen-sm) {
+      margin-bottom: 22px;
+    }
+
+    &::after {
+      content: none;
+    }
+  }
+
   .region-content {
     @extend %inner-content-width-padding;
     @media (min-width: $screen-md) {
       margin: auto;
+    }
+
+    article {
+      padding-left: 0;
+      padding-right: 0;
     }
 
     .paragraph--show-border {
@@ -46,7 +62,10 @@
     }
 
     .date--category {
-      border-bottom: 1px solid $color-warm-gray;
+      @extend %title-border-bottom;
+      @media (min-width: $screen-sm) {
+        border-bottom: 1px solid $color-warm-gray;
+      }
       margin-bottom: 10px;
       padding-bottom: 10px;
       .field {
