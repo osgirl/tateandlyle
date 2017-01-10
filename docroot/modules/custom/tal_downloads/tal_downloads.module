@@ -49,7 +49,7 @@ function template_preprocess_tal_download_link(array &$variables) {
     );
 
     $variables['link'] = Link::fromTextAndUrl($link_text, Url::fromUri($url, $options));
-    $variables['file_size'] = format_size($file_size);
+    $variables['file_size'] = $file_entity->getFilename() . ' | ' . format_size($file_size);
     $variables['content'] = $variables['content']['#markup'];
   }
 
