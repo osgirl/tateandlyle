@@ -363,6 +363,25 @@ class RendererTest extends RendererTestBase {
     };
     $data[] = [$build, 'baz', $setup_code];
 
+    // #theme is implemented but #render_children is TRUE. In this case the
+    // calling code is expecting only the children to be rendered. #prefix and
+    // #suffix should not be inherited for the children.
+    $build = [
+      '#theme' => 'common_test_foo',
+      '#children' => '',
+      '#prefix' => 'kangaroo',
+      '#suffix' => 'unicorn',
+      '#render_children' => TRUE,
+      'child' => [
+        '#markup' => 'kitten',
+      ],
+    ];
+    $setup_code = function() {
+      $this->themeManager->expects($this->never())
+        ->method('render');
+    };
+    $data[] = [$build, 'kitten', $setup_code];
+
     return $data;
   }
 
@@ -535,6 +554,17 @@ class RendererTest extends RendererTestBase {
     ];
 
     $this->assertEquals('test', $this->renderer->renderRoot($build));
+    $this->assertTrue($build['#printed']);
+
+    // We don't want to reprint already printed render arrays.
+    $this->assertEquals('', $this->renderer->renderRoot($build));
+
+    $build = [
+      'child' => [
+        '#markup' => 'kittens',
+      ],
+    ];
+    $this->assertEquals('kittens', $this->renderer->renderRoot($build));
     $this->assertTrue($build['#printed']);
 
     // We don't want to reprint already printed render arrays.
