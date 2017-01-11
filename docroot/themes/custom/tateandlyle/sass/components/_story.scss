@@ -131,6 +131,8 @@
 
 .news--articles {
   background-color: $color-off-white;
+  border-bottom: 1px solid $color-warm-gray;
+  border-top: 1px solid $color-warm-gray;
   display: table;
   margin-bottom: 70px;
   margin-top: 70px;

@@ -59,6 +59,8 @@
         border: 0;
         font-family: $font-family-sans-serif-Med;
         font-size: $font-size-h4;
+        padding: 20px 15px;
+        padding-bottom: 21px;
         position: relative;
         @media (min-width: $screen-md) {
           font-size: $font-size-h3;
@@ -111,6 +113,7 @@
       background-color: $color-off-white;
       padding-left: 25px;
       padding-right: 25px;
+      padding-bottom: 60px;
 
       .field--name-field-simple-text {
         color: $gray-base;
@@ -124,7 +127,7 @@
       .field--name-field-component-accordion-body > .field--item {
         border-bottom: 1px solid $color-warm-gray;
         padding-top: 20px;
-        padding-bottom: 20px;
+        padding-bottom: 0;
 
         &:last-child {
           border-bottom: 0;
@@ -133,8 +136,8 @@
 
       .field--name-field-tal-link,
       .field--name-field-tal-more {
-        margin-top: 5px;
-        margin-bottom: 5px;
+        margin-top: 10px;
+        margin-bottom: 0;
         &::after {
           @extend %svg-icon-small;
           background: url("../images/icons/cta-arrow-blue.svg") no-repeat;

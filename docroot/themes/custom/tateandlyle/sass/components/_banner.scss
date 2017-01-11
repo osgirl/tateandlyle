@@ -5,6 +5,11 @@
     margin-bottom: 50px;
     margin-top: 50px;
   }
+
+  .block-banner {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
 }
 
 .banner__overlay__block {
@@ -51,13 +56,21 @@
       right: 50%;
       padding-top: 40px;
     }
+
+    @media (min-width: $screen-md) {
+      padding-top: 34px;
+    }
+
+    @media (min-width: $screen-md-lg) {
+      padding-top: 64px;
+    }
   }
 
   .banner__overlay--right {
     left: 50%;
     right: 0;
     @media (min-width: $screen-sm) {
-      padding-top: 40px;
+      padding-top: 50px;
     }
   }
 
@@ -66,6 +79,7 @@
     @media (min-width: $screen-xs) {
       width: 80%;
       margin: auto;
+      max-width: 381px;
     }
   }
 
