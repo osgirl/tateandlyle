@@ -1,0 +1,9 @@
+tal_admin_config.tal_admin_trendsandinsight:
+  path: '/admin/config/tal'
+  defaults:
+    _form: '\Drupal\tal_admin_config\Form\TalTrendsAndInsightForm'
+    _title: 'Trends and Insights settings form'
+  requirements:
+    _permission: 'administer site configuration'
+  options:
+    _admin_route: TRUE
