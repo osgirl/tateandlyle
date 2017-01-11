@@ -1,0 +1,12 @@
+tal_admin_config.tal_settings:
+  title: 'TAL Settings'
+  route_name: tal_admin_config.tal_settings
+  description: 'Configure settings for TAL site.'
+  parent: system.admin_config
+  weight: 99
+tal_admin_config.tal_admin_trendsandinsight:
+  title: 'Trends and sight settings'
+  route_name: tal_admin_config.tal_admin_trendsandinsight
+  description: 'Configure settings for Trends and sight.'
+  parent: tal_admin_config.tal_settings
+  weight: 99

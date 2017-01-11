@@ -1,0 +1,16 @@
+tal_admin_config.settings:
+  type: config_object
+  label: 'TAL admin settings'
+  mapping:
+    tai_title:
+      type: string
+      label: 'Title'
+    tai_summary:
+      type: string
+      label: 'Summary'
+    tai_read_more:
+      type: string
+      label: 'Read more'
+    tai_link:
+      type: string
+      label: 'Link'
