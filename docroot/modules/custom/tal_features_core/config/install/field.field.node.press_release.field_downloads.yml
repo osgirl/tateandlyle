@@ -1,0 +1,83 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_downloads
+    - node.type.press_release
+    - paragraphs.paragraphs_type.related_downloads
+  module:
+    - entity_reference_revisions
+id: node.press_release.field_downloads
+field_name: field_downloads
+entity_type: node
+bundle: press_release
+label: 'Related Downloads'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      related_downloads: related_downloads
+    target_bundles_drag_drop:
+      block_reference:
+        weight: 20
+        enabled: false
+      component_accordion_body:
+        weight: 21
+        enabled: false
+      component_accordion_items:
+        weight: 22
+        enabled: false
+      detail_content_promo:
+        weight: 23
+        enabled: false
+      download_accordion_items:
+        weight: 24
+        enabled: false
+      downloads:
+        weight: 25
+        enabled: false
+      filegroup:
+        weight: 26
+        enabled: false
+      ingredient_accordion:
+        weight: 27
+        enabled: false
+      ingredient_accordion_items:
+        weight: 28
+        enabled: false
+      ingredient_downloads:
+        weight: 29
+        enabled: false
+      media_video_gallery:
+        weight: 30
+        enabled: false
+      passive_recruitment:
+        weight: 31
+        enabled: false
+      promo_body_with_link_url:
+        weight: 32
+        enabled: false
+      related_downloads:
+        enabled: true
+        weight: 33
+      talk_to_us:
+        weight: 34
+        enabled: false
+      wysiwyg:
+        weight: 35
+        enabled: false
+      wysiwyg_and_block_reference:
+        weight: 36
+        enabled: false
+      wysiwyg_with_block_reference:
+        weight: 37
+        enabled: false
+      wysiwyg_with_country_and_region:
+        weight: 38
+        enabled: false
+field_type: entity_reference_revisions
