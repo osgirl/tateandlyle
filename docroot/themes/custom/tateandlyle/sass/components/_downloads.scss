@@ -1,10 +1,9 @@
 .file--downloads {
   @extend %border__block;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 94px auto 80px;
   @media (max-width: $screen-sm-max) {
-    margin-left: 30px;
-    margin-right: 30px;
+    margin: 30px;
+    margin-top: 75px;
     max-width: none;
   }
 
@@ -109,7 +108,7 @@
 
   .form-item-change-language {
     @media (min-width: $screen-sm) {
-      margin-right: 10px;
+      margin-right: 96px;
     }
 
     .input-group {
