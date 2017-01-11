@@ -1,0 +1,16 @@
+tal_admin_config.tal_settings:
+  path: '/admin/config/tal'
+  defaults:
+    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
+    _title: 'TAL settings'
+  requirements:
+    _permission: 'access administration pages'
+tal_admin_config.tal_admin_trendsandinsight:
+  path: '/admin/config/tal/settings'
+  defaults:
+    _form: '\Drupal\tal_admin_config\Form\TalTrendsAndInsightForm'
+    _title: 'Trends and Insights settings form'
+  requirements:
+    _permission: 'administer site configuration'
+  options:
+    _admin_route: TRUE

@@ -122,6 +122,8 @@ function tal_preprocess_paragraph_ingredient_accordion($variables, $paragraph) {
   $variables['show_border'] = FALSE;
   $parent = $paragraph->getParentEntity();
   $variables['trends_solution'] = '';
+  $config = \Drupal::config('tal_admin_config.settings');
+  $variables['default_trends_solution'] = $config->getRawData();
   if ($parent->bundle() == "ingredient") {
     $values = $parent->toArray();
     $variables['trends_solution'] = [
