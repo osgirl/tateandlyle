@@ -45,10 +45,11 @@
 
       .field--type-text-with-summary {
         max-width: 160px;
-        img {
-          margin-right: 9px;
-        }
       }
+    }
+
+    .field--type-text-with-summary img {
+      margin-right: 9px;
     }
 
     .embedded-entity {

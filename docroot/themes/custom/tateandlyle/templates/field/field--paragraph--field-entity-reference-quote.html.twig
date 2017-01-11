@@ -64,7 +64,7 @@ top_bottom,
     {% endif %}
         {% if(top_title) %}
             <hr />
-            <h2{{ title_attributes.addClass('block-title') }}>{{ content.field_simple_text }}</h2>
+            <h2{{ title_attributes.addClass('block-title') }}>{{ item.content.field_simple_text }}</h2>
         {% endif %}
 
         {% if top_bottom %}

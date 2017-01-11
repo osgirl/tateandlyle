@@ -16,7 +16,7 @@
   width: 100%;
   @media (min-width: $screen-sm-lsp) {
     border: 1px solid $color-warm-gray;
-    padding: 40px 30px;
+    padding: 44px 30px;
   }
 
   .field--name-field-short-summary {
@@ -32,7 +32,7 @@
     }
 
     @media (min-width: $screen-md) {
-      margin-bottom: 55px;
+      margin-bottom: 60px;
     }
 
     &::before {
@@ -73,13 +73,13 @@
   @media (min-width: $screen-sm-lsp) {
     display: table-cell;
     vertical-align: middle;
-    padding: 30px;
+    padding: 0 30px;
   }
 }
 
 .quote__content--right {
   @media (min-width: $screen-sm-lsp) {
-    padding: 30px 60px;
+    padding: 0 60px;
   }
 }
 
@@ -190,7 +190,7 @@
     border: none;
     padding: 16px 28px 25px 40px;
     @media (min-width: $screen-sm-lsp) {
-      padding: 40px 30px;
+      padding: 0 30px;
     }
   }
 }
