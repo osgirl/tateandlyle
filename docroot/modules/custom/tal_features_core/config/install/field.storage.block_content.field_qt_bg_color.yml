@@ -15,7 +15,7 @@ settings:
       label: White
     -
       value: '#999999'
-      label: Warm-grey
+      label: 'Cool Grey'
     -
       value: '#000000'
       label: Black
@@ -27,7 +27,7 @@ settings:
       label: Blue
     -
       value: '#e64054'
-      label: Red
+      label: Pink
     -
       value: '#fafafa'
       label: Off-white
@@ -39,7 +39,7 @@ settings:
       label: Yellow
     -
       value: '#948671'
-      label: Gold
+      label: 'Warm Grey'
     -
       value: '#949ca1'
       label: Silver
