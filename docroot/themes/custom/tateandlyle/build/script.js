@@ -28,15 +28,19 @@
     }
   };
 
+  Drupal.behaviors.carouselimit = {
+    attach: function () {
+      if ($(".carousel-inner .item").length < 5) {
+        $("a.carousel-control").css("display", "none");
+      }
+    }
+  };
+
   Drupal.behaviors.carousel = {
     attach: function () {
       $(".carousel").carousel({
         interval: false
       });
-
-      if ($(".carousel-inner .item").length < 5) {
-        $("a.carousel-control").css("display", "none");
-      }
 
       $(".carousel .item").each(function () {
         var next = $(this).next();

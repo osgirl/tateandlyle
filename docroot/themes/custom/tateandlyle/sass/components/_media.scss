@@ -97,3 +97,18 @@
   float: left;
   width: 100%;
 }
+
+.view-video-gallery {
+  .glyphicon-play-circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 74px;
+    height: 74px;
+    margin: -37px 0 0 -37px;
+    cursor: pointer;
+    overflow: hidden;
+    font-size: 60px;
+    color: white;
+  }
+}
