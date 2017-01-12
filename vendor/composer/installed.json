@@ -2020,17 +2020,17 @@
     },
     {
         "name": "grasmash/yaml-cli",
-        "version": "0.3.3",
-        "version_normalized": "0.3.3.0",
+        "version": "0.3.4",
+        "version_normalized": "0.3.4.0",
         "source": {
             "type": "git",
             "url": "https://github.com/grasmash/yaml-cli.git",
-            "reference": "39e757742108cad0626aff64ae6ff25a87482eb0"
+            "reference": "7fb1e74b538ab00c6c70caa3c48bc68a910c4c3a"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/grasmash/yaml-cli/zipball/39e757742108cad0626aff64ae6ff25a87482eb0",
-            "reference": "39e757742108cad0626aff64ae6ff25a87482eb0",
+            "url": "https://api.github.com/repos/grasmash/yaml-cli/zipball/7fb1e74b538ab00c6c70caa3c48bc68a910c4c3a",
+            "reference": "7fb1e74b538ab00c6c70caa3c48bc68a910c4c3a",
             "shasum": ""
         },
         "require": {
@@ -2044,7 +2044,7 @@
             "phpunit/phpunit": "^5.5.4",
             "squizlabs/php_codesniffer": "^2.7"
         },
-        "time": "2017-01-06T18:14:17+00:00",
+        "time": "2017-01-10T15:51:29+00:00",
         "bin": [
             "bin/yaml-cli"
         ],
@@ -2052,8 +2052,7 @@
         "installation-source": "dist",
         "autoload": {
             "psr-4": {
-                "Grasmash\\YamlCli\\": "src/",
-                "Grasmash\\YamlCli\\Tests\\": "tests/src/"
+                "Grasmash\\YamlCli\\": "src/"
             }
         },
         "notification-url": "https://packagist.org/downloads/",
@@ -4563,17 +4562,17 @@
     },
     {
         "name": "acquia/blt",
-        "version": "8.6.9",
-        "version_normalized": "8.6.9.0",
+        "version": "8.6.10",
+        "version_normalized": "8.6.10.0",
         "source": {
             "type": "git",
             "url": "https://github.com/acquia/blt.git",
-            "reference": "e4e5358191ac34d7053d710e6f3458bab32a87a8"
+            "reference": "14a90b7f788cc7459499db20bf390e9a376f90f8"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/acquia/blt/zipball/e4e5358191ac34d7053d710e6f3458bab32a87a8",
-            "reference": "e4e5358191ac34d7053d710e6f3458bab32a87a8",
+            "url": "https://api.github.com/repos/acquia/blt/zipball/14a90b7f788cc7459499db20bf390e9a376f90f8",
+            "reference": "14a90b7f788cc7459499db20bf390e9a376f90f8",
             "shasum": ""
         },
         "require": {
@@ -4597,10 +4596,14 @@
         "conflict": {
             "drupal/core": "7.*"
         },
+        "require-dev": {
+            "consolidation/robo": "^1.0",
+            "guzzlehttp/guzzle": "^6.2"
+        },
         "suggest": {
             "hirak/prestissimo": "^0.3"
         },
-        "time": "2017-01-06T21:49:24+00:00",
+        "time": "2017-01-10T16:33:52+00:00",
         "bin": [
             "bin/blt",
             "bin/blt-console"
@@ -6624,7 +6627,6 @@
         },
         "require-dev": {
             "drupal/colorbox": "*",
-            "drupal/core": "*",
             "drupal/media_entity": "*",
             "drupal/media_entity_embeddable_video": "*"
         },
@@ -6866,9 +6868,6 @@
         "require": {
             "drupal/core": "~8.0"
         },
-        "require-dev": {
-            "drupal/core": "*"
-        },
         "type": "drupal-module",
         "extra": {
             "branch-alias": {
@@ -7069,7 +7068,6 @@
             "drupal/layout_plugin": ">=1.0.0-alpha22"
         },
         "require-dev": {
-            "drupal/core": "*",
             "drupal/page_manager": "*"
         },
         "type": "drupal-module",
@@ -7963,9 +7961,6 @@
         "require": {
             "drupal/core": "*"
         },
-        "require-dev": {
-            "drupal/core": "*"
-        },
         "type": "drupal-module",
         "extra": {
             "branch-alias": {
@@ -8219,7 +8214,6 @@
             "drupal/core": "~8.0"
         },
         "require-dev": {
-            "drupal/core": "*",
             "drupal/ctools": "*",
             "drupal/inline_entity_form": "*",
             "drupal/media_entity": "*",
@@ -8641,7 +8635,6 @@
             "drupal/core": "~8.0"
         },
         "require-dev": {
-            "drupal/core": "*",
             "drupal/search_api_solr": "*"
         },
         "type": "drupal-module",
@@ -9931,7 +9924,6 @@
             "drupal/entity_reference_revisions": "*"
         },
         "require-dev": {
-            "drupal/core": "*",
             "drupal/diff": "*",
             "drupal/replicate": "*",
             "drupal/search_api": "*",
@@ -10055,7 +10047,6 @@
             "drupal/core": "^8.1"
         },
         "require-dev": {
-            "drupal/core": "*",
             "drupal/search_api_db": "*"
         },
         "type": "drupal-module",
@@ -10065,7 +10056,7 @@
             },
             "drupal": {
                 "version": "8.x-1.0-beta3",
-                "datestamp": "1477302541"
+                "datestamp": "1483286941"
             },
             "patches_applied": {
                 "search_api_node_grants is a reserved value and cannot be used as the machine name of a normal field": "https://www.drupal.org/files/issues/2761749-12--db_defaults_node_access_field_id.patch"
@@ -10117,9 +10108,6 @@
             "drupal/core": "~8.0",
             "drupal/search_api": "*",
             "solarium/solarium": "3.6.*"
-        },
-        "require-dev": {
-            "drupal/core": "*"
         },
         "type": "drupal-module",
         "extra": {

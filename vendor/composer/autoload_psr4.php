@@ -54,7 +54,6 @@ return array(
     'GuzzleHttp\\Psr7\\' => array($vendorDir . '/guzzlehttp/psr7/src'),
     'GuzzleHttp\\Promise\\' => array($vendorDir . '/guzzlehttp/promises/src'),
     'GuzzleHttp\\' => array($vendorDir . '/guzzlehttp/guzzle/src'),
-    'Grasmash\\YamlCli\\Tests\\' => array($vendorDir . '/grasmash/yaml-cli/tests/src'),
     'Grasmash\\YamlCli\\' => array($vendorDir . '/grasmash/yaml-cli/src'),
     'Graphp\\Algorithms\\' => array($vendorDir . '/graphp/algorithms/src'),
     'Fhaculty\\Graph\\' => array($vendorDir . '/clue/graph/src'),

@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInita1f7b2825a49b6e7f7cb0d9f6b547043
+class ComposerStaticInit6cbe48368896b9641405a5d57990f759
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -105,7 +105,6 @@ class ComposerStaticInita1f7b2825a49b6e7f7cb0d9f6b547043
             'GuzzleHttp\\Psr7\\' => 16,
             'GuzzleHttp\\Promise\\' => 19,
             'GuzzleHttp\\' => 11,
-            'Grasmash\\YamlCli\\Tests\\' => 23,
             'Grasmash\\YamlCli\\' => 17,
             'Graphp\\Algorithms\\' => 18,
         ),
@@ -334,10 +333,6 @@ class ComposerStaticInita1f7b2825a49b6e7f7cb0d9f6b547043
         'GuzzleHttp\\' => 
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/guzzle/src',
-        ),
-        'Grasmash\\YamlCli\\Tests\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/grasmash/yaml-cli/tests/src',
         ),
         'Grasmash\\YamlCli\\' => 
         array (
@@ -592,6 +587,7 @@ class ComposerStaticInita1f7b2825a49b6e7f7cb0d9f6b547043
         'Acquia\\Blt\\Console\\Command\\UpdateCommand' => __DIR__ . '/..' . '/acquia/blt/src/Console/Command/UpdateCommand.php',
         'Acquia\\Blt\\Console\\Command\\YamlMungeCommand' => __DIR__ . '/..' . '/acquia/blt/src/Console/Command/YamlMungeCommand.php',
         'Acquia\\Blt\\Drush\\Command\\BltDoctor' => __DIR__ . '/..' . '/acquia/blt/src/Drush/Command/BltDoctorCommand.php',
+        'Acquia\\Blt\\Robo\\Command\\BltInternal' => __DIR__ . '/..' . '/acquia/blt/src/Robo/Command/BltInternal.php',
         'Acquia\\Blt\\Tests\\BltProjectTestBase' => __DIR__ . '/..' . '/acquia/blt/tests/phpunit/src/BltProjectTestBase.php',
         'Acquia\\Blt\\Tests\\BltTestBase' => __DIR__ . '/..' . '/acquia/blt/tests/phpunit/src/BltTestBase.php',
         'Acquia\\Blt\\Update\\DoPackagistConverter' => __DIR__ . '/..' . '/acquia/blt/src/Update/DoPackagistConverter.php',
@@ -3328,7 +3324,6 @@ class ComposerStaticInita1f7b2825a49b6e7f7cb0d9f6b547043
         'Grasmash\\YamlCli\\Command\\UnsetKeyCommand' => __DIR__ . '/..' . '/grasmash/yaml-cli/src/Command/UnsetKeyCommand.php',
         'Grasmash\\YamlCli\\Command\\UpdateKeyCommand' => __DIR__ . '/..' . '/grasmash/yaml-cli/src/Command/UpdateKeyCommand.php',
         'Grasmash\\YamlCli\\Command\\UpdateValueCommand' => __DIR__ . '/..' . '/grasmash/yaml-cli/src/Command/UpdateValueCommand.php',
-        'Grasmash\\YamlCli\\Tests\\TestBase' => __DIR__ . '/..' . '/grasmash/yaml-cli/tests/src/TestBase.php',
         'GrowlNotifyTask' => __DIR__ . '/..' . '/phing/phing/classes/phing/tasks/ext/GrowlNotifyTask.php',
         'GuzzleHttp\\Client' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Client.php',
         'GuzzleHttp\\ClientInterface' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/ClientInterface.php',
@@ -6848,10 +6843,10 @@ class ComposerStaticInita1f7b2825a49b6e7f7cb0d9f6b547043
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInita1f7b2825a49b6e7f7cb0d9f6b547043::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInita1f7b2825a49b6e7f7cb0d9f6b547043::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInita1f7b2825a49b6e7f7cb0d9f6b547043::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInita1f7b2825a49b6e7f7cb0d9f6b547043::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit6cbe48368896b9641405a5d57990f759::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit6cbe48368896b9641405a5d57990f759::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit6cbe48368896b9641405a5d57990f759::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit6cbe48368896b9641405a5d57990f759::$classMap;
 
         }, null, ClassLoader::class);
     }
