@@ -50,7 +50,10 @@ function tateandlyle_preprocess_block(&$variables) {
       $variables['attributes']['class'] = Html::cleanCssIdentifier('block--' . $bundle_class);
       $variables['attributes']['data-bundle-class'] = $bundle_class;
     }
-    $variables['id'] = $variables['elements']['#id'];
+    $variables['id'] = '';
+    if (isset($variables['elements']['#id'])) {
+      $variables['id'] = $variables['elements']['#id'];
+    }
   }
   if (!empty($bundle)) {
     include_once "preprocess/block.inc";
@@ -123,9 +126,9 @@ function tateandlyle_preprocess_field(&$variables) {
     $path = \Drupal::request()->getUri();
     $parameters = UrlHelper::parse($path);
     foreach ($variables['items'] as $id => &$item) {
-        if (!$item['content']['#url']->isExternal()) {
-          $item['content']['#url']->setOption('query', array('active' => $id, 'field' => $variables['field_name']));
-        }
+      if (!$item['content']['#url']->isExternal()) {
+        $item['content']['#url']->setOption('query', array('active' => $id, 'field' => $variables['field_name']));
+      }
       // Set active class.
       if (isset($parameters['field']) && isset($parameters['active'])) {
         if ($parameters['field'] == $variables['field_name'] && $parameters['active'] == $id) {

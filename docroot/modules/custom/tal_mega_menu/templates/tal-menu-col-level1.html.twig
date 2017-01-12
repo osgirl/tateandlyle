@@ -8,7 +8,11 @@
 */
 #}
 <li class="dropdown level-1 {{ class }}">
+    {% if data %}
     <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ link }}</a>
+    {% else %}
+      {{ link }}
+    {% endif  %}
     <ul class="dropdown-menu multi-column columns-3">
         <li class="row">
             {{ data }}
