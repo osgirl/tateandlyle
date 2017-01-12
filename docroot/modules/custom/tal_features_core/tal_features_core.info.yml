@@ -58,6 +58,5 @@ dependencies:
   - user
   - video_embed_field
   - views
-  - views_infinite_scroll
   - webform
   - workbench_moderation
