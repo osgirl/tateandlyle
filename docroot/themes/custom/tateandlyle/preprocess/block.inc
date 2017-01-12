@@ -223,3 +223,16 @@ function tal_preprocess_block_download($variables, $block) {
 
   return $variables;
 }
+
+/**
+ * Preprocessor function for homepage-banner block type.
+ */
+function tal_preprocess_block_homepage_banner($variables, $block) {
+  $left_icon = empty($block->get('field_icon')->getValue()) ? FALSE : TRUE;
+  $right_icon = empty($block->get('field_right_icon')->getValue()) ? FALSE : TRUE;
+
+  $variables['left_icon'] = $left_icon;
+  $variables['right_icon'] = $right_icon;
+
+  return $variables;
+}
