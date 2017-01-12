@@ -4,10 +4,10 @@ dependencies: {  }
 name: image_gallery_featured_images_240_x_170
 label: 'Image Gallery : Featured Images 271 x 188'
 effects:
-  1c9147ab-b2ba-426e-943c-02aa57f3c339:
-    uuid: 1c9147ab-b2ba-426e-943c-02aa57f3c339
-    id: image_resize
-    weight: 1
+  b7ea8b29-642a-4da2-bc22-723c39c96bc6:
+    uuid: b7ea8b29-642a-4da2-bc22-723c39c96bc6
+    id: image_scale_and_crop
+    weight: 2
     data:
       width: 271
       height: 188

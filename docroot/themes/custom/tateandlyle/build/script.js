@@ -31,9 +31,11 @@
   Drupal.behaviors.carousel = {
     attach: function () {
       $(".carousel").carousel("pause");
-      $("#carousel-example-generic").carousel({
-        interval: 4000
-      });
+
+      if ($(".carousel-inner .item").length < 5) {
+        $("a.carousel-control").css("display", "none");
+      }
+
       $(".carousel .item").each(function () {
         var next = $(this).next();
 
