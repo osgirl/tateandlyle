@@ -5,6 +5,8 @@ dependencies:
     - field.storage.node.field_category
     - node.type.press_release
     - taxonomy.vocabulary.story_category
+  content:
+    - 'taxonomy_term:story_category:6da79ad1-fa26-4a7f-b20a-a4d9fa5f5709'
 id: node.press_release.field_category
 field_name: field_category
 entity_type: node
@@ -13,7 +15,9 @@ label: 'Article Category'
 description: ''
 required: true
 translatable: true
-default_value: {  }
+default_value:
+  -
+    target_uuid: 6da79ad1-fa26-4a7f-b20a-a4d9fa5f5709
 default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'

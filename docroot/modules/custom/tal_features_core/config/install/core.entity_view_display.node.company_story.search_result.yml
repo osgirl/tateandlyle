@@ -13,6 +13,7 @@ dependencies:
     - field.field.node.company_story.field_ingredient
     - field.field.node.company_story.field_reusable_component
     - field.field.node.company_story.field_story_description
+    - field.field.node.company_story.field_tags
     - node.type.company_story
   module:
     - image
@@ -54,4 +55,5 @@ hidden:
   field_ingredient: true
   field_reusable_component: true
   field_story_description: true
+  field_tags: true
   links: true
