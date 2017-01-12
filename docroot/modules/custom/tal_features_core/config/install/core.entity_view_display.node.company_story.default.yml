@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.company_story.field_downloads
     - field.field.node.company_story.field_downloads_border_title
     - field.field.node.company_story.field_image
+    - field.field.node.company_story.field_image_size
     - field.field.node.company_story.field_ingredient
     - field.field.node.company_story.field_reusable_component
     - field.field.node.company_story.field_story_description
@@ -17,6 +18,7 @@ dependencies:
   module:
     - datetime
     - entity_reference_revisions
+    - options
     - panelizer
     - text
     - user
@@ -74,6 +76,12 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+  field_image_size:
+    weight: 12
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
   field_reusable_component:
     type: entity_reference_revisions_entity_view
     weight: 9
