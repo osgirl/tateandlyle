@@ -8,6 +8,7 @@
  */
 
 use Drupal\Component\Utility\Html;
+use \Drupal\Component\Utility\UrlHelper;
 
 /**
  * Implements hook_theme_suggestions_HOOK_alter() for form templates.
@@ -107,6 +108,7 @@ function tateandlyle_preprocess_field(&$variables) {
     $entity = $element['#object'];
     $variables['field_unique_id'] = $entity->getEntityTypeId() . $entity->id() . $variables['field_name'];
   }
+
   if ($variables['field_name'] == 'field_ingredients_content') {
     if (!empty($variables['items'])) {
       foreach ($variables['items'] as $key => $val) {
@@ -115,6 +117,24 @@ function tateandlyle_preprocess_field(&$variables) {
       }
     }
   }
+  // We need to place active class on the like if current page belongs to it.
+  if ($variables['field_name'] == 'field_left_link' || $variables['field_name'] == 'field_right_link') {
+    // Get the current query parameters.
+    $path = \Drupal::request()->getUri();
+    $parameters = UrlHelper::parse($path);
+    foreach ($variables['items'] as $id => &$item) {
+        if (!$item['content']['#url']->isExternal()) {
+          $item['content']['#url']->setOption('query', array('active' => $id, 'field' => $variables['field_name']));
+        }
+      // Set active class.
+      if (isset($parameters['field']) && isset($parameters['active'])) {
+        if ($parameters['field'] == $variables['field_name'] && $parameters['active'] == $id) {
+          $item['attributes']->addClass('active');
+        }
+      }
+    }
+  }
+
   if ($variables['element']['#field_type'] == 'entity_reference' &&  $variables['element']['#entity_type'] == 'paragraph') {
     $entities = $variables['element']['#items']->referencedEntities();
     $entity = array_shift($entities);
