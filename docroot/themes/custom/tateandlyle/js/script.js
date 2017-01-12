@@ -30,7 +30,9 @@
 
   Drupal.behaviors.carousel = {
     attach: function () {
-      $(".carousel").carousel("pause");
+      $(".carousel").carousel({
+        interval: false
+      });
 
       if ($(".carousel-inner .item").length < 5) {
         $("a.carousel-control").css("display", "none");
