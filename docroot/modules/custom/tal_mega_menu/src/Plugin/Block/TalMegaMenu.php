@@ -71,9 +71,14 @@ class TalMegaMenu extends BlockBase {
               }
             }
           }
+          $title = $item['title'];
+          if (empty($item['below']) && empty($childData)) {
+            $url = $item['url'];
+            $title = \Drupal::l($title, $url);
+          }
           $data['#data'][$k] = [
             '#theme' => 'tal_menu_col_level1',
-            '#link' => $item['title'],
+            '#link' => $title,
             '#level' => $level,
             '#data' => $childData,
             '#class' => $class,

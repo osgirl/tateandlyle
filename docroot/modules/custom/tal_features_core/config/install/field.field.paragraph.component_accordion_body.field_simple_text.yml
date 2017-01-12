@@ -10,7 +10,7 @@ entity_type: paragraph
 bundle: component_accordion_body
 label: 'Content title'
 description: ''
-required: true
+required: false
 translatable: true
 default_value: {  }
 default_value_callback: ''
