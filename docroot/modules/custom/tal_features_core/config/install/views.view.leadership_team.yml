@@ -5,7 +5,7 @@ dependencies:
     - field.storage.node.field_bio
     - field.storage.node.field_designation
     - field.storage.node.field_profile_picture
-    - image.style.medium
+    - image.style.quote_167_x_167
     - node.type.leadership
   module:
     - image
@@ -114,7 +114,7 @@ display:
           click_sort_column: target_id
           type: image
           settings:
-            image_style: medium
+            image_style: quote_167_x_167
             image_link: ''
           group_column: ''
           group_columns: {  }
@@ -400,6 +400,7 @@ display:
       relationships: {  }
       arguments: {  }
       display_extenders: {  }
+      css_class: block__leadership--team
     cache_metadata:
       max-age: -1
       contexts:

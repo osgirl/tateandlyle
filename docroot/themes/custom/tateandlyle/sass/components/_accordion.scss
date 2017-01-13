@@ -26,6 +26,11 @@
     padding-top: 0;
   }
 
+  article {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
   .block-title,
   .field--in-border-title {
     @extend %title-border-top;
