@@ -50,12 +50,23 @@ function tal_preprocess_node_ingredient($variables, $node) {
  */
 function tal_preprocess_node_company_story($variables, $node) {
   $node = $variables['node'];
+  $value = $node->get('field_category')->getValue();
+  $tid = array_shift($value)['target_id'];
+  $term = \Drupal\taxonomy\Entity\Term::load($tid);
 
   $nid = $node->id();
   $bundle = 'company_story';
 
   $variables['next'] = TalWrapperUtility::generateNextPrevious($nid, $bundle, 'next');
   $variables['prev'] = TalWrapperUtility::generateNextPrevious($nid, $bundle, 'prev');
+  $variables['icon'] = $term->get('field_ac_icon')->view('default');
+  $variables['image'] = $node->get('field_image')->view();
+  $image_size = $node->get('field_image_size')->value;
+
+  $variables['image'][0]['#image_style'] = 'article_small_312_x_169';
+  if ($image_size) {
+    $variables['image'][0]['#image_style'] = 'article_large_880_x_477';
+  }
 
   if ($variables['view_mode'] == 'search_result') {
     $path = \Drupal::request()->getUri();
@@ -63,6 +74,7 @@ function tal_preprocess_node_company_story($variables, $node) {
     $keyword = isset($parameters['query']['s']) ? $parameters['query']['s'] : '';
     $variables['body'] = search_excerpt($keyword, $node->get('body')->value);
   }
+
   return $variables;
 }
 
