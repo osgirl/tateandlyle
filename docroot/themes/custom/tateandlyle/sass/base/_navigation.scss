@@ -591,6 +591,8 @@
     border-bottom: 1px solid black;
     .caret {
       float: right;
+      margin-top: 0.25em;
+      color: $brand-primary;
     }
     a {
       text-transform: uppercase;
@@ -623,5 +625,16 @@
   }
   h2 {
     display: none;
+  }
+  .navbar-default, .container {
+    background: white;
+  }
+  .navbar-toggle {
+    margin: 0;
+    border: 0;
+  }
+  .dropdown-menu {
+    position: relative;
+    top: 0;
   }
 }
