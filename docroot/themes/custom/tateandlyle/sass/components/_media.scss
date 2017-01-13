@@ -98,6 +98,11 @@
 .tal--image-gallery-categories {
   float: left;
   width: 100%;
+  .views-row {
+    @media (min-width: $screen-md) {
+      width: 100%;
+    }
+  }
 }
 
 .view-video-gallery {
