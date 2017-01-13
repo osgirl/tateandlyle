@@ -1,0 +1,49 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.leadership.field_bio
+    - field.field.node.leadership.field_designation
+    - field.field.node.leadership.field_profile_picture
+    - field.field.node.leadership.field_team_type
+    - node.type.leadership
+  module:
+    - image
+    - options
+    - text
+    - user
+id: node.leadership.default
+targetEntityType: node
+bundle: leadership
+mode: default
+content:
+  field_bio:
+    weight: 103
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+  field_designation:
+    weight: 102
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_profile_picture:
+    weight: 101
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+  field_team_type:
+    weight: 104
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+  links:
+    weight: 100
+hidden: {  }
