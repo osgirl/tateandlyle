@@ -50,6 +50,8 @@ set classes = [
 'block',
 'block-' ~ configuration.provider|clean_class,
 'block-' ~ plugin_id|clean_class,
+'block--homepage-banner',
+no_icon_dsc,
 'clearfix',
 ]
 %}
@@ -57,18 +59,19 @@ set classes = [
 {%
 set nolefticon = [
   "tal-banner-menu-wrapper-left",
-  left_icon ? 'left-icon' : 'no-left-icon',
+  left_icon ? 'left-icon' : 'no-left-icon col-sm-6',
 ]
 %}
 
 {%
 set norighticon = [
  "tal-banner-menu-wrapper-right",
- right_icon ? 'right-icon' : 'no-right-icon',
+ right_icon ? 'right-icon' : 'no-right-icon col-sm-6',
 ]
 %}
 
 <section{{ attributes.addClass(classes) }}>
+  <div class="component__banner--inner">
     {{ title_prefix }}
     {% if label %}
       <h2{{ title_attributes.addClass('block-title') }}>{{ label }}</h2>
@@ -76,22 +79,31 @@ set norighticon = [
     {{ title_suffix }}
 
     {% block content %}
-        <div class="tal--banner-background-image">{{ content.field_bg_image }}</div>
+      <div class="tal--banner-background-image">{{ content.field_bg_image }}</div>
+
+      <div class="tal__banner--content">
         <div class="tal-banner-description">
-          <h2 class="title">{{ content.title }}</h2>
+          <h2 class="title"><hr />{{ content.field_title }}</h2>
           {{ content.field_description }}
         </div>
-      <div {{ attributes.addClass(nolefticon) }}>
-        {% if content.field_icon %}
-          {{ content.field_icon }}
-        {% endif %}
-        {{ content.field_left_link }}
-      </div>
-      <div {{ attributes.addClass(norighticon) }}>
-          {% if content.field_right_icon %}
-              {{ content.field_right_icon }}
-          {% endif %}
-          {{ content.field_right_link }}
+
+        <div class="banner--links">
+
+          <div {{ attributes.addClass(nolefticon) }}>
+            {% if content.field_icon %}
+              {{ content.field_icon }}
+            {% endif %}
+            {{ content.field_left_link }}
+          </div>
+
+          <div {{ attributes.addClass(norighticon) }}>
+              {% if content.field_right_icon %}
+                  {{ content.field_right_icon }}
+              {% endif %}
+              {{ content.field_right_link }}
+          </div>
+        </div>
       </div>
     {% endblock %}
+  </div>
 </section>
