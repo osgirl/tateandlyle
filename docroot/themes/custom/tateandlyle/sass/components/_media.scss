@@ -27,9 +27,11 @@
     width: 50%;
     float: left;
   }
-  .view-image-gallery .views-row, .view-video-gallery .views-row {
-    @media (min-width: $screen-md) {
-      float: none;
+  .view-image-gallery, .view-video-gallery {
+    .views-row {
+      @media (min-width: $screen-md) {
+        float: none;
+      }
     }
   }
   img {
