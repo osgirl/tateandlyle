@@ -164,10 +164,11 @@
 #block-talmainmenu {
   width: 86%;
   float: right;
-
+  display: none;
   @media (min-width: $screen-sm) {
     float: left;
     width: 100%;
+    display: block;
   }
 
   .navbar-toggle {
@@ -534,6 +535,10 @@
 }
 
 #block-mainnavigation {
+  display: none;
+  @media (min-width: $screen-sm) {
+    display: block;
+  }
   .navbar-toggle {
     display: none;
   }
@@ -576,5 +581,47 @@
   margin-left: 1em;
   @media (min-width: $screen-sm) {
     margin-top: 0;
+  }
+}
+
+#block-mobile-menu {
+  display: block;
+  ul li {
+    background: white;
+    border-bottom: 1px solid black;
+    .caret {
+      float: right;
+    }
+    a {
+      text-transform: uppercase;
+      font-size: 14px;
+      color: black;
+    }
+    &.open {
+      background: $color-light-gray;
+      border: 0 none;
+      ul {
+        background: $color-light-gray;
+        border: 0;
+        box-shadow: 0 0 0;
+        width: 100%;
+        margin: 0;
+        li {
+          border-bottom: 1px solid $color-warm-gray;
+          background: $color-light-gray;
+          border: 0 none;
+          margin-left: 0.75em;
+          a:hover {
+            background: transparent;
+          }
+        }
+      }
+    }
+  }
+  @media (min-width: $screen-sm) {
+    display: none;
+  }
+  h2 {
+    display: none;
   }
 }
