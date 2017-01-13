@@ -206,7 +206,7 @@
 
 .block__promo--main {
   color: $gray-base;
-  margin: 50px 30px;
+  margin: 24px 30px;
 
   @media (min-width: $screen-sm-lsp) {
     border: 1px solid $color-warm-gray;
@@ -214,6 +214,7 @@
   }
 
   @media (min-width: $screen-sm) {
+    margin: 50px 30px;
     padding: 0 60px 33px 60px;
   }
 
