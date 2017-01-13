@@ -234,5 +234,9 @@ function tal_preprocess_block_homepage_banner($variables, $block) {
   $variables['left_icon'] = $left_icon;
   $variables['right_icon'] = $right_icon;
 
+  if (empty($left_icon) || empty($right_icon)) {
+    $variables['no_icon_dsc'] = 'no__icon--banner';
+  }
+
   return $variables;
 }
