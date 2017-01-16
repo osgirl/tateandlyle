@@ -1,0 +1,133 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - webform
+uid: null
+template: false
+id: contact_form
+title: 'Contact Form'
+description: 'Basic email contact webform.'
+elements: "type_of_enquiry:\n  '#type': radios\n  '#title': 'Type of Enquiry'\n  '#default_value': commercial_sales\n  '#options':\n    commercial_sales: Commercial/Sales\n    other: Other\n  '#options_display': two_columns\n  '#required': true\nfirst_name:\n  '#type': textfield\n  '#title': 'First Name'\n  '#required': true\nlast_name:\n  '#type': textfield\n  '#title': 'Last Name'\n  '#required': true\nemail:\n  '#type': email\n  '#title': Email\n  '#default_value': '[webform-authenticated-user:mail]'\n  '#required': true\ncompany:\n  '#type': textfield\n  '#title': Company\n  '#required': true\nmessage:\n  '#title': Message\n  '#type': textarea\n  '#required': true\n  '#test': 'Please ignore this email.'\nindustry:\n  '#type': entity_select\n  '#title': Industry\n  '#target_type': taxonomy_term\n  '#selection_handler': 'default:taxonomy_term'\n  '#selection_settings':\n    target_bundles:\n      industry: industry\n  '#required': true\ncategory:\n  '#type': entity_select\n  '#title': Category\n  '#target_type': taxonomy_term\n  '#selection_handler': 'default:taxonomy_term'\n  '#selection_settings':\n    target_bundles:\n      category: category\n  '#required': true\ncountry:\n  '#type': select\n  '#title': Country\n  '#options': country_names\n  '#required': true\ntitle:\n  '#type': textfield\n  '#title': Title\n  '#required': true\nphone:\n  '#type': tel\n  '#title': Phone\n  '#required': true\nlead_source:\n  '#type': select\n  '#title': 'Lead Source'\n  '#options':\n    'T&L Website': 'T&L Website'\n  '#required': true\nsend_mail:\n  '#type': email\n  '#title': 'Send mail'\n  '#wrapper_attributes':\n    class:\n      - hide\n"
+css: ''
+javascript: ''
+settings:
+  page: false
+  page_submit_path: ''
+  page_confirm_path: ''
+  form_submit_label: 'Send message'
+  form_submit_attributes: {  }
+  form_exception_message: ''
+  form_closed_message: ''
+  form_confidential: false
+  form_confidential_message: ''
+  form_prepopulate: false
+  form_prepopulate_source_entity: false
+  form_novalidate: false
+  form_unsaved: false
+  form_disable_back: false
+  form_autofocus: false
+  form_details_toggle: false
+  wizard_progress_bar: true
+  wizard_progress_pages: false
+  wizard_progress_percentage: false
+  wizard_next_button_label: ''
+  wizard_next_button_attributes: {  }
+  wizard_prev_button_label: ''
+  wizard_prev_button_attributes: {  }
+  wizard_start_label: ''
+  wizard_complete: true
+  wizard_complete_label: ''
+  preview: 0
+  preview_next_button_label: ''
+  preview_next_button_attributes: {  }
+  preview_prev_button_label: ''
+  preview_prev_button_attributes: {  }
+  preview_message: ''
+  draft: false
+  draft_auto_save: false
+  draft_button_label: ''
+  draft_button_attributes: {  }
+  draft_saved_message: ''
+  draft_loaded_message: ''
+  confirmation_type: message
+  confirmation_message: 'Your message has been sent.'
+  confirmation_url: '<front>'
+  confirmation_attributes: {  }
+  confirmation_back: true
+  confirmation_back_label: ''
+  confirmation_back_attributes: {  }
+  limit_total: null
+  limit_total_message: ''
+  limit_user: null
+  limit_user_message: ''
+  entity_limit_total: null
+  entity_limit_user: null
+  results_disabled: false
+  results_disabled_ignore: false
+  token_update: false
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+  view_any:
+    roles: {  }
+    users: {  }
+  update_any:
+    roles: {  }
+    users: {  }
+  delete_any:
+    roles: {  }
+    users: {  }
+  purge_any:
+    roles: {  }
+    users: {  }
+  view_own:
+    roles: {  }
+    users: {  }
+  update_own:
+    roles: {  }
+    users: {  }
+  delete_own:
+    roles: {  }
+    users: {  }
+handlers:
+  email_confirmation:
+    id: email
+    label: 'Email confirmation'
+    handler_id: email_confirmation
+    status: true
+    weight: 1
+    settings:
+      to_mail: '[webform_submission:values:email:raw]'
+      cc_mail: ''
+      bcc_mail: ''
+      from_mail: default
+      from_name: default
+      subject: '[webform_submission:values:subject:value]'
+      body: '[webform_submission:values:message:value]'
+      excluded_elements: {  }
+      html: true
+      attachments: false
+      debug: false
+  email_notification:
+    id: email
+    label: 'Email notification'
+    handler_id: email_notification
+    status: true
+    weight: 1
+    settings:
+      to_mail: pradeep22saini@gmail.com
+      cc_mail: ''
+      bcc_mail: ''
+      from_mail: '[webform_submission:values:email:raw]'
+      from_name: '[webform_submission:values:name:value]'
+      subject: '[webform_submission:values:subject:value]'
+      body: '[webform_submission:values:message:value]'
+      excluded_elements: {  }
+      html: true
+      attachments: false
+      debug: false

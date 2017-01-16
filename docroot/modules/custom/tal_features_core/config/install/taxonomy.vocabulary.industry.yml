@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'TTU Industry'
+vid: industry
+description: ''
+hierarchy: 0
+weight: 0

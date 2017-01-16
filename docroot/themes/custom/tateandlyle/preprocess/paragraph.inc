@@ -34,10 +34,17 @@ function tal_preprocess_paragraph_talk_to_us($variables, $paragraph) {
   if (!empty($contact)) {
     $variables['contact'] = TRUE;
     $contact = array_shift($contact);
-
+    $email = $contact->get('field_email')->value;
     $variables['field_ttu_contact_phone'] = $contact->get('field_phone_number')->value;
     $variables['field_ttu_contact_title'] = $contact->label();
   }
+
+  // Contact form added.
+  $variables['contact_form'] = [
+    '#type' => 'webform',
+    '#webform' => 'contact_form',
+    '#default_data' => ['send_mail' => $email],
+  ];
 
   return $variables;
 }
@@ -80,7 +87,7 @@ function tal_preprocess_paragraph_wysiwyg_with_country_and_region($variables, $p
 
   foreach ($chunks as $i => $chunk) {
     // Populate the variable with the selected countries.
-    $variables['list_country'][$i]  = array(
+    $variables['list_country'][$i] = array(
       '#theme' => 'item_list',
       '#items' => $chunk,
     );

@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'Type of Content'
+vid: type_of_content
+description: 'Describes the type of page/content for contact form data.'
+hierarchy: 0
+weight: 0
