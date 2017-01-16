@@ -108,7 +108,7 @@ function tal_preprocess_node_press_release($variables, $node) {
   $config_raw = $config->getRawData();
   $variables['boilerplate'] = [
     'content' => [
-      '#markup' => $config_raw['boilerplate_content'],
+      '#markup' => !empty($config_raw['boilerplate_content']) ? $config_raw['boilerplate_content'] : '',
     ],
   ];
   return $variables;

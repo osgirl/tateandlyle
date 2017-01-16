@@ -136,7 +136,9 @@
     {% endif %}
   </div>
   {% if boilerplate %}
-    {{ boilerplate.content }}
+    <div>
+        {{ boilerplate.content }}
+    </div>
   {% endif %}
   {{ content.field_reusable_component }}
 
