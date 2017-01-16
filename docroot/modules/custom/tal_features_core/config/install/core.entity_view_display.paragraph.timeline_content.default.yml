@@ -1,0 +1,61 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.timeline_content.field_headline
+    - field.field.paragraph.timeline_content.field_image
+    - field.field.paragraph.timeline_content.field_in_wysiwyg1
+    - field.field.paragraph.timeline_content.field_simple_text
+    - field.field.paragraph.timeline_content.field_tal_more
+    - paragraphs.paragraphs_type.timeline_content
+  module:
+    - image
+    - link
+    - text
+id: paragraph.timeline_content.default
+targetEntityType: paragraph
+bundle: timeline_content
+mode: default
+content:
+  field_headline:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_image:
+    weight: 2
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+  field_in_wysiwyg1:
+    weight: 3
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+  field_simple_text:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_tal_more:
+    weight: 4
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+hidden:
+  created: true
+  uid: true
