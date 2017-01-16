@@ -168,7 +168,8 @@
 }
 
 .file--downloads .btn--download,
-.block--download .field--name-field-tal-link {
+.block--download .field--name-field-tal-link,
+.block--downloads-with-accordion .field--name-field-tal-link {
   a {
     @extend .btn;
     @extend .btn-primary;
@@ -200,6 +201,7 @@
   }
 }
 
+.block--downloads-with-accordion,
 .block--download {
   .block-title {
     @extend %border__block--title;
@@ -231,45 +233,21 @@
 }
 
 .block--downloads-with-accordion {
-  max-width: 1168px;
-  width: 100%;
-  margin: 0 auto;
-  border: 1px solid $color-warm-gray;
-  display: table;
-  margin-bottom: 1em;
-  > .field--items > .field--item {
-    border-bottom: 1px solid $color-warm-gray;
-    .panel-default {
-      max-width: 879px;
-      margin: 0 auto;
-    }
+  @extend .tabs__accordion;
+  margin: 50px 30px;
+  max-width: none;
+
+  @media (min-width: $screen-md) {
+    margin: 50px auto;
+    max-width: 1108px;
   }
+
   .file--downloads {
-    border: 0;
-    background: $color-off-white;
-    margin-top: 0;
-    padding: 40px;
-  }
-  .panel {
-    border: 0;
     margin: 0;
-    box-shadow: 0 0 0;
-  }
-  .panel-heading {
-    background: none;
-    padding: 1.5em;
-    border: 0 none;
-  }
-  .block-title {
-    position: relative;
-    top: -7px;
-    text-align: center;
-  }
-  .accordion-toggle {
-    color: $brand-primary;
-    font-size: 24px;
-  }
-  .accordion-toggle.collapsed {
-    color: black;
+    border: none;
+
+    .tal--download-external-link .field--name-field-tal-link::after {
+      content: none;
+    }
   }
 }

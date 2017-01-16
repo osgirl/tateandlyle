@@ -6,6 +6,7 @@
  */
 
 use Drupal\Core\Url;
+use Drupal\Component\Utility\Html;
 
 /**
  * Preprocessor function for single item promo block type.
@@ -238,5 +239,25 @@ function tal_preprocess_block_homepage_banner($variables, $block) {
     $variables['no_icon_dsc'] = 'no__icon--banner';
   }
 
+  return $variables;
+}
+
+/**
+ * Preprocessor function for detail content promo block type.
+ */
+function tal_preprocess_block_history($variables, $block) {
+  // Get paragraph's id to generate unique ids for history tabs.
+  $tab_wrapper = $block->get('field_history_tab')->referencedEntities();
+  $tab_wrapper_id = Html::getUniqueId('history-tab');
+  foreach ($tab_wrapper as $tab) {
+    // Get Tab title from History tab paragraphs.
+    $title = $tab->get('field_tab_title')->getValue();
+    $tabs[] = [
+      'id' => 'history-tab-nav-' . $tab->id(),
+      'title' => array_shift($title)['value'],
+    ];
+  }
+  $variables['tabs'] = $tabs;
+  $variables['wrapper_id'] = $tab_wrapper_id;
   return $variables;
 }

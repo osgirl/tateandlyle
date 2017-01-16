@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: history
+label: 'History and Timeline'
+revision: 1
+description: 'Block type for creating History and Timeline and timeline blocks.'

@@ -137,7 +137,21 @@ function tateandlyle_preprocess_field(&$variables) {
       }
     }
   }
-
+  // Add ids and classes to History tab contents.
+  if ($variables['field_name'] == 'field_history_tab') {
+    $variables['attributes']['class'] = 'tab-content';
+    foreach ($variables['items'] as $id => &$item) {
+      // Add bootstrap tab classes.
+      if ($id == 0) {
+        $item['attributes']->addClass(array('tab-pane', 'fade', 'in', 'active'));
+      }
+      else {
+        $item['attributes']->addClass(array('tab-pane', 'fade'));
+      }
+      // Set unique ids to each tab content.
+      $item['attributes']->setAttribute('id', 'history-tab-nav-' . $item['content']['#paragraph']->id());
+    }
+  }
   if ($variables['element']['#field_type'] == 'entity_reference' &&  $variables['element']['#entity_type'] == 'paragraph') {
     $entities = $variables['element']['#items']->referencedEntities();
     $entity = array_shift($entities);

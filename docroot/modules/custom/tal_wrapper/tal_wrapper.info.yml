@@ -4,6 +4,7 @@ type: module
 core: 8.x
 package: tal
 dependencies:
+  - tal_articles
   - tal_downloads
   - tal_ingredient_search
   - tal_search
