@@ -8,6 +8,7 @@
 use Drupal\Core\Url;
 use Drupal\Core\Link;
 use Drupal\Component\Utility\UrlHelper;
+use Drupal\taxonomy\Entity\Term;
 use Drupal\tal_wrapper\Utility\Utility as TalWrapperUtility;
 
 /**
@@ -52,7 +53,7 @@ function tal_preprocess_node_company_story($variables, $node) {
   $node = $variables['node'];
   $value = $node->get('field_category')->getValue();
   $tid = array_shift($value)['target_id'];
-  $term = \Drupal\taxonomy\Entity\Term::load($tid);
+  $term = Term::load($tid);
 
   $nid = $node->id();
   $bundle = 'company_story';
@@ -91,6 +92,24 @@ function tal_preprocess_node_icon($variables, $node) {
  * Preprocessor function for "iframe_content" bundle.
  */
 function tal_preprocess_node_iframe_content($variables, $node) {
-  $variables['raw_field_iframe_code'] = $node->get('field_iframe_code')->value;
+  $variables['raw_field_iframe_code'] = ['#markup' => $node->get('field_iframe_code')->value];
+  return $variables;
+}
+
+/**
+ * Preprocessor function for "company_story" bundle.
+ */
+function tal_preprocess_node_press_release($variables, $node) {
+  // Preprocess same way like article content type.
+  $variables = tal_preprocess_node_company_story($variables, $node);
+
+  // Added Boilerplate content at the end of press release content page.
+  $config = \Drupal::config('tal_admin_config.settings');
+  $config_raw = $config->getRawData();
+  $variables['boilerplate'] = [
+    'content' => [
+      '#markup' => $config_raw['boilerplate_content'],
+    ],
+  ];
   return $variables;
 }
