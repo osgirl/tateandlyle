@@ -43,7 +43,8 @@ class TalTrendsAndInsightForm extends ConfigFormBase {
       '#default_value' => $config->get('tai_title'),
     );
     $form['tai_settings']['tai_summary'] = array(
-      '#type' => 'textarea',
+      '#type' => 'text_format',
+      '#format' => 'advanced_rich_text',
       '#title' => $this->t('Summary'),
       '#default_value' => $config->get('tai_summary'),
     );
