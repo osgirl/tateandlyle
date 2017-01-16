@@ -11,7 +11,7 @@ entity_type: paragraph
 bundle: talk_to_us
 label: 'Type of Content'
 description: 'Type of content or page.'
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''

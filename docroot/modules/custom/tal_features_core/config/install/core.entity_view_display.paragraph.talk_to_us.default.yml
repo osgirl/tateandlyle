@@ -52,16 +52,9 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
-  field_ttu_type_of_content:
-    type: entity_reference_entity_view
-    weight: 5
-    label: above
-    settings:
-      view_mode: default
-      link: false
-    third_party_settings: {  }
 hidden:
   created: true
   field_or_link_text: true
   field_ttu_or_button: true
+  field_ttu_type_of_content: true
   uid: true
