@@ -24,21 +24,3 @@ function tal_wrapper_install() {
   \Drupal::service('theme_installer')->install(array('tateandlyle'), TRUE);
   \Drupal::configFactory()->getEditable('system.theme')->set('default', 'tateandlyle')->save(TRUE);
 }
-
-/**
- * Implements hook_update_last_removed().
- *
- * Removed last hook_update as it was not required.
- *
- * @see hook_update_last_removed()
- */
-
-/**
- * Removed last hook_update as it was not required.
- */
-function tal_wrapper_update_last_removed() {
-
-  // We've removed the 8.x-1.x version including database updates.
-  // The next update function is tal_wrapper_update_8200().
-  return 8016;
-}
