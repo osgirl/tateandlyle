@@ -10,7 +10,6 @@ dependencies:
     - field.field.node.press_release.field_downloads
     - field.field.node.press_release.field_downloads_border_title
     - field.field.node.press_release.field_image
-    - field.field.node.press_release.field_pr_boiler_content
     - field.field.node.press_release.field_reusable_component
     - field.field.node.press_release.field_story_description
     - field.field.node.press_release.field_tags
@@ -39,7 +38,6 @@ hidden:
   field_downloads: true
   field_downloads_border_title: true
   field_image: true
-  field_pr_boiler_content: true
   field_reusable_component: true
   field_story_description: true
   field_tags: true
