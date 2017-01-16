@@ -132,6 +132,9 @@
             },
             "drupal/facets": {
                 "Call to undefined method NodeType::hasTranslation inTranslateEntityProcessor": "https://www.drupal.org/files/issues/2823545-3.patch"
+            },
+            "drupal/webform": {
+                "Preview page: Attach contact form or other form elements": "https://www.drupal.org/files/issues/preview_page_attach-2839834-15.patch"
             }
         },
         "drupal-scaffold": {

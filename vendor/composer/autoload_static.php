@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit33eca93ade4fc3ac1bb5961e5fd0afdd
+class ComposerStaticInitc77ec9024a6b7faa81a80ff71fdbcd8a
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -467,10 +467,6 @@ class ComposerStaticInit33eca93ade4fc3ac1bb5961e5fd0afdd
             array (
                 0 => __DIR__ . '/..' . '/phpspec/prophecy/src',
             ),
-            'PHPDocsMD' => 
-            array (
-                0 => __DIR__ . '/..' . '/victorjonsson/markdowndocs/src',
-            ),
         ),
         'J' => 
         array (
@@ -847,13 +843,19 @@ class ComposerStaticInit33eca93ade4fc3ac1bb5961e5fd0afdd
         'Consolidation\\AnnotatedCommand\\AnnotatedCommand' => __DIR__ . '/..' . '/consolidation/annotated-command/src/AnnotatedCommand.php',
         'Consolidation\\AnnotatedCommand\\AnnotatedCommandFactory' => __DIR__ . '/..' . '/consolidation/annotated-command/src/AnnotatedCommandFactory.php',
         'Consolidation\\AnnotatedCommand\\AnnotationData' => __DIR__ . '/..' . '/consolidation/annotated-command/src/AnnotationData.php',
+        'Consolidation\\AnnotatedCommand\\CommandCreationListener' => __DIR__ . '/..' . '/consolidation/annotated-command/src/CommandCreationListener.php',
         'Consolidation\\AnnotatedCommand\\CommandCreationListenerInterface' => __DIR__ . '/..' . '/consolidation/annotated-command/src/CommandCreationListenerInterface.php',
         'Consolidation\\AnnotatedCommand\\CommandData' => __DIR__ . '/..' . '/consolidation/annotated-command/src/CommandData.php',
         'Consolidation\\AnnotatedCommand\\CommandError' => __DIR__ . '/..' . '/consolidation/annotated-command/src/CommandError.php',
         'Consolidation\\AnnotatedCommand\\CommandFileDiscovery' => __DIR__ . '/..' . '/consolidation/annotated-command/src/CommandFileDiscovery.php',
         'Consolidation\\AnnotatedCommand\\CommandInfoAltererInterface' => __DIR__ . '/..' . '/consolidation/annotated-command/src/CommandInfoAltererInterface.php',
         'Consolidation\\AnnotatedCommand\\CommandProcessor' => __DIR__ . '/..' . '/consolidation/annotated-command/src/CommandProcessor.php',
+        'Consolidation\\AnnotatedCommand\\Events\\CustomEventAwareInterface' => __DIR__ . '/..' . '/consolidation/annotated-command/src/Events/CustomEventAwareInterface.php',
+        'Consolidation\\AnnotatedCommand\\Events\\CustomEventAwareTrait' => __DIR__ . '/..' . '/consolidation/annotated-command/src/Events/CustomEventAwareTrait.php',
         'Consolidation\\AnnotatedCommand\\ExitCodeInterface' => __DIR__ . '/..' . '/consolidation/annotated-command/src/ExitCodeInterface.php',
+        'Consolidation\\AnnotatedCommand\\Help\\HelpCommand' => __DIR__ . '/..' . '/consolidation/annotated-command/src/Help/HelpCommand.php',
+        'Consolidation\\AnnotatedCommand\\Help\\HelpDocument' => __DIR__ . '/..' . '/consolidation/annotated-command/src/Help/HelpDocument.php',
+        'Consolidation\\AnnotatedCommand\\Help\\HelpDocumentAlter' => __DIR__ . '/..' . '/consolidation/annotated-command/src/Help/HelpDocumentAlter.php',
         'Consolidation\\AnnotatedCommand\\Hooks\\AlterResultInterface' => __DIR__ . '/..' . '/consolidation/annotated-command/src/Hooks/AlterResultInterface.php',
         'Consolidation\\AnnotatedCommand\\Hooks\\ExtractOutputInterface' => __DIR__ . '/..' . '/consolidation/annotated-command/src/Hooks/ExtractOutputInterface.php',
         'Consolidation\\AnnotatedCommand\\Hooks\\HookManager' => __DIR__ . '/..' . '/consolidation/annotated-command/src/Hooks/HookManager.php',
@@ -865,6 +867,8 @@ class ComposerStaticInit33eca93ade4fc3ac1bb5961e5fd0afdd
         'Consolidation\\AnnotatedCommand\\Hooks\\ValidatorInterface' => __DIR__ . '/..' . '/consolidation/annotated-command/src/Hooks/ValidatorInterface.php',
         'Consolidation\\AnnotatedCommand\\Options\\AlterOptionsCommandEvent' => __DIR__ . '/..' . '/consolidation/annotated-command/src/Options/AlterOptionsCommandEvent.php',
         'Consolidation\\AnnotatedCommand\\Options\\AutomaticOptionsProviderInterface' => __DIR__ . '/..' . '/consolidation/annotated-command/src/Options/AutomaticOptionsProviderInterface.php',
+        'Consolidation\\AnnotatedCommand\\Options\\PrepareFormatter' => __DIR__ . '/..' . '/consolidation/annotated-command/src/Options/PrepareFormatter.php',
+        'Consolidation\\AnnotatedCommand\\Options\\PrepareTerminalWidthOption' => __DIR__ . '/..' . '/consolidation/annotated-command/src/Options/PrepareTerminalWidthOption.php',
         'Consolidation\\AnnotatedCommand\\OutputDataInterface' => __DIR__ . '/..' . '/consolidation/annotated-command/src/OutputDataInterface.php',
         'Consolidation\\AnnotatedCommand\\Parser\\CommandInfo' => __DIR__ . '/..' . '/consolidation/annotated-command/src/Parser/CommandInfo.php',
         'Consolidation\\AnnotatedCommand\\Parser\\DefaultsWithDescriptions' => __DIR__ . '/..' . '/consolidation/annotated-command/src/Parser/DefaultsWithDescriptions.php',
@@ -898,8 +902,10 @@ class ComposerStaticInit33eca93ade4fc3ac1bb5961e5fd0afdd
         'Consolidation\\OutputFormatters\\StructuredData\\AbstractStructuredList' => __DIR__ . '/..' . '/consolidation/output-formatters/src/StructuredData/AbstractStructuredList.php',
         'Consolidation\\OutputFormatters\\StructuredData\\AssociativeList' => __DIR__ . '/..' . '/consolidation/output-formatters/src/StructuredData/AssociativeList.php',
         'Consolidation\\OutputFormatters\\StructuredData\\CallableRenderer' => __DIR__ . '/..' . '/consolidation/output-formatters/src/StructuredData/CallableRenderer.php',
+        'Consolidation\\OutputFormatters\\StructuredData\\HelpDocument' => __DIR__ . '/..' . '/consolidation/output-formatters/src/StructuredData/HelpDocument.php',
         'Consolidation\\OutputFormatters\\StructuredData\\ListDataInterface' => __DIR__ . '/..' . '/consolidation/output-formatters/src/StructuredData/ListDataInterface.php',
         'Consolidation\\OutputFormatters\\StructuredData\\OriginalDataInterface' => __DIR__ . '/..' . '/consolidation/output-formatters/src/StructuredData/OriginalDataInterface.php',
+        'Consolidation\\OutputFormatters\\StructuredData\\PropertyList' => __DIR__ . '/..' . '/consolidation/output-formatters/src/StructuredData/PropertyList.php',
         'Consolidation\\OutputFormatters\\StructuredData\\RenderCellCollectionInterface' => __DIR__ . '/..' . '/consolidation/output-formatters/src/StructuredData/RenderCellCollectionInterface.php',
         'Consolidation\\OutputFormatters\\StructuredData\\RenderCellCollectionTrait' => __DIR__ . '/..' . '/consolidation/output-formatters/src/StructuredData/RenderCellCollectionTrait.php',
         'Consolidation\\OutputFormatters\\StructuredData\\RenderCellInterface' => __DIR__ . '/..' . '/consolidation/output-formatters/src/StructuredData/RenderCellInterface.php',
@@ -909,13 +915,14 @@ class ComposerStaticInit33eca93ade4fc3ac1bb5961e5fd0afdd
         'Consolidation\\OutputFormatters\\StructuredData\\Xml\\DomDataInterface' => __DIR__ . '/..' . '/consolidation/output-formatters/src/StructuredData/Xml/DomDataInterface.php',
         'Consolidation\\OutputFormatters\\StructuredData\\Xml\\XmlSchema' => __DIR__ . '/..' . '/consolidation/output-formatters/src/StructuredData/Xml/XmlSchema.php',
         'Consolidation\\OutputFormatters\\StructuredData\\Xml\\XmlSchemaInterface' => __DIR__ . '/..' . '/consolidation/output-formatters/src/StructuredData/Xml/XmlSchemaInterface.php',
-        'Consolidation\\OutputFormatters\\Transformations\\AssociativeListTableTransformation' => __DIR__ . '/..' . '/consolidation/output-formatters/src/Transformations/AssociativeListTableTransformation.php',
         'Consolidation\\OutputFormatters\\Transformations\\DomToArraySimplifier' => __DIR__ . '/..' . '/consolidation/output-formatters/src/Transformations/DomToArraySimplifier.php',
         'Consolidation\\OutputFormatters\\Transformations\\OverrideRestructureInterface' => __DIR__ . '/..' . '/consolidation/output-formatters/src/Transformations/OverrideRestructureInterface.php',
+        'Consolidation\\OutputFormatters\\Transformations\\PropertyListTableTransformation' => __DIR__ . '/..' . '/consolidation/output-formatters/src/Transformations/PropertyListTableTransformation.php',
         'Consolidation\\OutputFormatters\\Transformations\\PropertyParser' => __DIR__ . '/..' . '/consolidation/output-formatters/src/Transformations/PropertyParser.php',
         'Consolidation\\OutputFormatters\\Transformations\\ReorderFields' => __DIR__ . '/..' . '/consolidation/output-formatters/src/Transformations/ReorderFields.php',
         'Consolidation\\OutputFormatters\\Transformations\\SimplifyToArrayInterface' => __DIR__ . '/..' . '/consolidation/output-formatters/src/Transformations/SimplifyToArrayInterface.php',
         'Consolidation\\OutputFormatters\\Transformations\\TableTransformation' => __DIR__ . '/..' . '/consolidation/output-formatters/src/Transformations/TableTransformation.php',
+        'Consolidation\\OutputFormatters\\Transformations\\WordWrapper' => __DIR__ . '/..' . '/consolidation/output-formatters/src/Transformations/WordWrapper.php',
         'Consolidation\\OutputFormatters\\Validate\\ValidDataTypesInterface' => __DIR__ . '/..' . '/consolidation/output-formatters/src/Validate/ValidDataTypesInterface.php',
         'Consolidation\\OutputFormatters\\Validate\\ValidDataTypesTrait' => __DIR__ . '/..' . '/consolidation/output-formatters/src/Validate/ValidDataTypesTrait.php',
         'Consolidation\\OutputFormatters\\Validate\\ValidationInterface' => __DIR__ . '/..' . '/consolidation/output-formatters/src/Validate/ValidationInterface.php',
@@ -3001,6 +3008,7 @@ class ComposerStaticInit33eca93ade4fc3ac1bb5961e5fd0afdd
         'Drush\\Command\\DrushInputAdapter' => __DIR__ . '/..' . '/drush/drush/lib/Drush/Command/DrushInputAdapter.php',
         'Drush\\Command\\DrushOutputAdapter' => __DIR__ . '/..' . '/drush/drush/lib/Drush/Command/DrushOutputAdapter.php',
         'Drush\\Command\\ServiceCommandlist' => __DIR__ . '/..' . '/drush/drush/lib/Drush/Command/ServiceCommandlist.php',
+        'Drush\\Commands\\core\\SanitizeCommands' => __DIR__ . '/..' . '/drush/drush/lib/Drush/Commands/core/SanitizeCommands.php',
         'Drush\\Commands\\core\\StatusCommands' => __DIR__ . '/..' . '/drush/drush/lib/Drush/Commands/core/StatusCommands.php',
         'Drush\\Config\\CoreExtensionFilter' => __DIR__ . '/..' . '/drush/drush/lib/Drush/Config/CoreExtensionFilter.php',
         'Drush\\Config\\StorageFilter' => __DIR__ . '/..' . '/drush/drush/lib/Drush/Config/StorageFilter.php',
@@ -3806,21 +3814,6 @@ class ComposerStaticInit33eca93ade4fc3ac1bb5961e5fd0afdd
         'PHPCPDFormatterElement' => __DIR__ . '/..' . '/phing/phing/classes/phing/tasks/ext/phpcpd/PHPCPDFormatterElement.php',
         'PHPCPDResultFormatter' => __DIR__ . '/..' . '/phing/phing/classes/phing/tasks/ext/phpcpd/formatter/PHPCPDResultFormatter.php',
         'PHPCPDTask' => __DIR__ . '/..' . '/phing/phing/classes/phing/tasks/ext/phpcpd/PHPCPDTask.php',
-        'PHPDocsMD\\ClassEntity' => __DIR__ . '/..' . '/victorjonsson/markdowndocs/src/PHPDocsMD/ClassEntity.php',
-        'PHPDocsMD\\ClassEntityFactory' => __DIR__ . '/..' . '/victorjonsson/markdowndocs/src/PHPDocsMD/ClassEntityFactory.php',
-        'PHPDocsMD\\CodeEntity' => __DIR__ . '/..' . '/victorjonsson/markdowndocs/src/PHPDocsMD/CodeEntity.php',
-        'PHPDocsMD\\Console\\CLI' => __DIR__ . '/..' . '/victorjonsson/markdowndocs/src/PHPDocsMD/Console/CLI.php',
-        'PHPDocsMD\\Console\\PHPDocsMDCommand' => __DIR__ . '/..' . '/victorjonsson/markdowndocs/src/PHPDocsMD/Console/PHPDocsMDCommand.php',
-        'PHPDocsMD\\DocInfo' => __DIR__ . '/..' . '/victorjonsson/markdowndocs/src/PHPDocsMD/DocInfo.php',
-        'PHPDocsMD\\DocInfoExtractor' => __DIR__ . '/..' . '/victorjonsson/markdowndocs/src/PHPDocsMD/DocInfoExtractor.php',
-        'PHPDocsMD\\FunctionEntity' => __DIR__ . '/..' . '/victorjonsson/markdowndocs/src/PHPDocsMD/FunctionEntity.php',
-        'PHPDocsMD\\FunctionFinder' => __DIR__ . '/..' . '/victorjonsson/markdowndocs/src/PHPDocsMD/FunctionFinder.php',
-        'PHPDocsMD\\MDTableGenerator' => __DIR__ . '/..' . '/victorjonsson/markdowndocs/src/PHPDocsMD/MDTableGenerator.php',
-        'PHPDocsMD\\ParamEntity' => __DIR__ . '/..' . '/victorjonsson/markdowndocs/src/PHPDocsMD/ParamEntity.php',
-        'PHPDocsMD\\Reflector' => __DIR__ . '/..' . '/victorjonsson/markdowndocs/src/PHPDocsMD/Reflector.php',
-        'PHPDocsMD\\ReflectorInterface' => __DIR__ . '/..' . '/victorjonsson/markdowndocs/src/PHPDocsMD/ReflectorInterface.php',
-        'PHPDocsMD\\UseInspector' => __DIR__ . '/..' . '/victorjonsson/markdowndocs/src/PHPDocsMD/UseInspector.php',
-        'PHPDocsMD\\Utils' => __DIR__ . '/..' . '/victorjonsson/markdowndocs/src/PHPDocsMD/Utils.php',
         'PHPLocCSVFormatter' => __DIR__ . '/..' . '/phing/phing/classes/phing/tasks/ext/phploc/PHPLocCSVFormatter.php',
         'PHPLocFormatterElement' => __DIR__ . '/..' . '/phing/phing/classes/phing/tasks/ext/phploc/PHPLocFormatterElement.php',
         'PHPLocFormatterFactory' => __DIR__ . '/..' . '/phing/phing/classes/phing/tasks/ext/phploc/PHPLocFormatterFactory.php',
@@ -6415,6 +6408,7 @@ class ComposerStaticInit33eca93ade4fc3ac1bb5961e5fd0afdd
         'Twig_Loader_String' => __DIR__ . '/..' . '/twig/twig/lib/Twig/Loader/String.php',
         'Twig_Markup' => __DIR__ . '/..' . '/twig/twig/lib/Twig/Markup.php',
         'Twig_Node' => __DIR__ . '/..' . '/twig/twig/lib/Twig/Node.php',
+        'Twig_NodeCaptureInterface' => __DIR__ . '/..' . '/twig/twig/lib/Twig/NodeCaptureInterface.php',
         'Twig_NodeInterface' => __DIR__ . '/..' . '/twig/twig/lib/Twig/NodeInterface.php',
         'Twig_NodeOutputInterface' => __DIR__ . '/..' . '/twig/twig/lib/Twig/NodeOutputInterface.php',
         'Twig_NodeTraverser' => __DIR__ . '/..' . '/twig/twig/lib/Twig/NodeTraverser.php',
@@ -6843,10 +6837,10 @@ class ComposerStaticInit33eca93ade4fc3ac1bb5961e5fd0afdd
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit33eca93ade4fc3ac1bb5961e5fd0afdd::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit33eca93ade4fc3ac1bb5961e5fd0afdd::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit33eca93ade4fc3ac1bb5961e5fd0afdd::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit33eca93ade4fc3ac1bb5961e5fd0afdd::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitc77ec9024a6b7faa81a80ff71fdbcd8a::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitc77ec9024a6b7faa81a80ff71fdbcd8a::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitc77ec9024a6b7faa81a80ff71fdbcd8a::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInitc77ec9024a6b7faa81a80ff71fdbcd8a::$classMap;
 
         }, null, ClassLoader::class);
     }

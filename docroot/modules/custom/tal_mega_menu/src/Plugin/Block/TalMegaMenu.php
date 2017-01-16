@@ -4,6 +4,7 @@ namespace Drupal\tal_mega_menu\Plugin\Block;
 
 use Drupal\block\Entity\Block;
 use Drupal\Core\Block\BlockBase;
+use Drupal\Core\Link;
 
 /**
  * Provides continue search block for search page.
@@ -71,11 +72,9 @@ class TalMegaMenu extends BlockBase {
               }
             }
           }
-          $title = $item['title'];
-          if (empty($item['below']) && empty($childData)) {
-            $url = $item['url'];
-            $title = \Drupal::l($title, $url);
-          }
+          $url = $item['url'];
+          $url->setOption('attributes', array('data-toggle' => 'dropdown', 'class' => array('dropdown-toggle')));
+          $title = Link::fromTextAndUrl($item['title'], $url);
           $data['#data'][$k] = [
             '#theme' => 'tal_menu_col_level1',
             '#link' => $title,
