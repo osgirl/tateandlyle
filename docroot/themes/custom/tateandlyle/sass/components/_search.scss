@@ -8,10 +8,11 @@
   overflow: hidden;
 }
 
-.path-search .region-content-top {
-  margin-bottom: 10px;
+.path-search .right__sidebar,
+.path-search .left__content {
+  padding-top: 10px;
   @media (min-width: $screen-sm) {
-    margin-bottom: 40px;
+    padding-top: 40px;
   }
 }
 
