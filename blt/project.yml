@@ -46,7 +46,7 @@ modules:
     enable: [acquia_connector, shield, tal_default_content]
     uninstall: [devel, views_ui]
   prod:
-    enable: {  }
+    enable: [acquia_connector, shield, tal_default_content]
     uninstall: [devel, views_ui]
   deploy:
     enable: [acquia_connector, admin_toolbar]
