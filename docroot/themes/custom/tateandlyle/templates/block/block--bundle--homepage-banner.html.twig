@@ -87,7 +87,15 @@ set norighticon = [
           {{ content.field_description }}
         </div>
 
-        <div class="banner--links">
+        <div class="banner--links dropdown">
+        {% if no_icon %}
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropdown
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+          {% else %}
+          <div>
+          {% endif %}
 
           <div {{ attributes.addClass(nolefticon) }}>
             {% if content.field_icon %}
@@ -101,6 +109,7 @@ set norighticon = [
                   {{ content.field_right_icon }}
               {% endif %}
               {{ content.field_right_link }}
+          </div>
           </div>
         </div>
       </div>

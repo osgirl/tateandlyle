@@ -157,19 +157,27 @@
   }
 
   .no-left-icon {
+    padding-left: 15px;
     padding-right: 15px;
+    @media(min-width: $screen-sm) {
+      padding-left: 0;
+    }
   }
 
   .no-right-icon {
+    padding-right: 15px;
     padding-left: 15px;
+    @media(min-width: $screen-sm) {
+      padding-right: 0;
+    }
   }
 
   .no-left-icon,
   .no-right-icon {
-    margin-top: 23px;
     text-transform: uppercase;
 
     @media(min-width: $screen-sm) {
+      margin-top: 23px;
       text-align: left;
     }
 
@@ -190,6 +198,47 @@
 
       &:hover {
         background-color: $color-light-gray;
+      }
+    }
+  }
+
+  .dropdown-menu,
+  .dropdown-toggle {
+    border-radius: 0;
+    width: 100%;
+  }
+
+  .dropdown-toggle {
+    background-color: $brand-primary;
+    border: none;
+    color: $color-white;
+    font-size: $font-size-small;
+    padding: 13px;
+    text-align: left;
+    text-transform: uppercase;
+
+    &::after {
+      @extend %svg-icon-small;
+      background: url("../images/icons/cta-drop-down-arrow-white.svg") no-repeat;
+      background-size: cover;
+      padding-left: 10px;
+      position: absolute;
+      margin-top: 3px;
+      right: 15px;
+    }
+  }
+
+  @media (min-width: $screen-sm) {
+    .banner--links {
+      .dropdown-toggle {
+        display: none;
+      }
+
+      .dropdown-menu {
+        border: none;
+        box-shadow: none;
+        display: block;
+        position: static;
       }
     }
   }

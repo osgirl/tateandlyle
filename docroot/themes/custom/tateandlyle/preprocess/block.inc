@@ -237,6 +237,7 @@ function tal_preprocess_block_homepage_banner($variables, $block) {
 
   if (empty($left_icon) || empty($right_icon)) {
     $variables['no_icon_dsc'] = 'no__icon--banner';
+    $variables['no_icon'] = TRUE;
   }
 
   return $variables;
