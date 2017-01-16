@@ -10,4 +10,5 @@ dependencies:
   - tal_search
   - admin_toolbar
   - search
-  - default_content
+  - tal_default_content
+
