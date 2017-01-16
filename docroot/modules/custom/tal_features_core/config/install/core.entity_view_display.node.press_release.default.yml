@@ -10,7 +10,6 @@ dependencies:
     - field.field.node.press_release.field_downloads_border_title
     - field.field.node.press_release.field_image
     - field.field.node.press_release.field_image_size
-    - field.field.node.press_release.field_pr_boiler_content
     - field.field.node.press_release.field_reusable_component
     - field.field.node.press_release.field_story_description
     - field.field.node.press_release.field_tags
@@ -103,5 +102,4 @@ content:
   links:
     weight: 100
 hidden:
-  field_pr_boiler_content: true
   field_tags: true
