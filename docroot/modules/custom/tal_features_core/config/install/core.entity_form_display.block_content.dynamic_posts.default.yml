@@ -1,0 +1,32 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.dynamic_posts
+    - field.field.block_content.dynamic_posts.field_artice
+    - field.field.block_content.dynamic_posts.field_tags
+  module:
+    - workbench_moderation
+id: block_content.dynamic_posts.default
+targetEntityType: block_content
+bundle: dynamic_posts
+mode: default
+content:
+  field_artice:
+    weight: 6
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+  field_tags:
+    weight: 7
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+  info:
+    type: string_textfield
+    weight: -5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

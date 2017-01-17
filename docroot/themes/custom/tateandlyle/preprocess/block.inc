@@ -262,3 +262,53 @@ function tal_preprocess_block_history($variables, $block) {
   $variables['wrapper_id'] = $tab_wrapper_id;
   return $variables;
 }
+
+/**
+ * Preprocessor function for Dynamic posts block type.
+ */
+function tal_preprocess_block_dynamic_posts($variables, $block) {
+
+  // Store current block object for later processing.
+  $tempstore = \Drupal::service('user.private_tempstore')->get('dynamic_post_block');
+  $tempstore->set('block', $block);
+
+  $categories = $block->get('field_artice')->getValue();
+  $tag_vocab = $block->get('field_tags')->getValue();
+  $terms = [];
+  $tags = [];
+  $arg = [];
+  foreach ($categories as $category) {
+    $terms[] = $category['target_id'];
+  }
+
+  foreach ($tag_vocab as $term) {
+    $tags[] = $term['target_id'];
+  }
+
+  $terms = implode('+', $terms);
+  $tags = implode('+', $tags);
+  $arg[0] = $terms;
+  if ($tags != '') {
+    $arg[1] = $tags;
+  }
+  $variables['dynamic_posts'] = array(
+    '#type' => 'view',
+    '#name' => 'articles_post',
+    '#display_id' => 'block_1',
+    '#arguments' => $arg,
+    '#prefix' => '<div class="tal--dynamic-post-list" id="dynamic-post-list">',
+    '#suffix' => '</div>',
+  );
+
+  $variables['focus_on_tag_list'] = array(
+    '#type' => 'view',
+    '#name' => 'focus_on_tag_list',
+    '#display_id' => 'block_1',
+    '#prefix' => '<div class="tal--focus-on-tag-list">',
+    '#suffix' => '</div>',
+  );
+
+  $variables['#attached']['library'][] = 'tal_articles/tal_articles_post_list';
+
+  return $variables;
+}
