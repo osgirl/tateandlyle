@@ -56,7 +56,7 @@ function tal_preprocess_node_company_story($variables, $node) {
   $term = Term::load($tid);
 
   $nid = $node->id();
-  $bundle = 'company_story';
+  $bundle = $node->bundle();
 
   $variables['next'] = TalWrapperUtility::generateNextPrevious($nid, $bundle, 'next');
   $variables['prev'] = TalWrapperUtility::generateNextPrevious($nid, $bundle, 'prev');
@@ -98,6 +98,8 @@ function tal_preprocess_node_iframe_content($variables, $node) {
 
 /**
  * Preprocessor function for "press_release" bundle.
+ *
+ * @see tal_preprocess_node_company_story()
  */
 function tal_preprocess_node_press_release($variables, $node) {
   // Preprocess same way like article content type.
