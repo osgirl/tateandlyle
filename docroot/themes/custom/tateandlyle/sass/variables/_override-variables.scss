@@ -11,6 +11,7 @@ $color-white: #FFFFFF;
 $color-white-translucent: rgba(255, 255, 255, 0.9);
 $gray-base: #000000 !default;
 $gray-base-translucent: rgba(0, 0, 0, 0.4);
+$gray-base-translucent-light: rgba(0, 0, 0, 0.2);
 $gray-darker: lighten($gray-base, 13.5%) !default; // #222
 $gray-dark: #666666;
 $gray: lighten($gray-base, 33.5%) !default; // #555
