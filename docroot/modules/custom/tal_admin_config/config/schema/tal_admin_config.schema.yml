@@ -6,7 +6,7 @@ tal_admin_config.settings:
       type: string
       label: 'Title'
     tai_summary:
-      type: string
+      type: text
       label: 'Summary'
     tai_read_more:
       type: string
@@ -14,3 +14,6 @@ tal_admin_config.settings:
     tai_link:
       type: string
       label: 'Link'
+    boilerplate_content:
+      type: text
+      label: 'Boilerplate Content'

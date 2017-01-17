@@ -13,7 +13,7 @@ entity_type: node
 bundle: press_release
 label: 'Story Description'
 description: ''
-required: true
+required: false
 translatable: true
 default_value: {  }
 default_value_callback: ''
@@ -53,6 +53,9 @@ settings:
       ingredient_downloads:
         weight: 29
         enabled: false
+      history_tab:
+        weight: 29
+        enabled: false
       media_video_gallery:
         weight: 30
         enabled: false
@@ -76,6 +79,9 @@ settings:
         weight: 36
       wysiwyg_with_block_reference:
         weight: 37
+        enabled: false
+      timeline_content:
+        weight: 38
         enabled: false
       wysiwyg_with_country_and_region:
         weight: 38

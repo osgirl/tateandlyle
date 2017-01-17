@@ -8,13 +8,13 @@ use Drupal\Core\Form\FormStateInterface;
 /**
  * Configure example settings for this site.
  */
-class TalTrendsAndInsightForm extends ConfigFormBase {
+class TalAdminConfigForm extends ConfigFormBase {
 
   /**
    * {@inheritdoc}
    */
   public function getFormId() {
-    return 'tal_admin_trend_and_insights';
+    return 'tal_admin_config';
   }
 
   /**
@@ -43,8 +43,9 @@ class TalTrendsAndInsightForm extends ConfigFormBase {
       '#default_value' => $config->get('tai_title'),
     );
     $form['tai_settings']['tai_summary'] = array(
-      '#type' => 'textarea',
+      '#type' => 'text_format',
       '#title' => $this->t('Summary'),
+      '#format' => 'rich_text',
       '#default_value' => $config->get('tai_summary'),
     );
     $form['tai_settings']['tai_read_more'] = array(
@@ -57,6 +58,18 @@ class TalTrendsAndInsightForm extends ConfigFormBase {
       '#title' => $this->t('Link'),
       '#default_value' => $config->get('tai_link'),
     );
+    // Press Release Boilerplate settings.
+    $form['tal_pr_boilerplate_settings'] = [
+      '#type' => 'details',
+      '#title' => $this->t('Press Release Boilerplate Settings'),
+      '#open' => TRUE,
+    ];
+    $form['tal_pr_boilerplate_settings']['boilerplate_content'] = array(
+      '#type' => 'text_format',
+      '#title' => $this->t('Boilerplate Content'),
+      '#format' => 'rich_text',
+      '#default_value' => $config->get('boilerplate_content'),
+    );
     return parent::buildForm($form, $form_state);
   }
 
@@ -66,9 +79,13 @@ class TalTrendsAndInsightForm extends ConfigFormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $config = \Drupal::service('config.factory')->getEditable('tal_admin_config.settings');
     $config->set('tai_title', $form_state->getValue('tai_title'));
-    $config->set('tai_summary', $form_state->getValue('tai_summary'));
+    $values = $form_state->getValues();
+    $tai_summary = $values['tai_summary']['value'];
+    $boilerplate_content = $values['boilerplate_content']['value'];
+    $config->set('tai_summary', $tai_summary);
     $config->set('tai_read_more', $form_state->getValue('tai_read_more'));
-    $config->set('tai_link', $form_state->getValue('tai_link'))
+    $config->set('tai_link', $form_state->getValue('tai_link'));
+    $config->set('boilerplate_content', $boilerplate_content)
       ->save();
 
     parent::submitForm($form, $form_state);

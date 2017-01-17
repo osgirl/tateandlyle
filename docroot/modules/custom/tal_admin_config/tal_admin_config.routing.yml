@@ -8,8 +8,8 @@ tal_admin_config.tal_settings:
 tal_admin_config.tal_admin_trendsandinsight:
   path: '/admin/config/tal/settings'
   defaults:
-    _form: '\Drupal\tal_admin_config\Form\TalTrendsAndInsightForm'
-    _title: 'Tate & Lyle Settings'
+    _form: '\Drupal\tal_admin_config\Form\TalAdminConfigForm'
+    _title: 'Tate & Lyle Settings form'
   requirements:
     _permission: 'administer site configuration'
   options:
