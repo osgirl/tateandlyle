@@ -8,21 +8,27 @@
   h2 {
     font-size: 24px;
     color: $gray-base-light;
+    margin-bottom: 1.3em;
   }
   .block-keyareasofexpertise {
     max-width: 100%;
     @media (min-width: $screen-sm) {
       max-width: 50%;
     }
-    ul li {
-      border-bottom: 1px solid $color-warm-gray;
-      a {
-        padding: 1em;
-        &::after {
-          @extend %right-brand-arrow;
-          float: right;
-          font-size: 23px;
-          line-height: 22px;
+    ul {
+      margin-left: 1em;
+      li {
+        border-bottom: 1px solid $color-warm-gray;
+        a {
+          height: 70px;
+          padding-left: 70px;
+          line-height: 50px;
+          &::after {
+            @extend %right-brand-arrow;
+            float: right;
+            font-size: 23px;
+            line-height: 55px;
+          }
         }
       }
     }
