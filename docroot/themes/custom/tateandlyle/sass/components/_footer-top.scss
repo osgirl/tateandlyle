@@ -1,0 +1,30 @@
+.page--footer-top {
+  background: $color-light-gray;
+  .region-footer-top {
+    max-width: 1168px;
+    margin: 0 auto;
+    padding: 2em;
+  }
+  h2 {
+    font-size: 24px;
+    color: $gray-base-light;
+  }
+  #block-keyareasofexpertise {
+    max-width: 100%;
+    @media (min-width: $screen-sm) {
+      max-width: 50%;
+    }
+    ul li {
+      border-bottom: 1px solid $color-warm-gray;
+      a {
+        padding: 1em;
+        &::after {
+          @extend %right-brand-arrow;
+          float: right;
+          font-size: 23px;
+          line-height: 22px;
+        }
+      }
+    }
+  }
+}
