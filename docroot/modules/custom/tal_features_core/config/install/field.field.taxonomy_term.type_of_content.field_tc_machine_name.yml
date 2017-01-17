@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_tc_machine_name
+    - taxonomy.vocabulary.type_of_content
+id: taxonomy_term.type_of_content.field_tc_machine_name
+field_name: field_tc_machine_name
+entity_type: taxonomy_term
+bundle: type_of_content
+label: 'Machine name'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
