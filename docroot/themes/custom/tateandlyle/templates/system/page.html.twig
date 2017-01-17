@@ -196,6 +196,14 @@
   </div>
 {% endblock %}
 
+
+{% block footer_top %}
+  <div class="footer page--footer-top {{ container }}" role="contentinfo">
+    {{ page.footer_top }}
+  </div>
+{% endblock %}
+
+
 {% if page.footer %}
   {% block footer %}
     <footer class="footer page--footer {{ container }}" role="contentinfo">
