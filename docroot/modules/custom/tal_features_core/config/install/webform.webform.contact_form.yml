@@ -4,12 +4,14 @@ dependencies:
   enforced:
     module:
       - webform
+  module:
+    - tal_webform
 uid: null
 template: false
 id: contact_form
 title: 'Contact Form'
 description: 'Basic email contact webform.'
-elements: "type_of_enquiry:\n  '#type': radios\n  '#title': 'Type of Enquiry'\n  '#default_value': commercial_sales\n  '#options':\n    commercial_sales: Commercial/Sales\n    other: Other\n  '#options_display': two_columns\n  '#required': true\nfirst_name:\n  '#type': textfield\n  '#title': 'First Name'\n  '#required': true\nlast_name:\n  '#type': textfield\n  '#title': 'Last Name'\n  '#required': true\nemail:\n  '#type': email\n  '#title': Email\n  '#default_value': '[webform-authenticated-user:mail]'\n  '#required': true\ncompany:\n  '#type': textfield\n  '#title': Company\n  '#required': true\nmessage:\n  '#title': Message\n  '#type': textarea\n  '#required': true\n  '#test': 'Please ignore this email.'\nindustry:\n  '#type': entity_select\n  '#title': Industry\n  '#target_type': taxonomy_term\n  '#selection_handler': 'default:taxonomy_term'\n  '#selection_settings':\n    target_bundles:\n      industry: industry\n  '#required': true\ncategory:\n  '#type': entity_select\n  '#title': Category\n  '#target_type': taxonomy_term\n  '#selection_handler': 'default:taxonomy_term'\n  '#selection_settings':\n    target_bundles:\n      category: category\n  '#required': true\ncountry:\n  '#type': select\n  '#title': Country\n  '#options': country_names\n  '#required': true\ntitle:\n  '#type': textfield\n  '#title': Title\n  '#required': true\nphone:\n  '#type': tel\n  '#title': Phone\n  '#required': true\nlead_source:\n  '#type': select\n  '#title': 'Lead Source'\n  '#options':\n    'T&L Website': 'T&L Website'\n  '#required': true\nsend_mail:\n  '#type': email\n  '#title': 'Send mail'\n  '#wrapper_attributes':\n    class:\n      - hide\n"
+elements: "type_of_enquiry:\n  '#type': radios\n  '#title': 'Type of Enquiry'\n  '#default_value': commercial_sales\n  '#options':\n    commercial_sales: Commercial/Sales\n    other: Other\n  '#options_display': two_columns\n  '#required': true\nfirst_name:\n  '#type': textfield\n  '#title': 'First Name'\n  '#required': true\nlast_name:\n  '#type': textfield\n  '#title': 'Last Name'\n  '#required': true\nemail:\n  '#type': email\n  '#title': Email\n  '#default_value': '[webform-authenticated-user:mail]'\n  '#required': true\ncompany:\n  '#type': textfield\n  '#title': Company\n  '#required': true\ntitle:\n  '#type': textfield\n  '#title': Title\n  '#required': true\nmessage:\n  '#title': Message\n  '#type': textarea\n  '#required': true\n  '#test': 'Please ignore this email.'\nindustry:\n  '#type': entity_select\n  '#title': Industry\n  '#target_type': taxonomy_term\n  '#selection_handler': 'default:taxonomy_term'\n  '#selection_settings':\n    target_bundles:\n      industry: industry\n  '#required': true\ncategory:\n  '#type': entity_select\n  '#title': Category\n  '#target_type': taxonomy_term\n  '#selection_handler': 'default:taxonomy_term'\n  '#selection_settings':\n    target_bundles:\n      category: category\n  '#required': true\ncountry:\n  '#type': select\n  '#title': Country\n  '#options': country_names\n  '#required': true\nphone:\n  '#type': tel\n  '#title': Phone\n  '#required': true\nlead_source:\n  '#type': select\n  '#title': 'Lead Source'\n  '#options':\n    'T&L Website': 'T&L Website'\n  '#required': true\nsend_mail:\n  '#type': email\n  '#title': 'Send mail'\n  '#wrapper_attributes':\n    class:\n      - hide\ntc:\n  '#type': textfield\n  '#title': 'Type of content'\n  '#wrapper_attributes':\n    class:\n      - hide\n"
 css: ''
 javascript: ''
 settings:
@@ -95,39 +97,60 @@ access:
     roles: {  }
     users: {  }
 handlers:
-  email_confirmation:
-    id: email
-    label: 'Email confirmation'
-    handler_id: email_confirmation
+  tal_email:
+    id: tal_email
+    label: 'TAL Email'
+    handler_id: tal_email
     status: true
-    weight: 1
+    weight: 0
     settings:
-      to_mail: '[webform_submission:values:email:raw]'
+      to_mail: '[webform_submission:values:send_mail:raw]'
       cc_mail: ''
       bcc_mail: ''
       from_mail: default
       from_name: default
-      subject: '[webform_submission:values:subject:value]'
-      body: '[webform_submission:values:message:value]'
-      excluded_elements: {  }
+      subject: '[webform_submission:values:title:value]'
+      body: default
+      excluded_elements:
+        send_mail: send_mail
+        tc: tc
       html: true
       attachments: false
-      debug: false
-  email_notification:
-    id: email
-    label: 'Email notification'
-    handler_id: email_notification
+      debug: 0
+  tal_remote_post:
+    id: tal_remote_post
+    label: 'TAL Remote post'
+    handler_id: tal_remote_post
     status: true
     weight: 1
     settings:
-      to_mail: pradeep22saini@gmail.com
-      cc_mail: ''
-      bcc_mail: ''
-      from_mail: '[webform_submission:values:email:raw]'
-      from_name: '[webform_submission:values:name:value]'
-      subject: '[webform_submission:values:subject:value]'
-      body: '[webform_submission:values:message:value]'
-      excluded_elements: {  }
-      html: true
-      attachments: false
-      debug: false
+      type: x-www-form-urlencoded
+      insert_url: 'https://devsys--TNLDSYS.cs4.my.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8'
+      update_url: ''
+      delete_url: ''
+      excluded_data:
+        serial: serial
+        sid: sid
+        uuid: uuid
+        token: token
+        uri: uri
+        created: created
+        completed: completed
+        changed: changed
+        in_draft: in_draft
+        current_page: current_page
+        remote_addr: remote_addr
+        uid: uid
+        langcode: langcode
+        webform_id: webform_id
+        entity_type: entity_type
+        entity_id: entity_id
+        sticky: sticky
+        notes: notes
+        send_mail: send_mail
+        tc: tc
+      custom_data: ''
+      insert_custom_data: ''
+      update_custom_data: ''
+      delete_custom_data: ''
+      debug: 0
