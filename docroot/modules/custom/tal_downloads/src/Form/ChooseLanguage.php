@@ -88,7 +88,7 @@ class ChooseLanguage extends FormBase {
   private function getLanguageOptions($filegroup_ids) {
     $entities = Paragraph::loadMultiple($filegroup_ids);
     $options = array(
-      0 => t('Choose version'),
+      0 => t('Select language'),
     );
     foreach ($entities as $entity_id => $entity) {
       $term = $entity->get('field_file_language')->referencedEntities();
