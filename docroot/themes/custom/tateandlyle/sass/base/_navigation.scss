@@ -591,15 +591,17 @@
   ul li {
     background: white;
     border-bottom: 1px solid $color-warm-gray;
+    line-height: 30px;
     .caret {
       float: right;
-      margin-top: 0.25em;
+      margin-top: 1em;
       color: $brand-primary;
     }
     a {
       text-transform: uppercase;
       font-size: 14px;
       color: black;
+      padding: 3px 0.50em;
     }
     &.open {
       background: $color-light-gray;
@@ -608,14 +610,16 @@
         border: 0;
         box-shadow: 0 0 0;
         width: 100%;
-        margin: 1px 0;
+        margin: 0;
+        padding: 0;
         li {
           border-bottom: 1px solid $color-warm-gray;
           background: $color-light-gray;
-          border: 0 none;
-          margin-left: 0.75em;
-          a:hover {
-            background: transparent;
+          a {
+            padding: 0.60em 2em;
+            &:hover {
+              background: transparent;
+            }
           }
         }
       }
