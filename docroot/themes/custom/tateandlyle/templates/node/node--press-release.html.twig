@@ -112,7 +112,7 @@
     {% if prev %}
     <div class="col-sm-4 col-xs-6 previous--articles">
       <a href="{{ prev.url }}">
-        {{ "Previous article"|t }}
+        {{ "Previous Press release"|t }}
       <span>
         {{ prev.title }}
       </span>
@@ -120,14 +120,14 @@
     </div>
     {% endif %}
     <div class="col-sm-4 col-xs-6 all--articles">
-        <a href="/articles/all">
-            {{ "View all company news"|t }}
+        <a href="/articles/4">
+            {{ "View all Press releases"|t }}
         </a>
     </div>
     {% if next %}
     <div class="col-sm-4 col-xs-6 next--articles">
       <a href="{{ next.url }}">
-        {{ "Next article"|t }}
+        {{ "Previous Press release"|t }}
       <span>
         {{ next.title }}
       </span>
@@ -135,6 +135,11 @@
     </div>
     {% endif %}
   </div>
+  {% if boilerplate %}
+    <div>
+        {{ boilerplate.content }}
+    </div>
+  {% endif %}
   {{ content.field_reusable_component }}
 
 </article>
