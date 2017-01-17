@@ -10,7 +10,7 @@ id: paragraph.filegroup.field_tal_link
 field_name: field_tal_link
 entity_type: paragraph
 bundle: filegroup
-label: 'Extrnal Download URL'
+label: 'External Download URL'
 description: ''
 required: false
 translatable: true
