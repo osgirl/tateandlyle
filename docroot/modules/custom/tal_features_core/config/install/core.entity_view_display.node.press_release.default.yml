@@ -18,9 +18,15 @@ dependencies:
     - datetime
     - entity_reference_revisions
     - image
-    - options
+    - panelizer
     - text
     - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
 id: node.press_release.default
 targetEntityType: node
 bundle: press_release
@@ -29,25 +35,25 @@ content:
   body:
     label: hidden
     type: text_default
-    weight: 101
+    weight: 1
     settings: {  }
     third_party_settings: {  }
   field_author:
-    weight: 103
-    label: above
+    weight: 4
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
   field_category:
-    weight: 102
-    label: above
+    weight: 2
+    label: hidden
     settings:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
   field_date:
-    weight: 104
+    weight: 0
     label: above
     settings:
       format_type: medium
@@ -55,51 +61,48 @@ content:
     third_party_settings: {  }
     type: datetime_default
   field_downloads:
-    weight: 106
-    label: above
+    weight: 6
+    label: hidden
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
     type: entity_reference_revisions_entity_view
   field_downloads_border_title:
-    weight: 107
-    label: above
+    weight: 5
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
   field_image:
-    weight: 105
+    weight: 9
     label: above
     settings:
       image_style: ''
       image_link: ''
     third_party_settings: {  }
     type: image
-  field_image_size:
-    weight: 110
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: list_default
   field_reusable_component:
-    weight: 108
-    label: above
+    weight: 7
+    label: hidden
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
     type: entity_reference_revisions_entity_view
   field_story_description:
-    weight: 109
-    label: above
+    weight: 3
+    label: hidden
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
     type: entity_reference_revisions_entity_view
   links:
-    weight: 100
+    weight: 8
+    settings: {  }
+    third_party_settings: {  }
 hidden:
+  field_image_size: true
   field_tags: true
