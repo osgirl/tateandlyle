@@ -47,9 +47,10 @@ function template_preprocess_tal_download_link(array &$variables) {
       // Add a more general class for groups of well known MIME types.
       'file--' . file_icon_class($mime_type),
     );
+    $ext = pathinfo($file_entity->getFilename(), PATHINFO_EXTENSION);
 
     $variables['link'] = Link::fromTextAndUrl($link_text, Url::fromUri($url, $options));
-    $variables['file_size'] = $file_entity->getFilename() . ' | ' . format_size($file_size);
+    $variables['file_size'] = $ext . ' | ' . format_size($file_size);
     $variables['content'] = $variables['content']['#markup'];
   }
 
