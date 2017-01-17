@@ -21,7 +21,7 @@ drush:
 target-hooks:
   frontend-setup:
     dir: '${docroot}'
-    command: 'echo ''No frontend-setup configured.'''
+    command: 'echo ''No  frontend-setup configured.'''
   frontend-build:
     dir: '${docroot}'
     command: 'echo ''No frontend-build configured.'''
