@@ -36,6 +36,10 @@
           $(this).toggleClass("open");
         });
 
+      $("#block-talmainmenu .dropdown").on("click", function () {
+        $(this).find(".dropdown-toggle").removeAttr("data-toggle").trigger("click");
+      });
+
       $(".no__icon--banner .dropdown-toggle").text(
         $(".field--name-field-left-link .field--item a").first().text()
       );
