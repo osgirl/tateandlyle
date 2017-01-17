@@ -84,6 +84,21 @@
     }
   };
 
+  Drupal.behaviors.setHeightMobileMenu = {
+    attach: function () {
+      function setHeight() {
+        var windowHeight = $(window).innerHeight();
+
+        $("#navbar1").css("min-height", windowHeight);
+      }
+      setHeight();
+
+      $(window).resize(function () {
+        setHeight();
+      });
+    }
+  };
+
   Drupal.behaviors.scrollFix = {
     attach: function () {
       if ($(".ingredient--submenu").length) {
