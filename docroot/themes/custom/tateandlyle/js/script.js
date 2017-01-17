@@ -123,8 +123,8 @@
         $("#download-more > a").click(function () {
           $("#more-items-wrapper").slideToggle("slow", function () {
             $("#download-more > a").toggleClass("btn-less");
-            if ($("#download-more > a").text() !== "Show less") {
-              $("#download-more > a").text(Drupal.t("Show less"));
+            if ($("#download-more > a").text() !== "See less") {
+              $("#download-more > a").text(Drupal.t("See less"));
             }
             else {
               $("#download-more > a").text(originalString);
