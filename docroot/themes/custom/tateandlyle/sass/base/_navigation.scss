@@ -589,10 +589,12 @@
 }
 
 #block-mobile-menu {
+  z-index: 101;
+  position: relative;
   display: block;
   ul li {
     background: white;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid $color-warm-gray;
     .caret {
       float: right;
       margin-top: 0.25em;
@@ -605,13 +607,12 @@
     }
     &.open {
       background: $color-light-gray;
-      border: 0 none;
       ul {
         background: $color-light-gray;
         border: 0;
         box-shadow: 0 0 0;
         width: 100%;
-        margin: 0;
+        margin: 1px 0;
         li {
           border-bottom: 1px solid $color-warm-gray;
           background: $color-light-gray;
@@ -630,15 +631,77 @@
   h2 {
     display: none;
   }
-  .navbar-default, .container {
+  .container {
     background: white;
   }
   .navbar-toggle {
     margin: 0;
     border: 0;
+    float: left;
   }
   .dropdown-menu {
     position: relative;
     top: 0;
   }
+  #navbar1 {
+    float: right;
+    width: 87%;
+    top: -6.3em;
+    box-shadow: rgba(0, 0, 17, 0.258824) -1px 1px 5px;
+    position: relative;
+    z-index: 999;
+    padding: 10px;
+    background: white;
+  }
+  .search-menu-mobile section {
+    margin: 0 0 0 2em;
+    padding: 0;
+  }
+  #views-exposed-form-search-search-page {
+    border: 0;
+    background: white;
+    padding: 0;
+    label {
+      display: none;
+    }
+    #edit-actions {
+      top: 8px;
+      bottom: 0;
+      left: 0;
+      max-width: 40px;
+    }
+    #edit-submit-search {
+      background: transparent;
+      color: black;
+      border: 0 none;
+      box-shadow: 0 0 0;
+    }
+    input {
+      border: 1px solid $color-warm-gray;
+      padding: 6px 15px 6px 2.5em;
+    }
+    .glyphicon-search {
+      font-size: 12px;
+    }
+  }
+  ul li:last-child {
+    border: 0 none;
+  }
+  div.navbar-collapse.collapse {
+    height: 20px;
+  }
+  div.navbar-collapse.collapse.in {
+    height: auto;
+  }
+  button.navbar-toggle.collapsed[aria-expanded="false"] {
+    float: right;
+    left: 0;
+  }
+  button.navbar-toggle {
+    position: relative;
+    top: -3.5em;
+    left: 2.5em;
+    z-index: 99999;
+  }
+
 }

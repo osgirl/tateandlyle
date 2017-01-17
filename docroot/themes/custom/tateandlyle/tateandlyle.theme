@@ -9,6 +9,7 @@
 
 use Drupal\Component\Utility\Html;
 use \Drupal\Component\Utility\UrlHelper;
+use Drupal\block\Entity\Block;
 
 /**
  * Implements hook_theme_suggestions_HOOK_alter() for form templates.
@@ -161,5 +162,29 @@ function tateandlyle_preprocess_field(&$variables) {
     if (function_exists('tal_preprocess_block_' . $bundle)) {
       $variables = call_user_func('tal_preprocess_block_' . $bundle, $variables, $entity);
     }
+  }
+}
+
+/**
+ * Implements hook_preprocess_menu.
+ *
+ * @param array $variables
+ *   Mixed array and object.
+ */
+function tateandlyle_preprocess_menu(&$variables) {
+  $variables['search_menu'] = [];
+  if (isset($variables['menu_name']) && $variables['menu_name'] == 'mobile-menu') {
+    $block = Block::load('exposedformsearchsearch_page_2');
+    $block_content = \Drupal::entityManager()
+      ->getViewBuilder('block')
+      ->view($block);
+    $variables['search_menu'] = array(
+      '#type' => 'container',
+      '#attributes' => array(
+        'class' => array("search-menu-mobile"),
+      ),
+      "element-content" => $block_content,
+      '#weight' => 0,
+    );
   }
 }

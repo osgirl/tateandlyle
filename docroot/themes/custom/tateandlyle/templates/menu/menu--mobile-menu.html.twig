@@ -31,6 +31,7 @@
         <span class="icon-bar"></span>
       </button>
       <div id="navbar1" class="navbar-collapse collapse in" aria-expanded="true">
+      {{search_menu}}
       {{ menus.menu_links(items, attributes, 0) }}
       {% macro menu_links(items, attributes, menu_level) %}
         {% import _self as menus %}
