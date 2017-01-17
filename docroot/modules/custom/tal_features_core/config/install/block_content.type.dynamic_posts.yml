@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: dynamic_posts
+label: 'Dynamic Posts'
+revision: 1
+description: 'Use this block type to create dynamic article posts blocks on landing pages.'
