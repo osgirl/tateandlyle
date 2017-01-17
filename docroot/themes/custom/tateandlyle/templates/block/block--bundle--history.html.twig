@@ -50,27 +50,30 @@ set classes = [
 'block',
 'block-' ~ configuration.provider|clean_class,
 'block-' ~ plugin_id|clean_class,
+'block__history',
 'clearfix',
 ]
 %}
 <section{{ attributes.addClass(classes) }}>
-    {{ title_prefix }}
-    {% if label %}
-        <h2{{ title_attributes.addClass('block-title') }}>{{ label }}</h2>
-    {% endif %}
-    {{ title_suffix }}
+    <div class="block__history--content">
+        {{ title_prefix }}
+        {% if label %}
+            <h2{{ title_attributes.addClass('block-title') }}>{{ label }}</h2>
+        {% endif %}
+        {{ title_suffix }}
 
-    {% if tabs %}
-        <ul class="nav nav-tabs" role="tablist">
-            {% for tab in tabs %}
-                <li role="presentation"><a href="#{{ tab.id }}" aria-controls="profile" role="tab" data-toggle="tab">{{ tab.title }}</a></li>
-            {% endfor %}
-        </ul>
-    {% endif %}
+        {% if tabs %}
+            <ul class="nav nav-tabs" role="tablist">
+                {% for tab in tabs %}
+                    <li role="presentation"><a href="#{{ tab.id }}" aria-controls="profile" role="tab" data-toggle="tab">{{ tab.title }}</a></li>
+                {% endfor %}
+            </ul>
+        {% endif %}
 
-    {% block content %}
-        {{ content }}
+        {% block content %}
+            {{ content }}
 
-    {% endblock %}
+        {% endblock %}
+    </div>
 </section>
 

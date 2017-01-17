@@ -55,36 +55,7 @@
   }
 
   .nav-tabs {
-    border-bottom: 2px solid $color-warm-gray;
-    li {
-      margin-bottom: -2px;
-      width: 50%;
-      a {
-        border-radius: 0;
-        border: 0;
-        font-family: $font-family-sans-serif-Med;
-        font-size: $font-size-h4;
-        padding: 20px 15px;
-        padding-bottom: 21px;
-        position: relative;
-        @media (min-width: $screen-md) {
-          font-size: $font-size-h3;
-        }
-
-        &:hover {
-          background-color: $color-off-white;
-        }
-      }
-    }
-
-    .active a,
-    .active a:hover,
-    .active a:focus {
-      background: $color-off-white;
-      color: $brand-primary;
-      border: 0;
-      border-top: 2px solid $color-warm-gray;
-    }
+    @extend %navigation-tabs;
   }
 
   .panel-group {

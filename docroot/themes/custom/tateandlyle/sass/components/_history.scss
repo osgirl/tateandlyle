@@ -1,0 +1,68 @@
+.block__history {
+  .block__history--content {
+    max-width: 881px;
+    margin-left: 30px;
+    margin-right: 30px;
+
+    @media (min-width: $screen-md) {
+      margin: auto;
+    }
+  }
+
+  .nav-tabs {
+    @extend %navigation-tabs;
+    li {
+      width: 25%;
+    }
+  }
+
+  .paragraph--type--history-tab {
+
+    .field--type-image {
+      float: left;
+      margin-right: 20px;
+
+      @media (min-width: $screen-md) {
+        margin-right: 30px;
+      }
+    }
+
+    background-color: $color-off-white;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 60px;
+
+    .field--name-field-simple-text {
+      color: $gray-base;
+      font-size: $font-size-h4;
+      margin-bottom: 10px;
+      @media (min-width: $screen-md) {
+        font-size: $font-size-h3;
+      }
+    }
+
+    .field--name-field-headline {
+      margin-bottom: 15px;
+    }
+
+    .field--name-field-timeline-content > .field--item {
+      border-bottom: 1px solid $color-warm-gray;
+      padding-top: 20px;
+      padding-bottom: 45px;
+
+      &:last-child {
+        border-bottom: 0;
+      }
+    }
+
+    .field--name-field-tal-more a {
+      margin-top: 10px;
+      margin-bottom: 0;
+      &::after {
+        @extend %svg-icon-small;
+        background: url("../images/icons/cta-arrow-blue.svg") no-repeat;
+        background-size: cover;
+      }
+    }
+  }
+}
