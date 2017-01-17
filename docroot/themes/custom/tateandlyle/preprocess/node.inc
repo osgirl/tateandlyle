@@ -92,12 +92,12 @@ function tal_preprocess_node_icon($variables, $node) {
  * Preprocessor function for "iframe_content" bundle.
  */
 function tal_preprocess_node_iframe_content($variables, $node) {
-  $variables['raw_field_iframe_code'] = ['#markup' => $node->get('field_iframe_code')->value];
+  $variables['raw_field_iframe_code'] = $node->get('field_iframe_code')->value;
   return $variables;
 }
 
 /**
- * Preprocessor function for "company_story" bundle.
+ * Preprocessor function for "press_release" bundle.
  */
 function tal_preprocess_node_press_release($variables, $node) {
   // Preprocess same way like article content type.
