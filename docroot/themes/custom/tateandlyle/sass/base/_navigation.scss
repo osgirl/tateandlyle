@@ -601,7 +601,7 @@
       text-transform: uppercase;
       font-size: 14px;
       color: black;
-      padding: 3px 0.50em;
+      padding: 3px 0.5em;
     }
     &.open {
       background: $color-light-gray;
@@ -616,7 +616,7 @@
           border-bottom: 1px solid $color-warm-gray;
           background: $color-light-gray;
           a {
-            padding: 0.60em 2em;
+            padding: 0.6em 2em;
             &:hover {
               background: transparent;
             }
