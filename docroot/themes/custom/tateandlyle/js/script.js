@@ -56,11 +56,11 @@
 
   Drupal.behaviors.carousel = {
     attach: function () {
-      $(".carousel").carousel({
+      $(".tal--image-gallery-categories .carousel").carousel({
         interval: false
       });
 
-      $(".carousel .item").each(function () {
+      $(".tal--image-gallery-categories .carousel .item").each(function () {
         var next = $(this).next();
 
         if (!next.length) {
@@ -85,7 +85,7 @@
       }
       $(".panel-group").on("hidden.bs.collapse", toggleIcon);
       $(".panel-group").on("shown.bs.collapse", toggleIcon);
-      $("#history--tab").tabCollapse();
+      $(".history--tabs").tabCollapse();
     }
   };
 

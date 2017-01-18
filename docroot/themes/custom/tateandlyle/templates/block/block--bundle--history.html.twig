@@ -63,7 +63,7 @@ set classes = [
         {{ title_suffix }}
 
         {% if tabs %}
-            <ul id="history--tab" class="nav nav-tabs">
+            <ul id="history--tab" class="history--tabs nav nav-tabs">
                 {% for tab in tabs %}
                     <li><a href="#{{ tab.id }}" data-toggle="tab">{{ tab.title }}</a></li>
                 {% endfor %}
