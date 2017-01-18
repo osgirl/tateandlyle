@@ -81,16 +81,27 @@ class TalJobSearch extends FormBase {
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
 
-    if (!empty($job = $form_state->getValue('job'))) {
-      $params['q'] = $job;
+    $config = \Drupal::config('tal_admin_config.settings');
+    $url = $config->get('job_search_url');
+    if (!empty($url)) {
+      $params = array();
+
+      // Add job/skills parameters.
+      if (!empty($job = $form_state->getValue('job'))) {
+        $params['q'] = $job;
+      }
+      // Add location parameters.
+      if (!empty($location = $form_state->getValue('location'))) {
+        $params['locationsearch'] = $location;
+      }
+      // Build query and create url.
+      if (!empty($params)) {
+        $query = http_build_query($params);
+        $url = !empty($query) ? $url . '?' . $query : $url;
+      }
+      $response = new RedirectResponse($url);
+      $response->send();
     }
-    if (!empty($location = $form_state->getValue('location'))) {
-      $params['locationsearch'] = $location;
-    }
-    $query = http_build_query($params);
-    $url = 'https://jobs.tateandlyle.com/search?';
-    $response = new RedirectResponse($url . $query);
-    $response->send();
   }
 
 }

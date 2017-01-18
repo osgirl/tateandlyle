@@ -70,6 +70,19 @@ class TalAdminConfigForm extends ConfigFormBase {
       '#format' => 'rich_text',
       '#default_value' => $config->get('boilerplate_content'),
     );
+    // Job search reference URL.
+    $form['job_search'] = [
+      '#type' => 'details',
+      '#title' => $this->t('Careers settings.'),
+      '#open' => TRUE,
+    ];
+    $form['job_search']['job_search_url'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Job search URL.'),
+      '#description' => $this->t('Redirect URL for Job search block.'),
+      '#default_value' => $config->get('job_search_url'),
+    ];
+
     return parent::buildForm($form, $form_state);
   }
 
@@ -79,6 +92,7 @@ class TalAdminConfigForm extends ConfigFormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $config = \Drupal::service('config.factory')->getEditable('tal_admin_config.settings');
     $config->set('tai_title', $form_state->getValue('tai_title'));
+    $config->set('job_search_url', $form_state->getValue('job_search_url'));
     $values = $form_state->getValues();
     $tai_summary = $values['tai_summary']['value'];
     $boilerplate_content = $values['boilerplate_content']['value'];

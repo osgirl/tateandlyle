@@ -107,10 +107,10 @@ function tal_preprocess_node_press_release($variables, $node) {
 
   // Added Boilerplate content at the end of press release content page.
   $config = \Drupal::config('tal_admin_config.settings');
-  $config_raw = $config->getRawData();
+  $markup = $config->get('boilerplate_content');
   $variables['boilerplate'] = [
     'content' => [
-      '#markup' => !empty($config_raw['boilerplate_content']) ? $config_raw['boilerplate_content'] : '',
+      '#markup' => !empty($markup) ? $markup : '',
     ],
   ];
   return $variables;
