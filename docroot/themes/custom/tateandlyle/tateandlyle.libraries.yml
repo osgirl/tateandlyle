@@ -2,6 +2,7 @@ global-styling:
   css:
     theme:
       build/main.css: {}
+
   js:
     build/script.js: {}
   dependencies:
@@ -33,6 +34,12 @@ buto-tv-script:
 frame-manager:
   js:
     build/frame-manager.js: {}
+  dependencies:
+    - core/jquery
+
+accordion-tabs:
+  js:
+    build/bootstrap-tabcollapse.js: {}
   dependencies:
     - core/jquery
 
