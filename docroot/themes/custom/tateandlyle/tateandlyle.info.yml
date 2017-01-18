@@ -28,3 +28,4 @@ libraries:
   - 'tateandlyle/bootstrap-scripts'
   - 'tateandlyle/buto-tv-script'
   - 'tateandlyle/addthis-share'
+  - 'tateandlyle/accordion-tabs'
