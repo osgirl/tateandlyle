@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies: {  }
+id: form_analyst
+label: 'Form Analyst'
+weight: 5
+is_admin: null
+permissions:
+  - 'administer webform submission'
+  - 'view any webform submission'
