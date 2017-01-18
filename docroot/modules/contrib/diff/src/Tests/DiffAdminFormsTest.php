@@ -1,9 +1,5 @@
 <?php
 
-/**
- * @ingroup diff
- */
-
 namespace Drupal\diff\Tests;
 
 /**
@@ -11,7 +7,7 @@ namespace Drupal\diff\Tests;
  *
  * @group diff
  */
-class AdminFormsTest extends DiffTestBase {
+class DiffAdminFormsTest extends DiffTestBase {
 
   /**
    * Modules to enable.
@@ -33,20 +29,22 @@ class AdminFormsTest extends DiffTestBase {
   }
 
   /**
+   * Run all independent tests.
+   */
+  public function testAll() {
+    $this->doTestSettingsUi();
+    $this->doTestSettingsTab();
+    $this->doTestRequirements();
+    $this->doTestConfigurableFieldsTab();
+    $this->doTestPluginWeight();
+  }
+
+  /**
    * Tests the descriptions in the Settings UI.
    */
-  public function testSettingsUI() {
+  public function doTestSettingsUi() {
     // Enable the help block.
     $this->drupalPlaceBlock('help_block', ['region' => 'help']);
-
-    // Create a user with administer permissions.
-    $permissions = [
-      'administer site configuration',
-      'access administration pages',
-      'administer blocks',
-    ];
-    $admin_user = $this->drupalCreateUser($permissions);
-    $this->drupalLogin($admin_user);
 
     $this->drupalGet('admin/config/content/diff/general');
     // Check the settings introduction text.
@@ -59,7 +57,7 @@ class AdminFormsTest extends DiffTestBase {
   /**
    * Tests the Settings tab.
    */
-  public function testSettingsTab() {
+  public function doTestSettingsTab() {
     $edit = [
       'radio_behavior' => 'linear',
       'context_lines_leading' => 10,
@@ -72,34 +70,87 @@ class AdminFormsTest extends DiffTestBase {
   /**
    * Tests the module requirements.
    */
-  public function testRequirements() {
+  public function doTestRequirements() {
     module_load_install('diff');
     $requirements = diff_requirements('runtime');
     $this->assertEqual($requirements['html_diff_advanced']['title'], 'Diff');
-    $this->assertEqual($requirements['html_diff_advanced']['value'], 'Visual inline layout');
+
+    $has_htmlDiffAdvanced = class_exists('\HtmlDiffAdvanced');
+    if (!$has_htmlDiffAdvanced) {
+      // The plugin is disabled dependencies are missing.
+      $this->assertEqual($requirements['html_diff_advanced']['value'], 'Visual inline layout');
+    }
+    else {
+      // The plugin is enabled by default if dependencies are met.
+      $this->assertEqual($requirements['html_diff_advanced']['value'], 'Installed correctly');
+    }
   }
 
   /**
    * Tests the Configurable Fields tab.
    */
-  public function testConfigurableFieldsTab() {
+  public function doTestConfigurableFieldsTab() {
     $this->drupalGet('admin/config/content/diff/fields');
+
+    // Test changing type without changing settings.
+    $edit = [
+      'fields[node.body][plugin][type]' => 'text_summary_field_diff_builder',
+    ];
+    $this->drupalPostForm(NULL, $edit, t('Save'));
+    $this->assertFieldByName('fields[node.body][plugin][type]', 'text_summary_field_diff_builder');
+    $edit = [
+      'fields[node.body][plugin][type]' => 'text_field_diff_builder',
+    ];
+    $this->drupalPostForm(NULL, $edit, t('Save'));
+    $this->assertFieldByName('fields[node.body][plugin][type]', 'text_field_diff_builder');
+
     $this->drupalPostAjaxForm(NULL, [], 'node.body_settings_edit');
     $this->assertText('Plugin settings: Text');
     $edit = [
       'fields[node.body][settings_edit_form][settings][show_header]' => TRUE,
-      'fields[node.body][settings_edit_form][settings][compare_format]' => TRUE,
+      'fields[node.body][settings_edit_form][settings][compare_format]' => FALSE,
       'fields[node.body][settings_edit_form][settings][markdown]' => 'filter_xss_all',
     ];
-    $this->drupalPostForm(NULL, $edit, t('Update'));
+    $this->drupalPostAjaxForm(NULL, $edit, 'node.body_plugin_settings_update');
     $this->drupalPostForm(NULL, [], t('Save'));
     $this->assertText('Your settings have been saved.');
+
+    // Check the values were saved.
+    $this->drupalPostAjaxForm(NULL, [], 'node.body_settings_edit');
+    $this->assertFieldByName('fields[node.body][settings_edit_form][settings][markdown]', 'filter_xss_all');
+
+    // Edit another field.
+    $this->drupalPostAjaxForm(NULL, [], 'node.title_settings_edit');
+    $edit = [
+      'fields[node.title][settings_edit_form][settings][markdown]' => 'filter_xss_all',
+    ];
+    $this->drupalPostAjaxForm(NULL, $edit, 'node.title_plugin_settings_update');
+    $this->drupalPostForm(NULL, [], t('Save'));
+
+    // Check both fields and their config values.
+    $this->drupalPostAjaxForm(NULL, [], 'node.body_settings_edit');
+    $this->assertFieldByName('fields[node.body][settings_edit_form][settings][markdown]', 'filter_xss_all');
+    $this->drupalPostAjaxForm(NULL, [], 'node.title_settings_edit');
+    $this->assertFieldByName('fields[node.title][settings_edit_form][settings][markdown]', 'filter_xss_all');
+
+    // Save field settings without changing anything and assert the config.
+    $this->drupalPostForm(NULL, [], t('Save'));
+    $this->drupalPostAjaxForm(NULL, [], 'node.body_settings_edit');
+    $this->assertFieldByName('fields[node.body][settings_edit_form][settings][markdown]', 'filter_xss_all');
+    $this->drupalPostAjaxForm(NULL, [], 'node.title_settings_edit');
+    $this->assertFieldByName('fields[node.title][settings_edit_form][settings][markdown]', 'filter_xss_all');
+
+    $edit = [
+      'fields[node.sticky][plugin][type]' => 'hidden',
+    ];
+    $this->drupalPostForm(NULL, $edit, t('Save'));
+    $this->assertFieldByName('fields[node.sticky][plugin][type]', 'hidden');
   }
 
   /**
    * Tests the Compare Revisions vertical tab.
    */
-  public function testPluginWeight() {
+  public function doTestPluginWeight() {
     // Create a node with a revision.
     $edit = [
       'title[0][value]' => 'great_title',
@@ -116,7 +167,7 @@ class AdminFormsTest extends DiffTestBase {
     // Assert the diff display uses the classic layout.
     $node = $this->getNodeByTitle('greater_title');
     $this->drupalGet('node/' . $node->id() . '/revisions');
-    $this->drupalPostForm(NULL, [], t('Compare'));
+    $this->drupalPostForm(NULL, [], t('Compare selected revisions'));
     $this->assertLink('Unified fields');
     $this->assertLink('Split fields');
     $this->assertLink('Raw');
@@ -133,7 +184,7 @@ class AdminFormsTest extends DiffTestBase {
 
     // Assert the diff display uses the markdown layout.
     $this->drupalGet('node/' . $node->id() . '/revisions');
-    $this->drupalPostForm(NULL, [], t('Compare'));
+    $this->drupalPostForm(NULL, [], t('Compare selected revisions'));
     $this->assertResponse(200);
     $this->assertNoLink('Unified fields');
     $this->assertLink('Split fields');
@@ -161,7 +212,7 @@ class AdminFormsTest extends DiffTestBase {
 
     // Assert the diff display uses the single column layout.
     $this->drupalGet('node/' . $node->id() . '/revisions');
-    $this->drupalPostForm(NULL, [], t('Compare'));
+    $this->drupalPostForm(NULL, [], t('Compare selected revisions'));
     $this->assertResponse(200);
     $this->assertLink('Unified fields');
     $this->assertNoLink('Split fields');
