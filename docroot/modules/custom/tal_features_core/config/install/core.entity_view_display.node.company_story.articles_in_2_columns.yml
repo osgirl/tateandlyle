@@ -1,0 +1,117 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.articles_in_2_columns
+    - field.field.node.company_story.body
+    - field.field.node.company_story.field_author
+    - field.field.node.company_story.field_category
+    - field.field.node.company_story.field_date
+    - field.field.node.company_story.field_downloads
+    - field.field.node.company_story.field_downloads_border_title
+    - field.field.node.company_story.field_image
+    - field.field.node.company_story.field_image_size
+    - field.field.node.company_story.field_ingredient
+    - field.field.node.company_story.field_reusable_component
+    - field.field.node.company_story.field_story_description
+    - field.field.node.company_story.field_tags
+    - node.type.company_story
+  module:
+    - datetime
+    - entity_reference_revisions
+    - options
+    - panelizer
+    - text
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.company_story.articles_in_2_columns
+targetEntityType: node
+bundle: company_story
+mode: articles_in_2_columns
+content:
+  body:
+    type: text_default
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_author:
+    weight: 4
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_category:
+    weight: 2
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+  field_date:
+    weight: 0
+    label: hidden
+    settings:
+      timezone_override: ''
+      format_type: company_date_format
+    third_party_settings: {  }
+    type: datetime_default
+  field_downloads:
+    type: entity_reference_revisions_entity_view
+    weight: 6
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+  field_downloads_border_title:
+    weight: 5
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_image_size:
+    weight: 12
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+  field_reusable_component:
+    type: entity_reference_revisions_entity_view
+    weight: 9
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+  field_story_description:
+    type: entity_reference_revisions_entity_view
+    weight: 3
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+  field_tags:
+    weight: 11
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+  links:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+  workbench_moderation_control:
+    weight: -20
+hidden:
+  field_image: true
+  field_ingredient: true
