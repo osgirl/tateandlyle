@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies: {  }
+id: pr_editor
+label: 'PR Editor'
+weight: 4
+is_admin: null
+permissions:
+  - 'create press_release content'
+  - 'delete own press_release content'
+  - 'edit any press_release content'
+  - 'edit own press_release content'
+  - 'revert press_release revisions'
+  - 'view press_release revisions'
+  - 'access_unpublished node press_release'
+  - 'access content overview'
+  - 'use draft_draft transition'
+  - 'use draft_needs_review transition'
+
