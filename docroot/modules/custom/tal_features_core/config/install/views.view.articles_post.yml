@@ -2,6 +2,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.articles_in_2_columns
     - core.entity_view_mode.node.articles_in_3_columns
     - core.entity_view_mode.node.teaser
     - node.type.company_story
@@ -390,18 +391,7 @@ display:
         options:
           relationship: none
           view_mode: teaser
-      header:
-        area_text_custom:
-          id: area_text_custom
-          table: views
-          field: area_text_custom
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: false
-          tokenize: false
-          content: 'We commission and launch several research publications each year. We are always trying to keep measuring the pulse of the industry and consumer opinion.'
-          plugin_id: text_custom
+      header: {  }
       footer:
         area_text_custom:
           id: area_text_custom
@@ -439,6 +429,42 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - 'user.node_grants:view'
+        - user.permissions
+      tags: {  }
+  block_4:
+    display_plugin: block
+    id: block_4
+    display_title: 'Dairy case studies'
+    position: 1
+    display_options:
+      display_extenders: {  }
+      display_description: ''
+      title: 'Dairy case studies'
+      defaults:
+        title: false
+        pager: false
+        style: false
+        row: false
+      pager:
+        type: some
+        options:
+          items_per_page: 2
+          offset: 0
+      style:
+        type: default
+        options: {  }
+      row:
+        type: 'entity:node'
+        options:
+          relationship: none
+          view_mode: articles_in_2_columns
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }

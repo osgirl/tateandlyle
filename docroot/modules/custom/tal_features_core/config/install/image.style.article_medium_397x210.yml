@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies: {  }
+name: article_medium_397x210
+label: 'Article Medium 397x210'
+effects:
+  08be7969-659e-46a3-afea-f1988a4eb640:
+    uuid: 08be7969-659e-46a3-afea-f1988a4eb640
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 397
+      height: 210
