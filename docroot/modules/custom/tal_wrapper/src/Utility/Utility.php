@@ -15,6 +15,8 @@ class Utility {
    *
    * @param string $nid
    *   A node unique id.
+   * @param string $pub_date
+   *   Publishing date field.
    * @param string $bundle
    *   Type of the content.
    * @param string $direction
@@ -23,7 +25,7 @@ class Utility {
    * @return array
    *   An title, node, url array to the next or previous node
    */
-  public static function generateNextPrevious($nid, $bundle, $direction = 'next') {
+  public static function generateNextPrevious($nid, $pub_date, $bundle, $direction = 'next') {
     if ($direction === 'next') {
       $comparison_opperator = '>';
       $sort = 'ASC';
@@ -36,13 +38,14 @@ class Utility {
 
     // Lookup 1 node younger (or older) than the current node.
     $query = \Drupal::entityQuery('node');
-    $next = $query->condition('nid', $nid, $comparison_opperator)
+    $next = $query->condition('field_date.value', $pub_date, $comparison_opperator)
+      ->condition('nid', $nid, '<>')
       ->condition('type', $bundle)
       ->condition('status', 1)
-      ->sort('created', $sort)
+      ->sort('field_date', $sort)
+      ->sort('created', 'DESC')
       ->range(0, 1)
       ->execute();
-
     if (!empty($next)) {
       $nid = array_values($next)[0];
       $node = Node::load($nid);
