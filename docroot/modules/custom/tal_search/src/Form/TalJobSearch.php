@@ -48,7 +48,7 @@ class TalJobSearch extends FormBase {
       '#type' => 'submit',
       '#value' => $this->t('Search'),
       '#button_type' => 'primary',
-      '#suffix' =>'<span class="in__label">in</span>',
+      '#suffix' => '<span class="in__label">in</span>',
     );
     $form['location'] = [
       '#type' => 'textfield',
@@ -56,7 +56,7 @@ class TalJobSearch extends FormBase {
       '#attributes' => array(
         'placeholder' => t('Location'),
       ),
-      '#weight' => 2
+      '#weight' => 2,
     ];
     $form['location_actions'] = [
       '#type' => 'actions',
