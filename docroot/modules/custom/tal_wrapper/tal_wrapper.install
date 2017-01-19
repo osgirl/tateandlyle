@@ -33,3 +33,12 @@ function tal_wrapper_install() {
 function tal_wrapper_update_8203() {
   \Drupal::service('module_installer')->install(['simple_menu_icons']);
 }
+
+/**
+ * Installs some required modules.
+ */
+function tal_wrapper_update_8204() {
+  \Drupal::service('module_installer')->install(
+    ['tal_webform']
+  );
+}

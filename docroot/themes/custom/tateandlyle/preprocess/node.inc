@@ -57,9 +57,17 @@ function tal_preprocess_node_company_story($variables, $node) {
 
   $nid = $node->id();
   $bundle = $node->bundle();
+  $date = $node->get('field_date')->getValue();
 
-  $variables['next'] = TalWrapperUtility::generateNextPrevious($nid, $bundle, 'next');
-  $variables['prev'] = TalWrapperUtility::generateNextPrevious($nid, $bundle, 'prev');
+  $variables['next'] = '';
+  $variables['prev'] = '';
+
+  if (!empty($date)) {
+    $pub_date = $date[0]['value'];
+    $variables['next'] = TalWrapperUtility::generateNextPrevious($nid, $pub_date, $bundle, 'next');
+    $variables['prev'] = TalWrapperUtility::generateNextPrevious($nid, $pub_date, $bundle, 'prev');
+  }
+
   $variables['icon'] = $term->get('field_ac_icon')->view('default');
   $variables['image'] = $node->get('field_image')->view();
   $image_size = $node->get('field_image_size')->value;

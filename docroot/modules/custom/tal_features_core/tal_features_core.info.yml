@@ -53,6 +53,7 @@ dependencies:
   - tal_search
   - tal_video_embed_buto
   - tal_video_gallery
+  - tal_webform
   - taxonomy
   - text
   - user
