@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies: {  }
+name: article_icon_30x40
+label: 'Article Icon 30x40'
+effects:
+  a64501da-f0c6-4008-aec2-2fdfaf1f1e59:
+    uuid: a64501da-f0c6-4008-aec2-2fdfaf1f1e59
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 30
+      height: 40
