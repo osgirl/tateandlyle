@@ -14,10 +14,9 @@ dependencies:
     - field.field.node.press_release.field_reusable_component
     - field.field.node.press_release.field_story_description
     - field.field.node.press_release.field_tags
+    - image.style.article_small_312_x_169
     - node.type.press_release
   module:
-    - datetime
-    - entity_reference_revisions
     - image
     - panelizer
     - text
@@ -35,77 +34,28 @@ mode: articles_in_3_columns
 content:
   body:
     label: hidden
-    type: text_default
+    type: text_trimmed
     weight: 1
-    settings: {  }
-    third_party_settings: {  }
-  field_author:
-    weight: 4
-    label: hidden
     settings:
-      link_to_entity: false
+      trim_length: 70
     third_party_settings: {  }
-    type: string
-  field_category:
-    weight: 2
-    label: hidden
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-  field_date:
-    weight: 0
-    label: above
-    settings:
-      format_type: medium
-      timezone_override: ''
-    third_party_settings: {  }
-    type: datetime_default
-  field_downloads:
-    weight: 6
-    label: hidden
-    settings:
-      view_mode: default
-      link: ''
-    third_party_settings: {  }
-    type: entity_reference_revisions_entity_view
-  field_downloads_border_title:
-    weight: 5
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
   field_image:
-    weight: 9
-    label: above
+    weight: 0
+    label: hidden
     settings:
-      image_style: ''
+      image_style: article_small_312_x_169
       image_link: ''
     third_party_settings: {  }
     type: image
-  field_reusable_component:
-    weight: 7
-    label: hidden
-    settings:
-      view_mode: default
-      link: ''
-    third_party_settings: {  }
-    type: entity_reference_revisions_entity_view
-  field_story_description:
-    weight: 3
-    label: hidden
-    settings:
-      view_mode: default
-      link: ''
-    third_party_settings: {  }
-    type: entity_reference_revisions_entity_view
-  links:
-    weight: 8
-    settings: {  }
-    third_party_settings: {  }
-  workbench_moderation_control:
-    weight: -20
 hidden:
+  field_author: true
+  field_category: true
+  field_date: true
+  field_downloads: true
+  field_downloads_border_title: true
   field_image_size: true
+  field_reusable_component: true
+  field_story_description: true
   field_tags: true
+  links: true
+  workbench_moderation_control: true
