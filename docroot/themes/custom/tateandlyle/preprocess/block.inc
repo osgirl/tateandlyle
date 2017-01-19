@@ -249,7 +249,7 @@ function tal_preprocess_block_homepage_banner($variables, $block) {
 function tal_preprocess_block_history($variables, $block) {
   // Get paragraph's id to generate unique ids for history tabs.
   $tab_wrapper = $block->get('field_history_tab')->referencedEntities();
-  $tab_wrapper_id = Html::getUniqueId('history-tab');
+  $tab_wrapper_id = Html::getUniqueId('history-tabs-wrapper');
   foreach ($tab_wrapper as $tab) {
     // Get Tab title from History tab paragraphs.
     $title = $tab->get('field_tab_title')->getValue();
@@ -324,7 +324,7 @@ function tal_preprocess_block_dynamic_posts($variables, $block) {
     $variables['dynamic_posts']['#display_id'] = 'block_2';
   }
 
-  // Latest Publications
+  // Latest Publications.
   if ($block->get('field_choose_articles_display')->value == 'teaser_latest_publication') {
     $variables['dynamic_posts']['#display_id'] = 'block_3';
     $variables['dynamic_posts']['#prefix'] = '<div class="tal--dynamic-post-list">';

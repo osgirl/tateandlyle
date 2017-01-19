@@ -47,7 +47,7 @@ content:
     type: string
   field_tal_more:
     weight: 4
-    label: above
+    label: hidden
     settings:
       trim_length: 80
       url_only: false

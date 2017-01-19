@@ -62,20 +62,26 @@ set classes = [
         {% endif %}
         {{ title_suffix }}
 
-        {% if tabs %}
-            <ul id="history--tab" class="history--tabs nav nav-tabs">
-                {% for tab in tabs %}
-                    <li><a href="#{{ tab.id }}" data-toggle="tab">{{ tab.title }}</a></li>
-                {% endfor %}
-            </ul>
-        {% endif %}
+        <div id="{{ wrapper_id }}">
+            {% if tabs %}
+                <ul id="history--tab" class="history--tabs nav nav-tabs">
+                    {% for tab in tabs %}
+                        <li class="{{ 'tab-' ~ loop.index0}} {% if loop.first %}active{% endif %}">
+                            <a href="#{{ tab.id }}" data-toggle="tab">{{ tab.title }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
 
-        {% block content %}
-        <div id="history--tab--content" class="tab-content">
-            {{ content }}
+            {% block content %}
+                <div id="history--tab--content" class="tab-content">
+                    {{ content }}
+                    <a id="back-to-top" href="#{{ wrapper_id }}" class="btn btn-primary btn-lg back-to-top" role="button" title="Click to return on the top page" data-toggle="tooltip" data-placement="left">
+                        Back to top<span class="glyphicon glyphicon-chevron-up"></span>
+                    </a>
+                </div>
+            {% endblock %}
         </div>
-
-        {% endblock %}
     </div>
 </section>
 
