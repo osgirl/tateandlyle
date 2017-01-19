@@ -200,10 +200,6 @@
 
 //Content Promo.
 
-.block--content-promo {
-  background-color: $color-off-white;
-}
-
 .block__promo--main {
   color: $gray-base;
   margin: 24px 30px;
@@ -233,7 +229,6 @@
 
   .field--name-field-block-title {
     @extend %border--title--less-space;
-    background-color: $color-off-white;
   }
 
   .field--name-field-promo-content {
@@ -323,6 +318,7 @@
 
       &::after {
         content: close-quote;
+        padding-left: 3px;
       }
 
       &::before,
