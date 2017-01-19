@@ -93,7 +93,7 @@
 
   <div{{ content_attributes.addClass('teaser-content') }}>
     <div class="date--category">
-      {{ content.field_date }} | {{ content.field_category }}
+      {{ content.field_date }} <span class="space"> | </span> {{ "Filed in: "|t}} {{ content.field_category }}
     </div>
     <div class="teaser-summary"> {{ content.body }}
     {{ content.field_story_description }}

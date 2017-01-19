@@ -81,10 +81,10 @@
     {% endif %}
     {{ title_suffix }}
     <div class="date--category">
-        {{ icon }}{{ content.field_date }} <span class="space"> | <span> {{ "Filed in: "|t}}{{ content.field_category }}
+        {{ icon }}{{ content.field_date }} <span class="space"> | </span> {{ "Filed in: "|t}}{{ content.field_category }}
     </div>
     <div class="teaser-image"> {{ image }} </div>
     <div class="teaser-summary"> {{ content.body }} </div>
-    <div class="teaser-read-more"> <a href="{{ url }}"> Read more </a> </div>
+    <div class="teaser-read-more"> <a href="{{ url }}"> {{ "Read more"|t }} </a> </div>
   </div>
 </article>
