@@ -80,18 +80,21 @@
 
   Drupal.behaviors.scrollToTop = {
     attach: function () {
-      $('#back-to-top').bind('click', function (e) {
+      $("#back-to-top").bind("click", function (e) {
         var id;
+
         // Prevent a page reload when a link is pressed.
         e.preventDefault();
 
         id = $(this).attr("href");
+
         // Remove "link" from the ID.
         id = id.replace("link", "");
+
         // Scroll to the div.
-        $('html,body').animate({
-              scrollTop: $(id).offset().top},
-            'slow');
+        $("html,body").animate({
+          scrollTop: $(id).offset().top },
+            "slow");
       });
     }
   };
