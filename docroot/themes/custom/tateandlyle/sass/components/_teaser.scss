@@ -1,0 +1,41 @@
+.space {
+  margin: 0 0.5em;
+}
+
+.teaser-content {
+  display: inline-block;
+  width: 100%;
+  border-bottom: 1px solid $color-warm-gray;
+  padding-bottom: 2em;
+  margin-bottom: 1em;
+  .teaser-summary {
+    margin-top: 1em;
+    display: inline-block;
+    @media (min-width: $screen-sm) {
+      margin-top: 0;
+      display: block;
+    }
+  }
+  h3 {
+    margin-bottom: 3px;
+  }
+  .date--category {
+    margin-bottom: 2em;
+    div {
+      display: inline-block;
+    }
+  }
+  .teaser-image {
+    float: left;
+    margin-right: 2em;
+    .field--label {
+      display: none;
+    }
+  }
+  .teaser-read-more a {
+    color: black;
+    &::after {
+      @extend %right-brand-arrow;
+    }
+  }
+}

@@ -91,13 +91,13 @@
     </footer>
   {% endif %}
 
-  <div{{ content_attributes.addClass('content') }}>
+  <div{{ content_attributes.addClass('teaser-content') }}>
     <div class="date--category">
       {{ content.field_date }} | {{ content.field_category }}
     </div>
-    {{ content.body }}
+    <div class="teaser-summary"> {{ content.body }}
     {{ content.field_story_description }}
-    {{ content.field_author }}
+    {{ content.field_author }} </div>
   </div>
   {% if content.field_downloads|render %}
     <div class="row file--downloads">
