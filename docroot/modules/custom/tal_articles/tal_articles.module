@@ -36,40 +36,11 @@ function tal_articles_views_pre_view(ViewExecutable $view, $display_id, array &$
 
         foreach ($terms as $trm) {
           if ($trm->name == 'Case Study') {
-            $args[0] = $args[0] . '+' . $trm->tid;
             break;
           }
         }
+        $args[0] = $args[0] . '+' . $trm->tid;
       }
     }
-  }
-
-  if ($view->id() == 'articles_post' &&  $display_id == 'block_3') {
-    $header_text = '';
-
-    // Fetch the header text from the views argument and unset the argument.
-    foreach ($args as $id => $arg) {
-      if (is_array($arg) && isset($arg['text'])) {
-        $header_text = $arg['text'];
-        unset($args[$id]);
-        break;
-      }
-    }
-    // Prepare header plugin to display custom message.
-    $options = array(
-      'id' => 'area_text_custom',
-      'table' => 'views',
-      'field' => 'area_text_custom',
-      'relationship' => 'none',
-      'group_type' => 'none',
-      'admin_label' => '',
-      'empty' => TRUE,
-      'tokenize' => FALSE,
-      'content' => $header_text,
-      'plugin_id' => 'text_custom',
-    );
-
-    // Set the header plugin.
-    $view->setHandler('block_3', 'header', 'area_text_custom', $options);
   }
 }

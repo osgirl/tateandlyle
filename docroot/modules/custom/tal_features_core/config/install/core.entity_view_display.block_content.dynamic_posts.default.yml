@@ -5,7 +5,6 @@ dependencies:
     - block_content.type.dynamic_posts
     - field.field.block_content.dynamic_posts.field_artice
     - field.field.block_content.dynamic_posts.field_choose_articles_display
-    - field.field.block_content.dynamic_posts.field_header_text
     - field.field.block_content.dynamic_posts.field_tags
   module:
     - options
@@ -34,5 +33,4 @@ content:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
-hidden:
-  field_header_text: true
+hidden: {  }

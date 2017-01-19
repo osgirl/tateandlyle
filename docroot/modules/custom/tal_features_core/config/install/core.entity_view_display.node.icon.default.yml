@@ -3,7 +3,6 @@ status: true
 dependencies:
   config:
     - field.field.node.icon.field_image
-    - image.style.article_icon_30x40
     - node.type.icon
   module:
     - image
@@ -24,16 +23,12 @@ content:
     weight: 101
     label: hidden
     settings:
-      image_style: article_icon_30x40
+      image_style: ''
       image_link: ''
     third_party_settings: {  }
     type: image
   links:
     weight: 100
-    settings: {  }
-    third_party_settings: {  }
-  workbench_moderation_control:
-    weight: -20
     settings: {  }
     third_party_settings: {  }
 hidden: {  }
