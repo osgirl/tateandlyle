@@ -4,6 +4,7 @@ dependencies:
   config:
     - block_content.type.dynamic_posts
     - field.field.block_content.dynamic_posts.field_artice
+    - field.field.block_content.dynamic_posts.field_choose_articles_display
     - field.field.block_content.dynamic_posts.field_tags
   module:
     - workbench_moderation
@@ -14,6 +15,11 @@ mode: default
 content:
   field_artice:
     weight: 6
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+  field_choose_articles_display:
+    weight: 8
     settings: {  }
     third_party_settings: {  }
     type: options_select
