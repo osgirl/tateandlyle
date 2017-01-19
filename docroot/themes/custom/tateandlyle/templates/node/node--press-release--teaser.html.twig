@@ -72,20 +72,19 @@
   ]
 %}
 <article{{ attributes.addClass(classes) }}>
-
-  {{ title_prefix }}
-  {% if not page %}
-    <h2{{ title_attributes }}>
-      <a href="{{ url }}" rel="bookmark">{{ label }}</a>
-    </h2>
-  {% endif %}
-  {{ title_suffix }}
-
-  <div{{ content_attributes.addClass('content') }}>
+  <div{{ content_attributes.addClass('teaser-content') }}>
+    {{ title_prefix }}
+    {% if not page %}
+      <h3{{ title_attributes }}>
+        <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+      </h3>
+    {% endif %}
+    {{ title_suffix }}
     <div class="date--category">
-        {{ icon }}{{ content.field_date }} | {{ "Filed in: "|t}}{{ content.field_category }}
+        {{ icon }}{{ content.field_date }} <span class="space"> | <span> {{ "Filed in: "|t}}{{ content.field_category }}
     </div>
-    {{ image }}
-    {{ content.body }}
+    <div class="teaser-image"> {{ image }} </div>
+    <div class="teaser-summary"> {{ content.body }} </div>
+    <div class="teaser-read-more"> <a href="{{ url }}"> Read more </a> </div>
   </div>
 </article>
