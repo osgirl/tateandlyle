@@ -43,10 +43,10 @@ modules:
     enable: [acquia_connector, shield]
     uninstall: {  }
   test:
-    enable: [acquia_connector, shield]
+    enable: [acquia_connector, shield, dynamic_page_cache]
     uninstall: [devel, views_ui]
   prod:
-    enable: [acquia_connector, shield, syslog]
+    enable: [acquia_connector, shield, syslog, dynamic_page_cache]
     uninstall: [dblog, devel, views_ui]
   deploy:
     enable: [acquia_connector, admin_toolbar]
