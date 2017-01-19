@@ -292,6 +292,7 @@ display:
           not: false
           plugin_id: numeric
       display_extenders: {  }
+      show_admin_links: false
     cache_metadata:
       max-age: -1
       contexts:
