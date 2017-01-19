@@ -284,3 +284,211 @@
     }
   }
 }
+
+.tal-job-search {
+  @extend %inner-content-width;
+  background: $brand-primary;
+  margin: 30px;
+  padding: 36px 22px;
+  padding-bottom: 30px;
+  @media (min-width: $screen-sm) {
+    padding: 28px 30px 87px 28px;
+  }
+  @media (min-width: $screen-md-lg) {
+    padding: 28px 30px 60px 28px;
+    margin: 50px auto;
+  }
+
+  .block-title {
+    color: $color-white;
+    font-size: $font-size-h3;
+    margin: 0;
+    margin-bottom: 20px;
+
+    @media (min-width: $screen-sm) {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    @media (min-width: $screen-md-lg) {
+      display: inline-table;
+      margin: 0;
+      text-align: left;
+      width: 11%;
+      vertical-align: middle;
+    }
+  }
+
+  .job__search--description {
+    @media (min-width: $screen-sm) {
+      display: table;
+      margin: auto;
+    }
+    @media (min-width: $screen-md-lg) {
+      display: inline-table;
+      margin: 0;
+      padding-left: 32px;
+      width: 88.7%;
+    }
+
+    form {
+      color: $color-white;
+      text-align: center;
+      @media (min-width: $screen-sm) {
+        display: table;
+        text-align: left;
+        vertical-align: middle;
+        width: 100%;
+      }
+
+      @media (max-width: $screen-xs-max) {
+        font-size: 0;
+      }
+
+      .form-item,
+      .form-group {
+        display: inline-block;
+        vertical-align: top;
+        @media (min-width: $screen-sm) {
+          display: table-cell;
+        }
+      }
+
+      .form-actions:last-child {
+        display: block;
+
+        @media (min-width: $screen-sm) {
+          position: absolute;
+          bottom: 30px;
+          margin-bottom: 0;
+          text-align: center;
+          left: 0;
+          right: 0;
+          margin-left: auto;
+          margin-right: auto;
+        }
+
+        @media (min-width: $screen-md-lg) {
+          display: table-cell;
+          position: static;
+        }
+      }
+    }
+  }
+
+  .input--wrapper input {
+    border: none;
+    border-radius: 0;
+    height: 40px;
+  }
+
+  .js-form-type-textfield {
+    width: 222px;
+    display: inline-block;
+
+    @media (min-width: $screen-sm) {
+      width: 243px;
+    }
+
+    @media (min-width: $screen-md-lg) {
+      width: 273px;
+    }
+  }
+
+  .input--title {
+    display: none;
+    margin-bottom: 0;
+    margin-top: 6px;
+    @media (min-width: $screen-sm) {
+      display: block;
+    }
+
+    @media (min-width: $screen-md-lg) {
+      display: block;
+      position: absolute;
+      width: 340px;
+    }
+  }
+
+  .in__label {
+    display: block;
+    font-family: $font-family-sans-serif-Med;
+    font-size: $font-size-h3;
+    line-height: 1;
+    margin-top: 3px;
+    margin-bottom: 14px;
+    padding-left: 19px;
+    padding-right: 18px;
+    text-align: center;
+    @media (min-width: $screen-sm) {
+      display: inline-block;
+      margin: 0;
+      text-align: left;
+      vertical-align: middle;
+    }
+
+    @media (min-width: $screen-md-lg) {
+      padding-left: 26px;
+      padding-right: 26px;
+    }
+  }
+
+  .form-submit {
+    @extend .btn-white;
+    color: $color-white;
+    padding: 7px;
+    font-size: 0;
+    margin-left: 9px;
+    @media (min-width: $screen-sm) {
+      margin-left: 10px;
+    }
+
+    .glyphicon {
+      font-size: $font-size-h3;
+    }
+
+    &:hover {
+      box-shadow: none;
+      color: $color-white;
+      padding: 6px;
+    }
+  }
+
+  .btn-default {
+    @extend .btn-white;
+    background: transparent;
+    color: $color-white;
+    display: block;
+    font-size: $font-size-base;
+    margin-left: 0;
+    margin-top: 15px;
+    padding: 8px 34px;
+    text-shadow: none;
+    width: 100%;
+
+    @media (min-width: $screen-sm) {
+      display: inline;
+      margin-left: 30px;
+      margin-top: 18px;
+      width: auto;
+    }
+
+    @media (min-width: $screen-md-lg) {
+      display: table-cell;
+    }
+
+    @media (min-width: $screen-md-lg) {
+      margin-top: 0;
+    }
+
+    &:hover {
+      padding: 7px 33px;
+    }
+
+    &::after {
+      @extend %right-brand-arrow;
+      color: $color-white;
+      padding-left: 6px;
+    }
+  }
+}

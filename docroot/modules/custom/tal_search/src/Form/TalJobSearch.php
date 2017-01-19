@@ -34,20 +34,21 @@ class TalJobSearch extends FormBase {
     // Generate a unique salt for placeholder id.
     $form['job'] = [
       '#type' => 'textfield',
-      '#description' => t('Job, roll or skill'),
+      '#description' => t('Job role or skill e.g. finance, research, logistics'),
       '#attributes' => array(
-        'placeholder' => t('Job, roll or skill e.g. finance, research, logistics'),
+        'placeholder' => t('Job, roll or skill'),
       ),
       '#weight' => 0,
     ];
     $form['job_actions'] = [
       '#type' => 'actions',
-      '#weight' => 0,
+      '#weight' => 1,
     ];
     $form['submit_job'] = array(
       '#type' => 'submit',
       '#value' => $this->t('Search'),
       '#button_type' => 'primary',
+      '#suffix' =>'<span class="in__label">in</span>',
     );
     $form['location'] = [
       '#type' => 'textfield',
@@ -55,14 +56,32 @@ class TalJobSearch extends FormBase {
       '#attributes' => array(
         'placeholder' => t('Location'),
       ),
+      '#weight' => 2
     ];
-    $form['location_actions']['#type'] = 'actions';
+    $form['location_actions'] = [
+      '#type' => 'actions',
+      '#weight' => 3,
+    ];
     $form['location_actions']['submit_location'] = array(
       '#type' => 'submit',
       '#value' => $this->t('Search'),
       '#button_type' => 'primary',
     );
-
+    $form['actions'] = [
+      '#type' => 'actions',
+      '#weight' => 4,
+    ];
+    $form['actions']['submit'] = array(
+      '#type' => 'submit',
+      '#value' => $this->t('Find a job'),
+      '#weight' => 7,
+      '#attributes' => array(
+        'class' => array(
+          'btn-white',
+          'btn',
+        ),
+      ),
+    );
     return $form;
   }
 

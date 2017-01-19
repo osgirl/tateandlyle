@@ -22,9 +22,12 @@
   .paragraph--type--history-tab {
 
     .field--type-image {
-      float: left;
       margin-bottom: 15px;
-      margin-right: 20px;
+
+      @media (min-width: $screen-sm) {
+        float: left;
+        margin-right: 20px;
+      }
 
       @media (min-width: $screen-md) {
         margin-bottom: 0;
