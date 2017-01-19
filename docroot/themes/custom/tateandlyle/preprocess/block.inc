@@ -331,6 +331,11 @@ function tal_preprocess_block_dynamic_posts($variables, $block) {
     $variables['dynamic_posts']['#suffix'] = '</div>';
   }
 
+  // Dairy case studies.
+  if ($block->get('field_choose_articles_display')->value == '2_col') {
+    $variables['dynamic_posts']['#display_id'] = 'block_4';
+  }
+
   $variables['#attached']['library'][] = 'tal_articles/tal_articles_post_list';
 
   return $variables;
