@@ -10,7 +10,7 @@ id: node.company_story.field_date
 field_name: field_date
 entity_type: node
 bundle: company_story
-label: Publication Date
+label: 'Publication Date'
 description: 'Date of publication'
 required: false
 translatable: false
