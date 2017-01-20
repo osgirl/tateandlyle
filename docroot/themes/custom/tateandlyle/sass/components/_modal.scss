@@ -77,6 +77,11 @@
     margin-bottom: 0;
     text-align: right;
   }
+
+  select {
+    appearance: none;
+    background: url("../images/icons/dropdown-black.svg") no-repeat 95%;
+  }
 }
 
 .modal-header .modal-title {
