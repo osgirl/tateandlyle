@@ -50,7 +50,6 @@ function tal_preprocess_node_ingredient($variables, $node) {
  * Preprocessor function for "company_story" bundle.
  */
 function tal_preprocess_node_company_story($variables, $node) {
-  $node = $variables['node'];
   $value = $node->get('field_category')->getValue();
   $tid = array_shift($value)['target_id'];
   $term = Term::load($tid);
@@ -91,8 +90,8 @@ function tal_preprocess_node_company_story($variables, $node) {
  * Preprocessor function for "Icon" bundle.
  */
 function tal_preprocess_node_icon($variables, $node) {
-
   $variables['title_attributes']['class'] = 'hide';
+
   return $variables;
 }
 
