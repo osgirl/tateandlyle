@@ -37,7 +37,7 @@ display:
         type: views_query
         options:
           disable_sql_rewrite: false
-          distinct: false
+          distinct: true
           replica: false
           query_comment: ''
           query_tags: {  }
@@ -293,6 +293,7 @@ display:
           plugin_id: numeric
       display_extenders: {  }
       show_admin_links: false
+      group_by: true
     cache_metadata:
       max-age: -1
       contexts:
@@ -317,11 +318,13 @@ display:
       defaults:
         style: false
         row: false
+        use_ajax: false
       row:
         type: 'entity:node'
         options:
           relationship: none
           view_mode: teaser
+      use_ajax: true
     cache_metadata:
       max-age: -1
       contexts:
