@@ -1,6 +1,6 @@
-isall: true
+isall: false
 url: ''
-selectors: ''
+selectors: '#edit-field-ingredients-content-wrapper select[multiple] '
 filtertype: partial
 orderable: false
 groupresetfilter: false
