@@ -16,4 +16,4 @@ permissions:
   - 'access content overview'
   - 'use draft_draft transition'
   - 'use draft_needs_review transition'
-
+  - 'access toolbar'

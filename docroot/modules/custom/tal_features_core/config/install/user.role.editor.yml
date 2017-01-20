@@ -74,4 +74,4 @@ permissions:
   - 'view media_gallery_video revisions'
   - 'use draft_draft transition'
   - 'use draft_needs_review transition'
-
+  - 'access toolbar'
