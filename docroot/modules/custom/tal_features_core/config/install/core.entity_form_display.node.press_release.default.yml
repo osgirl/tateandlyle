@@ -112,7 +112,7 @@ content:
     third_party_settings: {  }
     type: entity_reference_paragraphs
   field_tags:
-    type: options_select
+    type: options_buttons
     weight: 2
     settings: {  }
     third_party_settings: {  }

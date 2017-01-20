@@ -124,7 +124,7 @@ content:
     weight: 2
     settings: {  }
     third_party_settings: {  }
-    type: options_select
+    type: options_buttons
   path:
     type: path
     weight: 17
