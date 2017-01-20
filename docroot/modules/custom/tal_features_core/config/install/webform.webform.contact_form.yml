@@ -97,19 +97,19 @@ access:
     roles: {  }
     users: {  }
 handlers:
-  tal_email:
+  contact_form_email_handler:
     id: tal_email
-    label: 'TAL Email'
-    handler_id: tal_email
+    label: 'Contact form Email'
+    handler_id: contact_form_email_handler
     status: true
-    weight: 0
+    weight: 3
     settings:
-      to_mail: '[webform_submission:values:send_mail:raw]'
+      to_mail: default
       cc_mail: ''
       bcc_mail: ''
       from_mail: default
       from_name: default
-      subject: '[webform_submission:values:title:value]'
+      subject: default
       body: default
       excluded_elements:
         send_mail: send_mail
@@ -117,12 +117,12 @@ handlers:
       html: true
       attachments: false
       debug: 0
-  tal_remote_post:
+  tal_salesforce_handler:
     id: tal_remote_post
-    label: 'TAL Remote post'
-    handler_id: tal_remote_post
+    label: 'Post data to Salesforce'
+    handler_id: tal_salesforce_handler
     status: true
-    weight: 1
+    weight: 2
     settings:
       type: x-www-form-urlencoded
       insert_url: 'https://devsys--TNLDSYS.cs4.my.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8'
