@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+name: Others
+vid: others
+description: 'Third category used for other.'
+hierarchy: 0
+weight: 0
