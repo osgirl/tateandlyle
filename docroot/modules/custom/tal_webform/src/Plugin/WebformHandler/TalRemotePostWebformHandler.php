@@ -70,13 +70,13 @@ class TalRemotePostWebformHandler extends RemotePostWebformHandler {
    *   Return true or false on the basis of criteria specified.
    */
   public function validateSalesForcePostRules(array $data) {
-    $tc = $data['tc'];
+    // $tc = $data['tc'];.
     $te = $data['post_data']['type_of_enquiry'];
-    $in = $data['post_data']['industry'];
-    $cat = $data['post_data']['category'];
+    $in = $this->isTermSalesForceOn($data['post_data']['industry']);
+    $cat = $this->isTermSalesForceOn($data['post_data']['category']);
 
     // Rule 1.
-    $rule1 = ($tc == 'commercial_sales_sfi') && $te == 'commercial_sales' && !empty($in) && !empty($cat);
+    $rule1 = ($te == 'commercial_sales') && $in && $cat;
 
     if ($rule1) {
       return TRUE;
@@ -230,6 +230,20 @@ class TalRemotePostWebformHandler extends RemotePostWebformHandler {
   public function getTermName($id) {
     $term = Term::load($id);
     return $term->getName();
+  }
+
+  /**
+   * Function used to get the term name.
+   *
+   * @param int $id
+   *   Id of the term.
+   *
+   * @return mixed
+   *   returns the termname.
+   */
+  public function isTermSalesForceOn($id) {
+    $term = Term::load($id);
+    return (int) $term->get('field_saleforce_on')->value;
   }
 
 }

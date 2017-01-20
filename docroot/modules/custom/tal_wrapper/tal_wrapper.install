@@ -5,6 +5,9 @@
  * Install, update and uninstall functions for the tal_wrapper module.
  */
 
+use Drupal\taxonomy\Entity\Term;
+use Drupal\taxonomy\Entity\Vocabulary;
+
 /**
  * Implements hook_install().
  *
@@ -41,4 +44,69 @@ function tal_wrapper_update_8204() {
   \Drupal::service('module_installer')->install(
     ['tal_webform']
   );
+}
+
+/**
+ * Create a term "SFI, BI and Other" under Type of Content vocabulary.
+ */
+function tal_wrapper_update_8205() {
+  $vid = 'type_of_content';
+  $name = 'Type of Content';
+  $vocab = Vocabulary::load($vid);
+  if (empty($vocab)) {
+    $vocabulary = Vocabulary::create(array(
+      'vid' => $vid,
+      'machine_name' => $vid,
+      'name' => $name,
+    ));
+    $vocabulary->save();
+  }
+  $terms = [
+    '0' => ['name' => 'Commercial/Sales for SFI', 'machine_name' => 'commercial_sales_sfi'],
+    '1' => ['name' => 'Commercial/Sales for BI', 'machine_name' => 'commercial_sales_bi'],
+  ];
+  foreach ($terms as $key => $val) {
+    Term::create(array(
+      'name' => $val['name'],
+      'vid' => 'type_of_content',
+      'field_tc_machine_name' => $val['machine_name'],
+    ))->save();
+  }
+
+  // Creating a industry term 'Food & Beverage'.
+  Term::create(array(
+    'name' => 'Food & Beverage',
+    'vid' => 'industry',
+  ))->save();
+}
+
+/**
+ * Create a term under Others category for contact us form vocabulary.
+ */
+function tal_wrapper_update_8206() {
+  $vid = 'others';
+  $name = 'Others';
+  $vocab = Vocabulary::load($vid);
+  if (empty($vocab)) {
+    $vocabulary = Vocabulary::create(array(
+      'vid' => $vid,
+      'machine_name' => $vid,
+      'name' => $name,
+    ));
+    $vocabulary->save();
+  }
+  $terms = [
+    '0' => ['name' => 'Community'],
+    '1' => ['name' => 'Media/Investor Relations'],
+    '2' => ['name' => 'Open Innovation'],
+    '3' => ['name' => 'Suppliers'],
+    '4' => ['name' => 'T&L Ventures'],
+  ];
+  foreach ($terms as $key => $val) {
+    Term::create(array(
+      'name' => $val['name'],
+      'vid' => 'others',
+    ))->save();
+  }
+
 }

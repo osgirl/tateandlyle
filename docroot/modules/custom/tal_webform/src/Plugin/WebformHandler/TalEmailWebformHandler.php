@@ -30,17 +30,17 @@ class TalEmailWebformHandler extends EmailWebformHandler {
   public function validateEmailRules($message) {
     $webform_submission = $message['webform_submission'];
 
-    $tc = $webform_submission->getData('tc');
+    // $tc = $webform_submission->getData('tc');.
     $te = $webform_submission->getData('type_of_enquiry');
-    $in = $this->getTermName($webform_submission->getData('industry'));
-    $cat = $webform_submission->getData('category');
+    $in = $this->isTermSalesForceOn($webform_submission->getData('industry'));
+    $cat = $this->isTermSalesForceOn($webform_submission->getData('category'));
 
     // Rule 1 for mail.
-    $rule1 = ($tc == 'commercial_sales_bi' && $te == 'commercial_sales' && $in != 'Food & Beverage' && !empty($cat));
+    $rule1 = (!$in || !$cat);
+    $rule2 = $te == 'other';
 
     // Rule 2 for mail.
-    $rule2 = ($tc == 'others' && $te == 'other' && !empty($cat));
-
+    // $rule2 = ($tc == 'others' && $te == 'other' && !empty($cat));.
     if ($rule1 || $rule2) {
       return TRUE;
     }
@@ -128,6 +128,20 @@ class TalEmailWebformHandler extends EmailWebformHandler {
   public function getTermName($id) {
     $term = Term::load($id);
     return $term->getName();
+  }
+
+  /**
+   * Function used to get the term name.
+   *
+   * @param int $id
+   *   Id of the term.
+   *
+   * @return mixed
+   *   returns the termname.
+   */
+  public function isTermSalesForceOn($id) {
+    $term = Term::load($id);
+    return (int) $term->get('field_saleforce_on')->value;
   }
 
 }
