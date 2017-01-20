@@ -13,6 +13,7 @@ dependencies:
     - field.field.node.press_release.field_reusable_component
     - field.field.node.press_release.field_story_description
     - field.field.node.press_release.field_tags
+    - image.style.article_large_880_x_477
     - node.type.press_release
   module:
     - datetime
@@ -35,33 +36,33 @@ content:
   body:
     label: hidden
     type: text_default
-    weight: 1
+    weight: 3
     settings: {  }
     third_party_settings: {  }
   field_author:
-    weight: 4
-    label: hidden
+    weight: 6
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
   field_category:
-    weight: 2
+    weight: 4
     label: hidden
     settings:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
   field_date:
-    weight: 0
-    label: above
+    weight: 2
+    label: hidden
     settings:
-      format_type: medium
       timezone_override: ''
+      format_type: company_date_format
     third_party_settings: {  }
     type: datetime_default
   field_downloads:
-    weight: 6
+    weight: 8
     label: hidden
     settings:
       view_mode: default
@@ -69,22 +70,22 @@ content:
     third_party_settings: {  }
     type: entity_reference_revisions_entity_view
   field_downloads_border_title:
-    weight: 5
+    weight: 7
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
   field_image:
-    weight: 9
-    label: above
+    weight: 0
+    label: hidden
     settings:
-      image_style: ''
+      image_style: article_large_880_x_477
       image_link: ''
     third_party_settings: {  }
     type: image
   field_reusable_component:
-    weight: 7
+    weight: 9
     label: hidden
     settings:
       view_mode: default
@@ -92,7 +93,7 @@ content:
     third_party_settings: {  }
     type: entity_reference_revisions_entity_view
   field_story_description:
-    weight: 3
+    weight: 5
     label: hidden
     settings:
       view_mode: default
@@ -100,7 +101,11 @@ content:
     third_party_settings: {  }
     type: entity_reference_revisions_entity_view
   links:
-    weight: 8
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+  workbench_moderation_control:
+    weight: 1
     settings: {  }
     third_party_settings: {  }
 hidden:
