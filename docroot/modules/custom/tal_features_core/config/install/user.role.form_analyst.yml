@@ -8,3 +8,5 @@ is_admin: null
 permissions:
   - 'administer webform submission'
   - 'view any webform submission'
+  - 'access toolbar'
+  - 'access webform overview'

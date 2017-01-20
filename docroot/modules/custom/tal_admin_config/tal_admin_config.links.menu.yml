@@ -10,3 +10,8 @@ tal_admin_config.tal_admin_trendsandinsight:
   description: 'Configure Tate & Lyle Settings.'
   parent: tal_admin_config.tal_settings
   weight: 99
+tal_admin_config.webform.collection:
+  title: 'Webforms'
+  description: 'Create webforms and manage submissions.'
+  parent: system.admin
+  route_name: entity.webform.collection
