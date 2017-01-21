@@ -6,7 +6,7 @@
   display: inline-block;
   width: 100%;
   border-bottom: 1px solid $color-warm-gray;
-  margin-bottom: 1em;
+  margin-bottom: 29px;
   padding-bottom: 26px;
   @media (min-width: $screen-sm) {
     padding-bottom: 2em;
@@ -19,38 +19,44 @@
       display: block;
     }
   }
+  .teaser__icon,
+  .teaser__date--category {
+    display: inline-block;
+  }
+
+  .teaser__icon {
+    position: relative;
+    top: -4px;
+    vertical-align: top;
+    @media (min-width: $screen-sm) {
+      position: static;
+    }
+  }
   h3 {
     font-size: $font-size-h5;
     font-family: $font-family-sans-serif;
     margin-bottom: 23px;
-    margin-left: 50px;
+    margin-top: 0;
+    margin-left: 10px;
     @media (min-width: $screen-sm) {
       margin-bottom: 3px;
-      margin-left: 60px;
+      margin-left: 20px;
     }
     @media (min-width: $screen-md) {
       font-size: $font-size-h3;
-      margin-left: 68px;
+      margin-left: 28px;
     }
   }
   .date--category {
+    position: relative;
+    left: -44px;
     margin-bottom: 2em;
     @media (min-width: $screen-sm) {
-      padding-left: 60px;
+      position: static;
+      padding-left: 20px;
     }
     @media (min-width: $screen-md) {
-      padding-left: 68px;
-    }
-    .field--name-field-ac-icon {
-      left: 0;
-      position: absolute;
-      top: 20px;
-      article {
-        margin: 0;
-      }
-      img {
-        max-width: 40px;
-      }
+      padding-left: 28px;
     }
     div {
       display: inline-block;
@@ -63,7 +69,22 @@
       margin: 0;
       line-height: 1;
     }
+
+    .tal--term-icon,
+    .tal--term-description {
+      display: none;
+    }
   }
+
+  .field--name-field-ac-icon {
+    article {
+      margin: 0;
+    }
+    img {
+      max-width: 40px;
+    }
+  }
+
   .teaser-image {
     float: left;
     margin-right: 2em;
@@ -71,6 +92,7 @@
       display: none;
     }
   }
+
   .teaser-read-more a {
     color: black;
     &::after {
@@ -100,11 +122,16 @@
     border-top: 1px solid $color-warm-gray;
     display: block;
     margin-top: 22px;
-    margin-bottom: 0;
-    padding: 30px;
+    margin-bottom: 32px;
+    padding: 22px 30px;
     text-align: center;
     @media (min-width: $screen-sm) {
       margin-top: 40px;
+      margin-bottom: 26px;
+      padding: 30px;
+    }
+    @media (min-width: $screen-sm) {
+      margin-bottom: 32px;
     }
 
     .control-label,

@@ -73,15 +73,20 @@
 %}
 <article{{ attributes.addClass(classes) }}>
   <div{{ content_attributes.addClass('teaser-content') }}>
-    {{ title_prefix }}
-    {% if not page %}
-      <h3{{ title_attributes }}>
-        <a href="{{ url }}" rel="bookmark">{{ label }}</a>
-      </h3>
-    {% endif %}
-    {{ title_suffix }}
-    <div class="date--category">
-        {{ icon }}{{ content.field_date }} <span class="space"> | </span> {{ "Filed in: "|t}}{{ content.field_category }}
+    <div>
+      <div class="teaser__icon">{{ icon }}</div>
+      <div class="teaser__date--category">
+        {{ title_prefix }}
+        {% if not page %}
+          <h3{{ title_attributes }}>
+            <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+          </h3>
+        {% endif %}
+        {{ title_suffix }}
+        <div class="date--category">
+            {{ content.field_date }} <span class="space"> | </span> {{ "Filed in: "|t}}{{ content.field_category }}
+        </div>
+      </div>
     </div>
     <div class="teaser-image"> {{ image }} </div>
     <div class="teaser-summary"> {{ content.body }} </div>

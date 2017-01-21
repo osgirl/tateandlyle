@@ -76,10 +76,10 @@ set classes = [
             {% block content %}
                 <div id="history--tab--content" class="tab-content">
                     {{ content }}
-                    <a id="back-to-top" href="#{{ wrapper_id }}" class="btn btn-primary btn-lg back-to-top" role="button" title="Click to return on the top page" data-toggle="tooltip" data-placement="left">
-                        Back to top<span class="glyphicon glyphicon-chevron-up"></span>
-                    </a>
                 </div>
+                <a id="back-to-top" href="#{{ wrapper_id }}" class="btn btn-lg back-to-top" role="button" title="Click to return on the top page" data-toggle="tooltip" data-placement="left">
+                    {{ "Back to top"|t }}
+                </a>
             {% endblock %}
         </div>
     </div>
