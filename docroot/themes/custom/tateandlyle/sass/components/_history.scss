@@ -3,8 +3,10 @@
     max-width: 881px;
     margin: 25px 10px;
 
-    @media (min-width: $screen-md) {
-      margin: 50px 30px;
+    @media (min-width: $screen-sm) {
+      padding-left: 30px;
+      padding-right: 30px;
+      margin: 25px auto;
     }
 
     @media (min-width: $screen-md) {
@@ -16,6 +18,33 @@
     @extend %navigation-tabs;
     li {
       width: 25%;
+    }
+  }
+
+  .panel-group {
+    margin-bottom: -1px;
+  }
+
+  .back-to-top {
+    border-bottom: 1px solid $color-warm-gray;
+    border-top: 1px solid $color-warm-gray;
+    background: $color-off-white;
+    color: $gray-base;
+    display: block;
+    font-size: $font-size-base;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    text-shadow: none;
+    @media (min-width: $screen-sm) {
+      padding-top: 28px;
+      padding-bottom: 27px;
+    }
+
+    &::after {
+      color: $brand-primary;
+      content: $fa-var-angle-up;
+      font-family: "fontawesome";
+      padding-left: 5px;
     }
   }
 
@@ -38,7 +67,7 @@
     background-color: $color-off-white;
     padding-left: 25px;
     padding-right: 25px;
-    padding-bottom: 60px;
+    padding-bottom: 0;
 
     .field--name-field-simple-text {
       color: $gray-base;

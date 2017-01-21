@@ -245,8 +245,41 @@
 }
 
 .no__icon--banner {
+  @media (min-width: $screen-sm) {
+    padding: 34px 39px 25px 37px;
+  }
+  @media (min-width: $screen-md) {
+    padding: 40px 51px 20px 51px;
+  }
+
+  .title {
+    font-size: $font-size-h2;
+    @media (min-width: $screen-md) {
+      font-size: $font-size-h1;
+    }
+  }
+
+  .field--name-field-description,
+  .title {
+    text-align: left;
+    @media (min-width: $screen-sm) {
+      text-align: center;
+    }
+  }
+
+  .tal--banner-background-image {
+    display: none;
+    @media (min-width: $screen-sm) {
+      display: block;
+    }
+  }
+
   .field--name-field-description {
     max-width: none;
+  }
+
+  hr {
+    display: none;
   }
 
   .tal__banner--content {
