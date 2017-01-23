@@ -17,7 +17,7 @@
   .nav-tabs {
     @extend %navigation-tabs;
     li {
-      width: 16.66%;
+      width: 25%;
     }
   }
 
@@ -158,5 +158,19 @@
         }
       }
     }
+  }
+}
+
+.more__tabs {
+  .history--tabs {
+    @media (min-width: $screen-sm) {
+      font-size: 0;
+    }
+  }
+
+  .nav-tabs li {
+    display: inline-block;
+    float: none;
+    width: 16.66%;
   }
 }
