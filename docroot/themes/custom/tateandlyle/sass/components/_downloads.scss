@@ -169,7 +169,8 @@
 
 .file--downloads .btn--download,
 .block--download .field--name-field-tal-link,
-.block--downloads-with-accordion .field--name-field-tal-link {
+.block--downloads-with-accordion .field--name-field-tal-link,
+.tal--download-external-link {
   a {
     @extend .btn;
     @extend .btn-primary;
@@ -181,6 +182,7 @@
     @media (min-width: $screen-sm) {
       display: inline-block;
       width: auto;
+      margin: 5px 0;
     }
 
     &::after {
