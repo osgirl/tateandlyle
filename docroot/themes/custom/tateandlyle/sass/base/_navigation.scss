@@ -605,9 +605,15 @@
       font-size: 14px;
       color: black;
       padding: 3px 0.5em;
+      &:hover {
+        background: $color-off-white;
+      }
     }
     &.open {
       background: $color-light-gray;
+      .dropdown-toggle {
+        font-family: $font-family-sans-serif-Med;
+      }
       ul {
         background: $color-light-gray;
         border: 0;
