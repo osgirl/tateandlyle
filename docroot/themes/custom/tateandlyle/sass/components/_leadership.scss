@@ -48,6 +48,28 @@
   }
 
   .views-field-field-profile-picture {
+    button,
+    button:focus,
+    button:hover {
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      outline: none;
+    }
+  }
+
+  .modal-content {
+    font-size: $font-size-base;
+    position: relative;
+
+    .close {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+    }
+  }
+
+  .views-field-field-profile-picture {
     margin-bottom: 3px;
 
     img {
