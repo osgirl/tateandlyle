@@ -339,6 +339,7 @@ function tal_preprocess_block_dynamic_posts($variables, $block) {
     $variables['dynamic_posts']['#display_id'] = 'block_4';
   }
 
+  $variables['chosen_view_mode'] = $block->get('field_choose_articles_display')->value;
   $variables['#attached']['library'][] = 'tal_articles/tal_articles_post_list';
 
   return $variables;
