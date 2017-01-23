@@ -267,10 +267,16 @@
     }
   }
 
-  .tal--banner-background-image {
+  .carousel {
     display: none;
     @media (min-width: $screen-sm) {
       display: block;
+    }
+  }
+
+  .tal__banner--content {
+    @media (max-width: $screen-xs-max) {
+      margin-top: 0;
     }
   }
 
