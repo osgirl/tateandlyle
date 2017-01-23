@@ -12,6 +12,7 @@ dependencies:
     - node.type.leadership
     - node.type.media_gallery_video
     - node.type.press_release
+    - system.menu.admin
     - user.role.administrator
   module:
     - datetime
@@ -328,6 +329,15 @@ display:
     display_options:
       display_extenders: {  }
       path: all-content/needs-review
+      menu:
+        type: normal
+        title: 'Needs Review'
+        description: ''
+        expanded: false
+        parent: system.admin
+        weight: 0
+        context: '0'
+        menu_name: admin
     cache_metadata:
       max-age: 0
       contexts:
@@ -482,6 +492,15 @@ display:
         operator: AND
         groups:
           1: AND
+      menu:
+        type: normal
+        title: 'Needs Review For Press Releases'
+        description: ''
+        expanded: false
+        parent: system.admin
+        weight: 0
+        context: '0'
+        menu_name: admin
     cache_metadata:
       max-age: 0
       contexts:

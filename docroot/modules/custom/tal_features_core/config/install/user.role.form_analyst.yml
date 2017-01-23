@@ -1,6 +1,11 @@
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - lightning_core
+third_party_settings:
+  lightning_core:
+    description: ''
 id: form_analyst
 label: 'Form Analyst'
 weight: 5
@@ -10,3 +15,4 @@ permissions:
   - 'view any webform submission'
   - 'access toolbar'
   - 'access webform overview'
+  - 'view the administration theme'
