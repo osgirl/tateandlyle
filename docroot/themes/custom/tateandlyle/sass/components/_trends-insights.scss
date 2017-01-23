@@ -64,3 +64,52 @@
   text-align: center;
   width: 40px;
 }
+
+.tal--dynamic-post-list {
+  @media (min-width: $screen-md) {
+    width: 70%;
+    float: left;
+  }
+}
+
+.tal--focus-on-tag-list {
+  @media (min-width: $screen-md) {
+    width: 27%;
+    float: right;
+  }
+  .views-row {
+    border: 1px solid $color-warm-gray;
+    border-bottom: 3px solid $brand-primary;
+    padding: 0 1em;
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 1em;
+    a {
+      &::after {
+        @extend %right-brand-arrow;
+        font-size: 23px;
+        float: right;
+        position: absolute;
+        right: 0;
+        top: 1px;
+      }
+    }
+    &:hover {
+      a {
+        color: $brand-primary;
+      }
+    }
+    article {
+      margin: 0;
+      padding: 0;
+      float: left;
+      position: relative;
+      top: -0.5em;
+    }
+    h2 {
+      position: relative;
+      top: 0.5em;
+      font-size: 20px;
+    }
+  }
+}
