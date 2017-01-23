@@ -324,6 +324,7 @@ function tal_preprocess_block_dynamic_posts($variables, $block) {
   // Latest news.
   if ($block->get('field_choose_articles_display')->value == '3_col') {
     $variables['dynamic_posts']['#display_id'] = 'block_2';
+    $variables['chosen_view_mode'] = 'three--columns';
   }
 
   // Latest Publications.
@@ -337,9 +338,9 @@ function tal_preprocess_block_dynamic_posts($variables, $block) {
   // Dairy case studies.
   if ($block->get('field_choose_articles_display')->value == '2_col') {
     $variables['dynamic_posts']['#display_id'] = 'block_4';
+    $variables['chosen_view_mode'] = 'two--columns';
   }
 
-  $variables['chosen_view_mode'] = $block->get('field_choose_articles_display')->value;
   $variables['#attached']['library'][] = 'tal_articles/tal_articles_post_list';
 
   return $variables;
