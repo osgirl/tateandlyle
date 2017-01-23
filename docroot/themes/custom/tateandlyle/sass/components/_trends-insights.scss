@@ -113,3 +113,52 @@
     }
   }
 }
+
+.teaser_latest_publication {
+  padding: 0 2em;
+  @media (min-width: $screen-sm) {
+    max-width: 1108px;
+    margin: 0 auto;
+    border: 1px solid $color-warm-gray;
+    padding: 0 1em;
+    margin-bottom: 1em;
+  }
+  h4 {
+    margin-bottom: 2em;
+  }
+  h2.block-title {
+    @media (min-width: $screen-sm) {
+      text-align: center;
+      background: white;
+      width: 420px;
+      margin: 0 auto;
+      margin-top: -19px;
+      padding: 0 1em 0 1em;
+      border: 0 !important;
+    }
+  }
+  .tal-dynamic-post-wrapper {
+    @media (min-width: $screen-sm) {
+      padding: 1em 0;
+      max-width: 879px;
+      margin: 0 auto;
+    }
+  }
+  .tal--dynamic-post-list {
+    width: 100%;
+    .view-footer {
+      height: 80px;
+      border-color: $color-warm-gray;
+      border-width: 1px 0 1px 0;
+      border-style: solid;
+      display: table;
+      width: 100%;
+      background: $color-off-white;
+      text-align: center;
+      span {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+  }
+}

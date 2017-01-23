@@ -29,6 +29,9 @@
   .teaser__icon,
   .teaser__date--category {
     display: inline-block;
+    @media (min-width: $screen-sm) {
+      width: 93%;
+    }
   }
 
   .teaser__icon {
@@ -37,6 +40,7 @@
     vertical-align: top;
     @media (min-width: $screen-sm) {
       position: static;
+      max-width: 42px;
     }
   }
   h3 {
