@@ -266,9 +266,19 @@
     line-height: 1;
     text-transform: uppercase;
 
+    &:focus,
+    &:hover {
+      color: $gray-base;
+    }
+
     @media (min-width: $screen-sm) {
-      padding: 17px 12px 14px 12px;
+      font-size: $font-size-h6;
+      padding: 17px 11px 14px 11px;
       border-bottom: none;
+    }
+
+    @media (min-width: $screen-md) {
+      font-size: $font-size-base;
     }
 
     @media (min-width: $screen-md-lg) {

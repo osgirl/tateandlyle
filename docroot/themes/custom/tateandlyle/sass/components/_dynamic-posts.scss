@@ -122,7 +122,7 @@
 
     &:nth-child(2) {
       display: none;
-      @media (min-width: $screen-md-lg) {
+      @media (min-width: $screen-sm) {
         display: block;
       }
 
@@ -183,10 +183,12 @@
 
     @media (min-width: $screen-sm) {
       margin-left: 50px;
+      margin-right: 50px;
     }
 
     @media (min-width: $screen-md) {
       margin-left: 70px;
+      margin-right: 70px;
     }
 
     @media (min-width: $screen-md-lg) {
