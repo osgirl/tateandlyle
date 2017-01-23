@@ -1,6 +1,11 @@
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - lightning_core
+third_party_settings:
+  lightning_core:
+    description: ''
 id: editor
 label: Editor
 weight: 3
@@ -75,3 +80,6 @@ permissions:
   - 'use draft_draft transition'
   - 'use draft_needs_review transition'
   - 'access toolbar'
+  - 'view the administration theme'
+  - 'use text format advanced_rich_text'
+  - 'use text format rich_text'
