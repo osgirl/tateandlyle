@@ -12,6 +12,8 @@ dependencies:
     - node.type.leadership
     - node.type.media_gallery_video
     - node.type.press_release
+    - system.menu.admin
+    - user.role.editor
     - user.role.pr_editor
   module:
     - datetime
@@ -373,6 +375,22 @@ display:
     display_options:
       display_extenders: {  }
       path: all-content/draft
+      menu:
+        type: normal
+        title: 'Draft List For Editor'
+        description: ''
+        expanded: false
+        parent: system.admin
+        weight: 0
+        context: '0'
+        menu_name: admin
+      access:
+        type: role
+        options:
+          role:
+            editor: editor
+      defaults:
+        access: false
     cache_metadata:
       max-age: 0
       contexts:
@@ -396,6 +414,7 @@ display:
         title: false
         filters: false
         filter_groups: false
+        access: false
       filters:
         moderation_state:
           id: moderation_state
@@ -529,6 +548,20 @@ display:
         operator: AND
         groups:
           1: AND
+      menu:
+        type: normal
+        title: 'Draft List For PR Editor'
+        description: ''
+        expanded: false
+        parent: system.admin
+        weight: 0
+        context: '0'
+        menu_name: admin
+      access:
+        type: role
+        options:
+          role:
+            pr_editor: pr_editor
     cache_metadata:
       max-age: 0
       contexts:
