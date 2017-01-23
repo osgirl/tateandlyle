@@ -3,7 +3,7 @@
   .region-footer-top {
     max-width: 1168px;
     margin: 0 auto;
-    padding: 2em;
+    padding: 2em 0;
   }
   h2 {
     font-size: 24px;
@@ -12,8 +12,10 @@
   }
   .block-keyareasofexpertise {
     max-width: 100%;
+    padding: 2em;
     @media (min-width: $screen-sm) {
-      max-width: 50%;
+      max-width: 42%;
+      padding: 0 2em;
     }
     ul {
       margin-left: 1em;
@@ -37,6 +39,50 @@
           }
         }
       }
+    }
+  }
+  .block-tal-ingredient-search {
+    padding: 0 2em;
+    max-width: 100%;
+    @media (min-width: $screen-sm) {
+      max-width: 42%;
+      float: right;
+      padding-left: 3em;
+      border-left: 1px solid $color-warm-gray;
+      margin-right: 6em;
+      min-height: 370px;
+    }
+    .footer-search-finder-block {
+      position: relative;
+      @media (min-width: $screen-sm) {
+        margin-top: 25%;
+      }
+      input.search {
+        background: transparent;
+        box-shadow: 0 0 0;
+        border: 0;
+        border-bottom: 1px solid $color-warm-gray;
+        border-radius: 0;
+        color: black;
+        font-family: $font-family-sans-serif-bold;
+      }
+      .form-submit {
+        position: absolute;
+        right: 0;
+        top: -1em;
+        background: transparent;
+        font-size: 0;
+        box-shadow: 0 0 0;
+        .icon {
+          font-size: 18px;
+          color: black;
+          font-weight: lighter;
+        }
+      }
+    }
+    .advance-search a {
+      color: $color-warm-gray;
+      text-decoration: underline;
     }
   }
 }
