@@ -42,27 +42,27 @@
   h3 {
     font-size: $font-size-h5;
     font-family: $font-family-sans-serif;
-    margin-bottom: 23px;
-    margin-left: 30px;
+    margin-bottom: 10px;
+    margin-top: 0;
     @media (min-width: $screen-sm) {
       margin-bottom: 3px;
-      padding-left: 30px;
+      margin-left: 20px;
     }
     @media (min-width: $screen-md) {
       font-size: $font-size-h3;
-      padding-left: 30px;
+      margin-left: 28px;
     }
   }
   .date--category {
     position: relative;
-    left: -44px;
     margin-bottom: 2em;
     @media (min-width: $screen-sm) {
       position: static;
       padding-left: 20px;
+      left: -44px;
     }
     @media (min-width: $screen-md) {
-      padding-left: 60px;
+      padding-left: 28px;
     }
     .field--name-field-ac-icon {
       left: 0;
@@ -97,6 +97,7 @@
   .field--name-field-ac-icon {
     article {
       margin: 0;
+      padding: 0;
     }
     img {
       max-width: 40px;
