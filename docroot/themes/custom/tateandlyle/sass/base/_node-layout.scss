@@ -1,0 +1,12 @@
+.page-node-type-press-release {
+  .region-content-top, .teaser-content {
+    @media (min-width: $screen-md) {
+      max-width: 880px;
+    }
+  }
+  .region-content-top {
+    @media (min-width: $screen-lg) {
+      margin-left: 5.3em;
+    }
+  }
+}
