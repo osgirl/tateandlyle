@@ -260,6 +260,9 @@ function tal_preprocess_block_history($variables, $block) {
       'title' => array_shift($title)['value'],
     ];
   }
+  if (count($tabs) > 4) {
+    $variables['content_count'] = 'more__tabs';
+  }
   $variables['tabs'] = $tabs;
   $variables['wrapper_id'] = $tab_wrapper_id;
   return $variables;
