@@ -155,7 +155,18 @@ display:
           plugin_id: boolean
       sorts: {  }
       title: 'Focus on'
-      header: {  }
+      header:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: false
+          content: '<h2 class="title">[view:title]</h2>'
+          plugin_id: text_custom
       footer: {  }
       empty: {  }
       relationships: {  }
