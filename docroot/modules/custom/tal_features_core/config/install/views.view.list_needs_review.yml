@@ -334,7 +334,7 @@ display:
         title: 'Needs Review'
         description: ''
         expanded: false
-        parent: system.admin
+        parent: system.admin_content
         weight: 0
         context: '0'
         menu_name: admin
@@ -497,7 +497,7 @@ display:
         title: 'Needs Review For Press Releases'
         description: ''
         expanded: false
-        parent: system.admin
+        parent: system.admin_content
         weight: 0
         context: '0'
         menu_name: admin
