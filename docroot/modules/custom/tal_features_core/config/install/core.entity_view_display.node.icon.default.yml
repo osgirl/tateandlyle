@@ -28,12 +28,6 @@ content:
       image_link: ''
     third_party_settings: {  }
     type: image
-  links:
-    weight: 100
-    settings: {  }
-    third_party_settings: {  }
-  workbench_moderation_control:
-    weight: -20
-    settings: {  }
-    third_party_settings: {  }
-hidden: {  }
+hidden:
+  links: true
+  workbench_moderation_control: true
