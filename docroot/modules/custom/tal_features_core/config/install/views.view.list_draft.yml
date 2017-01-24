@@ -13,6 +13,7 @@ dependencies:
     - node.type.media_gallery_video
     - node.type.press_release
     - system.menu.admin
+    - user.role.administrator
     - user.role.editor
     - user.role.pr_editor
   module:
@@ -380,7 +381,7 @@ display:
         title: 'Draft List For Editor'
         description: ''
         expanded: false
-        parent: system.admin
+        parent: system.admin_content
         weight: 0
         context: '0'
         menu_name: admin
@@ -388,6 +389,7 @@ display:
         type: role
         options:
           role:
+            administrator: administrator
             editor: editor
       defaults:
         access: false
@@ -553,7 +555,7 @@ display:
         title: 'Draft List For PR Editor'
         description: ''
         expanded: false
-        parent: system.admin
+        parent: system.admin_content
         weight: 0
         context: '0'
         menu_name: admin
@@ -561,6 +563,7 @@ display:
         type: role
         options:
           role:
+            administrator: administrator
             pr_editor: pr_editor
     cache_metadata:
       max-age: 0
