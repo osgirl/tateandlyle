@@ -29,7 +29,7 @@ class TalSearchfinderForm extends FormBase {
       '#type' => 'textfield',
       '#attributes' => array(
         'class' => array('search'),
-        'plceholder' => 'Search',
+        'placeholder' => 'Search',
       ),
     );
 
