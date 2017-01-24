@@ -1,0 +1,14 @@
+langcode: en
+status: true
+dependencies: {  }
+name: icon_48px_width
+label: 'Icon 48px  Width'
+effects:
+  0b587051-ee63-4f22-bb97-887a592a8a2a:
+    uuid: 0b587051-ee63-4f22-bb97-887a592a8a2a
+    id: image_scale
+    weight: 2
+    data:
+      width: null
+      height: 48
+      upscale: false
