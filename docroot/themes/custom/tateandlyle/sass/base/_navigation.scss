@@ -104,7 +104,7 @@
   border: 0 none;
 }
 
-#navbar1 {
+#navbar2 {
   width: 100%;
   border: 0 none;
 }
@@ -535,7 +535,7 @@
   }
 }
 
-#navbar1 {
+#navbar2 {
   margin-top: 0;
   margin-bottom: 0;
 }
@@ -561,7 +561,7 @@
   .navbar.navbar-default {
     margin-bottom: 0;
   }
-  #navbar1 {
+  #navbar3 {
     background: white;
     .navbar-nav li {
       border-bottom: 1px solid $color-light-gray;
@@ -662,10 +662,10 @@
     position: relative;
     top: 0;
   }
-  #navbar1 {
+  #navbar2 {
     float: right;
     width: 87%;
-    top: -6.3em;
+    top: -4.3em;
     box-shadow: rgba(0, 0, 17, 0.258824) -1px 1px 5px;
     position: relative;
     z-index: 999;
@@ -673,7 +673,7 @@
     background: white;
   }
   .search-menu-mobile section {
-    margin: 0 0 0 2em;
+    margin: 0;
     padding: 0;
   }
   #views-exposed-form-search-search-page {
@@ -719,7 +719,7 @@
   button.navbar-toggle {
     position: relative;
     top: -3.5em;
-    left: 2.5em;
+    left: -6px !important;
     z-index: 99999;
   }
 }
