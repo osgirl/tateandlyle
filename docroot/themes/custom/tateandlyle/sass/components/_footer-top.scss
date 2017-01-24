@@ -4,6 +4,10 @@
     max-width: 1168px;
     margin: 0 auto;
     padding: 2em 0;
+    @media (min-width: $screen-sm) {
+      padding: 4em 0;
+      min-height: 452px;
+    }
   }
   h2 {
     font-size: 24px;
@@ -14,8 +18,12 @@
     max-width: 100%;
     padding: 2em;
     @media (min-width: $screen-sm) {
-      max-width: 42%;
+      width: 53%;
       padding: 0 2em;
+      display: inline-block;
+      min-height: 327px;
+      border-right: 1px solid $color-warm-gray;
+      padding-right: 7em;
     }
     ul {
       margin-left: 1em;
@@ -45,12 +53,8 @@
     padding: 0 2em;
     max-width: 100%;
     @media (min-width: $screen-sm) {
-      max-width: 42%;
+      max-width: 39%;
       float: right;
-      padding-left: 3em;
-      border-left: 1px solid $color-warm-gray;
-      margin-right: 6em;
-      min-height: 370px;
     }
     .footer-search-finder-block {
       position: relative;
