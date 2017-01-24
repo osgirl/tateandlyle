@@ -16,7 +16,7 @@ third_party_settings:
       - draft
       - needs_review
     default_moderation_state: draft
-name: Image
+name: 'Media Gallery : image'
 type: image
 description: 'Use image content type create image carousel on image galley page.'
 help: ''
