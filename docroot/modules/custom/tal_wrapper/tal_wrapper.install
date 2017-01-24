@@ -138,3 +138,10 @@ function tal_wrapper_update_8207() {
     $entity->save();
   }
 }
+
+/**
+ * Installs tal_admin_config module.
+ */
+function tal_wrapper_update_8208() {
+  \Drupal::service('module_installer')->install(['tal_admin_config']);
+}
