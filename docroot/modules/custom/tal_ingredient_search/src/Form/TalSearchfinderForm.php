@@ -27,7 +27,6 @@ class TalSearchfinderForm extends FormBase {
   public function buildForm(array $form, FormStateInterface $form_state) {
     $form['keyword'] = array(
       '#type' => 'textfield',
-      '#default_value' => "Search",
       '#attributes' => array(
         'class' => array('search'),
         'plceholder' => 'Search',
