@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitc763e2dae2057fcde87d64fc8b9ff1d8
+class ComposerStaticInit1ef8d039200a075a3ca1850f7bb968c8
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -78,7 +78,6 @@ class ComposerStaticInitc763e2dae2057fcde87d64fc8b9ff1d8
             'Symfony\\Component\\Console\\' => 26,
             'Symfony\\Component\\Config\\' => 25,
             'Symfony\\Component\\ClassLoader\\' => 30,
-            'Symfony\\Component\\Cache\\' => 24,
             'Symfony\\Cmf\\Component\\Routing\\' => 30,
             'Symfony\\Bridge\\PsrHttpMessage\\' => 30,
             'Stecman\\Component\\Symfony\\Console\\BashCompletion\\' => 49,
@@ -93,7 +92,6 @@ class ComposerStaticInitc763e2dae2057fcde87d64fc8b9ff1d8
             'Psy\\' => 4,
             'Psr\\Log\\' => 8,
             'Psr\\Http\\Message\\' => 17,
-            'Psr\\Cache\\' => 10,
             'PhpParser\\' => 10,
         ),
         'M' => 
@@ -274,10 +272,6 @@ class ComposerStaticInitc763e2dae2057fcde87d64fc8b9ff1d8
         array (
             0 => __DIR__ . '/..' . '/symfony/class-loader',
         ),
-        'Symfony\\Component\\Cache\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/symfony/cache',
-        ),
         'Symfony\\Cmf\\Component\\Routing\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony-cmf/routing',
@@ -309,10 +303,6 @@ class ComposerStaticInitc763e2dae2057fcde87d64fc8b9ff1d8
         'Psr\\Http\\Message\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/http-message/src',
-        ),
-        'Psr\\Cache\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/psr/cache/src',
         ),
         'PhpParser\\' => 
         array (
@@ -1351,6 +1341,7 @@ class ComposerStaticInitc763e2dae2057fcde87d64fc8b9ff1d8
         'Drupal\\Console\\Command\\Field\\InfoCommand' => __DIR__ . '/..' . '/drupal/console/src/Command/Field/InfoCommand.php',
         'Drupal\\Console\\Command\\Generate\\AuthenticationProviderCommand' => __DIR__ . '/..' . '/drupal/console/src/Command/Generate/AuthenticationProviderCommand.php',
         'Drupal\\Console\\Command\\Generate\\BreakPointCommand' => __DIR__ . '/..' . '/drupal/console/src/Command/Generate/BreakPointCommand.php',
+        'Drupal\\Console\\Command\\Generate\\CacheContextCommand' => __DIR__ . '/..' . '/drupal/console/src/Command/Generate/CacheContextCommand.php',
         'Drupal\\Console\\Command\\Generate\\CommandCommand' => __DIR__ . '/..' . '/drupal/console/src/Command/Generate/CommandCommand.php',
         'Drupal\\Console\\Command\\Generate\\ConfigFormBaseCommand' => __DIR__ . '/..' . '/drupal/console/src/Command/Generate/ConfigFormBaseCommand.php',
         'Drupal\\Console\\Command\\Generate\\ControllerCommand' => __DIR__ . '/..' . '/drupal/console/src/Command/Generate/ControllerCommand.php',
@@ -1376,6 +1367,7 @@ class ComposerStaticInitc763e2dae2057fcde87d64fc8b9ff1d8
         'Drupal\\Console\\Command\\Generate\\PluginImageEffectCommand' => __DIR__ . '/..' . '/drupal/console/src/Command/Generate/PluginImageEffectCommand.php',
         'Drupal\\Console\\Command\\Generate\\PluginImageFormatterCommand' => __DIR__ . '/..' . '/drupal/console/src/Command/Generate/PluginImageFormatterCommand.php',
         'Drupal\\Console\\Command\\Generate\\PluginMailCommand' => __DIR__ . '/..' . '/drupal/console/src/Command/Generate/PluginMailCommand.php',
+        'Drupal\\Console\\Command\\Generate\\PluginMigrateProcessCommand' => __DIR__ . '/..' . '/drupal/console/src/Command/Generate/PluginMigrateProcessCommand.php',
         'Drupal\\Console\\Command\\Generate\\PluginMigrateSourceCommand' => __DIR__ . '/..' . '/drupal/console/src/Command/Generate/PluginMigrateSourceCommand.php',
         'Drupal\\Console\\Command\\Generate\\PluginRestResourceCommand' => __DIR__ . '/..' . '/drupal/console/src/Command/Generate/PluginRestResourceCommand.php',
         'Drupal\\Console\\Command\\Generate\\PluginRulesActionCommand' => __DIR__ . '/..' . '/drupal/console/src/Command/Generate/PluginRulesActionCommand.php',
@@ -1398,6 +1390,7 @@ class ComposerStaticInitc763e2dae2057fcde87d64fc8b9ff1d8
         'Drupal\\Console\\Command\\Locale\\TranslationStatusCommand' => __DIR__ . '/..' . '/drupal/console/src/Command/Locale/TranslationStatusCommand.php',
         'Drupal\\Console\\Command\\Migrate\\DebugCommand' => __DIR__ . '/..' . '/drupal/console/src/Command/Migrate/DebugCommand.php',
         'Drupal\\Console\\Command\\Migrate\\ExecuteCommand' => __DIR__ . '/..' . '/drupal/console/src/Command/Migrate/ExecuteCommand.php',
+        'Drupal\\Console\\Command\\Migrate\\RollBackCommand' => __DIR__ . '/..' . '/drupal/console/src/Command/Migrate/RollBackCommand.php',
         'Drupal\\Console\\Command\\Migrate\\SetupCommand' => __DIR__ . '/..' . '/drupal/console/src/Command/Migrate/SetupCommand.php',
         'Drupal\\Console\\Command\\Module\\DebugCommand' => __DIR__ . '/..' . '/drupal/console/src/Command/Module/DebugCommand.php',
         'Drupal\\Console\\Command\\Module\\DownloadCommand' => __DIR__ . '/..' . '/drupal/console/src/Command/Module/DownloadCommand.php',
@@ -1425,6 +1418,7 @@ class ComposerStaticInitc763e2dae2057fcde87d64fc8b9ff1d8
         'Drupal\\Console\\Command\\Shared\\DatabaseTrait' => __DIR__ . '/..' . '/drupal/console/src/Command/Shared/DatabaseTrait.php',
         'Drupal\\Console\\Command\\Shared\\EventsTrait' => __DIR__ . '/..' . '/drupal/console/src/Command/Shared/EventsTrait.php',
         'Drupal\\Console\\Command\\Shared\\ExportTrait' => __DIR__ . '/..' . '/drupal/console/src/Command/Shared/ExportTrait.php',
+        'Drupal\\Console\\Command\\Shared\\ExtensionTrait' => __DIR__ . '/..' . '/drupal/console/src/Command/Shared/ExtensionTrait.php',
         'Drupal\\Console\\Command\\Shared\\FeatureTrait' => __DIR__ . '/..' . '/drupal/console/src/Command/Shared/FeatureTrait.php',
         'Drupal\\Console\\Command\\Shared\\FormTrait' => __DIR__ . '/..' . '/drupal/console/src/Command/Shared/FormTrait.php',
         'Drupal\\Console\\Command\\Shared\\LocaleTrait' => __DIR__ . '/..' . '/drupal/console/src/Command/Shared/LocaleTrait.php',
@@ -1531,6 +1525,7 @@ class ComposerStaticInitc763e2dae2057fcde87d64fc8b9ff1d8
         'Drupal\\Console\\Extension\\Manager' => __DIR__ . '/..' . '/drupal/console/src/Extension/Manager.php',
         'Drupal\\Console\\Generator\\AuthenticationProviderGenerator' => __DIR__ . '/..' . '/drupal/console/src/Generator/AuthenticationProviderGenerator.php',
         'Drupal\\Console\\Generator\\BreakPointGenerator' => __DIR__ . '/..' . '/drupal/console/src/Generator/BreakPointGenerator.php',
+        'Drupal\\Console\\Generator\\CacheContextGenerator' => __DIR__ . '/..' . '/drupal/console/src/Generator/CacheContextGenerator.php',
         'Drupal\\Console\\Generator\\CommandGenerator' => __DIR__ . '/..' . '/drupal/console/src/Generator/CommandGenerator.php',
         'Drupal\\Console\\Generator\\ControllerGenerator' => __DIR__ . '/..' . '/drupal/console/src/Generator/ControllerGenerator.php',
         'Drupal\\Console\\Generator\\DatabaseSettingsGenerator' => __DIR__ . '/..' . '/drupal/console/src/Generator/DatabaseSettingsGenerator.php',
@@ -1553,6 +1548,7 @@ class ComposerStaticInitc763e2dae2057fcde87d64fc8b9ff1d8
         'Drupal\\Console\\Generator\\PluginImageEffectGenerator' => __DIR__ . '/..' . '/drupal/console/src/Generator/PluginImageEffectGenerator.php',
         'Drupal\\Console\\Generator\\PluginImageFormatterGenerator' => __DIR__ . '/..' . '/drupal/console/src/Generator/PluginImageFormatterGenerator.php',
         'Drupal\\Console\\Generator\\PluginMailGenerator' => __DIR__ . '/..' . '/drupal/console/src/Generator/PluginMailGenerator.php',
+        'Drupal\\Console\\Generator\\PluginMigrateProcessGenerator' => __DIR__ . '/..' . '/drupal/console/src/Generator/PluginMigrateProcessGenerator.php',
         'Drupal\\Console\\Generator\\PluginMigrateSourceGenerator' => __DIR__ . '/..' . '/drupal/console/src/Generator/PluginMigrateSourceGenerator.php',
         'Drupal\\Console\\Generator\\PluginRestResourceGenerator' => __DIR__ . '/..' . '/drupal/console/src/Generator/PluginRestResourceGenerator.php',
         'Drupal\\Console\\Generator\\PluginRulesActionGenerator' => __DIR__ . '/..' . '/drupal/console/src/Generator/PluginRulesActionGenerator.php',
@@ -3890,7 +3886,7 @@ class ComposerStaticInitc763e2dae2057fcde87d64fc8b9ff1d8
         'PHPUnit_Framework_Constraint_TraversableContains' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Constraint/TraversableContains.php',
         'PHPUnit_Framework_Constraint_TraversableContainsOnly' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Constraint/TraversableContainsOnly.php',
         'PHPUnit_Framework_Constraint_Xor' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Constraint/Xor.php',
-        'PHPUnit_Framework_CoveredCodeNotExecutedException' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/PHPUnit_Framework_CoveredCodeNotExecutedException.php',
+        'PHPUnit_Framework_CoveredCodeNotExecutedException' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/CoveredCodeNotExecutedException.php',
         'PHPUnit_Framework_Error' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Error.php',
         'PHPUnit_Framework_Error_Deprecated' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Error/Deprecated.php',
         'PHPUnit_Framework_Error_Notice' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Error/Notice.php',
@@ -3902,7 +3898,7 @@ class ComposerStaticInitc763e2dae2057fcde87d64fc8b9ff1d8
         'PHPUnit_Framework_IncompleteTestCase' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/IncompleteTestCase.php',
         'PHPUnit_Framework_IncompleteTestError' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/IncompleteTestError.php',
         'PHPUnit_Framework_InvalidCoversTargetException' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/InvalidCoversTargetException.php',
-        'PHPUnit_Framework_MissingCoversAnnotationException' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/PHPUnit_Framework_MissingCoversAnnotationException.php',
+        'PHPUnit_Framework_MissingCoversAnnotationException' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/MissingCoversAnnotationException.php',
         'PHPUnit_Framework_MockObject_BadMethodCallException' => __DIR__ . '/..' . '/phpunit/phpunit-mock-objects/src/Framework/MockObject/Exception/BadMethodCallException.php',
         'PHPUnit_Framework_MockObject_Builder_Identity' => __DIR__ . '/..' . '/phpunit/phpunit-mock-objects/src/Framework/MockObject/Builder/Identity.php',
         'PHPUnit_Framework_MockObject_Builder_InvocationMocker' => __DIR__ . '/..' . '/phpunit/phpunit-mock-objects/src/Framework/MockObject/Builder/InvocationMocker.php',
@@ -4618,10 +4614,6 @@ class ComposerStaticInitc763e2dae2057fcde87d64fc8b9ff1d8
         'Prophecy\\Prophet' => __DIR__ . '/..' . '/phpspec/prophecy/src/Prophecy/Prophet.php',
         'Prophecy\\Util\\ExportUtil' => __DIR__ . '/..' . '/phpspec/prophecy/src/Prophecy/Util/ExportUtil.php',
         'Prophecy\\Util\\StringUtil' => __DIR__ . '/..' . '/phpspec/prophecy/src/Prophecy/Util/StringUtil.php',
-        'Psr\\Cache\\CacheException' => __DIR__ . '/..' . '/psr/cache/src/CacheException.php',
-        'Psr\\Cache\\CacheItemInterface' => __DIR__ . '/..' . '/psr/cache/src/CacheItemInterface.php',
-        'Psr\\Cache\\CacheItemPoolInterface' => __DIR__ . '/..' . '/psr/cache/src/CacheItemPoolInterface.php',
-        'Psr\\Cache\\InvalidArgumentException' => __DIR__ . '/..' . '/psr/cache/src/InvalidArgumentException.php',
         'Psr\\Http\\Message\\MessageInterface' => __DIR__ . '/..' . '/psr/http-message/src/MessageInterface.php',
         'Psr\\Http\\Message\\RequestInterface' => __DIR__ . '/..' . '/psr/http-message/src/RequestInterface.php',
         'Psr\\Http\\Message\\ResponseInterface' => __DIR__ . '/..' . '/psr/http-message/src/ResponseInterface.php',
@@ -5343,19 +5335,6 @@ class ComposerStaticInitc763e2dae2057fcde87d64fc8b9ff1d8
         'Symfony\\Cmf\\Component\\Routing\\Tests\\Routing\\VersatileRouter' => __DIR__ . '/..' . '/symfony-cmf/routing/Tests/Routing/ChainRouterTest.php',
         'Symfony\\Cmf\\Component\\Routing\\Tests\\Routing\\WarmableRouterMock' => __DIR__ . '/..' . '/symfony-cmf/routing/Tests/Routing/ChainRouterTest.php',
         'Symfony\\Cmf\\Component\\Routing\\VersatileGeneratorInterface' => __DIR__ . '/..' . '/symfony-cmf/routing/VersatileGeneratorInterface.php',
-        'Symfony\\Component\\Cache\\Adapter\\AbstractAdapter' => __DIR__ . '/..' . '/symfony/cache/Adapter/AbstractAdapter.php',
-        'Symfony\\Component\\Cache\\Adapter\\AdapterInterface' => __DIR__ . '/..' . '/symfony/cache/Adapter/AdapterInterface.php',
-        'Symfony\\Component\\Cache\\Adapter\\ApcuAdapter' => __DIR__ . '/..' . '/symfony/cache/Adapter/ApcuAdapter.php',
-        'Symfony\\Component\\Cache\\Adapter\\ArrayAdapter' => __DIR__ . '/..' . '/symfony/cache/Adapter/ArrayAdapter.php',
-        'Symfony\\Component\\Cache\\Adapter\\ChainAdapter' => __DIR__ . '/..' . '/symfony/cache/Adapter/ChainAdapter.php',
-        'Symfony\\Component\\Cache\\Adapter\\DoctrineAdapter' => __DIR__ . '/..' . '/symfony/cache/Adapter/DoctrineAdapter.php',
-        'Symfony\\Component\\Cache\\Adapter\\FilesystemAdapter' => __DIR__ . '/..' . '/symfony/cache/Adapter/FilesystemAdapter.php',
-        'Symfony\\Component\\Cache\\Adapter\\ProxyAdapter' => __DIR__ . '/..' . '/symfony/cache/Adapter/ProxyAdapter.php',
-        'Symfony\\Component\\Cache\\Adapter\\RedisAdapter' => __DIR__ . '/..' . '/symfony/cache/Adapter/RedisAdapter.php',
-        'Symfony\\Component\\Cache\\CacheItem' => __DIR__ . '/..' . '/symfony/cache/CacheItem.php',
-        'Symfony\\Component\\Cache\\DoctrineProvider' => __DIR__ . '/..' . '/symfony/cache/DoctrineProvider.php',
-        'Symfony\\Component\\Cache\\Exception\\CacheException' => __DIR__ . '/..' . '/symfony/cache/Exception/CacheException.php',
-        'Symfony\\Component\\Cache\\Exception\\InvalidArgumentException' => __DIR__ . '/..' . '/symfony/cache/Exception/InvalidArgumentException.php',
         'Symfony\\Component\\ClassLoader\\ApcClassLoader' => __DIR__ . '/..' . '/symfony/class-loader/ApcClassLoader.php',
         'Symfony\\Component\\ClassLoader\\ApcUniversalClassLoader' => __DIR__ . '/..' . '/symfony/class-loader/ApcUniversalClassLoader.php',
         'Symfony\\Component\\ClassLoader\\ClassCollectionLoader' => __DIR__ . '/..' . '/symfony/class-loader/ClassCollectionLoader.php',
@@ -5410,6 +5389,7 @@ class ComposerStaticInitc763e2dae2057fcde87d64fc8b9ff1d8
         'Symfony\\Component\\Config\\Definition\\Processor' => __DIR__ . '/..' . '/symfony/config/Definition/Processor.php',
         'Symfony\\Component\\Config\\Definition\\PrototypeNodeInterface' => __DIR__ . '/..' . '/symfony/config/Definition/PrototypeNodeInterface.php',
         'Symfony\\Component\\Config\\Definition\\PrototypedArrayNode' => __DIR__ . '/..' . '/symfony/config/Definition/PrototypedArrayNode.php',
+        'Symfony\\Component\\Config\\Definition\\ReferenceDumper' => __DIR__ . '/..' . '/symfony/config/Definition/ReferenceDumper.php',
         'Symfony\\Component\\Config\\Definition\\ScalarNode' => __DIR__ . '/..' . '/symfony/config/Definition/ScalarNode.php',
         'Symfony\\Component\\Config\\Definition\\VariableNode' => __DIR__ . '/..' . '/symfony/config/Definition/VariableNode.php',
         'Symfony\\Component\\Config\\Exception\\FileLoaderImportCircularReferenceException' => __DIR__ . '/..' . '/symfony/config/Exception/FileLoaderImportCircularReferenceException.php',
@@ -5425,6 +5405,7 @@ class ComposerStaticInitc763e2dae2057fcde87d64fc8b9ff1d8
         'Symfony\\Component\\Config\\ResourceCheckerConfigCache' => __DIR__ . '/..' . '/symfony/config/ResourceCheckerConfigCache.php',
         'Symfony\\Component\\Config\\ResourceCheckerConfigCacheFactory' => __DIR__ . '/..' . '/symfony/config/ResourceCheckerConfigCacheFactory.php',
         'Symfony\\Component\\Config\\ResourceCheckerInterface' => __DIR__ . '/..' . '/symfony/config/ResourceCheckerInterface.php',
+        'Symfony\\Component\\Config\\Resource\\BCResourceInterfaceChecker' => __DIR__ . '/..' . '/symfony/config/Resource/BCResourceInterfaceChecker.php',
         'Symfony\\Component\\Config\\Resource\\DirectoryResource' => __DIR__ . '/..' . '/symfony/config/Resource/DirectoryResource.php',
         'Symfony\\Component\\Config\\Resource\\FileExistenceResource' => __DIR__ . '/..' . '/symfony/config/Resource/FileExistenceResource.php',
         'Symfony\\Component\\Config\\Resource\\FileResource' => __DIR__ . '/..' . '/symfony/config/Resource/FileResource.php',
@@ -5504,6 +5485,7 @@ class ComposerStaticInitc763e2dae2057fcde87d64fc8b9ff1d8
         'Symfony\\Component\\Console\\Style\\SymfonyStyle' => __DIR__ . '/..' . '/symfony/console/Style/SymfonyStyle.php',
         'Symfony\\Component\\Console\\Tester\\ApplicationTester' => __DIR__ . '/..' . '/symfony/console/Tester/ApplicationTester.php',
         'Symfony\\Component\\Console\\Tester\\CommandTester' => __DIR__ . '/..' . '/symfony/console/Tester/CommandTester.php',
+        'Symfony\\Component\\CssSelector\\CssSelector' => __DIR__ . '/..' . '/symfony/css-selector/CssSelector.php',
         'Symfony\\Component\\CssSelector\\CssSelectorConverter' => __DIR__ . '/..' . '/symfony/css-selector/CssSelectorConverter.php',
         'Symfony\\Component\\CssSelector\\Exception\\ExceptionInterface' => __DIR__ . '/..' . '/symfony/css-selector/Exception/ExceptionInterface.php',
         'Symfony\\Component\\CssSelector\\Exception\\ExpressionErrorException' => __DIR__ . '/..' . '/symfony/css-selector/Exception/ExpressionErrorException.php',
@@ -6837,10 +6819,10 @@ class ComposerStaticInitc763e2dae2057fcde87d64fc8b9ff1d8
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitc763e2dae2057fcde87d64fc8b9ff1d8::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitc763e2dae2057fcde87d64fc8b9ff1d8::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInitc763e2dae2057fcde87d64fc8b9ff1d8::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInitc763e2dae2057fcde87d64fc8b9ff1d8::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit1ef8d039200a075a3ca1850f7bb968c8::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit1ef8d039200a075a3ca1850f7bb968c8::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit1ef8d039200a075a3ca1850f7bb968c8::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit1ef8d039200a075a3ca1850f7bb968c8::$classMap;
 
         }, null, ClassLoader::class);
     }

@@ -121,8 +121,6 @@ class Date extends NumericFilter {
       return TRUE;
     }
 
-    // Store this because it will get overwritten.
-    $type = $this->value['type'];
     $rc = parent::acceptExposedInput($input);
 
     // Don't filter if value(s) are empty.
@@ -145,8 +143,6 @@ class Date extends NumericFilter {
       }
     }
 
-    // restore what got overwritten by the parent.
-    $this->value['type'] = $type;
     return $rc;
   }
 
@@ -154,7 +150,7 @@ class Date extends NumericFilter {
     $a = intval(strtotime($this->value['min'], 0));
     $b = intval(strtotime($this->value['max'], 0));
 
-    if ($this->value['type'] == 'offset') {
+    if ($this->options['value']['type'] == 'offset') {
       $a = '***CURRENT_TIME***' . sprintf('%+d', $a); // keep sign
       $b = '***CURRENT_TIME***' . sprintf('%+d', $b); // keep sign
     }
@@ -166,7 +162,7 @@ class Date extends NumericFilter {
 
   protected function opSimple($field) {
     $value = intval(strtotime($this->value['value'], 0));
-    if (!empty($this->value['type']) && $this->value['type'] == 'offset') {
+    if (!empty($this->options['value']['type']) && $this->options['value']['type'] == 'offset') {
       $value = '***CURRENT_TIME***' . sprintf('%+d', $value); // keep sign
     }
     // This is safe because we are manually scrubbing the value.

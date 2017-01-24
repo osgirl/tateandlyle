@@ -83,3 +83,4 @@ permissions:
   - 'view the administration theme'
   - 'use text format advanced_rich_text'
   - 'use text format rich_text'
+  - 'view moderation states'

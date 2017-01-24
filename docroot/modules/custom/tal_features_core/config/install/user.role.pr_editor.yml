@@ -26,3 +26,6 @@ permissions:
   - 'access image_browser entity browser pages'
   - 'use text format advanced_rich_text'
   - 'use text format rich_text'
+  - 'view any unpublished content'
+  - 'view latest version'
+  - 'view moderation states'

@@ -57,8 +57,8 @@ class FilterDateTest extends HandlerTestBase {
     // Test offset for simple operator.
     $view->initHandlers();
     $view->filter['created']->operator = '>';
-    $view->filter['created']->value['type'] = 'offset';
-    $view->filter['created']->value['value'] = '+1 hour';
+    $view->filter['created']->options['value']['type'] = 'offset';
+    $view->filter['created']->options['value']['value'] = '+1 hour';
     $view->executeDisplay('default');
     $expected_result = array(
       array('nid' => $this->nodes[3]->id()),
@@ -69,7 +69,7 @@ class FilterDateTest extends HandlerTestBase {
     // Test offset for between operator.
     $view->initHandlers();
     $view->filter['created']->operator = 'between';
-    $view->filter['created']->value['type'] = 'offset';
+    $view->filter['created']->options['value']['type'] = 'offset';
     $view->filter['created']->value['max'] = '+2 days';
     $view->filter['created']->value['min'] = '+1 hour';
     $view->executeDisplay('default');
