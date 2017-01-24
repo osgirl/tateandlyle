@@ -119,7 +119,8 @@
         },
         "patches": {
             "drupal/core": {
-                "Duplicate AJAX wrapper around a file field": "https://www.drupal.org/files/issues/duplicate_ajax_wrapper-2346893-176.patch"
+                "Duplicate AJAX wrapper around a file field": "https://www.drupal.org/files/issues/duplicate_ajax_wrapper-2346893-176.patch",
+                "Exposed date filter leads to a notice": "https://www.drupal.org/files/issues/2811887-19-fix-tests.patch"
             },
             "drupal/paragraphs": {
                 "Field Group not working on node edit inside paragraph": "https://www.drupal.org/files/issues/field_group_not_working-2675136-53.patch",
