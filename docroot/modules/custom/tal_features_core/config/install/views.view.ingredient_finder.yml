@@ -156,6 +156,9 @@ display:
               anonymous: '0'
               administrator: '0'
               layout_manager: '0'
+              editor: '0'
+              pr_editor: '0'
+              form_analyst: '0'
               media_creator: '0'
               media_manager: '0'
           is_grouped: false
@@ -178,20 +181,6 @@ display:
             field_in_common_names: field_in_common_names
             field_in_misspellings: field_in_misspellings
             title_1: title_1
-            field_dl_accordion_body: field_dl_accordion_body
-            field_in_accordion_header: field_in_accordion_header
-            field_in_accordion_items: field_in_accordion_items
-            field_in_accordion_body: field_in_accordion_body
-            field_simple_text1: field_simple_text1
-            field_pr_description: field_pr_description
-            field_pr_title: field_pr_title
-            field_block_body: field_block_body
-            field_file_description: field_file_description
-            field_file_display_name: field_file_display_name
-            field_in_wysiwyg2: field_in_wysiwyg2
-            field_in_country: field_in_country
-            field_in_region: field_in_region
-            field_in_wysiwyg1: field_in_wysiwyg1
           plugin_id: search_api_fulltext
         type:
           id: type

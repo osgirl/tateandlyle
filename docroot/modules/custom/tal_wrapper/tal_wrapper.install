@@ -8,6 +8,7 @@
 use Drupal\taxonomy\Entity\Term;
 use Drupal\taxonomy\Entity\Vocabulary;
 use Drupal\node\Entity\Node;
+use Drupal\menu_link_content\Entity\MenuLinkContent;
 
 /**
  * Implements hook_install().
@@ -144,4 +145,23 @@ function tal_wrapper_update_8207() {
  */
 function tal_wrapper_update_8208() {
   \Drupal::service('module_installer')->install(['tal_admin_config']);
+}
+
+/**
+ * Create menu link in main menu.
+ */
+function tal_wrapper_update_8209() {
+  // Delete Article link.
+  $storage = \Drupal::entityTypeManager()->getStorage('menu_link_content');
+  $menuLink = $storage->load(8);
+  $menuLink->delete();
+
+  // Create News link.
+  $menu_link = MenuLinkContent::create([
+    'title' => 'News',
+    'link' => ['uri' => 'internal:/articles/all'],
+    'menu_name' => 'main',
+    'expanded' => TRUE,
+  ]);
+  $menu_link->save();
 }
