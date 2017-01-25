@@ -15,3 +15,10 @@ tal_admin_config.webform.collection:
   description: 'Create webforms and manage submissions.'
   parent: system.admin
   route_name: entity.webform.collection
+
+tal_admin_config.admin.block:
+  title: 'Manage blocks'
+  description: 'Manage blocks'
+  parent: system.admin
+  route_name: block.admin_display
+

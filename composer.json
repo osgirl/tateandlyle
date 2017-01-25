@@ -36,7 +36,8 @@
         "jackmoore/colorbox": "1.6.4",
         "drupal/default_content": "1.0-alpha3",
         "dflydev/dot-access-data": "dev-master",
-        "drupal/simple_menu_icons": "1.0-beta5"
+        "drupal/simple_menu_icons": "1.0-beta5",
+        "drupal/workbench_email": "1.0-alpha3"
     },
     "require-dev": {
         "behat/behat": "^3.1",

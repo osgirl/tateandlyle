@@ -60,4 +60,5 @@ dependencies:
   - video_embed_field
   - views
   - webform
+  - workbench_email
   - workbench_moderation

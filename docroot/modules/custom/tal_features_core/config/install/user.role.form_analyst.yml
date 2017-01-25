@@ -11,8 +11,11 @@ label: 'Form Analyst'
 weight: 5
 is_admin: null
 permissions:
-  - 'administer webform submission'
   - 'view any webform submission'
   - 'access toolbar'
   - 'access webform overview'
   - 'view the administration theme'
+  - 'cancel account'
+  - 'change own username'
+  - 'select account cancellation method'
+  - 'access user profiles'
