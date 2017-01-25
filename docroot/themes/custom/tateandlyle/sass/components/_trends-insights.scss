@@ -114,7 +114,7 @@
   }
 }
 
-.teaser_latest_publication {
+.teaser_latest_publication, .block--dynamic-posts {
   padding: 0 2em;
   @media (min-width: $screen-sm) {
     max-width: 1108px;
