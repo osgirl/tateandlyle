@@ -54,6 +54,23 @@
     }
   };
 
+  Drupal.behaviors.changeToggle = {
+    attach: function () {
+      $("#changetoggle").click(function () {
+        $("#navbar-hamburger").toggleClass("hidden");
+        $("#navbar-close").toggleClass("hidden");
+      });
+    }
+  };
+
+  Drupal.behaviors.arrowToggle = {
+    attach: function () {
+      $(".dropdown").on("show.bs.dropdown hide.bs.dropdown", function () {
+        $(this).find(".caret").toggleClass("caretup");
+      });
+    }
+  };
+
   Drupal.behaviors.carousel = {
     attach: function () {
       $(".tal--image-gallery-categories .carousel").carousel({
