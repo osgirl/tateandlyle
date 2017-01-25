@@ -373,7 +373,7 @@ display:
           admin_label: ''
           empty: false
           tokenize: false
-          content: '<span class="show-all-article"><a href="/articles/all">See all articles</a></span>'
+          content: '<span class="show-all-article"><a href="/articles/all">See all news</a></span>'
           plugin_id: text_custom
     cache_metadata:
       max-age: -1

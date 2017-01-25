@@ -376,7 +376,7 @@ display:
           admin_label: ''
           empty: false
           tokenize: false
-          content: '<span class="tal--all-articles button"><a href="/articles/all">View all articles</a></span>'
+          content: '<span class="tal--all-articles button"><a href="/articles/all">View all news</a></span>'
           plugin_id: text_custom
       empty: {  }
       relationships: {  }
