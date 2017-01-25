@@ -607,14 +607,14 @@
     line-height: 30px;
     .caret {
       float: right;
-      margin-top: 1em;
+      margin-top: 0.7em;
       color: $brand-primary;
     }
     a {
       text-transform: uppercase;
       font-size: 14px;
       color: black;
-      padding: 3px 0.5em;
+      padding: 10px 0.5em;
       &:hover {
         background: $color-off-white;
       }
@@ -632,7 +632,6 @@
         margin: 0;
         padding: 0;
         li {
-          border-bottom: 1px solid $color-warm-gray;
           background: $color-off-white;
           a {
             padding: 0.6em 2em;
@@ -712,14 +711,42 @@
   div.navbar-collapse.collapse.in {
     height: auto;
   }
-  button.navbar-toggle.collapsed[aria-expanded="false"] {
+  button.navbar-toggle.collapsed {
     float: right;
-    left: 0;
   }
   button.navbar-toggle {
     position: relative;
-    top: -3.5em;
-    left: -6px !important;
     z-index: 99999;
   }
+}
+
+#navbar-close {
+  width: 22px;
+  height: 14px;
+  position: absolute;
+  left: 3.2em;
+  z-index: 99999;
+  top: -3em;
+  color: black;
+}
+
+.search-menu-mobile {
+  margin-left: 2em;
+}
+
+#navbar-hamburger {
+  position: absolute;
+  left: -2em;
+  top: -3em;
+  span {
+    color: black;
+  }
+}
+
+.caret.caretup {
+  transform: rotate(180deg) !important;
+}
+
+.caret {
+  transform: rotate(0deg) !important;
 }
