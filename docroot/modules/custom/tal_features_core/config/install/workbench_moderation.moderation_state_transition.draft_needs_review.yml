@@ -4,6 +4,15 @@ dependencies:
   config:
     - workbench_moderation.moderation_state.draft
     - workbench_moderation.moderation_state.needs_review
+  module:
+    - workbench_email
+  enforced:
+    config:
+      - workbench_email.workbench_email_template.draft_to_needs_review
+third_party_settings:
+  workbench_email:
+    workbench_email_templates:
+      draft_to_needs_review: draft_to_needs_review
 id: draft_needs_review
 label: 'Request Review'
 stateFrom: draft
