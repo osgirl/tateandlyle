@@ -54,6 +54,12 @@
     }
   };
 
+  Drupal.behaviors.addplaceholder = {
+    attach: function () {
+      $(".input--wrapper input").attr("placeholder", "Search here");
+    }
+  };
+
   Drupal.behaviors.changeToggle = {
     attach: function () {
       $("#changetoggle").click(function () {
