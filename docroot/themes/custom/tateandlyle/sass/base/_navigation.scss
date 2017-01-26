@@ -614,9 +614,13 @@
       text-transform: uppercase;
       font-size: 14px;
       color: black;
-      padding: 10px 0.5em;
+      padding: 10px 1em;
       &:hover {
         background: $color-off-white;
+      }
+      &.is-active {
+        background-color: $gray-base;
+        color: $color-white;
       }
     }
     &.open {
