@@ -232,3 +232,30 @@
     content: ":";
   }
 }
+
+.press-release.full {
+  .field--name-field-image img {
+    max-width: 880px;
+    margin-bottom: 1em;
+  }
+}
+
+.block-views-blockarticle-categories-block-1 {
+  h2.block-title {
+    font-size: 30px;
+    margin-left: 1em;
+    @extend %title-border-bottom;
+    margin-top: 2em;
+    &:after {
+      margin-top: 1em;
+    }
+    @media (min-width: $screen-lg) {
+      font-size: 48px;
+      margin-left: 3.3em;
+    }
+  }
+  .view-article-categories {
+    margin-top: 30px;
+    margin-bottom: 2em;
+  }
+}
