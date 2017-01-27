@@ -50,11 +50,14 @@ h5 {
   }
 }
 
-.region-content article,
 .feed-icons,
 .path-user .region-content,
 .view-empty {
   @extend %inner-content-width-padding;
+  margin: 0 auto;
+}
+
+.region-content article {
   margin: 0 auto;
 }
 
