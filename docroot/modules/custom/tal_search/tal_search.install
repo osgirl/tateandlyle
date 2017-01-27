@@ -1,0 +1,10 @@
+<?php
+
+/**
+ * Implements hook_update_N().
+ *
+ * Set default value of new variable.
+ */
+function tal_search_update_8201() {
+  \Drupal::configFactory()->getEditable('tal_features_core.settings')->set('search_configuration_check.interval', 86400)->save();
+}
