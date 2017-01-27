@@ -76,6 +76,7 @@
     }
 
     a {
+      font-weight: bold;
       &::after {
         @extend %right-brand-arrow;
       }
