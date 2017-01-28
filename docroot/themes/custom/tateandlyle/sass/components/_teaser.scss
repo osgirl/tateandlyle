@@ -33,11 +33,18 @@
       width: 93%;
     }
   }
-
+  .teaser__date--category {
+    width: 76%;
+    @media (min-width: $screen-md) {
+      width: 93%;
+    }
+  }
   .teaser__icon {
     position: relative;
     top: -4px;
     vertical-align: top;
+    float: left;
+    margin-right: 1em;
     @media (min-width: $screen-sm) {
       position: static;
       max-width: 42px;
@@ -114,6 +121,10 @@
     .field--label {
       display: none;
     }
+    .img {
+      max-width: 880px;
+      margin-bottom: 1em;
+    }
   }
 
   .teaser-read-more a {
@@ -146,7 +157,7 @@
     display: block;
     margin-top: 22px;
     margin-bottom: 32px;
-    padding: 22px 30px;
+    padding: 22px 7px;
     text-align: center;
     @media (min-width: $screen-sm) {
       margin-top: 40px;
@@ -281,10 +292,10 @@
     padding: 0;
 
     img {
-      max-width: 38px;
-
+      max-width: 29px;
       @media (min-width: $screen-sm) {
         margin: auto;
+        max-width: 38px;
       }
     }
   }
@@ -324,18 +335,46 @@
   }
 }
 
-.view {
-  .pager {
-    li a {
-      @extend .btn-primary;
-      border-radius: 0;
-    }
-  }
-}
-
 .tal-dynamic-post-wrapper {
   .teaser {
     padding-left: 0;
     padding-right: 0;
+  }
+  .view {
+    .pager {
+      li a {
+        @extend .btn-primary;
+        border-radius: 0;
+      }
+    }
+  }
+}
+
+.view-id-article_list {
+  .pager {
+    background: $color-off-white;
+    padding: 1em 0.4em;
+    line-height: 5px;
+    border-top: 1px solid $color-warm-gray;
+    border-bottom: 1px solid $color-warm-gray;
+    @media (min-width: $screen-sm) {
+      padding: 1.4em;
+    }
+    li {
+      &.previous a {
+        border-right: 1px solid $color-warm-gray;
+        padding-right: 40px;
+      }
+      &.next a {
+        padding-left: 35px;
+      }
+      a {
+        float: none;
+        background: none;
+        border: 0 none;
+        color: $brand-primary;
+        border-radius: 0;
+      }
+    }
   }
 }
