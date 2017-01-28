@@ -1,9 +1,13 @@
 .block--single-item-promo {
+  margin-top: 1em;
+  margin-bottom: 1em;
   @extend .max-content-width;
   color: $color-white;
   margin: auto;
-  margin-bottom: 50px;
-  margin-top: 50px;
+  @media (min-width: $screen-sm) {
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
 
   @media (max-width: $screen-sm-max) {
     max-width: none;
