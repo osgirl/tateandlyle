@@ -14,12 +14,10 @@ dependencies:
     - field.field.node.company_story.field_reusable_component
     - field.field.node.company_story.field_story_description
     - field.field.node.company_story.field_tags
-    - image.style.article_large_880_x_477
     - node.type.company_story
   module:
     - datetime
     - entity_reference_revisions
-    - image
     - options
     - panelizer
     - text
@@ -78,14 +76,6 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
-  field_image:
-    type: image
-    weight: 0
-    label: hidden
-    settings:
-      image_style: article_large_880_x_477
-      image_link: ''
-    third_party_settings: {  }
   field_image_size:
     weight: 12
     label: above
@@ -124,4 +114,5 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_image: true
   field_ingredient: true
