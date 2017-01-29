@@ -90,6 +90,7 @@ function tal_downloads_preprocess_paragraph(&$variables) {
         '#prefix' => '<span class="filegroup-count">',
         '#suffix' => '</span>',
       ];
+      $variables['#attached']['library'][] = 'tal_downloads/tal_downloads_link';
     }
   }
 }
