@@ -7,6 +7,7 @@ dependencies:
     - field.field.paragraph.timeline_content.field_in_wysiwyg1
     - field.field.paragraph.timeline_content.field_simple_text
     - field.field.paragraph.timeline_content.field_tal_more
+    - image.style.timeline_282_x_153
     - paragraphs.paragraphs_type.timeline_content
   module:
     - image
@@ -28,7 +29,7 @@ content:
     weight: 2
     label: hidden
     settings:
-      image_style: ''
+      image_style: timeline_282_x_153
       image_link: ''
     third_party_settings: {  }
     type: image

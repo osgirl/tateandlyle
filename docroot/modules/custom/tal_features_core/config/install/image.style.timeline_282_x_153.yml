@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies: {  }
+name: timeline_282_x_153
+label: 'Timeline 282 x 153'
+effects:
+  45146d41-85f6-4455-8fae-ee54e149d6c0:
+    uuid: 45146d41-85f6-4455-8fae-ee54e149d6c0
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 282
+      height: 153

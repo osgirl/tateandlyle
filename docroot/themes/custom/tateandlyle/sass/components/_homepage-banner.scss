@@ -54,8 +54,11 @@
   hr {
     border-color: $gray-base;
     margin-top: 0;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     width: 30px;
+    @media(min-width: $screen-sm) {
+      margin-bottom: 25px;
+    }
 
     @media(min-width: $screen-md-lg) {
       margin-bottom: 20px;
@@ -87,7 +90,7 @@
   }
 
   .field--name-field-description {
-    margin-bottom: 15px;
+    margin-bottom: 25px;
     text-align: center;
 
     @media(min-width: $screen-sm) {
@@ -295,10 +298,21 @@
   .tal__banner--content {
     @media (max-width: $screen-xs-max) {
       margin-top: 0;
+      padding: 0;
+
+      .field--name-field-description {
+        color: $gray-base;
+        font-size: $font-size-h4;
+        margin-top: 30px;
+        p {
+          padding-top: 12px;
+        }
+      }
     }
   }
 
   .field--name-field-description {
+    @extend %title-border-top;
     max-width: none;
   }
 
