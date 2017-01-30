@@ -1,4 +1,6 @@
 .block--single-item-promo {
+  margin-top: 1em;
+  margin-bottom: 1em;
   @extend .max-content-width;
   color: $color-white;
   margin: auto;
@@ -71,8 +73,8 @@
     }
     @media (min-width: $screen-sm) {
       position: absolute;
-      bottom: 30px;
-      right: 30px;
+      bottom: 14%;
+      right: 2%;
       text-align: right;
       width: auto;
     }
