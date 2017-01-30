@@ -10,7 +10,7 @@ dependencies:
     - field.field.block_content.homepage_banner.field_right_icon
     - field.field.block_content.homepage_banner.field_right_link
     - field.field.block_content.homepage_banner.field_title
-    - image.style.hero_banner_1108_x_500
+    - image.style.hero_banner_1109_x_500
   module:
     - image
     - link
@@ -24,7 +24,7 @@ content:
     weight: 2
     label: hidden
     settings:
-      image_style: hero_banner_1108_x_500
+      image_style: hero_banner_1109_x_500
       image_link: ''
     third_party_settings: {  }
     type: image

@@ -16,7 +16,7 @@
     border: 1px solid $color-warm-gray;
     margin-bottom: 50px;
     margin-top: 94px;
-    padding: 60px;
+    padding: 50px;
     padding-top: 0;
     padding-bottom: 46px;
   }
@@ -42,9 +42,36 @@
     display: inline-block;
     float: none;
     margin-bottom: 28px;
-    padding: 0 3px;
     text-align: center;
     vertical-align: top;
+    @media (max-width: $screen-xs-max) {
+      &.col-sm-4:nth-child(odd) {
+        padding-left: 0;
+        padding-right: 30px;
+      }
+
+      &.col-sm-4:nth-child(even) {
+        padding-left: 30px;
+        padding-right: 0;
+      }
+    }
+
+    @media (max-width: $screen-sm-max) {
+      padding: 0 25px;
+
+      &:first-child,
+      &:nth-child(4n) {
+        padding-left: 0;
+      }
+
+      &:nth-child(3n) {
+        padding-right: 0;
+      }
+    }
+
+    @media (min-width: $screen-md) {
+      padding: 0 3px;
+    }
   }
 
   .views-field-field-profile-picture {
@@ -55,6 +82,11 @@
       border: none;
       box-shadow: none;
       outline: none;
+    }
+
+    button {
+      padding-left: 0;
+      padding-right: 0;
     }
   }
 
