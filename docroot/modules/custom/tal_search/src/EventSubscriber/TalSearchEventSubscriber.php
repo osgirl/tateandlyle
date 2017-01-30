@@ -22,18 +22,18 @@ class TalSearchEventSubscriber implements EventSubscriberInterface {
     // Have we already done this check?
     $env = isset($_ENV['AH_SITE_ENVIRONMENT']) ? $_ENV['AH_SITE_ENVIRONMENT'] : 'local';
     $flag_var = 'search_configuration_check.' . $env;
-    $last_check = \Drupal::config('tal_features_core.settings')->get($flag_var);
+    $last_check = \Drupal::config('tal_search.settings')->get($flag_var);
 
     // The interval time below allows to do temporary overrides on non prod
     // envs for dev/test purpose.
     if (
       isset($last_check)
-      && ($env == 'prod' || REQUEST_TIME - $last_check < \Drupal::config('tal_features_core.settings')->get('search_configuration_check.interval'))
+      && ($env == 'prod' || REQUEST_TIME - $last_check < \Drupal::config('tal_search.settings')->get('search_configuration_check.interval'))
     ) {
       return;
     }
 
-    \Drupal::configFactory()->getEditable('tal_features_core.settings')->set($flag_var, REQUEST_TIME)->save();
+    \Drupal::configFactory()->getEditable('tal_search.settings')->set($flag_var, REQUEST_TIME)->save();
 
     // Check if Search API server configuration is inline with expectations.
     $servers = Server::loadMultiple();
