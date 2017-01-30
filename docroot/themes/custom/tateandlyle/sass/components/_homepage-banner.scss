@@ -1,5 +1,4 @@
 .block--homepage-banner {
-  background-color: $color-off-white;
   padding-bottom: 20px;
   padding-top: 25px;
 
@@ -38,6 +37,17 @@
     @media(min-width: $screen-md-lg) {
       max-width: 653px;
       padding: 20px 59px 31px 61px;
+    }
+  }
+
+  .carousel-inner img {
+    @media(min-width: $screen-sm) {
+      max-height: 300px;
+      object-fit: cover;
+    }
+
+    @media(min-width: $screen-md) {
+      max-height: none;
     }
   }
 
@@ -181,10 +191,6 @@
       text-align: left;
     }
 
-    .field--type-link {
-      display: block;
-    }
-
     a {
       border-bottom: 1px solid $color-warm-gray;
       color: $gray-dark;
@@ -198,6 +204,15 @@
 
       &:hover {
         background-color: $color-light-gray;
+      }
+    }
+
+    .field--type-link {
+      display: block;
+
+      .active a {
+        background: $brand-primary;
+        color: $color-white;
       }
     }
   }
@@ -245,11 +260,14 @@
 }
 
 .no__icon--banner {
-  @media (min-width: $screen-sm) {
-    padding: 34px 39px 25px 37px;
-  }
-  @media (min-width: $screen-md) {
-    padding: 40px 51px 20px 51px;
+
+  .tal__banner--content {
+    @media (min-width: $screen-sm) {
+      padding: 34px 39px 25px 37px;
+    }
+    @media (min-width: $screen-md) {
+      padding: 40px 51px 20px 51px;
+    }
   }
 
   .title {
