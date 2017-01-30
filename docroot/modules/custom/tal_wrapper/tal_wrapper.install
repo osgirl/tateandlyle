@@ -9,6 +9,7 @@ use Drupal\taxonomy\Entity\Term;
 use Drupal\taxonomy\Entity\Vocabulary;
 use Drupal\node\Entity\Node;
 use Drupal\menu_link_content\Entity\MenuLinkContent;
+use Drupal\field\Entity\FieldStorageConfig;
 
 /**
  * Implements hook_install().
@@ -171,4 +172,13 @@ function tal_wrapper_update_8209() {
  */
 function tal_wrapper_update_8210() {
   \Drupal::service('module_installer')->install(['workbench_email']);
+}
+
+/**
+ * Delete Leadership Bio text field.
+ */
+function tal_wrapper_update_8211() {
+
+  $field = FieldStorageConfig::loadByName('node', 'field_bio');
+  $field->delete();
 }
