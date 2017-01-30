@@ -1,6 +1,0 @@
-services:
-  tal_search.event_subscriber:
-    class: Drupal\tal_search\EventSubscriber\TalSearchEventSubscriber
-    tags:
-      - {name: event_subscriber}
-
