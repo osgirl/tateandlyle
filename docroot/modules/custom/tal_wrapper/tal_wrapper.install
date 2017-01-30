@@ -165,4 +165,3 @@ function tal_wrapper_update_8209() {
   ]);
   $menu_link->save();
 }
-
