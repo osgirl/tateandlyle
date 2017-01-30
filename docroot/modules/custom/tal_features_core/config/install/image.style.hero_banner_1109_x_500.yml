@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies: {  }
+name: hero_banner_1109_x_500
+label: 'Hero Banner 1109 x 500'
+effects:
+  ea78e762-b234-498a-a2ec-4be430651f4a:
+    uuid: ea78e762-b234-498a-a2ec-4be430651f4a
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1109
+      height: 500
