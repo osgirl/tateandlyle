@@ -3,6 +3,9 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.leadership.field_designation
+    - field.field.node.leadership.field_profile_picture
+    - field.field.node.leadership.field_team_type
     - node.type.leadership
   module:
     - user
@@ -13,4 +16,9 @@ mode: teaser
 content:
   links:
     weight: 100
-hidden: {  }
+  workbench_moderation_control:
+    weight: -20
+hidden:
+  field_designation: true
+  field_profile_picture: true
+  field_team_type: true

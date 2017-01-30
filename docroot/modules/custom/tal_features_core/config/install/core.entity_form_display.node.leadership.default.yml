@@ -24,12 +24,12 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_bio:
-    weight: 33
+    weight: 35
     settings:
-      size: 60
+      rows: 5
       placeholder: ''
     third_party_settings: {  }
-    type: text_textfield
+    type: text_textarea
   field_designation:
     weight: 32
     settings:

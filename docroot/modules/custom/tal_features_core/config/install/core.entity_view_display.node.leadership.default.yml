@@ -9,41 +9,48 @@ dependencies:
     - node.type.leadership
   module:
     - image
-    - options
+    - panelizer
     - text
     - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
 id: node.leadership.default
 targetEntityType: node
 bundle: leadership
 mode: default
 content:
   field_bio:
-    weight: 103
-    label: above
+    weight: 3
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: text_default
   field_designation:
-    weight: 102
-    label: above
+    weight: 4
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
   field_profile_picture:
-    weight: 101
-    label: above
+    weight: 2
+    label: hidden
     settings:
       image_style: ''
       image_link: ''
     third_party_settings: {  }
     type: image
-  field_team_type:
-    weight: 104
-    label: above
+  links:
+    weight: 1
     settings: {  }
     third_party_settings: {  }
-    type: list_default
-  links:
-    weight: 100
-hidden: {  }
+  workbench_moderation_control:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_team_type: true
