@@ -155,7 +155,8 @@
     display: none;
   }
 
-  select {
+  select,
+  select:focus {
     @extend %bordered-select;
   }
 
@@ -178,6 +179,7 @@
     padding-bottom: 9px;
     padding-top: 9px;
     width: 100%;
+    margin-top: 7px;
 
     @media (min-width: $screen-sm) {
       display: inline-block;
@@ -197,7 +199,8 @@
       padding: 8px 19px;
 
       &::after {
-        background: url("../images/icons/buttoncta-arrow-blue.svg") no-repeat;
+        background: url("../images/icons/buttoncta-arrow-blue.png") no-repeat;
+        background-size: contain;
       }
     }
   }
@@ -251,5 +254,16 @@
     .tal--download-external-link .field--name-field-tal-link::after {
       content: none;
     }
+  }
+}
+
+.paragraph--type--ingredient-downloads {
+  .file--downloads .paragraph--type--related-downloads {
+    @media (max-width: $screen-xs-max) {
+      padding-top: 0;
+    }
+  }
+  .field--in-border-title {
+    margin-bottom: 29px;
   }
 }
