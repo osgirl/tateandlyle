@@ -208,4 +208,10 @@ subscription_data:
       -
         balancer: euwest1-c35.acquia-search.com
         core_id: BHTW-138589
+      -
+        balancer: euwest1-c35.acquia-search.com
+        core_id: BHTW-138589.dev.default
+      -
+        balancer: euwest1-c35.acquia-search.com
+        core_id: BHTW-138589.test.default
     search_service_colony: euwest1-c35.acquia-search.com

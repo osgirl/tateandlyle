@@ -9,9 +9,13 @@ name: 'Acquia Search API Solr server'
 description: ''
 backend: search_api_solr
 backend_config:
-  connector: solr_acquia_connector
+  connector: standard
   connector_config:
     scheme: http
+    core: ''
+    host: 'localhost'
+    path: '/solr'
+    port: '8983'
     timeout: '5'
     index_timeout: '5'
     optimize_timeout: '10'
