@@ -1,0 +1,79 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.sip_with_background
+    - field.field.block_content.sip_with_background.body
+    - field.field.block_content.sip_with_background.field_bg_color
+    - field.field.block_content.sip_with_background.field_bg_image
+    - field.field.block_content.sip_with_background.field_icon
+    - field.field.block_content.sip_with_background.field_read_more
+    - field.field.block_content.sip_with_background.field_tal_link
+    - field.field.block_content.sip_with_background.field_title
+  module:
+    - image
+    - link
+    - options
+    - text
+id: block_content.sip_with_background.default
+targetEntityType: block_content
+bundle: sip_with_background
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+  field_bg_color:
+    weight: 4
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+  field_bg_image:
+    weight: 3
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+  field_icon:
+    weight: 2
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+  field_read_more:
+    weight: 6
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+  field_tal_link:
+    weight: 5
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+  field_title:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+hidden: {  }
