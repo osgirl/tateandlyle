@@ -165,3 +165,10 @@ function tal_wrapper_update_8209() {
   ]);
   $menu_link->save();
 }
+
+/**
+ * Installs workbench_email module.
+ */
+function tal_wrapper_update_8210() {
+  \Drupal::service('module_installer')->install(['workbench_email']);
+}
