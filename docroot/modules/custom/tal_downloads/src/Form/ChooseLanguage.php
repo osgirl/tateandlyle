@@ -2,8 +2,6 @@
 
 namespace Drupal\tal_downloads\Form;
 
-use Drupal\Core\Ajax\AjaxResponse;
-use Drupal\Core\Ajax\ReplaceCommand;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\paragraphs\Entity\Paragraph;
@@ -45,11 +43,12 @@ class ChooseLanguage extends FormBase {
     $form['change_language'] = [
       '#type' => 'select',
       '#options' => $this->getLanguageOptions($filegroup_ids),
-      '#ajax' => [
-        'event' => 'change',
-        'callback' => array($this, 'showDownloadLink'),
-      ],
       '#suffix' => $suffix,
+      '#attributes' => array(
+        'id' => array(
+          'edit-language-' . $id,
+        ),
+      ),
     ];
     $form['id'] = array(
       '#type' => 'hidden',
@@ -96,48 +95,6 @@ class ChooseLanguage extends FormBase {
     }
 
     return $options;
-  }
-
-  /**
-   * Ajax Callback function for language selection.
-   *
-   * @param array $form
-   *   Form to render Language selection dropdown.
-   * @param \Drupal\Core\Form\FormStateInterface $form_state
-   *   FormState object.
-   *
-   * @return \Drupal\Core\Ajax\AjaxResponse
-   *   AjaxResoponse with Download link and size details.
-   */
-  public function showDownloadLink(array &$form, FormStateInterface $form_state) {
-    $response = new AjaxResponse();
-
-    // Current paragraph entity id.
-    $pid = $form_state->getValue('change_language');
-    $id = $form_state->getValue('id');
-
-    if (!empty($pid)) {
-      $item = Paragraph::load($pid);
-      $file = $item->get('field_download_attach_file')->referencedEntities()[0];
-      $link = $item->get('field_tal_link')->view('default');
-      $element = array(
-        '#theme' => 'tal_download_link',
-        '#file' => $file,
-        '#external_download_link' => $link,
-        '#attributes' => array(
-          'class' => 'tal-file-download-link',
-          'id' => 'download-link-' . $id,
-        ),
-      );
-      $message['element'] = $element;
-    }
-    else {
-      $message = $this->getEmptyWrapper($id);
-    }
-
-    $response->addCommand(new ReplaceCommand('#download-link-' . $id, $message));
-
-    return $response;
   }
 
   /**

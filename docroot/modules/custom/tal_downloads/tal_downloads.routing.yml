@@ -1,0 +1,7 @@
+downloads:
+  path: '/downloads/file/{wid}/{pid}'
+  defaults:
+    _controller: 'Drupal\tal_downloads\Controller\TalDownloads::getFile'
+    _title: 'Download linkgi'
+  requirements:
+    _permission: 'access content'
