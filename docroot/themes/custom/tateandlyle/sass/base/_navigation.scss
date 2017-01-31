@@ -590,17 +590,25 @@
 }
 
 .logo.navbar-btn {
-  margin-top: -3.2em;
-  margin-left: 30px;
+  margin-left: 17px;
+  background: white;
+  width: 100%;
+  top: 0;
+  margin-top: 0;
+  padding: 1em;
+  z-index: 9999;
+  overflow: hidden;
+  margin-left: 0;
   @media (min-width: $screen-sm) {
     margin-top: 0;
   }
 }
 
 #block-mobile-menu {
-  z-index: 101;
-  position: relative;
-  display: block;
+  position: fixed;
+  top: 4.1em;
+  right: 0;
+  z-index: 9999;
   ul li {
     background: white;
     border-bottom: 1px solid $color-warm-gray;
@@ -652,9 +660,6 @@
   }
   h2 {
     display: none;
-  }
-  .container {
-    background: white;
   }
   .navbar-toggle {
     margin: 0;
