@@ -55,18 +55,21 @@
     'clearfix',
   ]
 %}
-<section{{ attributes.addClass(classes) }}>
-  {{ title_prefix }}
-  {% if label %}
-    <h2{{ title_attributes.addClass('block-title') }}>{{ label }}</h2>
-  {% endif %}
-  {{ title_suffix }}
+{% if focus_on_tag_list %}
+  <section class="posts block--dynamic-posts">
+    {% else %}
+    <section{{ attributes.addClass(classes) }}>
+    {% endif %}
+      {{ title_prefix }}
+      {% if label %}
+        <h2{{ title_attributes.addClass('block-title') }}>{{ label }}</h2>
+      {% endif %}
+      {{ title_suffix }}
 
-  {% block content %}
-    <div class="tal-dynamic-post-wrapper">
-        {{ dynamic_posts }}
-        {{ focus_on_tag_list }}
-    </div>
-  {% endblock %}
+      {% block content %}
+        <div class="tal-dynamic-post-wrapper">
+            {{ dynamic_posts }}
+            {{ focus_on_tag_list }}
+        </div>
+      {% endblock %}
 </section>
-
