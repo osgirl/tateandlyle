@@ -39,10 +39,6 @@
       $("#block-talmainmenu .dropdown").on("click", function () {
         $(this).find(".dropdown-toggle").removeAttr("data-toggle").trigger("click");
       });
-
-      $(".no__icon--banner .dropdown-toggle").text(
-        $(".field--name-field-left-link .active a").text()
-      );
     }
   };
 
@@ -197,6 +193,10 @@
           }
         });
       });
+
+      $(".no__icon--banner .dropdown-toggle").text(
+        $(".field--name-field-left-link .active a").text()
+      );
     }
   };
 

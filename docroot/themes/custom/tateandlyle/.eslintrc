@@ -18,7 +18,7 @@
     "default-case": 2,
     "dot-location": [2, "object"],
     "dot-notation": 2,
-    "eqeqeq": [2, "smart"],
+    "eqeqeq": [0, "smart"],
     "eol-last": 2,
     "func-style": 0,
     "id-length": 0,
