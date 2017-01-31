@@ -140,3 +140,76 @@
     }
   }
 }
+
+.leader__content {
+  @extend %inner-content-width-padding;
+  display: table;
+  margin: 30px auto;
+  margin-top: 0;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 100%;
+
+  @media (min-width: $screen-sm-lsp) {
+    padding: 30px;
+  }
+
+  .field--name-field-bio {
+    font-size: $font-size-h4;
+    font-family: $font-family-sans-serif-light;
+    margin-bottom: 10px;
+    @media (min-width: $screen-sm-lsp) {
+      font-size: $font-size-h3;
+      margin-bottom: 30px;
+    }
+  }
+
+  .field--name-field-profile-picture img {
+    border-radius: 100%;
+    border: 1px solid $color-warm-gray;
+    max-width: 89px;
+    padding: 5px;
+    @media (min-width: $screen-sm) {
+      max-width: 167px;
+    }
+  }
+
+  .leader__content--left,
+  .leader__content--right {
+    @media (min-width: $screen-sm-lsp) {
+      display: table-cell;
+      vertical-align: top;
+      padding: 0 30px;
+    }
+  }
+
+  .leader__content--left {
+    padding-bottom: 20px;
+    @media (min-width: $screen-sm-lsp) {
+      border-right: 1px solid $color-warm-gray;
+      min-width: 205px;
+    }
+  }
+
+  .leader__content--right {
+    @media (min-width: $screen-sm-lsp) {
+      padding: 0 30px;
+    }
+  }
+
+  .field--name-field-designation {
+    color: $gray-base;
+    font-family: $font-family-sans-serif-Med;
+    font-size: $font-size-h4;
+    @media (min-width: $screen-sm-lsp) {
+      font-size: $font-size-h3;
+    }
+  }
+}
+
+.field--label-inline {
+  .field--label,
+  .field--item {
+    display: inline-block;
+  }
+}
