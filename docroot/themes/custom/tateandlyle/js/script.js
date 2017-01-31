@@ -192,7 +192,7 @@
         }
 
         $(fieldClass + " .field--item").each(function (index, value) {
-          if (index === $.QueryString.active) {
+          if (index == $.QueryString.active) {
             $(this).addClass("active");
           }
         });

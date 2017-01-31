@@ -32,6 +32,7 @@ function tal_preprocess_paragraph_talk_to_us($variables, $paragraph) {
   $variables['field_ttu_contact_phone'] = '';
   $variables['field_ttu_contact_title'] = '';
   $variables['contact'] = FALSE;
+  $email = '';
   if (!empty($contact)) {
     $variables['contact'] = TRUE;
     $contact = array_shift($contact);
