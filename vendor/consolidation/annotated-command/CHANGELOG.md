@@ -1,7 +1,20 @@
 # Change Log
 
-### 2.2.1 ~ 2.2.2 - 15 Dec 2016
+### 2.3.3 - 30 Jan 2017
 
+- Automatically rebuild cached commandfile data when commandfile changes.
+
+### 2.3.2 - 26 Jan 2017
+
+- Bugfix: Include description of last parameter in help (was omitted if no options present)
+
+### 2.3.1 - 20 Jan 2017
+
+- Add Windows testing with Appveyor
+
+### 2.3.0 - 19 Jan 2017
+
+- Add a command info cache to improve performance of applications with many commands
 - Bugfix: Allow trailing backslashes in namespaces in CommandFileDiscovery
 - Bugfix: Rename @topic to @topics
 

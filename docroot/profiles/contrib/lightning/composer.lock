@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "1ea5cb19c1fe1ff86e6625e0a6a2730b",
-    "content-hash": "97644b4dc7ddc4c2b1576bd45c352c4e",
+    "hash": "311f61f601ead9c7873ff90c109f466f",
+    "content-hash": "bb9fdf0b932992233bbf06abbfe72952",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -49,62 +49,6 @@
                 "stack"
             ],
             "time": "2016-08-01 12:05:04"
-        },
-        {
-            "name": "caxy/php-htmldiff",
-            "version": "v0.1.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/caxy/php-htmldiff.git",
-                "reference": "fe3af15ac85138d31ec7dd674a9840139327d7c0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/caxy/php-htmldiff/zipball/fe3af15ac85138d31ec7dd674a9840139327d7c0",
-                "reference": "fe3af15ac85138d31ec7dd674a9840139327d7c0",
-                "shasum": ""
-            },
-            "require": {
-                "ezyang/htmlpurifier": "^4.7",
-                "php": ">=5.3.3",
-                "sunra/php-simple-html-dom-parser": "^1.5"
-            },
-            "require-dev": {
-                "doctrine/cache": "~1.0",
-                "phpunit/phpunit": "~4.8"
-            },
-            "suggest": {
-                "doctrine/cache": "Used for caching the calculated diffs using a Doctrine Cache Provider"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "0.1.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Caxy\\HtmlDiff": "lib/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0"
-            ],
-            "authors": [
-                {
-                    "name": "Josh Schroeder",
-                    "email": "jschroeder@caxy.com",
-                    "homepage": "http://www.caxy.com"
-                }
-            ],
-            "description": "A library for comparing two HTML files/snippets and highlighting the differences using simple HTML.",
-            "homepage": "https://github.com/caxy/php-htmldiff",
-            "keywords": [
-                "diff",
-                "html"
-            ],
-            "time": "2016-07-21 15:37:40"
         },
         {
             "name": "clue/graph",
@@ -820,8 +764,9 @@
             "require": {
                 "drupal/core": "~8.0"
             },
-            "require-dev": {
-                "drupal/search_api_solr": "*"
+            "suggest": {
+                "drupal/core": "Required by drupal/acquia_search",
+                "drupal/search_api_solr": "Required by drupal/acquia_search"
             },
             "type": "drupal-module",
             "extra": {
@@ -905,6 +850,9 @@
             },
             "require": {
                 "drupal/core": "*"
+            },
+            "suggest": {
+                "drupal/core": "Required by drupal/config_update_ui"
             },
             "type": "drupal-module",
             "extra": {
@@ -997,77 +945,17 @@
             }
         },
         {
-            "name": "drupal/contact_storage",
-            "version": "1.0.0-beta8",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupal.org/project/contact_storage",
-                "reference": "8.x-1.0-beta8"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/contact_storage-8.x-1.0-beta8.zip",
-                "reference": null,
-                "shasum": "01e9bd402351f02cf6519b841d355a61138e0d0f"
-            },
-            "require": {
-                "drupal/core": "*",
-                "drupal/token": "*"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "branch-alias": {
-                    "dev-1.x": "1.x-dev"
-                },
-                "drupal": {
-                    "version": "8.x-1.0-beta8",
-                    "datestamp": "1476400139"
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "Arla",
-                    "homepage": "https://www.drupal.org/user/226712"
-                },
-                {
-                    "name": "Berdir",
-                    "homepage": "https://www.drupal.org/user/214652"
-                },
-                {
-                    "name": "andypost",
-                    "homepage": "https://www.drupal.org/user/118908"
-                },
-                {
-                    "name": "jibran",
-                    "homepage": "https://www.drupal.org/user/1198144"
-                },
-                {
-                    "name": "larowlan",
-                    "homepage": "https://www.drupal.org/user/395439"
-                }
-            ],
-            "description": "Provides storage and edit capability for contact messages.",
-            "homepage": "https://www.drupal.org/project/contact_storage",
-            "support": {
-                "source": "http://cgit.drupalcode.org/contact_storage"
-            }
-        },
-        {
             "name": "drupal/core",
-            "version": "8.2.5",
+            "version": "8.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal-composer/drupal-core.git",
-                "reference": "fbf10f63dba6b312e1d1b67bac521db1648384f3"
+                "reference": "0741cbf486fc55721b5dab050b37c721c80df097"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal-composer/drupal-core/zipball/fbf10f63dba6b312e1d1b67bac521db1648384f3",
-                "reference": "fbf10f63dba6b312e1d1b67bac521db1648384f3",
+                "url": "https://api.github.com/repos/drupal-composer/drupal-core/zipball/0741cbf486fc55721b5dab050b37c721c80df097",
+                "reference": "0741cbf486fc55721b5dab050b37c721c80df097",
                 "shasum": ""
             },
             "require": {
@@ -1237,7 +1125,7 @@
                 "GPL-2.0+"
             ],
             "description": "Drupal is an open source content management platform powering millions of websites and applications.",
-            "time": "2017-01-04 11:31:35"
+            "time": "2016-12-07 18:31:42"
         },
         {
             "name": "drupal/ctools",
@@ -1255,6 +1143,9 @@
             },
             "require": {
                 "drupal/core": "~8.0"
+            },
+            "suggest": {
+                "drupal/core": "Required by drupal/ctools_views"
             },
             "type": "drupal-module",
             "extra": {
@@ -1385,88 +1276,6 @@
             "homepage": "https://www.drupal.org/project/ctools",
             "support": {
                 "source": "http://cgit.drupalcode.org/ctools"
-            }
-        },
-        {
-            "name": "drupal/diff",
-            "version": "1.0.0-beta2",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupal.org/project/diff",
-                "reference": "8.x-1.0-beta2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/diff-8.x-1.0-beta2.zip",
-                "reference": null,
-                "shasum": "efd25beac74fabace6e013858862a13cd517f3e4"
-            },
-            "require": {
-                "drupal/core": "~8.0",
-                "mkalkbrenner/php-htmldiff-advanced": "~0.0.8"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "branch-alias": {
-                    "dev-1.x": "1.x-dev"
-                },
-                "drupal": {
-                    "version": "8.x-1.0-beta2",
-                    "datestamp": "1476455639"
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "Miro Dietiker (miro_dietiker)",
-                    "homepage": "https://www.drupal.org/u/miro_dietiker",
-                    "role": "Maintainer"
-                },
-                {
-                    "name": "Juampy NR (juampynr)",
-                    "homepage": "https://www.drupal.org/u/juampynr",
-                    "role": "Maintainer"
-                },
-                {
-                    "name": "Lucian Hangea (lhangea)",
-                    "homepage": "https://www.drupal.org/u/lhangea",
-                    "role": "Maintainer"
-                },
-                {
-                    "name": "Alan D.",
-                    "homepage": "https://www.drupal.org/u/alan-d.",
-                    "role": "Maintainer"
-                },
-                {
-                    "name": "Brian Gilbert (realityloop).",
-                    "homepage": "https://www.drupal.org/u/realityloop",
-                    "role": "Maintainer"
-                },
-                {
-                    "name": "miro_dietiker",
-                    "homepage": "https://www.drupal.org/user/227761"
-                },
-                {
-                    "name": "realityloop",
-                    "homepage": "https://www.drupal.org/user/139189"
-                },
-                {
-                    "name": "rötzi",
-                    "homepage": "https://www.drupal.org/user/73064"
-                },
-                {
-                    "name": "yhahn",
-                    "homepage": "https://www.drupal.org/user/264833"
-                }
-            ],
-            "description": "Compares two entity revisions",
-            "homepage": "https://www.drupal.org/project/diff",
-            "support": {
-                "source": "http://cgit.drupalcode.org/diff",
-                "issues": "https://www.drupal.org/project/issues/diff"
             }
         },
         {
@@ -1606,12 +1415,13 @@
             "require": {
                 "drupal/core": "~8.0"
             },
-            "require-dev": {
-                "drupal/ctools": "*",
-                "drupal/inline_entity_form": "*",
-                "drupal/media_entity": "*",
-                "drupal/paragraphs": "*",
-                "drupal/token": "*"
+            "suggest": {
+                "drupal/core": "Required by drupal/entity_browser_example",
+                "drupal/ctools": "Required by drupal/entity_browser",
+                "drupal/inline_entity_form": "Required by drupal/entity_browser",
+                "drupal/media_entity": "Required by drupal/entity_browser",
+                "drupal/paragraphs": "Required by drupal/entity_browser",
+                "drupal/token": "Required by drupal/entity_browser"
             },
             "type": "drupal-module",
             "extra": {
@@ -1687,8 +1497,8 @@
                 "drupal/core": "*",
                 "drupal/embed": "*"
             },
-            "require-dev": {
-                "drupal/entity_browser": "*"
+            "suggest": {
+                "drupal/entity_browser": "Required by drupal/entity_embed"
             },
             "type": "drupal-module",
             "extra": {
@@ -1822,8 +1632,8 @@
             "require": {
                 "drupal/core": "~8.0"
             },
-            "require-dev": {
-                "drupal/entity_reference_revisions": "*"
+            "suggest": {
+                "drupal/entity_reference_revisions": "Required by drupal/inline_entity_form"
             },
             "type": "drupal-module",
             "extra": {
@@ -1942,7 +1752,7 @@
                 },
                 "drupal": {
                     "version": "8.x-1.0-alpha23",
-                    "datestamp": "1476269960"
+                    "datestamp": "1476238140"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -1991,9 +1801,9 @@
                 "drupal/core": "~8.1",
                 "drupal/entity": "^1.0.0-alpha3"
             },
-            "require-dev": {
-                "drupal/entity": "*",
-                "drupal/inline_entity_form": "*"
+            "suggest": {
+                "drupal/entity": "Required by drupal/media_entity",
+                "drupal/inline_entity_form": "Required by drupal/media_entity"
             },
             "type": "drupal-module",
             "extra": {
@@ -2039,14 +1849,6 @@
                     "homepage": "https://www.drupal.org/user/210762"
                 },
                 {
-                    "name": "katzilla",
-                    "homepage": "https://www.drupal.org/user/260398"
-                },
-                {
-                    "name": "phenaproxima",
-                    "homepage": "https://www.drupal.org/user/205645"
-                },
-                {
                     "name": "seanB",
                     "homepage": "https://www.drupal.org/user/545912"
                 },
@@ -2090,7 +1892,7 @@
                 },
                 "drupal": {
                     "version": "8.x-1.1",
-                    "datestamp": "1470211995"
+                    "datestamp": "1470211439"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -2134,8 +1936,8 @@
                 "drupal/core": "~8.1",
                 "drupal/media_entity": "~1.0 || ~8.1.0"
             },
-            "require-dev": {
-                "drupal/entity_browser": "*"
+            "suggest": {
+                "drupal/entity_browser": "Required by drupal/media_entity_image"
             },
             "type": "drupal-module",
             "extra": {
@@ -2289,25 +2091,21 @@
         },
         {
             "name": "drupal/metatag",
-            "version": "1.0.0-beta12",
+            "version": "1.0.0-beta11",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/metatag",
-                "reference": "8.x-1.0-beta12"
+                "reference": "8.x-1.0-beta11"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/metatag-8.x-1.0-beta12.zip",
+                "url": "https://ftp.drupal.org/files/projects/metatag-8.x-1.0-beta11.zip",
                 "reference": null,
-                "shasum": "ba93038c42295e58a20ba1ff7e7ac85fd032dda9"
+                "shasum": "d73fb7ba41833bd8ccb9a661aafc47258b4c7e18"
             },
             "require": {
                 "drupal/core": "*",
                 "drupal/token": "*"
-            },
-            "require-dev": {
-                "drupal/metatag_dc": "*",
-                "drupal/metatag_open_graph": "*"
             },
             "type": "drupal-module",
             "extra": {
@@ -2315,8 +2113,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.0-beta12",
-                    "datestamp": "1483477143"
+                    "version": "8.x-1.0-beta11",
+                    "datestamp": "1478265227"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -2464,20 +2262,20 @@
         },
         {
             "name": "drupal/panelizer",
-            "version": "3.0.0-alpha3",
+            "version": "3.0.0-alpha2",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/panelizer",
-                "reference": "8.x-3.0-alpha3"
+                "reference": "8.x-3.0-alpha2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/panelizer-8.x-3.0-alpha3.zip",
+                "url": "https://ftp.drupal.org/files/projects/panelizer-8.x-3.0-alpha2.zip",
                 "reference": null,
-                "shasum": "f862ae14f47cb486cd4719242763064e7d6ac387"
+                "shasum": "fc77ea854cad9ec21c0a4de75ae409f2d80dbf7c"
             },
             "require": {
-                "drupal/core": "*",
+                "drupal/core": "~8.0",
                 "drupal/ctools_block": "*",
                 "drupal/panels": "*",
                 "drupal/panels_ipe": "*"
@@ -2488,10 +2286,14 @@
                     "dev-3.x": "3.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-3.0-alpha3",
-                    "datestamp": "1481832184"
+                    "version": "8.x-3.0-alpha2",
+                    "datestamp": "1455659039"
                 },
                 "patches_applied": {
+                    "2747739 - Mega Patch 8.x-3.0-alpha2 --> 54f0ac6e": "https://www.drupal.org/files/issues/panelizer--8.x-3.0-alpha2--54f0ac6e.patch",
+                    "2701349 - Generate new UUIDs for displays when switching from default to field storage": "https://www.drupal.org/files/issues/2701349-2.patch",
+                    "2700597 - Explicitly set the Panels IPE URL root when saving in Panelizer": "https://www.drupal.org/files/issues/panelizer-ipe-url-root-handling.patch",
+                    "2664682 - Implement admin UI for editing Panelizer defaults": "https://www.drupal.org/files/issues/panelizer-2664682-93.patch",
                     "2793841 - Properly integrate with Panels IPE": "https://www.drupal.org/files/issues/panelizer-panels-ipe-tempstore-id.patch"
                 }
             },
@@ -2550,8 +2352,9 @@
                 "drupal/ctools": ">=3.0.0-alpha26",
                 "drupal/layout_plugin": ">=1.0.0-alpha22"
             },
-            "require-dev": {
-                "drupal/page_manager": "*"
+            "suggest": {
+                "drupal/core": "Required by drupal/panels_ipe",
+                "drupal/page_manager": "Required by drupal/panels"
             },
             "type": "drupal-module",
             "extra": {
@@ -2852,17 +2655,17 @@
         },
         {
             "name": "drupal/token",
-            "version": "1.0.0-rc1",
+            "version": "1.0.0-beta2",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/token",
-                "reference": "8.x-1.0-rc1"
+                "reference": "8.x-1.0-beta2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/token-8.x-1.0-rc1.zip",
+                "url": "https://ftp.drupal.org/files/projects/token-8.x-1.0-beta2.zip",
                 "reference": null,
-                "shasum": "204b2f18a3d770589d66656aa83121d2156d0a31"
+                "shasum": "b838318eddf46e4f382489de5516ab916257c393"
             },
             "require": {
                 "drupal/core": "~8.0"
@@ -2873,8 +2676,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.0-rc1",
-                    "datestamp": "1483290542"
+                    "version": "8.x-1.0-beta2",
+                    "datestamp": "1474367039"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -2931,10 +2734,11 @@
             "require": {
                 "drupal/core": "*"
             },
-            "require-dev": {
-                "drupal/colorbox": "*",
-                "drupal/media_entity": "*",
-                "drupal/media_entity_embeddable_video": "*"
+            "suggest": {
+                "drupal/colorbox": "Required by drupal/video_embed_field",
+                "drupal/core": "Required by drupal/video_embed_wysiwyg",
+                "drupal/media_entity": "Required by drupal/video_embed_field",
+                "drupal/media_entity_embeddable_video": "Required by drupal/video_embed_field"
             },
             "type": "drupal-module",
             "extra": {
@@ -3020,17 +2824,17 @@
         },
         {
             "name": "drupal/workbench_moderation",
-            "version": "1.2.0",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/workbench_moderation",
-                "reference": "8.x-1.2"
+                "reference": "8.x-1.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/workbench_moderation-8.x-1.2.zip",
+                "url": "https://ftp.drupal.org/files/projects/workbench_moderation-8.x-1.1.zip",
                 "reference": null,
-                "shasum": "3d37b29ed1e7fbf398160fe2494abc4361e4341c"
+                "shasum": "3af6ed1395f0c42c0a1644653561c4d2d6ad24dd"
             },
             "require": {
                 "drupal/core": "*"
@@ -3041,11 +2845,12 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.2",
-                    "datestamp": "1483529942"
+                    "version": "8.x-1.1",
+                    "datestamp": "1467086939"
                 },
                 "patches_applied": {
-                    "2668006 - Provide logical access control for when IPE should be applied to moderated nodes": "https://www.drupal.org/files/issues/2668006-2.patch"
+                    "2668006 - Provide logical access control for when IPE should be applied to moderated nodes": "https://www.drupal.org/files/issues/2668006-2.patch",
+                    "2780691 - Incorrect EntityRevision paramconverter service definition causes a fatal error": "https://www.drupal.org/files/issues/workbench_moderation-invalid_service_definition.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -3303,50 +3108,6 @@
             "time": "2016-07-03 21:52:18"
         },
         {
-            "name": "ezyang/htmlpurifier",
-            "version": "v4.8.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ezyang/htmlpurifier.git",
-                "reference": "d0c392f77d2f2a3dcf7fcb79e2a1e2b8804e75b2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ezyang/htmlpurifier/zipball/d0c392f77d2f2a3dcf7fcb79e2a1e2b8804e75b2",
-                "reference": "d0c392f77d2f2a3dcf7fcb79e2a1e2b8804e75b2",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.2"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "HTMLPurifier": "library/"
-                },
-                "files": [
-                    "library/HTMLPurifier.composer.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "LGPL"
-            ],
-            "authors": [
-                {
-                    "name": "Edward Z. Yang",
-                    "email": "admin@htmlpurifier.org",
-                    "homepage": "http://ezyang.com"
-                }
-            ],
-            "description": "Standards compliant HTML filter written in PHP",
-            "homepage": "http://htmlpurifier.org/",
-            "keywords": [
-                "html"
-            ],
-            "time": "2016-07-16 12:58:58"
-        },
-        {
             "name": "graphp/algorithms",
             "version": "v0.8.1",
             "source": {
@@ -3460,28 +3221,28 @@
         },
         {
             "name": "guzzlehttp/promises",
-            "version": "v1.3.1",
+            "version": "1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/promises.git",
-                "reference": "a59da6cf61d80060647ff4d3eb2c03a2bc694646"
+                "reference": "2693c101803ca78b27972d84081d027fca790a1e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/promises/zipball/a59da6cf61d80060647ff4d3eb2c03a2bc694646",
-                "reference": "a59da6cf61d80060647ff4d3eb2c03a2bc694646",
+                "url": "https://api.github.com/repos/guzzle/promises/zipball/2693c101803ca78b27972d84081d027fca790a1e",
+                "reference": "2693c101803ca78b27972d84081d027fca790a1e",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.5.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.0"
+                "phpunit/phpunit": "~4.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.4-dev"
+                    "dev-master": "1.0-dev"
                 }
             },
             "autoload": {
@@ -3507,7 +3268,7 @@
             "keywords": [
                 "promise"
             ],
-            "time": "2016-12-20 10:07:11"
+            "time": "2016-11-18 17:47:58"
         },
         {
             "name": "guzzlehttp/psr7",
@@ -3723,43 +3484,6 @@
                 "xml"
             ],
             "time": "2016-09-22 11:01:11"
-        },
-        {
-            "name": "mkalkbrenner/php-htmldiff-advanced",
-            "version": "0.0.8",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/mkalkbrenner/php-htmldiff.git",
-                "reference": "3a714b48c9c3d3730baaf6d3949691e654cd37c9"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/mkalkbrenner/php-htmldiff/zipball/3a714b48c9c3d3730baaf6d3949691e654cd37c9",
-                "reference": "3a714b48c9c3d3730baaf6d3949691e654cd37c9",
-                "shasum": ""
-            },
-            "require": {
-                "caxy/php-htmldiff": ">=0.0.6",
-                "php": ">=5.5.0"
-            },
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "src/HtmlDiffAdvancedInterface.php",
-                    "src/HtmlDiffAdvanced.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GNU General Public License V2"
-            ],
-            "description": "An add-on for the php-htmldiff library for comparing two HTML files/snippets and highlighting the differences using simple HTML.",
-            "homepage": "https://github.com/mkalkbrenner/php-htmldiff",
-            "keywords": [
-                "diff",
-                "html"
-            ],
-            "time": "2016-07-25 17:07:32"
         },
         {
             "name": "paragonie/random_compat",
@@ -4026,54 +3750,6 @@
                 "stack"
             ],
             "time": "2016-06-02 06:58:42"
-        },
-        {
-            "name": "sunra/php-simple-html-dom-parser",
-            "version": "v1.5.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sunra/php-simple-html-dom-parser.git",
-                "reference": "75b9b1cb64502d8f8c04dc11b5906b969af247c6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sunra/php-simple-html-dom-parser/zipball/75b9b1cb64502d8f8c04dc11b5906b969af247c6",
-                "reference": "75b9b1cb64502d8f8c04dc11b5906b969af247c6",
-                "shasum": ""
-            },
-            "require": {
-                "ext-mbstring": "*",
-                "php": ">=5.3.2"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Sunra\\PhpSimple\\HtmlDomParser": "Src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Sunra",
-                    "email": "sunra@yandex.ru",
-                    "homepage": "https://github.com/sunra"
-                },
-                {
-                    "name": "S.C. Chen",
-                    "homepage": "http://sourceforge.net/projects/simplehtmldom/"
-                }
-            ],
-            "description": "Composer adaptation of: A HTML DOM parser written in PHP5+ let you manipulate HTML in a very easy way! Require PHP 5+. Supports invalid HTML. Find tags on an HTML page with selectors just like jQuery. Extract contents from HTML in a single line.",
-            "homepage": "https://github.com/sunra/php-simple-html-dom-parser",
-            "keywords": [
-                "dom",
-                "html",
-                "parser"
-            ],
-            "time": "2016-11-22 22:57:47"
         },
         {
             "name": "symfony-cmf/routing",
@@ -5280,16 +4956,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v1.30.0",
+            "version": "v1.29.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "c6ff71094fde15d12398eaba029434b013dc5e59"
+                "reference": "74f723e542368ca2080b252740be5f1113ebb898"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/c6ff71094fde15d12398eaba029434b013dc5e59",
-                "reference": "c6ff71094fde15d12398eaba029434b013dc5e59",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/74f723e542368ca2080b252740be5f1113ebb898",
+                "reference": "74f723e542368ca2080b252740be5f1113ebb898",
                 "shasum": ""
             },
             "require": {
@@ -5302,7 +4978,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.30-dev"
+                    "dev-master": "1.29-dev"
                 }
             },
             "autoload": {
@@ -5337,7 +5013,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2016-12-23 11:06:22"
+            "time": "2016-12-13 17:28:18"
         },
         {
             "name": "zendframework/zend-diactoros",
@@ -6199,29 +5875,29 @@
         },
         {
             "name": "drupal/coder",
-            "version": "8.2.10",
+            "version": "8.2.9",
             "source": {
                 "type": "git",
-                "url": "https://github.com/klausi/coder.git",
-                "reference": "c835ff5c1733676fe0d3f3b861e814d570baaa6f"
+                "url": "https://git.drupal.org/project/coder",
+                "reference": "b08682bd939cf7d3ac7034bee792aa17f80e19d7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/klausi/coder/zipball/c835ff5c1733676fe0d3f3b861e814d570baaa6f",
-                "reference": "c835ff5c1733676fe0d3f3b861e814d570baaa6f",
-                "shasum": ""
+                "url": "https://ftp.drupal.org/files/projects/coder-8.x-2.9.zip",
+                "reference": "b08682bd939cf7d3ac7034bee792aa17f80e19d7",
+                "shasum": null
             },
             "require": {
                 "ext-mbstring": "*",
                 "php": ">=5.4.0",
-                "squizlabs/php_codesniffer": ">=2.7.0 <3.0",
+                "squizlabs/php_codesniffer": ">=2.7.0",
                 "symfony/yaml": ">=2.0.0"
             },
             "require-dev": {
                 "phpunit/phpunit": ">=3.7"
             },
             "type": "library",
-            "notification-url": "https://packagist.org/downloads/",
+            "notification-url": "https://packagist.drupal-composer.org/downloads/",
             "license": [
                 "GPL-2.0+"
             ],
@@ -6232,7 +5908,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2016-12-09 21:57:53"
+            "time": "2016-09-17 16:49:15"
         },
         {
             "name": "drupal/devel",
@@ -6545,16 +6221,16 @@
         },
         {
             "name": "fabpot/goutte",
-            "version": "v3.2.1",
+            "version": "v3.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfPHP/Goutte.git",
-                "reference": "db5c28f4a010b4161d507d5304e28a7ebf211638"
+                "reference": "8cc89de5e71daf84051859616891d3320d88a9e8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfPHP/Goutte/zipball/db5c28f4a010b4161d507d5304e28a7ebf211638",
-                "reference": "db5c28f4a010b4161d507d5304e28a7ebf211638",
+                "url": "https://api.github.com/repos/FriendsOfPHP/Goutte/zipball/8cc89de5e71daf84051859616891d3320d88a9e8",
+                "reference": "8cc89de5e71daf84051859616891d3320d88a9e8",
                 "shasum": ""
             },
             "require": {
@@ -6590,7 +6266,7 @@
             "keywords": [
                 "scraper"
             ],
-            "time": "2017-01-03 13:21:43"
+            "time": "2016-11-15 16:27:29"
         },
         {
             "name": "instaclick/php-webdriver",

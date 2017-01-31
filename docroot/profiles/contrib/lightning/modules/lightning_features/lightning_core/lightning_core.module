@@ -34,22 +34,15 @@ function lightning_core_help($route_name, RouteMatchInterface $route_match) {
   $expr = '/^entity\.entity_(view|form)_display\.([a-z_]+)\.((view|form)_mode)$/';
 
   if (preg_match($expr, $route_name, $matched)) {
-    $entity_id = sprintf(
-      '%s.%s',
-      $route_match->getParameter('entity_type_id'),
-      $route_match->getParameter($matched[3] . '_name')
-    );
+    $entity_id = $matched[2] . '.' . $route_match->getParameter($matched[3] . '_name');
 
-    /** @var \Drupal\Core\Entity\EntityDisplayModeInterface $display_mode */
-    $display_mode = \Drupal::entityTypeManager()
+    $description = \Drupal::entityTypeManager()
       ->getStorage('entity_' . $matched[3])
-      ->load($entity_id);
+      ->load($entity_id)
+      ->getThirdPartySetting('lightning_core', 'description');
 
-    if ($display_mode) {
-      $description = $display_mode->getThirdPartySetting('lightning_core', 'description');
-      if ($description) {
-        return '<p>' . $description . '</p>';
-      }
+    if ($description) {
+      return '<p>' . $description . '</p>';
     }
   }
 }
