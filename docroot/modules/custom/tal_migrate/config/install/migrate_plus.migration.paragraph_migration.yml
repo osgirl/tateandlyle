@@ -1,0 +1,46 @@
+id: paragraph_migration
+label: Paragraph migration from CSV
+migration_tags:
+  - paragraph
+source:
+  plugin: csv
+  path: modules/custom/tal_migrate/data/Releases-Table-final.csv
+  header_row_count: 1
+  keys:
+    - id
+  column_names:
+    0:
+      id: Id
+    1:
+      full_name: Full Name
+    2:
+      category: Category
+    3:
+      date: Date
+    4:
+      type: Type
+    5:
+      status: Status
+    6:
+      headline: Headline
+    7:
+      body: Body
+    8:
+      notes_to_editor: Notes to Editor
+process:
+  field_in_wysiwyg2:
+    -
+      plugin: skip_on_empty
+      source: notes_to_editor
+      method: row
+    -
+      plugin: formatted_textarea
+      source: notes_to_editor
+      paragraph_name: wysiwyg_and_block_reference
+      field: field_in_wysiwyg2
+destination:
+  plugin: 'entity_reference_revisions:paragraph'
+  default_bundle: wysiwyg_and_block_reference
+migration_dependencies:
+  required: {}
+optional: {}

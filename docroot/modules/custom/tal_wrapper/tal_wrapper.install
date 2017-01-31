@@ -8,8 +8,6 @@
 use Drupal\taxonomy\Entity\Term;
 use Drupal\taxonomy\Entity\Vocabulary;
 use Drupal\node\Entity\Node;
-use Drupal\menu_link_content\Entity\MenuLinkContent;
-use Drupal\field\Entity\FieldStorageConfig;
 
 /**
  * Implements hook_install().
@@ -181,4 +179,14 @@ function tal_wrapper_update_8211() {
 
   $field = FieldStorageConfig::loadByName('node', 'field_bio');
   $field->delete();
+}
+
+/**
+ * Create a term 'press packs' for vocab 'article category/story_category'.
+ */
+function tal_wrapper_update_8212() {
+  Term::create([
+    'name' => 'Press Packs',
+    'vid' => 'story_category',
+  ])->save();
 }
