@@ -5,18 +5,6 @@
     margin-left: auto;
     margin-right: auto;
   }
-  .pager {
-    li.previous, li.next {
-      a, a:hover {
-        float: none;
-        background: none;
-        border: 0 none;
-        color: $brand-primary;
-        border-radius: 0;
-        box-shadow: 0 0 0;
-      }
-    }
-  }
 }
 
 .three--columns.block--dynamic-posts,
@@ -257,82 +245,6 @@
       @media (max-width: $screen-sm-lsp-max) {
         width: 100%;
         float: none;
-      }
-    }
-  }
-}
-
-.posts.block--dynamic-posts {
-  border: 0 none;
-  margin: 0;
-  @media (min-width: $screen-sm) {
-    margin: 0 auto;
-  }
-  > h2 {
-    text-align: left;
-    max-width: 70%;
-    margin-top: 0;
-    width: auto;
-    padding: 1em 0 0.50em;
-    margin-left: 0;
-    border: 0 !important;
-    @media (min-width: $screen-sm) {
-      border-bottom: 1px solid $color-warm-gray !important;
-    }
-  }
-  .tal-dynamic-post-wrapper {
-    width: 100%;
-    max-width: 100%;
-  }
-  #dynamic-post-list {
-    width: 100%;
-    @media (min-width: $screen-md) {
-      width: 70%;
-    }
-  }
-  .tal--focus-on-tag-list {
-    width: 100%;
-    @media (min-width: $screen-md) {
-      width: 100%;
-    }
-    @media (min-width: $screen-lg) {
-      width: 29%;
-    }
-  }
-  .teaser-content {
-    h3 {
-      margin-left: 0;
-    }
-    .teaser__date--category {
-      width: 77%;
-      @media (min-width: $screen-sm) {
-        width: 87%;
-      }
-    }
-  }
-  .teaser__date--category, .date--category {
-    padding-left: 0;
-  }
-  .tal--focus-on-tag-list {
-    margin-top: -2.8em;
-    h2.title {
-      font-size: 24px;
-    }
-    .views-row {
-      @media (min-width: $screen-md) {
-        width: 47%;
-        margin-left: 1em;
-      }
-      @media (min-width: $screen-lg) {
-        width: 100%;
-      }
-      h2 {
-       top: 3px;
-       left: 1px;
-       font-size: 20px;
-      }
-      article {
-        margin-right: 1em;
       }
     }
   }

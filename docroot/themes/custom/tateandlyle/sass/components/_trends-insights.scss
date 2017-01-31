@@ -147,10 +147,17 @@
   .tal--dynamic-post-list {
     width: 100%;
     .view-footer {
-      float: right;
-      margin: 0 0 1em 0;
-      &::after {
-        @extend %right-brand-arrow;
+      height: 80px;
+      border-color: $color-warm-gray;
+      border-width: 1px 0 1px 0;
+      border-style: solid;
+      display: table;
+      width: 100%;
+      background: $color-off-white;
+      text-align: center;
+      span {
+        display: table-cell;
+        vertical-align: middle;
       }
     }
   }
