@@ -12,3 +12,4 @@ dependencies:
   - search
   - tal_admin_config
   - simple_sitemap
+  - pathauto
