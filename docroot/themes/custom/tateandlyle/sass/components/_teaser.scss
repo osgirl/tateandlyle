@@ -13,11 +13,9 @@
   display: inline-block;
   width: 100%;
   border-bottom: 1px solid $color-warm-gray;
-  margin-bottom: 29px;
+  margin-bottom: 23px;
   padding-bottom: 26px;
-  @media (min-width: $screen-sm) {
-    padding-bottom: 2em;
-  }
+
   .teaser-summary {
     margin-top: 1em;
     display: inline-block;
@@ -34,30 +32,36 @@
     }
   }
   .teaser__date--category {
-    width: 76%;
     @media (min-width: $screen-md) {
       width: 93%;
     }
   }
   .teaser__icon {
-    position: relative;
-    top: -4px;
+    position: absolute;
+    top: -10px;
     vertical-align: top;
-    float: left;
-    margin-right: 1em;
+    left: 0;
     @media (min-width: $screen-sm) {
       position: static;
-      max-width: 42px;
+      max-width: 40px;
+      margin-right: 0;
     }
   }
   h3 {
     font-size: $font-size-h5;
     font-family: $font-family-sans-serif;
-    margin-bottom: 10px;
+    left: 50px;
+    margin-bottom: 23px;
     margin-top: 0;
+    padding-left: 10px;
+    position: relative;
+    width: 84%;
     @media (min-width: $screen-sm) {
+      padding-left: 0;
+      position: static;
       margin-bottom: 3px;
       margin-left: 20px;
+      width: auto;
     }
     @media (min-width: $screen-md) {
       font-size: $font-size-h3;
@@ -66,7 +70,7 @@
   }
   .date--category {
     position: relative;
-    margin-bottom: 2em;
+    margin-bottom: 16px;
     @media (min-width: $screen-sm) {
       position: static;
       padding-left: 20px;
@@ -105,6 +109,10 @@
     }
   }
 
+  .field--name-body {
+    margin-bottom: 20px;
+  }
+
   .field--name-field-ac-icon {
     article {
       margin: 0;
@@ -116,14 +124,18 @@
   }
 
   .teaser-image {
-    float: left;
-    margin-right: 2em;
+    @media (min-width: $screen-sm) {
+      float: left;
+      margin-right: 2em;
+    }
     .field--label {
       display: none;
     }
-    .img {
-      max-width: 880px;
-      margin-bottom: 1em;
+    img {
+      max-width: 312px;
+      @media (min-width: $screen-sm) {
+        max-width: 880px;
+      }
     }
   }
 
@@ -147,6 +159,13 @@
     padding-right: 0;
     @media (min-width: $screen-md) {
       margin: auto;
+    }
+  }
+
+  .view-filters {
+    margin-bottom: 0;
+    .form-actions {
+      display: none;
     }
   }
 
@@ -188,6 +207,60 @@
 
     @media (min-width: $screen-sm) {
       min-width: 309px;
+    }
+  }
+
+  .views-row:last-child {
+    .teaser-content {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+  }
+}
+
+.teaser.small__image {
+
+  .date--category {
+    @media (min-width: $screen-sm) {
+      margin-bottom: 26px;
+    }
+
+    @media (min-width: $screen-md) {
+      margin-bottom: 24px;
+    }
+  }
+
+  .teaser-image img {
+    @media (min-width: $screen-sm) {
+      max-width: 222px;
+    }
+
+    @media (min-width: $screen-md) {
+      max-width: none;
+    }
+  }
+}
+
+.teaser.large__image {
+
+  .date--category {
+    @media (min-width: $screen-sm) {
+      margin-bottom: 28px;
+    }
+
+    @media (min-width: $screen-md) {
+      margin-bottom: 16px;
+    }
+  }
+
+  .teaser-image {
+    @media (min-width: $screen-sm) {
+      margin-bottom: 23px;
+      margin-right: 0;
+    }
+
+    @media (min-width: $screen-md) {
+      margin-bottom: 22px;
     }
   }
 }
@@ -353,26 +426,32 @@
 .view-id-article_list, .tal--dynamic-post-list {
   .pager {
     background: $color-off-white;
-    padding: 1em 0.4em;
+    padding: 34px 0.4em;
     line-height: 5px;
+    margin-top: 0;
     border-top: 1px solid $color-warm-gray;
     border-bottom: 1px solid $color-warm-gray;
     @media (min-width: $screen-sm) {
-      padding: 1.4em;
+      padding: 31px;
     }
     li {
       &.previous a {
         border-right: 1px solid $color-warm-gray;
-        padding-right: 40px;
+        padding-right: 15px;
+        @media (min-width: $screen-sm) {
+          padding-right: 40px;
+        }
       }
       &.next a {
-        padding-left: 35px;
+        padding-left: 15px;
+        @media (min-width: $screen-sm) {
+          padding-left: 35px;
+        }
       }
       a {
         float: none;
         background: none;
         border: 0 none;
-        color: $brand-primary;
         border-radius: 0;
       }
     }

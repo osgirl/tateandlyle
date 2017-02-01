@@ -76,6 +76,14 @@ function tal_preprocess_node_company_story($variables, $node) {
     $variables['image'][0]['#image_style'] = 'article_large_880_x_477';
   }
 
+  if ($image_size == 0) {
+    $variables['image_layout']= 'small__image';
+  }
+
+  if ($image_size == 1) {
+    $variables['image_layout']= 'large__image';
+  }
+
   if ($variables['view_mode'] == 'search_result') {
     $path = \Drupal::request()->getUri();
     $parameters = UrlHelper::parse($path);
