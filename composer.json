@@ -40,7 +40,8 @@
         "drupal/workbench_email": "1.0-alpha3",
         "drupal/migrate_plus": "3.0-beta1",
         "drupal/migrate_tools": "3.0-beta1",
-        "drupal/migrate_source_csv": "2.0.0"
+        "drupal/migrate_source_csv": "2.0.0",
+        "drupal/simple_sitemap": "2.8.0"
     },
     "require-dev": {
         "behat/behat": "^3.1",
