@@ -2,4 +2,4 @@ langcode: en
 status: true
 dependencies: {  }
 id: talk_to_us
-label: 'Talk to us'
+label: 'Connect to contact us form'

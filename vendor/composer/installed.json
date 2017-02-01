@@ -5999,7 +5999,7 @@
             "phpunit/phpunit": "~4.8",
             "symfony/css-selector": "~2.8"
         },
-        "time": "2017-01-30T23:24:43+00:00",
+        "time": "2017-01-31T10:13:57+00:00",
         "type": "drupal-core",
         "extra": {
             "patches_applied": {
@@ -10100,6 +10100,60 @@
         }
     },
     {
+        "name": "drupal/simple_sitemap",
+        "version": "2.8.0",
+        "version_normalized": "2.8.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupal.org/project/simple_sitemap",
+            "reference": "8.x-2.8"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://ftp.drupal.org/files/projects/simple_sitemap-8.x-2.8.zip",
+            "reference": null,
+            "shasum": "f88b904f8e71d849693309b9315f25e7c06a6d77"
+        },
+        "require": {
+            "drupal/core": "~8.0"
+        },
+        "type": "drupal-module",
+        "extra": {
+            "branch-alias": {
+                "dev-2.x": "2.x-dev"
+            },
+            "drupal": {
+                "version": "8.x-2.8",
+                "datestamp": "1482783482"
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "license": [
+            "GPL-2.0+"
+        ],
+        "authors": [
+            {
+                "name": "Pawel Ginalski (gbyte.co)",
+                "homepage": "https://www.drupal.org/u/gbyte.co",
+                "email": "contact@gbyte.co",
+                "role": "Maintainer"
+            },
+            {
+                "name": "Sam Becker (Sam152)",
+                "homepage": "https://www.drupal.org/u/sam152",
+                "role": "Co-maintainer"
+            }
+        ],
+        "description": "Simple XML sitemap creates a standard conform XML sitemap of your content.",
+        "homepage": "https://drupal.org/project/simple_sitemap",
+        "support": {
+            "source": "https://cgit.drupalcode.org/simple_sitemap",
+            "issues": "https://drupal.org/project/issues/simple_sitemap",
+            "irc": "irc://irc.freenode.org/drupal-contribute"
+        }
+    },
+    {
         "name": "drupal/webform",
         "version": "5.0.0-beta4",
         "version_normalized": "5.0.0.0-beta4",
@@ -10127,7 +10181,7 @@
             },
             "drupal": {
                 "version": "8.x-5.0-beta4",
-                "datestamp": "1485776283"
+                "datestamp": "1482752282"
             },
             "patches_applied": {
                 "Preview page: Attach contact form or other form elements": "https://www.drupal.org/files/issues/preview_page_attach-2839834-15.patch"
