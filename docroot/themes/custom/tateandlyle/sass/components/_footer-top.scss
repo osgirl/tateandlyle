@@ -1,43 +1,68 @@
 .page--footer-top {
   background: $color-off-white;
   .region-footer-top {
-    max-width: 1168px;
-    margin: 0 auto;
-    padding: 2em 0;
+    margin: 0 30px;
+    padding: 46px 0;
+    padding-bottom: 60px;
+    @media (min-width: $screen-sm-lsp) {
+      padding: 35px 0;
+      padding-bottom: 60px;
+    }
     @media (min-width: $screen-sm) {
-      padding: 4em 0;
+      padding: 50px 0;
       min-height: 452px;
+      margin: 0 auto;
+    }
+    @media (min-width: $screen-md) {
+      max-width: 802px;
+    }
+    @media (min-width: $screen-md-lg) {
+      max-width: 1168px;
+      padding: 62px 0;
     }
   }
   h2 {
     font-size: 24px;
     color: $gray-base-light;
-    margin-bottom: 1.3em;
+    margin-bottom: 23px;
+    margin-top: 0;
   }
   .block-keyareasofexpertise {
-    max-width: 100%;
-    padding: 2em;
     @media (min-width: $screen-sm) {
-      width: 53%;
-      padding: 0 2em;
+      width: 50%;
+      padding: 0;
       display: inline-block;
       min-height: 327px;
-      border-right: 1px solid $color-warm-gray;
-      padding-right: 7em;
+      border-right: 1px solid rgba(0, 0, 0, 0.2);
+      padding-right: 50px;
+    }
+    @media (min-width: $screen-md) {
+      padding-left: 71px;
+    }
+    @media (min-width: $screen-md-lg) {
+      padding-right: 100px;
     }
     ul {
-      margin-left: 1em;
       li {
-        border-bottom: 1px solid $color-warm-gray;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
         display: table;
         width: 100%;
         a {
-          height: 70px;
+          background-position: 20px center;
+          background-size: 28px;
+          height: 68px;
+          font-size: $font-size-h5;
           padding-left: 70px;
           position: relative;
           display: table-cell;
           vertical-align: middle;
           width: 100%;
+          @media (min-width: $screen-md) {
+            height: 70px;
+          }
+          &:hover {
+            background-color: transparent;
+          }
           &::after {
             @extend %right-brand-arrow;
             font-size: 23px;
@@ -50,26 +75,62 @@
     }
   }
   .block-tal-ingredient-search {
-    padding: 0 2em;
+    padding: 0;
     max-width: 100%;
+    margin-top: 49px;
+    @media (min-width: $screen-sm-lsp) {
+      margin-top: 41px;
+    }
     @media (min-width: $screen-sm) {
-      max-width: 39%;
+      padding-left: 50px;
+      max-width: 50%;
+      margin-top: 0;
       float: right;
+    }
+    @media (min-width: $screen-md) {
+      padding-left: 69px;
+    }
+    @media (min-width: $screen-md-lg) {
+      padding-left: 96px;
     }
     .footer-search-finder-block {
       position: relative;
+      margin-top: 59px;
       @media (min-width: $screen-sm) {
-        margin-top: 25%;
+        margin-top: 109px;
       }
+
+      @media (min-width: $screen-md-lg) {
+        margin-top: 119px;
+      }
+
+      .form-type-textfield {
+        margin-bottom: 6px;
+      }
+
+      .form-type-textfield .input--wrapper {
+        border-bottom: 1px solid $color-warm-gray;
+        display: block;
+        padding-bottom: 10px;
+      }
+
+      .input--title {
+        display: none;
+      }
+
       input.search {
         background: transparent;
         box-shadow: 0 0 0;
         border: 0;
-        border-bottom: 1px solid $color-warm-gray;
         border-radius: 0;
-        color: black;
-        font-family: $font-family-sans-serif-bold;
+        color: $gray-base;
+        font-size: $font-size-h4;
+        padding-left: 0;
+        @media (min-width: $screen-md-lg) {
+          font-size: $font-size-h3;
+        }
       }
+
       .form-submit {
         position: absolute;
         right: 0;
@@ -77,10 +138,18 @@
         background: transparent;
         font-size: 0;
         box-shadow: 0 0 0;
+        padding-right: 0;
         .icon {
-          font-size: 18px;
-          color: black;
-          font-weight: lighter;
+          display: none;
+        }
+
+        &::after {
+          background: url("../images/icons/iconsearch-black.svg") no-repeat;
+          background-size: cover;
+          content: " ";
+          display: inline-block;
+          height: 25px;
+          width: 25px;
         }
       }
     }
