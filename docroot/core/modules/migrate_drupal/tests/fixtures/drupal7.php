@@ -4485,18 +4485,6 @@ $connection->insert('field_data_field_file')
   'field_file_display' => '1',
   'field_file_description' => 'file desc',
 ))
-->values(array(
-  'entity_type' => 'user',
-  'bundle' => 'user',
-  'deleted' => '0',
-  'entity_id' => '2',
-  'revision_id' => '2',
-  'language' => 'und',
-  'delta' => '0',
-  'field_file_fid' => '2',
-  'field_file_display' => '1',
-  'field_file_description' => 'file desc',
-))
 ->execute();
 
 $connection->schema()->createTable('field_data_field_float', array(
@@ -6686,18 +6674,6 @@ $connection->insert('field_revision_field_file')
   'field_file_display' => '1',
   'field_file_description' => 'file desc',
 ))
-->values(array(
-  'entity_type' => 'user',
-  'bundle' => 'user',
-  'deleted' => '0',
-  'entity_id' => '2',
-  'revision_id' => '2',
-  'language' => 'und',
-  'delta' => '0',
-  'field_file_fid' => '2',
-  'field_file_display' => '1',
-  'field_file_description' => 'file desc',
-))
 ->execute();
 
 $connection->schema()->createTable('field_revision_field_float', array(
@@ -8331,16 +8307,6 @@ $connection->insert('file_managed')
   'status' => '1',
   'timestamp' => '1421727515',
 ))
-->values(array(
-  'fid' => '2',
-  'uid' => '1',
-  'filename' => 'ds9.txt',
-  'uri' => 'public://ds9.txt',
-  'filemime' => 'text/plain',
-  'filesize' => '4720',
-  'status' => '1',
-  'timestamp' => '1421727516',
-))
 ->execute();
 
 $connection->schema()->createTable('file_usage', array(
@@ -8407,13 +8373,6 @@ $connection->insert('file_usage')
   'module' => 'file',
   'type' => 'node',
   'id' => '1',
-  'count' => '1',
-))
-->values(array(
-  'fid' => '2',
-  'module' => 'file',
-  'type' => 'user',
-  'id' => '2',
   'count' => '1',
 ))
 ->execute();
@@ -43901,7 +43860,7 @@ $connection->insert('variable')
 ))
 ->values(array(
   'name' => 'menu_override_parent_selector',
-  'value' => 'b:1;',
+  'value' => 'b:0;',
 ))
 ->values(array(
   'name' => 'menu_parent_article',

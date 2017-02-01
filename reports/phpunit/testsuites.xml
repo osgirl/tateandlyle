@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="AllTests" tests="15" assertions="22" failures="0" errors="0" time="7.866509">
-    <testsuite name="Acquia\Blt\Tests\BltProject\BehatTest" file="/home/travis/build/acquia-pso/tateandlyle/vendor/acquia/blt/tests/phpunit/BltProject/BehatTest.php" tests="1" assertions="2" failures="0" errors="0" time="0.002889">
-      <testcase name="testSetupBehat" class="Acquia\Blt\Tests\BltProject\BehatTest" file="/home/travis/build/acquia-pso/tateandlyle/vendor/acquia/blt/tests/phpunit/BltProject/BehatTest.php" line="19" assertions="2" time="0.002889"/>
+  <testsuite name="AllTests" tests="15" assertions="22" failures="0" errors="0" time="7.643477">
+    <testsuite name="Acquia\Blt\Tests\BltProject\BehatTest" file="/home/travis/build/acquia-pso/tateandlyle/vendor/acquia/blt/tests/phpunit/BltProject/BehatTest.php" tests="1" assertions="2" failures="0" errors="0" time="0.002535">
+      <testcase name="testSetupBehat" class="Acquia\Blt\Tests\BltProject\BehatTest" file="/home/travis/build/acquia-pso/tateandlyle/vendor/acquia/blt/tests/phpunit/BltProject/BehatTest.php" line="19" assertions="2" time="0.002535"/>
     </testsuite>
-    <testsuite name="Acquia\Blt\Tests\BltProject\BuildTest" file="/home/travis/build/acquia-pso/tateandlyle/vendor/acquia/blt/tests/phpunit/BltProject/BuildTest.php" tests="1" assertions="3" failures="0" errors="0" time="0.000870">
-      <testcase name="testSetupMake" class="Acquia\Blt\Tests\BltProject\BuildTest" file="/home/travis/build/acquia-pso/tateandlyle/vendor/acquia/blt/tests/phpunit/BltProject/BuildTest.php" line="21" assertions="3" time="0.000870"/>
+    <testsuite name="Acquia\Blt\Tests\BltProject\BuildTest" file="/home/travis/build/acquia-pso/tateandlyle/vendor/acquia/blt/tests/phpunit/BltProject/BuildTest.php" tests="1" assertions="3" failures="0" errors="0" time="0.000881">
+      <testcase name="testSetupMake" class="Acquia\Blt\Tests\BltProject\BuildTest" file="/home/travis/build/acquia-pso/tateandlyle/vendor/acquia/blt/tests/phpunit/BltProject/BuildTest.php" line="21" assertions="3" time="0.000881"/>
     </testsuite>
-    <testsuite name="Acquia\Blt\Tests\BltProject\SettingsTest" file="/home/travis/build/acquia-pso/tateandlyle/vendor/acquia/blt/tests/phpunit/BltProject/SettingsTest.php" tests="1" assertions="1" failures="0" errors="0" time="0.000720">
-      <testcase name="testSetupLocalSettings" class="Acquia\Blt\Tests\BltProject\SettingsTest" file="/home/travis/build/acquia-pso/tateandlyle/vendor/acquia/blt/tests/phpunit/BltProject/SettingsTest.php" line="19" assertions="1" time="0.000720"/>
+    <testsuite name="Acquia\Blt\Tests\BltProject\SettingsTest" file="/home/travis/build/acquia-pso/tateandlyle/vendor/acquia/blt/tests/phpunit/BltProject/SettingsTest.php" tests="1" assertions="1" failures="0" errors="0" time="0.000837">
+      <testcase name="testSetupLocalSettings" class="Acquia\Blt\Tests\BltProject\SettingsTest" file="/home/travis/build/acquia-pso/tateandlyle/vendor/acquia/blt/tests/phpunit/BltProject/SettingsTest.php" line="19" assertions="1" time="0.000837"/>
     </testsuite>
-    <testsuite name="Acquia\Blt\Tests\BltProject\GitTasksTest" file="/home/travis/build/acquia-pso/tateandlyle/vendor/acquia/blt/tests/phpunit/BltProject/GitTest.php" tests="11" assertions="14" failures="0" errors="0" time="5.610136">
-      <testcase name="testGitConfig" class="Acquia\Blt\Tests\BltProject\GitTasksTest" file="/home/travis/build/acquia-pso/tateandlyle/vendor/acquia/blt/tests/phpunit/BltProject/GitTest.php" line="19" assertions="3" time="0.000794"/>
-      <testsuite name="Acquia\Blt\Tests\BltProject\GitTasksTest::testGitHookCommitMsg" tests="9" assertions="9" failures="0" errors="0" time="0.989578">
-        <testcase name="testGitHookCommitMsg with data set #0" assertions="1" time="0.115061"/>
-        <testcase name="testGitHookCommitMsg with data set #1" assertions="1" time="0.107606"/>
-        <testcase name="testGitHookCommitMsg with data set #2" assertions="1" time="0.107862"/>
-        <testcase name="testGitHookCommitMsg with data set #3" assertions="1" time="0.110096"/>
-        <testcase name="testGitHookCommitMsg with data set #4" assertions="1" time="0.110748"/>
-        <testcase name="testGitHookCommitMsg with data set #5" assertions="1" time="0.107593"/>
-        <testcase name="testGitHookCommitMsg with data set #6" assertions="1" time="0.109586"/>
-        <testcase name="testGitHookCommitMsg with data set #7" assertions="1" time="0.109833"/>
-        <testcase name="testGitHookCommitMsg with data set #8" assertions="1" time="0.111193"/>
+    <testsuite name="Acquia\Blt\Tests\BltProject\GitTasksTest" file="/home/travis/build/acquia-pso/tateandlyle/vendor/acquia/blt/tests/phpunit/BltProject/GitTest.php" tests="11" assertions="14" failures="0" errors="0" time="5.403525">
+      <testcase name="testGitConfig" class="Acquia\Blt\Tests\BltProject\GitTasksTest" file="/home/travis/build/acquia-pso/tateandlyle/vendor/acquia/blt/tests/phpunit/BltProject/GitTest.php" line="19" assertions="3" time="0.000923"/>
+      <testsuite name="Acquia\Blt\Tests\BltProject\GitTasksTest::testGitHookCommitMsg" tests="9" assertions="9" failures="0" errors="0" time="0.948293">
+        <testcase name="testGitHookCommitMsg with data set #0" assertions="1" time="0.107890"/>
+        <testcase name="testGitHookCommitMsg with data set #1" assertions="1" time="0.103688"/>
+        <testcase name="testGitHookCommitMsg with data set #2" assertions="1" time="0.105419"/>
+        <testcase name="testGitHookCommitMsg with data set #3" assertions="1" time="0.105088"/>
+        <testcase name="testGitHookCommitMsg with data set #4" assertions="1" time="0.106188"/>
+        <testcase name="testGitHookCommitMsg with data set #5" assertions="1" time="0.104995"/>
+        <testcase name="testGitHookCommitMsg with data set #6" assertions="1" time="0.104776"/>
+        <testcase name="testGitHookCommitMsg with data set #7" assertions="1" time="0.105468"/>
+        <testcase name="testGitHookCommitMsg with data set #8" assertions="1" time="0.104781"/>
       </testsuite>
-      <testcase name="testGitPreCommitHook" class="Acquia\Blt\Tests\BltProject\GitTasksTest" file="/home/travis/build/acquia-pso/tateandlyle/vendor/acquia/blt/tests/phpunit/BltProject/GitTest.php" line="69" assertions="2" time="4.619764"/>
+      <testcase name="testGitPreCommitHook" class="Acquia\Blt\Tests\BltProject\GitTasksTest" file="/home/travis/build/acquia-pso/tateandlyle/vendor/acquia/blt/tests/phpunit/BltProject/GitTest.php" line="69" assertions="2" time="4.454309"/>
     </testsuite>
-    <testsuite name="Acquia\Blt\Tests\BltProject\DrushTest" file="/home/travis/build/acquia-pso/tateandlyle/vendor/acquia/blt/tests/phpunit/BltProject/DrushTest.php" tests="1" assertions="2" failures="0" errors="0" time="2.251894">
-      <testcase name="testDrushConfig" class="Acquia\Blt\Tests\BltProject\DrushTest" file="/home/travis/build/acquia-pso/tateandlyle/vendor/acquia/blt/tests/phpunit/BltProject/DrushTest.php" line="19" assertions="2" time="2.251894"/>
+    <testsuite name="Acquia\Blt\Tests\BltProject\DrushTest" file="/home/travis/build/acquia-pso/tateandlyle/vendor/acquia/blt/tests/phpunit/BltProject/DrushTest.php" tests="1" assertions="2" failures="0" errors="0" time="2.235699">
+      <testcase name="testDrushConfig" class="Acquia\Blt\Tests\BltProject\DrushTest" file="/home/travis/build/acquia-pso/tateandlyle/vendor/acquia/blt/tests/phpunit/BltProject/DrushTest.php" line="19" assertions="2" time="2.235699"/>
     </testsuite>
   </testsuite>
 </testsuites>
