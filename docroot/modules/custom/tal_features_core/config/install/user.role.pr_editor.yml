@@ -42,3 +42,6 @@ permissions:
   - 'change own username'
   - 'select account cancellation method'
   - 'access user profiles'
+  - 'administer panelizer node press_release defaults'
+  - 'administer panelizer node press_release layout'
+
