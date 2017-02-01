@@ -1,0 +1,32 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - ctools
+    - taxonomy
+id: terms
+label: 'Taxonomy Terms'
+type: 'canonical_entities:taxonomy_term'
+pattern: '/term/[term:name]'
+selection_criteria:
+  442892da-6350-4729-a7d4-5d09e575e048:
+    id: 'entity_bundle:taxonomy_term'
+    bundles:
+      applications: applications
+      category: category
+      industry: industry
+      languages: languages
+      media_gallery: media_gallery
+      others: others
+      story_category: story_category
+      tags: tags
+      trends_solutions: trends_solutions
+      types_of_ingredients: types_of_ingredients
+      type_of_content: type_of_content
+    negate: false
+    context_mapping:
+      taxonomy_term: taxonomy_term
+    uuid: 442892da-6350-4729-a7d4-5d09e575e048
+selection_logic: and
+weight: -5
+relationships: {  }

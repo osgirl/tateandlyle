@@ -190,3 +190,12 @@ function tal_wrapper_update_8212() {
     'vid' => 'story_category',
   ])->save();
 }
+
+/**
+ * Enable simple_menu_icons module.
+ *
+ * Implements hook_update_N().
+ */
+function tal_wrapper_update_8213() {
+  \Drupal::service('module_installer')->install(['simple_sitemap', 'pathauto']);
+}
