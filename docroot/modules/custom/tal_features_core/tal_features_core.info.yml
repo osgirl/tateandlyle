@@ -62,3 +62,4 @@ dependencies:
   - webform
   - workbench_email
   - workbench_moderation
+  - simple_sitemap

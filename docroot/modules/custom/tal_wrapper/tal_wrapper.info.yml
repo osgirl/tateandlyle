@@ -11,3 +11,4 @@ dependencies:
   - admin_toolbar
   - search
   - tal_admin_config
+  - simple_sitemap
