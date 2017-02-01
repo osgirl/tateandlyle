@@ -8,6 +8,8 @@
 use Drupal\taxonomy\Entity\Term;
 use Drupal\taxonomy\Entity\Vocabulary;
 use Drupal\node\Entity\Node;
+use Drupal\menu_link_content\Entity\MenuLinkContent;
+use Drupal\field\Entity\FieldStorageConfig;
 
 /**
  * Implements hook_install().
@@ -27,6 +29,17 @@ function tal_wrapper_install() {
   // Enable and set tateandlyle as default theme.
   \Drupal::service('theme_installer')->install(array('tateandlyle'), TRUE);
   \Drupal::configFactory()->getEditable('system.theme')->set('default', 'tateandlyle')->save(TRUE);
+  tal_wrapper_update_8203();
+  tal_wrapper_update_8204();
+  tal_wrapper_update_8205();
+  tal_wrapper_update_8206();
+  tal_wrapper_update_8207();
+  tal_wrapper_update_8208();
+  tal_wrapper_update_8209();
+  tal_wrapper_update_8210();
+  tal_wrapper_update_8211();
+  tal_wrapper_update_8212();
+  tal_wrapper_update_8213();
 }
 
 /**
@@ -153,7 +166,10 @@ function tal_wrapper_update_8209() {
   // Delete Article link.
   $storage = \Drupal::entityTypeManager()->getStorage('menu_link_content');
   $menuLink = $storage->load(8);
-  $menuLink->delete();
+
+  if (!empty($menuLink)) {
+    $menuLink->delete();
+  }
 
   // Create News link.
   $menu_link = MenuLinkContent::create([

@@ -145,6 +145,9 @@
             },
             "drupal/entity_reference_revisions": {
                 "EntityReference migrate destination": "https://www.drupal.org/files/issues/entityreference_migrate-2809793-56.patch"
+            },
+            "drupal/entity_browser": {
+                "getDisplay() on null Entity Browser reference": "https://www.drupal.org/files/issues/ElementPatch_0.patch"
             }
         },
         "drupal-scaffold": {

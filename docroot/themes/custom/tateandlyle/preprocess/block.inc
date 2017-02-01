@@ -348,3 +348,10 @@ function tal_preprocess_block_dynamic_posts($variables, $block) {
 
   return $variables;
 }
+
+/**
+ * Preprocessor function for content promo with image block type.
+ */
+function tal_preprocess_block_content_promo_with_image($variables, $block) {
+  return $variables;
+}
