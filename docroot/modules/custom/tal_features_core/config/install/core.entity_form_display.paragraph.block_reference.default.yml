@@ -3,8 +3,6 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.block_reference.field_block_component
-    - field.field.paragraph.block_reference.field_field_in_submenu_title
-    - field.field.paragraph.block_reference.field_in_border_title
     - paragraphs.paragraphs_type.block_reference
   module:
     - workbench_moderation
@@ -21,20 +19,6 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
-  field_field_in_submenu_title:
-    weight: 6
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
-  field_in_border_title:
-    weight: 7
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
 hidden:
   created: true
   status: true

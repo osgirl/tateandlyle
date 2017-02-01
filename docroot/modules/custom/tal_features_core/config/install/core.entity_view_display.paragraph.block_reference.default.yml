@@ -3,8 +3,6 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.block_reference.field_block_component
-    - field.field.paragraph.block_reference.field_field_in_submenu_title
-    - field.field.paragraph.block_reference.field_in_border_title
     - paragraphs.paragraphs_type.block_reference
 id: paragraph.block_reference.default
 targetEntityType: paragraph
@@ -19,14 +17,6 @@ content:
       view_mode: default
     third_party_settings: {  }
     type: entity_reference_entity_view
-  field_in_border_title:
-    weight: 1
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
 hidden:
   created: true
-  field_field_in_submenu_title: true
   uid: true
