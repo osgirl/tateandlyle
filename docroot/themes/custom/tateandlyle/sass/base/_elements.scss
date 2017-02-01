@@ -4,6 +4,10 @@ body {
   height: 100%;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 img {
   max-width: 100%;
 }
@@ -22,10 +26,13 @@ h5 {
 
 .main-container {
   margin: auto;
+  max-width: 81.4%;
+  .region-content {
+    overflow: visible;
+  }
 }
 
 .page-header {
-  @extend %inner-content-width-padding;
   @extend %title-border-bottom;
   border-bottom: none;
   margin-top: 36px;
