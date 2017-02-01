@@ -35,12 +35,10 @@ process:
   field_author:
     plugin: author_name
     source: full_name
-  body/value:
+  'body/format': 'advanced_rich_text'
+  'body/value':
     plugin: replace_comma
     source: body
-  'body/format':
-    plugin: default_value
-    default_value: "advanced_rich_text"
   title:
     plugin: replace_comma
     source: headline
