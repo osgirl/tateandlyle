@@ -6,10 +6,11 @@ dependencies:
     - field.field.block_content.sip_with_background.body
     - field.field.block_content.sip_with_background.field_bg_color
     - field.field.block_content.sip_with_background.field_bg_image
-    - field.field.block_content.sip_with_background.field_icon
     - field.field.block_content.sip_with_background.field_read_more
+    - field.field.block_content.sip_with_background.field_sip_icon
     - field.field.block_content.sip_with_background.field_tal_link
     - field.field.block_content.sip_with_background.field_title
+    - image.style.icon_48px_width
   module:
     - image
     - link
@@ -33,20 +34,13 @@ content:
     third_party_settings: {  }
     type: list_default
   field_bg_image:
-    weight: 3
+    weight: 2
     label: hidden
     settings:
       image_style: ''
       image_link: ''
     third_party_settings: {  }
     type: image
-  field_icon:
-    weight: 2
-    label: hidden
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
   field_read_more:
     weight: 6
     label: hidden
@@ -58,6 +52,14 @@ content:
       target: ''
     third_party_settings: {  }
     type: link
+  field_sip_icon:
+    weight: 3
+    label: hidden
+    settings:
+      image_style: icon_48px_width
+      image_link: ''
+    third_party_settings: {  }
+    type: image
   field_tal_link:
     weight: 5
     label: hidden
