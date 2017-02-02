@@ -38,13 +38,13 @@
   }
   .teaser__icon {
     position: absolute;
-    top: -10px;
     vertical-align: top;
     left: 0;
     @media (min-width: $screen-sm) {
       position: static;
       max-width: 40px;
       margin-right: 0;
+      float: left;
     }
   }
   h3 {
@@ -153,8 +153,8 @@
   .view-filters,
   nav {
     max-width: 882px;
-    margin-left: 30px;
-    margin-right: 30px;
+    margin-left: 0;
+    margin-right: 0;
     padding-left: 0;
     padding-right: 0;
     @media (min-width: $screen-md) {
@@ -394,7 +394,7 @@
     .tal--all-articles a:first-child {
       @extend .btn-primary;
       display: block;
-      padding: 9px 20px;
+      padding: 0.6em 1.9em;
 
       &::after {
         @extend %right-brand-arrow;

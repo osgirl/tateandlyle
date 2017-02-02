@@ -38,7 +38,10 @@
         "dflydev/dot-access-data": "dev-master",
         "drupal/simple_menu_icons": "1.0-beta5",
         "drupal/workbench_email": "1.0-alpha3",
-        "drupal/simple_sitemap": "2.8.0"
+        "drupal/simple_sitemap": "2.8.0",
+        "drupal/migrate_plus": "^1.0",
+        "drupal/migrate_source_csv": "^2.0",
+        "drupal/migrate_tools": "^1.0"
     },
     "require-dev": {
         "behat/behat": "^3.1",
