@@ -58,9 +58,6 @@ class TalSearchEventSubscriber implements EventSubscriberInterface {
         if ($env != 'prod') {
           $identifier .= '.' . $env . '.default';
         }
-        // TODO: a shame we need to set this variable.
-        // Any possible side effect on non prod envs?
-        \Drupal::configFactory()->getEditable('acquia_connector.settings')->set('identifier', $identifier)->save();
 
         $expected_conf['connector'] = 'solr_acquia_connector';
         $expected_conf['connector_config']['key'] = 'core';
@@ -76,7 +73,7 @@ class TalSearchEventSubscriber implements EventSubscriberInterface {
     foreach ($servers as $server) {
       if ($server->getBackendId() == 'search_api_solr') {
         if (
-          !empty(array_diff($expected_conf, $server->getBackendConfig()))
+          !empty(@array_diff($expected_conf, $server->getBackendConfig()))
           || !empty(array_diff($expected_conf['connector_config'], $server->getBackendConfig()['connector_config']))
         ) {
           $new_conf = NestedArray::mergeDeep($server->getBackendConfig(), $expected_conf);
