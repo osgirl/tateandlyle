@@ -50,9 +50,10 @@ content:
   field_description:
     weight: 4
     label: hidden
-    settings: {  }
+    settings:
+      trim_length: 700
     third_party_settings: {  }
-    type: text_default
+    type: text_trimmed
   field_icon:
     weight: 0
     label: hidden
