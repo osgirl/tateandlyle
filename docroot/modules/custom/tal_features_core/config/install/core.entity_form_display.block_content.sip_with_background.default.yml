@@ -7,8 +7,8 @@ dependencies:
     - field.field.block_content.sip_with_background.body
     - field.field.block_content.sip_with_background.field_bg_color
     - field.field.block_content.sip_with_background.field_bg_image
-    - field.field.block_content.sip_with_background.field_icon
     - field.field.block_content.sip_with_background.field_read_more
+    - field.field.block_content.sip_with_background.field_sip_icon
     - field.field.block_content.sip_with_background.field_tal_link
     - field.field.block_content.sip_with_background.field_title
   module:
@@ -46,14 +46,6 @@ content:
       open: true
       selection_mode: selection_append
     third_party_settings: {  }
-  field_icon:
-    weight: 3
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: entity_reference_autocomplete
   field_read_more:
     weight: 7
     settings:
@@ -61,6 +53,18 @@ content:
       placeholder_title: ''
     third_party_settings: {  }
     type: link_default
+  field_sip_icon:
+    type: entity_browser_file
+    weight: 3
+    settings:
+      entity_browser: image_browser
+      field_widget_edit: true
+      field_widget_remove: true
+      view_mode: default
+      preview_image_style: thumbnail
+      open: true
+      selection_mode: selection_append
+    third_party_settings: {  }
   field_tal_link:
     weight: 6
     settings:
