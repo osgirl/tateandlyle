@@ -215,3 +215,12 @@ function tal_wrapper_update_8212() {
 function tal_wrapper_update_8213() {
   \Drupal::service('module_installer')->install(['simple_sitemap', 'pathauto']);
 }
+
+/**
+ * Enable tal_breadcrumbs module.
+ *
+ * Implements hook_update_N().
+ */
+function tal_wrapper_update_8214() {
+  \Drupal::service('module_installer')->install(['tal_breadcrumbs']);
+}
