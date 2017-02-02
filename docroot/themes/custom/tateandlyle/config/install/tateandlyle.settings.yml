@@ -23,3 +23,5 @@ logo:
 favicon:
   path: 'themes/custom/tateandlyle/favicon.ico'
   use_default: false
+
+breadcrumb_home: 1
