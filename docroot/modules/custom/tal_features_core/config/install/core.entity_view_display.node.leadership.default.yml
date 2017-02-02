@@ -25,14 +25,14 @@ bundle: leadership
 mode: default
 content:
   field_bio:
-    weight: 3
+    weight: 4
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: text_default
   field_designation:
-    weight: 4
-    label: inline
+    weight: 3
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }

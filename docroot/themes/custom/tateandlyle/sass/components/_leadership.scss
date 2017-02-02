@@ -157,10 +157,8 @@
   .field--name-field-bio {
     font-size: $font-size-h4;
     font-family: $font-family-sans-serif-light;
-    margin-bottom: 10px;
     @media (min-width: $screen-sm-lsp) {
       font-size: $font-size-h3;
-      margin-bottom: 30px;
     }
   }
 
@@ -201,8 +199,10 @@
     color: $gray-base;
     font-family: $font-family-sans-serif-Med;
     font-size: $font-size-h4;
+    margin-bottom: 15px;
     @media (min-width: $screen-sm-lsp) {
       font-size: $font-size-h3;
+      margin-bottom: 20px;
     }
   }
 }

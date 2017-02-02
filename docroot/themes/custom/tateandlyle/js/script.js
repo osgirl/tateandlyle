@@ -194,9 +194,16 @@
         });
       });
 
-      $(".no__icon--banner .dropdown-toggle").text(
-        $(".field--name-field-left-link .active a").text()
-      );
+      if ($(".field--type-link .field--item").hasClass("active")) {
+        $(".no__icon--banner .dropdown-toggle").text(
+          $(".field--type-link .active a").text()
+        );
+      }
+      else {
+        $(".no__icon--banner .dropdown-toggle").text(
+          $(".field--type-link .field--item a").first().text()
+        );
+      }
     }
   };
 

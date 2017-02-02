@@ -187,9 +187,6 @@
     margin-bottom: 0;
     margin-top: 0;
     width: 100%;
-    @media (min-width: $screen-md) {
-      margin-left: 12px;
-    }
   }
 
   .dropdown .block-facets--links {
@@ -211,7 +208,7 @@
     @media (min-width: $screen-sm) {
       border-top: 1px solid $color-warm-gray;
       border-bottom: 1px solid $color-warm-gray;
-      margin-left: 10px;
+      margin-left: 30px;
       margin-right: 30px;
     }
 
@@ -549,13 +546,15 @@
 
 #block-mainnavigation {
   display: none;
+  clear: both;
   @media (min-width: $screen-sm) {
     display: block;
   }
   .navbar-toggle {
     display: none;
   }
-  @media (min-width: $screen-sm) {
+  @media (min-width: $screen-md-lg) {
+    clear: none;
     float: right;
   }
   .navbar.navbar-default {
@@ -598,11 +597,11 @@
   padding: 1em;
   z-index: 9999;
   overflow: hidden;
-  margin-left: 0;
   margin-left: -9.2%;
   @media (min-width: $screen-sm) {
     margin-top: 0;
     margin-left: 0;
+    width: auto;
   }
 }
 
