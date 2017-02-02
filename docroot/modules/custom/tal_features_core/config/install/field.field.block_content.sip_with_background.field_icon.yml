@@ -1,0 +1,27 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.sip_with_background
+    - field.storage.block_content.field_icon
+    - node.type.icon
+id: block_content.sip_with_background.field_icon
+field_name: field_icon
+entity_type: block_content
+bundle: sip_with_background
+label: Icon
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      icon: icon
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

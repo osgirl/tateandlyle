@@ -12,7 +12,7 @@
         "drupal/acsf": "^1.32.0",
         "drupal/cog": "^1.0.0",
         "drupal/console": "^1.0.0-rc14",
-        "drupal/core": "^8.2",
+        "drupal/core": "^8.0",
         "drupal/features": "^3.0.0",
         "drupal/memcache": "2.x-dev",
         "drupal/search_api": "1.0.0-beta3",
@@ -40,8 +40,8 @@
         "drupal/workbench_email": "1.0-alpha3",
         "drupal/simple_sitemap": "2.8.0",
         "drupal/migrate_plus": "^1.0",
-        "drupal/migrate_tools": "^1.0",
-        "drupal/migrate_source_csv": "^2.0"
+        "drupal/migrate_source_csv": "^2.0",
+        "drupal/migrate_tools": "^1.0"
     },
     "require-dev": {
         "behat/behat": "^3.1",
