@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: landing-page-breadcrumb
+label: 'Landing page Breadcrumb'
+description: 'Menu for Landing page breadcrumbs.'
+locked: false

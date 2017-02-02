@@ -222,5 +222,5 @@ function tal_wrapper_update_8213() {
  * Implements hook_update_N().
  */
 function tal_wrapper_update_8214() {
-  \Drupal::service('module_installer')->install(['tal_breadcrumbs']);
+  \Drupal::service('module_installer')->install(['tal_breadcrumbs', 'menu_breadcrumb']);
 }
