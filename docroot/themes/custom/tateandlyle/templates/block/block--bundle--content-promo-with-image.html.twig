@@ -50,25 +50,35 @@
     'block',
     'block-' ~ configuration.provider|clean_class,
     'block-' ~ plugin_id|clean_class,
-    'block--content-promo-imagesss',
+    'block--content-promo-images',
+    test,
     'clearfix',
   ]
 %}
-<section{{ attributes.addClass(classes) }}>
-  <div class="block__promo--main">
+<section{{ attributes.addClass(classes) }} style="{{ style }}">
+  <div class="promo__images--inner">
     {{ title_prefix }}
     {% if label %}
       <h2{{ title_attributes.addClass('block-title') }}>{{ label }}</h2>
     {% endif %}
     {{ title_suffix }}
     {% block content %}
-        {{ content.field_block_title }}
-        {{ content.field_bg_image }}
-        {{ content.field_short_summary }}
-        {{ content.field_content_details }}
-        {{ content.field_featured_block_icon }}
-        {{ content.field_featured_block_title }}
-        {{ content.field_featured_links }}
+      <div class="promo__images--title">
+        <hr />
+        <h3 class="promo--title">{{ content.field_block_title }}</h3>
+      </div>
+
+      <div class="promo__images--main">
+        <div class="promo__images--content">
+          {{ content.field_short_summary }}
+          {{ content.field_content_details }}
+          {{ content.field_featured_block_icon }}
+          {{ content.field_featured_block_title }}
+        </div>
+        <div class="promo__images--commonlink">
+          {{ content.field_block_common_link_ }}
+        </div>
+      </div>
     {% endblock %}
   </div>
 </section>
