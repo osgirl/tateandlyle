@@ -9,7 +9,7 @@ field_name: field_saleforce_routing_on
 entity_type: taxonomy_term
 bundle: ttu_routing
 label: 'Salesforce On'
-description: ''
+description: 'Send to salesforce.'
 required: false
 translatable: false
 default_value: {  }

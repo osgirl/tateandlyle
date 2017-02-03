@@ -32,7 +32,6 @@ function tal_preprocess_paragraph_talk_to_us($variables, $paragraph) {
   $variables['field_ttu_contact_phone'] = '';
   $variables['field_ttu_contact_title'] = '';
   $variables['contact'] = FALSE;
-  $email = '';
   if (!empty($contact)) {
     $variables['contact'] = TRUE;
     $contact = array_shift($contact);
@@ -40,18 +39,11 @@ function tal_preprocess_paragraph_talk_to_us($variables, $paragraph) {
     $variables['field_ttu_contact_phone'] = $contact->get('field_phone_number')->value;
     $variables['field_ttu_contact_title'] = $contact->label();
   }
-  $tc = $paragraph->get('field_ttu_type_of_content')->getValue();
-  $tc_machin_name = '';
-  if (!empty($tc)) {
-    $term_id = $tc['0']['target_id'];
-    $term = Term::load($term_id);
-    $tc_machin_name = $term->get('field_tc_machine_name')->value;
-  }
-  // Contact form added.
+  // Contact salesforce form added.
   $variables['contact_form'] = [
     '#type' => 'webform',
     '#webform' => 'contact_form',
-    '#default_data' => ['send_mail' => $email, 'tc' => $tc_machin_name],
+    // '#default_data' => ['send_mail' => $email, 'tc' => $tc_machin_name].
   ];
 
   return $variables;
