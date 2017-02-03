@@ -150,8 +150,8 @@
             "drupal/entity_browser": {
                 "getDisplay() on null Entity Browser reference": "https://www.drupal.org/files/issues/ElementPatch_0.patch"
             },
-            "drupal/acquia_search": {
-                "Acquia search custom multi core": "../patches/custom-multi-core.patch"
+            "drupal/acquia_connector": {
+                "Acquia search custom multi core": "https://gist.githubusercontent.com/jayakrishnanj/efd2093a3f95b83cbc18aa12630102e6/raw/e9f08b786a9dafda7192297f075ed0e26c9f7e8f/custom-multi-core.patch"
             }
         },
         "drupal-scaffold": {

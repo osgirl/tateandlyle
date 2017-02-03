@@ -188,7 +188,10 @@ class SearchSubscriber extends Plugin {
       // Use the default.
       $identifier = \Drupal::config('acquia_connector.settings')->get('identifier');
       $key = \Drupal::config('acquia_connector.settings')->get('key');
-
+      // Hack for multi cores management.
+      if (isset($this->client->getEndpoints()['core']) && !empty($this->client->getEndpoints()['core']->getOptions()['core'])) {
+        $identifier = $this->client->getEndpoints()['core']->getOptions()['core'];
+      }
       // See if we need to overwrite these values.
       // @todo: Implement the derived key per solr environment storage.
       // In any case, this is equal for all subscriptions. Also
