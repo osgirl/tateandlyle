@@ -589,15 +589,12 @@
 }
 
 .logo.navbar-btn {
-  margin-left: 17px;
-  background: white;
   width: 100%;
   top: 0;
-  margin-top: 0;
   padding: 1em;
   z-index: 9999;
-  overflow: hidden;
-  margin-left: -9.2%;
+  left: 0;
+  background: white;
   @media (min-width: $screen-sm) {
     margin-top: 0;
     margin-left: 0;
@@ -747,7 +744,7 @@
 #navbar-hamburger {
   position: absolute;
   left: -2em;
-  top: -3em;
+  top: -2.5em;
   span {
     color: black;
   }
