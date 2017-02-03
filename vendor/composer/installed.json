@@ -9406,6 +9406,71 @@
         }
     },
     {
+        "name": "drupal/menu_breadcrumb",
+        "version": "1.0.0",
+        "version_normalized": "1.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupal.org/project/menu_breadcrumb",
+            "reference": "8.x-1.0"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://ftp.drupal.org/files/projects/menu_breadcrumb-8.x-1.0.zip",
+            "reference": null,
+            "shasum": "66973516a854935e825a5eadf7ff298e34a41bde"
+        },
+        "require": {
+            "drupal/core": "~8.0"
+        },
+        "type": "drupal-module",
+        "extra": {
+            "branch-alias": {
+                "dev-1.x": "1.x-dev"
+            },
+            "drupal": {
+                "version": "8.x-1.0",
+                "datestamp": "1485387784"
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "license": [
+            "GPL-2.0+"
+        ],
+        "authors": [
+            {
+                "name": "RyanPrice",
+                "homepage": "https://www.drupal.org/user/873848"
+            },
+            {
+                "name": "aaron",
+                "homepage": "https://www.drupal.org/user/33420"
+            },
+            {
+                "name": "gdevlugt",
+                "homepage": "https://www.drupal.org/user/167273"
+            },
+            {
+                "name": "rphair",
+                "homepage": "https://www.drupal.org/user/3196607"
+            },
+            {
+                "name": "vaibhavjain",
+                "homepage": "https://www.drupal.org/user/1159692"
+            },
+            {
+                "name": "xurizaemon",
+                "homepage": "https://www.drupal.org/user/76026"
+            }
+        ],
+        "description": "Create breadcrumbs from nested menu titles and/or taxonomy membership.",
+        "homepage": "https://www.drupal.org/project/menu_breadcrumb",
+        "support": {
+            "source": "http://cgit.drupalcode.org/menu_breadcrumb"
+        }
+    },
+    {
         "name": "drupal/migrate_source_csv",
         "version": "2.0.0",
         "version_normalized": "2.0.0.0",
@@ -9473,7 +9538,7 @@
         "dist": {
             "type": "zip",
             "url": "https://ftp.drupal.org/files/projects/migrate_plus-8.x-3.0-beta1.zip",
-            "reference": null,
+            "reference": "8.x-3.0-beta1",
             "shasum": "7bae5c758a432053863b7b19c94fc1b829debf00"
         },
         "require": {
@@ -10184,7 +10249,7 @@
             },
             "drupal": {
                 "version": "8.x-5.0-beta4",
-                "datestamp": "1485776283"
+                "datestamp": "1482752282"
             },
             "patches_applied": {
                 "Preview page: Attach contact form or other form elements": "https://www.drupal.org/files/issues/preview_page_attach-2839834-15.patch"
