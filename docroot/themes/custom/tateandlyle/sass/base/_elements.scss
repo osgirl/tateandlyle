@@ -29,6 +29,7 @@ h5 {
   @media (min-width: $screen-lg) {
     max-width: 81.47%;
     margin: auto;
+    padding: 0;
   }
   .region-content {
     overflow: visible;
@@ -69,6 +70,7 @@ h5 {
 
 .region-content article {
   margin: 0 auto;
+  overflow: hidden;
 }
 
 .page-node-type-ingredient  article,
