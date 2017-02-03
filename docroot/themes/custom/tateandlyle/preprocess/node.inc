@@ -66,8 +66,10 @@ function tal_preprocess_node_company_story($variables, $node) {
     $variables['next'] = TalWrapperUtility::generateNextPrevious($nid, $pub_date, $bundle, 'next');
     $variables['prev'] = TalWrapperUtility::generateNextPrevious($nid, $pub_date, $bundle, 'prev');
   }
-
-  $variables['icon'] = $term->get('field_ac_icon')->view('default');
+  $variables['icon'] = '';
+  if (!empty($term)) {
+    $variables['icon'] = $term->get('field_ac_icon')->view('default');
+  }
   $variables['image'] = $node->get('field_image')->view();
   $image_size = $node->get('field_image_size')->value;
 
@@ -77,11 +79,11 @@ function tal_preprocess_node_company_story($variables, $node) {
   }
 
   if ($image_size == 0) {
-    $variables['image_layout']= 'small__image';
+    $variables['image_layout'] = 'small__image';
   }
 
   if ($image_size == 1) {
-    $variables['image_layout']= 'large__image';
+    $variables['image_layout'] = 'large__image';
   }
 
   if ($variables['view_mode'] == 'search_result') {
