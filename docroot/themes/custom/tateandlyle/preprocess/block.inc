@@ -356,9 +356,25 @@ function tal_preprocess_block_content_promo_with_image($variables, $block) {
   $image = $block->get('field_bg_image')->referencedEntities();
   $image = array_shift($image);
 
+  $has_summary = $block->get('field_short_summary')->getValue();
+  $has_summary = array_shift($has_summary)['value'];
+
+  if ($has_summary) {
+    $variables['has-summary'] = ' block__promo--summary';
+  }
+
   if (isset($image)) {
     $image_url = file_create_url($image->getFileUri());
     $variables['style'] = 'background-image: url("' . $image_url . '")';
+  }
+
+  if (!isset($image)) {
+    $variables['background'] = 'no__bg';
+  }
+
+  $field_promo_content = $block->get('field_content_details')->referencedEntities();
+  if (!empty($field_promo_content)) {
+    $variables['content_count'] = 'promo__images-' . count($field_promo_content);
   }
   return $variables;
 }

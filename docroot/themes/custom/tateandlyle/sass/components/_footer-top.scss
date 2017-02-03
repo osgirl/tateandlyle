@@ -48,16 +48,28 @@
         display: table;
         width: 100%;
         a {
-          background-position: 20px center;
+          background-position: 0 center;
           background-size: 28px;
           height: 68px;
           font-size: $font-size-h5;
-          padding-left: 70px;
+          padding-left: 62px;
           position: relative;
           display: table-cell;
           vertical-align: middle;
           width: 100%;
+          @media (min-width: $screen-sm-lsp) {
+            background-position: 26px center;
+            padding-left: 79px;
+          }
+
+          @media (min-width: $screen-sm) {
+            background-position: 8px center;
+            padding-left: 60px;
+          }
+
           @media (min-width: $screen-md) {
+            background-position: 20px center;
+            padding-left: 70px;
             height: 70px;
           }
           &:hover {

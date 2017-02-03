@@ -44,10 +44,21 @@ view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
 ]
 %}
 <div{{ attributes.addClass(classes) }}>
-    <div class="promo__images__banner">
-        {{ content.field_image }}
-    </div>
-    <div class="promo__images__content">
-        {{ content|without('field_image') }}
+    {% if content.field_image|render %}
+        <div>
+    {% else %}
+        <div class="promo__no__images">
+    {% endif %}
+        <div class="promo__images__banner">
+            {{ content.field_image }}
+        </div>
+        <div class="promo__paragaph--content">
+            {{ content.field_icon }}
+            <div class="promo__images-title">
+                {{ content.field_title }}
+            </div>
+
+            {{ content|without('field_image', 'field_icon', 'field_title') }}
+        </div>
     </div>
 </div>

@@ -51,7 +51,9 @@
     'block-' ~ configuration.provider|clean_class,
     'block-' ~ plugin_id|clean_class,
     'block--content-promo-images',
-    test,
+    has-summary,
+    content_count,
+    background,
     'clearfix',
   ]
 %}
@@ -74,6 +76,7 @@
           {{ content.field_content_details }}
           {{ content.field_featured_block_icon }}
           {{ content.field_featured_block_title }}
+          {{ content.field_featured_links }}
         </div>
         <div class="promo__images--commonlink">
           {{ content.field_block_common_link_ }}
