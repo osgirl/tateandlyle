@@ -12,4 +12,3 @@ dependencies:
   - search
   - tal_admin_config
   - tal_breadcrumbs
-  - menu_breadcrumb
