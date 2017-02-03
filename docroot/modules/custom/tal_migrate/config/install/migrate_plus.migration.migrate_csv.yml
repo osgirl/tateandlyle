@@ -62,20 +62,30 @@ process:
     source: type
   field_story_description/target_id:
     -
-      plugin: migration
-      migration: paragraph_migration
-      no_stub: true
-      source: id
+      plugin: skip_on_empty
+      source: notes_to_editor
+      method: process
+    -
+      plugin: replace_comma
+    -
+      plugin: formatted_textarea
+      paragraph_name: wysiwyg_and_block_reference
+      field: field_in_wysiwyg2
     -
       plugin: extract
       index:
         - '0'
   field_story_description/target_revision_id:
     -
-      plugin: migration
-      migration: paragraph_migration
-      no_stub: true
-      source: id
+      plugin: skip_on_empty
+      source: notes_to_editor
+      method: process
+    -
+      plugin: replace_comma
+    -
+      plugin: formatted_textarea
+      paragraph_name: wysiwyg_and_block_reference
+      field: field_in_wysiwyg2
     -
       plugin: extract
       index:

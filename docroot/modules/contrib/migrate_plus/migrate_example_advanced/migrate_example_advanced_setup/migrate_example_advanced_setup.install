@@ -1,4 +1,5 @@
 <?php
+use Drupal\user\RoleInterface;
 
 /**
  * @file
@@ -7,7 +8,10 @@
  * a pure migration module.
  */
 
-function migrate_example_advanced_schema() {
+/**
+ * Implements hook_schema().
+ */
+function migrate_example_advanced_setup_schema() {
   $schema['migrate_example_advanced_account'] = migrate_example_advanced_schema_account();
   $schema['migrate_example_advanced_account_updates'] = migrate_example_advanced_schema_account_updates();
   $schema['migrate_example_advanced_categories'] = migrate_example_advanced_schema_categories();
@@ -28,7 +32,10 @@ function migrate_example_advanced_schema() {
   return $schema;
 }
 
-function migrate_example_advanced_install() {
+/**
+ * Implements hook_install().
+ */
+function migrate_example_advanced_setup_install() {
   // Populate our tables.
   migrate_example_advanced_data_account();
   migrate_example_advanced_data_account_updates();
