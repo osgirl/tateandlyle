@@ -9,7 +9,7 @@ field_name: field_email
 entity_type: node
 bundle: contact
 label: 'Email Address'
-description: ''
+description: 'Email address not used'
 required: false
 translatable: false
 default_value: {  }

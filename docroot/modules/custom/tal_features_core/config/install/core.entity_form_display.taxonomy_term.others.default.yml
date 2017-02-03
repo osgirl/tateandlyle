@@ -2,14 +2,14 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.taxonomy_term.type_of_content.field_tc_machine_name
-    - taxonomy.vocabulary.type_of_content
+    - field.field.taxonomy_term.others.field_email
+    - taxonomy.vocabulary.others
   module:
     - path
     - text
-id: taxonomy_term.type_of_content.default
+id: taxonomy_term.others.default
 targetEntityType: taxonomy_term
-bundle: type_of_content
+bundle: others
 mode: default
 content:
   description:
@@ -19,13 +19,13 @@ content:
       placeholder: ''
       rows: 5
     third_party_settings: {  }
-  field_tc_machine_name:
+  field_email:
     weight: 1
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
+    type: email_default
   name:
     type: string_textfield
     weight: 0

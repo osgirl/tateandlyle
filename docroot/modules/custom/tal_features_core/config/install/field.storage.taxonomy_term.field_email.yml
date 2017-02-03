@@ -3,10 +3,10 @@ status: true
 dependencies:
   module:
     - taxonomy
-id: taxonomy_term.field_saleforce_on
-field_name: field_saleforce_on
+id: taxonomy_term.field_email
+field_name: field_email
 entity_type: taxonomy_term
-type: boolean
+type: email
 settings: {  }
 module: core
 locked: false

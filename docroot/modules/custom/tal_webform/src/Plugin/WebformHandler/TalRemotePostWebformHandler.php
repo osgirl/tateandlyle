@@ -72,12 +72,9 @@ class TalRemotePostWebformHandler extends RemotePostWebformHandler {
   public function validateSalesForcePostRules(array $data) {
     // $tc = $data['tc'];.
     $te = $data['post_data']['type_of_enquiry'];
-    $in = $this->isTermSalesForceOn($data['post_data']['industry']);
-    $cat = $this->isTermSalesForceOn($data['post_data']['category']);
-
+    $newList = $this->isTermSalesForceOn($data['post_data']['routing']);
     // Rule 1.
-    $rule1 = ($te == 'commercial_sales') && $in && $cat;
-
+    $rule1 = ($te == 'commercial_sales') && $newList;
     if ($rule1) {
       return TRUE;
     }
@@ -243,7 +240,7 @@ class TalRemotePostWebformHandler extends RemotePostWebformHandler {
    */
   public function isTermSalesForceOn($id) {
     $term = Term::load($id);
-    return (int) $term->get('field_saleforce_on')->value;
+    return (int) $term->get('field_saleforce_routing_on')->value;
   }
 
 }
