@@ -8,6 +8,7 @@ dependencies:
     - paragraphs.paragraphs_type.passive_recruitment
   module:
     - link
+    - tal_admin_config
 id: paragraph.passive_recruitment.default
 targetEntityType: paragraph
 bundle: passive_recruitment
@@ -16,9 +17,10 @@ content:
   field_pr_description:
     weight: 1
     label: hidden
-    settings: {  }
+    settings:
+      trim_length: '500'
     third_party_settings: {  }
-    type: basic_string
+    type: tal_text_trimmed
   field_pr_link:
     weight: 2
     label: hidden

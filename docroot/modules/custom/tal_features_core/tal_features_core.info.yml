@@ -46,6 +46,7 @@ dependencies:
   - search_api
   - search_api_solr
   - system
+  - tal_admin_config
   - tal_downloads
   - tal_image_gallery
   - tal_ingredient_search
