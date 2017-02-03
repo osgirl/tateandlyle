@@ -2,7 +2,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.taxonomy_term.category.field_saleforce_on
     - taxonomy.vocabulary.category
   module:
     - path
@@ -19,12 +18,6 @@ content:
       placeholder: ''
       rows: 5
     third_party_settings: {  }
-  field_saleforce_on:
-    weight: 1
-    settings:
-      display_label: true
-    third_party_settings: {  }
-    type: boolean_checkbox
   name:
     type: string_textfield
     weight: 0

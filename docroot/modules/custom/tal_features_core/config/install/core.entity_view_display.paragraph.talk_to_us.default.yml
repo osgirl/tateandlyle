@@ -9,7 +9,6 @@ dependencies:
     - field.field.paragraph.talk_to_us.field_ttu_contact
     - field.field.paragraph.talk_to_us.field_ttu_link_text
     - field.field.paragraph.talk_to_us.field_ttu_or_button
-    - field.field.paragraph.talk_to_us.field_ttu_type_of_content
     - paragraphs.paragraphs_type.talk_to_us
   module:
     - text
@@ -56,5 +55,4 @@ hidden:
   created: true
   field_or_link_text: true
   field_ttu_or_button: true
-  field_ttu_type_of_content: true
   uid: true
