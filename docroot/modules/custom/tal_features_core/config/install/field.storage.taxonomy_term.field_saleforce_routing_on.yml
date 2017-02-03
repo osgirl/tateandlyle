@@ -3,14 +3,11 @@ status: true
 dependencies:
   module:
     - taxonomy
-id: taxonomy_term.field_tc_machine_name
-field_name: field_tc_machine_name
+id: taxonomy_term.field_saleforce_routing_on
+field_name: field_saleforce_routing_on
 entity_type: taxonomy_term
-type: string
-settings:
-  max_length: 255
-  is_ascii: false
-  case_sensitive: false
+type: boolean
+settings: {  }
 module: core
 locked: false
 cardinality: 1

@@ -29,22 +29,14 @@ class TalEmailWebformHandler extends EmailWebformHandler {
    */
   public function validateEmailRules($message) {
     $webform_submission = $message['webform_submission'];
-
-    // $tc = $webform_submission->getData('tc');.
     $te = $webform_submission->getData('type_of_enquiry');
-    $in = $this->isTermSalesForceOn($webform_submission->getData('industry'));
-    $cat = $this->isTermSalesForceOn($webform_submission->getData('category'));
-
-    // Rule 1 for mail.
-    $rule1 = (!$in || !$cat);
-    $rule2 = $te == 'other';
-
-    // Rule 2 for mail.
-    // $rule2 = ($tc == 'others' && $te == 'other' && !empty($cat));.
-    if ($rule1 || $rule2) {
-      return TRUE;
+    if ($te == 'other') {
+      return $this->getOtherTermEmail($webform_submission->getData('others'));
     }
-
+    elseif ($te == 'commercial_sales') {
+      $routing = $this->isTermSalesForceOnEmail($webform_submission->getData('routing'));
+      return $routing;
+    }
     return FALSE;
   }
 
@@ -57,7 +49,8 @@ class TalEmailWebformHandler extends EmailWebformHandler {
     if (($is_results_disabled || $is_completed)) {
       $message = $this->getMessage($webform_submission);
       $validated = $this->validateEmailRules($message);
-      if ($validated) {
+      if ($validated['salesforce_on']) {
+        $message['send_email'] = $validated['email'];
         $this->sendMessage($message);
       }
     }
@@ -68,9 +61,7 @@ class TalEmailWebformHandler extends EmailWebformHandler {
    */
   public function sendMessage(array $message) {
     // Send mail.
-    $webform_submission = $message['webform_submission'];
-    $contact_node_mail = $webform_submission->getData('send_mail');
-    $message['to_mail'] = !empty($contact_node_mail) ? $contact_node_mail : $message['to_mail'];
+    $message['to_mail'] = !empty($message['send_email']) ? $message['send_email'] : $message['to_mail'];
     $to = $message['to_mail'];
     $from = $message['from_mail'] . (($message['from_name']) ? ' <' . $message['from_name'] . '>' : '');
     $current_langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
@@ -137,11 +128,27 @@ class TalEmailWebformHandler extends EmailWebformHandler {
    *   Id of the term.
    *
    * @return mixed
-   *   returns the termname.
+   *   returns the saleforce check and email.
    */
-  public function isTermSalesForceOn($id) {
+  public function getOtherTermEmail($id) {
     $term = Term::load($id);
-    return (int) $term->get('field_saleforce_on')->value;
+    $email = $term->get('field_email')->value;
+    return array('salesforce_on' => 1, 'email' => $email);
+  }
+
+  /**
+   * Function used to get the true false for saleforce.
+   *
+   * @param int $id
+   *   Id of the term.
+   *
+   * @return mixed
+   *   returns the saleforce check and email.
+   */
+  public function isTermSalesForceOnEmail($id) {
+    $term = Term::load($id);
+    $email = $term->get('field_email')->value;
+    return array('salesforce_on' => !(int) $term->get('field_saleforce_routing_on')->value, 'email' => $email);
   }
 
 }

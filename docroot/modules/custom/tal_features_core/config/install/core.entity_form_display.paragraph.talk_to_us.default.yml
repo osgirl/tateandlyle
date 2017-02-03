@@ -9,7 +9,6 @@ dependencies:
     - field.field.paragraph.talk_to_us.field_ttu_contact
     - field.field.paragraph.talk_to_us.field_ttu_link_text
     - field.field.paragraph.talk_to_us.field_ttu_or_button
-    - field.field.paragraph.talk_to_us.field_ttu_type_of_content
     - paragraphs.paragraphs_type.talk_to_us
   module:
     - text
@@ -67,11 +66,6 @@ content:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
-  field_ttu_type_of_content:
-    weight: 0
-    settings: {  }
-    third_party_settings: {  }
-    type: options_select
 hidden:
   created: true
   status: true
