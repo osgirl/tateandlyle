@@ -44,4 +44,4 @@ permissions:
   - 'access user profiles'
   - 'administer panelizer node press_release defaults'
   - 'administer panelizer node press_release layout'
-
+  - 'access media overview'

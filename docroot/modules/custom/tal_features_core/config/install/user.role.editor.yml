@@ -113,3 +113,4 @@ permissions:
   - 'administer panelizer node leadership content'
   - 'administer panelizer node leadership layout'
   - 'access panels in-place editing'
+  - 'access media overview'
