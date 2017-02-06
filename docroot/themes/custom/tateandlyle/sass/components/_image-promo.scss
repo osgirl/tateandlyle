@@ -29,6 +29,20 @@
     padding-bottom: 120px;
     padding-top: 80px;
   }
+
+  .field--name-field-short-summary {
+    color: $gray-base;
+    font-size: $font-size-h5;
+
+    @media(min-width: $screen-sm) {
+      padding: 37px 83px 0 69px;
+      text-align: center;
+    }
+
+    @media(min-width: $screen-md-lg) {
+      font-size: $font-size-h3;
+    }
+  }
 }
 
 .promo__images--title {
@@ -189,36 +203,58 @@
     }
 
     .field--item {
+      border: 1px solid $color-warm-gray;
+      border-bottom: 3px solid $brand-primary;
       display: block;
       font-size: $font-size-base;
       margin: 0;
       margin-bottom: 19px;
+      height: 94px;
 
       @media(min-width: $screen-sm) {
         display: inline-block;
-        margin: 0 20px;
+        margin: 0 19px;
         margin-bottom: 20px;
+        height: 100px;
+        vertical-align: top;
+        width: 182px;
       }
 
       @media(min-width: $screen-md-lg) {
         margin: 0 8px;
         margin-bottom: 20px;
+        width: 265px;
       }
 
       a {
-        border: 1px solid $color-warm-gray;
-        border-bottom: 3px solid $brand-primary;
         display: block;
         padding: 34px 15px 34px 20px;
-        @media(min-width: $screen-sm) {
-          width: 182px;
-        }
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        word-break: break-all;
+
         @media(min-width: $screen-md-lg) {
           padding: 37px 15px 37px 31px;
-          width: 265px;
         }
+
         &::after {
           @extend %right-brand-arrow;
+          position: absolute;
+          right: 11px;
+          font-size: 22px;
+          font-weight: 100;
+          margin-top: -4px;
+
+          @media(min-width: $screen-sm) {
+            margin-top: 0;
+            top: 10px;
+          }
+
+          @media(min-width: $screen-sm) {
+            margin-top: -4px;
+            top: auto;
+          }
         }
       }
     }
@@ -254,6 +290,7 @@
   }
 }
 
+//Four Column with Featured Links.
 .promo__images-4 {
   .promo__images-title,
   .field--name-field-icon {
@@ -319,7 +356,7 @@
   }
 }
 
-// 3 column layout with background image
+// 3 column layout with background image.
 .promo__images-3 {
   padding-bottom: 70px;
   padding-left: 30px;
@@ -383,17 +420,10 @@
     }
   }
 
-  .field--name-field-content-details {
-    padding: 13px 43px 14px;
-    text-align: center;
-    @media(min-width: $screen-sm) {
-      padding: 0;
-    }
-  }
-
   .promo__images--content {
     .field--name-field-simple-summary {
       display: block;
+      margin-top: 17px;
     }
   }
 
@@ -402,7 +432,7 @@
     font-family: $font-family-sans-serif-Med;
     font-size: $font-size-h5;
 
-    @media(min-width: $screen-md) {
+    @media(min-width: $screen-sm) {
       min-height: 44px;
       line-height: 1.08;
     }
@@ -414,15 +444,29 @@
     }
   }
 
+  .field--name-field-icon {
+    margin: auto;
+    margin-bottom: 13px;
+
+    img {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
   .field--name-field-content-details {
+    padding: 13px 43px 14px;
+    text-align: center;
+
     @media(min-width: $screen-sm) {
       display: table;
-      padding: 30px 47px 26px 53px;
+      padding: 30px 33px 26px 39px;
       text-align: center;
 
       & > .field--item {
         display: table-cell;
         vertical-align: top;
+
         .promo__paragaph--content {
           border-bottom: 0;
           border-right: 1px solid $color-warm-gray;
@@ -437,8 +481,276 @@
       }
     }
 
+    & > .field--item {
+      &:last-child {
+        .promo__paragaph--content {
+          border-bottom: 0;
+        }
+      }
+    }
+
     @media(min-width: $screen-md-lg) {
       padding: 70px 77px 33px 77px;
+    }
+  }
+}
+
+// Case Studies.
+.block__promo--summary {
+
+  @media(max-width: $screen-xs-max) {
+    background-image: none !important;
+    padding-bottom: 0;
+
+    .promo__images--title {
+      hr {
+        border-color: $gray-base;
+      }
+
+      .promo--title {
+        color: $gray-base;
+      }
+    }
+  }
+
+  .promo__images--inner {
+    max-width: 587px;
+    @media(min-width: $screen-md) {
+      max-width: 881px;
+    }
+  }
+
+  .field--name-field-icon,
+  .field--name-field-title {
+    width: 200px;
+    margin: auto;
+
+    img {
+      max-height: none;
+    }
+
+    @media(min-width: $screen-sm) {
+      width: 266px;
+    }
+
+    @media(min-width: $screen-md) {
+      min-height: 118px;
+      width: auto;
+
+      img {
+        max-height: 118px;
+      }
+    }
+  }
+
+  .field--name-field-title {
+    font-family: $font-family-sans-serif-Med;
+    font-size: $font-size-h2;
+  }
+
+  .field--name-field-content-details {
+    padding-left: 0;
+    padding-right: 0;
+    text-align: center;
+
+    @media(min-width: $screen-md) {
+      display: table;
+      padding: 30px 33px 26px 39px;
+      text-align: center;
+    }
+
+    .promo__paragaph--content {
+      border: 0;
+
+      @media(min-width: $screen-sm) and (max-width: $screen-sm-max) {
+        display: table;
+        padding-left: 0;
+        padding-right: 0;
+
+        .field--name-field-icon,
+        .field--name-field-simple-summary {
+          display: table-cell;
+          vertical-align: middle;
+        }
+
+        .field--name-field-icon,
+        .field--name-field-title {
+          padding: 44px 39px 44px 40px;
+        }
+
+        .field--name-field-simple-summary {
+          border-bottom: 1px solid $color-warm-gray;
+          padding: 23px 38px 28px 17px;
+          text-align: left;
+        }
+      }
+    }
+
+    & > .field--item {
+      display: block;
+
+      @media(min-width: $screen-md) {
+        display: table-cell;
+        vertical-align: top;
+        border-bottom: 0;
+        border-right: 1px solid $color-warm-gray;
+
+        &:last-child {
+          border-bottom: 0;
+          border-right: 0;
+        }
+      }
+    }
+
+    & > .field--item {
+      &:last-child {
+        .promo__paragaph--content {
+          border-bottom: 0;
+        }
+      }
+
+      @media(min-width: $screen-sm) and (max-width: $screen-sm-max) {
+        &:last-child {
+          .field--name-field-simple-summary {
+            border-bottom: none;
+          }
+        }
+      }
+    }
+
+    @media(min-width: $screen-md-lg) {
+      padding: 49px 39px 0 43px;
+    }
+  }
+
+  .promo__images--commonlink {
+    text-align: center;
+
+    @media(max-width: $screen-xs-max) {
+      .field--name-field-block-common-link- {
+        margin-top: 0;
+      }
+
+      a {
+        border: none;
+        color: $gray-base;
+        display: block;
+        padding: 0;
+
+        &:hover {
+          color: $brand-primary;
+          padding: 0;
+        }
+
+        &::after {
+          color: $brand-primary;
+        }
+      }
+    }
+  }
+}
+
+// Only Featured Section.
+.featured__icon {
+  padding-top: 0;
+  padding-bottom: 0;
+
+  .promo__images--content {
+    padding-bottom: 0;
+  }
+
+  .promo__images--inner {
+    max-width: none;
+
+    @media(min-width: $screen-sm) {
+      max-width: 1109px;
+    }
+  }
+
+  .field--name-field-featured-block-icon {
+    img {
+      max-height: 49px;
+      width: auto;
+      margin: auto;
+    }
+  }
+
+  .field--name-field-featured-block-title {
+    color: $gray-base;
+    font-family: $font-family-sans-serif-Med;
+    font-size: $font-size-h2;
+    margin-bottom: 29px;
+    margin-top: 9px;
+    text-align: center;
+  }
+
+  .field--name-field-featured-links {
+    @media(max-width: $screen-xs-max) {
+      padding: 0;
+    }
+
+    .field--item {
+      display: block;
+      font-size: $font-size-base;
+      margin: 0;
+      margin-bottom: 19px;
+
+      @media(min-width: $screen-sm) {
+        border: 1px solid $color-warm-gray;
+        border-bottom: 3px solid $brand-primary;
+        display: inline-block;
+        height: 100px;
+        margin-right: 2%;
+        vertical-align: middle;
+        width: 31.33%;
+
+        @media(min-width: $screen-md) {
+          margin-right: 28px;
+          width: 313px;
+        }
+      }
+
+      a {
+        display: block;
+        padding: 34px 15px 34px 20px;
+        position: relative;
+
+        @media(min-width: $screen-sm) {
+          padding: 35px 15px 37px 31px;
+          max-width: 265px;
+          margin-right: 20px;
+        }
+
+        &::after {
+          @extend %right-brand-arrow;
+          position: absolute;
+          right: 11px;
+          font-size: 22px;
+          font-weight: 100;
+          margin-top: -4px;
+
+          @media(min-width: $screen-sm) {
+            margin-top: 0;
+            top: 10px;
+          }
+
+          @media(min-width: $screen-sm) {
+            margin-top: -4px;
+            top: auto;
+          }
+        }
+      }
+    }
+  }
+}
+
+// No Background.
+.no__bg {
+  padding-bottom: 0;
+  .field--name-field-featured-links {
+    @media(max-width: $screen-xs-max) {
+      padding-left: 0;
+      padding-right: 0;
     }
   }
 }

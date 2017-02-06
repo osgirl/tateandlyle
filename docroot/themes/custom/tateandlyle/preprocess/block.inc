@@ -356,11 +356,17 @@ function tal_preprocess_block_content_promo_with_image($variables, $block) {
   $image = $block->get('field_bg_image')->referencedEntities();
   $image = array_shift($image);
 
-  $has_summary = $block->get('field_short_summary')->getValue();
-  $has_summary = array_shift($has_summary)['value'];
+  $featured_icon = $block->get('field_featured_block_icon')->referencedEntities();
+  $featured_icon = array_shift($featured_icon);
 
-  if ($has_summary) {
-    $variables['has-summary'] = ' block__promo--summary';
+  $has_summary = $block->get('field_short_summary')->getValue();
+
+  if (!empty($has_summary)) {
+    $variables['summary'] = 'block__promo--summary';
+  }
+
+  if (isset($featured_icon)) {
+    $variables['icon'] = 'featured__icon';
   }
 
   if (isset($image)) {
