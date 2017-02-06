@@ -1,4 +1,7 @@
 .block--freefrom-wysiwyg {
+  .block-title {
+    display: none;
+  }
   &.border--block {
     margin-bottom: 44px;
     margin-top: 44px;
@@ -6,7 +9,7 @@
     .freedom-content {
       padding-top: 0;
       @media (min-width: $screen-sm-lsp) {
-        border: 1px solid $color-warm-gray;
+        border-bottom: 1px solid $color-warm-gray;
         padding-top: 0;
         margin-left: 30px;
         margin-right: 30px;
@@ -64,6 +67,7 @@
       font-family: $font-family-sans-serif-light;
       font-size: $font-size-h4;
       line-height: 26px;
+      color: black;
 
       @media (min-width: $screen-sm) {
         font-family: $font-family-sans-serif;
@@ -97,7 +101,6 @@
   }
 
   a {
-    display: block;
     font-family: $font-family-sans-serif;
     font-size: $font-size-base;
     margin-top: 18px;
