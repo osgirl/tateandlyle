@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_show_on_post
+    - taxonomy.vocabulary.story_category
+id: taxonomy_term.story_category.field_show_on_post
+field_name: field_show_on_post
+entity_type: taxonomy_term
+bundle: story_category
+label: 'Show as article filter'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

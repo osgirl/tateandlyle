@@ -3,6 +3,8 @@ status: true
 dependencies:
   config:
     - field.field.taxonomy_term.story_category.field_ac_icon
+    - field.field.taxonomy_term.story_category.field_article_filter_icon
+    - field.field.taxonomy_term.story_category.field_show_on_post
     - taxonomy.vocabulary.story_category
   module:
     - path
@@ -27,6 +29,20 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
+  field_article_filter_icon:
+    weight: 5
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+  field_show_on_post:
+    weight: 4
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
   name:
     type: string_textfield
     weight: 1

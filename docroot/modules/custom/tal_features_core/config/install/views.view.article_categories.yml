@@ -2,6 +2,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.taxonomy_term.full
     - field.storage.taxonomy_term.field_ac_icon
     - taxonomy.vocabulary.story_category
   module:
@@ -58,7 +59,7 @@ display:
         type: 'entity:taxonomy_term'
         options:
           relationship: none
-          view_mode: default
+          view_mode: full
       fields:
         field_ac_icon:
           id: field_ac_icon
@@ -311,15 +312,15 @@ display:
           entity_type: taxonomy_term
           entity_field: vid
           plugin_id: bundle
-        name:
-          id: name
-          table: taxonomy_term_field_data
-          field: name
+        field_show_on_post_value:
+          id: field_show_on_post_value
+          table: taxonomy_term__field_show_on_post
+          field: field_show_on_post_value
           relationship: none
           group_type: group
           admin_label: ''
-          operator: '!='
-          value: 'Case Study'
+          operator: '='
+          value: '1'
           group: 1
           exposed: false
           expose:
@@ -346,9 +347,7 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: taxonomy_term
-          entity_field: name
-          plugin_id: string
+          plugin_id: boolean
       sorts:
         weight:
           id: weight

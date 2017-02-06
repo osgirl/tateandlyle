@@ -2,16 +2,17 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.taxonomy_term.full
     - field.field.taxonomy_term.story_category.field_ac_icon
     - field.field.taxonomy_term.story_category.field_article_filter_icon
     - field.field.taxonomy_term.story_category.field_show_on_post
     - taxonomy.vocabulary.story_category
   module:
     - text
-id: taxonomy_term.story_category.default
+id: taxonomy_term.story_category.full
 targetEntityType: taxonomy_term
 bundle: story_category
-mode: default
+mode: full
 content:
   description:
     type: text_default
@@ -19,14 +20,14 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-  field_ac_icon:
+  field_article_filter_icon:
+    type: entity_reference_entity_view
     weight: 0
     label: hidden
     settings:
-      link: true
-      view_mode: default
+      view_mode: dispaly_icon_image
+      link: false
     third_party_settings: {  }
-    type: entity_reference_entity_view
 hidden:
-  field_article_filter_icon: true
+  field_ac_icon: true
   field_show_on_post: true
