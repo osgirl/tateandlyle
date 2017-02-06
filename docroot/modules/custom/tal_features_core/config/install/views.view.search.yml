@@ -152,6 +152,9 @@ display:
               anonymous: '0'
               administrator: '0'
               layout_manager: '0'
+              editor: '0'
+              pr_editor: '0'
+              form_analyst: '0'
               media_creator: '0'
               media_manager: '0'
           is_grouped: false
@@ -174,20 +177,33 @@ display:
             field_in_common_names: field_in_common_names
             field_in_misspellings: field_in_misspellings
             title_1: title_1
-            field_dl_accordion_body: field_dl_accordion_body
-            field_in_accordion_header: field_in_accordion_header
-            field_in_accordion_items: field_in_accordion_items
-            field_in_accordion_body: field_in_accordion_body
-            field_simple_text1: field_simple_text1
-            field_pr_description: field_pr_description
-            field_pr_title: field_pr_title
+            field_in_wysiwyg2_1: field_in_wysiwyg2_1
+            field_in_wysiwyg1_1: field_in_wysiwyg1_1
+            field_field_in_submenu_title: field_field_in_submenu_title
+            field_in_border_title: field_in_border_title
+            field_content_summary: field_content_summary
+            field_simple_text: field_simple_text
+            field_in_region: field_in_region
+            field_in_country: field_in_country
+            field_headline: field_headline
+            field_ttu_link_text: field_ttu_link_text
+            field_file_display_name: field_file_display_name
             field_block_body: field_block_body
             field_file_description: field_file_description
-            field_file_display_name: field_file_display_name
-            field_in_wysiwyg2: field_in_wysiwyg2
-            field_in_country: field_in_country
-            field_in_region: field_in_region
-            field_in_wysiwyg1: field_in_wysiwyg1
+            field_pr_title: field_pr_title
+            field_pr_description: field_pr_description
+            field_pr_link: field_pr_link
+            field_pr_description_1: field_pr_description_1
+            field_in_accordion_body: field_in_accordion_body
+            field_in_accordion_header: field_in_accordion_header
+            field_simple_summary: field_simple_summary
+            field_file_description_1: field_file_description_1
+            field_file_display_name_1: field_file_display_name_1
+            field_at_accordion_header: field_at_accordion_header
+            field_dcp_link: field_dcp_link
+            field_in_accordion_header_1: field_in_accordion_header_1
+            field_in_accordion_body_1: field_in_accordion_body_1
+            info: info
           plugin_id: search_api_fulltext
       sorts:
         search_api_relevance:
