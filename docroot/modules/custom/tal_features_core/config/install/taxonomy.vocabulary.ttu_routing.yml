@@ -1,7 +1,7 @@
 langcode: en
 status: true
 dependencies: {  }
-name: 'TTU Routing'
+name: 'TTU Interest'
 vid: ttu_routing
 description: ''
 hierarchy: 0
