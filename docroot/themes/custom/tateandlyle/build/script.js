@@ -52,7 +52,7 @@
 
   Drupal.behaviors.addplaceholder = {
     attach: function () {
-      $(".input--wrapper input").attr("placeholder", "Search here");
+      $("#block-mobile-menu .input--wrapper input").attr("placeholder", "Search here");
     }
   };
 
