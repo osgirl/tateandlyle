@@ -43,7 +43,6 @@ class ProcessUtilsTest extends \PHPUnit_Framework_TestCase
             array("'<|>\" \"'\\''f'", '<|>" "\'f'),
             array("''", ''),
             array("'with\\trailingbs\\'", 'with\trailingbs\\'),
-            array("'withNonAsciiAccentLikeéÉèÈàÀöä'", 'withNonAsciiAccentLikeéÉèÈàÀöä'),
         );
     }
 }

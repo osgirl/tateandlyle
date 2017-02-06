@@ -1,6 +1,6 @@
 services:
   tal_breadcrumbs.breadcrumb:
     class: Drupal\tal_breadcrumbs\TalBreadcrumbBuilder
-    arguments: ['@router.request_context', '@menu.active_trail']
+    arguments: ['@router.request_context']
     tags:
       - { name: breadcrumb_builder, priority: 100 }

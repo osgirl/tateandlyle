@@ -40,8 +40,6 @@ function tal_wrapper_install() {
   tal_wrapper_update_8211();
   tal_wrapper_update_8212();
   tal_wrapper_update_8213();
-  tal_wrapper_update_8215();
-  tal_wrapper_update_8216();
 }
 
 /**
@@ -268,14 +266,4 @@ function tal_wrapper_update_8215() {
   $entities = $controller->loadMultiple($tids);
   $controller->delete($entities);
   Vocabulary::load('type_of_content')->delete();
-}
-
-/**
- * Enable tal_breadcrumbs module.
- *
- * Implements hook_update_N().
- */
-function tal_wrapper_update_8216() {
-  \Drupal::service('module_installer')->install(['tal_breadcrumbs']);
-  \Drupal::service('module_installer')->uninstall(['menu_breadcrumb']);
 }

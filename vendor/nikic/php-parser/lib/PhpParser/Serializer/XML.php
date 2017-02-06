@@ -7,9 +7,6 @@ use PhpParser\Node;
 use PhpParser\Serializer;
 use XMLWriter;
 
-/**
- * @deprecated
- */
 class XML implements Serializer
 {
     protected $writer;

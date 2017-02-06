@@ -9,7 +9,6 @@ use Drupal\Core\Routing\RequestContext;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Url;
 use Drupal\taxonomy\Entity\Term;
-use Drupal\Core\Menu\MenuActiveTrailInterface;
 
 /**
  * Adds the current page title to the breadcrumb.
@@ -47,27 +46,17 @@ class TalBreadcrumbBuilder implements BreadcrumbBuilderInterface {
   protected $context;
 
   /**
-   * The menu active trail interface.
-   *
-   * @var \Drupal\Core\Menu\MenuActiveTrailInterface
-   */
-  protected $menuActiveTrail;
-
-  /**
    * Constructs the PathBasedBreadcrumbBuilder.
    *
    * @param \Drupal\Core\Routing\RequestContext $context
    *   The router request context.
-   * @param \Drupal\Core\Menu\MenuActiveTrailInterface $menu_active_trail
-   *   The menu active trail object.
    */
-  public function __construct(RequestContext $context, MenuActiveTrailInterface $menu_active_trail) {
+  public function __construct(RequestContext $context) {
     $this->context = $context;
     // Just adding path of ingredient finder here fixes it's breadcrumb.
     $this->paths = [
       'search/ingredients',
     ];
-    $this->menuActiveTrail = $menu_active_trail;
   }
 
   /**
@@ -80,11 +69,19 @@ class TalBreadcrumbBuilder implements BreadcrumbBuilderInterface {
     $links = array();
     $path = trim($this->context->getPathInfo(), '/');
 
+    // Always add home link.
+    $links[] = Link::createFromRoute(t("Home"), '<front>');
+
     if (!empty($this->node)) {
       switch ($this->node->getType()) {
         case 'ingredient':
           // Add search query to ingredient finder link.
-          $links[] = Link::createFromRoute(t("Ingredient Finder"), 'tal_ingredient_search', ['s' => $title]);
+          $options = [
+            'query' => [
+              's' => $title,
+            ],
+          ];
+          $links[] = Link::createFromRoute(t("Ingredient Finder"), 'tal_ingredient_search', $options);
           break;
 
         case 'company_story':
@@ -99,17 +96,10 @@ class TalBreadcrumbBuilder implements BreadcrumbBuilderInterface {
           $url = Url::fromUserInput('/articles/' . $tid);
           $links[] = Link::fromTextAndUrl($term->getName(), $url);
           break;
-
-        case 'landing_page':
-          $links = $this->generateLandingPageBreadcrumb();
-          break;
       }
     }
-    if (!empty($links)) {
-      $breadcrumb->setLinks($links);
-    }
 
-    return $breadcrumb;
+    return $breadcrumb->setLinks($links);
   }
 
   /**
@@ -119,7 +109,6 @@ class TalBreadcrumbBuilder implements BreadcrumbBuilderInterface {
     $applies = FALSE;
     $path = trim($this->context->getPathInfo(), '/');
     $parameters = $route_match->getParameters()->all();
-
     if (in_array($path, $this->paths)) {
       $applies = TRUE;
     }
@@ -129,7 +118,6 @@ class TalBreadcrumbBuilder implements BreadcrumbBuilderInterface {
         'ingredient',
         'company_story',
         'press_release',
-        'landing_page',
       ];
       if (in_array($parameters['node']->getType(), $types)) {
         $this->node = $parameters['node'];
@@ -137,32 +125,6 @@ class TalBreadcrumbBuilder implements BreadcrumbBuilderInterface {
       }
     }
     return $applies;
-  }
-
-  /**
-   * Generate breadcrumb of landing page contents based on the conditions.
-   */
-  private function generateLandingPageBreadcrumb() {
-    // Get the menu link trail of the current node.
-    $menu_link_manager = \Drupal::service('plugin.manager.menu.link');
-    $links = [];
-    $result = $menu_link_manager->loadLinksByRoute('entity.node.canonical', array('node' => $this->node->id()));
-    $menu_link = array_shift($result);
-    if (isset($menu_link)) {
-      // Get active trail of the node menu.
-      $trail_ids = $this->menuActiveTrail->getActiveTrailIds($menu_link->getMenuName());
-      $trail_ids = array_filter($trail_ids);
-      array_shift($trail_ids);
-
-      // Generate basic breadcrumb trail from active trail.
-      // Keep same link ordering as Menu Breadcrumb.
-      foreach (array_reverse($trail_ids) as $id) {
-        $plugin = $menu_link_manager->createInstance($id);
-        $links[] = Link::fromTextAndUrl($plugin->getTitle(), $plugin->getUrlObject());
-      }
-    }
-
-    return $links;
   }
 
 }

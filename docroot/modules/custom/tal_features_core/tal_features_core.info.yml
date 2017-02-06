@@ -65,3 +65,4 @@ dependencies:
   - workbench_moderation
   - simple_sitemap
   - pathauto
+  - menu_breadcrumb
