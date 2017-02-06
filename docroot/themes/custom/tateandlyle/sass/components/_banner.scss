@@ -1,11 +1,13 @@
 .block-banner {
   margin-top: 25px;
   margin-bottom: 25px;
-  margin-left: -12.22%;
-  margin-right: -12.22%;
   @media (min-width: $screen-sm) {
     margin-bottom: 50px;
     margin-top: 50px;
+  }
+  @media (min-width: $screen-md-lg) {
+    margin-left: -12.22%;
+    margin-right: -12.22%;
   }
 
   .block-banner {
