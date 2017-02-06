@@ -27,7 +27,7 @@
 #}
 {% if name|render|striptags|trim != "Case Study" %}
   <div{{ attributes }} onclick="window.location.href='/articles/{{ term.id }}'">
-    <div class="tal--term-icon">{{ content.field_ac_icon }}</div>
+    <div class="tal--term-icon">{{ content.field_article_filter_icon }}</div>
     <h2 class="tal--term-name">{{ name }}</h2>
     <div class="tal--term-description">{{ content.description }}</div>
   </div>

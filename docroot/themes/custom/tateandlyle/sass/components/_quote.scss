@@ -1,10 +1,8 @@
 .block--quote {
   margin-top: 50px;
   margin-bottom: 50px;
-  @media (min-width: $screen-md-lg) {
-    margin-left: -12.22%;
-    margin-right: -12.22%;
-  }
+  margin-left: -12.22%;
+  margin-right: -12.22%;
   &.no__bg {
     color: $gray-base;
   }
@@ -184,7 +182,6 @@
   }
 
   .quote__main {
-    @extend %inner-content-width;
     background-size: cover;
     background-repeat: no-repeat;
   }

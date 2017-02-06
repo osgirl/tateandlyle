@@ -46,8 +46,6 @@
 }
 
 .paragraph--show-border {
-  @extend %border__block;
-
   .title,
   .field--in-border-title {
     @extend %border__block--title;
@@ -199,10 +197,6 @@
   .paragraph--type--downloads,
   .paragraph--type--wysiwyg {
     @extend %border__block;
-  }
-
-  .content .navbar {
-    @extend %inner-content-width;
   }
 }
 

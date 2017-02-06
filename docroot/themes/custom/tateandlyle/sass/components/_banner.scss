@@ -5,7 +5,7 @@
     margin-bottom: 50px;
     margin-top: 50px;
   }
-  @media (min-width: $screen-md-lg) {
+  @media (min-width: $screen-md) {
     margin-left: -12.22%;
     margin-right: -12.22%;
   }
@@ -84,7 +84,6 @@
   }
 
   .banner--inner {
-    margin-left: 20px;
     @media (min-width: $screen-xs) {
       width: 80%;
       margin: auto;
