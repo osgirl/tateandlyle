@@ -46,6 +46,7 @@
 }
 
 .paragraph--show-border {
+  @extend %border__block;
   .title,
   .field--in-border-title {
     @extend %border__block--title;
