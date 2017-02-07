@@ -85,7 +85,7 @@
         {% endif %}
         {{ title_suffix }}
         <div class="date--category">
-            {{ content.field_date }} <span class="space"> | </span> {{ "Filed in: "|t}}{{ content.field_category }}
+          {{ content.field_date }} <span class="space"> | </span> {{ "Filed in: "|t}}{{ content.field_category|render|striptags }}
         </div>
       </div>
     </div>

@@ -27,7 +27,15 @@
 #}
 {% if name|render|striptags|trim != "Case Study" %}
   <div{{ attributes }} onclick="window.location.href='/articles/{{ term.id }}'">
-    <div class="tal--term-icon">{{ content.field_article_filter_icon }}</div>
+    <div class="tal--term-icon">
+        {% if content.field_ac_icon|render %}
+            <div class="default__icon">{{ content.field_ac_icon }}</div>
+        {% endif %}
+
+        {% if content.field_article_filter_icon|render %}
+            <div class="hover__icon">{{ content.field_article_filter_icon }}</div>
+        {% endif %}
+    </div>
     <h2 class="tal--term-name">{{ name }}</h2>
     <div class="tal--term-description">{{ content.description }}</div>
   </div>

@@ -171,7 +171,8 @@
 .file--downloads .btn--download,
 .block--download .field--name-field-tal-link,
 .block--downloads-with-accordion .field--name-field-tal-link,
-.tal--download-external-link {
+.tal--download-external-link,
+.annual__reports .btn--download {
   a {
     @extend .btn;
     @extend .btn-primary;
