@@ -203,3 +203,10 @@
     background: none;
   }
 }
+
+.paragraph--type--wysiwyg-and-block-reference {
+  .block--quote {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
