@@ -41,7 +41,8 @@
         "drupal/simple_sitemap": "2.8.0",
         "drupal/migrate_plus": "^3.0",
         "drupal/migrate_tools": "^3.0",
-        "drupal/migrate_source_csv": "^2.0"
+        "drupal/migrate_source_csv": "^2.0",
+        "drupal/simplesamlphp_auth": "3.x-dev#283994f92637181924cc2f606f9d0c78929e9c8c"
     },
     "require-dev": {
         "behat/behat": "^3.1",

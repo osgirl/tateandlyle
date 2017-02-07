@@ -54,4 +54,4 @@ modules:
 behat:
   paths:
     - '${repo.root}/tests/behat'
-
+simplesamlphp: 'true'
