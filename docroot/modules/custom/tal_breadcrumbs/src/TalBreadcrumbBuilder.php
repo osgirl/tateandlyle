@@ -118,12 +118,12 @@ class TalBreadcrumbBuilder implements BreadcrumbBuilderInterface {
   public function applies(RouteMatchInterface $route_match) {
     $applies = FALSE;
     $path = trim($this->context->getPathInfo(), '/');
-    $parameters = $route_match->getParameters()->all();
+    $node_object = $route_match->getParameters()->get('node');
 
     if (in_array($path, $this->paths)) {
       $applies = TRUE;
     }
-    elseif (isset($parameters['node'])) {
+    elseif ($node_object) {
       // @todo:: return applies for all node types in this loop.
       $types = [
         'ingredient',
@@ -131,8 +131,8 @@ class TalBreadcrumbBuilder implements BreadcrumbBuilderInterface {
         'press_release',
         'landing_page',
       ];
-      if (in_array($parameters['node']->getType(), $types)) {
-        $this->node = $parameters['node'];
+      if (in_array($node_object->getType(), $types)) {
+        $this->node = $node_object;
         $applies = TRUE;
       }
     }
@@ -153,7 +153,6 @@ class TalBreadcrumbBuilder implements BreadcrumbBuilderInterface {
       $trail_ids = $this->menuActiveTrail->getActiveTrailIds($menu_link->getMenuName());
       $trail_ids = array_filter($trail_ids);
       array_shift($trail_ids);
-
       // Generate basic breadcrumb trail from active trail.
       // Keep same link ordering as Menu Breadcrumb.
       foreach (array_reverse($trail_ids) as $id) {
