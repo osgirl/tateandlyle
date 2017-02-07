@@ -3,6 +3,7 @@
     margin-bottom: 0;
     @media (min-width: $screen-sm) {
       margin-bottom: 22px;
+      margin-top: 0;
     }
 
     &::after {
