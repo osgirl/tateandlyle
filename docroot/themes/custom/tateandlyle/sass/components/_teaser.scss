@@ -1,5 +1,5 @@
 .space {
-  margin: 0 0.5em;
+  margin: 0 2px;
 }
 
 .block--dynamic-posts {
@@ -40,6 +40,7 @@
     position: absolute;
     vertical-align: top;
     left: 0;
+    top: -6px;
     @media (min-width: $screen-sm) {
       position: static;
       max-width: 40px;
@@ -119,6 +120,9 @@
       padding: 0;
     }
     img {
+      height: auto;
+      margin: auto;
+      max-height: 40px;
       max-width: 40px;
     }
   }
@@ -132,7 +136,8 @@
       display: none;
     }
     img {
-      max-width: 312px;
+      max-width: 314px;
+      width: 100%;
       @media (min-width: $screen-sm) {
         max-width: 880px;
       }
@@ -266,7 +271,9 @@
 }
 
 .view-article-categories {
-  @extend %inner-content-width;
+  @extend %inner-content-width-padding;
+  margin-left: auto;
+  margin-right: auto;
   margin-top: 60px;
 
   .field--name-name {
@@ -318,6 +325,11 @@
       .field--name-description {
         color: $brand-primary;
       }
+
+      .hover__icon {
+        background-color: $color-white;
+        z-index: 4;
+      }
     }
   }
 
@@ -338,11 +350,32 @@
   .tal--term-icon,
   .tal--term-name {
     display: inline-block;
-    vertical-align: middle;
+    vertical-align: text-bottom;
 
     @media (min-width: $screen-sm) {
       display: block;
     }
+  }
+
+  .tal--term-icon {
+    max-height: 35px;
+    max-width: 35px;
+    @media (min-width: $screen-sm) {
+      max-height: 40px;
+      max-width: none;
+    }
+  }
+
+  .hover__icon {
+    position: relative;
+    top: -40px;
+    z-index: -1;
+  }
+
+  .default__icon {
+    background-color: $color-white;
+    position: relative;
+    z-index: 1;
   }
 
   .tal--term-name {
@@ -363,12 +396,20 @@
   .icon {
     margin-bottom: 0;
     padding: 0;
+    width: 40px;
+    height: 40px;
 
     img {
-      max-width: 29px;
+      height: auto;
+      max-height: 35px;
+      width: auto;
+
       @media (min-width: $screen-sm) {
+        height: auto;
         margin: auto;
-        max-width: 38px;
+        max-height: 40px;
+        max-width: 40px;
+        width: 100%;
       }
     }
   }
