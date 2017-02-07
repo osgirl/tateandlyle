@@ -42,7 +42,10 @@
         "drupal/migrate_plus": "^3.0",
         "drupal/migrate_tools": "^3.0",
         "drupal/migrate_source_csv": "^2.0",
-        "drupal/simplesamlphp_auth": "3.x-dev#283994f92637181924cc2f606f9d0c78929e9c8c"
+        "drupal/simplesamlphp_auth": "3.x-dev#283994f92637181924cc2f606f9d0c78929e9c8c",
+        "drupal/menu_breadcrumb": "1.0.0",
+        "drupal/diff": "^1.0@RC",
+        "drupal/contact_storage": "^1.0@beta"
     },
     "require-dev": {
         "behat/behat": "^3.1",
