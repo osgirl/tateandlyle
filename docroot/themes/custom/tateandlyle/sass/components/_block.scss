@@ -40,19 +40,23 @@
   }
 }
 
-.block-bg.cool-grey {
+.block-bg.cool-grey,
+.annual__reports .icon.cool-grey {
   background-color: $color-warm-gray;
 }
 
-.block-bg.black {
+.block-bg.black,
+.annual__reports .icon.black {
   background-color: $gray-base;
 }
 
-.block-bg.purple {
+.block-bg.purple,
+.annual__reports .icon.purple {
   background-color: $color-purple;
 }
 
-.block-bg.blue {
+.block-bg.blue,
+.annual__reports .icon.blue {
   background-color: $brand-primary;
 
   .field--name-field-all-jobs-link a {
@@ -64,31 +68,38 @@
   }
 }
 
-.block-bg.pink {
+.block-bg.pink,
+.annual__reports .icon.pink {
   background-color: $color-red;
 }
 
-.block-bg.off-white {
+.block-bg.off-white,
+.annual__reports .icon.off-white {
   background-color: $color-off-white;
 }
 
-.block-bg.mid-grey {
+.block-bg.mid-grey,
+.annual__reports .icon.mid-grey {
   background-color: $gray-dark;
 }
 
-.block-bg.yellow {
+.block-bg.yellow,
+.annual__reports .icon.yellow {
   background-color: $color-yellow;
 }
 
-.block-bg.warm-grey {
+.block-bg.warm-grey,
+.annual__reports .icon.warm-grey {
   background-color: $color-gold;
 }
 
-.block-bg.silver {
+.block-bg.silver,
+.annual__reports .icon.silver {
   background-color: $color-silver;
 }
 
-.block-bg.light-grey {
+.block-bg.light-grey,
+.annual__reports .icon.light-grey {
   background-color: $color-light-gray;
 }
 

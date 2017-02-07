@@ -534,6 +534,7 @@
     }
 
     @media(min-width: $screen-md) {
+      max-width: 200px;
       min-height: 118px;
       width: auto;
 
@@ -599,6 +600,10 @@
           border-bottom: 0;
           border-right: 0;
         }
+      }
+
+      .promo__paragaph--content {
+        border: 0;
       }
     }
 
@@ -717,8 +722,6 @@
 
         @media(min-width: $screen-sm) {
           padding: 35px 15px 37px 31px;
-          max-width: 265px;
-          margin-right: 20px;
         }
 
         &::after {
