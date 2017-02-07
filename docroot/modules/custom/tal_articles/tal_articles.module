@@ -27,8 +27,10 @@ function tal_articles_views_pre_view(ViewExecutable $view, $display_id, array &$
   // Modify contextual filters for article list if term name is "Company news"'.
   if ($view->id() == 'article_list' &&  $display_id == 'page_1') {
     if ($args[0] != 'all') {
+      // Clean argument for more than one term.
+      $tid = explode('+', $args[0])[0];
       // Load all terms from media gallery vocabulary.
-      $term = Term::load($args[0]);
+      $term = Term::load($tid);
       if ($term->getName() == 'Company Story') {
         $terms = \Drupal::service('entity_type.manager')
           ->getStorage("taxonomy_term")
@@ -36,7 +38,7 @@ function tal_articles_views_pre_view(ViewExecutable $view, $display_id, array &$
 
         foreach ($terms as $trm) {
           if ($trm->name == 'Case Study') {
-            $args[0] = $args[0] . '+' . $trm->tid;
+            $args[0] = $tid . '+' . $trm->tid;
             break;
           }
         }
@@ -48,7 +50,7 @@ function tal_articles_views_pre_view(ViewExecutable $view, $display_id, array &$
 
         foreach ($terms as $trm) {
           if ($trm->name == 'Press Packs') {
-            $args[0] = $args[0] . '+' . $trm->tid;
+            $args[0] = $tid . '+' . $trm->tid;
             break;
           }
         }
