@@ -75,6 +75,7 @@
 
     a {
       @extend .btn-primary;
+      background: transparent;
       color: $color-white;
       display: inline;
       padding: 8px 20px;
