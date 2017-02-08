@@ -155,6 +155,9 @@
             },
             "drupal/acquia_connector": {
                 "Acquia search custom multi core": "https://gist.githubusercontent.com/jayakrishnanj/efd2093a3f95b83cbc18aa12630102e6/raw/e9f08b786a9dafda7192297f075ed0e26c9f7e8f/custom-multi-core.patch"
+            },
+            "drupal/improved_multi_select": {
+                "Only one of the multiple selected options are saved after form submit": "https://www.drupal.org/files/issues/improved_multi_select-2850654-2.patch"
             }
         },
         "drupal-scaffold": {
