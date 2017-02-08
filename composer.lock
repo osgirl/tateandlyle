@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f6096328b7cf1f00260ea2a5addb637d",
-    "content-hash": "27b98933380f3265f2c7e70d15f8dbde",
+    "hash": "0ea7c9f4567173262837cb88cccb9080",
+    "content-hash": "75540875d0c19223fdbde19a1784d19e",
     "packages": [
         {
             "name": "acquia/blt",
@@ -3743,6 +3743,9 @@
                 "drupal": {
                     "version": "8.x-1.3",
                     "datestamp": "1444600139"
+                },
+                "patches_applied": {
+                    "Only one of the multiple selected options are saved after form submit": "https://www.drupal.org/files/issues/improved_multi_select-2850654-2.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",

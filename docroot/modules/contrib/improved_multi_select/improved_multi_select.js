@@ -392,6 +392,8 @@
       // Now that the select has the options in the correct order, use the
       // cloned select for resetting the ul values.
       $select = $cloned_select;
+      // Select the options in select using ul values.
+      $('#' + sid).val($select);
     }
     else {
       $select.find('option:selected').attr("selected", false);
