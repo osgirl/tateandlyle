@@ -6,7 +6,7 @@ dependencies:
 id: tateandlyle_breadcrumbs
 theme: tateandlyle
 region: header
-weight: -17
+weight: 20
 provider: null
 plugin: system_breadcrumb_block
 settings:
