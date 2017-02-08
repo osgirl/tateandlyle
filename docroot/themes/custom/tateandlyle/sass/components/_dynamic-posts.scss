@@ -154,11 +154,15 @@
         font-size: $font-size-h5;
         margin-bottom: 13px;
         margin-top: 0;
+        @media (min-width: $screen-sm) {
+          height: 38px;
+          overflow: hidden;
+        }
 
         @media (min-width: $screen-md-lg) {
           font-size: $font-size-h3;
+          height: 52px;
           margin-bottom: 31px;
-          min-height: 52px;
         }
       }
     }
