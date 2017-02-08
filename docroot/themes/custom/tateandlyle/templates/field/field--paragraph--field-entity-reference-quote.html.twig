@@ -96,4 +96,7 @@ top_bottom,
 
             </div>
         </section>
+        <div class="hide">
+            {{ item.content|without('field_simple_text', 'field_qt_bg_color', 'field_bg_image', 'field_short_summary', 'field_qt_quote_person', 'field_qt_person_role', 'field_tal_link') }}
+        </div>
 {% endfor %}
