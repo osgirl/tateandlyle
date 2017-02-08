@@ -4,6 +4,7 @@ dependencies:
   config:
     - views.view.media
   module:
+    - lightning_media
     - views
 name: image_browser
 label: 'Image Browser'

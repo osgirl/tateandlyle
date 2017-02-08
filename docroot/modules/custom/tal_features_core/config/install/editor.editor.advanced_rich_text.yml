@@ -37,7 +37,7 @@ settings:
             - Blockquote
             - Table
             - HorizontalRule
-            - media_browser
+            - tal_embed
         -
           name: 'Block Formatting'
           items:
@@ -55,10 +55,10 @@ settings:
             - JustifyRight
             - JustifyBlock
   plugins:
-    stylescombo:
-      styles: ''
     language:
       language_list: un
+    stylescombo:
+      styles: ''
 image_upload:
   status: false
   scheme: public

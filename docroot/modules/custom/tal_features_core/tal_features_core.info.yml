@@ -13,8 +13,10 @@ dependencies:
   - ckeditor
   - colorbox
   - country
+  - ctools
   - datetime
   - editor
+  - embed
   - entity_browser
   - entity_embed
   - entity_reference_revisions
@@ -43,8 +45,10 @@ dependencies:
   - panelizer
   - paragraphs
   - path
+  - pathauto
   - search_api
   - search_api_solr
+  - simple_sitemap
   - system
   - tal_admin_config
   - tal_downloads
@@ -63,5 +67,3 @@ dependencies:
   - webform
   - workbench_email
   - workbench_moderation
-  - simple_sitemap
-  - pathauto
