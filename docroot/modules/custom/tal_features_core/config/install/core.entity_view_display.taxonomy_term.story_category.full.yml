@@ -21,11 +21,12 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_ac_icon:
-    type: entity_reference_label
+    type: entity_reference_entity_view
     weight: 0
     label: hidden
     settings:
       link: true
+      view_mode: default
     third_party_settings: {  }
   field_article_filter_icon:
     type: entity_reference_entity_view
