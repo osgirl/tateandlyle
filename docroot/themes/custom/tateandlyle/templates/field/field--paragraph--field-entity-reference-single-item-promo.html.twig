@@ -78,4 +78,7 @@ set classes = [
     </div>
 </div>
 </section>
+    <div class="hide">
+        {{ item.content|without('field_sip_image', 'field_icon', 'field_simple_text', 'body', 'field_tal_link') }}
+    </div>
 {% endfor %}
