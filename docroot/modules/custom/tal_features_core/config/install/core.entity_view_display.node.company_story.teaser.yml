@@ -21,7 +21,7 @@ dependencies:
     - image
     - options
     - panelizer
-    - text
+    - smart_trim
     - user
 third_party_settings:
   panelizer:
@@ -35,11 +35,19 @@ bundle: company_story
 mode: teaser
 content:
   body:
-    type: text_trimmed
+    type: smart_trim
     weight: 4
     label: hidden
     settings:
-      trim_length: 200
+      trim_length: '200'
+      trim_type: chars
+      trim_suffix: ''
+      more_link: '0'
+      more_text: More
+      summary_handler: full
+      trim_options:
+        text: text
+      more_class: more-link
     third_party_settings: {  }
   field_category:
     type: entity_reference_label
@@ -68,6 +76,10 @@ content:
     type: list_key
     weight: 3
     label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  workbench_moderation_control:
+    weight: -20
     settings: {  }
     third_party_settings: {  }
 hidden:

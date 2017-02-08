@@ -42,6 +42,8 @@ function tal_wrapper_install() {
   tal_wrapper_update_8213();
   tal_wrapper_update_8215();
   tal_wrapper_update_8216();
+  tal_wrapper_update_8217();
+  tal_wrapper_update_8218();
 }
 
 /**
@@ -300,5 +302,13 @@ function tal_wrapper_update_8217() {
     $config = $config_factory->getEditable("simple_sitemap.bundle_settings.$entity_type_id.$bundle");
     $config->setData(['index' => 1, 'priority' => '0.5'])->save();
   }
+}
 
+/**
+ * Enable tal_breadcrumbs module.
+ *
+ * Implements hook_update_N().
+ */
+function tal_wrapper_update_8218() {
+  \Drupal::service('module_installer')->install(['smart_trim']);
 }

@@ -19,7 +19,7 @@ dependencies:
   module:
     - image
     - panelizer
-    - text
+    - smart_trim
     - user
 third_party_settings:
   panelizer:
@@ -34,10 +34,18 @@ mode: articles_in_2_columns
 content:
   body:
     label: hidden
-    type: text_trimmed
+    type: smart_trim
     weight: 1
     settings:
-      trim_length: 70
+      trim_length: '70'
+      trim_type: chars
+      trim_suffix: ''
+      more_link: '0'
+      more_text: More
+      summary_handler: full
+      trim_options:
+        text: text
+      more_class: more-link
     third_party_settings: {  }
   field_image:
     weight: 0
