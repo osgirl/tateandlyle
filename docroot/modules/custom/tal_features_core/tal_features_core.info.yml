@@ -49,6 +49,7 @@ dependencies:
   - search_api
   - search_api_solr
   - simple_sitemap
+  - smart_trim
   - system
   - tal_admin_config
   - tal_downloads
