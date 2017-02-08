@@ -59,8 +59,10 @@
             {{ item.field_image }}
             {{ item.field_tal_more }}
             {{ item.field_simple_summary }}
-            {{ item.ield_title }}
-
+            {{ item.field_title }}
+          <div class="hide">
+              {{ item.content|without('field_icon', 'field_image', 'field_tal_more', 'field_simple_summary', 'field_title') }}
+          </div>
         {% endfor %}
       </div>
 </div>

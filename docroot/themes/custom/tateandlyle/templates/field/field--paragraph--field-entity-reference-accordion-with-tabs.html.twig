@@ -73,4 +73,7 @@ set classes = [
         </div>
     {% endblock %}
 </section>
+    <div class="hide">
+        {{ item.content|without('field_border_title', 'field_at_tab_title1', 'field_at_tab_title2', 'field_at_tab_content1', 'field_at_tab_content2') }}
+    </div>
 {% endfor %}
