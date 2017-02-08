@@ -103,24 +103,11 @@
     margin-top: 0;
   }
 
-  .mobile__icon {
+  .col .icon {
     margin-bottom: 20px;
     margin-top: 41px;
 
-    img {
-      margin: auto;
-    }
-
     @media (min-width: $screen-sm) {
-      display: none;
-    }
-  }
-
-  .col .icon {
-    display: none;
-
-    @media (min-width: $screen-sm) {
-      display: block;
       height: 147px;
       width: 279px;
       margin: auto;
@@ -146,6 +133,10 @@
 
     img {
       margin: auto;
+    }
+
+    @media (max-width: $screen-xs-max) {
+      background-color: transparent;
     }
   }
 

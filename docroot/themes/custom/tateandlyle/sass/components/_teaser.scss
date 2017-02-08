@@ -264,8 +264,12 @@
 
   .teaser-image {
     @media (min-width: $screen-sm) {
-      margin-bottom: 20px;
+      margin-bottom: 22px;
       margin-right: 0;
+    }
+
+    @media (min-width: $screen-md) {
+      margin-bottom: 20px;
     }
   }
 }
