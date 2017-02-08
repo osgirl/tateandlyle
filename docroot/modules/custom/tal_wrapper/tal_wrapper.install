@@ -279,3 +279,26 @@ function tal_wrapper_update_8216() {
   \Drupal::service('module_installer')->install(['tal_breadcrumbs']);
   \Drupal::service('module_installer')->uninstall(['menu_breadcrumb']);
 }
+
+/**
+ * Simple Sitemap settings import.
+ *
+ * Implements hook_update_N().
+ */
+function tal_wrapper_update_8217() {
+  // Enable simple xml csitemap for these menus.
+  $entity_type_id = 'menu_link_content';
+  $bundles = [
+    'main-menu',
+    'footer-customer-and-supplie',
+    'footer-navigation-menu',
+    'footer-sitemap-and-policies',
+  ];
+
+  foreach ($bundles as $bundle) {
+    $config_factory = \Drupal::configFactory();
+    $config = $config_factory->getEditable("simple_sitemap.bundle_settings.$entity_type_id.$bundle");
+    $config->setData(['index' => 1, 'priority' => '0.5'])->save();
+  }
+
+}
