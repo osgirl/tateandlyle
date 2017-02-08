@@ -78,3 +78,25 @@ h5 {
   padding-left: 0;
   padding-right: 0;
 }
+
+.breadcrumb {
+  clear: both;
+  display: none;
+  background: transparent;
+  padding-top: 0;
+  padding-left: 18px;
+  @media (min-width: $screen-md) {
+    display: block;
+  }
+
+  a {
+    color: $gray-dark;
+    &:hover {
+      color: $brand-primary;
+    }
+  }
+
+  .active {
+    color: $gray-base;
+  }
+}
