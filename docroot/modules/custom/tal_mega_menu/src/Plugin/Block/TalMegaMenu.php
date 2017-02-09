@@ -3,6 +3,7 @@
 namespace Drupal\tal_mega_menu\Plugin\Block;
 
 use Drupal\block\Entity\Block;
+use Drupal\Core\Cache\Cache;
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Link;
 
@@ -140,6 +141,32 @@ class TalMegaMenu extends BlockBase {
       "element-content" => $block_content,
       '#weight' => 0,
     );
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getCacheTags() {
+    // Even when the menu block renders to the empty string for a user, we want
+    // the cache tag for this menu to be set: whenever the menu is changed, this
+    // menu block must also be re-rendered for that user, because maybe a menu
+    // link that is accessible for that user has been added.
+    $cache_tags = parent::getCacheTags();
+    $cache_tags[] = 'config:system.menu.main-menu';
+    return $cache_tags;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getCacheContexts() {
+    // ::build() uses MenuLinkTreeInterface::getCurrentRouteMenuTreeParameters()
+    // to generate menu tree parameters, and those take the active menu trail
+    // into account. Therefore, we must vary the rendered menu by the active
+    // trail of the rendered menu.
+    // Additional cache contexts, e.g. those that determine link text or
+    // accessibility of a menu, will be bubbled automatically.
+    return Cache::mergeContexts(parent::getCacheContexts(), ['route.menu_active_trails:' . 'main-menu']);
   }
 
 }
