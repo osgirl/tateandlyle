@@ -10408,6 +10408,9 @@
             "drupal": {
                 "version": "8.x-1.0-beta5",
                 "datestamp": "1459277339"
+            },
+            "patches_applied": {
+                "warning: mb_strlen() expects parameter 1 to be string": "https://www.drupal.org/files/issues/simple_menu_icons_mb_strlen_fix_2762711.patch"
             }
         },
         "installation-source": "dist",

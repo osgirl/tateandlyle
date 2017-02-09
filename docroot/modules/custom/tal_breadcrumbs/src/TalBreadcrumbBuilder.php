@@ -75,10 +75,15 @@ class TalBreadcrumbBuilder implements BreadcrumbBuilderInterface {
    */
   public function build(RouteMatchInterface $route_match) {
     $title = \Drupal::service('title_resolver')->getTitle(\Drupal::request(), $route_match->getRouteObject());
-
     $breadcrumb = new Breadcrumb();
+
+    // Set default cache context.
+    $breadcrumb->addCacheContexts(['route']);
+    // Set default cacheble dependency.
+    $node_object = $route_match->getParameters()->get('node');
+    $breadcrumb->addCacheableDependency($node_object);
+
     $links = array();
-    $path = trim($this->context->getPathInfo(), '/');
 
     if (!empty($this->node)) {
       switch ($this->node->getType()) {
@@ -98,10 +103,11 @@ class TalBreadcrumbBuilder implements BreadcrumbBuilderInterface {
           $term = Term::load($tid);
           $url = Url::fromUserInput('/articles/' . $tid);
           $links[] = Link::fromTextAndUrl($term->getName(), $url);
+          $breadcrumb->addCacheableDependency($term);
           break;
 
         case 'landing_page':
-          $links = $this->generateLandingPageBreadcrumb();
+          $breadcrumb = $this->generateLandingPageBreadcrumb($breadcrumb);
           break;
       }
     }
@@ -142,7 +148,7 @@ class TalBreadcrumbBuilder implements BreadcrumbBuilderInterface {
   /**
    * Generate breadcrumb of landing page contents based on the conditions.
    */
-  private function generateLandingPageBreadcrumb() {
+  private function generateLandingPageBreadcrumb(Breadcrumb $breadcrumb) {
     // Get the menu link trail of the current node.
     $menu_link_manager = \Drupal::service('plugin.manager.menu.link');
     $links = [];
@@ -157,11 +163,13 @@ class TalBreadcrumbBuilder implements BreadcrumbBuilderInterface {
       // Keep same link ordering as Menu Breadcrumb.
       foreach (array_reverse($trail_ids) as $id) {
         $plugin = $menu_link_manager->createInstance($id);
+        $breadcrumb->addCacheableDependency($plugin);
         $links[] = Link::fromTextAndUrl($plugin->getTitle(), $plugin->getUrlObject());
       }
     }
+    $breadcrumb->setLinks($links);
 
-    return $links;
+    return $breadcrumb;
   }
 
 }
