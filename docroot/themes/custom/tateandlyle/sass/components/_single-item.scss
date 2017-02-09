@@ -201,6 +201,15 @@
     }
   }
 
+  .block-readmore {
+    position: static;
+  }
+
+  .block-summary {
+    margin: auto;
+    width: auto;
+  }
+
   .item__promo {
     .item__promo--summary .block-title {
       text-align: center;
