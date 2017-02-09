@@ -39,4 +39,5 @@
     <h2 class="tal--term-name">{{ name }}</h2>
     <div class="tal--term-description">{{ content.description }}</div>
   </div>
+    {{ content|without('field_ac_icon', 'field_article_filter_icon', 'description') }}
 {% endif %}
