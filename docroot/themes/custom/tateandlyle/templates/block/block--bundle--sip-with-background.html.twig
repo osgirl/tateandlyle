@@ -55,13 +55,13 @@
   ]
 %}
 <section{{ attributes.addClass(classes) }}" style="{{ style }}">
-    <div class="item__promo">
+    <div class="background__promo--item">
 
-        <div class="item__promo-content">
+        <div class="background__promo--content">
             <div class="block-icon item__promo--component block-bg {{ bg_color }}">{{ content.field_sip_icon }}</div>
-            <div class="item__promo--summary">
+            <div class="background__promo--summary">
                 {{ title_prefix }}
-                  <h3{{ title_attributes.addClass('block-title') }}>{{ content.field_title }}</h3>
+                  <h4{{ title_attributes.addClass('block-title') }}>{{ content.field_title }}</h4>
                 {{ title_suffix }}
 
                 <div class="block-summary">{{ content.body }}</div>
