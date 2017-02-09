@@ -54,21 +54,20 @@
     'clearfix',
   ]
 %}
-<section{{ attributes.addClass(classes) }}">
-    <div class="item__promo" style="{{ style }}">
-            <div class="block-image item__promo--component">{{ content.field_sip_image }}</div>
+<section{{ attributes.addClass(classes) }}" style="{{ style }}">
+    <div class="item__promo">
 
         <div class="item__promo-content">
-            <div class="block-icon item__promo--component" style="background-color: {{ bg_color }}">{{ content.field_sip_icon }}</div>
+            <div class="block-icon item__promo--component block-bg {{ bg_color }}">{{ content.field_sip_icon }}</div>
             <div class="item__promo--summary">
                 {{ title_prefix }}
                   <h3{{ title_attributes.addClass('block-title') }}>{{ content.field_title }}</h3>
                 {{ title_suffix }}
 
                 <div class="block-summary">{{ content.body }}</div>
+                <div class="block-more">{{ content.field_tal_link }}</div>
+                <div class="promo-readmore">{{ content.field_read_more }}</div>
             </div>
-            <div class="block-more item__promo--component">{{ content.field_tal_link }}</div>
-            <div class="block-readmore item__promo--component">{{ content.field_read_more }}</div>
         </div>
     </div>
 </section>
