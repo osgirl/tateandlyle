@@ -158,6 +158,9 @@
             },
             "drupal/improved_multi_select": {
                 "Only one of the multiple selected options are saved after form submit": "https://www.drupal.org/files/issues/improved_multi_select-2850654-2.patch"
+            },
+            "drupal/simple_menu_icons": {
+                "warning: mb_strlen() expects parameter 1 to be string": "https://www.drupal.org/files/issues/simple_menu_icons_mb_strlen_fix_2762711.patch"
             }
         },
         "drupal-scaffold": {
