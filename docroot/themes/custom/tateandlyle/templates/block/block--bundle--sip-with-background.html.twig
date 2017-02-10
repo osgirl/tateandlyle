@@ -65,14 +65,8 @@
                 {{ title_suffix }}
 
                 <div class="block-summary">{{ content.body }}</div>
-
-                {% if content.field_tal_link|render %}
-                    <div class="block-more">{{ content.field_tal_link }}</div>
-                {% endif %}
-
-                {% if content.field_read_more|render %}
-                    <div class="promo-readmore">{{ content.field_read_more }}</div>
-                {% endif %}
+                <div class="block-more">{{ content.field_tal_link }}</div>
+                <div class="promo-readmore">{{ content.field_read_more }}</div>
             </div>
         </div>
     </div>

@@ -21,11 +21,7 @@
 
     .panel {
       border-top: 1px solid $color-warm-gray;
-      border-bottom: 0;
-
-      &:last-child {
-        border-bottom: 1px solid $color-warm-gray;
-      }
+      margin-top: -1px;
 
       .panel-title a.collapsed {
         background-color: $color-off-white;

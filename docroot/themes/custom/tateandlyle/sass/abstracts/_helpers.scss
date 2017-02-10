@@ -49,18 +49,3 @@
     display: block !important;
   }
 }
-
-.glyphicon-search {
-  &::before {
-    content: none;
-  }
-
-  &::after {
-    background: url("../images/icons/iconsearch-white.png") no-repeat center;
-    background-size: cover;
-    content: " ";
-    display: inline-block;
-    height: 23px;
-    width: 23px;
-  }
-}
