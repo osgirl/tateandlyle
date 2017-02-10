@@ -67,7 +67,11 @@
       {{ title_suffix }}
 
       {% block content %}
-        <div class="tal-dynamic-post-wrapper">
+        {% if (dynamic_posts_id) %}
+           <div class="tal-dynamic-post-wrapper" data-id="{{ dynamic_posts_id }}">
+              {% else %}
+          <div class="tal-dynamic-post-wrapper">
+          {% endif %}
             {{ dynamic_posts }}
             {{ focus_on_tag_list }}
         </div>
