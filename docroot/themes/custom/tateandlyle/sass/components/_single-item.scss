@@ -9,7 +9,7 @@
 
   @media (max-width: $screen-sm-max) {
     max-width: none;
-    margin: 0;
+    margin: 40px 0;
   }
 }
 
@@ -18,13 +18,13 @@
   color: inherit;
   position: relative;
   width: 100%;
-  @media (min-width: $screen-sm) {
+  @media (min-width: $screen-md) {
     display: table;
     text-align: left;
   }
 
   .item__promo--component {
-    @media (min-width: $screen-sm) {
+    @media (min-width: $screen-md) {
       display: table-cell;
       vertical-align: top;
     }
@@ -32,6 +32,13 @@
 
   .block-image {
     vertical-align: middle;
+    @media (min-width: $screen-sm) {
+      display: none;
+    }
+
+    @media (min-width: $screen-md) {
+      display: block;
+    }
   }
 
   .block-icon {
@@ -40,14 +47,14 @@
     }
 
     & + .item__promo--summary + .block-readmore {
-      @media (min-width: $screen-sm) {
+      @media (min-width: $screen-md) {
         margin-left: 76px;
       }
     }
   }
   .block-summary {
-    margin: 1em 0;
-    @media (min-width: $screen-sm) {
+    margin: 18px 0 26px;
+    @media (min-width: $screen-md) {
       width: 65%;
     }
   }
@@ -61,14 +68,8 @@
         width: auto;
       }
     }
+
     @media (min-width: $screen-md) {
-      display: table-cell;
-      margin-left: 0;
-      margin-top: 15px;
-      vertical-align: bottom;
-      width: 30%;
-    }
-    @media (min-width: $screen-sm) {
       position: absolute;
       bottom: 30px;
       right: 30px;
@@ -78,11 +79,9 @@
   }
 
   .item__promo--summary {
-    @media (min-width: $screen-sm) {
-      display: table-cell;
-    }
 
     @media (min-width: $screen-md) {
+      display: table-cell;
       width: 65%;
       padding-right: 20px;
     }
@@ -119,7 +118,12 @@
   .field--name-field-image {
     margin: auto;
     width: 50px;
+
     @media (min-width: $screen-sm) {
+      margin-bottom: 8px;
+    }
+
+    @media (min-width: $screen-md) {
       margin-right: 26px;
     }
   }
@@ -127,22 +131,27 @@
   .field--name-field-simple-text,
   .block-title {
     color: inherit;
+    font-family: $font-family-sans-serif;
+    @media (min-width: $screen-sm) {
+      font-size: $font-size-h3;
+    }
   }
 
   .field--name-field-tal-link {
     a {
       @extend .btn-white;
       &::after {
-        content: "\f105";
+        content: $fa-var-angle-right;
         font-family: $font-family-icon;
         padding-left: 10px;
       }
     }
   }
 
-  @media (max-width: $screen-sm-max) {
+  @media (max-width: $screen-xs-max) {
     .item__promo-content {
       position: relative;
+      text-align: center;
     }
 
     .block-icon {
@@ -175,11 +184,15 @@
   padding: 20px;
 
   @media (min-width: $screen-sm) {
-    display: table-cell;
+    max-width: 529px;
+    margin: auto;
   }
 
   @media (min-width: $screen-md) {
+    display: table-cell;
+    max-width: none;
     padding: 26px 20px;
+    vertical-align: top;
   }
 }
 
@@ -217,10 +230,16 @@
     }
 
     .item__promo-content {
-      padding: 25px 25px 50px;
+      padding: 30px 22px;
       @media (min-width: $screen-sm) {
-        width: 70%;
+        padding: 38px 0 41px 0;
+        max-width: 380px;
         margin: auto;
+      }
+
+      @media (min-width: $screen-md) {
+        padding: 25px 25px 50px;
+        max-width: 665px;
       }
 
       .block-readmore {
@@ -233,10 +252,11 @@
     position: static;
   }
 
-  .block-title,
+  .item__promo .item__promo--summary .block-title,
   .block-icon,
   .block-summary {
     margin-bottom: 20px;
+    min-height: none;
   }
 
   .block-summary {
