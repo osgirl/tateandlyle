@@ -59,8 +59,8 @@ show_border ? 'paragraph--show-border',
             {% else %}
             <div class="field--available-countries-text">{{ parent_node_title }}{{ " is available in:"|t }}</div>
             <div class="country__region--wrap">
-                <div class="col-sm-6 region--country">
                 {% if country_count > 0 %}
+                <div class="col-sm-6 region--country">
                     <div class="in--country-count">
                     {% trans %}
                         {{ country_count }} Country
@@ -88,7 +88,7 @@ show_border ? 'paragraph--show-border',
             </div>
 
             {% if country_count > 8 %}
-              <div class="in--country-read-more"><div class="more--countries"><button type="button" class="btn">{{ "See list of countries"|t }}</button></div></div>
+              <div class="in--country-read-more"><div class="more--countries"><button type="button" class="btn">{{ "See full list of countries"|t }}</button></div></div>
             {% endif %}
         {% endif %}
     </div>
