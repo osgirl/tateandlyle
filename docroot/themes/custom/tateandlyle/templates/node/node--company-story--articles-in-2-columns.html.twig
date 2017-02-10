@@ -74,7 +74,7 @@
 <article{{ attributes }}>
     {{ title_prefix }}
       <h2{{ title_attributes }}>
-        <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+        <a href="{{ url }}" rel="bookmark">{{ label|render|striptags|length > 50 ? label|render|striptags|slice(0, 50) ~ '...' : label|render|striptags }}</a>
       </h2>
     {{ title_suffix }}
 
