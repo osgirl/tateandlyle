@@ -6,7 +6,6 @@
  */
 
 use Drupal\field\Entity\FieldConfig;
-use Drupal\taxonomy\Entity\Term;
 
 /**
  * Preprocessor function for talk to us paragraph type.
@@ -103,10 +102,13 @@ function tal_preprocess_paragraph_wysiwyg_with_country_and_region($variables, $p
 
   $regions = $paragraph->get('field_in_region')->getValue();
   $regions_name = array();
+  // Get allowed values to render label of region.
+  $allowed_vlaues = $paragraph->get('field_in_region')->getSettings();
 
   foreach ($regions as $region) {
-    $regions_name[] = $region['value'];
+    $regions_name[] = $allowed_vlaues['allowed_values'][$region['value']];
   }
+
   // Populate the variable with selected regions.
   $variables['list_regions'] = array(
     '#theme' => 'item_list',

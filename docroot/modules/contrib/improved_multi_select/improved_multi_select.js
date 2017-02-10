@@ -381,27 +381,29 @@
   function improvedselectUpdate(sid, context) {
     // If we have sorting enabled, make sure we have the results sorted.
     var $select = $('#' + sid),
-      $cloned_select = $('#' + sid + '-cloned');
+    $cloned_select = $('#' + sid + '-cloned');
 
+    $selected_options = [];
     if ($cloned_select.length) {
       $select.find('option, optgroup').remove();
       $('#improvedselect-' + sid + ' .improvedselect_sel li', context).each(function() {
         var $li = $(this);
+        $selected_options.push($li.attr('so'));
         $select.append($('<option></option>').attr('value', $li.attr('so')).attr('selected', 'selected').text($li.text()));
       });
       // Now that the select has the options in the correct order, use the
       // cloned select for resetting the ul values.
       $select = $cloned_select;
-      // Select the options in select using ul values.
-      $('#' + sid).val($select);
     }
     else {
       $select.find('option:selected').attr("selected", false);
       $('#improvedselect-' + sid + ' .improvedselect_sel li', context).each(function() {
         $('#' + sid + ' [value="' + $(this).attr('so') + '"]', context).attr("selected", "selected");
+        $selected_options.push($(this).attr('so'));
       });
     }
 
+    $('#' + sid).val($selected_options);
     $select.find('option, optgroup').each(function() {
       $opt = $(this);
       if ($opt[0].tagName == 'OPTGROUP') {

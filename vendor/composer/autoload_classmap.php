@@ -915,6 +915,8 @@ return array(
     'Drupal\\Console\\Command\\Views\\DisableCommand' => $vendorDir . '/drupal/console/src/Command/Views/DisableCommand.php',
     'Drupal\\Console\\Command\\Views\\EnableCommand' => $vendorDir . '/drupal/console/src/Command/Views/EnableCommand.php',
     'Drupal\\Console\\Command\\Views\\PluginsDebugCommand' => $vendorDir . '/drupal/console/src/Command/Views/PluginsDebugCommand.php',
+    'Drupal\\Console\\Composer\\Plugin\\Extender' => $vendorDir . '/drupal/console-extend-plugin/src/Extender.php',
+    'Drupal\\Console\\Composer\\Plugin\\ExtenderManager' => $vendorDir . '/drupal/console-extend-plugin/src/ExtenderManager.php',
     'Drupal\\Console\\Core\\Application' => $vendorDir . '/drupal/console-core/src/Application.php',
     'Drupal\\Console\\Core\\Bootstrap\\DrupalConsoleCore' => $vendorDir . '/drupal/console-core/src/Bootstrap/DrupalConsoleCore.php',
     'Drupal\\Console\\Core\\Command\\AboutCommand' => $vendorDir . '/drupal/console-core/src/Command/AboutCommand.php',

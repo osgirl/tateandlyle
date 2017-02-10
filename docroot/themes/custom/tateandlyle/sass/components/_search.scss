@@ -288,11 +288,12 @@
 .tal-job-search {
   @extend %inner-content-width;
   background: $brand-primary;
-  margin: 30px;
+  margin: 30px auto;
   padding: 36px 22px;
   padding-bottom: 30px;
   @media (min-width: $screen-sm) {
     padding: 28px 30px 87px 28px;
+    position: relative;
   }
   @media (min-width: $screen-md-lg) {
     padding: 28px 30px 60px 28px;
@@ -475,6 +476,7 @@
 
     @media (min-width: $screen-md-lg) {
       display: table-cell;
+      line-height: 1.25;
     }
 
     @media (min-width: $screen-md-lg) {

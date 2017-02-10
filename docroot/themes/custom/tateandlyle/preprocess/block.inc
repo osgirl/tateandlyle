@@ -28,7 +28,7 @@ function tal_preprocess_block_single_item_promo($variables, $block) {
   $variables['overlay_color'] = $block->get('field_bg_color')->value;
 
   if ($is_vertical) {
-    $variables['attributes']['class'] .= ' block--vertical';
+    $variables['attributes']['class'] = ' block--vertical';
   }
 
   if (!empty($icon)) {
@@ -309,6 +309,8 @@ function tal_preprocess_block_dynamic_posts($variables, $block) {
     $tempstore = \Drupal::service('user.private_tempstore')->get('dynamic_post_block');
     $tempstore->set('block', $block);
 
+    // Set current block.
+    $variables['dynamic_posts_id'] = $block->id();
     // Set display type.
     $variables['dynamic_posts']['#display_id'] = 'block_1';
     $variables['dynamic_posts']['#prefix'] = '<div class="tal--dynamic-post-list" id="dynamic-post-list">';

@@ -157,7 +157,7 @@
                 "Acquia search custom multi core": "https://gist.githubusercontent.com/jayakrishnanj/efd2093a3f95b83cbc18aa12630102e6/raw/e9f08b786a9dafda7192297f075ed0e26c9f7e8f/custom-multi-core.patch"
             },
             "drupal/improved_multi_select": {
-                "Only one of the multiple selected options are saved after form submit": "https://www.drupal.org/files/issues/improved_multi_select-2850654-2.patch"
+                "Only one of the multiple selected options are saved after form submit": "https://www.drupal.org/files/issues/improved_multi_select-1.3.x-2850654-7.patch"
             },
             "drupal/simple_menu_icons": {
                 "warning: mb_strlen() expects parameter 1 to be string": "https://www.drupal.org/files/issues/simple_menu_icons_mb_strlen_fix_2762711.patch"

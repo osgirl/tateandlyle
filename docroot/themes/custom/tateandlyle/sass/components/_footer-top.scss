@@ -63,11 +63,15 @@
           }
 
           @media (min-width: $screen-sm) {
-            background-position: 8px center;
+            background-position: 0 center;
             padding-left: 60px;
           }
 
           @media (min-width: $screen-md) {
+            height: 70px;
+          }
+
+          @media (min-width: $screen-md-lg) {
             background-position: 20px center;
             padding-left: 70px;
             height: 70px;

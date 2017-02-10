@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitdb8b321b381d4332d42507973a8eb839
+class ComposerStaticInitfff7aae3467a2ecbb30a37b9e7e5af1b
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -118,6 +118,7 @@ class ComposerStaticInitdb8b321b381d4332d42507973a8eb839
             'Drupal\\Driver\\' => 14,
             'Drupal\\Core\\' => 12,
             'Drupal\\Console\\Core\\' => 20,
+            'Drupal\\Console\\Composer\\Plugin\\' => 31,
             'Drupal\\Console\\' => 15,
             'Drupal\\Component\\' => 17,
             'DrupalComposer\\DrupalScaffold\\' => 30,
@@ -357,6 +358,10 @@ class ComposerStaticInitdb8b321b381d4332d42507973a8eb839
         'Drupal\\Console\\Core\\' => 
         array (
             0 => __DIR__ . '/..' . '/drupal/console-core/src',
+        ),
+        'Drupal\\Console\\Composer\\Plugin\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/drupal/console-extend-plugin/src',
         ),
         'Drupal\\Console\\' => 
         array (
@@ -1481,6 +1486,8 @@ class ComposerStaticInitdb8b321b381d4332d42507973a8eb839
         'Drupal\\Console\\Command\\Views\\DisableCommand' => __DIR__ . '/..' . '/drupal/console/src/Command/Views/DisableCommand.php',
         'Drupal\\Console\\Command\\Views\\EnableCommand' => __DIR__ . '/..' . '/drupal/console/src/Command/Views/EnableCommand.php',
         'Drupal\\Console\\Command\\Views\\PluginsDebugCommand' => __DIR__ . '/..' . '/drupal/console/src/Command/Views/PluginsDebugCommand.php',
+        'Drupal\\Console\\Composer\\Plugin\\Extender' => __DIR__ . '/..' . '/drupal/console-extend-plugin/src/Extender.php',
+        'Drupal\\Console\\Composer\\Plugin\\ExtenderManager' => __DIR__ . '/..' . '/drupal/console-extend-plugin/src/ExtenderManager.php',
         'Drupal\\Console\\Core\\Application' => __DIR__ . '/..' . '/drupal/console-core/src/Application.php',
         'Drupal\\Console\\Core\\Bootstrap\\DrupalConsoleCore' => __DIR__ . '/..' . '/drupal/console-core/src/Bootstrap/DrupalConsoleCore.php',
         'Drupal\\Console\\Core\\Command\\AboutCommand' => __DIR__ . '/..' . '/drupal/console-core/src/Command/AboutCommand.php',
@@ -7069,10 +7076,10 @@ class ComposerStaticInitdb8b321b381d4332d42507973a8eb839
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitdb8b321b381d4332d42507973a8eb839::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitdb8b321b381d4332d42507973a8eb839::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInitdb8b321b381d4332d42507973a8eb839::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInitdb8b321b381d4332d42507973a8eb839::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitfff7aae3467a2ecbb30a37b9e7e5af1b::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitfff7aae3467a2ecbb30a37b9e7e5af1b::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitfff7aae3467a2ecbb30a37b9e7e5af1b::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInitfff7aae3467a2ecbb30a37b9e7e5af1b::$classMap;
 
         }, null, ClassLoader::class);
     }
