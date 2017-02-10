@@ -9080,7 +9080,7 @@
         "dist": {
             "type": "zip",
             "url": "https://ftp.drupal.org/files/projects/contact_storage-8.x-1.0-beta8.zip",
-            "reference": null,
+            "reference": "8.x-1.0-beta8",
             "shasum": "01e9bd402351f02cf6519b841d355a61138e0d0f"
         },
         "require": {
@@ -9682,7 +9682,7 @@
         "dist": {
             "type": "zip",
             "url": "https://ftp.drupal.org/files/projects/improved_multi_select-8.x-1.3.zip",
-            "reference": null,
+            "reference": "8.x-1.3",
             "shasum": "d04b2554c1a853f1f09b7a25a31158628648dc9c"
         },
         "require": {
@@ -10438,7 +10438,7 @@
         "dist": {
             "type": "zip",
             "url": "https://ftp.drupal.org/files/projects/simple_menu_icons-8.x-1.0-beta5.zip",
-            "reference": null,
+            "reference": "8.x-1.0-beta5",
             "shasum": "b91961c92a5be7d4d15b43e7576a2de15976757a"
         },
         "require": {
@@ -10880,7 +10880,7 @@
         "dist": {
             "type": "zip",
             "url": "https://ftp.drupal.org/files/projects/smart_trim-8.x-1.0.zip",
-            "reference": null,
+            "reference": "8.x-1.0",
             "shasum": "14d8ec333c0c89367ac267eceef691417d537daf"
         },
         "require": {
@@ -10961,7 +10961,7 @@
             },
             "drupal": {
                 "version": "8.x-5.0-beta4",
-                "datestamp": "1482752282"
+                "datestamp": "1485776283"
             },
             "patches_applied": {
                 "Preview page: Attach contact form or other form elements": "https://www.drupal.org/files/issues/preview_page_attach-2839834-15.patch"
