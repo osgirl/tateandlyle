@@ -1,7 +1,7 @@
 articles:
-  path: 'articles/list_posts/{tid}'
+  path: 'articles/list_posts/{tid}/{bid}'
   defaults:
     _controller: 'Drupal\tal_articles\Controller\ArticlesController::listPosts'
     _title: 'Posts'
   requirements:
-    _permission: 'access content'
+    _permission: 'access_content'

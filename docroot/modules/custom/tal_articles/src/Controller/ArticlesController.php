@@ -5,6 +5,7 @@ namespace Drupal\tal_articles\Controller;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\ReplaceCommand;
+use Drupal\block_content\Entity\BlockContent;
 
 /**
  * Class ArticlesController.
@@ -16,12 +17,10 @@ class ArticlesController extends ControllerBase {
    *
    * Our router maps this method to the path 'articles/list_posts'.
    */
-  public function listPosts($tid) {
+  public function listPosts($tid, $bid) {
     $response = new AjaxResponse();
     // Get the saved block object for the processing.
-    $tempstore = \Drupal::service('user.private_tempstore')->get('dynamic_post_block');
-    $block = $tempstore->get('block');
-
+    $block = BlockContent::load($bid);
     $categories = $block->get('field_artice')->getValue();
     $terms = [];
 

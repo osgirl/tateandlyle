@@ -46,3 +46,4 @@ permissions:
   - 'administer panelizer node press_release layout'
   - 'access media overview'
   - 'view own unpublished content'
+  - 'access_content'
