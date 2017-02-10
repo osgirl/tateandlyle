@@ -116,7 +116,7 @@ class TalJobSearch extends FormBase {
       // Build query and create url.
       if (!empty($params)) {
         $query = http_build_query($params);
-        $url = !empty($query) ? $url . '?' . $query : $url;
+        $url = !empty($query) ? $url . $query : $url;
       }
       $response = new RedirectResponse($url);
       $response->send();
