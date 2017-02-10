@@ -76,6 +76,7 @@
     a {
       @extend .btn-primary;
       background: transparent;
+      border: 1px solid;
       color: $color-white;
       display: inline;
       padding: 8px 20px;
@@ -87,6 +88,7 @@
       }
 
       &:hover {
+        background: transparent;
         border: 2px solid;
         box-shadow: none;
         color: inherit;
