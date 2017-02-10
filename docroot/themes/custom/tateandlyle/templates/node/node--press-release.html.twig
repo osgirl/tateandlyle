@@ -109,6 +109,11 @@
   <div class="addthis--wrapper">
     <div class="addthis_inline_share_toolbox"></div>
   </div>
+  {% if boilerplate %}
+    <div>
+      {{ boilerplate.content }}
+    </div>
+  {% endif %}
   <div class="row news--articles">
     {% if prev %}
     <div class="col-sm-4 col-xs-6 previous--articles">
@@ -136,11 +141,6 @@
     </div>
     {% endif %}
   </div>
-  {% if boilerplate %}
-    <div>
-        {{ boilerplate.content }}
-    </div>
-  {% endif %}
   {{ content.field_reusable_component }}
 
 </article>
