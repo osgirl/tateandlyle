@@ -147,6 +147,15 @@ function tal_preprocess_block_banner($variables, $block) {
     $variables['#attached']['library'][] = 'tateandlyle/buto-tv-script';
   }
 
+  $image = $block->get('field_bg_image')->referencedEntities();
+  $image = array_shift($image);
+
+  if (isset($image)) {
+    $variables['is_image'] = TRUE;
+    $image_url = file_create_url($image->getFileUri());
+    $variables['style'] = 'background-image: url("' . $image_url . '")';
+  }
+
   return $variables;
 }
 
