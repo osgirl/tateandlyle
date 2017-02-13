@@ -47,6 +47,8 @@ h5 {
   @media (min-width: $screen-md) {
     font-size: $font-size-h1;
     margin: auto;
+    max-width: 1169px;
+    padding-left: 18px;
   }
 }
 
@@ -99,4 +101,10 @@ h5 {
   .active {
     color: $gray-base;
   }
+}
+
+.block-title,
+.region-highlighted .alert {
+  max-width: 1109px;
+  margin: auto;
 }

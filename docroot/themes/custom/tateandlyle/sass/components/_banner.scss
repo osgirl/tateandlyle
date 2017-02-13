@@ -1,6 +1,12 @@
 .block-banner {
   margin-top: 25px;
   margin-bottom: 25px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  @media (max-width: $screen-sm-lsp-max) {
+    background: none !important;
+  }
   @media (min-width: $screen-sm) {
     margin-bottom: 50px;
     margin-top: 50px;
@@ -9,14 +15,13 @@
     margin-right: -30px;
     margin-left: -30px;
   }
-  @media (min-width: $screen-md) {
+  @media (min-width: $screen-md-lg) {
     margin-left: -15.22%;
     margin-right: -15.22%;
   }
 
   .block-banner {
-    margin-top: 0;
-    margin-bottom: 0;
+    margin: 0;
   }
 }
 
@@ -26,48 +31,53 @@
 }
 
 .banner__overlay__block {
-  @media (min-width: $screen-xs) {
+  @media (min-width: $screen-sm-lsp) {
     position: relative;
     min-height: 262px;
   }
   @media (min-width: $screen-sm) {
-    height: 350px;
+    min-height: 350px;
   }
 }
 
-.banner__overlay--background {
-  display: none;
-  @media (min-width: $screen-xs) {
-    display: block;
-  }
-
-  .img-responsive {
-    min-height: 262px;
-    width: 100%;
-    object-fit: cover;
-    @media (min-width: $screen-sm) {
-      height: 350px;
+.block-banner {
+  .banner__overlay--content {
+    max-width: 1169px;
+    margin: auto;
+    position: relative;
+    @media (min-width: $screen-sm-lsp) {
+      display: table;
+      position: relative;
+      width: 100%;
     }
   }
-}
 
-.banner__overlay--content {
   .banner__overlay--left,
   .banner__overlay--right {
-    @media (min-width: $screen-xs) {
-      bottom: 0;
-      position: absolute;
-      top: 0;
+    @media (min-width: $screen-sm-lsp) {
       width: 50%;
+      display: table-cell;
+      vertical-align: middle;
+      font-size: $font-size-base;
+    }
+  }
+
+  .banner__background-overlay {
+    @media (min-width: $screen-sm-lsp) {
+      background: $color-white-translucent;
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      right: 50%;
+      top: 0;
     }
   }
 
   .banner__overlay--left {
-    @media (min-width: $screen-xs) {
-      background: $color-white-translucent;
-      left: 0;
-      right: 50%;
+    @media (min-width: $screen-sm-lsp) {
       padding-top: 40px;
+      padding-bottom: 10px;
+      vertical-align: top;
     }
 
     @media (min-width: $screen-md) {
@@ -80,17 +90,14 @@
   }
 
   .banner__overlay--right {
-    left: 50%;
-    right: 0;
     @media (min-width: $screen-sm) {
       padding-top: 50px;
     }
   }
 
   .banner--inner {
-    @media (min-width: $screen-xs) {
-      width: 80%;
-      margin: auto;
+    @media (min-width: $screen-sm-lsp) {
+      margin: 0 40px;
       max-width: 381px;
     }
   }
@@ -100,7 +107,7 @@
     color: $gray-base;
     font-size: $font-size-h2;
     margin-bottom: 10px;
-    @media (min-width: $screen-xs) {
+    @media (min-width: $screen-sm-lsp) {
       font-size: $font-size-h1-sm;
     }
     @media (min-width: $screen-sm) {
