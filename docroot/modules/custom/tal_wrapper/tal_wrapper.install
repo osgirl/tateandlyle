@@ -312,3 +312,12 @@ function tal_wrapper_update_8217() {
 function tal_wrapper_update_8218() {
   \Drupal::service('module_installer')->install(['smart_trim']);
 }
+
+/**
+ * Delete config of Single item promo with background image, image field.
+ */
+function tal_wrapper_update_8219() {
+
+  $field = FieldStorageConfig::loadByName('block_content', 'field_bg_image');
+  $field->delete();
+}
