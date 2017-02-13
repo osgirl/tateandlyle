@@ -28,7 +28,9 @@
   background-color: $color-white;
   margin-top: 20px;
   @media (min-width: $screen-sm) {
+    margin: auto;
     margin-bottom: 38px;
+    max-width: 1169px;
   }
 
   &.navbar-fixed-top {
@@ -155,10 +157,6 @@
       color: white;
     }
   }
-}
-
-.path-frontpage .region-header {
-  background-color: rgba(147, 156, 161, 0.1);
 }
 
 #block-talmainmenu {
