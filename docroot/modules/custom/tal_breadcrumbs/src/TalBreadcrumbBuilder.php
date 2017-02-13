@@ -66,6 +66,7 @@ class TalBreadcrumbBuilder implements BreadcrumbBuilderInterface {
     // Just adding path of ingredient finder here fixes it's breadcrumb.
     $this->paths = [
       'search/ingredients',
+      'search',
     ];
     $this->menuActiveTrail = $menu_active_trail;
   }
@@ -77,8 +78,6 @@ class TalBreadcrumbBuilder implements BreadcrumbBuilderInterface {
     $title = \Drupal::service('title_resolver')->getTitle(\Drupal::request(), $route_match->getRouteObject());
     $breadcrumb = new Breadcrumb();
 
-    // Set default cache context.
-    $breadcrumb->addCacheContexts(['route']);
     // Set default cacheble dependency.
     $node_object = $route_match->getParameters()->get('node');
     $breadcrumb->addCacheableDependency($node_object);
@@ -110,6 +109,21 @@ class TalBreadcrumbBuilder implements BreadcrumbBuilderInterface {
           $breadcrumb = $this->generateLandingPageBreadcrumb($breadcrumb);
           break;
       }
+    }
+    else {
+      $path = trim($this->context->getPathInfo(), '/');
+      switch ($path) {
+        case 'search/ingredients':
+          $links[] = Link::createFromRoute(t("Ingredient"), 'tal_ingredient_search');
+          break;
+
+        case 'search':
+          $url = Url::fromUserInput('/search');
+          $links[] = Link::fromTextAndUrl(t("Search"), $url);
+          break;
+
+      }
+
     }
     if (!empty($links)) {
       $breadcrumb->setLinks($links);
@@ -153,11 +167,12 @@ class TalBreadcrumbBuilder implements BreadcrumbBuilderInterface {
     $menu_link_manager = \Drupal::service('plugin.manager.menu.link');
     $links = [];
     $result = $menu_link_manager->loadLinksByRoute('entity.node.canonical', array('node' => $this->node->id()));
-    $menu_link = array_shift($result);
-    if (isset($menu_link)) {
+
+    foreach ($result as $menu_link) {
       // Get active trail of the node menu.
       $trail_ids = $this->menuActiveTrail->getActiveTrailIds($menu_link->getMenuName());
       $trail_ids = array_filter($trail_ids);
+      // We don't need last menu item, instead we show node title.
       array_shift($trail_ids);
       // Generate basic breadcrumb trail from active trail.
       // Keep same link ordering as Menu Breadcrumb.
@@ -166,7 +181,9 @@ class TalBreadcrumbBuilder implements BreadcrumbBuilderInterface {
         $breadcrumb->addCacheableDependency($plugin);
         $links[] = Link::fromTextAndUrl($plugin->getTitle(), $plugin->getUrlObject());
       }
+      $breadcrumb->addCacheableDependency($menu_link);
     }
+    $breadcrumb->addCacheTags(['config:system.menu.main-menu']);
     $breadcrumb->setLinks($links);
 
     return $breadcrumb;
