@@ -463,6 +463,7 @@ display:
         pager: false
         style: false
         row: false
+        footer: false
       pager:
         type: some
         options:
@@ -476,6 +477,18 @@ display:
         options:
           relationship: none
           view_mode: articles_in_2_columns
+      footer:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: false
+          content: '<span class="show-all-article"><a href="/articles/all">See all news</a></span>'
+          plugin_id: text_custom
     cache_metadata:
       max-age: -1
       contexts:
