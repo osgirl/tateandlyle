@@ -65,13 +65,17 @@
   }
 
   .field--available-countries-text {
-    border-top: 2px solid $color-warm-gray;
+    border-top: 1px solid $color-warm-gray;
     color: $gray-base;
     font-size: $font-size-h3;
     font-family: $font-family-sans-serif-Med;
+    letter-spacing: -0.9px;
     margin-bottom: 24px;
     margin-top: 30px;
     padding-top: 30px;
+    @media (min-width: $screen-sm) {
+      letter-spacing: normal;
+    }
   }
 
   .common-names {
@@ -91,11 +95,13 @@
     color: $gray-base;
     font-family: $font-family-sans-serif-Med;
     font-size: $font-size-h4;
-    margin-bottom: 2px;
+    margin-bottom: 8px;
     margin-top: 0;
     @media (min-width: $screen-sm) {
       font-family: $font-family-sans-serif;
       font-size: $font-size-h2-l;
+      line-height: 1;
+      margin-bottom: 2px;
     }
 
     @media (min-width: $screen-md) {
@@ -103,17 +109,36 @@
     }
   }
 
+  .in--region-count {
+    @media (max-width: $screen-xs-max) {
+      margin-top: 36px;
+    }
+  }
+
   .field--in-country,
   .field--in-region {
-    margin-top: 24px;
+    margin-top: 8px;
+    font-size: 0;
+    @media (min-width: $screen-sm) {
+      margin-top: 24px;
+    }
 
     ul {
       color: $gray-base;
-      float: left;
+      display: inline-block;
+      font-size: $font-size-base;
       margin: 0;
       padding-left: 20px;
       padding-top: 0;
-      width: 50%;
+      vertical-align: top;
+    }
+  }
+
+  .field--in-country ul {
+    width: 50%;
+    padding-right: 45px;
+    @media (min-width: $screen-sm) {
+      padding-right: 21px;
     }
   }
 
