@@ -167,10 +167,7 @@ function tateandlyle_preprocess_field(&$variables) {
 }
 
 /**
- * Implements hook_preprocess_menu.
- *
- * @param array $variables
- *   Mixed array and object.
+ * Implements hook_preprocess_menu().
  */
 function tateandlyle_preprocess_menu(&$variables) {
   $variables['search_menu'] = [];
@@ -191,9 +188,9 @@ function tateandlyle_preprocess_menu(&$variables) {
 }
 
 /**
- * Implements hook_preprocess_breadcrumb.
+ * Implements hook_preprocess_breadcrumb().
  */
-function tateandlyle_preprocess_breadcrumb(&$variables){
+function tateandlyle_preprocess_breadcrumb(&$variables) {
   $home_link = Link::createFromRoute(t('Home'), '<front>');
   $breadcrumb = $variables['breadcrumb'];
   // We don't need "Home" breadcrumb if no further trails are available.
