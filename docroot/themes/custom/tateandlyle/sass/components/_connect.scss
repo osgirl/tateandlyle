@@ -176,7 +176,7 @@
     .field--name-field-pr-link {
       @media (min-width: $screen-md) {
         position: absolute;
-        bottom: 10%;
+        bottom: 6%;
       }
 
       &::after {
@@ -359,6 +359,8 @@
   .field--name-field-all-jobs-link {
     @media (min-width: $screen-md) {
       margin-top: 35px;
+      position: absolute;
+      bottom: 7%;
     }
     a {
       @extend .btn-white;
