@@ -546,24 +546,38 @@
   }
 }
 
+header.navbar-default {
+  min-height: 0;
+  margin-bottom: 0;
+}
+
 #block-mainnavigation {
   display: none;
   clear: both;
+
   @media (min-width: $screen-sm) {
     display: block;
   }
-  .navbar-toggle {
-    display: none;
-  }
+
   @media (min-width: $screen-md-lg) {
     clear: none;
     float: right;
   }
-  .navbar.navbar-default {
-    margin-bottom: 0;
+
+  .navbar-toggle {
+    display: none;
   }
-  #navbar3 {
+
+  .navbar {
     background: white;
+    margin-bottom: 0;
+    padding: 15px 18px;
+    min-height: 0;
+
+    @media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+      padding-left: 0;
+    }
+
     .navbar-nav li {
       border-bottom: 1px solid $color-light-gray;
       @media (min-width: $screen-sm) {
@@ -571,11 +585,13 @@
       }
       a {
         text-transform: uppercase;
-        font-size: 14px;
+        font-family: $font-family-sans-serif-Med;
+        font-size: $font-size-small;
         padding-top: 13px;
         padding-bottom: 13px;
         @media (min-width: $screen-sm) {
-          padding-top: 0px;
+          line-height: 1;
+          padding-top: 2px;
           padding-bottom: 3px;
         }
         &:hover {
@@ -593,16 +609,27 @@
 .logo.navbar-btn {
   width: 100%;
   top: 0;
+  margin-bottom: 0;
   margin-top: 0;
-  padding: 23px 30px;
+  padding: 20px 30px;
   z-index: 9999;
   left: 0;
   background: white;
+
   @media (min-width: $screen-sm) {
     margin-top: 0;
     margin-left: 0;
+    padding: 12px 18px;
     width: auto;
     padding: 23px 30px 23px 15px;
+  }
+
+  @media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+    padding-left: 0;
+  }
+
+  @media (min-width: $screen-md-lg) {
+    padding: 15px 18px;
   }
 }
 
