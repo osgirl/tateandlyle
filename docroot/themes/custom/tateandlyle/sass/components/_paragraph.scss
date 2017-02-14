@@ -51,15 +51,6 @@
     @extend %border__block--title;
   }
 
-  strong {
-    color: $gray-base;
-    font-family: $font-family-sans-serif;
-    font-size: $font-size-h4;
-    @media (min-width: $screen-sm) {
-      font-size: $font-size-h3;
-    }
-  }
-
   p {
     clear: left;
   }
