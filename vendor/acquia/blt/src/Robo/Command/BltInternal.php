@@ -2,7 +2,9 @@
 
 namespace Acquia\Blt\Robo\Command;
 
-use Robo\Tasks;
+use Acquia\Blt\Robo\BltTasks;
+use Acquia\Blt\Robo\Common\BltIO;
+use Acquia\Blt\Robo\Common\LocalEnvironmentValidator;
 use GuzzleHttp\Client;
 
 /**
@@ -10,23 +12,26 @@ use GuzzleHttp\Client;
  *
  * @see http://robo.li/
  */
-class BltInternal extends Tasks
-{
+class BltInternal extends BltTasks {
+
+  use LocalEnvironmentValidator;
 
   /**
    * Generates release notes and cuts a new tag on GitHub.
    *
    * @command blt:release
    *
-   * @param string $tag The tag name. E.g, 8.6.10
-   * @param string $github_token A github access token
+   * @param string $tag
+   *   The tag name. E.g, 8.6.10.
+   * @param string $github_token
+   *   A github access token.
+   *
+   * @option $update-changelog Update CHANGELOG.md. Defaults to true.
    *
    * @return int
    *   The CLI status code.
    */
-  public function bltRelease($tag, $github_token)
-  {
-
+  public function bltRelease($tag, $github_token, $opts = ['update-changelog' => TRUE]) {
     $requirements_met = $this->checkCommandsExist([
       'git',
       'github_changelog_generator',
@@ -36,9 +41,12 @@ class BltInternal extends Tasks
     }
 
     // @todo Check to see if git branch is dirty.
-    $this->say("This will do the following:");
-    $this->say("- <error>Destroy any uncommitted work on the current branch.</error>");
-    $this->say("- <error>Hard reset 8.x and 8.x-release to match the upstream history.</error>");
+    $this->warn("Please run all release tests before executing this command!");
+    $this->say("To run release tests, execute ./scripts/blt/pre-release-tests.sh");
+    $this->output()->writeln('');
+    $this->say("Continuing will do the following:");
+    $this->say("- <comment>Destroy any uncommitted work on the current branch.</comment>");
+    $this->say("- <comment>Hard reset 8.x and 8.x-release to match the upstream history.</comment>");
     $this->say("- Merge 8.x into 8.x-release");
     $this->say("- Push 8.x-release to origin");
     $this->say("- Create a $tag release in GitHub with release notes");
@@ -47,40 +55,72 @@ class BltInternal extends Tasks
     if (!$continue) {
       return 0;
     }
-      // Clean up all staged and unstaged files on current branch.
-      $this->_exec('git clean -fd .');
-      $this->_exec('git remote update');
-      // @todo Check to see if branch doesn't match, confirm with dialog.
-      $this->_exec('git reset --hard');
+    // Clean up all staged and unstaged files on current branch.
+    $this->_exec('git clean -fd .');
+    $this->_exec('git remote update');
+    // @todo Check to see if branch doesn't match, confirm with dialog.
+    $this->_exec('git reset --hard');
 
-      // Reset local 8.x to match upstream history of 8.x.
-      $this->_exec('git checkout 8.x');
-      // @todo Check to see if branch doesn't match, confirm with dialog.
-      $this->_exec('git reset --hard origin/8.x');
+    // Reset local 8.x to match upstream history of 8.x.
+    $this->_exec('git checkout 8.x');
+    // @todo Check to see if branch doesn't match, confirm with dialog.
+    $this->_exec('git reset --hard origin/8.x');
 
-      // Reset local 8.x-release to match upstream history of 8.x-release.
-      $this->_exec('git checkout 8.x-release');
-      // @todo Check to see if branch doesn't match, confirm with dialog.
-      $this->_exec('git reset --hard origin/8.x-release');
+    if (!$tag_release_notes = $this->generateReleaseNotes($tag, $github_token)) {
+      $this->yell("Failed to generate release notes.");
+      return 1;
+    }
 
-      // Merge 8.x into 8.x-release and push.
-      $this->_exec('git merge 8.x');
-      $this->_exec('git push origin 8.x-release');
+    if ($opts['update-changelog']) {
+      $this->updateChangelog($tag, $tag_release_notes);
+      $this->say("<comment>If you continue, this commit will be pushed upstream and a release will be created.</comment>");
+      $continue = $this->confirm("Continue?");
+      if (!$continue) {
+        $this->_exec("git reset --hard HEAD~1");
+        return 0;
+      }
+    }
 
-      $partial_release_notes = $this->generateReleaseNotes($tag, $github_token);
-      $trimmed_release_notes = $this->trimStartingLines($partial_release_notes, 3);
+    // Push the change upstream.
+    $this->_exec("git push origin 8.x");
 
-      $request_payload = [
-        'tag_name' => $tag,
-        'name' => $tag,
-        'target_commitish' => '8.x-release',
-        'body' => $trimmed_release_notes,
-        'draft' => true,
-        'prerelease' => true,
-      ];
+    // Reset local 8.x-release to match upstream history of 8.x-release.
+    $this->_exec('git checkout 8.x-release');
+    // @todo Check to see if branch doesn't match, confirm with dialog.
+    $this->_exec('git reset --hard origin/8.x-release');
+
+    // Merge 8.x into 8.x-release and push.
+    $this->_exec('git merge 8.x');
+    $this->_exec('git push origin 8.x-release');
+
+    $this->createGitHubRelease($tag, $github_token, $tag_release_notes);
+
+    return 0;
+  }
+
+  /**
+   * Create a new release on GitHub.
+   *
+   * @param string $tag
+   *   The tag name. E.g, 8.6.10.
+   * @param string $github_token
+   *   A github access token.
+   * @param string $tag_release_notes
+   *
+   *   The release notes for this specific tag.
+   */
+  protected function createGitHubRelease($tag, $github_token, $tag_release_notes) {
+    $request_payload = [
+      'tag_name' => $tag,
+      'name' => $tag,
+      'target_commitish' => '8.x-release',
+      'body' => $this->trimStartingLines($tag_release_notes, 3),
+      'draft' => TRUE,
+      'prerelease' => TRUE,
+    ];
 
     $client = new Client([
-      // Base URI is used with relative requests
+      // Base URI is used with relative requests.
       'base_uri' => 'https://api.github.com/repos/acquia/blt/',
       'query' => [
         'access_token' => $github_token,
@@ -103,8 +143,10 @@ class BltInternal extends Tasks
   /**
    * Update CHANGELOG.md with notes for new release.
    *
-   * @param string $tag The tag name. E.g, 8.6.10
-   * @param string $github_token A github access token
+   * @param string $tag
+   *   The tag name. E.g, 8.6.10.
+   * @param string $github_token
+   *   A github access token.
    *
    * @return int
    *   The CLI status code.
@@ -126,24 +168,33 @@ class BltInternal extends Tasks
       return 0;
     }
 
-    if (!$trimmed_partial_changelog = $this->generateReleaseNotes($tag, $github_token)) {
+    if (!$tag_release_notes = $this->generateReleaseNotes($tag, $github_token)) {
       $this->yell("Failed to generate release notes");
       return 1;
     }
 
+    $this->updateChangelog($tag, $tag_release_notes);
+
+    return 0;
+  }
+
+  /**
+   * @param $tag_release_notes
+   */
+  protected function updateChangelog($tag, $tag_release_notes) {
     // Remove first 4 lines from full changelog.
     $full_changelog_filename = 'CHANGELOG.md';
     $full_changelog = file_get_contents($full_changelog_filename);
     $trimmed_full_changelog = $this->trimStartingLines($full_changelog, 1);
 
-    $new_full_changelog = $trimmed_partial_changelog . $trimmed_full_changelog;
+    $new_full_changelog = $tag_release_notes . $trimmed_full_changelog;
     file_put_contents($full_changelog_filename, $new_full_changelog);
 
     $this->say("$full_changelog_filename has been updated and committed. Please push to origin.");
     $this->_exec("git add $full_changelog_filename");
     $this->_exec("git commit -m 'Updating $full_changelog_filename with $tag release notes.'");
-
-    return 0;
+    $this->yell("Release notes for $tag were added and committed to CHANGELOG.md. Please review the commit:");
+    $this->_exec("git show");
   }
 
   /**
@@ -171,60 +222,4 @@ class BltInternal extends Tasks
     return $trimmed_partial_changelog;
   }
 
-  /**
-   * Trims the last $num_lines lines from end of a text string.
-   *
-   * @param string $text A string of text.
-   * @param int $num_lines The number of lines to trim from the end of the text.
-   *
-   * @return string
-   *   The trimmed text.
-   */
-  protected function trimEndingLines($text, $num_lines) {
-    return implode("\n", array_slice(explode("\n", $text), 0, sizeof($text) - $num_lines));
-  }
-
-  /**
-   * Trims the last $num_lines lines from beginning of a text string.
-   *
-   * @param string $text A string of text.
-   * @param int $num_lines The number of lines to trim from beginning of text.
-   *
-   * @return string
-   *   The trimmed text.
-   */
-  protected function trimStartingLines($text, $num_lines) {
-    return implode("\n", array_slice(explode("\n", $text), $num_lines));
-  }
-
-    /**
-     * Check if an array of commands exists on the system.
-     *
-     * @param $commands array An array of command binaries.
-     *
-     * @return bool
-     *   TRUE if all commands exist, otherwise FALSE.
-     */
-    protected function checkCommandsExist($commands) {
-      foreach ($commands as $command) {
-        if (!$this->commandExists($command)) {
-          $this->yell("Unable to find '$command' command!");
-          return FALSE;
-        }
-      }
-
-      return TRUE;
-    }
-
-    /**
-     * Checks if a given command exists on the system.
-     *
-     * @param $command string the command binary only. E.g., "drush" or "php".
-     *
-     * @return bool
-     *   TRUE if the command exists, otherwise FALSE.
-     */
-    protected function commandExists($command) {
-      return $this->taskExec("command -v $command >/dev/null 2>&1")->run()->wasSuccessful();
-    }
 }

@@ -101,6 +101,7 @@
                format="pretty,junit"
                path="${behat.path}"
                tags="${behat.tags}"
+               extra="${behat.extra}"
         />
         <if>
           <!-- A non-zero returns status indicates failure. -->
@@ -246,7 +247,6 @@
         <fileset dir="${repo.root}/tests/phpunit">
           <include name="**/*Test*.php"/>
         </fileset>
-        <fileset dir="${blt.root}/tests/phpunit/BltProject"/>
       </batchtest>
     </phpunit>
     <phpunitreport infile="${reports.localDir}/phpunit/testsuites.xml" format="noframes" todir="${reports.localDir}/phpunit" />
