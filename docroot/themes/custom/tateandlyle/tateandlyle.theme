@@ -83,10 +83,15 @@ function tateandlyle_preprocess_paragraph(&$variables) {
  */
 function tateandlyle_preprocess_page_title(&$variables) {
   $node = \Drupal::routeMatch()->getParameter('node');
-  if ($node && $node->bundle() == 'ingredient') {
+  $bundle = ['ingredient', 'landing_page'];
+  $field_in_banner = $node->get('field_in_banner');
+  if ($node && in_array($node->bundle(), $bundle)) {
     if ($node->get('field_hide_title')->value) {
       $variables['title_attributes']['class'][] = 'hide';
     }
+  }
+  elseif (!empty($field_in_banner)) {
+    $variables['title_attributes']['class'][] = 'hide';
   }
 }
 

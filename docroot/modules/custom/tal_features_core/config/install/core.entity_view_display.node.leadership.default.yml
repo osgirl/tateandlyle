@@ -4,6 +4,7 @@ dependencies:
   config:
     - field.field.node.leadership.field_bio
     - field.field.node.leadership.field_designation
+    - field.field.node.leadership.field_in_banner
     - field.field.node.leadership.field_profile_picture
     - field.field.node.leadership.field_team_type
     - image.style.quote_167_x_167
@@ -37,6 +38,14 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+  field_in_banner:
+    weight: 0
+    label: hidden
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
+    type: entity_reference_entity_view
   field_profile_picture:
     weight: 2
     label: hidden
@@ -50,7 +59,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   workbench_moderation_control:
-    weight: 0
+    weight: 5
     settings: {  }
     third_party_settings: {  }
 hidden:

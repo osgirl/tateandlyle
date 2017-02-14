@@ -5,6 +5,7 @@ dependencies:
     - entity_browser.browser.image_browser
     - field.field.node.leadership.field_bio
     - field.field.node.leadership.field_designation
+    - field.field.node.leadership.field_in_banner
     - field.field.node.leadership.field_profile_picture
     - field.field.node.leadership.field_team_type
     - node.type.leadership
@@ -20,26 +21,34 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 10
+    weight: 3
     settings: {  }
     third_party_settings: {  }
   field_bio:
-    weight: 35
+    weight: 10
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
     type: text_textarea
   field_designation:
-    weight: 32
+    weight: 8
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+  field_in_banner:
+    weight: 0
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
   field_profile_picture:
     type: entity_browser_file
-    weight: 31
+    weight: 7
     settings:
       entity_browser: image_browser
       field_widget_edit: true
@@ -50,37 +59,37 @@ content:
       selection_mode: selection_append
     third_party_settings: {  }
   field_team_type:
-    weight: 34
+    weight: 9
     settings: {  }
     third_party_settings: {  }
     type: options_select
   path:
     type: path
-    weight: 30
+    weight: 6
     settings: {  }
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 15
+    weight: 4
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 16
+    weight: 5
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: -5
+    weight: 1
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 5
+    weight: 2
     settings:
       match_operator: CONTAINS
       size: 60
