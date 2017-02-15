@@ -106,14 +106,14 @@
       {{ content.field_downloads }}
     </div>
   {% endif %}
+    {% if boilerplate %}
+      <div class="press__release--boilerplate">
+          {{ boilerplate.content }}
+      </div>
+    {% endif %}
   <div class="addthis--wrapper">
     <div class="addthis_inline_share_toolbox"></div>
   </div>
-  {% if boilerplate %}
-    <div class="press__release--boilerplate">
-      {{ boilerplate.content }}
-    </div>
-  {% endif %}
   <div class="row news--articles">
     {% if prev %}
     <div class="col-sm-4 col-xs-6 previous--articles">
