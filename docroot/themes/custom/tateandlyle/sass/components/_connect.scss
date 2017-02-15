@@ -176,7 +176,7 @@
     .field--name-field-pr-link {
       @media (min-width: $screen-md) {
         position: absolute;
-        bottom: 6%;
+        bottom: 4%;
       }
 
       &::after {
@@ -360,7 +360,7 @@
     @media (min-width: $screen-md) {
       margin-top: 35px;
       position: absolute;
-      bottom: 7%;
+      bottom: 5%;
     }
     a {
       @extend .btn-white;
