@@ -88,8 +88,8 @@
   }
 
   .banner__overlay--right {
-    @media (min-width: $screen-sm) {
-      padding-top: 50px;
+    @media (min-width: $screen-md) {
+      padding-top: 40px;
     }
   }
 

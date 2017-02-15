@@ -39,6 +39,10 @@
       $("#block-talmainmenu .dropdown").on("click", function () {
         $(this).find(".dropdown-toggle").removeAttr("data-toggle").trigger("click");
       });
+
+      $(".navbar-head .navbar-toggle").on("click", function () {
+        $("body").toggleClass("black__overlay");
+      });
     }
   };
 
@@ -210,15 +214,16 @@
   Drupal.behaviors.dynamicPost = {
     attach: function (context) {
       $("body").once(".tal-dynamic").each(function () {
-        var id = '';
-        var href ='';
+        var id = "";
+        var href = "";
+
         id = jQuery("div[data-id]", context).attr("data-id");
-        jQuery(".view-focus-on-tag-list .views-row .use-ajax-link", context).each(function(){
-          href = $(this).attr('href');
-          href = href + '/' + id;
-          $(this).attr('href', href);
+        jQuery(".view-focus-on-tag-list .views-row .use-ajax-link", context).each(function () {
+          href = $(this).attr("href");
+          href = href + "/" + id;
+          $(this).attr("href", href);
         });
-          Drupal.reattach_ajax_behaviors(context);
+        Drupal.reattach_ajax_behaviors(context);
       });
     }
   };
@@ -245,22 +250,24 @@
   /**
    * Javascript function to reattach ajax behaviors.
    */
+  // Bind Ajax behaviors to all items showing the class.
   Drupal.reattach_ajax_behaviors = function (context) {
-    // Bind Ajax behaviors to all items showing the class.
-    $('.use-ajax-link', context).once('tal-ajax').each(function () {
+    $(".use-ajax-link", context).once("tal-ajax").each(function () {
       var element_settings = {};
+
       // Clicked links look better with the throbber than the progress bar.
-      element_settings.progress = {type: 'throbber'};
-       // For anchor tags, these will go to the target of the anchor rather
+      element_settings.progress = { type: "throbber" };
+      var href = $(this).attr("href");
+
+      // For anchor tags, these will go to the target of the anchor rather
       // than the usual location.
-      var href = $(this).attr('href');
       if (href) {
         element_settings.url = href;
-        element_settings.event = 'click';
+        element_settings.event = "click";
       }
-      element_settings.dialogType = $(this).data('dialog-type');
-      element_settings.dialog = $(this).data('dialog-options');
-      element_settings.base = $(this).attr('id');
+      element_settings.dialogType = $(this).data("dialog-type");
+      element_settings.dialog = $(this).data("dialog-options");
+      element_settings.base = $(this).attr("id");
       element_settings.element = this;
       Drupal.ajax(element_settings);
     });
