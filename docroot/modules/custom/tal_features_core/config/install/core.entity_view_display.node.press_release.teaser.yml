@@ -11,13 +11,14 @@ dependencies:
     - field.field.node.press_release.field_downloads_border_title
     - field.field.node.press_release.field_image
     - field.field.node.press_release.field_image_size
+    - field.field.node.press_release.field_in_banner
     - field.field.node.press_release.field_reusable_component
     - field.field.node.press_release.field_story_description
     - field.field.node.press_release.field_tags
     - node.type.press_release
   module:
-    - colorbox
     - datetime
+    - image
     - options
     - panelizer
     - smart_trim
@@ -38,7 +39,7 @@ content:
     type: smart_trim
     weight: 4
     settings:
-      trim_length: '600'
+      trim_length: '400'
       trim_type: chars
       trim_suffix: ''
       more_link: '0'
@@ -64,17 +65,12 @@ content:
       date_format: 'd F Y'
     third_party_settings: {  }
   field_image:
-    type: colorbox
+    type: image
     weight: 2
     label: hidden
     settings:
-      colorbox_node_style: ''
-      colorbox_node_style_first: ''
-      colorbox_image_style: ''
-      colorbox_gallery: post
-      colorbox_gallery_custom: ''
-      colorbox_caption: auto
-      colorbox_caption_custom: ''
+      image_style: ''
+      image_link: ''
     third_party_settings: {  }
   field_image_size:
     type: list_key
@@ -90,6 +86,7 @@ hidden:
   field_author: true
   field_downloads: true
   field_downloads_border_title: true
+  field_in_banner: true
   field_reusable_component: true
   field_story_description: true
   field_tags: true
