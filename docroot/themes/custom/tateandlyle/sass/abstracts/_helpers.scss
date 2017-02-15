@@ -64,3 +64,26 @@
     width: 23px;
   }
 }
+
+#block-mobile-menu {
+  .glyphicon-search::after {
+    background: url("../images/icons/iconsearch-black.svg") no-repeat;
+    background-size: cover;
+    height: 20px;
+  }
+
+  .glyphicon-remove {
+    &::before {
+      content: none;
+    }
+
+    &::after {
+      background: url("../images/icons/iconclose-black.png") no-repeat center;
+      background-size: cover;
+      content: " ";
+      display: inline-block;
+      height: 23px;
+      width: 23px;
+    }
+  }
+}

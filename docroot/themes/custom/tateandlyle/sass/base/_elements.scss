@@ -6,7 +6,6 @@ body {
 
 body {
   overflow-x: hidden;
-  margin-top: 89px;
   @media (min-width: $screen-sm) {
     margin-top: 12px;
   }
@@ -33,6 +32,10 @@ h5 {
 
 .main-container {
   padding: 0 30px;
+  margin-top: 62px;
+  @media (min-width: $screen-sm) {
+    margin-top: 0;
+  }
   @media (min-width: $screen-lg) {
     max-width: 81.47%;
     margin: auto;
@@ -119,7 +122,23 @@ h5 {
 }
 
 .region-content-top,
+.view-frontpage,
 .breadcrumb {
+  float: none;
   max-width: 1169px;
   margin: auto;
+}
+
+.black__overlay {
+  position: relative;
+  &::after {
+    background: rgba(0, 0, 0, 0.2);
+    content: " ";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 998;
+  }
 }
