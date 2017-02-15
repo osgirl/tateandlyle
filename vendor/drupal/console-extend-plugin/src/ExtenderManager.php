@@ -76,20 +76,20 @@ class ExtenderManager
                 $bootstrap = 'install';
                 foreach ($definition['tags'] as $tags) {
                     if (!array_key_exists('name', $tags)) {
+                        $bootstrap = null;
                         continue;
                     }
-
+                    if ($tags['name'] != 'drupal.command') {
+                        $bootstrap = null;
+                        continue;
+                    }
                     if (array_key_exists('bootstrap', $tags)) {
                         $bootstrap = $tags['bootstrap'];
                     }
                 }
-
-                $packageService[$bootstrap]['services'][$key] = $definition;
-
-                $this->servicesData = array_merge_recursive(
-                    $packageService,
-                    $this->servicesData
-                );
+                if ($bootstrap) {
+                    $this->servicesData[$bootstrap]['services'][$key] = $definition;
+                }
             }
         }
     }
