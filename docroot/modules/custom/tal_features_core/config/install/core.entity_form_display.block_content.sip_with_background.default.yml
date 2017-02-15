@@ -6,8 +6,8 @@ dependencies:
     - entity_browser.browser.image_browser
     - field.field.block_content.sip_with_background.body
     - field.field.block_content.sip_with_background.field_bg_color
-    - field.field.block_content.sip_with_background.field_bg_image
     - field.field.block_content.sip_with_background.field_read_more
+    - field.field.block_content.sip_with_background.field_sip_bg_image
     - field.field.block_content.sip_with_background.field_sip_icon
     - field.field.block_content.sip_with_background.field_tal_link
     - field.field.block_content.sip_with_background.field_title
@@ -30,13 +30,20 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_bg_color:
-    weight: 5
+    weight: 4
     settings: {  }
     third_party_settings: {  }
     type: options_select
-  field_bg_image:
+  field_read_more:
+    weight: 7
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+  field_sip_bg_image:
     type: entity_browser_file
-    weight: 4
+    weight: 5
     settings:
       entity_browser: image_browser
       field_widget_edit: true
@@ -46,13 +53,6 @@ content:
       open: true
       selection_mode: selection_append
     third_party_settings: {  }
-  field_read_more:
-    weight: 7
-    settings:
-      placeholder_url: ''
-      placeholder_title: ''
-    third_party_settings: {  }
-    type: link_default
   field_sip_icon:
     type: entity_browser_file
     weight: 3
