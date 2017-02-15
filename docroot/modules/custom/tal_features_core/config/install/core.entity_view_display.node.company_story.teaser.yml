@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.company_story.field_downloads_border_title
     - field.field.node.company_story.field_image
     - field.field.node.company_story.field_image_size
+    - field.field.node.company_story.field_in_banner
     - field.field.node.company_story.field_ingredient
     - field.field.node.company_story.field_reusable_component
     - field.field.node.company_story.field_story_description
@@ -39,7 +40,7 @@ content:
     weight: 4
     label: hidden
     settings:
-      trim_length: '200'
+      trim_length: '400'
       trim_type: chars
       trim_suffix: ''
       more_link: '0'
@@ -86,6 +87,7 @@ hidden:
   field_author: true
   field_downloads: true
   field_downloads_border_title: true
+  field_in_banner: true
   field_ingredient: true
   field_reusable_component: true
   field_story_description: true
