@@ -404,7 +404,7 @@ function tal_preprocess_block_sip_with_background($variables, $block) {
   $background_color_content = $block->get('field_bg_color')->getValue();
   $background_color_content = array_shift($background_color_content);
 
-  $image = $block->get('field_bg_image')->referencedEntities();
+  $image = $block->get('field_sip_bg_image')->referencedEntities();
   $image = array_shift($image);
   if (isset($image)) {
     $image_url = file_create_url($image->getFileUri());
