@@ -145,6 +145,22 @@
         @media (min-width: $screen-md-lg) {
           font-size: $font-size-h3;
         }
+
+        &::-webkit-input-placeholder {
+          color: $gray-base;
+        }
+
+        &::-moz-placeholder {
+          color: $gray-base;
+        }
+
+        &:-ms-input-placeholder {
+          color: $gray-base;
+        }
+
+        &:-moz-placeholder {
+          color: $gray-base;
+        }
       }
 
       .form-submit {
