@@ -97,7 +97,7 @@
     }
 
     @media (min-width: $screen-md) {
-      font-size: $font-size-h1;
+      font-size: 38px;
     }
   }
 
@@ -251,13 +251,22 @@
 .ingredient {
   .paragraph--show-border {
     margin-bottom: 0;
+    margin-top: 0;
+    @media (min-width: $screen-sm) {
+      margin-top: 20px;
+    }
+    @media (min-width: $screen-md-lg) {
+      margin-top: 40px;
+    }
     .title {
       margin-bottom: 10px;
       @media (min-width: $screen-sm) {
         margin-bottom: 15px;
+        font-size: 24px;
       }
       @media (min-width: $screen-lg) {
         margin-bottom: 55px;
+        font-size: 30px;
       }
     }
   }
