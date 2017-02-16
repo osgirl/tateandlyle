@@ -43,13 +43,13 @@ third_party_settings:
         - field_featured_links
       parent_name: ''
       weight: 3
-      label: 'Feattured Content'
+      label: 'Featured Content'
       format_type: fieldset
       format_settings:
-        description: ''
-        classes: ''
-        id: ''
+        label: 'Featured Content'
         required_fields: true
+        id: ''
+        classes: ''
     group_details:
       children:
         - field_content_details
