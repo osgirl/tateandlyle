@@ -52,6 +52,14 @@
     }
   };
 
+  Drupal.behaviors.movetitle = {
+    attach: function () {
+      if ($(".block--single-item-promo-background").hasClass("block__sip--nobackground")) {
+        $(".block__sip--nobackground .block-title").prependTo(".block__sip--nobackground");
+      }
+    }
+  };
+
   Drupal.behaviors.changeToggle = {
     attach: function () {
       $("#changetoggle").click(function () {
@@ -263,5 +271,5 @@
       element_settings.element = this;
       Drupal.ajax(element_settings);
     });
-  }
+  };
 })(jQuery, Drupal);

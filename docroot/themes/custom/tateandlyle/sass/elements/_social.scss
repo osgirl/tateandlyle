@@ -13,3 +13,123 @@
     padding: 7px;
   }
 }
+
+.social__connect ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  width: 100%;
+  border: 1px solid $color-warm-gray;
+  border-bottom: 3px solid $brand-primary;
+
+  @media (min-width: $screen-sm) {
+    border-bottom: 2px solid $brand-primary;
+    border-left: 0;
+    display: table;
+  }
+
+  @media (min-width: $screen-md) {
+    border-bottom: 3px solid $brand-primary;
+  }
+}
+
+.social__connect li {
+  @media (min-width: $screen-sm) {
+    display: table-cell;
+    width: 33%;
+    text-align: center;
+    position: relative;
+  }
+
+  &:nth-child(2) {
+    border-bottom: 3px solid $brand-primary;
+
+    @media (min-width: $screen-sm) {
+      border-bottom: none;
+    }
+
+    &::after {
+      @media (min-width: $screen-sm) {
+        content: "";
+        background: $color-warm-gray;
+        top: 12px;
+        width: 1px;
+        height: 87px;
+        display: block;
+        position: absolute;
+        right: 0;
+        left: auto;
+      }
+
+      @media (min-width: $screen-md) {
+        top: 21px;
+        height: 48px;
+      }
+    }
+  }
+
+  a {
+    display: block;
+    padding: 30px 30px 33px 31px;
+
+    @media (min-width: $screen-sm) {
+      padding: 20px;
+      padding-bottom: 24px;
+    }
+
+    @media (min-width: $screen-md) {
+      padding: 25px;
+    }
+
+    &::after {
+      @extend %right-brand-arrow;
+    }
+  }
+
+  img {
+    display: inline-block;
+    vertical-align: middle;
+    max-width: 40px;
+    margin-right: 20px;
+
+    @media (min-width: $screen-sm) {
+      display: block;
+      margin: auto;
+      margin-bottom: 4px;
+    }
+
+    @media (min-width: $screen-md) {
+      display: inline-block;
+      margin-bottom: 0;
+      margin-right: 20px;
+    }
+  }
+}
+
+.social__connect {
+  margin: 25px 0;
+
+  .social__connect--title {
+    background: $brand-primary;
+    padding: 25px;
+    padding-left: 31px;
+    margin: -1px;
+
+    @media (min-width: $screen-sm) {
+      padding: 20px;
+      margin: auto;
+    }
+
+    @media (min-width: $screen-md) {
+      text-align: left;
+      padding-left: 30px;
+    }
+
+    h3 {
+      color: $color-white;
+      display: inline-block;
+      margin: 0;
+      margin-left: 9px;
+    }
+  }
+}

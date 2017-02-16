@@ -94,9 +94,9 @@
     }
     .btn-primary {
       margin-top: -1em;
-       @media (min-width: $screen-sm) {
-         margin-top: 0;
-       }
+      @media (min-width: $screen-sm) {
+        margin-top: 0;
+      }
     }
   }
 

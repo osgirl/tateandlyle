@@ -347,7 +347,7 @@
       @media (min-width: $screen-sm) {
         margin-top: 0;
       }
-      &:before {
+      &::before {
         background-color: black;
         content: " ";
         display: block;
@@ -355,7 +355,7 @@
         width: 30px;
         height: 1px;
       }
-      &:before {
+      &::before {
         @media (min-width: $screen-sm) {
           margin-top: 0;
           height: 0;
@@ -365,7 +365,7 @@
     h2.title {
       font-size: 24px;
       margin-left: 0;
-      padding: 0 0 0.50em;
+      padding: 0 0 0.5em;
       @media (min-width: $screen-md-lg) {
         margin-left: 13px;
       }
