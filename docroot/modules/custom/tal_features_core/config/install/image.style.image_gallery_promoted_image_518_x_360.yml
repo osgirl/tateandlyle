@@ -2,7 +2,7 @@ langcode: en
 status: true
 dependencies: {  }
 name: image_gallery_promoted_image_518_x_360
-label: 'Image Gallery : Promoted Image 583 x 405'
+label: 'Image Gallery : Promoted Image 583 x 360'
 effects:
   82a67f3e-9012-4862-b11e-04fa7cd38a95:
     uuid: 82a67f3e-9012-4862-b11e-04fa7cd38a95
@@ -10,4 +10,4 @@ effects:
     weight: 2
     data:
       width: 583
-      height: 405
+      height: 360

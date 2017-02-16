@@ -56,7 +56,12 @@
     'clearfix',
   ]
 %}
-<section{{ attributes.addClass(classes) }}">
+<section{{ attributes.addClass(classes) }}>
+    {{ title_prefix }}
+    {% if label %}
+        <h2{{ title_attributes.addClass('block-title') }}>{{ label }}</h2>
+    {% endif %}
+    {{ title_suffix }}
     <div class="item__promo">
         {% if is_image %}
             <div class="block-image item__promo--component">{{ content.field_sip_image }}</div>

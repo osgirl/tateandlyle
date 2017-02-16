@@ -56,6 +56,11 @@
 %}
 
 <section{{ attributes.addClass(classes) }} style="{{ style }}">
+  {{ title_prefix }}
+  {% if label %}
+    <h2{{ title_attributes.addClass('block-title') }}>{{ label }}</h2>
+  {% endif %}
+  {{ title_suffix }}
   {% block content %}
   <div class="banner__overlay__block">
 

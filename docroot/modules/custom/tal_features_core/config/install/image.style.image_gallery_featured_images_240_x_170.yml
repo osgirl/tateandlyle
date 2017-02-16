@@ -2,7 +2,7 @@ langcode: en
 status: true
 dependencies: {  }
 name: image_gallery_featured_images_240_x_170
-label: 'Image Gallery : Featured Images 271 x 188'
+label: 'Image Gallery : Featured Images 271 x 170'
 effects:
   b7ea8b29-642a-4da2-bc22-723c39c96bc6:
     uuid: b7ea8b29-642a-4da2-bc22-723c39c96bc6
@@ -10,4 +10,4 @@ effects:
     weight: 2
     data:
       width: 271
-      height: 188
+      height: 170
