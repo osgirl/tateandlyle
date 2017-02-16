@@ -305,6 +305,11 @@
   .tal-dynamic-post-wrapper {
     width: 100%;
     max-width: 100%;
+    display: flex;
+    flex-wrap: wrap-reverse;
+    @media (min-width: $screen-md-lg) {
+      display: block;
+    }
   }
   #dynamic-post-list {
     width: 100%;
@@ -337,12 +342,43 @@
   }
   .tal--focus-on-tag-list {
     margin-top: -2.8em;
+    .view-header {
+      margin-top: 2em;
+      @media (min-width: $screen-sm) {
+        margin-top: 0;
+      }
+      &:before {
+        background-color: black;
+        content: " ";
+        display: block;
+        margin-top: 15px;
+        width: 30px;
+        height: 1px;
+      }
+      &:before {
+        @media (min-width: $screen-sm) {
+          margin-top: 0;
+          height: 0;
+        }
+      }
+    }
     h2.title {
       font-size: 24px;
+      margin-left: 0;
+      padding: 0 0 0.50em;
+      @media (min-width: $screen-md-lg) {
+        margin-left: 13px;
+      }
+      @media (min-width: $screen-sm) {
+        padding: 0;
+      }
     }
     .views-row {
       @media (min-width: $screen-md) {
         width: 47%;
+        margin-left: 0;
+      }
+      @media (min-width: $screen-md-lg) {
         margin-left: 1em;
       }
       @media (min-width: $screen-lg) {
@@ -356,6 +392,33 @@
       article {
         margin-right: 1em;
       }
+    }
+  }
+}
+
+.view-articles-post {
+  .teaser-content .teaser__icon {
+    @media (min-width: $screen-sm) {
+      margin-right: 28px;
+    }
+  }
+  .teaser-content {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+}
+
+.posts.block--dynamic-posts {
+  .tal-dynamic-post-wrapper {
+    padding-top: 0;
+    @media (min-width: $screen-md-lg) {
+      padding-top: 1.5em;
+    }
+  }
+  .block-title {
+    display: none;
+    @media (min-width: $screen-lg) {
+      display: block;
     }
   }
 }

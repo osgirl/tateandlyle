@@ -2,6 +2,7 @@
   @extend .tabs__accordion;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 0;
 
   .panel-group {
     border-left: 1px solid $color-warm-gray;
@@ -102,7 +103,7 @@
 
   .in--region-count {
     @media (max-width: $screen-xs-max) {
-      margin-top: 36px;
+      margin-top: 0;
     }
   }
 
@@ -244,5 +245,15 @@
 
   a {
     border-top: 0;
+  }
+}
+
+.ingredient .paragraph--show-border .title {
+  margin-bottom: 10px;
+  @media (min-width: $screen-sm) {
+    margin-bottom: 15px;
+  }
+  @media (min-width: $screen-lg) {
+    margin-bottom: 55px;
   }
 }
