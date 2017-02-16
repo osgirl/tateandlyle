@@ -19,7 +19,7 @@ content:
     weight: 1
     settings: {  }
     third_party_settings: {  }
-    type: options_buttons
+    type: options_select
   field_choose_articles_display:
     weight: 3
     settings: {  }
@@ -36,7 +36,7 @@ content:
     weight: 2
     settings: {  }
     third_party_settings: {  }
-    type: options_buttons
+    type: options_select
   info:
     type: string_textfield
     weight: 0

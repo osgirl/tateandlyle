@@ -53,7 +53,7 @@ content:
     weight: 2
     settings: {  }
     third_party_settings: {  }
-    type: options_buttons
+    type: options_select
   field_date:
     weight: 10
     settings: {  }
@@ -131,12 +131,9 @@ content:
     third_party_settings: {  }
   field_tags:
     weight: 3
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: options_select
   path:
     type: path
     weight: 18
