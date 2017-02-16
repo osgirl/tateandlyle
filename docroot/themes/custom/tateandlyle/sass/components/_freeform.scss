@@ -117,3 +117,9 @@
     text-align: center;
   }
 }
+
+.border--block {
+  hr {
+    display: none !important;
+  }
+}
