@@ -130,6 +130,9 @@
   .views-field-title {
     color: $gray-base-light;
     @media (min-width: $screen-sm) {
+      font-size: $font-size-h4;
+    }
+    @media (min-width: $screen-md) {
       font-size: $font-size-h3;
     }
   }

@@ -410,6 +410,9 @@ function tal_preprocess_block_sip_with_background($variables, $block) {
     $image_url = file_create_url($image->getFileUri());
     $variables['style'] = 'background-image: url("' . $image_url . '")';
   }
+  if (!isset($image)) {
+    $variables['background'] = 'block__sip--nobackground';
+  }
   $variables['bg_color'] = $background_color_content['value'];
   return $variables;
 }
