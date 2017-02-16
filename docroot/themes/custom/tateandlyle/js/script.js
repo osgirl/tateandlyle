@@ -46,14 +46,6 @@
     }
   };
 
-  Drupal.behaviors.carouselimit = {
-    attach: function () {
-      if ($(".carousel-inner .item").length < 5) {
-        $("a.carousel-control").css("display", "none");
-      }
-    }
-  };
-
   Drupal.behaviors.addplaceholder = {
     attach: function () {
       $("#block-mobile-menu .input--wrapper input").attr("placeholder", "Search here");

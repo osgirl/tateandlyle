@@ -59,12 +59,12 @@
   ]
 %}
 <section{{ attributes.addClass(classes) }} style="{{ style }}">
-  <div class="promo__images--inner">
     {{ title_prefix }}
     {% if label %}
       <h2{{ title_attributes.addClass('block-title') }}>{{ label }}</h2>
     {% endif %}
     {{ title_suffix }}
+  <div class="promo__images--inner">
     {% block content %}
       <div class="promo__images--title">
         <hr />

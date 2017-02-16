@@ -10,8 +10,8 @@
 
   h1 {
     margin: 30px 0 20px;
-    font-size: 24px;
-    font-weight: 700;
+    font-family: $font-family-sans-serif-Med;
+    font-size: $font-size-h3;
     color: black;
     text-transform: uppercase;
   }
@@ -25,12 +25,15 @@
   }
   .view-image-gallery, .view-video-gallery {
     .views-row {
+      margin-right: 0;
       @media (min-width: $screen-md) {
         float: none;
       }
     }
   }
   img {
+    max-width: 583px;
+    max-height: 360px;
     width: 100%;
   }
 }
@@ -50,6 +53,7 @@
   }
   .views-row {
     position: relative;
+    display: table;
     @media (min-width: $screen-md) {
       float: left;
       margin-right: 10px;
@@ -63,9 +67,10 @@
     width: 50%;
     display: inline-block;
     float: right;
+    padding-left: 19px;
   }
   .views-row {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     width: 100%;
     &:nth-child(2), &:nth-child(2) {
       margin-right: 0;
@@ -74,19 +79,25 @@
       width: 47%;
       float: left;
       padding: 0;
-      margin-right: 10px;
+      margin-right: 20px;
       margin-left: 0;
+      &:nth-child(even) {
+        margin-right: 0;
+        margin-bottom: 0;
+      }
     }
     @media (min-width: $screen-lg) {
       width: 48%;
-      margin-right: 10px;
       margin-left: 0;
     }
     @media (min-width: $screen-md) {
       margin-left: 0;
+      margin-right: 20px;
+
     }
   }
   img {
+    max-height: 170px;
     width: 100%;
   }
 }
@@ -97,6 +108,12 @@
   .views-row {
     @media (min-width: $screen-md) {
       width: 100%;
+    }
+  }
+
+  .no__controls {
+    .carousel-control {
+      display: none;
     }
   }
 }

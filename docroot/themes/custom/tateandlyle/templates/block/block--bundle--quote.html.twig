@@ -63,6 +63,11 @@
 {% else %}
   <section{{ attributes.addClass(classes).addClass('no--top--bottom') }}>
 {% endif %}
+  {{ title_prefix }}
+  {% if label %}
+    <h2{{ title_attributes.addClass('block-title') }}>{{ label }}</h2>
+  {% endif %}
+  {{ title_suffix }}
 
   {% if is_image %}
     <div class="bg-image">

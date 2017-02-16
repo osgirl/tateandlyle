@@ -21,7 +21,11 @@
 {% if title %}
   <h3>{{ title }}</h3>
 {% endif %}
-<div class="col-md-12 text-center">
+{% if rows|length < 5 %}
+  <div class="col-md-12 text-center no__controls">
+{% else %}
+  <div class="col-md-12 text-center">
+{% endif %}
   <div class="col-md-12">
     <div id="carousel-tal-{{ unique }}" class="carousel slide" data-ride="carousel">
       <!-- Indicators -->
@@ -33,6 +37,7 @@
       </ol>
       <!-- Wrapper for slides -->
       <div class="carousel-inner" role="listbox">
+
         {% for id, row in rows %}
             {%
             set row_classes = [

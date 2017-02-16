@@ -194,3 +194,19 @@
     padding: 0;
   }
 }
+
+.block--banner,
+.block--connect,
+.block--single-item-promo-background,
+.block--content-promo-images,
+.block--quote,
+.trends-solutions {
+  position: relative;
+  clear: both;
+  .contextual {
+    @media(min-width: $screen-md-lg) {
+      right: 11%;
+    }
+  }
+}
+
