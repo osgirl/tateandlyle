@@ -248,12 +248,17 @@
   }
 }
 
-.ingredient .paragraph--show-border .title {
-  margin-bottom: 10px;
-  @media (min-width: $screen-sm) {
-    margin-bottom: 15px;
-  }
-  @media (min-width: $screen-lg) {
-    margin-bottom: 55px;
+.ingredient {
+  .paragraph--show-border {
+    margin-bottom: 0;
+    .title {
+      margin-bottom: 10px;
+      @media (min-width: $screen-sm) {
+        margin-bottom: 15px;
+      }
+      @media (min-width: $screen-lg) {
+        margin-bottom: 55px;
+      }
+    }
   }
 }

@@ -83,7 +83,7 @@
   .component-left,
   .connect__block {
     color: $color-white;
-    padding: 30px;
+    padding: 20px;
     @media (min-width: $screen-sm-lsp) {
       padding: 29px 116px 36px 116px;
     }
@@ -91,6 +91,12 @@
       display: table-cell;
       padding: 94px 72px 26px 36px;
       width: 33.33%;
+    }
+    .btn-primary {
+      margin-top: -1em;
+       @media (min-width: $screen-sm) {
+         margin-top: 0;
+       }
     }
   }
 
