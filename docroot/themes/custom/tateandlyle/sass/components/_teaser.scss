@@ -150,6 +150,9 @@
     &::after {
       @extend %right-brand-arrow;
     }
+    &:hover {
+      color: $brand-primary;
+    }
   }
 }
 
