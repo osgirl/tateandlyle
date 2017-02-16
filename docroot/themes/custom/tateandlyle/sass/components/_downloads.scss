@@ -102,13 +102,14 @@
       display: inline-block;
       margin-top: 0;
       text-align: right;
-      vertical-align: bottom;
     }
   }
 
   .form-item-change-language {
-    @media (min-width: $screen-sm) {
-      margin-right: 96px;
+    @media (min-width: $screen-md-lg) {
+      position: relative;
+      right: 10px;
+      top: 1px;
     }
 
     .input-group {
