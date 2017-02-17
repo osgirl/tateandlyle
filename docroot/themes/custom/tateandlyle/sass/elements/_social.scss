@@ -107,7 +107,8 @@
 }
 
 .social__connect {
-  margin: 25px 0;
+  margin: 25px auto;
+  max-width: 1107px;
 
   .social__connect--title {
     background: $brand-primary;
@@ -130,6 +131,7 @@
       display: inline-block;
       margin: 0;
       margin-left: 9px;
+      vertical-align: middle;
     }
   }
 }
