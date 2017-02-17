@@ -72,7 +72,9 @@
   }
 
   .banner__overlay--left {
+    margin-bottom: 20px;
     @media (min-width: $screen-sm-lsp) {
+      margin-bottom: 0;
       padding-top: 40px;
       padding-bottom: 10px;
       vertical-align: top;
@@ -126,20 +128,22 @@
 }
 
 // Important to override inline style.
-.butoflashplayer,
-.butohtml5player {
-  display: none;
-  @media (min-width: $screen-sm-lsp) {
-    display: block;
-  }
-  height: 261px !important;
-  width: 100%;
-  padding: 0 !important;
-  max-width: 464px;
-  margin: auto;
-  object,
+.banner__overlay--right {
+  .butoflashplayer,
+  .butohtml5player,
   video {
-    width: 100% !important;
-    height: 100% !important;
+    height: auto !important;
+    width: 100%;
+    padding: 0 !important;
+    max-width: 464px;
+    margin: auto;
+    @media (min-width: $screen-sm-lsp) {
+      height: 261px !important;
+    }
+    object,
+    video {
+      width: 100% !important;
+      height: 100% !important;
+    }
   }
 }
