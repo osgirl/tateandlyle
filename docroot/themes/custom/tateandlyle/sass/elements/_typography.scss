@@ -25,3 +25,16 @@ strong {
 label {
   font-weight: normal;
 }
+
+.block--freefrom-wysiwyg .field--type-text-with-summary a,
+.field--type-text-with-summary a {
+  font-size: inherit;
+  &::after {
+    content: none;
+  }
+
+  &.brand--arrow::after {
+    @extend %right-brand-arrow;
+    vertical-align: middle;
+  }
+}
