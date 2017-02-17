@@ -44,11 +44,8 @@
     margin-bottom: 36px;
   }
 
-  @media(min-width: $screen-sm) {
-    font-size: $font-size-h2;
-  }
-
   @media(min-width: $screen-md) {
+    font-size: $font-size-h2;
     margin-bottom: 51px;
   }
 
