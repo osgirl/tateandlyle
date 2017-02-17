@@ -3,6 +3,8 @@
 }
 
 .block--dynamic-posts {
+  width: 100%;
+  display: inline-block;
   h2.block-title {
     border-bottom: 1px solid $color-warm-gray;
     padding-bottom: 0.5em;
