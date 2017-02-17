@@ -312,3 +312,10 @@ function tal_wrapper_update_8217() {
 function tal_wrapper_update_8218() {
   \Drupal::service('module_installer')->install(['smart_trim']);
 }
+
+/**
+ * Update config variable for bootstrap.
+ */
+function tal_wrapper_update_8219() {
+  \Drupal::service('config.factory')->getEditable('tateandlyle.settings')->set('modal_enabled', 0)->save();
+}
