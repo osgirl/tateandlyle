@@ -7,8 +7,8 @@ dependencies:
  - config_rewrite
  - config_rewrite_test
 
-# Information added by Drupal.org packaging script on 2017-01-24
-version: '8.x-1.0-beta3'
+# Information added by Drupal.org packaging script on 2017-02-16
+version: '8.x-1.0-beta4'
 core: '8.x'
 project: 'config_rewrite'
-datestamp: 1485276188
+datestamp: 1487276291

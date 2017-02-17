@@ -88,7 +88,7 @@ function tateandlyle_preprocess_page_title(&$variables) {
   $field_in_banner = '';
   if (!empty($node)) {
     if ($node->hasField('field_in_banner')) {
-      $field_in_banner = $node->get('field_in_banner');
+      $field_in_banner = $node->get('field_in_banner')->getValue();
     }
     if ($node && in_array($node->bundle(), $bundle)) {
       if ($node->hasField('field_hide_title') && $node->get('field_hide_title')->value) {
