@@ -5,7 +5,7 @@
 
   h1 {
     margin: 30px 0 20px;
-    font-family: $font-family-sans-serif-Med;
+    font-family: $font-family-sans-serif-bold;
     font-size: $font-size-h3;
     color: black;
     text-transform: uppercase;
@@ -14,12 +14,13 @@
 
 .tal--promoted-image {
   width: 100%;
-  @media (min-width: $screen-sm) {
+  @media (min-width: $screen-md) {
     width: 50%;
     float: left;
   }
   .view-image-gallery, .view-video-gallery {
     .views-row {
+      display: table;
       margin-right: 0;
       @media (min-width: $screen-md) {
         float: none;
@@ -27,20 +28,30 @@
     }
   }
   img {
-    max-width: 583px;
-    max-height: 360px;
     width: 100%;
+    max-width: none;
+    min-height: 360px;
+    @media (min-width: $screen-md) {
+      min-height: 0;
+      max-width: 583px;
+      max-height: 322px;
+    }
+    @media (min-width: $screen-md-lg) {
+      max-height: 360px;
+    }
   }
 }
 
 .view-image-gallery, .view-video-gallery {
   .title {
+    font-family: $font-family-sans-serif-bold;
     position: absolute;
     bottom: 0;
     left: 0;
+    right: 0;
     width: 100%;
     padding: 10px 0 10px 10px;
-    font-size: 14px;
+    font-size: $font-size-h6;
     font-weight: bold;
     color: white;
     background-color: black;
@@ -48,23 +59,27 @@
   }
   .views-row {
     position: relative;
-    display: table;
+    width: 100%;
     @media (min-width: $screen-md) {
       float: left;
       margin-right: 10px;
+      width: auto;
     }
+  }
+}
+
+.tal--promoted-image {
+  .title {
+    font-size: $font-size-h5;
   }
 }
 
 .tal--featured-image {
   width: 100%;
-  @media (min-width: $screen-sm) {
+  @media (min-width: $screen-md) {
     width: 50%;
     display: inline-block;
     float: right;
-    padding-left: 9px;
-  }
-  @media (min-width: $screen-md) {
     padding-left: 19px;
   }
   .views-row {
@@ -73,16 +88,15 @@
     &:nth-child(2), &:nth-child(2) {
       margin-right: 0;
     }
-    @media (min-width: $screen-sm) {
+    @media (min-width: $screen-md) {
       width: 47%;
       float: left;
       padding: 0;
-      margin-bottom: 25px;
+      margin-bottom: 22px;
       margin-right: 20px;
       margin-left: 0;
       &:nth-child(even) {
         margin-right: 0;
-        margin-bottom: 0;
       }
     }
     @media (min-width: $screen-lg) {
@@ -110,9 +124,18 @@
     }
   }
 
+  .tal--carousel-title {
+    padding-left: 15px;
+    @media (min-width: $screen-sm) {
+      padding-left: 10px;
+    }
+  }
+
   .no__controls {
     .carousel-control {
-      display: none;
+      @media (min-width: $screen-sm) {
+        display: none;
+      }
     }
   }
 }
