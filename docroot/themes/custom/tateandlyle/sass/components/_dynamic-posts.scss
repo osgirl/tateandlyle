@@ -396,18 +396,6 @@
   }
 }
 
-.view-articles-post {
-  .teaser-content .teaser__icon {
-    @media (min-width: $screen-sm) {
-      margin-right: 28px;
-    }
-  }
-  .teaser-content {
-    border-bottom: 0;
-    padding-bottom: 0;
-  }
-}
-
 .posts.block--dynamic-posts {
   .tal-dynamic-post-wrapper {
     padding-top: 0;
