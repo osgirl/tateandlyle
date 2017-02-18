@@ -158,7 +158,7 @@
     @media (min-width: $screen-sm-lsp) {
       background: $color-white;
       display: table;
-      font-size: $font-size-h2;
+      font-size: $font-size-h4;
       margin-bottom: 31px;
       margin-left: auto;
       margin-right: auto;
@@ -171,6 +171,7 @@
 
     @media (min-width: $screen-md) {
       margin-bottom: 62px;
+      font-size: $font-size-h2;
     }
   }
 
