@@ -130,5 +130,28 @@ function tal_preprocess_node_press_release($variables, $node) {
       '#markup' => !empty($markup) ? $markup : '',
     ],
   ];
+
+  if ($variables['view_mode'] == 'search_result') {
+    $path = \Drupal::request()->getUri();
+    $parameters = UrlHelper::parse($path);
+    $keyword = isset($parameters['query']['s']) ? $parameters['query']['s'] : '';
+    $variables['body'] = search_excerpt($keyword, $node->get('body')->value);
+  }
+  return $variables;
+}
+
+/**
+ * Preprocessor function for "press_release" bundle.
+ *
+ * @see tal_preprocess_node_company_story()
+ */
+function tal_preprocess_node_landing_page($variables, $node) {
+
+  if ($variables['view_mode'] == 'search_result') {
+    $path = \Drupal::request()->getUri();
+    $parameters = UrlHelper::parse($path);
+    $keyword = isset($parameters['query']['s']) ? $parameters['query']['s'] : '';
+    $variables['body'] = search_excerpt($keyword, $node->get('field_lp_summary')->value);
+  }
   return $variables;
 }

@@ -3,18 +3,20 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.search_result
-    - field.field.node.company_story.body
-    - field.field.node.company_story.field_author
-    - field.field.node.company_story.field_category
-    - field.field.node.company_story.field_date
-    - field.field.node.company_story.field_downloads
-    - field.field.node.company_story.field_downloads_border_title
-    - field.field.node.company_story.field_image
-    - field.field.node.company_story.field_ingredient
-    - field.field.node.company_story.field_reusable_component
-    - field.field.node.company_story.field_story_description
-    - field.field.node.company_story.field_tags
-    - node.type.company_story
+    - field.field.node.press_release.body
+    - field.field.node.press_release.field_author
+    - field.field.node.press_release.field_category
+    - field.field.node.press_release.field_date
+    - field.field.node.press_release.field_downloads
+    - field.field.node.press_release.field_downloads_border_title
+    - field.field.node.press_release.field_image
+    - field.field.node.press_release.field_image_size
+    - field.field.node.press_release.field_in_banner
+    - field.field.node.press_release.field_reusable_component
+    - field.field.node.press_release.field_story_description
+    - field.field.node.press_release.field_tags
+    - image.style.article_small_312_x_169
+    - node.type.press_release
   module:
     - image
     - panelizer
@@ -26,15 +28,15 @@ third_party_settings:
     custom: false
     allow: false
     default: default
-id: node.company_story.search_result
+id: node.press_release.search_result
 targetEntityType: node
-bundle: company_story
+bundle: press_release
 mode: search_result
 content:
   body:
+    label: hidden
     type: smart_trim
     weight: 0
-    label: hidden
     settings:
       trim_length: '50'
       trim_type: words
@@ -51,7 +53,7 @@ content:
     weight: 1
     label: hidden
     settings:
-      image_style: ''
+      image_style: article_small_312_x_169
       image_link: ''
     third_party_settings: {  }
 hidden:
@@ -60,8 +62,10 @@ hidden:
   field_date: true
   field_downloads: true
   field_downloads_border_title: true
-  field_ingredient: true
+  field_image_size: true
+  field_in_banner: true
   field_reusable_component: true
   field_story_description: true
   field_tags: true
   links: true
+  workbench_moderation_control: true
