@@ -166,7 +166,7 @@ function tateandlyle_preprocess_field(&$variables) {
       $item['attributes']->setAttribute('id', 'history-tab-nav-' . $item['content']['#paragraph']->id());
     }
   }
-  if ($variables['element']['#field_type'] == 'entity_reference' &&  $variables['element']['#entity_type'] == 'paragraph') {
+  if ($variables['element']['#field_type'] == 'entity_reference') {
     $entities = $variables['element']['#items']->referencedEntities();
     $entity = array_shift($entities);
     $bundle = $entity->bundle();

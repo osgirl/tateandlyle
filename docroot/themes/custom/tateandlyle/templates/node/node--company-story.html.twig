@@ -95,6 +95,9 @@
     <div class="date--category">
       {{ content.field_date }} | {{ content.field_category }}
     </div>
+      {% if content.field_in_banner %}
+        <div class="tal--ingredient-banner">{{ content.field_in_banner }}</div>
+      {% endif %}
     {{ content.field_image }}
     {{ content.body }}
     {{ content.field_story_description }}

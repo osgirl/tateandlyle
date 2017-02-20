@@ -149,7 +149,6 @@ function tal_preprocess_block_banner($variables, $block) {
 
   $image = $block->get('field_bg_image')->referencedEntities();
   $image = array_shift($image);
-
   if (isset($image)) {
     $variables['is_image'] = TRUE;
     $image_url = file_create_url($image->getFileUri());
