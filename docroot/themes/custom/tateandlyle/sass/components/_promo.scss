@@ -240,7 +240,7 @@
 
 .block__promo--main {
   color: $gray-base;
-  margin: 24px 30px;
+  margin: 24px auto;
 
   @media (min-width: $screen-sm-lsp) {
     border: 1px solid $color-warm-gray;
@@ -345,7 +345,7 @@
 
     blockquote p {
       line-height: 1.1;
-      text-indent: -4px;
+      text-indent: -5px;
       @media (min-width: $screen-md) {
         text-indent: -6px;
       }
