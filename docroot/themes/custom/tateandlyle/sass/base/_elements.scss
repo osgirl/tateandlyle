@@ -62,6 +62,10 @@ h5 {
     max-width: 885px;
     padding-left: 16px;
   }
+
+  @media (min-width: $screen-md-lg) {
+    padding-left: 16px;
+  }
 }
 
 .region-content {
@@ -130,9 +134,10 @@ nav.tabs .tabs--primary {
   margin: auto;
 }
 
-.black__overlay {
+.black__overlay .body__inner {
   position: relative;
-  &::after {
+  background: rgba(0, 0, 0, 0.2);
+  .logo.navbar-btn::after {
     background: rgba(0, 0, 0, 0.2);
     content: " ";
     position: absolute;
