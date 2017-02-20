@@ -1,11 +1,8 @@
 .page-node-type-press-release {
-  .page-header {
-    padding-left: 0;
-  }
   .teaser-content .date--category {
     padding-left: 0;
   }
-  .region-content-top, .teaser-content {
+  .teaser-content {
     @media (min-width: $screen-md) {
       max-width: 880px;
     }

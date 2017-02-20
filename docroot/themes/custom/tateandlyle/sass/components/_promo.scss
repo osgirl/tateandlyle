@@ -201,6 +201,41 @@
   }
 }
 
+.dcp-content-3 {
+  padding-left: 40px;
+  padding-right: 40px;
+
+  @media (min-width: $screen-sm) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .field--name-field-dcp-content-section > .field--item {
+    border-bottom: 1px solid;
+    padding: 28px 0 25px 0;
+    text-align: center;
+
+    img {
+      margin: auto;
+    }
+
+    @media (min-width: $screen-sm) {
+      border-bottom: none;
+      width: 33.33%;
+      max-width: none;
+      padding: 10px 15px;
+    }
+
+    @media (min-width: $screen-sm) {
+      padding: 10px 40px;
+    }
+
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+}
+
 //Content Promo.
 
 .block__promo--main {
