@@ -1,6 +1,7 @@
 .page-node-type-company-story, .page-node-type-press-release {
   .page-header {
     margin-bottom: 0;
+    margin-left: 0;
     @media (min-width: $screen-sm) {
       margin-bottom: 22px;
       margin-top: -10px;
@@ -31,10 +32,6 @@
     .page-header {
       max-width: 878px;
       margin-left: 0;
-    }
-
-    .page-header {
-      padding-left: 0;
     }
 
     .paragraph {

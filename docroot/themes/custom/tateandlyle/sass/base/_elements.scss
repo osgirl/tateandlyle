@@ -60,7 +60,7 @@ h5 {
     font-size: $font-size-h1;
     margin: 10px 0;
     max-width: 885px;
-    padding-left: 16px;
+    padding-left: 0;
   }
 
   @media (min-width: $screen-md-lg) {
@@ -102,9 +102,12 @@ h5 {
   display: none;
   background: transparent;
   padding-top: 0;
-  padding-left: 20px;
   @media (min-width: $screen-sm) {
     display: block;
+  }
+
+  @media (min-width: $screen-md-lg) {
+    padding-left: 20px;
   }
 
   a {
