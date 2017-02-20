@@ -84,7 +84,9 @@
     </h2>
   {% endif %}
   {{ title_suffix }}
-
+    {% if content.field_in_banner %}
+      <div class="tal--ingredient-banner">{{ content.field_in_banner }}</div>
+    {% endif %}
   {% if display_submitted %}
     <footer>
       {{ author_picture }}
@@ -103,7 +105,7 @@
       </div>
 
       <div class="leader__content--right">
-        <div class="leader-content">{{ content|without('field_profile_picture') }}</div>
+        <div class="leader-content">{{ content|without('field_profile_picture', 'field_in_banner') }}</div>
       </div>
     </div>
   </div>
