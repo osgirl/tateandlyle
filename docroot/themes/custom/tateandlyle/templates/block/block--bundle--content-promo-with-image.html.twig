@@ -67,10 +67,12 @@
     {{ title_suffix }}
   <div class="promo__images--inner">
     {% block content %}
+    {% if content.field_block_title|render %}
       <div class="promo__images--title">
         <hr />
         <h3 class="promo--title">{{ content.field_block_title }}</h3>
       </div>
+    {% endif %}
 
       <div class="promo__images--main">
         <div class="promo__images--content">
