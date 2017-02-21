@@ -337,6 +337,15 @@
       }
     }
   }
+  .views-row.active-row {
+    .tal--term-name, .field--name-description, .default__icon {
+      color: $brand-primary;
+    }
+    .hover__icon {
+      background-color: $color-white;
+      z-index: 4;
+    }
+  }
 
   @media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
 
