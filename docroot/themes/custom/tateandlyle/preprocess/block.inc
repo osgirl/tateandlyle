@@ -369,6 +369,8 @@ function tal_preprocess_block_content_promo_with_image($variables, $block) {
   $featured_icon = $block->get('field_featured_block_icon')->referencedEntities();
   $featured_icon = array_shift($featured_icon);
 
+  $featured_links = $block->get('field_featured_links')->getValue();
+
   $has_summary = $block->get('field_short_summary')->getValue();
 
   if (!empty($has_summary)) {
@@ -377,6 +379,10 @@ function tal_preprocess_block_content_promo_with_image($variables, $block) {
 
   if (isset($featured_icon)) {
     $variables['icon'] = 'featured__icon';
+  }
+
+  if (!empty($featured_links)) {
+    $variables['link'] = 'featured__link';
   }
 
   if (isset($image)) {

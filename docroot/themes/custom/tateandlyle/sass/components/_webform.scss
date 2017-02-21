@@ -92,9 +92,11 @@
       width: auto;
     }
 
-    &:hover {
+    &:hover,
+    &:focus {
       background: transparent;
       box-shadow: none;
+      outline: none;
     }
 
     &::after {
