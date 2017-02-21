@@ -17,43 +17,7 @@ third_party_settings:
     custom: true
     displays:
       default:
-        blocks:
-          806d67e6-3f63-41b3-9969-25373290382d:
-            id: 'block_content:84bbf48f-80e6-4776-9eb5-8c0965d4cfab'
-            label: 'TAl-384 Home page banner'
-            provider: block_content
-            label_display: '0'
-            status: true
-            info: ''
-            view_mode: full
-            context_mapping: {  }
-            region: middle
-            uuid: 806d67e6-3f63-41b3-9969-25373290382d
-            weight: 1
-          f7cfce80-2121-494b-a0fa-1ac5be63a7f6:
-            id: 'block_content:e2a9e755-3a51-4582-baa5-534dac73b975'
-            label: 'TAL-272 Video Banner'
-            provider: block_content
-            label_display: '0'
-            status: true
-            info: ''
-            view_mode: full
-            context_mapping: {  }
-            region: middle
-            uuid: f7cfce80-2121-494b-a0fa-1ac5be63a7f6
-            weight: 2
-          360473da-106e-4c8e-a791-e04b4c726308:
-            id: 'block_content:e2a9e755-3a51-4582-baa5-534dac73b975'
-            label: 'TAL-272 Video Banner'
-            provider: block_content
-            label_display: '0'
-            status: true
-            info: ''
-            view_mode: full
-            context_mapping: {  }
-            region: middle
-            uuid: 360473da-106e-4c8e-a791-e04b4c726308
-            weight: 3
+        blocks: {  }
         id: panels_variant
         uuid: 1a312aa0-75a2-4467-8421-33670a7bd039
         label: 'Single Column'
@@ -91,41 +55,6 @@ third_party_settings:
         page_title: '[node:title]'
         storage_type: panelizer_default
         storage_id: 'node:landing_page:default:three_column'
-        pattern: panelizer
-        builder: ipe
-        static_context: {  }
-      8656:
-        blocks:
-          0aeae54a-0b27-4908-89ea-3561390ad7f4:
-            id: 'block_content:01e29170-5aa3-4eb4-962a-279219c33bb3'
-            label: 'Homepage banner'
-            provider: block_content
-            label_display: '0'
-            status: true
-            info: ''
-            view_mode: full
-            context_mapping: {  }
-            region: middle
-            uuid: 0aeae54a-0b27-4908-89ea-3561390ad7f4
-            weight: 1
-          b8e75a08-82a9-496c-ac0e-331a7ab76f7e:
-            id: job_search
-            label: 'Search for job doing'
-            provider: tal_search
-            label_display: visible
-            context_mapping: {  }
-            region: middle
-            uuid: b8e75a08-82a9-496c-ac0e-331a7ab76f7e
-            weight: 2
-        id: panels_variant
-        uuid: 1a312aa0-75a2-4467-8421-33670a7bd039
-        label: 'Single Column'
-        weight: 0
-        layout: onecol
-        layout_settings: {  }
-        page_title: '[node:title]'
-        storage_type: panelizer_default
-        storage_id: 'node:landing_page:full:8656'
         pattern: panelizer
         builder: ipe
         static_context: {  }
