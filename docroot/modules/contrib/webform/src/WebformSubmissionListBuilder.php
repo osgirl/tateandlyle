@@ -157,7 +157,7 @@ class WebformSubmissionListBuilder extends EntityListBuilder {
     if ($route_name == "$base_route_name.webform.results_table") {
       $this->columns = $webform_submission_storage->getCustomColumns($this->webform, $this->sourceEntity, $this->account, TRUE);
       $this->sort = $webform_submission_storage->getCustomSetting('sort', 'serial', $this->webform, $this->sourceEntity);
-      $this->direction  = $webform_submission_storage->getCustomSetting('direction', 'desc', $this->webform, $this->sourceEntity);
+      $this->direction = $webform_submission_storage->getCustomSetting('direction', 'desc', $this->webform, $this->sourceEntity);
       $this->limit = $webform_submission_storage->getCustomSetting('limit', 50, $this->webform, $this->sourceEntity);
       $this->format = $webform_submission_storage->getCustomSetting('format', $this->format, $this->webform, $this->sourceEntity);
       $this->customize = TRUE;
@@ -182,7 +182,7 @@ class WebformSubmissionListBuilder extends EntityListBuilder {
         unset($this->columns['sid']);
         $this->sort = 'serial';
       }
-      $this->direction  = 'desc';
+      $this->direction = 'desc';
       $this->limit = 50;
       $this->customize = FALSE;
     }
@@ -230,6 +230,9 @@ class WebformSubmissionListBuilder extends EntityListBuilder {
     $build['table']['#attributes']['class'][] = 'webform-results__table';
 
     $build['#attached']['library'][] = 'webform/webform.admin';
+
+    // Must preload libraries required by (modal) dialogs.
+    $build['#attached']['library'][] = 'webform/webform.admin.dialog';
 
     return $build;
   }
@@ -368,7 +371,7 @@ class WebformSubmissionListBuilder extends EntityListBuilder {
         if (!$source_entity) {
           return '';
         }
-        return ($is_raw) ? $source_entity->getEntityTypeId . ':' . $source_entity->id() : $source_entity->toLink();
+        return ($is_raw) ? $source_entity->getEntityTypeId . ':' . $source_entity->id() : ($source_entity->hasLinkTemplate('canonical') ? $source_entity->toLink() : '');
 
       case 'langcode':
         return ($is_raw) ? $entity->langcode->value : \Drupal::languageManager()->getLanguage($entity->langcode->value)->getName();
@@ -436,7 +439,7 @@ class WebformSubmissionListBuilder extends EntityListBuilder {
           $element = $column['element'];
 
           $key = $column['key'];
-          $value  = (isset($data[$key])) ? $data[$key] : '';
+          $value = (isset($data[$key])) ? $data[$key] : '';
 
           $options = $column;
 

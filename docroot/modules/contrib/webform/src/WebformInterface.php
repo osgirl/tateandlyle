@@ -103,6 +103,14 @@ interface WebformInterface extends ConfigEntityInterface, EntityWithPluginCollec
   public function setDescription($description);
 
   /**
+   * Returns the webform's global and custom CSS and JavaScript assets.
+   *
+   * @return array
+   *   An associative array container the webform's CSS and JavaScript.
+   */
+  public function getAssets();
+
+  /**
    * Returns the webform's CSS.
    *
    * @return string
@@ -301,28 +309,37 @@ interface WebformInterface extends ConfigEntityInterface, EntityWithPluginCollec
   /**
    * Get webform raw elements decoded and flattened into an associative array.
    *
+   * @param string $operation
+   *   (optional) The operation that is to be performed on the element.
+   *
    * @return array
    *   Webform raw elements decoded and flattened into an associative array
    *   keyed by element name. Returns FALSE is elements YAML is invalid.
    */
-  public function getElementsDecodedAndFlattened();
+  public function getElementsDecodedAndFlattened($operation = NULL);
 
   /**
    * Get webform elements initialized and flattened into an associative array.
+   *
+   * @param string $operation
+   *   (optional) The operation that is to be performed on the element.
    *
    * @return array
    *   Webform elements flattened into an associative array keyed by element name.
    *   Returns FALSE is elements YAML is invalid.
    */
-  public function getElementsInitializedAndFlattened();
+  public function getElementsInitializedAndFlattened($operation = NULL);
 
   /**
    * Get webform flattened list of elements.
    *
+   * @param string $operation
+   *   (optional) The operation that is to be performed on the element.
+   *
    * @return array
    *   Webform elements flattened into an associative array keyed by element name.
    */
-  public function getElementsFlattenedAndHasValue();
+  public function getElementsInitializedFlattenedAndHasValue($operation = NULL);
 
   /**
    * Get webform elements selectors as options.
@@ -367,10 +384,14 @@ interface WebformInterface extends ConfigEntityInterface, EntityWithPluginCollec
   /**
    * Get webform wizard pages.
    *
+   * @param bool $disable_pages
+   *   If set to TRUE all wizard page will be ignored only the (optional)
+   *   preview page will be return.
+   *
    * @return array
-   *   An associative array of webform pages.
+   *   An associative array of webform wizard pages.
    */
-  public function getPages();
+  public function getPages($disable_pages = FALSE);
 
   /**
    * Get webform wizard page.

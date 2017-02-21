@@ -26,7 +26,7 @@ class WebformUiEntityForm extends WebformEntityForm {
       return $form;
     }
 
-    $dialog_attributes = WebformDialogHelper::getModalDialogAttributes(800);
+    $element_dialog_attributes = WebformDialogHelper::getModalDialogAttributes(800);
 
     // Build table header.
     $header = [];
@@ -192,7 +192,7 @@ class WebformUiEntityForm extends WebformEntityForm {
         $rows[$key]['operations']['#links']['edit'] = [
           'title' => $this->t('Edit'),
           'url' => new Url('entity.webform_ui.element.edit_form', ['webform' => $webform->id(), 'key' => $key]),
-          'attributes' => $dialog_attributes,
+          'attributes' => $element_dialog_attributes,
         ];
         // Issue #2741877 Nested modals don't work: when using CKEditor in a
         // modal, then clicking the image button opens another modal,
@@ -207,7 +207,7 @@ class WebformUiEntityForm extends WebformEntityForm {
             'webform' => $webform->id(),
             'key' => $key,
           ]),
-          'attributes' => $dialog_attributes,
+          'attributes' => $element_dialog_attributes,
         ];
         $rows[$key]['operations']['#links']['delete'] = [
           'title' => $this->t('Delete'),
@@ -215,6 +215,7 @@ class WebformUiEntityForm extends WebformEntityForm {
             'webform' => $webform->id(),
             'key' => $key,
           ]),
+          'attributes' => WebformDialogHelper::getModalDialogAttributes(640),
         ];
       }
     }
@@ -237,7 +238,7 @@ class WebformUiEntityForm extends WebformEntityForm {
       $form['local_actions']['add_page'] = [
         '#type' => 'link',
         '#title' => $this->t('Add page'),
-        '#url' => new Url('entity.webform_ui.element.add_form', ['webform' => $webform->id(), 'type' => 'wizard_page']),
+        '#url' => new Url('entity.webform_ui.element.add_form', ['webform' => $webform->id(), 'type' => 'webform_wizard_page']),
         '#attributes' => $local_action_attributes,
       ];
     }
@@ -245,7 +246,7 @@ class WebformUiEntityForm extends WebformEntityForm {
       $form['local_actions']['add_layout'] = [
         '#type' => 'link',
         '#title' => $this->t('Add layout'),
-        '#url' => new Url('entity.webform_ui.element.add_form', ['webform' => $webform->id(), 'type' => 'flexbox']),
+        '#url' => new Url('entity.webform_ui.element.add_form', ['webform' => $webform->id(), 'type' => 'webform_flexbox']),
         '#attributes' => $local_action_attributes,
       ];
     }
@@ -293,6 +294,8 @@ class WebformUiEntityForm extends WebformEntityForm {
     if ($webform->isNew()) {
       return;
     }
+
+    parent::validateForm($form, $form_state);
 
     // Get raw flattened elements that will be used to rebuild element's YAML
     // hierarchy.
@@ -344,8 +347,6 @@ class WebformUiEntityForm extends WebformEntityForm {
 
     // Update the webform's elements.
     $webform->setElements($elements_updated);
-
-    parent::validateForm($form, $form_state);
   }
 
   /**

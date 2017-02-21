@@ -4213,17 +4213,17 @@
     },
     {
         "name": "guzzlehttp/psr7",
-        "version": "1.3.1",
-        "version_normalized": "1.3.1.0",
+        "version": "1.4.0",
+        "version_normalized": "1.4.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/guzzle/psr7.git",
-            "reference": "5c6447c9df362e8f8093bda8f5d8873fe5c7f65b"
+            "reference": "04a6d1a00ea5da0727ee94309a9f0d3dbaecb569"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/guzzle/psr7/zipball/5c6447c9df362e8f8093bda8f5d8873fe5c7f65b",
-            "reference": "5c6447c9df362e8f8093bda8f5d8873fe5c7f65b",
+            "url": "https://api.github.com/repos/guzzle/psr7/zipball/04a6d1a00ea5da0727ee94309a9f0d3dbaecb569",
+            "reference": "04a6d1a00ea5da0727ee94309a9f0d3dbaecb569",
             "shasum": ""
         },
         "require": {
@@ -4236,7 +4236,7 @@
         "require-dev": {
             "phpunit/phpunit": "~4.0"
         },
-        "time": "2016-06-24T23:00:38+00:00",
+        "time": "2017-02-21T01:20:32+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -4261,14 +4261,21 @@
                 "name": "Michael Dowling",
                 "email": "mtdowling@gmail.com",
                 "homepage": "https://github.com/mtdowling"
+            },
+            {
+                "name": "Tobias Schultze",
+                "homepage": "https://github.com/Tobion"
             }
         ],
-        "description": "PSR-7 message implementation",
+        "description": "PSR-7 message implementation that also provides common utility methods",
         "keywords": [
             "http",
             "message",
+            "request",
+            "response",
             "stream",
-            "uri"
+            "uri",
+            "url"
         ]
     },
     {
@@ -6916,18 +6923,18 @@
     },
     {
         "name": "drupal/entity_browser",
-        "version": "1.0.0-rc1",
-        "version_normalized": "1.0.0.0-RC1",
+        "version": "1.0.0-rc2",
+        "version_normalized": "1.0.0.0-RC2",
         "source": {
             "type": "git",
             "url": "https://git.drupal.org/project/entity_browser",
-            "reference": "8.x-1.0-rc1"
+            "reference": "8.x-1.0-rc2"
         },
         "dist": {
             "type": "zip",
-            "url": "https://ftp.drupal.org/files/projects/entity_browser-8.x-1.0-rc1.zip",
-            "reference": "8.x-1.0-rc1",
-            "shasum": "290b9db0f2b0f30bc59a4c18d869e58ce85de63d"
+            "url": "https://ftp.drupal.org/files/projects/entity_browser-8.x-1.0-rc2.zip",
+            "reference": null,
+            "shasum": "7954668b9134a8ec2dac2604c482d6521e43ee91"
         },
         "require": {
             "drupal/core": "~8.0"
@@ -6946,8 +6953,8 @@
                 "dev-8.x-1.x": "8.1.x-dev"
             },
             "drupal": {
-                "version": "8.x-1.0-rc1",
-                "datestamp": "1486242784"
+                "version": "8.x-1.0-rc2",
+                "datestamp": "1487581984"
             },
             "patches_applied": {
                 "getDisplay() on null Entity Browser reference": "https://www.drupal.org/files/issues/ElementPatch_0.patch"
@@ -8097,18 +8104,18 @@
     },
     {
         "name": "drupal/bootstrap",
-        "version": "3.1.0",
-        "version_normalized": "3.1.0.0",
+        "version": "3.2.0",
+        "version_normalized": "3.2.0.0",
         "source": {
             "type": "git",
             "url": "https://git.drupal.org/project/bootstrap",
-            "reference": "8.x-3.1"
+            "reference": "8.x-3.2"
         },
         "dist": {
             "type": "zip",
-            "url": "https://ftp.drupal.org/files/projects/bootstrap-8.x-3.1.zip",
-            "reference": "8.x-3.1",
-            "shasum": "12efa571153c47c8634066d51f76e19dc9f7db5c"
+            "url": "https://ftp.drupal.org/files/projects/bootstrap-8.x-3.2.zip",
+            "reference": null,
+            "shasum": "1638ded543a50a5dce558c2a8177a945a3e5a4cb"
         },
         "require": {
             "drupal/core": "~8.0"
@@ -8119,8 +8126,8 @@
                 "dev-3.x": "3.x-dev"
             },
             "drupal": {
-                "version": "8.x-3.1",
-                "datestamp": "1480430583"
+                "version": "8.x-3.2",
+                "datestamp": "1487640788"
             }
         },
         "installation-source": "dist",
@@ -10040,18 +10047,18 @@
     },
     {
         "name": "drupal/paragraphs",
-        "version": "1.0.0",
-        "version_normalized": "1.0.0.0",
+        "version": "1.1.0",
+        "version_normalized": "1.1.0.0",
         "source": {
             "type": "git",
             "url": "https://git.drupal.org/project/paragraphs",
-            "reference": "8.x-1.0"
+            "reference": "8.x-1.1"
         },
         "dist": {
             "type": "zip",
-            "url": "https://ftp.drupal.org/files/projects/paragraphs-8.x-1.0.zip",
-            "reference": "8.x-1.0",
-            "shasum": "4fcbd6a50f5b725a9ba66ee105d6f8a1385ff2c8"
+            "url": "https://ftp.drupal.org/files/projects/paragraphs-8.x-1.1.zip",
+            "reference": null,
+            "shasum": "c678e5704a98c6a0549e415412da081cfeb03a00"
         },
         "require": {
             "drupal/core": "~8.0",
@@ -10059,6 +10066,8 @@
         },
         "require-dev": {
             "drupal/diff": "*",
+            "drupal/field_group": "*",
+            "drupal/inline_entity_form": "*",
             "drupal/replicate": "*",
             "drupal/search_api": "*",
             "drupal/search_api_db": "*"
@@ -10069,12 +10078,8 @@
                 "dev-1.x": "1.x-dev"
             },
             "drupal": {
-                "version": "8.x-1.0",
-                "datestamp": "1469726249"
-            },
-            "patches_applied": {
-                "Field Group not working on node edit inside paragraph": "https://www.drupal.org/files/issues/field_group_not_working-2675136-53.patch",
-                "Empty required fields not providing meaningful error messages": "https://www.drupal.org/files/issues/empty-required-error-message-2788607-17.patch"
+                "version": "8.x-1.1",
+                "datestamp": "1487331784"
             }
         },
         "installation-source": "dist",
@@ -10100,7 +10105,7 @@
                 "homepage": "https://www.drupal.org/user/227761"
             }
         ],
-        "description": "Enables the creation of paragraphs entities. To safely uninstall, go first to Structure > Paragraphs types > Settings.",
+        "description": "Enables the creation of paragraphs entities.",
         "homepage": "https://www.drupal.org/project/paragraphs",
         "support": {
             "source": "http://cgit.drupalcode.org/paragraphs"
@@ -10902,18 +10907,18 @@
     },
     {
         "name": "drupal/webform",
-        "version": "5.0.0-beta4",
-        "version_normalized": "5.0.0.0-beta4",
+        "version": "5.0.0-beta7",
+        "version_normalized": "5.0.0.0-beta7",
         "source": {
             "type": "git",
             "url": "https://git.drupal.org/project/webform",
-            "reference": "8.x-5.0-beta4"
+            "reference": "8.x-5.0-beta7"
         },
         "dist": {
             "type": "zip",
-            "url": "https://ftp.drupal.org/files/projects/webform-8.x-5.0-beta4.zip",
+            "url": "https://ftp.drupal.org/files/projects/webform-8.x-5.0-beta7.zip",
             "reference": null,
-            "shasum": "cd448b95df1f5b8b8f1d5ae1ee2a901ebadc995d"
+            "shasum": "1c2be66200291e38ebe41e27641e2607d4be7baa"
         },
         "require": {
             "drupal/core": "*"
@@ -10927,11 +10932,11 @@
                 "dev-5.x": "5.x-dev"
             },
             "drupal": {
-                "version": "8.x-5.0-beta4",
-                "datestamp": "1485776283"
+                "version": "8.x-5.0-beta7",
+                "datestamp": "1487143684"
             },
             "patches_applied": {
-                "Preview page: Attach contact form or other form elements": "https://www.drupal.org/files/issues/preview_page_attach-2839834-15.patch"
+                "The error message shown for validateUnique should be configurable.": "https://www.drupal.org/files/issues/the_error_message_shown-2853176-7.patch"
             }
         },
         "installation-source": "dist",
@@ -11253,17 +11258,17 @@
     },
     {
         "name": "consolidation/annotated-command",
-        "version": "2.4.0",
-        "version_normalized": "2.4.0.0",
+        "version": "2.4.1",
+        "version_normalized": "2.4.1.0",
         "source": {
             "type": "git",
             "url": "https://github.com/consolidation/annotated-command.git",
-            "reference": "80afffd362bd1cf83bef60db690a8c50d8390803"
+            "reference": "81512473b0ac36747b87db2513f4771d9483a78d"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/consolidation/annotated-command/zipball/80afffd362bd1cf83bef60db690a8c50d8390803",
-            "reference": "80afffd362bd1cf83bef60db690a8c50d8390803",
+            "url": "https://api.github.com/repos/consolidation/annotated-command/zipball/81512473b0ac36747b87db2513f4771d9483a78d",
+            "reference": "81512473b0ac36747b87db2513f4771d9483a78d",
             "shasum": ""
         },
         "require": {
@@ -11276,11 +11281,11 @@
             "symfony/finder": "^2.5|~3"
         },
         "require-dev": {
-            "phpunit/phpunit": "4.*",
+            "phpunit/phpunit": "^4.8",
             "satooshi/php-coveralls": "^1.0",
             "squizlabs/php_codesniffer": "^2.7"
         },
-        "time": "2017-02-04T06:13:54+00:00",
+        "time": "2017-02-13T21:12:55+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {

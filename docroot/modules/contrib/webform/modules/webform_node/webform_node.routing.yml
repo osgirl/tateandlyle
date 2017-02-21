@@ -164,6 +164,7 @@ entity.node.webform_submission.canonical:
     operation: webform_submission_view
     entity_access: 'webform_submission.view'
   options:
+    _admin_route: TRUE
     parameters:
       node:
         type: 'entity:node'
@@ -179,6 +180,7 @@ entity.node.webform_submission.table:
     operation: webform_submission_view
     entity_access: 'webform_submission.view_any'
   options:
+    _admin_route: TRUE
     parameters:
       node:
         type: 'entity:node'
@@ -194,6 +196,7 @@ entity.node.webform_submission.text:
     operation: webform_submission_view
     entity_access: 'webform_submission.view_any'
   options:
+    _admin_route: TRUE
     parameters:
       node:
         type: 'entity:node'
@@ -209,6 +212,7 @@ entity.node.webform_submission.yaml:
     operation: webform_submission_view
     entity_access: 'webform_submission.view_any'
   options:
+    _admin_route: TRUE
     parameters:
       node:
         type: 'entity:node'
@@ -223,6 +227,23 @@ entity.node.webform_submission.edit_form:
     operation: webform_submission_edit
     entity_access: 'webform_submission.update'
   options:
+    _admin_route: TRUE
+    parameters:
+      node:
+        type: 'entity:node'
+  requirements:
+    _custom_access: '\Drupal\webform_node\Access\WebformNodeAccess::checkWebformSubmissionAccess'
+
+entity.node.webform_submission.edit_form.all:
+  path: '/node/{node}/webform/submission/{webform_submission}/edit/all'
+  defaults:
+    _entity_form: 'webform_submission.default'
+    _title_callback: 'Drupal\webform\Controller\WebformSubmissionController::title'
+    operation: webform_submission_edit
+    entity_access: 'webform_submission.update'
+    disable_pages: true
+  options:
+    _admin_route: TRUE
     parameters:
       node:
         type: 'entity:node'
@@ -237,6 +258,7 @@ entity.node.webform_submission.notes_form:
     operation: webform_submission_notes
     entity_access: 'webform_submission.update_any'
   options:
+    _admin_route: TRUE
     parameters:
       node:
         type: 'entity:node'
@@ -250,12 +272,13 @@ entity.node.webform_submission.resend_form:
     _title_callback: 'Drupal\webform\Controller\WebformSubmissionController::title'
     operation: webform_submission_resend
     entity_access: 'webform_submission.update_any'
+    resend: true
   options:
+    _admin_route: TRUE
     parameters:
       node:
         type: 'entity:node'
   requirements:
-    # @todo check email access.
     _custom_access: '\Drupal\webform_node\Access\WebformNodeAccess::checkWebformSubmissionAccess'
 
 entity.node.webform_submission.delete_form:
@@ -266,6 +289,7 @@ entity.node.webform_submission.delete_form:
     operation: webform_submission_delete
     entity_access: 'webform_submission.delete'
   options:
+    _admin_route: TRUE
     parameters:
       node:
         type: 'entity:node'

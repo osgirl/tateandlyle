@@ -12,6 +12,7 @@ use Drupal\Core\Entity\EntityChangedTrait;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\user\Entity\User;
 use Drupal\user\UserInterface;
+use Drupal\webform\Plugin\Field\FieldType\WebformEntityReferenceItem;
 use Drupal\webform\WebformInterface;
 use Drupal\webform\WebformSubmissionInterface;
 
@@ -27,7 +28,7 @@ use Drupal\webform\WebformSubmissionInterface;
  *   handlers = {
  *     "storage" = "Drupal\webform\WebformSubmissionStorage",
  *     "storage_schema" = "Drupal\webform\WebformSubmissionStorageSchema",
- *     "views_data" = "Drupal\views\EntityViewsData",
+ *     "views_data" = "Drupal\webform\WebformSubmissionViewsData",
  *     "view_builder" = "Drupal\webform\WebformSubmissionViewBuilder",
  *     "list_builder" = "Drupal\webform\WebformSubmissionListBuilder",
  *     "access" = "Drupal\webform\WebformSubmissionAccessControlHandler",
@@ -407,7 +408,7 @@ class WebformSubmission extends ContentEntityBase implements WebformSubmissionIn
     if ($uri !== NULL && ($url = \Drupal::pathValidator()->getUrlIfValid($uri))) {
       return $url->setOption('absolute', TRUE);
     }
-    elseif ($entity = $this->getSourceEntity()) {
+    elseif (($entity = $this->getSourceEntity()) && $entity->hasLinkTemplate('canonical')) {
       return $entity->toUrl()->setOption('absolute', TRUE);
     }
     else {
@@ -587,11 +588,9 @@ class WebformSubmission extends ContentEntityBase implements WebformSubmissionIn
       $source_entity = \Drupal::entityTypeManager()
         ->getStorage($values['entity_type'])
         ->load($values['entity_id']);
-      if ($source_entity && method_exists($source_entity, 'hasField') && $source_entity->hasField('webform')) {
-        foreach ($source_entity->webform as $item) {
-          if ($item->target_id == $webform->id() && $item->default_data) {
-            $values['data'] += Yaml::decode($item->default_data);
-          }
+      if ($webform_field_name = WebformEntityReferenceItem::getEntityWebformFieldName($source_entity)) {
+        if ($source_entity->$webform_field_name->target_id == $webform->id() && $source_entity->$webform_field_name->default_data) {
+          $values['data'] += Yaml::decode($source_entity->$webform_field_name->default_data);
         }
       }
     }
@@ -649,7 +648,7 @@ class WebformSubmission extends ContentEntityBase implements WebformSubmissionIn
   /**
    * {@inheritdoc}
    */
-  public function toArray($custom = FALSE) {
+  public function toArray($custom = FALSE, $check_access = FALSE) {
     if ($custom === FALSE) {
       return parent::toArray();
     }
@@ -667,7 +666,22 @@ class WebformSubmission extends ContentEntityBase implements WebformSubmissionIn
           $values[$key] = reset($value);
         }
       }
+
       $values['data'] = $this->getData();
+
+      // Check access.
+      if ($check_access) {
+        // Check field definition access.
+        $submission_storage = \Drupal::entityTypeManager()->getStorage('webform_submission');
+        $field_definitions = $submission_storage->getFieldDefinitions();
+        $field_definitions = $submission_storage->checkFieldDefinitionAccess($this->getWebform(), $field_definitions + ['data' => TRUE]);
+        $values = array_intersect_key($values, $field_definitions);
+
+        // Check element data access.
+        $elements = $this->getWebform()->getElementsInitializedFlattenedAndHasValue('view');
+        $values['data'] = array_intersect_key($values['data'], $elements);
+      }
+
       return $values;
     }
   }

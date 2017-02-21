@@ -13,6 +13,7 @@ use Drupal\webform\Element\WebformName as WebformNameElement;
  *   id = "webform_name",
  *   label = @Translation("Name"),
  *   category = @Translation("Composite elements"),
+ *   description = @Translation("Provides a form element to collect a person's full name."),
  *   multiline = TRUE,
  *   composite = TRUE,
  * )
@@ -38,7 +39,14 @@ class WebformName extends WebformCompositeBase {
   /**
    * {@inheritdoc}
    */
-  protected function formatLines(array $element, array $value) {
+  protected function formatHtmlItemValue(array $element, array $value) {
+    return $this->formatTextItemValue($element, $value);
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  protected function formatTextItemValue(array $element, array $value) {
     $name_parts = [];
     $composite_elements = $this->getCompositeElements();
     foreach (Element::children($composite_elements) as $name_part) {

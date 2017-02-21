@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitd4a091be1dc4396306810eb6071951f5
+class ComposerStaticInitf938c084123f3305f38283311abe637d
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -3401,6 +3401,8 @@ class ComposerStaticInitd4a091be1dc4396306810eb6071951f5
         'GuzzleHttp\\Psr7\\StreamWrapper' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/StreamWrapper.php',
         'GuzzleHttp\\Psr7\\UploadedFile' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/UploadedFile.php',
         'GuzzleHttp\\Psr7\\Uri' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/Uri.php',
+        'GuzzleHttp\\Psr7\\UriNormalizer' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/UriNormalizer.php',
+        'GuzzleHttp\\Psr7\\UriResolver' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/UriResolver.php',
         'GuzzleHttp\\RedirectMiddleware' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/RedirectMiddleware.php',
         'GuzzleHttp\\RequestOptions' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/RequestOptions.php',
         'GuzzleHttp\\RetryMiddleware' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/RetryMiddleware.php',
@@ -7047,10 +7049,10 @@ class ComposerStaticInitd4a091be1dc4396306810eb6071951f5
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitd4a091be1dc4396306810eb6071951f5::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitd4a091be1dc4396306810eb6071951f5::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInitd4a091be1dc4396306810eb6071951f5::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInitd4a091be1dc4396306810eb6071951f5::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitf938c084123f3305f38283311abe637d::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitf938c084123f3305f38283311abe637d::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitf938c084123f3305f38283311abe637d::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInitf938c084123f3305f38283311abe637d::$classMap;
 
         }, null, ClassLoader::class);
     }

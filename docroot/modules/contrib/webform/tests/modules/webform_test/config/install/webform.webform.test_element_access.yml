@@ -10,17 +10,9 @@ id: test_element_access
 title: 'Test: Element: Access'
 description: 'Test element access controls'
 elements: |
-  private_elements:
-    '#type': details
-    '#title': 'private'
-    '#open': true
-    private:
-      '#type': textfield
-      '#title': 'private'
-      '#private': true
   access_create:
     '#type': details
-    '#title': 'access_create'
+    '#title': access_create
     '#open': true
     access_create_roles_anonymous:
       '#type': textfield
@@ -42,7 +34,7 @@ elements: |
         - 1
   access_update:
     '#type': details
-    '#title': 'access_update'
+    '#title': access_update
     '#open': true
     access_update_roles_anonymous:
       '#type': textfield
@@ -64,7 +56,7 @@ elements: |
         - 1
   access_view:
     '#type': details
-    '#title': 'access_view'
+    '#title': access_view
     '#open': true
     access_view_roles_anonymous:
       '#type': textfield
@@ -91,13 +83,16 @@ settings:
   page_submit_path: ''
   page_confirm_path: ''
   form_submit_label: ''
+  form_submit_once: false
   form_submit_attributes: {  }
   form_exception_message: ''
   form_closed_message: ''
+  form_previous_submissions: true
   form_confidential: false
   form_confidential_message: ''
   form_prepopulate: false
   form_prepopulate_source_entity: false
+  form_disable_autocomplete: false
   form_novalidate: false
   form_unsaved: false
   form_disable_back: false
@@ -136,6 +131,8 @@ settings:
   limit_total_message: ''
   limit_user: null
   limit_user_message: ''
+  purge: none
+  purge_days: null
   entity_limit_total: null
   entity_limit_user: null
   results_disabled: false
@@ -148,7 +145,9 @@ access:
       - authenticated
     users: {  }
   view_any:
-    roles: {  }
+    roles:
+      - anonymous
+      - authenticated
     users: {  }
   update_any:
     roles: {  }

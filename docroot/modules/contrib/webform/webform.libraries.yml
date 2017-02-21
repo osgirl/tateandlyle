@@ -127,11 +127,30 @@ webform.states:
   js:
     js/webform.states.js:  {}
 
+webform.tooltip:
+  version: 1.x
+  js:
+    js/webform.tooltip.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery.once
+    - core/jquery.ui.tooltip
+
 webform.form.disable_back:
   version: 1.x
   header: true
   js:
     js/webform.form.disable_back.js:  {preprocess: false}
+
+webform.form.submit_once:
+  version: 1.x
+  js:
+    js/webform.form.submit_once.js:  {}
+  dependencies:
+    - system/base
+    - core/drupal
+    - core/jquery
+    - core/jquery.once
 
 webform.form.unsaved:
   version: 1.x
@@ -150,6 +169,7 @@ webform.element.buttons:
     js/webform.element.buttons.js: {}
   dependencies:
     - core/jquery.ui.button
+    - webform/jquery.common_ancestor
 
 webform.element.codemirror.text:
   version: 1.x
@@ -270,9 +290,6 @@ webform.element.image_file:
 
 webform.element.html_editor:
   version: 1.x
-  css:
-    theme:
-      css/webform.element.html_editor.css: {}
   js:
     js/webform.element.html_editor.js: {}
   dependencies:
@@ -297,6 +314,8 @@ webform.element.multiple:
   css:
     component:
       css/webform.element.multiple.css: {}
+  js:
+    js/webform.element.multiple.js: {}
 
 webform.element.likert:
   version: 1.x
@@ -378,6 +397,9 @@ webform.element.roles:
 
 webform.element.select2:
   version: 1.x
+  css:
+    theme:
+      css/webform.element.select2.css: {}
   js:
     js/webform.element.select2.js: {}
   dependencies:
@@ -439,20 +461,18 @@ webform.element.toggle:
     - core/drupal
     - webform/jquery.toggles
 
-webform.element.tooltip:
-  version: 1.x
-  js:
-    js/webform.element.tooltip.js: {}
-  dependencies:
-    - core/drupal
-    - core/jquery.once
-    - core/jquery.ui.tooltip
-
 webform.element.video_file:
   version: 1.x
   css:
     theme:
       css/webform.element.video_file.css: {}
+
+# jQuery libraries.
+
+jquery.common_ancestor:
+  version: 1.x
+  js:
+    js/jquery.common_ancestor.js:  {}
 
 # External libraries.
 
