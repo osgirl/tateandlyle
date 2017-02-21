@@ -239,3 +239,10 @@
     margin-bottom: 2em;
   }
 }
+
+.block--accordion-with-tabs {
+  @media (min-width: $screen-sm) {
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+}

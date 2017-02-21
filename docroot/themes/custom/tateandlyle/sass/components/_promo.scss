@@ -404,3 +404,10 @@
     }
   }
 }
+
+.recruitment__block .field--name-field-all-jobs-link a {
+  padding: 8px 7px;
+  @media (min-width: $screen-md) {
+    padding: 8px 15px;
+  }
+}
