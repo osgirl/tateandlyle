@@ -168,7 +168,10 @@
   }
 
   .field--name-field-tal-more {
-    margin-top: 49px;
+    margin-top: 18px;
+    @media(min-width: $screen-md) {
+      margin-top: 49px;
+    }
     a::after {
       @extend %right-brand-arrow;
     }
@@ -414,6 +417,10 @@
       margin-top: 9px;
       min-height: 52px;
     }
+  }
+
+  .field--name-field-tal-more {
+    display: block;
   }
 
   .field--name-field-icon {
@@ -821,5 +828,57 @@
     .promo--title {
       color: $gray-base;
     }
+  }
+}
+
+// Four columns with no top image.
+.promo__images-4 {
+  .promo__no__images {
+    @media(min-width: $screen-sm) {
+      padding-top: 30px;
+      padding-bottom: 26px;
+    }
+
+    @media(min-width: $screen-md-lg) {
+      padding-top: 70px;
+      padding-bottom: 33px;
+    }
+  }
+}
+
+// Four columns with featured links.
+.promo__images-4.featured__link {
+  @extend .promo__images-3;
+  .field--name-field-content-details {
+    padding: 0;
+  }
+
+  .promo__images--content {
+    padding-bottom: 0;
+
+    @media(min-width: $screen-sm) {
+      padding-top: 30px;
+    }
+
+    @media(min-width: $screen-md) {
+      padding-top: 0;
+    }
+  }
+
+  .promo__paragaph--content {
+    height: auto;
+  }
+
+  .field--name-field-title {
+    width: auto;
+    &::after {
+      content: none;
+    }
+  }
+
+  .promo__images-title,
+  .field--name-field-icon,
+  .field--name-field-tal-more {
+    display: block;
   }
 }
