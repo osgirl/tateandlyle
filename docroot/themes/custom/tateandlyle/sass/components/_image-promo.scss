@@ -536,6 +536,18 @@
 
     .promo__paragaph--content {
       border: 0;
+      padding: 27px 0;
+      @media(min-width: $screen-sm) {
+        padding: 0;
+      }
+      @media(min-width: $screen-md) {
+        padding: 0 34px;
+      }
+
+      .field--name-field-simple-summary,
+      .field--name-field-tal-more {
+        display: block;
+      }
 
       @media(min-width: $screen-sm) and (max-width: $screen-sm-max) {
         display: table;
@@ -553,11 +565,33 @@
           padding: 44px 39px 44px 40px;
         }
 
+        .field--name-field-tal-more {
+          display: table-row;
+
+          a {
+            display: block;
+            padding-bottom: 5px;
+          }
+        }
+
         .field--name-field-simple-summary {
           border-bottom: 1px solid $color-warm-gray;
           padding: 23px 38px 28px 17px;
           text-align: left;
         }
+      }
+    }
+
+    .field--name-field-icon::after {
+      @media(min-width: $screen-md) {
+        background: $color-white;
+        content: "";
+        display: block;
+        min-height: 130px;
+        position: absolute;
+        right: -2px;
+        top: 0;
+        width: 4px;
       }
     }
 
@@ -569,6 +603,7 @@
         vertical-align: top;
         border-bottom: 0;
         border-right: 1px solid $color-warm-gray;
+        position: relative;
 
         &:last-child {
           border-bottom: 0;
@@ -740,16 +775,6 @@
     padding-right: 0;
   }
 
-  .promo__images--title {
-    hr {
-      border-color: $gray-base;
-    }
-
-    .promo--title {
-      color: $gray-base;
-    }
-  }
-
   .promo__images--content {
     padding-bottom: 0;
     padding-left: 0;
@@ -762,7 +787,7 @@
 }
 
 // No Background.
-.no__bg {
+.block--content-promo-images.no__bg {
   padding-bottom: 0;
   .field--name-field-featured-links {
     @media(max-width: $screen-xs-max) {
@@ -785,6 +810,16 @@
       .promo--title {
         color: $gray-base;
       }
+    }
+  }
+
+  .promo__images--title {
+    hr {
+      border-color: $gray-base;
+    }
+
+    .promo--title {
+      color: $gray-base;
     }
   }
 }

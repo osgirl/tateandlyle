@@ -28,7 +28,8 @@
       margin-right: 0;
     }
 
-    .content,
+    .content .field--type-text-long,
+    .content .field--type-text-with-summary,
     .page-header {
       max-width: 878px;
       margin-left: 0;
