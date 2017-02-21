@@ -3,7 +3,6 @@ status: true
 dependencies:
   config:
     - field.field.node.landing_page.field_meta_tags
-    - field.field.node.landing_page.panelizer
     - node.type.landing_page
   module:
     - metatag

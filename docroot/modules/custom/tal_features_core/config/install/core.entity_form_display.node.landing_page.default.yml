@@ -6,7 +6,6 @@ dependencies:
     - field.field.node.landing_page.field_lp_keywords
     - field.field.node.landing_page.field_lp_summary
     - field.field.node.landing_page.field_meta_tags
-    - field.field.node.landing_page.panelizer
     - node.type.landing_page
   module:
     - metatag
