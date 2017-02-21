@@ -226,17 +226,7 @@
           right: 11px;
           font-size: 22px;
           font-weight: 100;
-          margin-top: -4px;
-
-          @media(min-width: $screen-sm) {
-            margin-top: 0;
-            top: 10px;
-          }
-
-          @media(min-width: $screen-sm) {
-            margin-top: -4px;
-            top: auto;
-          }
+          top: 38%;
         }
       }
     }
@@ -641,19 +631,15 @@
 
 // Only Featured Section.
 .featured__icon {
-  padding: 0 30px;
+  padding: 30px 0;
+
   @media(min-width: $screen-md) {
-    padding-left: 35px;
+    padding: 80px 30px;
   }
-
-  @media(min-width: $screen-md-lg) {
-    padding-left: 0;
-    padding-right: 0;
-  }
-
 
   .promo__images--content {
-    padding-bottom: 0;
+    padding: 30px;
+    text-align: center;
   }
 
   .promo__images--inner {
@@ -693,6 +679,7 @@
       font-size: $font-size-base;
       margin: 0;
       margin-bottom: 19px;
+      text-align: left;
 
       @media(min-width: $screen-sm) {
         border: 1px solid $color-warm-gray;
@@ -703,7 +690,8 @@
         vertical-align: middle;
         width: 223px;
 
-        &:nth-child(3n) {
+        &:nth-child(3n),
+        &:last-child {
           margin-right: 0;
         }
       }
@@ -724,7 +712,7 @@
         position: relative;
 
         @media(min-width: $screen-sm) {
-          padding: 35px 15px 37px 31px;
+          padding: 35px 28px 37px 31px;
         }
 
         &::after {
@@ -733,19 +721,42 @@
           right: 11px;
           font-size: 22px;
           font-weight: 100;
-          margin-top: -4px;
-
-          @media(min-width: $screen-sm) {
-            margin-top: 0;
-            top: 10px;
-          }
-
-          @media(min-width: $screen-sm) {
-            margin-top: -4px;
-            top: auto;
-          }
+          top: 38%;
         }
       }
+    }
+  }
+}
+
+// Only Featured Section no background.
+.featured__icon.no__bg {
+  padding: 0;
+  @media(min-width: $screen-sm-lsp) {
+    padding: 0 30px;
+  }
+
+  @media(min-width: $screen-sm) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .promo__images--title {
+    hr {
+      border-color: $gray-base;
+    }
+
+    .promo--title {
+      color: $gray-base;
+    }
+  }
+
+  .promo__images--content {
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    @media(min-width: $screen-md) {
+      padding-left: 30px;
+      padding-right: 30px;
     }
   }
 }
