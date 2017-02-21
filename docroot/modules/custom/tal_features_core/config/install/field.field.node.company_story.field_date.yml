@@ -12,7 +12,7 @@ entity_type: node
 bundle: company_story
 label: 'Publication Date'
 description: 'Date of publication'
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
