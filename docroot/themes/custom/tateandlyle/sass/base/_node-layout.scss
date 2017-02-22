@@ -2,7 +2,9 @@
   .teaser-content .date--category {
     padding-left: 0;
   }
-  .teaser-content {
+  .teaser-content .field--type-text-long,
+  .teaser-content .field--type-text-with-summary,
+  .teaser-content .date--category {
     @media (min-width: $screen-md) {
       max-width: 880px;
     }
