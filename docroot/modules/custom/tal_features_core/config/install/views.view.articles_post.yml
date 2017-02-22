@@ -319,12 +319,25 @@ display:
         style: false
         row: false
         use_ajax: false
+        footer: false
       row:
         type: 'entity:node'
         options:
           relationship: none
           view_mode: teaser
       use_ajax: true
+      footer:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: false
+          content: '<span><a href="/articles/all">All publications</a></span>'
+          plugin_id: text_custom
     cache_metadata:
       max-age: -1
       contexts:
