@@ -132,11 +132,15 @@
   .butoflashplayer,
   .butohtml5player,
   video {
+    display: none;
     height: auto !important;
     width: 100% !important;
     padding: 0 !important;
     max-width: 464px;
     margin: auto;
+    @media (min-width: $screen-sm) {
+      display: block;
+    }
     @media (min-width: $screen-sm-lsp) {
       height: 261px !important;
     }

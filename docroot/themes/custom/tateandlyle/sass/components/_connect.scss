@@ -184,7 +184,7 @@
     .field--name-field-pr-link {
       @media (min-width: $screen-md) {
         position: absolute;
-        bottom: 7.5%;
+        bottom: 26px;
       }
 
       &::after {
@@ -318,11 +318,16 @@
   }
 
   .overlay__block--content > .connect__block {
+    @media (max-width: $screen-sm-lsp-max) {
+      padding-left: 0;
+      padding-right: 0;
+    }
     @media (min-width: $screen-sm) {
       text-align: left;
       padding: 40px;
       position: relative;
       display: table-cell;
+      width: 50%;
 
       hr {
         display: none;
@@ -337,6 +342,10 @@
         top: 14%;
         width: 1px;
       }
+    }
+
+    @media (min-width: $screen-md) {
+      width: 33.33%;
     }
 
     &:last-child {
@@ -371,7 +380,7 @@
     @media (min-width: $screen-md) {
       margin-top: 35px;
       position: absolute;
-      bottom: 9%;
+      bottom: 30px;
     }
     a {
       @extend .btn-white;

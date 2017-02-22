@@ -345,9 +345,10 @@
 
     blockquote p {
       line-height: 1.1;
-      text-indent: -5px;
+      text-indent: -9px;
+      display: inline;
       @media (min-width: $screen-md) {
-        text-indent: -6px;
+        text-indent: -10px;
       }
 
       &::before {
