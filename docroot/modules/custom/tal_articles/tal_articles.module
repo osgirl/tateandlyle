@@ -17,7 +17,7 @@ function tal_articles_form_views_exposed_form_alter(&$form, FormStateInterface $
     $form['actions']['submit']['#attributes'] = array('class' => array('hide'));
     $form['sort_by']['#attributes'] = array('onchange' => array('this.form.submit();'));
     $form['sort_by']['#options'][''] = '';
-    $form['sort_by']['#default_value'] = 'title';
+    $form['sort_by']['#default_value'] = 'field_date_value';
 
     // The "Sort by" index is used on other views too which are also rendering
     // on article list page, We need a unique index.
