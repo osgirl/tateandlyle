@@ -765,6 +765,11 @@ header.navbar-default {
     padding-right: 30px;
     background: white;
   }
+  .navbar-nav {
+    max-height: 80vh;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
   .search-menu-mobile section {
     margin: 0;
     padding: 0;
