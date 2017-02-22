@@ -16,6 +16,8 @@ function tal_articles_form_views_exposed_form_alter(&$form, FormStateInterface $
   if ($form['#id'] == 'views-exposed-form-article-list-page-1') {
     $form['actions']['submit']['#attributes'] = array('class' => array('hide'));
     $form['sort_by']['#attributes'] = array('onchange' => array('this.form.submit();'));
+    $form['sort_by']['#options'][''] = '';
+    $form['sort_by']['#default_value'] = 'title';
 
     // The "Sort by" index is used on other views too which are also rendering
     // on article list page, We need a unique index.
