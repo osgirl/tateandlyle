@@ -46,7 +46,10 @@
         "drupal/diff": "^1.0@RC",
         "drupal/contact_storage": "^1.0@beta",
         "drupal/smart_trim": "1.0",
-        "drupal/menu_breadcrumb": "^1.0"
+        "drupal/menu_breadcrumb": "^1.0",
+        "drupal/slick_views": "^1.0@RC",
+        "drupal/slick": "^1.0@RC",
+        "kenwheeler/slick": "1.6"
     },
     "require-dev": {
         "behat/behat": "^3.1",
@@ -93,6 +96,18 @@
                 "type": "drupal-library",
                 "dist": {
                     "url": "https://github.com/jackmoore/colorbox/archive/1.6.4.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        "slick": {
+            "type": "package",
+            "package": {
+                "name": "kenwheeler/slick",
+                "version": "1.6.0",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://github.com/kenwheeler/slick/archive/1.6.0.zip",
                     "type": "zip"
                 }
             }
