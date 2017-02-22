@@ -23,7 +23,7 @@ settings:
   form_prepopulate_source_entity: false
   form_novalidate: false
   form_unsaved: false
-  form_disable_back: true
+  form_disable_back: false
   form_autofocus: false
   form_details_toggle: false
   wizard_progress_bar: false

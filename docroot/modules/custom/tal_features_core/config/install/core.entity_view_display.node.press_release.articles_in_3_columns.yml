@@ -39,7 +39,7 @@ content:
     settings:
       trim_length: '70'
       trim_type: chars
-      trim_suffix: ''
+      trim_suffix: ...
       more_link: '0'
       more_text: More
       summary_handler: full

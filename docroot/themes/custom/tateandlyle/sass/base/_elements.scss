@@ -62,10 +62,6 @@ h5 {
     max-width: 885px;
     padding-left: 0;
   }
-
-  @media (min-width: $screen-md-lg) {
-    padding-left: 16px;
-  }
 }
 
 .region-content {
@@ -128,7 +124,12 @@ h5 {
   margin: auto;
 }
 
-.region-content-top,
+.region-content-top {
+  float: none;
+  max-width: 1132px;
+  margin: auto;
+}
+
 .view-frontpage,
 .breadcrumb,
 nav.tabs .tabs--primary {
