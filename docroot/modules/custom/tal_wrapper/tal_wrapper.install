@@ -319,3 +319,12 @@ function tal_wrapper_update_8218() {
 function tal_wrapper_update_8219() {
   \Drupal::service('config.factory')->getEditable('tateandlyle.settings')->set('modal_enabled', 0)->save();
 }
+
+/**
+ * Enable  module.
+ *
+ * Implements hook_update_N().
+ */
+function tal_wrapper_update_8220() {
+  \Drupal::service('module_installer')->install(['slick', 'slick_views']);
+}
