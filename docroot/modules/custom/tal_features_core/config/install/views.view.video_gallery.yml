@@ -1269,14 +1269,13 @@ display:
         type: slick
         options:
           vanilla: false
-          optionset: default
+          optionset: responsive_gallery
           skin: ''
           layout: ''
           caption:
             field_simple_text1: field_simple_text1
             field_media_video_gallery: '0'
             field_buto_video: '0'
-            nothing: '0'
           optionset_thumbnail: ''
           skin_thumbnail: ''
           thumbnail_caption: ''
