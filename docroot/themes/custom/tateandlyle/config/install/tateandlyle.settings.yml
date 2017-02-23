@@ -25,3 +25,4 @@ favicon:
   use_default: false
 
 breadcrumb_home: 1
+forms_smart_descriptions: 0

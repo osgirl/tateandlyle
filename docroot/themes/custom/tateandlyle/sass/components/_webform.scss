@@ -101,7 +101,11 @@
     }
 
     &:hover,
-    &:focus {
+    &:focus,
+    &:active,
+    &:active:hover,
+    &:active:focus {
+      border-color: $color-white;
       background: transparent;
       box-shadow: none;
       outline: none;
