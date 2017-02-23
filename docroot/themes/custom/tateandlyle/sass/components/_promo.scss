@@ -49,6 +49,7 @@
       &::after {
         @extend %right-brand-arrow;
         color: inherit;
+        vertical-align: middle;
       }
     }
   }
@@ -201,6 +202,7 @@
   }
 }
 
+.dcp-content-2,
 .dcp-content-3 {
   padding-left: 40px;
   padding-right: 40px;
@@ -344,7 +346,7 @@
     }
 
     blockquote p {
-      line-height: 1.1;
+      line-height: 1.3;
       text-indent: -9px;
       display: inline;
       @media (min-width: $screen-md) {
@@ -357,7 +359,7 @@
 
       &::after {
         content: close-quote;
-        padding-left: 3px;
+        padding-left: 9px;
       }
 
       &::before,

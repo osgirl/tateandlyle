@@ -94,4 +94,23 @@
     font-size: 12px;
     height: auto;
   }
+
+  .slick-initialized .slick-slide {
+    display: block;
+    padding: 0 10px;
+  }
+
+  .slide__content {
+    display: table;
+    position: relative;
+    width: 100%;
+  }
+
+  .slick-slide img {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+    max-height: 170px;
+    max-width: none;
+  }
 }
