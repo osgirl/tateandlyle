@@ -226,6 +226,7 @@ function tateandlyle_preprocess_views_view_unformatted(&$variables) {
       $variables['rows'][$id]['attributes'] = new Attribute();
       $variables['rows'][$id]['attributes']->addClass('views-row');
       if ($uri == $current_uri) {
+        $variables['#cache']['contexts'] = ['url.path'];
         $variables['rows'][$id]['attributes']->addClass('active-row');
       }
     }
