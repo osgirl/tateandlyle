@@ -57,12 +57,6 @@
       if ($(".block--single-item-promo-background").hasClass("block__sip--nobackground")) {
         $(".block__sip--nobackground .block-title").prependTo(".block__sip--nobackground");
       }
-
-      $(".form-type-textfield").each(function () {
-        var $input = $(this);
-
-        $input.find(".description").appendTo($input.find(".input--title"));
-      });
     }
   };
 

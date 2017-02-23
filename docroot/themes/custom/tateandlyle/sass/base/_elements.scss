@@ -98,9 +98,12 @@ h5 {
   display: none;
   background: transparent;
   padding-top: 0;
-  padding-left: 0;
   @media (min-width: $screen-sm) {
     display: block;
+  }
+
+  @media (min-width: $screen-md-lg) {
+    padding-left: 20px;
   }
 
   a {
@@ -121,16 +124,14 @@ h5 {
   margin: auto;
 }
 
-.region-content-top,
-.breadcrumb {
+.region-content-top {
   float: none;
   max-width: 1132px;
   margin: auto;
 }
 
 .view-frontpage,
-.iframe-content,
-iframe,
+.breadcrumb,
 nav.tabs .tabs--primary {
   float: none;
   max-width: 1169px;
