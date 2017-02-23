@@ -200,7 +200,8 @@
 .block--single-item-promo-background,
 .block--content-promo-images,
 .block--quote,
-.trends-solutions {
+.trends-solutions,
+.block--dynamic-posts {
   position: relative;
   clear: both;
   .contextual {
@@ -210,3 +211,6 @@
   }
 }
 
+section.block {
+  clear: both;
+}
