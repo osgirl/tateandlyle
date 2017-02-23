@@ -688,8 +688,8 @@
 
   .promo__images--content {
     padding: 30px;
-    max-width: 711px;
     margin: auto;
+    max-width: 768px;
     @media(min-width: $screen-md) {
       max-width: 1055px;
     }
@@ -704,6 +704,10 @@
   }
 
   .field--name-field-featured-block-icon {
+    display: none;
+    @media(min-width: $screen-sm) {
+      display: block;
+    }
     img {
       max-height: 49px;
       width: auto;
@@ -712,12 +716,16 @@
   }
 
   .field--name-field-featured-block-title {
+    @extend %title-border-top;
     color: $gray-base;
     font-family: $font-family-sans-serif-Med;
-    font-size: $font-size-h2;
+    font-size: $font-size-h3;
     margin-bottom: 29px;
-    margin-top: 9px;
-    text-align: center;
+    @media(min-width: $screen-sm) {
+      margin-top: 9px;
+      font-size: $font-size-h2;
+      text-align: center;
+    }
   }
 
   .field--name-field-featured-links {
@@ -761,7 +769,8 @@
 
       a {
         display: block;
-        padding: 34px 15px 34px 20px;
+        line-height: 1;
+        padding: 34px 80px 34px 20px;
         position: relative;
 
         @media(min-width: $screen-sm) {
@@ -778,10 +787,7 @@
           right: 11px;
           font-size: $font-size-h2;
           font-weight: 100;
-          top: 35%;
-          @media(min-width: $screen-md) {
-            top: 32%;
-          }
+          top: 32%;
         }
       }
     }
@@ -804,9 +810,11 @@
     padding-bottom: 0;
     padding-left: 0;
     padding-right: 0;
+    max-width: 711px;
     @media(min-width: $screen-md) {
       padding-left: 30px;
       padding-right: 30px;
+      max-width: 1055px;
     }
   }
 }
