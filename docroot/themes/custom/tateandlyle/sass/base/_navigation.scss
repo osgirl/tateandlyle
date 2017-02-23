@@ -213,6 +213,7 @@
 
   .dropdown .block-facets--links {
     @media (min-width: $screen-sm) {
+      clear: none;
       float: left;
       padding-bottom: 54px;
       width: 33%;
