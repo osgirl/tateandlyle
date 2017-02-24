@@ -36,6 +36,8 @@ cache:
 addons:
   ssh_known_hosts:
   # - svn-4786.devcloud.hosting.acquia.com
+  - svn-19900.prod.hosting.acquia.com
+  - staging-15867.prod.hosting.acquia.com
 
 # @see https://docs.travis-ci.com/user/notifications
 notifications:
