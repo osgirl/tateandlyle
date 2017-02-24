@@ -1303,17 +1303,17 @@
     },
     {
         "name": "phpunit/php-token-stream",
-        "version": "1.4.9",
-        "version_normalized": "1.4.9.0",
+        "version": "1.4.10",
+        "version_normalized": "1.4.10.0",
         "source": {
             "type": "git",
             "url": "https://github.com/sebastianbergmann/php-token-stream.git",
-            "reference": "3b402f65a4cc90abf6e1104e388b896ce209631b"
+            "reference": "284fb0679dd25fb5ffb56dad92c72860c0a22f1b"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/3b402f65a4cc90abf6e1104e388b896ce209631b",
-            "reference": "3b402f65a4cc90abf6e1104e388b896ce209631b",
+            "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/284fb0679dd25fb5ffb56dad92c72860c0a22f1b",
+            "reference": "284fb0679dd25fb5ffb56dad92c72860c0a22f1b",
             "shasum": ""
         },
         "require": {
@@ -1323,7 +1323,7 @@
         "require-dev": {
             "phpunit/phpunit": "~4.2"
         },
-        "time": "2016-11-15T14:06:22+00:00",
+        "time": "2017-02-23T06:14:45+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -2523,17 +2523,17 @@
     },
     {
         "name": "acquia/blt",
-        "version": "8.6.12",
-        "version_normalized": "8.6.12.0",
+        "version": "8.6.14",
+        "version_normalized": "8.6.14.0",
         "source": {
             "type": "git",
             "url": "https://github.com/acquia/blt.git",
-            "reference": "90194ec0e1d300c7265673b3ecf5be459e1d9964"
+            "reference": "5c44a6bc3147b6ef38f7ba07cbec97564aa81d9e"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/acquia/blt/zipball/90194ec0e1d300c7265673b3ecf5be459e1d9964",
-            "reference": "90194ec0e1d300c7265673b3ecf5be459e1d9964",
+            "url": "https://api.github.com/repos/acquia/blt/zipball/5c44a6bc3147b6ef38f7ba07cbec97564aa81d9e",
+            "reference": "5c44a6bc3147b6ef38f7ba07cbec97564aa81d9e",
             "shasum": ""
         },
         "require": {
@@ -2565,7 +2565,7 @@
         "suggest": {
             "hirak/prestissimo": "^0.3"
         },
-        "time": "2017-02-14T01:50:20+00:00",
+        "time": "2017-02-22T03:04:12+00:00",
         "bin": [
             "bin/blt",
             "bin/blt-console"
@@ -6158,7 +6158,7 @@
             },
             "drupal": {
                 "version": "8.x-1.0",
-                "datestamp": "1485901983"
+                "datestamp": "1485902197"
             }
         },
         "installation-source": "dist",
@@ -6730,7 +6730,7 @@
         "dist": {
             "type": "zip",
             "url": "https://ftp.drupal.org/files/projects/features-8.x-3.2.zip",
-            "reference": "8.x-3.2",
+            "reference": null,
             "shasum": "1fce32d01b812d2a613ffadb1b9395293364980e"
         },
         "require": {
@@ -6744,7 +6744,7 @@
             },
             "drupal": {
                 "version": "8.x-3.2",
-                "datestamp": "1481513884"
+                "datestamp": "1487861884"
             }
         },
         "installation-source": "dist",
@@ -9507,7 +9507,7 @@
             },
             "drupal": {
                 "version": "8.x-1.0-alpha3",
-                "datestamp": "1473976439"
+                "datestamp": "1487293084"
             }
         },
         "installation-source": "dist",
@@ -10152,6 +10152,10 @@
             {
                 "name": "Frans",
                 "homepage": "https://www.drupal.org/user/514222"
+            },
+            {
+                "name": "Primsi",
+                "homepage": "https://www.drupal.org/user/282629"
             },
             {
                 "name": "jeroen.b",
@@ -11175,7 +11179,7 @@
             },
             "drupal": {
                 "version": "8.x-1.0-alpha3",
-                "datestamp": "1475800439"
+                "datestamp": "1487197684"
             }
         },
         "installation-source": "dist",

@@ -85,25 +85,6 @@
 
   Drupal.behaviors.carousel = {
     attach: function () {
-      $(".tal--image-gallery-categories .carousel").carousel({
-        interval: false
-      });
-
-      $(".tal--image-gallery-categories .carousel .item").each(function () {
-        var next = $(this).next();
-
-        if (!next.length) {
-          next = $(this).siblings(":first");
-        }
-        next.children(":first-child").clone().appendTo($(this));
-        for (var i = 0; i < 2; i++) {
-          next = next.next();
-          if (!next.length) {
-            next = $(this).siblings(":first");
-          }
-          next.children(":first-child").clone().appendTo($(this));
-        }
-      });
     }
   };
 

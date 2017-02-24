@@ -9,7 +9,6 @@ use Drupal\taxonomy\Entity\Term;
 use Drupal\taxonomy\Entity\Vocabulary;
 use Drupal\node\Entity\Node;
 use Drupal\menu_link_content\Entity\MenuLinkContent;
-use Drupal\field\Entity\FieldStorageConfig;
 
 /**
  * Implements hook_install().
@@ -37,10 +36,8 @@ function tal_wrapper_install() {
   tal_wrapper_update_8208();
   tal_wrapper_update_8209();
   tal_wrapper_update_8210();
-  tal_wrapper_update_8211();
   tal_wrapper_update_8212();
   tal_wrapper_update_8213();
-  tal_wrapper_update_8215();
   tal_wrapper_update_8216();
   tal_wrapper_update_8217();
   tal_wrapper_update_8218();
@@ -193,15 +190,6 @@ function tal_wrapper_update_8210() {
 }
 
 /**
- * Delete Leadership Bio text field.
- */
-function tal_wrapper_update_8211() {
-
-  $field = FieldStorageConfig::loadByName('node', 'field_bio');
-  $field->delete();
-}
-
-/**
  * Create a term 'press packs' for vocab 'article category/story_category'.
  */
 function tal_wrapper_update_8212() {
@@ -227,49 +215,6 @@ function tal_wrapper_update_8213() {
  */
 function tal_wrapper_update_8214() {
   \Drupal::service('module_installer')->install(['tal_breadcrumbs', 'menu_breadcrumb']);
-}
-
-/**
- * Removes a field from paragraph type "talk to us" field.
- *
- * Type of content and taxonomy term field salesforce on.
- */
-function tal_wrapper_update_8215() {
-  // Deleting field salesforce on and type of content form industry,
-  // category and ttu paragraph tpye reppectively.
-  $properties[] = [
-    'entity_type' => 'paragraph',
-    'bundle' => 'talk_to_us',
-    'include_deleted' => TRUE,
-  ];
-  $properties[] = [
-    'entity_type' => 'taxonomy_term',
-    'bundle' => 'category',
-    'include_deleted' => TRUE,
-  ];
-  $properties[] = [
-    'entity_type' => 'taxonomy_term',
-    'bundle' => 'industry',
-    'include_deleted' => TRUE,
-  ];
-  foreach ($properties as $key => $property) {
-    $fields =
-      \Drupal::entityTypeManager()->getStorage('field_config')->loadByProperties($property);
-    foreach ($fields as $field) {
-      if ($field->getName() == 'field_ttu_type_of_content' || $field->getName() == 'field_saleforce_on') {
-        $field->delete();
-      }
-    }
-  }
-  // Deleting taxonomy "type of content" vocab and it's temrs.
-  $tids = \Drupal::entityQuery('taxonomy_term')
-    ->condition('vid', 'type_of_content')
-    ->execute();
-
-  $controller = \Drupal::entityTypeManager()->getStorage('taxonomy_term');
-  $entities = $controller->loadMultiple($tids);
-  $controller->delete($entities);
-  Vocabulary::load('type_of_content')->delete();
 }
 
 /**
