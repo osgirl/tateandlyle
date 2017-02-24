@@ -17,6 +17,9 @@
       }
     }
   }
+  .posts__title {
+    display: none;
+  }
 }
 
 .three--columns.block--dynamic-posts,
@@ -300,8 +303,13 @@
     }
   }
 
-  > h2 {
+  .block-title {
+    display: none;
+  }
+
+  .posts__title {
     @extend %title-border-top;
+    display: block;
     text-align: left;
     margin-top: 0;
     width: auto;
@@ -346,12 +354,16 @@
 
   .tal--focus-on-tag-list {
     width: 100%;
+    margin-bottom: 33px;
+    margin-top: 28px;
     @media (min-width: $screen-sm) {
       width: 100%;
     }
     @media (min-width: $screen-md) {
       max-width: 313px;
       width: 28.5%;
+      margin-bottom: 0;
+      margin-top: 0;
     }
   }
 
