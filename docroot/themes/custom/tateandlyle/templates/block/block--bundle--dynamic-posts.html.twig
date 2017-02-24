@@ -72,7 +72,10 @@
               {% else %}
           <div class="tal-dynamic-post-wrapper">
           {% endif %}
+          <div>
+            <h2 class="posts__title">{{ label }}</h2>
             {{ dynamic_posts }}
+          </div>
             {{ focus_on_tag_list }}
         </div>
       {% endblock %}
