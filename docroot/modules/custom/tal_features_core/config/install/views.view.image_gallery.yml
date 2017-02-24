@@ -11,6 +11,7 @@ dependencies:
     - colorbox
     - image
     - node
+    - slick_views
     - taxonomy
     - user
 id: image_gallery
@@ -755,6 +756,66 @@ display:
           entity_type: taxonomy_term
           plugin_id: entity_reverse
       display_description: ''
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.field_im_image'
+  image_term_block:
+    display_plugin: block
+    id: image_term_block
+    display_title: 'Image Term Block'
+    position: 3
+    display_options:
+      display_extenders: {  }
+      display_description: ''
+      style:
+        type: slick
+        options:
+          vanilla: false
+          optionset: responsive_gallery
+          skin: ''
+          layout: ''
+          caption:
+            field_im_image_1: field_im_image_1
+            field_im_image: '0'
+          optionset_thumbnail: ''
+          skin_thumbnail: ''
+          grid_header: ''
+          grid: null
+          grid_medium: null
+          grid_small: null
+          visible_items: null
+          preserve_keys: false
+          image: field_im_image
+          thumbnail: ''
+          overlay: ''
+          title: ''
+          link: ''
+          class: ''
+          id: ''
+          override: false
+          overridables:
+            arrows: '0'
+            autoplay: '0'
+            dots: '0'
+            draggable: '0'
+            infinite: '0'
+            mouseWheel: '0'
+            randomize: '0'
+            variableWidth: '0'
+          cache: 0
+          current_view_mode: block_2
+      defaults:
+        style: false
+        row: false
+      row:
+        type: fields
+        options: {  }
     cache_metadata:
       max-age: -1
       contexts:
