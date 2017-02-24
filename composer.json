@@ -12,7 +12,7 @@
         "drupal/cog": "^1.0.0",
         "drupal/console": "^1.0.0-rc14",
         "drupal/core": "^8.0",
-        "drupal/features": "^3.0.0",
+        "drupal/features": "3.2",
         "drupal/memcache": "2.x-dev",
         "drupal/search_api": "1.0.0-beta3",
         "drupal/search_api_solr": "1.0.0-beta1",
@@ -49,7 +49,8 @@
         "drupal/slick_views": "^1.0@RC",
         "drupal/slick": "^1.0@RC",
         "kenwheeler/slick": "1.6",
-        "acquia/blt": "^8.6"
+        "acquia/blt": "^8.6",
+        "drupal/config_update": "^1.3"
     },
     "require-dev": {
         "behat/behat": "^3.1",

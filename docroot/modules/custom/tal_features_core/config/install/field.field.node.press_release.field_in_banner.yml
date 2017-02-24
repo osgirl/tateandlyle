@@ -3,7 +3,6 @@ status: true
 dependencies:
   config:
     - block_content.type.banner
-    - block_content.type.homepage_banner
     - field.storage.node.field_in_banner
     - node.type.press_release
 id: node.press_release.field_in_banner
@@ -21,7 +20,6 @@ settings:
   handler_settings:
     target_bundles:
       banner: banner
-      homepage_banner: homepage_banner
     sort:
       field: _none
     auto_create: false
