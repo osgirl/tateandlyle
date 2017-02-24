@@ -26,8 +26,11 @@
 }
 
 .tal--ingredient-banner {
-  margin-left: -15.22%;
-  margin-right: -15.22%;
+
+  @media (min-width: $screen-md-lg) {
+    margin-left: -19.22%;
+    margin-right: -19.22%;
+  }
 }
 
 .banner__overlay__block {

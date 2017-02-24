@@ -45,7 +45,7 @@ class ImageGalleryController extends ControllerBase {
           'carousel' => [
             '#type' => 'view',
             '#name' => 'image_gallery',
-            '#display_id' => 'default',
+            '#display_id' => 'image_term_block',
             '#arguments' => $args,
           ],
         ];

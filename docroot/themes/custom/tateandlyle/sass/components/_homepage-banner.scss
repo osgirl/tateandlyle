@@ -59,6 +59,8 @@
     margin-top: 0;
     margin-bottom: 20px;
     width: 30px;
+    margin-left: auto;
+    margin-right: auto;
     @media(min-width: $screen-sm) {
       margin-bottom: 25px;
     }
