@@ -220,6 +220,9 @@ function tateandlyle_preprocess_views_view_unformatted(&$variables) {
   $rows = $variables['rows'];
   $id = $view->id();
   $current_uri = \Drupal::request()->getRequestUri();
+  if ($current_uri == '/articles/all') {
+    $variables['#cache']['contexts'] = ['url.path'];
+  }
   if ($id == 'article_categories') {
     foreach ($rows as $id => $row) {
       $uri = '/articles/' . $row['content']['#taxonomy_term']->id();
