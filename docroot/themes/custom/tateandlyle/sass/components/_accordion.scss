@@ -103,6 +103,9 @@
         &:last-child {
           border-bottom: 0;
           padding-bottom: 0;
+          @media (min-width: $screen-md) {
+            padding-bottom: 30px;
+          }
         }
       }
 

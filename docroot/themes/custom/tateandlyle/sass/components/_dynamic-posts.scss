@@ -349,6 +349,13 @@
     .views-row:last-child {
       .teaser-content {
         border-bottom: 0;
+        padding-bottom: 7px;
+        @media (min-width: $screen-sm) {
+          padding-bottom: 24px;
+        }
+        @media (min-width: $screen-md) {
+          padding-bottom: 17px;
+        }
       }
     }
   }

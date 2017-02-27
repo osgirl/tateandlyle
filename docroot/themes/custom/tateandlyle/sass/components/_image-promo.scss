@@ -15,6 +15,11 @@
     margin-right: -15.22%;
   }
 
+  .promo__images__banner img {
+    height: inherit;
+    max-width: 277px;
+  }
+
   .field--name-field-short-summary {
     color: $gray-base;
     font-size: $font-size-h5;
