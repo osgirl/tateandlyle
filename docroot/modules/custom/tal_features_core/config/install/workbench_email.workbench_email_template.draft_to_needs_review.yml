@@ -29,6 +29,3 @@ bundles:
   'node:press_release': 'node:press_release'
 fields: {  }
 author: false
-body:
-  value: 'User [node:user] has requested to review his content [node:title].'
-  format: plain_text
