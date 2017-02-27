@@ -27,6 +27,3 @@ bundles:
   'node:press_release': 'node:press_release'
 fields: {  }
 author: true
-body:
-  value: "Administrator has reject the draft of [node:title].\r\nPlease check the revision log for more information."
-  format: plain_text
