@@ -693,6 +693,7 @@ header.navbar-default {
       font-size: 14px;
       color: black;
       padding: 10px 1em;
+      white-space: normal;
       &:hover {
         background: $color-off-white;
       }
