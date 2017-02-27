@@ -110,7 +110,11 @@
   }
 
   .form-item-change-language {
+    @media (min-width: $screen-sm) {
+      margin-right: 27px;
+    }
     @media (min-width: $screen-md-lg) {
+      margin-right: 0;
       position: relative;
       right: 96px;
       top: 1px;
@@ -169,6 +173,29 @@
     text-align: center;
     @media (min-width: $screen-sm) {
       text-align: right;
+    }
+  }
+}
+
+.press-release.full .file--downloads {
+  .inline-icon {
+    width: 15%;
+    @media (min-width: $screen-sm) {
+      width: 10%;
+    }
+
+    img {
+      padding-top: 7px;
+      max-width: 30px;
+      height: auto;
+
+      @media (min-width: $screen-sm) {
+        max-width: 41px;
+      }
+
+      @media (min-width: $screen-md) {
+        margin: auto;
+      }
     }
   }
 }

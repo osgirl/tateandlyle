@@ -140,6 +140,10 @@
         margin-top: 15px;
       }
     }
+
+    &:last-child a {
+      border-right: 0;
+    }
   }
 
   .all--articles {
@@ -174,25 +178,37 @@
       top: 50%;
       transform: translateY(-50%);
     }
+
+    a span {
+      display: none;
+      @media (min-width: $screen-sm) {
+        display: block;
+      }
+    }
   }
 
   .next--articles {
+    text-align: left;
     &::after {
       right: 10px;
     }
   }
 
   .previous--articles {
+    text-align: right;
 
-    a {
-      border-right: 1px solid $color-warm-gray;
+    a::after {
+      background: $color-warm-gray;
+      display: block;
+      content: "";
+      height: 30px;
+      position: absolute;
+      right: 0;
+      top: 27px;
+      width: 1px;
       @media (min-width: $screen-sm) {
-        border-right: none;
+        content: none;
       }
-    }
-
-    @media (min-width: $screen-sm) {
-      text-align: right;
     }
 
     &::after {

@@ -38,8 +38,8 @@ content:
     weight: 1
     label: hidden
     settings:
-      trim_length: '70'
-      trim_type: chars
+      trim_length: '26'
+      trim_type: words
       trim_suffix: ...
       more_link: '0'
       more_text: More
