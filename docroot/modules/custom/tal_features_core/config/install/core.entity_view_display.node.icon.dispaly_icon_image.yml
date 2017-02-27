@@ -4,6 +4,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.dispaly_icon_image
     - field.field.node.icon.field_image
+    - image.style.icon_48px_width
     - node.type.icon
   module:
     - image
@@ -24,7 +25,7 @@ content:
     weight: 0
     label: hidden
     settings:
-      image_style: ''
+      image_style: icon_48px_width
       image_link: ''
     third_party_settings: {  }
     type: image

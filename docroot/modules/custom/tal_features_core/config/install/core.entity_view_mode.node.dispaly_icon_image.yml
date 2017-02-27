@@ -8,6 +8,6 @@ third_party_settings:
   lightning_core:
     description: ''
 id: node.dispaly_icon_image
-label: 'Dispaly Icon Image'
+label: 'Display Icon Image'
 targetEntityType: node
 cache: true

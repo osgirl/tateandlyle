@@ -311,6 +311,7 @@
     @extend %title-border-top;
     display: block;
     text-align: left;
+    margin-bottom: 0;
     margin-top: 0;
     width: auto;
     padding: 0;
@@ -357,6 +358,7 @@
     margin-bottom: 33px;
     margin-top: 28px;
     @media (min-width: $screen-sm) {
+      margin-bottom: 18px;
       width: 100%;
     }
     @media (min-width: $screen-md) {
@@ -386,12 +388,13 @@
 
     h2.title {
       @extend %title-border-top;
-      font-size: 24px;
+      font-size: $font-size-h3;
       margin-left: 0;
       margin-top: 0;
-      margin-bottom: 24px;
+      margin-bottom: 27px;
       padding: 0 0 0.5em;
       @media (min-width: $screen-sm) {
+        margin-bottom: 24px;
         padding: 0;
       }
     }
@@ -403,7 +406,7 @@
       display: block;
       font-size: $font-size-base;
       margin: 0;
-      margin-bottom: 19px;
+      margin-bottom: 20px;
       text-align: left;
 
       @media(min-width: $screen-sm) {
@@ -412,6 +415,7 @@
         display: inline-block;
         height: 94px;
         margin-right: 19px;
+        margin-bottom: 29px;
         vertical-align: middle;
         width: 223px;
 
