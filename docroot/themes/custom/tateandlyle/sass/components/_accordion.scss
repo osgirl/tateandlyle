@@ -98,10 +98,11 @@
       .field--name-field-component-accordion-body > .field--item {
         border-bottom: 1px solid $color-warm-gray;
         padding-top: 20px;
-        padding-bottom: 0;
+        padding-bottom: 30px;
 
         &:last-child {
           border-bottom: 0;
+          padding-bottom: 0;
         }
       }
 
