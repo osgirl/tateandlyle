@@ -26,8 +26,10 @@
     margin-right: -15.22%;
   }
   .bottom_link {
-    position: absolute;
-    bottom: 1.5em;
+    @media (min-width: $screen-md-lg) {
+      position: absolute;
+      bottom: 1.5em;
+    }
   }
 }
 
