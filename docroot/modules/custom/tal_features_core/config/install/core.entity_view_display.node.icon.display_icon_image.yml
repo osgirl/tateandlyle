@@ -2,7 +2,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.dispaly_icon_image
+    - core.entity_view_mode.node.display_icon_image
     - field.field.node.icon.field_image
     - image.style.icon_48px_width
     - node.type.icon
@@ -16,10 +16,10 @@ third_party_settings:
     custom: false
     allow: false
     default: default
-id: node.icon.dispaly_icon_image
+id: node.icon.display_icon_image
 targetEntityType: node
 bundle: icon
-mode: dispaly_icon_image
+mode: display_icon_image
 content:
   field_image:
     weight: 0
