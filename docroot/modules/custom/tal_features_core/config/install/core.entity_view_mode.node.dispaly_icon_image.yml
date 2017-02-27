@@ -7,7 +7,7 @@ dependencies:
 third_party_settings:
   lightning_core:
     description: ''
-id: node.dispaly_icon_image
+id: node.display_icon_image
 label: 'Display Icon Image'
 targetEntityType: node
 cache: true
