@@ -84,7 +84,9 @@
       background-color: $color-off-white;
       padding-left: 25px;
       padding-right: 25px;
-      padding-bottom: 60px;
+      @media (min-width: $screen-sm) {
+        padding-bottom: 60px;
+      }
 
       .field--name-field-simple-text {
         color: $gray-base;
@@ -98,7 +100,14 @@
       .field--name-field-component-accordion-body > .field--item {
         border-bottom: 1px solid $color-warm-gray;
         padding-top: 20px;
-        padding-bottom: 30px;
+        padding-bottom: 25px;
+        @media (min-width: $screen-sm) {
+          padding-bottom: 30px;
+        }
+
+        &:first-child {
+          padding-top: 0;
+        }
 
         &:last-child {
           border-bottom: 0;
