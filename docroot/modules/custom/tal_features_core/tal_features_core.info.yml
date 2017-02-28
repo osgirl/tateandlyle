@@ -31,7 +31,6 @@ dependencies:
   - improved_multi_select
   - inline_entity_form
   - lightning_core
-  - lightning_layout
   - lightning_media
   - lightning_media_image
   - lightning_workflow
