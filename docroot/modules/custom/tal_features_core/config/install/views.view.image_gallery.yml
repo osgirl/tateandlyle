@@ -815,7 +815,7 @@ display:
       style:
         type: slick
         options:
-          vanilla: false
+          vanilla: true
           optionset: responsive_gallery
           skin: ''
           layout: ''

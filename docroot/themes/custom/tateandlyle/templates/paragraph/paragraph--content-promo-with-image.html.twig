@@ -45,7 +45,7 @@ view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
 %}
 <div{{ attributes.addClass(classes) }}>
     {% if content.field_image|render %}
-        <div>
+        <div class="promo__paragraph--wrapper">
     {% else %}
         <div class="promo__no__images">
     {% endif %}

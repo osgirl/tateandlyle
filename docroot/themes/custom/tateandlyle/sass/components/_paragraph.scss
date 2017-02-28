@@ -250,8 +250,6 @@
 
 .ingredient {
   .paragraph--show-border {
-    margin-bottom: 0;
-    margin-top: 0;
     @media (min-width: $screen-sm) {
       margin-top: 20px;
     }
