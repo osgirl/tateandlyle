@@ -71,4 +71,15 @@
     max-height: 170px;
     max-width: none;
   }
+
+  .view-image-gallery {
+    .slick-initialized .slick-slide {
+      position: relative;
+    }
+
+    .title {
+      left: 10px;
+      right: 10px;
+    }
+  }
 }

@@ -9,10 +9,8 @@
     .freedom-content {
       padding-top: 0;
       @media (min-width: $screen-sm-lsp) {
-        border-bottom: 1px solid $color-warm-gray;
+        border: 1px solid $color-warm-gray;
         padding-top: 0;
-        margin-left: 30px;
-        margin-right: 30px;
       }
       @media (min-width: $screen-md) {
         margin: 30px auto;

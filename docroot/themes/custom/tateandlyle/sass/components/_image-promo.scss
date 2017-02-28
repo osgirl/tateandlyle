@@ -16,8 +16,10 @@
   }
 
   .promo__images__banner img {
-    height: inherit;
-    max-width: 277px;
+    @media(min-width: $screen-md-lg) {
+      height: inherit;
+      max-width: 277px;
+    }
   }
 
   .field--name-field-short-summary {
@@ -109,6 +111,7 @@
     @media(min-width: $screen-md) {
       display: table;
       text-align: center;
+      width: 100%;
 
       & > .field--item {
         display: table-cell;
@@ -512,13 +515,14 @@
     }
   }
 
-  .field--name-field-icon,
+  .field--name-field-image,
   .field--name-field-title {
     width: 200px;
     margin: auto;
 
     img {
-      max-height: none;
+      max-width: 167px;
+      height: auto;
     }
 
     @media(min-width: $screen-sm) {
@@ -529,12 +533,6 @@
       max-width: 200px;
       min-height: 118px;
       width: auto;
-
-      img {
-        min-height: 118px;
-        width: auto;
-        object-fit: contain;
-      }
     }
   }
 
@@ -554,9 +552,24 @@
       text-align: center;
     }
 
+    .field--name-field-image {
+      display: block;
+    }
+
+    @media(min-width: $screen-sm) and (max-width: $screen-sm-max) {
+      .promo__paragraph--wrapper {
+        display: table;
+
+        .promo__images__banner {
+          display: table-cell;
+        }
+      }
+    }
+
     .promo__paragaph--content {
       border: 0;
       padding: 27px 0;
+      padding-top: 0;
       @media(min-width: $screen-sm) {
         padding: 0;
       }
@@ -567,6 +580,10 @@
       .field--name-field-simple-summary,
       .field--name-field-tal-more {
         display: block;
+      }
+
+      .field--name-field-simple-summary {
+        margin-top: 12px;
       }
 
       @media(min-width: $screen-sm) and (max-width: $screen-sm-max) {
@@ -601,7 +618,7 @@
       }
     }
 
-    .field--name-field-icon::after {
+    .field--name-field-image::after {
       @media(min-width: $screen-md) {
         background: $color-white;
         content: "";
@@ -623,6 +640,7 @@
         border-bottom: 0;
         border-right: 1px solid $color-warm-gray;
         position: relative;
+        width: 33.33%;
 
         &:last-child {
           border-bottom: 0;
@@ -639,6 +657,7 @@
       &:last-child {
         .promo__paragaph--content {
           border-bottom: 0;
+          padding-bottom: 0;
         }
       }
 
@@ -873,6 +892,46 @@
     @media(min-width: $screen-md-lg) {
       padding-top: 70px;
       padding-bottom: 33px;
+    }
+  }
+
+  .promo__paragaph--content {
+    @media(min-width: $screen-md-lg) {
+      border-right: 0;
+      position: relative;
+      &::after {
+        content: "";
+        background: $color-white;
+        display: block;
+        width: 10px;
+        height: 37px;
+        position: absolute;
+        top: -37px;
+        right: -1px;
+      }
+    }
+  }
+
+  .field--name-field-content-details > .field--item {
+    @media(min-width: $screen-md-lg) {
+      border-right: 1px solid $color-warm-gray;
+
+      .promo__images__banner {
+        margin-left: -1px;
+      }
+
+      &:first-child {
+        .promo__images__banner {
+          margin-left: 0;
+        }
+      }
+
+      &:last-child {
+        border-right: none;
+        .promo__paragaph--content::after {
+          content: none;
+        }
+      }
     }
   }
 }
