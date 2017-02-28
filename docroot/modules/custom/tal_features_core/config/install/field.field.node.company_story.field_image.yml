@@ -12,7 +12,7 @@ entity_type: node
 bundle: company_story
 label: Image
 description: 'Image for search result display.'
-required: false
+required: true
 translatable: true
 default_value: {  }
 default_value_callback: ''
