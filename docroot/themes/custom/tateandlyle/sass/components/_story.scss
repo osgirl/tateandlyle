@@ -190,7 +190,10 @@
   .next--articles {
     text-align: left;
     &::after {
-      right: 10px;
+      right: 33px;
+      @media (min-width: $screen-sm) {
+        right: 10px;
+      }
     }
   }
 
