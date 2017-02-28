@@ -20,10 +20,26 @@ dependencies:
   module:
     - datetime
     - entity_browser
+    - field_group
     - paragraphs
     - path
     - text
     - workbench_moderation
+third_party_settings:
+  field_group:
+    group_related_download:
+      children:
+        - field_downloads_border_title
+        - field_downloads
+      parent_name: ''
+      weight: 12
+      label: 'Related Downloads'
+      format_type: details
+      format_settings:
+        open: false
+        required_fields: true
+        classes: ''
+        id: ''
 id: node.company_story.default
 targetEntityType: node
 bundle: company_story
@@ -68,6 +84,7 @@ content:
       edit_mode: open
       add_mode: dropdown
       form_display_mode: default
+      default_paragraph_type: related_downloads
     third_party_settings: {  }
   field_downloads_border_title:
     weight: 11
@@ -118,6 +135,7 @@ content:
       edit_mode: open
       add_mode: dropdown
       form_display_mode: default
+      default_paragraph_type: ''
     third_party_settings: {  }
   field_story_description:
     type: entity_reference_paragraphs
@@ -128,6 +146,7 @@ content:
       edit_mode: open
       add_mode: dropdown
       form_display_mode: default
+      default_paragraph_type: ''
     third_party_settings: {  }
   field_tags:
     weight: 3
