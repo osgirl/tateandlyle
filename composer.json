@@ -158,7 +158,8 @@
         "patches": {
             "drupal/core": {
                 "Duplicate AJAX wrapper around a file field": "https://www.drupal.org/files/issues/duplicate_ajax_wrapper-2346893-176.patch",
-                "Exposed date filter leads to a notice": "https://www.drupal.org/files/issues/2811887-19-fix-tests.patch"
+                "Exposed date filter leads to a notice": "https://www.drupal.org/files/issues/2811887-19-fix-tests.patch",
+                "Views replacement token for fields shows encoded htmlentities": "https://www.drupal.org/files/issues/2856598-4--views-field-replacement-token-shows-encoded-html-entities.patch"
             },
             "drupal/search_api": {
                 "search_api_node_grants is a reserved value and cannot be used as the machine name of a normal field": "https://www.drupal.org/files/issues/2761749-12--db_defaults_node_access_field_id.patch"
