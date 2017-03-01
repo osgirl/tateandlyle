@@ -38,7 +38,7 @@ function tal_preprocess_node_ingredient($variables, $node) {
     $parameters = UrlHelper::parse($path);
     $keyword = isset($parameters['query']['s']) ? $parameters['query']['s'] : '';
     $variables['field_in_common_names'] = search_excerpt($keyword, $node->get('field_in_common_names')->value);
-    $variables['body'] = search_excerpt($keyword, $node->get('body')->value);
+    $variables['body'] = tal_search_excerpt($keyword, $node->get('body')->value);
   }
   // Initialise the variable.
   $variables['hide_title'] = $node->get('field_hide_title')->value;
@@ -90,7 +90,7 @@ function tal_preprocess_node_company_story($variables, $node) {
     $path = \Drupal::request()->getUri();
     $parameters = UrlHelper::parse($path);
     $keyword = isset($parameters['query']['s']) ? $parameters['query']['s'] : '';
-    $variables['body'] = search_excerpt($keyword, $node->get('body')->value);
+    $variables['body'] = tal_search_excerpt($keyword, $node->get('body')->value);
   }
 
   return $variables;
@@ -135,7 +135,7 @@ function tal_preprocess_node_press_release($variables, $node) {
     $path = \Drupal::request()->getUri();
     $parameters = UrlHelper::parse($path);
     $keyword = isset($parameters['query']['s']) ? $parameters['query']['s'] : '';
-    $variables['body'] = search_excerpt($keyword, $node->get('body')->value);
+    $variables['body'] = tal_search_excerpt($keyword, $node->get('body')->value);
   }
   return $variables;
 }
@@ -151,7 +151,7 @@ function tal_preprocess_node_landing_page($variables, $node) {
     $path = \Drupal::request()->getUri();
     $parameters = UrlHelper::parse($path);
     $keyword = isset($parameters['query']['s']) ? $parameters['query']['s'] : '';
-    $variables['body'] = search_excerpt($keyword, $node->get('field_lp_summary')->value);
+    $variables['body'] = tal_search_excerpt($keyword, $node->get('field_lp_summary')->value);
   }
   return $variables;
 }
