@@ -43,6 +43,10 @@
       $(".navbar-head .navbar-toggle").on("click", function () {
         $("body").toggleClass("black__overlay");
       });
+
+      $(".ingredient--submenu .dropdown-toggle").text(
+        $(".ingredient--submenu li:first a").text()
+      );
     }
   };
 
@@ -80,11 +84,6 @@
       $(".dropdown").on("show.bs.dropdown hide.bs.dropdown", function () {
         $(this).find(".caret").toggleClass("caretup");
       });
-    }
-  };
-
-  Drupal.behaviors.carousel = {
-    attach: function () {
     }
   };
 

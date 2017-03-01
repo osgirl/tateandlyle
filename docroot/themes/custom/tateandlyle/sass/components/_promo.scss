@@ -13,12 +13,13 @@
   .field--name-field-banner-title,
   .block-title {
     @extend %title-border-top;
-    font-size: $font-size-h2;
+    font-size: $font-size-h3;
     font-family: $font-family-sans-serif-Med;
     margin-bottom: 35px;
     padding-left: 0;
 
     @media (min-width: $screen-sm) {
+      font-size: $font-size-h2;
       text-align: center;
     }
 
@@ -198,6 +199,34 @@
     margin-top: 5px;
     @media (min-width: $screen-sm) {
       margin-top: 22px;
+    }
+  }
+
+  @media (max-width: $screen-xs-max) {
+    padding-left: 40px;
+    padding-right: 40px;
+
+    .field--name-field-dcp-content-section > .field--item {
+      border-bottom: 1px solid;
+      padding: 28px 0 25px 0;
+      text-align: center;
+
+      &:last-child {
+        border-bottom: 0;
+      }
+
+      img {
+        margin: auto;
+      }
+    }
+
+    .field--name-field-simple-text {
+      margin-bottom: 16px;
+      margin-top: 0;
+    }
+
+    .field--name-field-dcp-link {
+      margin-top: 10px;
     }
   }
 }

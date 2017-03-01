@@ -11,6 +11,7 @@
   margin-bottom: 10px;
   position: absolute;
   right: 10px;
+  z-index: 10;
 
   &::after {
     @extend %download-icon;
@@ -21,23 +22,32 @@
   background: transparent;
   color: $color-white;
   display: block !important;
-  font-size: $font-size-h4;
+  font-family: $font-family-sans-serif-Med;
+  font-size: $font-size-small;
   height: auto !important;
+  line-height: 1.1;
   margin-bottom: 10px !important;
   padding: 0 !important;
-  position: static;
+  text-transform: uppercase;
+  top: 5px;
   width: 90%;
 }
 
 #cboxClose.cbox-close-plain {
-  background: $color-white;
+  background: transparent;
+  border: 1px solid $color-white;
   border-radius: 100%;
-  color: $gray-base;
-  font-size: $font-size-h3;
-  height: 30px;
+  color: $color-white;
+  font-size: $font-size-h4;
+  height: 26px;
   line-height: 0;
   opacity: 1 !important;
   right: 0;
   top: 0;
-  width: 30px;
+  width: 26px;
+}
+
+#cboxLoadedContent {
+  margin-top: 40px;
+  margin-bottom: 0;
 }
