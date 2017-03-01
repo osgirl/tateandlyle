@@ -4943,7 +4943,7 @@
         "dist": {
             "type": "zip",
             "url": "https://ftp.drupal.org/files/projects/multiversion-8.x-1.0-alpha12.zip",
-            "reference": null,
+            "reference": "8.x-1.0-alpha12",
             "shasum": "521decbaf2af5bcbb225ab7699da6263ba5767d0"
         },
         "require": {
@@ -5809,7 +5809,7 @@
             },
             "drupal": {
                 "version": "8.x-3.0-beta5",
-                "datestamp": "1475335394"
+                "datestamp": "1488057783"
             },
             "patches_applied": {
                 "2793801 - Allow modules to influence the IPE tempstore ID": "https://www.drupal.org/files/issues/2793801-9.patch"
@@ -5881,7 +5881,7 @@
             },
             "drupal": {
                 "version": "8.x-3.0-beta5",
-                "datestamp": "1475335394"
+                "datestamp": "1488057783"
             }
         },
         "notification-url": "https://packages.drupal.org/8/downloads",
@@ -6165,7 +6165,7 @@
             },
             "drupal": {
                 "version": "8.x-1.0",
-                "datestamp": "1485901983"
+                "datestamp": "1485902197"
             }
         },
         "installation-source": "dist",
@@ -6727,18 +6727,18 @@
     },
     {
         "name": "drupal/features",
-        "version": "3.2.0",
-        "version_normalized": "3.2.0.0",
+        "version": "3.4.0",
+        "version_normalized": "3.4.0.0",
         "source": {
             "type": "git",
             "url": "https://git.drupal.org/project/features",
-            "reference": "8.x-3.2"
+            "reference": "8.x-3.4"
         },
         "dist": {
             "type": "zip",
-            "url": "https://ftp.drupal.org/files/projects/features-8.x-3.2.zip",
-            "reference": "8.x-3.2",
-            "shasum": "1fce32d01b812d2a613ffadb1b9395293364980e"
+            "url": "https://ftp.drupal.org/files/projects/features-8.x-3.4.zip",
+            "reference": null,
+            "shasum": "7d0a1be440564a37fda9dd5fb8e75398b2d0ee35"
         },
         "require": {
             "drupal/config_update": "*",
@@ -6750,8 +6750,8 @@
                 "dev-3.x": "3.x-dev"
             },
             "drupal": {
-                "version": "8.x-3.2",
-                "datestamp": "1481513884"
+                "version": "8.x-3.4",
+                "datestamp": "1488296285"
             }
         },
         "installation-source": "dist",
@@ -6940,7 +6940,7 @@
         "dist": {
             "type": "zip",
             "url": "https://ftp.drupal.org/files/projects/entity_browser-8.x-1.0-rc2.zip",
-            "reference": null,
+            "reference": "8.x-1.0-rc2",
             "shasum": "7954668b9134a8ec2dac2604c482d6521e43ee91"
         },
         "require": {
@@ -8178,7 +8178,7 @@
         "dist": {
             "type": "zip",
             "url": "https://ftp.drupal.org/files/projects/bootstrap-8.x-3.2.zip",
-            "reference": null,
+            "reference": "8.x-3.2",
             "shasum": "1638ded543a50a5dce558c2a8177a945a3e5a4cb"
         },
         "require": {
@@ -8191,7 +8191,7 @@
             },
             "drupal": {
                 "version": "8.x-3.2",
-                "datestamp": "1487640788"
+                "datestamp": "1487640876"
             }
         },
         "installation-source": "dist",
@@ -8230,7 +8230,7 @@
         "dist": {
             "type": "zip",
             "url": "https://ftp.drupal.org/files/projects/cog-8.x-1.5.zip",
-            "reference": null,
+            "reference": "8.x-1.5",
             "shasum": "3752d23d777ae5977d408e839fa57f4794eba96f"
         },
         "require": {
@@ -8348,7 +8348,7 @@
         "dist": {
             "type": "zip",
             "url": "https://ftp.drupal.org/files/projects/config_rewrite-8.x-1.0-beta4.zip",
-            "reference": null,
+            "reference": "8.x-1.0-beta4",
             "shasum": "3527f3cafafe6bf2590c56c51297ad07bb3ddb3f"
         },
         "require": {
@@ -9514,7 +9514,7 @@
             },
             "drupal": {
                 "version": "8.x-1.0-alpha3",
-                "datestamp": "1473976439"
+                "datestamp": "1487293084"
             }
         },
         "installation-source": "dist",
@@ -9840,7 +9840,7 @@
         "dist": {
             "type": "zip",
             "url": "https://ftp.drupal.org/files/projects/menu_breadcrumb-8.x-1.0.zip",
-            "reference": null,
+            "reference": "8.x-1.0",
             "shasum": "66973516a854935e825a5eadf7ff298e34a41bde"
         },
         "require": {
@@ -10121,7 +10121,7 @@
         "dist": {
             "type": "zip",
             "url": "https://ftp.drupal.org/files/projects/paragraphs-8.x-1.1.zip",
-            "reference": null,
+            "reference": "8.x-1.1",
             "shasum": "c678e5704a98c6a0549e415412da081cfeb03a00"
         },
         "require": {
@@ -10159,6 +10159,10 @@
             {
                 "name": "Frans",
                 "homepage": "https://www.drupal.org/user/514222"
+            },
+            {
+                "name": "Primsi",
+                "homepage": "https://www.drupal.org/user/282629"
             },
             {
                 "name": "jeroen.b",
@@ -11083,7 +11087,7 @@
         "dist": {
             "type": "zip",
             "url": "https://ftp.drupal.org/files/projects/webform-8.x-5.0-beta7.zip",
-            "reference": null,
+            "reference": "8.x-5.0-beta7",
             "shasum": "1c2be66200291e38ebe41e27641e2607d4be7baa"
         },
         "require": {
@@ -11182,7 +11186,7 @@
             },
             "drupal": {
                 "version": "8.x-1.0-alpha3",
-                "datestamp": "1475800439"
+                "datestamp": "1487197684"
             }
         },
         "installation-source": "dist",

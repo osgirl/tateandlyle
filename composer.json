@@ -12,7 +12,7 @@
         "drupal/cog": "^1.0.0",
         "drupal/console": "^1.0.0-rc14",
         "drupal/core": "^8.0",
-        "drupal/features": "3.2",
+        "drupal/features": "^3.4",
         "drupal/memcache": "2.x-dev",
         "drupal/search_api": "1.0.0-beta3",
         "drupal/search_api_solr": "1.0.0-beta1",
