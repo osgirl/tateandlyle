@@ -203,29 +203,7 @@
 
 .paragraph--type--wysiwyg-and-block-reference {
   .block--quote {
-    margin: 10px 0;
-    max-width: 878px;
-  }
-}
-
-.paragraph--type--wysiwyg-with-block-reference {
-  .block--quote {
-    margin: 10px auto;
-  }
-}
-
-.block--quote {
-  &.noblock--bg {
-    background-color: $color-off-white;
     margin-left: 0;
     margin-right: 0;
-    @media (min-width: $screen-sm) {
-      background-color: $color-white;
-    }
-
-    @media (min-width: $screen-md-lg) {
-      margin-left: auto;
-      margin-right: auto;
-    }
   }
 }
