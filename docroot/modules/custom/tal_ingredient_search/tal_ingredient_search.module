@@ -6,7 +6,6 @@
  */
 
 use Drupal\Core\Routing\RouteMatchInterface;
-use Drupal\tal_ingredient_search\Controller\IngredientSearchController;
 use Drupal\Core\Form\FormStateInterface;
 
 /**
@@ -26,23 +25,10 @@ function tal_ingredient_search_help($route_name, RouteMatchInterface $route_matc
 }
 
 /**
- * Implements hook_cron().
- */
-function tal_ingredient_search_cron() {
-  // Store the number of published Ingredient contents.
-  \Drupal::state()->set('tal_ingredient_search.node_ingredient_count', IngredientSearchController::nodeCountState(NODE_PUBLISHED, 'ingredient'));
-}
-
-/**
  * Implements hook_form_alter().
  */
 function tal_ingredient_search_form_views_exposed_form_alter(&$form, FormStateInterface $form_state) {
   if ($form['#id'] == 'views-exposed-form-ingredient-finder-page-1') {
-    // Update the label with the node count value.
-    $count = \Drupal::state()->get('tal_ingredient_search.node_ingredient_count', 0);
-
-    $form['#info']['filter-search_api_fulltext']['label'] = $form['#info']['filter-search_api_fulltext']['label'] . ' ' . \Drupal::translation()->formatPlural($count, '@count ingredient', t('@count ingredients:'));
-
     // Add a placeholder text to the search text field.
     $form['s']['#attributes'] = array('placeholder' => t('Ingredient name here…'));
     $form['sort_by']['#prefix'] = '<div class="hidden">';
