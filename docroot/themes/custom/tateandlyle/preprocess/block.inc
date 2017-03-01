@@ -220,6 +220,10 @@ function tal_preprocess_block_quote($variables, $block) {
   if (isset($background_color_content) && !isset($image)) {
     $variables['background_color'] = TRUE;
   }
+
+  if ($background_color_content['value'] == '#ffffff' && !isset($image)) {
+    $variables['background_color_block'] = 'noblock--bg';
+  }
   return $variables;
 }
 
