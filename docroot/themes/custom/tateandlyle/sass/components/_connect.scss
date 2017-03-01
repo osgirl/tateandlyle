@@ -154,7 +154,7 @@
     .field--name-field-pr-title {
       display: inline-block;
       font-size: $font-size-h3;
-      padding-right: 5px;
+      padding-right: 10px;
       margin-bottom: 5px;
       @media (min-width: $screen-md) {
         display: block;
@@ -163,10 +163,15 @@
     }
 
     .field--name-field-phone-number {
-      display: block;
+      display: inline-block;
       font-family: $font-family-sans-serif-Med;
       font-size: $font-size-h3;
       margin-bottom: 20px;
+
+      @media (min-width: $screen-sm) {
+        display: block;
+      }
+
       @media (min-width: $screen-md) {
         font-size: $font-size-h2;
         margin-bottom: 81px;
@@ -375,6 +380,13 @@
 
       .field--name-field-pr-description {
         margin-bottom: 18px;
+      }
+    }
+
+    .field--name-field-pr-link {
+      @media (min-width: $screen-sm) {
+        position: absolute;
+        bottom: 26px;
       }
     }
   }
