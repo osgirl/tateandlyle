@@ -48,6 +48,7 @@ dependencies:
   - search_api
   - search_api_solr
   - simple_sitemap
+  - slick
   - slick_views
   - smart_trim
   - system
