@@ -13,7 +13,6 @@ dependencies:
     - node.type.press_release
 id: needs_review_to_draft
 label: 'Needs review to Draft'
-subject: 'Administrator has reject the draft.'
 roles: {  }
 bundles:
   'node:company_story': 'node:company_story'
