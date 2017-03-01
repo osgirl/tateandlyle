@@ -84,7 +84,14 @@ view_mode ? view_mode|clean_class,
     <div{{ content_attributes.addClass('content') }}>
         <nav class="navbar navbar-default">
             <div class="container">
-                <div class="ingredient--submenu">{{ submenu }}</div>
+              <div class="ingredient--submenu">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Dropdown
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenu3">
+                  {{ submenu }}
+                </div>
+              </div>
             </div>
         </nav>
         {{ content.field_ingredients_content }}

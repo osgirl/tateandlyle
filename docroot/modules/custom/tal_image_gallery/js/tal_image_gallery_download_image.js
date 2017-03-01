@@ -21,7 +21,6 @@
                     fullLink.attr('download', filename);
                     fullLink.text(Drupal.t('Download'));
                     $('#cboxLoadedContent').append(fullLink);
-                    $('#cboxLoadedContent').prepend($('#cboxTitle'));
                 }
             });
         }

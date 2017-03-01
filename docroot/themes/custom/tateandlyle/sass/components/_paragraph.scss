@@ -103,7 +103,7 @@
 
   .in--region-count {
     @media (max-width: $screen-xs-max) {
-      margin-top: 0;
+      margin-top: 36px;
     }
   }
 
@@ -182,7 +182,10 @@
   text-align: center;
 
   .more--countries {
-    margin-top: 34px;
+    margin-top: 27px;
+    @media (min-width: $screen-sm) {
+      margin-top: 34px;
+    }
   }
 }
 
