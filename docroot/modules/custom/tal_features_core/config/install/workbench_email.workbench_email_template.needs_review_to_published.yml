@@ -13,7 +13,6 @@ dependencies:
     - node.type.press_release
 id: needs_review_to_published
 label: 'Needs review to Published'
-subject: 'Your Draft is published'
 roles: {  }
 bundles:
   'node:company_story': 'node:company_story'

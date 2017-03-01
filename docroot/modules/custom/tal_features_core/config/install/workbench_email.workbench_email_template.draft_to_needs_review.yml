@@ -14,7 +14,6 @@ dependencies:
     - user.role.administrator
 id: draft_to_needs_review
 label: 'Draft to Needs review'
-subject: 'Needs review of [node:title]'
 roles:
   administrator: administrator
 bundles:
