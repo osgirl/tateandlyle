@@ -41,6 +41,7 @@ settings:
         -
           name: 'Block Formatting'
           items:
+            - Styles
             - Format
         -
           name: Tools
@@ -58,7 +59,7 @@ settings:
     language:
       language_list: un
     stylescombo:
-      styles: ''
+      styles: "li.h1|List Heading 1\r\nli.h2|List Heading 2\r\nli.h3|List Heading 3\r\nli.h4|List Heading 4\r\nli.h5|List Heading 5\r\nli.h6|List Heading 6\r\nli.strong|List Strong"
 image_upload:
   status: false
   scheme: public
