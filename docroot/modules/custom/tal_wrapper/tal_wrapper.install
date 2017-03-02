@@ -273,3 +273,12 @@ function tal_wrapper_update_8219() {
 function tal_wrapper_update_8220() {
   \Drupal::service('module_installer')->install(['slick', 'slick_views']);
 }
+
+/**
+ * Enable  module.
+ *
+ * Implements hook_update_N().
+ */
+function tal_wrapper_update_8221() {
+  \Drupal::service('module_installer')->install(['content_lock']);
+}
