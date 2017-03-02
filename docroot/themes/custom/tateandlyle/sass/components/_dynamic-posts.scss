@@ -595,12 +595,13 @@
       .views-row {
         display: table-cell;
         padding: 0 20px;
+        width: 50%;
 
         &:first-child {
           border-right: 1px solid $color-warm-gray;
         }
 
-        &:nth-child(2n) {
+        &:nth-child(n+3) {
           display: none;
         }
       }

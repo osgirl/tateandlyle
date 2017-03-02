@@ -876,3 +876,33 @@ header.navbar-default {
     color: black;
   }
 }
+
+#block-talmainmenu .dropdown.level-1 {
+  &:hover {
+    @extend .open;
+  }
+}
+
+#block-talmainmenu .navbar-default {
+  .navbar-nav > .dropdown.level-1:hover > a,
+  .navbar-nav > .dropdown.level-1:hover > a:hover {
+    background: $color-white;
+    box-shadow: none;
+    color: $gray-base;
+  }
+}
+
+#block-talmainmenu {
+  a[data-drupal-link-system-path="<front>"] {
+    background: transparent;
+    color: $gray-base;
+    &:hover {
+      background-color: $color-light-gray;
+    }
+  }
+
+  .dsc a[data-drupal-link-system-path="<front>"]:hover {
+    background: transparent;
+    color: $brand-primary;
+  }
+}
