@@ -1,3 +1,4 @@
+uuid: 716f9354-cdc9-47f5-8402-9220f92b6c54
 langcode: en
 status: true
 dependencies:
@@ -10,12 +11,14 @@ third_party_settings:
       - main
     parent: 'main:'
   workbench_moderation:
-    enabled: true
+    enabled: false
     allowed_moderation_states:
       - published
       - draft
       - needs_review
     default_moderation_state: draft
+_core:
+  default_config_hash: fDFA7IlLZiQsF6eNlPydz7di59S4KYEufWqUUIMmwIc
 name: 'Media Gallery : image'
 type: image
 description: 'Use image content type create image carousel on image galley page.'
