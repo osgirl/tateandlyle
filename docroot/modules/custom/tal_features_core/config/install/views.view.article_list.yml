@@ -51,15 +51,17 @@ display:
           sort_asc_label: Asc
           sort_desc_label: Desc
       pager:
-        type: mini
+        type: full
         options:
           items_per_page: 5
           offset: 0
           id: 0
           total_pages: null
           tags:
-            previous: '‹ Newer posts'
-            next: 'Earlier posts ›'
+            previous: ''
+            next: ''
+            first: '« First'
+            last: 'Last »'
           expose:
             items_per_page: false
             items_per_page_label: 'Items per page'
@@ -68,6 +70,7 @@ display:
             items_per_page_options_all_label: '- All -'
             offset: false
             offset_label: Offset
+          quantity: 9
       style:
         type: default
       row:
@@ -212,25 +215,11 @@ display:
           group_type: group
           admin_label: ''
           order: DESC
-          exposed: true
+          exposed: false
           expose:
             label: 'Published date'
           granularity: second
           plugin_id: datetime
-        title:
-          id: title
-          table: node_field_data
-          field: title
-          relationship: none
-          group_type: group
-          admin_label: ''
-          order: ASC
-          exposed: true
-          expose:
-            label: 'A - Z'
-          entity_type: node
-          entity_field: title
-          plugin_id: standard
       title: News
       header: {  }
       footer: {  }
@@ -292,7 +281,6 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
-        - 'url.query_args:sort_by'
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
@@ -311,7 +299,6 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
-        - 'url.query_args:sort_by'
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
