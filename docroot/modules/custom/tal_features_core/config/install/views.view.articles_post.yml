@@ -60,8 +60,8 @@ display:
           id: 0
           total_pages: null
           tags:
-            previous: '‹ Earlier posts'
-            next: 'Newer posts ›'
+            previous: '‹ Newer posts'
+            next: 'Earlier posts ›'
           expose:
             items_per_page: false
             items_per_page_label: 'Items per page'
@@ -412,6 +412,7 @@ display:
         header: false
         footer: false
         pager: false
+        use_ajax: false
       style:
         type: default
         options: {  }
@@ -441,8 +442,8 @@ display:
           id: 0
           total_pages: null
           tags:
-            previous: '‹ Earlier posts'
-            next: 'Newer posts ›'
+            previous: '‹ Newer posts'
+            next: 'Earlier posts ›'
           expose:
             items_per_page: false
             items_per_page_label: 'Items per page'
@@ -451,6 +452,7 @@ display:
             items_per_page_options_all_label: '- All -'
             offset: false
             offset_label: Offset
+      use_ajax: true
     cache_metadata:
       max-age: -1
       contexts:
