@@ -622,26 +622,12 @@ interface FeaturesManagerInterface {
   public function getFeaturesInfo(Extension $extension);
 
   /**
-   * Creates configuration in a collection based on the provided list.
-   *
-   * @param array $config_to_create
-   *   An array of configuration data to create, keyed by name.
-   * @return array of config imported
-   *   'new': list of new config created keyed by name.
-   *   'updated': list of updated config keyed by name.
-   */
-  public function createConfiguration(array $config_to_create);
-
-  /**
    * @param array $modules
    *   An array of module names to import (revert)
-   * @param bool $any
-   *   Set to TRUE to import config from non-Features modules
-   * @return array of config imported
-   *   keyed by name of module, then:
-   *     'new': list of new config created keyed by name.
-   *     'updated': list of updated config keyed by name.
+   * @return array
+   *   'new' array of new config names added
+   *   'updated' array of updated config names
    */
-  public function import($modules, $any = FALSE);
+  public function import($modules);
 
 }
