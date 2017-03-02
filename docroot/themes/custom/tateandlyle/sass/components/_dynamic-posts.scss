@@ -555,6 +555,12 @@
   }
 
   .view-footer {
+    @media (min-width: $screen-md) {
+      margin-top: 20px;
+    }
+  }
+
+  .pager {
     margin-top: 26px;
     @media (min-width: $screen-sm) {
       margin-left: 20px;
@@ -603,6 +609,7 @@
         left: 50px;
         margin-bottom: 23px;
         margin-top: 0;
+        margin-left: 0;
         padding-left: 10px;
         position: relative;
         width: 84%;
@@ -617,7 +624,7 @@
       .teaser-content .teaser__icon {
         position: absolute;
         left: 0;
-        top: 0;
+        top: -6px;
       }
 
       .teaser-content .date--category {
@@ -635,18 +642,11 @@
       .teaser-image img {
         max-width: none;
       }
-    }
-  }
 
-  .view-footer {
-    background: $color-off-white;
-    border-top: 1px solid $color-warm-gray;
-    border-bottom: 1px solid $color-warm-gray;
-    color: $gray-base;
-    display: block;
-    float: none;
-    padding-bottom: 27px;
-    padding-top: 26px;
-    text-align: center;
+      .view-footer {
+        margin-top: 0;
+        margin-right: 20px;
+      }
+    }
   }
 }

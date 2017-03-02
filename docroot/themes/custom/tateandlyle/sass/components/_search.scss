@@ -325,7 +325,7 @@
       display: inline-table;
       margin: 0;
       text-align: left;
-      width: 10.8%;
+      width: 11%;
       vertical-align: middle;
     }
   }
@@ -338,13 +338,15 @@
     @media (min-width: $screen-md-lg) {
       display: inline-table;
       margin: 0;
-      padding-left: 30px;
-      width: 88.7%;
+      padding-left: 25px;
+      width: 88.5%;
     }
 
     form {
       color: $color-white;
-      text-align: center;
+      @media (min-width: $screen-sm-lsp) {
+        text-align: center;
+      }
       @media (min-width: $screen-sm) {
         display: table;
         text-align: left;

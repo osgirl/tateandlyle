@@ -974,5 +974,8 @@
 
   .field--name-field-content-details > .field--item {
     border-right: 0;
+    @media(min-width: $screen-sm) {
+      width: 25%;
+    }
   }
 }
