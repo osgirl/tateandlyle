@@ -350,6 +350,7 @@ function tal_preprocess_block_dynamic_posts($variables, $block) {
     $variables['dynamic_posts']['#arguments'][]['text'] = $block->get('field_header_text')->value;
     $variables['dynamic_posts']['#prefix'] = '<div class="tal--dynamic-post-list">';
     $variables['dynamic_posts']['#suffix'] = '</div>';
+    $variables['chosen_view_mode'] = 'latest--publications';
   }
 
   // Dairy case studies.

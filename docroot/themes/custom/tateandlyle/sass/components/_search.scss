@@ -410,6 +410,11 @@
     display: none;
     margin-bottom: 0;
     margin-top: 6px;
+
+    .description {
+      color: $color-white;
+    }
+
     @media (min-width: $screen-sm) {
       display: block;
     }
