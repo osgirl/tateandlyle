@@ -1,0 +1,9 @@
+verbose: 1
+node:
+  company_story: company_story
+  ingredient: ingredient
+  landing_page: landing_page
+  page: page
+  press_release: press_release
+block_content: {  }
+taxonomy_term: {  }
