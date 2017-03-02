@@ -86,7 +86,7 @@ function tateandlyle_preprocess_page_title(&$variables) {
   $node = \Drupal::routeMatch()->getParameter('node');
   $bundle = ['ingredient', 'landing_page'];
   $field_in_banner = '';
-  if (!empty($node)) {
+  if (is_object($node) && !empty($node)) {
     if ($node->hasField('field_in_banner')) {
       $field_in_banner = $node->get('field_in_banner')->getValue();
     }

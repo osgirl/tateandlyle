@@ -139,21 +139,22 @@ class TalBreadcrumbBuilder implements BreadcrumbBuilderInterface {
     $applies = FALSE;
     $path = trim($this->context->getPathInfo(), '/');
     $node_object = $route_match->getParameters()->get('node');
-
-    if (in_array($path, $this->paths)) {
-      $applies = TRUE;
-    }
-    elseif ($node_object) {
-      // @todo:: return applies for all node types in this loop.
-      $types = [
-        'ingredient',
-        'company_story',
-        'press_release',
-        'landing_page',
-      ];
-      if (in_array($node_object->getType(), $types)) {
-        $this->node = $node_object;
+    if (is_object($node_object)) {
+      if (in_array($path, $this->paths)) {
         $applies = TRUE;
+      }
+      elseif ($node_object) {
+        // @todo:: return applies for all node types in this loop.
+        $types = [
+          'ingredient',
+          'company_story',
+          'press_release',
+          'landing_page',
+        ];
+        if (in_array($node_object->getType(), $types)) {
+          $this->node = $node_object;
+          $applies = TRUE;
+        }
       }
     }
     return $applies;
