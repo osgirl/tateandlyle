@@ -11,6 +11,12 @@
     max-width: none;
     margin: 40px 0;
   }
+
+  &.block-bg.blue {
+    .field--name-field-tal-link a:hover {
+      color: $color-white;
+    }
+  }
 }
 
 .item__promo {
