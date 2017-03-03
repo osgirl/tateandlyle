@@ -274,17 +274,6 @@ function tal_wrapper_update_8220() {
 }
 
 /**
- * Remove last hook number.
- *
- * Implements hook_update_last_removed().
- */
-function tal_wrapper_update_last_removed() {
-  // We've removed tal_wrapper_update_8221, Removing content_lock module.
-  // The next update function is tal_wrapper_update_8222().
-  return 8221;
-}
-
-/**
  * Enable  module.
  *
  * Implements hook_update_N().
