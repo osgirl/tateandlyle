@@ -14,6 +14,7 @@ lightning_extensions:
 # List of additional modules to enable after Lightning is installed.
 modules:
   - features
+  - honeypot
   - tal_features_core
   - tal_wrapper
   - tal_theme

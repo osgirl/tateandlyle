@@ -284,3 +284,12 @@ function tal_wrapper_update_last_removed() {
   // The next update function is tal_wrapper_update_8222().
   return 8221;
 }
+
+/**
+ * Enable  module.
+ *
+ * Implements hook_update_N().
+ */
+function tal_wrapper_update_8222() {
+  \Drupal::service('module_installer')->install(['honeypot']);
+}
