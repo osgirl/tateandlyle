@@ -51,8 +51,9 @@
     }
 
     .js-form-type-radio.radio {
-      display: inline-block;
-      margin-bottom: 0;
+      float: left;
+      margin-bottom: 2px;
+      margin-left: 1px;
       padding-right: 30px;
 
       input {
