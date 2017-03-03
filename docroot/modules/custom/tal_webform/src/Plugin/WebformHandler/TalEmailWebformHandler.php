@@ -5,7 +5,7 @@ namespace Drupal\tal_webform\Plugin\WebformHandler;
 use Drupal\Component\Utility\Xss;
 use Drupal\webform\WebformSubmissionInterface;
 use Drupal\webform\Plugin\WebformHandler\EmailWebformHandler;
-use \Drupal\Taxonomy\Entity\Term;
+use Drupal\Taxonomy\Entity\Term;
 
 /**
  * Emails a webform submission.
