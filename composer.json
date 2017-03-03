@@ -48,7 +48,8 @@
         "drupal/slick": "^1.0@RC",
         "kenwheeler/slick": "1.6",
         "acquia/blt": "^8.6",
-        "drupal/features": "3.2"
+        "drupal/features": "3.2",
+        "drupal/coder": "8.2.10"
     },
     "require-dev": {
         "behat/behat": "^3.1",
