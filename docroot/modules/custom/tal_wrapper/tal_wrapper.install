@@ -275,10 +275,13 @@ function tal_wrapper_update_8220() {
 }
 
 /**
- * Enable  module.
+ * Remove last hook number.
  *
- * Implements hook_update_N().
+ * Implements hook_update_last_removed().
  */
-function tal_wrapper_update_8221() {
-  \Drupal::service('module_installer')->install(['content_lock']);
+
+function tal_wrapper_update_last_removed() {
+  // We've removed tal_wrapper_update_8221, Removing content_lock module.
+  // The next update function is tal_wrapper_update_8222().
+  return 8221;
 }
