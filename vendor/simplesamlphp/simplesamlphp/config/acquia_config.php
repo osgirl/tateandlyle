@@ -25,7 +25,9 @@ $config['auth.adminpassword'] = 'S34NN5CUWH';
 $config['admin.protectindexpage'] = TRUE;
 $config['admin.protectmetadata'] = TRUE;
 // Prevent Varnish from interfering with SimpleSAMLphp.
-setcookie('NO_CACHE', '1', 0, '/user');
+// Adding the / path as per the comments in DOC-8754.
+setcookie('NO_CACHE', '1', 0, '/');
+
 if (empty($_ENV['AH_SITE_ENVIRONMENT'])) {
   // add any local configuration here
 } else {
