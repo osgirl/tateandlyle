@@ -50,7 +50,8 @@
         "acquia/blt": "^8.6",
         "drupal/features": "3.2",
         "drupal/coder": "8.2.10",
-        "drupal/honeypot": "^1.23"
+        "drupal/honeypot": "^1.23",
+        "drupal/menu_breadcrumb": "^1.0"
     },
     "require-dev": {
         "behat/behat": "^3.1",

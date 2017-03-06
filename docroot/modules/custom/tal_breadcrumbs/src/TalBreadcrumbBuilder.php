@@ -104,10 +104,6 @@ class TalBreadcrumbBuilder implements BreadcrumbBuilderInterface {
           $links[] = Link::fromTextAndUrl($term->getName(), $url);
           $breadcrumb->addCacheableDependency($term);
           break;
-
-        case 'landing_page':
-          $breadcrumb = $this->generateLandingPageBreadcrumb($breadcrumb);
-          break;
       }
     }
     else {
@@ -149,7 +145,6 @@ class TalBreadcrumbBuilder implements BreadcrumbBuilderInterface {
           'ingredient',
           'company_story',
           'press_release',
-          'landing_page',
         ];
         if (in_array($node_object->getType(), $types)) {
           $this->node = $node_object;
@@ -158,36 +153,6 @@ class TalBreadcrumbBuilder implements BreadcrumbBuilderInterface {
       }
     }
     return $applies;
-  }
-
-  /**
-   * Generate breadcrumb of landing page contents based on the conditions.
-   */
-  private function generateLandingPageBreadcrumb(Breadcrumb $breadcrumb) {
-    // Get the menu link trail of the current node.
-    $menu_link_manager = \Drupal::service('plugin.manager.menu.link');
-    $links = [];
-    $result = $menu_link_manager->loadLinksByRoute('entity.node.canonical', array('node' => $this->node->id()));
-
-    foreach ($result as $menu_link) {
-      // Get active trail of the node menu.
-      $trail_ids = $this->menuActiveTrail->getActiveTrailIds($menu_link->getMenuName());
-      $trail_ids = array_filter($trail_ids);
-      // We don't need last menu item, instead we show node title.
-      array_shift($trail_ids);
-      // Generate basic breadcrumb trail from active trail.
-      // Keep same link ordering as Menu Breadcrumb.
-      foreach (array_reverse($trail_ids) as $id) {
-        $plugin = $menu_link_manager->createInstance($id);
-        $breadcrumb->addCacheableDependency($plugin);
-        $links[] = Link::fromTextAndUrl($plugin->getTitle(), $plugin->getUrlObject());
-      }
-      $breadcrumb->addCacheableDependency($menu_link);
-    }
-    $breadcrumb->addCacheTags(['config:system.menu.main-menu']);
-    $breadcrumb->setLinks($links);
-
-    return $breadcrumb;
   }
 
 }

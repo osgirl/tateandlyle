@@ -35,6 +35,7 @@ dependencies:
   - lightning_media_image
   - lightning_workflow
   - link
+  - menu_breadcrumb
   - media_entity
   - media_entity_document
   - menu_ui
