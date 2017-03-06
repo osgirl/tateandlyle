@@ -281,3 +281,12 @@ function tal_wrapper_update_8220() {
 function tal_wrapper_update_8221() {
   \Drupal::service('module_installer')->install(['honeypot']);
 }
+
+/**
+ * Enable  module.
+ *
+ * Implements hook_update_N().
+ */
+function tal_wrapper_update_8222() {
+  \Drupal::service('module_installer')->install(['menu_breadcrumb']);
+}
