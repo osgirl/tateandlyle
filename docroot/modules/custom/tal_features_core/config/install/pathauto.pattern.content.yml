@@ -8,24 +8,19 @@ label: Content
 type: 'canonical_entities:node'
 pattern: '/content/[node:title]'
 selection_criteria:
-  4ad081ac-00e3-4dc3-bd73-f0272018af6a:
+  05ce305e-ca5f-4d59-9e98-56240ff82807:
     id: node_type
     bundles:
-      company_story: company_story
       contact: contact
       icon: icon
       iframe_content: iframe_content
       image: image
-      ingredient: ingredient
-      landing_page: landing_page
       leadership: leadership
       media_gallery_video: media_gallery_video
-      page: page
-      press_release: press_release
     negate: false
     context_mapping:
       node: node
-    uuid: 4ad081ac-00e3-4dc3-bd73-f0272018af6a
+    uuid: 05ce305e-ca5f-4d59-9e98-56240ff82807
 selection_logic: and
-weight: -5
+weight: -10
 relationships: {  }

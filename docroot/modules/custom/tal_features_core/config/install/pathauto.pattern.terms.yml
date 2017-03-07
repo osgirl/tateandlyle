@@ -7,7 +7,7 @@ dependencies:
 id: terms
 label: 'Taxonomy Terms'
 type: 'canonical_entities:taxonomy_term'
-pattern: '/term/[term:name]'
+pattern: '/category/[term:name]'
 selection_criteria:
   442892da-6350-4729-a7d4-5d09e575e048:
     id: 'entity_bundle:taxonomy_term'
