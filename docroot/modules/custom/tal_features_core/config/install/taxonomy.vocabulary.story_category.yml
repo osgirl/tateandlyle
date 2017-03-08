@@ -3,6 +3,4 @@ status: true
 dependencies: {  }
 name: 'Article Category'
 vid: story_category
-description: ''
 hierarchy: 0
-weight: 0
