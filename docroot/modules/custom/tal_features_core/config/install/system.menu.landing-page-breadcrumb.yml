@@ -2,6 +2,6 @@ langcode: en
 status: true
 dependencies: {  }
 id: landing-page-breadcrumb
-label: 'Landing page'
-description: 'Menu for Landing page.'
+label: 'Landing page Menu'
+description: 'Menu for adding Landing page content to generate the URL.'
 locked: false
