@@ -169,7 +169,7 @@
                 "Call to undefined method NodeType::hasTranslation inTranslateEntityProcessor": "https://www.drupal.org/files/issues/2823545-3.patch"
             },
             "drupal/webform": {
-                "The error message shown for validateUnique should be configurable.": "https://www.drupal.org/files/issues/the_error_message_shown-2853176-7.patch"
+                "Entity select: Gives error when conditional state is added again.": "https://www.drupal.org/files/issues/entity_select_gives-2858636-4.patch"
             },
             "drupal/entity_reference_revisions": {
                 "EntityReference migrate destination": "https://www.drupal.org/files/issues/entityreference_migrate-2809793-56.patch"
