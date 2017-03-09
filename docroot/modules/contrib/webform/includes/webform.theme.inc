@@ -13,7 +13,7 @@ use Drupal\Core\Template\Attribute;
 use Drupal\Component\Utility\Xss;
 use Drupal\webform\Element\WebformCodeMirror;
 use Drupal\webform\WebformMessageManagerInterface;
-use Drupal\webform\Utility\WebformYamlTidy;
+use Drupal\webform\Utility\WebformYaml;
 use Drupal\webform\Utility\WebformDateHelper;
 use Drupal\webform\Utility\WebformDialogHelper;
 use Drupal\webform\Utility\WebformElementHelper;
@@ -204,7 +204,7 @@ function template_preprocess_webform_submission_navigation(array &$variables) {
   // paging through submission.
   $route_name = \Drupal::routeMatch()->getRouteName();
   $route_parameters = \Drupal::routeMatch()->getRawParameters()->all();
-  $source_entity = $request_handler->getCurrentSourceEntity(['webform_submission']);
+  $source_entity = $request_handler->getCurrentSourceEntity('webform_submission');
 
   if (strpos(\Drupal::routeMatch()->getRouteName(), 'webform.user.submission') !== FALSE) {
     $account = \Drupal::currentUser();
@@ -394,7 +394,7 @@ function template_preprocess_webform_submission_yaml(array &$variables) {
 
   $data = $webform_submission->toArray(TRUE, TRUE);
   $yaml = Yaml::encode($data);
-  $yaml = WebformYamlTidy::tidy($yaml);
+  $yaml = WebformYaml::tidy($yaml);
   $variables['yaml'] = [
     '#markup' => $yaml,
     '#allowed_tags' => Xss::getAdminTagList(),
@@ -702,6 +702,27 @@ function template_preprocess_webform_composite_name(array &$variables) {
   }
   $variables['flexbox'] = (isset($element['#flexbox'])) ? $element['#flexbox'] : FALSE;
 }
+
+/**
+ * Prepares variables for telephone composite element templates.
+ *
+ * Default template: webform-element-telephone.html.twig.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - element: An associative array containing the properties of the element.
+ *     Properties used: #title, #value, #options, #description, #required,
+ *     #attributes.
+ */
+function template_preprocess_webform_composite_telephone(array &$variables) {
+  $element = $variables['element'];
+  foreach (Element::children($element) as $key) {
+    if ($element[$key]['#access']) {
+      $variables['content'][$key] = $element[$key];
+    }
+  }
+}
+
 
 /******************************************************************************/
 // Element templates

@@ -1,9 +1,11 @@
 langcode: en
-status: true
+status: open
 dependencies:
   enforced:
     module:
       - webform_test
+open: null
+close: null
 uid: null
 template: false
 id: test_token_update
@@ -58,6 +60,7 @@ settings:
   draft_saved_message: ''
   draft_loaded_message: ''
   confirmation_type: page
+  confirmation_title: ''
   confirmation_message: '<p>You can update your submission via <a href="[webform_submission:update-url]">[webform_submission:update-url]</a></p>'
   confirmation_url: ''
   confirmation_attributes: {  }

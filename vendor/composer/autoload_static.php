@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit901796b6256a65c0131f378dac115fc5
+class ComposerStaticInit349ffd854da88084ab1d11c57f085764
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -3488,6 +3488,7 @@ class ComposerStaticInit901796b6256a65c0131f378dac115fc5
         'HTMLPurifier_AttrTransform_SafeParam' => __DIR__ . '/..' . '/ezyang/htmlpurifier/library/HTMLPurifier/AttrTransform/SafeParam.php',
         'HTMLPurifier_AttrTransform_ScriptRequired' => __DIR__ . '/..' . '/ezyang/htmlpurifier/library/HTMLPurifier/AttrTransform/ScriptRequired.php',
         'HTMLPurifier_AttrTransform_TargetBlank' => __DIR__ . '/..' . '/ezyang/htmlpurifier/library/HTMLPurifier/AttrTransform/TargetBlank.php',
+        'HTMLPurifier_AttrTransform_TargetNoopener' => __DIR__ . '/..' . '/ezyang/htmlpurifier/library/HTMLPurifier/AttrTransform/TargetNoopener.php',
         'HTMLPurifier_AttrTransform_TargetNoreferrer' => __DIR__ . '/..' . '/ezyang/htmlpurifier/library/HTMLPurifier/AttrTransform/TargetNoreferrer.php',
         'HTMLPurifier_AttrTransform_Textarea' => __DIR__ . '/..' . '/ezyang/htmlpurifier/library/HTMLPurifier/AttrTransform/Textarea.php',
         'HTMLPurifier_AttrTypes' => __DIR__ . '/..' . '/ezyang/htmlpurifier/library/HTMLPurifier/AttrTypes.php',
@@ -3564,6 +3565,7 @@ class ComposerStaticInit901796b6256a65c0131f378dac115fc5
         'HTMLPurifier_HTMLModule_Tables' => __DIR__ . '/..' . '/ezyang/htmlpurifier/library/HTMLPurifier/HTMLModule/Tables.php',
         'HTMLPurifier_HTMLModule_Target' => __DIR__ . '/..' . '/ezyang/htmlpurifier/library/HTMLPurifier/HTMLModule/Target.php',
         'HTMLPurifier_HTMLModule_TargetBlank' => __DIR__ . '/..' . '/ezyang/htmlpurifier/library/HTMLPurifier/HTMLModule/TargetBlank.php',
+        'HTMLPurifier_HTMLModule_TargetNoopener' => __DIR__ . '/..' . '/ezyang/htmlpurifier/library/HTMLPurifier/HTMLModule/TargetNoopener.php',
         'HTMLPurifier_HTMLModule_TargetNoreferrer' => __DIR__ . '/..' . '/ezyang/htmlpurifier/library/HTMLPurifier/HTMLModule/TargetNoreferrer.php',
         'HTMLPurifier_HTMLModule_Text' => __DIR__ . '/..' . '/ezyang/htmlpurifier/library/HTMLPurifier/HTMLModule/Text.php',
         'HTMLPurifier_HTMLModule_Tidy' => __DIR__ . '/..' . '/ezyang/htmlpurifier/library/HTMLPurifier/HTMLModule/Tidy.php',
@@ -6192,6 +6194,7 @@ class ComposerStaticInit901796b6256a65c0131f378dac115fc5
         'Symfony\\Component\\Routing\\Loader\\DirectoryLoader' => __DIR__ . '/..' . '/symfony/routing/Loader/DirectoryLoader.php',
         'Symfony\\Component\\Routing\\Loader\\ObjectRouteLoader' => __DIR__ . '/..' . '/symfony/routing/Loader/ObjectRouteLoader.php',
         'Symfony\\Component\\Routing\\Loader\\PhpFileLoader' => __DIR__ . '/..' . '/symfony/routing/Loader/PhpFileLoader.php',
+        'Symfony\\Component\\Routing\\Loader\\RecursiveCallbackFilterIterator' => __DIR__ . '/..' . '/symfony/routing/Loader/AnnotationDirectoryLoader.php',
         'Symfony\\Component\\Routing\\Loader\\XmlFileLoader' => __DIR__ . '/..' . '/symfony/routing/Loader/XmlFileLoader.php',
         'Symfony\\Component\\Routing\\Loader\\YamlFileLoader' => __DIR__ . '/..' . '/symfony/routing/Loader/YamlFileLoader.php',
         'Symfony\\Component\\Routing\\Matcher\\ApacheUrlMatcher' => __DIR__ . '/..' . '/symfony/routing/Matcher/ApacheUrlMatcher.php',
@@ -7066,10 +7069,10 @@ class ComposerStaticInit901796b6256a65c0131f378dac115fc5
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit901796b6256a65c0131f378dac115fc5::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit901796b6256a65c0131f378dac115fc5::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit901796b6256a65c0131f378dac115fc5::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit901796b6256a65c0131f378dac115fc5::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit349ffd854da88084ab1d11c57f085764::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit349ffd854da88084ab1d11c57f085764::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit349ffd854da88084ab1d11c57f085764::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit349ffd854da88084ab1d11c57f085764::$classMap;
 
         }, null, ClassLoader::class);
     }

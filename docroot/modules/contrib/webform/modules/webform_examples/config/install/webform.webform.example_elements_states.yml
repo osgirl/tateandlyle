@@ -1,9 +1,11 @@
 langcode: en
-status: false
+status: open
 dependencies:
   enforced:
     module:
       - webform_examples
+open: null
+close: null
 uid: null
 template: false
 id: example_elements_states
@@ -26,6 +28,30 @@ elements: |
             checked: true
         required:
           ':input[name="checkbox"]':
+            checked: true
+  checkboxes_example:
+    '#type': details
+    '#title': 'Checkboxes example'
+    '#open': true
+    checkboxes:
+      '#type': checkboxes
+      '#title': 'Please check all'
+      '#options':
+        one: One
+        two: Two
+    checkboxes_explain:
+      '#type': textarea
+      '#title': 'Please explain why you checked all the above box'
+      '#states':
+        visible:
+          ':input[name="checkboxes[one]"]':
+            checked: true
+          ':input[name="checkboxes[two]"]':
+            checked: true
+        required:
+          ':input[name="checkboxes[one]"]':
+            checked: true
+          ':input[name="checkboxes[two]"]':
             checked: true
   select_example:
     '#type': details
@@ -193,6 +219,7 @@ settings:
   draft_saved_message: ''
   draft_loaded_message: ''
   confirmation_type: page
+  confirmation_title: ''
   confirmation_message: ''
   confirmation_url: ''
   confirmation_attributes: {  }

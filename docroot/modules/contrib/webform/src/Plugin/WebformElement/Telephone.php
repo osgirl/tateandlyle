@@ -2,6 +2,10 @@
 
 namespace Drupal\webform\Plugin\WebformElement;
 
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\webform\WebformInterface;
+use Drupal\webform\WebformSubmissionInterface;
+
 /**
  * Provides a 'tel' element.
  *
@@ -21,7 +25,40 @@ class Telephone extends TextBase {
   public function getDefaultProperties() {
     return parent::getDefaultProperties() + [
       'multiple' => FALSE,
+      'international' => FALSE,
     ];
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function prepare(array &$element, WebformSubmissionInterface $webform_submission) {
+    parent::prepare($element, $webform_submission);
+
+    // Add international library and classes.
+    if (!empty($element['#international'])) {
+      $element['#attached']['library'][] = 'webform/webform.element.telephone';
+      $element['#attributes']['class'][] = 'js-webform-telephone-international';
+      $element['#attributes']['class'][] = 'webform-webform-telephone-international';
+    }
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function form(array $form, FormStateInterface $form_state) {
+    $form = parent::form($form, $form_state);
+    $form['telephone'] = [
+      '#type' => 'fieldset',
+      '#title' => $this->t('Telephone settings'),
+    ];
+    $form['telephone']['international'] = [
+      '#title' => $this->t('Enhance support for international phone numbers'),
+      '#type' => 'checkbox',
+      '#return_value' => TRUE,
+      '#description' => $this->t('Enhance the telephone element\'s international support using the jQuery <a href=":href">International Telephone Input</a> plugin.', [':href' => 'http://intl-tel-input.com/']),
+    ];
+    return $form;
   }
 
   /**
@@ -64,6 +101,19 @@ class Telephone extends TextBase {
   public function getItemFormats() {
     return parent::getItemFormats() + [
       'link' => $this->t('Link'),
+    ];
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getTestValues(array $element, WebformInterface $webform, array $options = []) {
+    if (empty($element['#international'])) {
+      return FALSE;
+    }
+    return [
+      '+1 212-333-4444',
+      '+1 718-555-6666',
     ];
   }
 

@@ -1,9 +1,11 @@
 langcode: en
-status: true
+status: open
 dependencies:
   enforced:
     module:
       - webform_test
+open: null
+close: null
 uid: null
 template: false
 id: test_element_html_markup
@@ -110,9 +112,11 @@ elements: |
     tel:
       '#type': tel
       '#title': '<u>Telephone</u>'
+      '#international': true
     tel_multiple:
       '#type': tel
       '#title': '<u>Telephone multiple</u>'
+      '#international': true
       '#multiple': true
     text_format:
       '#type': text_format
@@ -131,6 +135,29 @@ elements: |
     value:
       '#type': value
       '#title': '<u>Value</u>'
+  markup_elements:
+    '#type': details
+    '#title': '<u>Markup elements</u>'
+    '#open': true
+    processed_text:
+      '#type': processed_text
+      '#title': '<u>Advanced HTML/Text</u>'
+      processed_text_content:
+        '#markup': 'This is a Advanced HTML/Text container.'
+    webform_markup:
+      '#type': webform_markup
+      '#title': '<u>Basic HTML</u>'
+      '#description': '<b>Known Issues:</b><br/><a href="https://www.drupal.org/node/2700667">Issue #2700667: Notice: Undefined index: #type in drupal_process_states()</a>'
+      webform_markup_content:
+        '#markup': 'This is a Basic HTML container.'
+    webform_message:
+      '#type': webform_message
+      '#title': '<u>Message</u>'
+      '#description': '<b>Known Issues:</b><br/><a href="https://www.drupal.org/node/77245">Issue #77245: A place for JavaScript status messages</a>'
+      '#message_type': warning
+      '#message_message': 'This is a <strong>warning</strong> message.'
+      webform_message_content:
+        '#markup': 'This is a Message container.'
   file_upload_elements:
     '#type': details
     '#title': '<u>File upload elements</u>'
@@ -424,6 +451,9 @@ elements: |
       '#selection_handler': 'default:user'
       '#selection_settings':
         include_anonymous: true
+      '#options':
+        1: Administrator
+        0: '<u>Anonymous</u>'
     webform_entity_radios:
       '#type': webform_entity_radios
       '#title': '<u>Entity radios</u>'
@@ -431,6 +461,7 @@ elements: |
       '#selection_handler': 'default:user'
       '#selection_settings':
         include_anonymous: true
+      '#options': null
     webform_entity_select:
       '#type': webform_entity_select
       '#title': '<u>Entity select</u>'
@@ -447,29 +478,16 @@ elements: |
         include_anonymous: true
       '#multiple': true
       '#select2': true
-  markup_elements:
-    '#type': details
-    '#title': '<u>Markup elements</u>'
-    '#open': true
-    webform_markup:
-      '#type': webform_markup
-      '#title': '<u>HTML markup</u>'
-      '#description': '<b>Known Issues:</b><br/><a href="https://www.drupal.org/node/2700667">Issue #2700667: Notice: Undefined index: #type in drupal_process_states()</a>'
-      webform_markup_content:
-        '#markup': 'This is a HTML markup container.'
-    webform_message:
-      '#type': webform_message
-      '#title': '<u>Message</u>'
-      '#description': '<b>Known Issues:</b><br/><a href="https://www.drupal.org/node/77245">Issue #77245: A place for JavaScript status messages</a>'
-      '#message_type': warning
-      '#message_message': 'This is a <strong>warning</strong> message.'
-      webform_message_content:
-        '#markup': 'This is a Message container.'
-    processed_text:
-      '#type': processed_text
-      '#title': '<u>Processed text</u>'
-      processed_text_content:
-        '#markup': 'This is a Processed text container.'
+    webform_term_select:
+      '#type': webform_term_select
+      '#title': '<u>Term select</u>'
+      '#vocabulary': tags
+    webform_term_select_multiple:
+      '#type': webform_term_select
+      '#title': '<u>Term select multiple</u>'
+      '#vocabulary': tags
+      '#multiple': true
+      '#select2': true
   other_elements:
     '#type': details
     '#title': '<u>Other elements</u>'
@@ -529,6 +547,7 @@ settings:
   draft_saved_message: ''
   draft_loaded_message: ''
   confirmation_type: page
+  confirmation_title: ''
   confirmation_message: ''
   confirmation_url: ''
   confirmation_attributes: {  }

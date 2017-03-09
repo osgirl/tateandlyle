@@ -1,9 +1,11 @@
 langcode: en
-status: true
+status: open
 dependencies:
   enforced:
     module:
       - webform_test_options
+open: null
+close: null
 uid: null
 template: false
 id: test_options
@@ -62,6 +64,10 @@ elements: |
       '#type': select
       '#title': 'Marital status (marital_status)'
       '#options': marital_status
+    phone_types:
+      '#type': select
+      '#title': 'Phone type (phone_types)'
+      '#options': phone_types
     relationship:
       '#type': select
       '#title': 'Relationship (relationship)'
@@ -259,6 +265,7 @@ settings:
   draft_saved_message: ''
   draft_loaded_message: ''
   confirmation_type: page
+  confirmation_title: ''
   confirmation_message: ''
   confirmation_url: ''
   confirmation_attributes: {  }

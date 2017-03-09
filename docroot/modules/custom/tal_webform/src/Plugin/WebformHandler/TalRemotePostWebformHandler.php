@@ -72,7 +72,9 @@ class TalRemotePostWebformHandler extends RemotePostWebformHandler {
   public function validateSalesForcePostRules(array $data) {
     // $tc = $data['tc'];.
     $te = $data['post_data']['type_of_enquiry'];
-    $newList = $this->isTermSalesForceOn($data['post_data']['routing']);
+    if ($te == 'commercial_sales') {
+      $newList = $this->isTermSalesForceOn($data['post_data']['routing']);
+    }
     // Rule 1.
     $rule1 = ($te == 'commercial_sales') && $newList;
     if ($rule1) {
@@ -110,14 +112,19 @@ class TalRemotePostWebformHandler extends RemotePostWebformHandler {
     $request_post_data = $data['post_data'];
     $request_post_data['oid'] = '00DP000000037No';
     $request_post_data['retURL'] = $data['url'];
-    // Category has unique id to post.
-    $request_post_data['00NP0000000xvHb'] = $request_post_data['category'];
 
     // Message has unique id to post.
     $request_post_data['00NP0000001FiDS'] = $request_post_data['message'];
 
     // Update the term name for Industry and Category.
-    $request_post_data['category'] = $this->getTermName($request_post_data['category']);
+    if (isset($request_post_data['category'])
+      && !empty($request_post_data['category'])
+      && is_numeric($request_post_data['category'])) {
+      // Category has unique id to post.
+      $request_post_data['00NP0000000xvHb'] = $request_post_data['category'];
+      $request_post_data['category'] = $this->getTermName($request_post_data['category']);
+    }
+
     $request_post_data['industry'] = $this->getTermName($request_post_data['industry']);
 
     // Debug parameters.

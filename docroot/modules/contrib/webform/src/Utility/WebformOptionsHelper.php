@@ -2,6 +2,8 @@
 
 namespace Drupal\webform\Utility;
 
+use Drupal\Component\Utility\Html;
+
 /**
  * Helper class webform options based methods.
  */
@@ -82,7 +84,7 @@ class WebformOptionsHelper {
    *   An associative array of options with TranslatableMarkup.
    *
    * @return string
-   *   An associative array of options of strings
+   *   An associative array of options of strings,
    */
   public static function convertOptionsToString(array $options) {
     $string = [];
@@ -95,6 +97,29 @@ class WebformOptionsHelper {
       }
     }
     return $string;
+  }
+
+  /**
+   * Decode HTML entities in options.
+   *
+   * Issue #2826451: TermSelection returning HTML characters in select list.
+   *
+   * @param array $options
+   *   An associative array of options.
+   *
+   * @return string
+   *   An associative array of options with HTML entities decoded.
+   */
+  public static function decodeOptions(array $options) {
+    foreach ($options as $option_value => $option_text) {
+      if (is_array($option_text)) {
+        $options[$option_value] = self::decodeOptions($option_text);
+      }
+      else {
+        $options[$option_value] = Html::decodeEntities((string) $option_text);
+      }
+    }
+    return $options;
   }
 
   /**

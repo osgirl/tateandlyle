@@ -1,9 +1,11 @@
 langcode: en
-status: false
+status: closed
 dependencies:
   enforced:
     module:
       - webform_templates
+open: null
+close: null
 uid: null
 template: true
 id: template_contact
@@ -71,6 +73,7 @@ settings:
   draft_saved_message: ''
   draft_loaded_message: ''
   confirmation_type: url_message
+  confirmation_title: ''
   confirmation_message: 'Your message has been sent.'
   confirmation_url: '<front>'
   confirmation_attributes: {  }

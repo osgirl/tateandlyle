@@ -1,9 +1,11 @@
 langcode: en
-status: false
+status: open
 dependencies:
   enforced:
     module:
       - webform_examples
+open: null
+close: null
 uid: null
 template: false
 id: example_elements_composite
@@ -75,6 +77,18 @@ elements: |
       '#title': 'Name multiple'
       '#multiple': true
       '#multiple__header': true
+  webform_telephone_example:
+    '#type': details
+    '#title': 'Telephone advanced'
+    '#open': true
+    webform_telephone:
+      '#type': webform_telephone
+      '#title': 'Telephone advanced'
+    webform_telephone_multiple:
+      '#type': webform_telephone
+      '#title': 'Telephone advanced multiple'
+      '#multiple': true
+      '#multiple__header': true
 css: ''
 javascript: ''
 settings:
@@ -120,6 +134,7 @@ settings:
   draft_saved_message: ''
   draft_loaded_message: ''
   confirmation_type: page
+  confirmation_title: ''
   confirmation_message: ''
   confirmation_url: ''
   confirmation_attributes: {  }

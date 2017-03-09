@@ -8,7 +8,7 @@ Steps for creating a new release
   4. Run tests
   5. Generate release notes
   6. Tag and create a new release
-
+  7. Upload screencast to YouTube
 
 1. Cleanup code
 ---------------
@@ -19,10 +19,7 @@ Steps for creating a new release
 
 Tidy YAML files
 
-    drush webform-tidy webform; 
-    drush webform-tidy webform_ui; 
-    drush webform-tidy webform_test;
-    drush webform-tidy webform_test_translation;
+    @see DEVELOPMENT-CHEATSHEET.md
 
 
 2. Export configuration
@@ -81,7 +78,7 @@ Tidy YAML files
     php ../vendor/phpunit/phpunit/phpunit ../modules/sandbox/webform/tests/src/Kernal/Utility/WebformDialogHelperTest.php
 
     # Unit test.
-    php ../vendor/phpunit/phpunit/phpunit ../modules/sandbox/webform/tests/src/Unit/Utility/WebformYamlTidyTest.php
+    php ../vendor/phpunit/phpunit/phpunit ../modules/sandbox/webform/tests/src/Unit/Utility/WebformYamlTest.php
 
 
 5. Generate release notes
@@ -102,3 +99,11 @@ Tidy YAML files
     git push origin tag 8.x-5.0-VERSION
 
 [Create new release](https://www.drupal.org/node/add/project-release/2640714)
+
+
+7. Upload screencast to YouTube
+-------------------------------
+
+- Title : Webform 8.x-5.x-betaXX
+- Tags: Drupal 8,Webform,Form Builder
+- Privacy: listed

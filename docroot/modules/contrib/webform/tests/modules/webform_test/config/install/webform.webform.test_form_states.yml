@@ -1,9 +1,11 @@
 langcode: en
-status: false
+status: open
 dependencies:
   enforced:
     module:
       - webform_test
+open: null
+close: null
 uid: null
 template: false
 id: test_form_states
@@ -16,6 +18,31 @@ elements: |
     visible_trigger:
       '#type': checkbox
       '#title': 'Displays and require elements'
+    visible_processed_text:
+      '#type': processed_text
+      '#title': 'Advanced HTML/Text'
+      visible_processed_text_content:
+        '#markup': 'This is a Advanced HTML/Text container.'
+      '#states':
+        visible:
+          ':input[name="visible_trigger"]':
+            checked: true
+        required:
+          ':input[name="visible_trigger"]':
+            checked: true
+    visible_webform_markup:
+      '#type': webform_markup
+      '#title': 'Basic HTML'
+      '#description': '<b>Known Issues:</b><br/><a href="https://www.drupal.org/node/2700667">Issue #2700667: Notice: Undefined index: #type in drupal_process_states()</a>'
+      visible_webform_markup_content:
+        '#markup': 'This is a Basic HTML container.'
+      '#states':
+        visible:
+          ':input[name="visible_trigger"]':
+            checked: true
+        required:
+          ':input[name="visible_trigger"]':
+            checked: true
     visible_captcha:
       '#type': captcha
       '#title': CAPTCHA
@@ -75,19 +102,6 @@ elements: |
         required:
           ':input[name="visible_trigger"]':
             checked: true
-    visible_webform_markup:
-      '#type': webform_markup
-      '#title': 'HTML markup'
-      '#description': '<b>Known Issues:</b><br/><a href="https://www.drupal.org/node/2700667">Issue #2700667: Notice: Undefined index: #type in drupal_process_states()</a>'
-      visible_webform_markup_content:
-        '#markup': 'This is a HTML markup container.'
-      '#states':
-        visible:
-          ':input[name="visible_trigger"]':
-            checked: true
-        required:
-          ':input[name="visible_trigger"]':
-            checked: true
     visible_item:
       '#type': item
       '#title': Item
@@ -124,18 +138,6 @@ elements: |
       '#message_message': 'This is a <strong>warning</strong> message.'
       visible_webform_message_content:
         '#markup': 'This is a Message container.'
-      '#states':
-        visible:
-          ':input[name="visible_trigger"]':
-            checked: true
-        required:
-          ':input[name="visible_trigger"]':
-            checked: true
-    visible_processed_text:
-      '#type': processed_text
-      '#title': 'Processed text'
-      visible_processed_text_content:
-        '#markup': 'This is a Processed text container.'
       '#states':
         visible:
           ':input[name="visible_trigger"]':
@@ -446,6 +448,9 @@ elements: |
       '#selection_handler': 'default:user'
       '#selection_settings':
         include_anonymous: true
+      '#options':
+        1: Administrator
+        0: Anonymous
       '#default_value':
         - 1
       '#states':
@@ -462,6 +467,7 @@ elements: |
       '#selection_handler': 'default:user'
       '#selection_settings':
         include_anonymous: true
+      '#options': null
       '#default_value': 1
       '#states':
         visible:
@@ -809,7 +815,34 @@ elements: |
     visible_tel:
       '#type': tel
       '#title': Telephone
+      '#international': true
       '#default_value': 123-456-7890
+      '#states':
+        visible:
+          ':input[name="visible_trigger"]':
+            checked: true
+        required:
+          ':input[name="visible_trigger"]':
+            checked: true
+    visible_webform_telephone:
+      '#type': webform_telephone
+      '#title': 'Telephone advanced'
+      '#default_value':
+        type: Home
+        phone: 123-456-7890
+        ext: 1
+      '#states':
+        visible:
+          ':input[name="visible_trigger"]':
+            checked: true
+        required:
+          ':input[name="visible_trigger"]':
+            checked: true
+    visible_webform_term_select:
+      '#type': webform_term_select
+      '#title': 'Term select'
+      '#vocabulary': tags
+      '#default_value': Loremipsum
       '#states':
         visible:
           ':input[name="visible_trigger"]':
@@ -930,6 +963,25 @@ elements: |
     invisible_trigger:
       '#type': checkbox
       '#title': 'Hide and empty elements'
+    invisible_processed_text:
+      '#type': processed_text
+      '#title': 'Advanced HTML/Text'
+      invisible_processed_text_content:
+        '#markup': 'This is a Advanced HTML/Text container.'
+      '#states':
+        invisible:
+          ':input[name="invisible_trigger"]':
+            checked: true
+    invisible_webform_markup:
+      '#type': webform_markup
+      '#title': 'Basic HTML'
+      '#description': '<b>Known Issues:</b><br/><a href="https://www.drupal.org/node/2700667">Issue #2700667: Notice: Undefined index: #type in drupal_process_states()</a>'
+      invisible_webform_markup_content:
+        '#markup': 'This is a Basic HTML container.'
+      '#states':
+        invisible:
+          ':input[name="invisible_trigger"]':
+            checked: true
     invisible_captcha:
       '#type': captcha
       '#title': CAPTCHA
@@ -974,16 +1026,6 @@ elements: |
         invisible:
           ':input[name="invisible_trigger"]':
             checked: true
-    invisible_webform_markup:
-      '#type': webform_markup
-      '#title': 'HTML markup'
-      '#description': '<b>Known Issues:</b><br/><a href="https://www.drupal.org/node/2700667">Issue #2700667: Notice: Undefined index: #type in drupal_process_states()</a>'
-      invisible_webform_markup_content:
-        '#markup': 'This is a HTML markup container.'
-      '#states':
-        invisible:
-          ':input[name="invisible_trigger"]':
-            checked: true
     invisible_item:
       '#type': item
       '#title': Item
@@ -1014,15 +1056,6 @@ elements: |
       '#message_message': 'This is a <strong>warning</strong> message.'
       invisible_webform_message_content:
         '#markup': 'This is a Message container.'
-      '#states':
-        invisible:
-          ':input[name="invisible_trigger"]':
-            checked: true
-    invisible_processed_text:
-      '#type': processed_text
-      '#title': 'Processed text'
-      invisible_processed_text_content:
-        '#markup': 'This is a Processed text container.'
       '#states':
         invisible:
           ':input[name="invisible_trigger"]':
@@ -1264,6 +1297,9 @@ elements: |
       '#selection_handler': 'default:user'
       '#selection_settings':
         include_anonymous: true
+      '#options':
+        1: Administrator
+        0: Anonymous
       '#default_value':
         - 1
       '#states':
@@ -1277,6 +1313,7 @@ elements: |
       '#selection_handler': 'default:user'
       '#selection_settings':
         include_anonymous: true
+      '#options': null
       '#default_value': 1
       '#states':
         invisible:
@@ -1549,7 +1586,28 @@ elements: |
     invisible_tel:
       '#type': tel
       '#title': Telephone
+      '#international': true
       '#default_value': 123-456-7890
+      '#states':
+        invisible:
+          ':input[name="invisible_trigger"]':
+            checked: true
+    invisible_webform_telephone:
+      '#type': webform_telephone
+      '#title': 'Telephone advanced'
+      '#default_value':
+        type: Home
+        phone: 123-456-7890
+        ext: 1
+      '#states':
+        invisible:
+          ':input[name="invisible_trigger"]':
+            checked: true
+    invisible_webform_term_select:
+      '#type': webform_term_select
+      '#title': 'Term select'
+      '#vocabulary': tags
+      '#default_value': Loremipsum
       '#states':
         invisible:
           ':input[name="invisible_trigger"]':
@@ -1868,6 +1926,9 @@ elements: |
       '#selection_handler': 'default:user'
       '#selection_settings':
         include_anonymous: true
+      '#options':
+        1: Administrator
+        0: Anonymous
       '#default_value':
         - 1
       '#states':
@@ -1881,6 +1942,7 @@ elements: |
       '#selection_handler': 'default:user'
       '#selection_settings':
         include_anonymous: true
+      '#options': null
       '#default_value': 1
       '#states':
         disabled:
@@ -2153,7 +2215,28 @@ elements: |
     disabled_tel:
       '#type': tel
       '#title': Telephone
+      '#international': true
       '#default_value': 123-456-7890
+      '#states':
+        disabled:
+          ':input[name="disabled_trigger"]':
+            checked: true
+    disabled_webform_telephone:
+      '#type': webform_telephone
+      '#title': 'Telephone advanced'
+      '#default_value':
+        type: Home
+        phone: 123-456-7890
+        ext: 1
+      '#states':
+        disabled:
+          ':input[name="disabled_trigger"]':
+            checked: true
+    disabled_webform_term_select:
+      '#type': webform_term_select
+      '#title': 'Term select'
+      '#vocabulary': tags
+      '#default_value': Loremipsum
       '#states':
         disabled:
           ':input[name="disabled_trigger"]':
@@ -2283,6 +2366,7 @@ settings:
   draft_saved_message: ''
   draft_loaded_message: ''
   confirmation_type: page
+  confirmation_title: ''
   confirmation_message: ''
   confirmation_url: ''
   confirmation_attributes: {  }

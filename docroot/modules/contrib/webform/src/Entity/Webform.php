@@ -69,6 +69,8 @@ use Drupal\webform\WebformSubmissionStorageInterface;
  *   },
  *   config_export = {
  *     "status",
+ *     "open",
+ *     "close",
  *     "uid",
  *     "template",
  *     "id",
@@ -112,7 +114,21 @@ class Webform extends ConfigEntityBundleBase implements WebformInterface {
    *
    * @var bool
    */
-  protected $status = TRUE;
+  protected $status = WebformInterface::STATUS_OPEN;
+
+  /**
+   * The webform open date/time.
+   *
+   * @var bool
+   */
+  protected $open;
+
+  /**
+   * The webform close date/time.
+   *
+   * @var bool
+   */
+  protected $close;
 
   /**
    * The webform template indicator.
@@ -271,6 +287,13 @@ class Webform extends ConfigEntityBundleBase implements WebformInterface {
   /**
    * {@inheritdoc}
    */
+  public function getLangcode() {
+    return $this->langcode;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
   public function getOwner() {
     return $this->uid ? User::load($this->uid) : NULL;
   }
@@ -306,8 +329,57 @@ class Webform extends ConfigEntityBundleBase implements WebformInterface {
   /**
    * {@inheritdoc}
    */
+  public function setStatus($status) {
+    if ($status === NULL || $status === WebformInterface::STATUS_SCHEDULED) {
+      $this->status = WebformInterface::STATUS_SCHEDULED;
+    }
+    elseif ($status === WebformInterface::STATUS_OPEN) {
+      $this->status = WebformInterface::STATUS_OPEN;
+    }
+    elseif ($status === WebformInterface::STATUS_CLOSED) {
+      $this->status = WebformInterface::STATUS_CLOSED;
+    }
+    else {
+      $this->status = ((bool) $status) ? WebformInterface::STATUS_OPEN : WebformInterface::STATUS_CLOSED;
+    }
+    return $this;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function status() {
+    return $this->isOpen();
+  }
+
+  /**
+   * {@inheritdoc}
+   */
   public function isOpen() {
-    return $this->status ? TRUE : FALSE;
+    switch ($this->status) {
+      case WebformInterface::STATUS_OPEN:
+        return TRUE;
+
+      case WebformInterface::STATUS_CLOSED:
+        return FALSE;
+
+      case WebformInterface::STATUS_SCHEDULED:
+        $is_opened = TRUE;
+        if ($this->open && strtotime($this->open) > time()) {
+          $is_opened = FALSE;
+        }
+
+        $is_closed = FALSE;
+        if ($this->close && strtotime($this->close) < time()) {
+          $is_closed = TRUE;
+        }
+
+        if ($is_opened && !$is_closed) {
+          return TRUE;
+        }
+        return FALSE;
+    }
+    return FALSE;
   }
 
   /**
@@ -315,6 +387,13 @@ class Webform extends ConfigEntityBundleBase implements WebformInterface {
    */
   public function isClosed() {
     return !$this->isOpen();
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function isScheduled() {
+    return ($this->status === WebformInterface::STATUS_SCHEDULED);
   }
 
   /**
@@ -553,6 +632,7 @@ class Webform extends ConfigEntityBundleBase implements WebformInterface {
       'draft_saved_message' => '',
       'draft_loaded_message' => '',
       'confirmation_type' => 'page',
+      'confirmation_title' => '',
       'confirmation_message' => '',
       'confirmation_url' => '',
       'confirmation_attributes' => [],
@@ -827,8 +907,7 @@ class Webform extends ConfigEntityBundleBase implements WebformInterface {
       // If current webform is translated, load the base (default) webform and apply
       // the translation to the elements.
       if ($this->langcode != $language_manager->getCurrentLanguage()->getId()) {
-        $default_langcode = $language_manager->getDefaultLanguage()->getId();
-        $elements = $translation_manager->getConfigElements($this, $default_langcode);
+        $elements = $translation_manager->getConfigElements($this);
         $this->elementsTranslations = Yaml::decode($this->elements);
       }
       else {
@@ -878,6 +957,10 @@ class Webform extends ConfigEntityBundleBase implements WebformInterface {
    *
    * @param array $elements
    *   The webform elements.
+   * @param string $parent
+   *   The parent key.
+   * @param int $depth
+   *   The element's depth.
    */
   protected function initElementsRecursive(array &$elements, $parent = '', $depth = 0) {
     /** @var \Drupal\webform\WebformElementManagerInterface $element_manager */
@@ -1174,10 +1257,22 @@ class Webform extends ConfigEntityBundleBase implements WebformInterface {
    */
   public static function preCreate(EntityStorageInterface $storage, array &$values) {
     $values += [
+      'status' => WebformInterface::STATUS_OPEN,
       'uid' => \Drupal::currentUser()->id(),
       'settings' => self::getDefaultSettings(),
       'access' => self::getDefaultAccessRules(),
     ];
+
+    // Convert boolean status to STATUS constant.
+    if ($values['status'] === TRUE) {
+      $values['status'] = WebformInterface::STATUS_OPEN;
+    }
+    elseif ($values['status'] === FALSE) {
+      $values['status'] = WebformInterface::STATUS_CLOSED;
+    }
+    elseif ($values['status'] === NULL) {
+      $values['status'] = WebformInterface::STATUS_SCHEDULED;
+    }
   }
 
   /**
@@ -1231,7 +1326,7 @@ class Webform extends ConfigEntityBundleBase implements WebformInterface {
   public function preSave(EntityStorageInterface $storage) {
     // Always unpublish templates.
     if ($this->isTemplate()) {
-      $this->setStatus(FALSE);
+      $this->setStatus(WebformInterface::STATUS_CLOSED);
     }
 
     // Serialize elements array to YAML.
@@ -1261,6 +1356,13 @@ class Webform extends ConfigEntityBundleBase implements WebformInterface {
   public function updatePaths() {
     // Path module must be enable for URL aliases to be updated.
     if (!\Drupal::moduleHandler()->moduleExists('path')) {
+      return;
+    }
+
+    // If 'Allow users to post submission from a dedicated URL' is disabled,
+    // delete all existing paths.
+    if (empty($this->settings['page'])) {
+      $this->deletePaths();
       return;
     }
 

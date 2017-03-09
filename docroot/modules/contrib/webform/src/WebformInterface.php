@@ -13,6 +13,29 @@ use Drupal\user\EntityOwnerInterface;
 interface WebformInterface extends ConfigEntityInterface, EntityWithPluginCollectionInterface, EntityOwnerInterface {
 
   /**
+   * Webform status open.
+   */
+  const STATUS_OPEN = 'open';
+
+  /**
+   * Webform status closed.
+   */
+  const STATUS_CLOSED = 'closed';
+
+  /**
+   * Webform status scheduled.
+   */
+  const STATUS_SCHEDULED = 'scheduled';
+
+  /**
+   * Returns the webform's (original) langcode.
+   *
+   * @return string
+   *   The webform's (original) langcode.
+   */
+  public function getLangcode();
+
+  /**
    * Determine if the webform has page or is attached to other entities.
    *
    * @return bool
@@ -37,6 +60,19 @@ interface WebformInterface extends ConfigEntityInterface, EntityWithPluginCollec
   public function hasFlexboxLayout();
 
   /**
+   * Sets the status of the configuration entity.
+   *
+   * @param string|bool|null $status
+   *   The status of the configuration entity.
+   *   - TRUE => WebformInterface::STATUS_OPEN.
+   *   - FALSE => WebformInterface::STATUS_CLOSED.
+   *   - NULL => WebformInterface::STATUS_SCHEDULED.
+   *
+   * @return $this
+   */
+  public function setStatus($status);
+
+  /**
    * Returns the webform opened status indicator.
    *
    * @return bool
@@ -51,6 +87,14 @@ interface WebformInterface extends ConfigEntityInterface, EntityWithPluginCollec
    *   TRUE if the webform is closed to new submissions.
    */
   public function isClosed();
+
+  /**
+   * Returns the webform scheduled status indicator.
+   *
+   * @return bool
+   *   TRUE if the webform is scheduled to open/close to new submissions.
+   */
+  public function isScheduled();
 
   /**
    * Returns the webform template indicator.
