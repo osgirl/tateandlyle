@@ -118,13 +118,16 @@ class TalRemotePostWebformHandler extends RemotePostWebformHandler {
 
     // Update the term name for Industry and Category.
     if (isset($request_post_data['category'])
-      && !empty($request_post_data['category'])
-      && is_numeric($request_post_data['category'])) {
+      && !empty($request_post_data['category'])) {
       // Category has unique id to post.
-      $request_post_data['00NP0000000xvHb'] = $request_post_data['category'];
-      $request_post_data['category'] = $this->getTermName($request_post_data['category']);
+      if (is_numeric($request_post_data['category'])) {
+        $request_post_data['00NP0000000xvHb'] = $this->getTermName($request_post_data['category']);
+        $request_post_data['category'] = $this->getTermName($request_post_data['category']);
+      }
+      else {
+        $request_post_data['00NP0000000xvHb'] = $request_post_data['category'];
+      }
     }
-
     $request_post_data['industry'] = $this->getTermName($request_post_data['industry']);
 
     // Debug parameters.
