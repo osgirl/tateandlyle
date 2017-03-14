@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "83ee3d9b0838db2d243407afbd43c947",
+    "content-hash": "2c61f892be963e912e95aeb1dfe5e8eb",
     "packages": [
         {
             "name": "acquia/blt",
-            "version": "8.6.14",
+            "version": "8.6.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/acquia/blt.git",
-                "reference": "5c44a6bc3147b6ef38f7ba07cbec97564aa81d9e"
+                "reference": "ad6c8e53bb6ff9296cc4aa12cbf30cd6f171fff9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/acquia/blt/zipball/5c44a6bc3147b6ef38f7ba07cbec97564aa81d9e",
-                "reference": "5c44a6bc3147b6ef38f7ba07cbec97564aa81d9e",
+                "url": "https://api.github.com/repos/acquia/blt/zipball/ad6c8e53bb6ff9296cc4aa12cbf30cd6f171fff9",
+                "reference": "ad6c8e53bb6ff9296cc4aa12cbf30cd6f171fff9",
                 "shasum": ""
             },
             "require": {
@@ -80,7 +80,7 @@
                 "template",
                 "testing"
             ],
-            "time": "2017-02-22T03:04:12+00:00"
+            "time": "2017-03-10T15:44:20+00:00"
         },
         {
             "name": "acquia/lightning",
@@ -2060,7 +2060,7 @@
                 },
                 "drupal": {
                     "version": "8.x-3.2",
-                    "datestamp": "1487640788"
+                    "datestamp": "1487640876"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -5021,7 +5021,7 @@
                 },
                 "drupal": {
                     "version": "8.x-3.0-beta5",
-                    "datestamp": "1475335394"
+                    "datestamp": "1488057783"
                 },
                 "patches_applied": {
                     "2793801 - Allow modules to influence the IPE tempstore ID": "https://www.drupal.org/files/issues/2793801-9.patch"
@@ -5091,7 +5091,7 @@
                 },
                 "drupal": {
                     "version": "8.x-3.0-beta5",
-                    "datestamp": "1475335394"
+                    "datestamp": "1488057783"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -5352,7 +5352,7 @@
                 },
                 "drupal": {
                     "version": "8.x-1.0-alpha5",
-                    "datestamp": "1453656839"
+                    "datestamp": "1489190883"
                 },
                 "patches_applied": {
                     "2674874 - Issue saving Schedule Update Type form": "https://www.drupal.org/files/issues/schedule_updates-save_type-2674874-2.patch",
@@ -6172,7 +6172,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://ftp.drupal.org/files/projects/webform-8.x-5.0-beta9.zip",
-                "reference": null,
+                "reference": "8.x-5.0-beta9",
                 "shasum": "cc1a31b22ae3daca5c2cc05ca729092a90f3835d"
             },
             "require": {
@@ -6689,16 +6689,16 @@
         },
         {
             "name": "ezyang/htmlpurifier",
-            "version": "v4.9.1",
+            "version": "v4.9.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ezyang/htmlpurifier.git",
-                "reference": "de82f9845f2a0f9f27abec67d6a4958427e6f5d6"
+                "reference": "6d50e5282afdfdfc3e0ff6d192aff56c5629b3d4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ezyang/htmlpurifier/zipball/de82f9845f2a0f9f27abec67d6a4958427e6f5d6",
-                "reference": "de82f9845f2a0f9f27abec67d6a4958427e6f5d6",
+                "url": "https://api.github.com/repos/ezyang/htmlpurifier/zipball/6d50e5282afdfdfc3e0ff6d192aff56c5629b3d4",
+                "reference": "6d50e5282afdfdfc3e0ff6d192aff56c5629b3d4",
                 "shasum": ""
             },
             "require": {
@@ -6732,7 +6732,7 @@
             "keywords": [
                 "html"
             ],
-            "time": "2017-03-08T08:22:36+00:00"
+            "time": "2017-03-13T06:30:53+00:00"
         },
         {
             "name": "gabordemooij/redbean",
@@ -7494,16 +7494,16 @@
         },
         {
             "name": "paragonie/random_compat",
-            "version": "v2.0.9",
+            "version": "v2.0.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paragonie/random_compat.git",
-                "reference": "6968531206671f94377b01dc7888d5d1b858a01b"
+                "reference": "634bae8e911eefa89c1abfbf1b66da679ac8f54d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/6968531206671f94377b01dc7888d5d1b858a01b",
-                "reference": "6968531206671f94377b01dc7888d5d1b858a01b",
+                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/634bae8e911eefa89c1abfbf1b66da679ac8f54d",
+                "reference": "634bae8e911eefa89c1abfbf1b66da679ac8f54d",
                 "shasum": ""
             },
             "require": {
@@ -7538,7 +7538,7 @@
                 "pseudorandom",
                 "random"
             ],
-            "time": "2017-03-03T20:43:42+00:00"
+            "time": "2017-03-13T16:27:32+00:00"
         },
         {
             "name": "pear/console_table",
@@ -9628,7 +9628,7 @@
         },
         {
             "name": "symfony/dom-crawler",
-            "version": "v3.2.5",
+            "version": "v3.2.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dom-crawler.git",
@@ -11767,6 +11767,122 @@
             "time": "2015-09-28T16:26:35+00:00"
         },
         {
+            "name": "bex/behat-extension-driver-locator",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tkotosz/behat-extension-driver-locator.git",
+                "reference": "af9fb11f5f3cc220ee2c08071ee9d50f11048b86"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tkotosz/behat-extension-driver-locator/zipball/af9fb11f5f3cc220ee2c08071ee9d50f11048b86",
+                "reference": "af9fb11f5f3cc220ee2c08071ee9d50f11048b86",
+                "shasum": ""
+            },
+            "require": {
+                "behat/behat": "^3.0.0",
+                "php": ">=5.4"
+            },
+            "require-dev": {
+                "phpspec/phpspec": "2.4.0-alpha2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tibor Kotosz",
+                    "email": "kotosy@gmail.com",
+                    "homepage": "https://github.com/tkotosz",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Driver locator tool for behat extensions",
+            "homepage": "https://github.com/tkotosz/behat-extension-driver-locator",
+            "keywords": [
+                "BDD",
+                "Behat",
+                "TDD"
+            ],
+            "time": "2015-12-17T13:26:09+00:00"
+        },
+        {
+            "name": "bex/behat-screenshot",
+            "version": "1.2.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/elvetemedve/behat-screenshot.git",
+                "reference": "1e2f704a5dd26b679953d6aff9a1add7ec978f81"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/elvetemedve/behat-screenshot/zipball/1e2f704a5dd26b679953d6aff9a1add7ec978f81",
+                "reference": "1e2f704a5dd26b679953d6aff9a1add7ec978f81",
+                "shasum": ""
+            },
+            "require": {
+                "behat/behat": "^3.0.0",
+                "behat/mink-extension": "^2.0.0",
+                "bex/behat-extension-driver-locator": "^1.0.2",
+                "php": ">=5.4",
+                "symfony/filesystem": "^2.7|^3.0",
+                "symfony/finder": "^2.7|^3.0"
+            },
+            "require-dev": {
+                "behat/mink-selenium2-driver": "^1.3.0",
+                "bex/behat-screenshot-image-driver-dummy": "^1.0",
+                "bex/behat-test-runner": "^1.2.1",
+                "jakoch/phantomjs-installer": "^2.1.1-p07",
+                "phpspec/phpspec": "^2.5"
+            },
+            "suggest": {
+                "bex/behat-screenshot-image-driver-img42": "Allows to upload the screenshot to img42.com",
+                "bex/behat-screenshot-image-driver-unsee": "Allows to upload the screenshot to unsee.cc",
+                "bex/behat-screenshot-image-driver-uploadpie": "Allows to upload the screenshot to uploadpie.com"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Bex\\Behat\\ScreenshotExtension\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Geza Buza",
+                    "email": "bghome@gmail.com",
+                    "homepage": "https://twitter.com/medve540",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Tibor Kotosz",
+                    "email": "kotosy@gmail.com",
+                    "homepage": "https://github.com/tkotosz",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Extension for behat to help debug failing scenarios",
+            "homepage": "https://github.com/elvetemedve/behat-screenshot",
+            "keywords": [
+                "BDD",
+                "Behat",
+                "TDD",
+                "behat-screenshot"
+            ],
+            "time": "2016-11-26T16:45:39+00:00"
+        },
+        {
             "name": "drupal/devel",
             "version": "1.0.0-rc1",
             "source": {
@@ -11777,7 +11893,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://ftp.drupal.org/files/projects/devel-8.x-1.0-rc1.zip",
-                "reference": "8.x-1.0-rc1",
+                "reference": null,
                 "shasum": "04a01f50d508eca70e065b7eba38cd6c83a436c0"
             },
             "require": {
@@ -12211,7 +12327,7 @@
         },
         {
             "name": "symfony/browser-kit",
-            "version": "v3.2.5",
+            "version": "v3.2.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/browser-kit.git",
