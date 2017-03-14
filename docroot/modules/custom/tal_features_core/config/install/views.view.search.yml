@@ -3,9 +3,12 @@ status: true
 dependencies:
   config:
     - search_api.index.content
+    - user.role.anonymous
+    - user.role.authenticated
   module:
     - search_api
     - tal_ingredient_search
+    - user
 id: search
 label: Search
 module: views
@@ -22,8 +25,11 @@ display:
     position: 0
     display_options:
       access:
-        type: none
-        options: {  }
+        type: role
+        options:
+          role:
+            anonymous: anonymous
+            authenticated: authenticated
       cache:
         type: none
         options: {  }
@@ -211,6 +217,7 @@ display:
       contexts:
         - 'languages:language_interface'
         - url.query_args
+        - user.roles
       tags: {  }
   search_page:
     display_plugin: page
@@ -342,6 +349,7 @@ display:
       contexts:
         - 'languages:language_interface'
         - url.query_args
+        - user.roles
       tags: {  }
   top_ingredient_results_block:
     display_plugin: block
@@ -520,4 +528,5 @@ display:
       max-age: 0
       contexts:
         - 'languages:language_interface'
+        - user.roles
       tags: {  }

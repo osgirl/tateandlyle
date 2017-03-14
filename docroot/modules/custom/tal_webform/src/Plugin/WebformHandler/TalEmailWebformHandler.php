@@ -91,7 +91,7 @@ class TalEmailWebformHandler extends EmailWebformHandler {
       if ($message['html']) {
         $build['body'] = [
           '#markup' => $message['body'],
-          '#allowed_tags' => Xss::getAdminTagList(),
+          '#allowed_tags' => Xss::getHtmlTagList(),
           '#prefix' => '<div>',
           '#suffix' => '</div>',
         ];

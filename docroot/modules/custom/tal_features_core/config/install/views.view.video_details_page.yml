@@ -5,8 +5,11 @@ dependencies:
     - field.storage.paragraph.field_buto_video
     - field.storage.paragraph.field_simple_text1
     - paragraphs.paragraphs_type.media_video_gallery
+    - user.role.anonymous
+    - user.role.authenticated
   module:
     - paragraphs
+    - user
     - video_embed_field
 id: video_details_page
 label: 'Video Details page'
@@ -24,8 +27,11 @@ display:
     position: 0
     display_options:
       access:
-        type: none
-        options: {  }
+        type: role
+        options:
+          role:
+            anonymous: anonymous
+            authenticated: authenticated
       cache:
         type: tag
         options: {  }
@@ -275,6 +281,7 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - user.roles
       tags:
         - 'config:field.storage.paragraph.field_buto_video'
         - 'config:field.storage.paragraph.field_simple_text1'
@@ -293,6 +300,7 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - user.roles
       tags:
         - 'config:field.storage.paragraph.field_buto_video'
         - 'config:field.storage.paragraph.field_simple_text1'
