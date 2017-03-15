@@ -651,3 +651,15 @@
     }
   }
 }
+
+.three--columns.block--dynamic-posts {
+  .field--name-field-image img {
+    @media (min-width: $screen-sm) {
+      max-width: 231px;
+    }
+
+    @media (min-width: $screen-md) {
+      max-width: 277px;
+    }
+  }
+}

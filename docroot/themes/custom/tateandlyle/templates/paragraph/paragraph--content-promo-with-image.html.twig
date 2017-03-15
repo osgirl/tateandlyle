@@ -55,7 +55,13 @@ view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
         <div class="promo__paragaph--content">
             {{ content.field_icon }}
             <div class="promo__images-title">
-                {{ content.field_title }}
+                {% if content.field_tal_more|render %}
+                    <a href="{{content.field_tal_more.0['#url']}}" class="promo__title--link">
+                        {{ content.field_title }}
+                    </a>
+                {% else %}
+                    {{ content.field_title }}
+                {% endif %}
             </div>
             <div class="promo__images-detail">
             {{ content|without('field_image', 'field_icon', 'field_title') }}

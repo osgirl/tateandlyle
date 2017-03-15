@@ -150,7 +150,7 @@
   }
 
   .field--name-field-icon {
-    margin-right: 11px;
+    margin-right: 8px;
     width: 35px;
     @media(min-width: $screen-md) {
       min-height: 50px;
@@ -296,7 +296,7 @@
     color: $gray-base;
     font-family: $font-family-sans-serif-Med;
     font-size: $font-size-h5;
-    width: 188px;
+    width: 165px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -1078,6 +1078,12 @@
         top: -79px;
       }
     }
+  }
+}
+
+.promo__title--link:hover {
+  .field--name-field-title {
+    color: $brand-primary;
   }
 }
 
