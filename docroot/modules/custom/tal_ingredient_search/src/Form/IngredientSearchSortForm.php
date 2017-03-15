@@ -65,11 +65,11 @@ class IngredientSearchSortForm extends FormBase {
     $path = \Drupal::request()->getUri();
     $parameters = UrlHelper::parse($path);
     if (empty($parameters['query']['s'])) {
-      $parameters['query']['s'] = $form_state->getValue('keyword');
+      $parameters['query']['s'] = urlencode($form_state->getValue('keyword'));
     }
-    $parameters['query']['sort_by'] = $form_state->getValue('sort_by');
+    $parameters['query']['sort_by'] = urlencode($form_state->getValue('sort_by'));
     $routing_name = \Drupal::routeMatch()->getRouteName();
-    $form_state->setRedirect($routing_name, $parameters['query']);
+    $form_state->setRedirect($routing_name, UrlHelper::filterQueryParameters($parameters['query']));
   }
 
 }

@@ -4,6 +4,7 @@ namespace Drupal\tal_wrapper\Utility;
 
 use Drupal\node\Entity\Node;
 use Drupal\Core\Url;
+use Drupal\Component\Utility\Xss;
 
 /**
  * Contains the common function used.
@@ -50,12 +51,10 @@ class Utility {
       $nid = array_values($next)[0];
       $node = Node::load($nid);
       $title = $node->getTitle();
-      // @todo Use when alias used.
-      // $url = \Drupal::service('path.alias_manager')
-      // ->getAliasByPath('/node/' . $nid);
+
       return [
         'nid' => $node,
-        'title' => $title,
+        'title' => xSS::filter($title),
         'url'   => Url::fromUserInput('/node/' . $nid),
       ];
     }
