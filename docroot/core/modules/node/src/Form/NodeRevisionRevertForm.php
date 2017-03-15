@@ -114,6 +114,8 @@ class NodeRevisionRevertForm extends ConfirmFormBase {
 
     $this->revision = $this->prepareRevertedRevision($this->revision, $form_state);
     $this->revision->revision_log = t('Copy of the revision from %date.', ['%date' => $this->dateFormatter->format($original_revision_timestamp)]);
+    $this->revision->setRevisionCreationTime(REQUEST_TIME);
+    $this->revision->setChangedTime(REQUEST_TIME);
     $this->revision->save();
 
     $this->logger('content')->notice('@type: reverted %title revision %revision.', ['@type' => $this->revision->bundle(), '%title' => $this->revision->label(), '%revision' => $this->revision->getRevisionId()]);
