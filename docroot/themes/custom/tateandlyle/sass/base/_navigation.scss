@@ -717,11 +717,8 @@ header.navbar-default {
       color: black;
       padding: 10px 1em;
       white-space: normal;
-      &:hover {
-        background: $color-off-white;
-      }
       &.is-active {
-        background-color: $gray-base;
+        background: $gray-base;
         color: $color-white;
       }
     }
@@ -738,7 +735,7 @@ header.navbar-default {
       }
 
       &:hover > a {
-        color: $gray-base;
+        color: $color-white;
         box-shadow: none;
       }
 

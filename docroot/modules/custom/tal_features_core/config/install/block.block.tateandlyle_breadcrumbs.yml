@@ -2,6 +2,8 @@ langcode: en
 status: true
 dependencies:
   module:
+    - facets
+    - node
     - system
 id: tateandlyle_breadcrumbs
 theme: tateandlyle
@@ -14,4 +16,19 @@ settings:
   label: Breadcrumbs
   provider: system
   label_display: '0'
-visibility: {  }
+visibility:
+  other_facet:
+    id: other_facet
+    facets: ''
+    facet_value: ''
+    negate: false
+    context_mapping: {  }
+  node_type:
+    id: node_type
+    bundles:
+      company_story: company_story
+      ingredient: ingredient
+      press_release: press_release
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
