@@ -79,6 +79,15 @@
     }
   };
 
+  Drupal.behaviors.ellipsis = {
+    attach: function () {
+      $(".twocol__title__wrap").dotdotdot();
+      $(".threecol__title__wrap").dotdotdot();
+      $(".three--columns.block--dynamic-posts .field--name-body").dotdotdot();
+      $(".two--columns.block--dynamic-posts .field--name-body").dotdotdot();
+    }
+  };
+
   Drupal.behaviors.arrowToggle = {
     attach: function () {
       $(".dropdown").on("show.bs.dropdown hide.bs.dropdown", function () {

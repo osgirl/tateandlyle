@@ -31,6 +31,12 @@ buto-tv-script:
   dependencies:
     - core/jquery
 
+dotdotdot:
+  js:
+    build/jquery.dotdotdot.min.js: {}
+  dependencies:
+    - core/jquery
+
 frame-manager:
   js:
     build/frame-manager.js: {}

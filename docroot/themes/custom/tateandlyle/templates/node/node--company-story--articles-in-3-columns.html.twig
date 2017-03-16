@@ -74,8 +74,8 @@
 {% set title = node.title.getValue() %}
 <article{{ attributes }}>
     {{ title_prefix }}
-      <h2{{ title_attributes }}>
-        <a href="{{ url }}" rel="bookmark">{{ label|render|striptags|length > 40 ? title[0].value|slice(0, 40) ~ '...' : label }}</a>
+      <h2 class="threecol__title__wrap" {{ title_attributes }}>
+        <a href="{{ url }}" rel="bookmark">{{ label }}</a>
       </h2>
     {{ title_suffix }}
 

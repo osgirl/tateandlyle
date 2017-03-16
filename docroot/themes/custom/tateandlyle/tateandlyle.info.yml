@@ -29,6 +29,7 @@ libraries:
   - 'tateandlyle/buto-tv-script'
   - 'tateandlyle/addthis-share'
   - 'tateandlyle/accordion-tabs'
+  - 'tateandlyle/dotdotdot'
 
 ckeditor_stylesheets:
   - build/ckeditor.css
