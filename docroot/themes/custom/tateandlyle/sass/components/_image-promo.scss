@@ -132,6 +132,14 @@
     @media(min-width: $screen-md) {
       display: block;
     }
+    img {
+      @media(min-width: $screen-md) {
+        width: 100%;
+      }
+      @media(min-width: $screen-md-lg) {
+        width: auto;
+      }
+    }
   }
 
   .field--name-field-simple-summary,
