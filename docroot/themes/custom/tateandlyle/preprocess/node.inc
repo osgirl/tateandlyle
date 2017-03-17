@@ -21,7 +21,9 @@ function tal_preprocess_node_ingredient($variables, $node) {
   foreach ($paragraphs as $paragraph) {
     if ($paragraph->hasField('field_field_in_submenu_title')) {
       $url = Url::fromUserInput('#', array('fragment' => 'paragraph-' . $paragraph->id()));
-      $submenu_text[] = Link::fromTextAndUrl($paragraph->get('field_field_in_submenu_title')->value, $url);
+      if ($paragraph->get('field_field_in_submenu_title')->value != '') {
+        $submenu_text[] = Link::fromTextAndUrl($paragraph->get('field_field_in_submenu_title')->value, $url);
+      }
     }
   }
   // Initialize variable with submenu list.
