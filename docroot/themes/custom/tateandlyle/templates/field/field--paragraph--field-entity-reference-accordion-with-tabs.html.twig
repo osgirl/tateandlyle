@@ -61,11 +61,15 @@ set classes = [
             {% if item.content.field_border_title %}
                 <h2{{ title_attributes.addClass('block-title') }}>{{ item.content.field_border_title }}</h2>
             {% endif %}
-            {% if item.content.field_at_tab_title1|render|striptags|trim and item.content.field_at_tab_title2|render|striptags|trim %}
-            <ul class="nav nav-tabs">
-                <li role="presentation" class="active"><a href="#tab1{{ id }}" data-toggle="tab">{{ item.content.field_at_tab_title1}}</a></li>
-                <li role="presentation"><a href="#tab2{{ id }}" data-toggle="tab">{{ item.content.field_at_tab_title2 }}</a></li>
-            </ul>
+            {% if item.content.field_at_tab_title1|render|striptags|trim or item.content.field_at_tab_title2|render|striptags|trim %}
+                <ul class="nav nav-tabs">
+                    {% if item.content.field_at_tab_title1|render|striptags|trim %}
+                        <li role="presentation" class="active"><a href="#tab1{{ id }}" data-toggle="tab">{{ item.content.field_at_tab_title1}}</a></li>
+                    {% endif %}
+                    {% if item.content.field_at_tab_title2|render|striptags|trim %}
+                        <li role="presentation"><a href="#tab2{{ id }}" data-toggle="tab">{{ item.content.field_at_tab_title2 }}</a></li>
+                    {% endif %}
+                </ul>
             {% endif %}
             <div class="tab-content">
                 <div class="tab-pane fade in active" id="tab1{{ id }}">{{ item.content.field_at_tab_content1 }}</div>
