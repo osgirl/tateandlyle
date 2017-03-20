@@ -10,7 +10,7 @@ Requirements:
 
 **Fork** Drupalvm Repo from 
 
-* **https://github.com/jayakrishnanj/dvm or **
+* **https://github.com/jayakrishnanj/vm or **
 
 * **https://github.com/geerlingguy/drupal-vm **
 
