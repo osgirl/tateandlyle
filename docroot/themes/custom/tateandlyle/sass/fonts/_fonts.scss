@@ -4,7 +4,7 @@
   font-family: 'DINOT';
   font-style: normal;
   font-weight: normal;
-  src: url('../fonts/DINOT.otf') format('opentype');
+  src: url('../fonts/DINOT.otf') format('opentype'), url('../fonts/DINOT.eot') format('embedded-opentype'),;
 }
 
 /* Dinot Medium
@@ -13,7 +13,7 @@
   font-family: 'DINOT-Med';
   font-style: normal;
   font-weight: normal;
-  src: url('../fonts/DINOT-Medium.otf') format('opentype');
+  src: url('../fonts/DINOT-Medium.otf') format('opentype'), url('../fonts/DINOT-Medium.eot') format('embedded-opentype');
 }
 
 /* Dinot Light
@@ -22,7 +22,7 @@
   font-family: 'DINOT-Light';
   font-style: normal;
   font-weight: normal;
-  src: url('../fonts/DINOT-Light.otf') format('opentype');
+  src: url('../fonts/DINOT-Light.otf') format('opentype'), url('../fonts/DINOT-Light.eot') format('embedded-opentype');
 }
 
 /* Dinot Bold
@@ -31,7 +31,7 @@
   font-family: 'DINOT-Bold';
   font-style: normal;
   font-weight: normal;
-  src: url('../fonts/DINOT-Bold.otf') format('opentype');
+  src: url('../fonts/DINOT-Bold.otf') format('opentype'), url('../fonts/DINOT-Bold.eot') format('embedded-opentype');
 }
 
 /* Font Awesome
