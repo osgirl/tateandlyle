@@ -47,3 +47,5 @@ permissions:
   - 'access media overview'
   - 'view own unpublished content'
   - 'access_content'
+  - 'use needs_review_needs_review transition'
+  - 'use needs_review_draft transition'
