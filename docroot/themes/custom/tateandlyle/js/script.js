@@ -6,7 +6,7 @@
 /**
  * Implements Drupal.behaviours.
  */
-(function ($, Drupal) {
+(function ($, Drupal, window) {
   "use strict";
   Drupal.behaviors.collapse = {
     attach: function () {
@@ -144,14 +144,16 @@
       }
 
       // Manage the offset of Anchor scroll links.
-      function anchorOffset() {
-        if (location.hash.length !== 0) {
-          window.scrollTo(window.scrollX, window.scrollY - 180);
-        }
-      }
+      if ($(".ingredient--submenu").length) {
+        $(".ingredient--submenu .dropdown-menu a").on("click", function (e) {
+          e.preventDefault();
 
-      window.addEventListener("hashchange", anchorOffset);
-      window.setTimeout(anchorOffset, 1);
+          // Animate.
+          $("html, body").animate({
+            scrollTop: $(this.hash).offset().top - 180
+          }, 300);
+        });
+      }
     }
   };
   Drupal.behaviors.showMoreDownloads = {
@@ -267,4 +269,4 @@
       Drupal.ajax(element_settings);
     });
   };
-})(jQuery, Drupal);
+})(jQuery, Drupal, this);
