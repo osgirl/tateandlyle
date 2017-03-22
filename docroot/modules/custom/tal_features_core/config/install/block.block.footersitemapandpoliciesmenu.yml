@@ -1,0 +1,28 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.footer-sitemap-and-policies
+  module:
+    - facets
+    - system
+id: footersitemapandpoliciesmenu
+theme: tateandlyle
+region: footer
+weight: -11
+provider: null
+plugin: 'system_menu_block:footer-sitemap-and-policies'
+settings:
+  id: 'system_menu_block:footer-sitemap-and-policies'
+  label: 'Footer Sitemap and Policies Menu'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+visibility:
+  other_facet:
+    id: other_facet
+    facets: ''
+    facet_value: ''
+    negate: false
+    context_mapping: {  }

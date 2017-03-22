@@ -1,0 +1,333 @@
+.block--homepage-banner {
+  padding-bottom: 20px;
+  padding-top: 25px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1109px;
+
+  .component__banner--inner {
+    @extend %inner-content-width-padding;
+    margin: auto;
+  }
+
+  .block--homepage-banner,
+  .tal__banner--content {
+    background-color: $color-white;
+    padding: 0;
+  }
+
+  .tal__banner--content {
+    border-bottom: 3px solid $brand-primary;
+    padding: 33px 23px 29px 25px;
+    margin: auto;
+    position: relative;
+
+    @media(min-width: $screen-sm-lsp) {
+      margin-top: -65px;
+      padding: 19px 49px 21px 44px;
+    }
+
+    @media(min-width: $screen-sm) {
+      margin-top: -80px;
+      max-width: 587px;
+      padding: 20px 21px 31px 33px;
+    }
+
+    @media(min-width: $screen-md) {
+      padding: 23px 21px 28px 33px;
+    }
+
+    @media(min-width: $screen-md-lg) {
+      max-width: 653px;
+      padding: 20px 59px 31px 61px;
+    }
+  }
+
+  .carousel-inner img {
+    @media(min-width: $screen-sm) {
+      max-height: 300px;
+      object-fit: cover;
+    }
+
+    @media(min-width: $screen-md) {
+      max-height: none;
+    }
+  }
+
+  hr {
+    border-color: $gray-base;
+    margin-top: 0;
+    margin-bottom: 20px;
+    width: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    @media(min-width: $screen-sm) {
+      margin-bottom: 25px;
+    }
+
+    @media(min-width: $screen-md-lg) {
+      margin-bottom: 20px;
+    }
+  }
+
+  hr,
+  .title {
+    text-align: center;
+  }
+
+  .title {
+    font-family: $font-family-sans-serif;
+    line-height: 1;
+    margin-bottom: 14px;
+    margin-top: 0;
+
+    @media(min-width: $screen-sm) {
+      font-size: $font-size-h2-l;
+    }
+
+    @media(min-width: $screen-md) {
+      font-size: $font-size-h1-sm;
+    }
+
+    @media(min-width: $screen-md-lg) {
+      font-size: $font-size-h1;
+    }
+  }
+
+  .field--name-field-description {
+    margin-bottom: 25px;
+    text-align: center;
+
+    @media(min-width: $screen-sm) {
+      margin: 0 auto;
+      margin-bottom: 15px;
+      max-width: 280px;
+    }
+  }
+
+  .field--name-field-icon,
+  .field--name-field-right-icon,
+  .field--type-link {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .field--name-field-right-icon {
+    .icon {
+      padding: 0;
+
+      @media(min-width: $screen-sm-lsp) {
+        padding-left: 40px;
+      }
+
+      @media(min-width: $screen-sm) {
+        padding-left: 60px;
+      }
+    }
+  }
+
+  .field--type-link a {
+    display: block;
+    margin-top: 13px;
+
+    @media(min-width: $screen-sm-lsp) {
+      margin-top: 0;
+      padding-left: 20px;
+    }
+
+    &::after {
+      @extend %right-brand-arrow;
+    }
+  }
+
+  .banner--links {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+
+  .left-icon,
+  .right-icon {
+    display: table-cell;
+    height: 54px;
+    width: 50%;
+    padding-right: 20px;
+    vertical-align: bottom;
+
+    @media(min-width: $screen-sm-lsp) {
+      padding: 0;
+      vertical-align: middle;
+    }
+  }
+
+  .right-icon {
+    border-left: 1px solid $color-warm-gray;
+    padding-left: 40px;
+    padding-right: 0;
+
+    @media(min-width: $screen-sm) {
+      text-align: left;
+    }
+
+    @media(min-width: $screen-sm-lsp) {
+      padding-left: 0;
+    }
+  }
+
+  .no-left-icon {
+    padding-left: 15px;
+    padding-right: 15px;
+    @media(min-width: $screen-sm) {
+      padding-left: 0;
+    }
+  }
+
+  .no-right-icon {
+    padding-right: 15px;
+    padding-left: 15px;
+    @media(min-width: $screen-sm) {
+      padding-right: 0;
+    }
+  }
+
+  .no-left-icon,
+  .no-right-icon {
+    text-transform: uppercase;
+
+    @media(min-width: $screen-sm) {
+      margin-top: 23px;
+      text-align: left;
+    }
+
+    a {
+      border-bottom: 1px solid $color-warm-gray;
+      color: $gray-dark;
+      font-size: $font-size-small;
+      margin-top: 0;
+      padding: 10px;
+
+      &::after {
+        content: none;
+      }
+
+      &:hover {
+        background-color: $color-light-gray;
+      }
+    }
+
+    .field--type-link {
+      display: block;
+
+      .active a {
+        background: $brand-primary;
+        color: $color-white;
+      }
+    }
+  }
+
+  .dropdown-menu,
+  .dropdown-toggle {
+    border-radius: 0;
+    width: 100%;
+  }
+
+  .dropdown-toggle {
+    background-color: $brand-primary;
+    border: none;
+    color: $color-white;
+    font-size: $font-size-small;
+    padding: 13px;
+    text-align: left;
+    text-transform: uppercase;
+
+    &::after {
+      @extend %svg-icon-small;
+      background: url("../images/icons/cta-drop-down-arrow-white.svg") no-repeat;
+      background-size: cover;
+      padding-left: 10px;
+      position: absolute;
+      margin-top: 3px;
+      right: 15px;
+    }
+  }
+
+  @media (min-width: $screen-sm) {
+    .banner--links {
+      .dropdown-toggle {
+        display: none;
+      }
+
+      .dropdown-menu {
+        border: none;
+        box-shadow: none;
+        display: block;
+        position: static;
+      }
+    }
+  }
+}
+
+.no__icon--banner {
+
+  .tal__banner--content {
+    @media (min-width: $screen-sm) {
+      padding: 34px 39px 25px 37px;
+    }
+    @media (min-width: $screen-md) {
+      padding: 40px 51px 20px 51px;
+    }
+  }
+
+  .title {
+    font-size: $font-size-h2;
+    @media (min-width: $screen-md) {
+      font-size: $font-size-h1;
+    }
+  }
+
+  .field--name-field-description,
+  .title {
+    text-align: left;
+    @media (min-width: $screen-sm) {
+      text-align: center;
+    }
+  }
+
+  .carousel {
+    display: none;
+    @media (min-width: $screen-sm) {
+      display: block;
+    }
+  }
+
+  .tal__banner--content {
+    @media (max-width: $screen-xs-max) {
+      margin-top: 0;
+      padding: 0;
+
+      .field--name-field-description {
+        color: $gray-base;
+        font-size: $font-size-h4;
+        margin-top: 30px;
+        p {
+          padding-top: 12px;
+        }
+      }
+    }
+  }
+
+  .field--name-field-description {
+    @extend %title-border-top;
+    max-width: none;
+  }
+
+  hr {
+    display: none;
+  }
+
+  .tal__banner--content {
+    @media(min-width: $screen-md) {
+      margin-top: -283px;
+    }
+  }
+}

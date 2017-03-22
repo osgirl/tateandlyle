@@ -1,0 +1,93 @@
+.modal {
+  background-color: $gray-base-translucent-light;
+}
+
+.modal-header {
+  border: none;
+
+  .close {
+    opacity: 1;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+  }
+}
+
+.modal-content {
+  background: $color-off-white;
+  border-radius: 0;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 15px;
+  position: relative;
+  text-align: left;
+
+  @media (min-width: $screen-sm) {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 31px 97px 35px;
+  }
+
+  .control-label,
+  .fieldset-legend {
+    color: $gray-dark;
+    display: block;
+    font-size: $font-size-base;
+  }
+
+  form {
+
+    .form-item {
+      margin-bottom: 33px;
+    }
+
+    fieldset {
+      margin-bottom: 0;
+    }
+
+    legend {
+      border: 0;
+      margin-bottom: 0;
+    }
+
+    .js-form-type-radio.radio {
+      float: left;
+      margin-bottom: 2px;
+      margin-left: 1px;
+      padding-right: 30px;
+
+      input {
+        min-height: auto;
+        top: -2px;
+        width: auto;
+      }
+    }
+
+    input,
+    .form-inline input,
+    textarea,
+    select {
+      border: 1px solid $color-warm-gray;
+      border-radius: 0;
+      min-height: 40px;
+      width: 100%;
+    }
+  }
+
+  .form-actions {
+    margin-bottom: 0;
+    text-align: right;
+  }
+
+  select {
+    appearance: none;
+    background: url("../images/icons/dropdown-black.svg") no-repeat 95%;
+  }
+}
+
+.modal-header .modal-title {
+  font-size: $font-size-h3;
+  @media (min-width: $screen-sm) {
+    font-size: $font-size-h2;
+  }
+}

@@ -1,0 +1,89 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.sip_with_background
+    - entity_browser.browser.image_browser
+    - field.field.block_content.sip_with_background.body
+    - field.field.block_content.sip_with_background.field_bg_color
+    - field.field.block_content.sip_with_background.field_read_more
+    - field.field.block_content.sip_with_background.field_sip_bg_image
+    - field.field.block_content.sip_with_background.field_sip_icon
+    - field.field.block_content.sip_with_background.field_tal_link
+    - field.field.block_content.sip_with_background.field_title
+  module:
+    - entity_browser
+    - link
+    - text
+    - workbench_moderation
+id: block_content.sip_with_background.default
+targetEntityType: block_content
+bundle: sip_with_background
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 2
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+  field_bg_color:
+    weight: 4
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+  field_read_more:
+    weight: 7
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+  field_sip_bg_image:
+    type: entity_browser_file
+    weight: 5
+    settings:
+      entity_browser: image_browser
+      field_widget_edit: true
+      field_widget_remove: true
+      view_mode: default
+      preview_image_style: thumbnail
+      open: true
+      selection_mode: selection_append
+    third_party_settings: {  }
+  field_sip_icon:
+    type: entity_browser_file
+    weight: 3
+    settings:
+      entity_browser: image_browser
+      field_widget_edit: true
+      field_widget_remove: true
+      view_mode: default
+      preview_image_style: thumbnail
+      open: true
+      selection_mode: selection_append
+    third_party_settings: {  }
+  field_tal_link:
+    weight: 6
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+  field_title:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  info:
+    type: string_textfield
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

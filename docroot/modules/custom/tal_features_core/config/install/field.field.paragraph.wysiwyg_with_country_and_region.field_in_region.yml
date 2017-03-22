@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_in_region
+    - paragraphs.paragraphs_type.wysiwyg_with_country_and_region
+  module:
+    - options
+id: paragraph.wysiwyg_with_country_and_region.field_in_region
+field_name: field_in_region
+entity_type: paragraph
+bundle: wysiwyg_with_country_and_region
+label: 'Add region'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

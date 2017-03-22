@@ -1,0 +1,96 @@
+<?php
+
+/**
+ * @file
+ * Contains all hooks related to  TAL Downloads functionality.
+ */
+
+use Drupal\Core\Template\Attribute;
+use Drupal\Core\Url;
+use Drupal\Core\Link;
+
+/**
+ * Prepares variables for file link templates.
+ *
+ * Default template: tal-download-link.html.twig.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - file: A file object to which the link will be created.
+ *   - icon_directory: (optional) A path to a directory of icons to be used for
+ *     files. Defaults to the value of the "icon.directory" variable.
+ *   - description: A description to be displayed instead of the filename.
+ *   - attributes: An associative array of attributes to be placed in the a tag.
+ */
+function template_preprocess_tal_download_link(array &$variables) {
+  $file_entity = $variables['file'];
+  $options = array();
+
+  if (!empty($file_entity)) {
+    $file_size = $file_entity->getSize();
+    $url = file_create_url($file_entity->getFileUri());
+    $variables['#cache']['contexts'][] = 'url.site';
+
+    $mime_type = $file_entity->getMimeType();
+    // Set options as per anchor format described at
+    // http://microformats.org/wiki/file-format-examples
+    $options['attributes']['type'] = $mime_type . '; length=' . $file_entity->getSize();
+    $options['attributes']['target'] = '_blank';
+    // Use the description as the link text if available.
+    $link_text = t('Download');
+
+    // Classes to add to the file field for icons.
+    $classes = array(
+      'file',
+      // Add a specific class for each and every mime type.
+      'file--mime-' . strtr($mime_type, array('/' => '-', '.' => '-')),
+      // Add a more general class for groups of well known MIME types.
+      'file--' . file_icon_class($mime_type),
+    );
+    $ext = pathinfo($file_entity->getFilename(), PATHINFO_EXTENSION);
+
+    $variables['link'] = Link::fromTextAndUrl($link_text, Url::fromUri($url, $options));
+    $variables['file_size'] = $ext . ' | ' . format_size($file_size);
+    $variables['content'] = $variables['content']['#markup'];
+  }
+
+  // Set file classes to the options array.
+  $variables['attributes'] = new Attribute($variables['attributes']);
+}
+
+/**
+ * Implements hook_theme().
+ */
+function tal_downloads_theme() {
+  return array(
+    'tal_download_link' => array(
+      'variables' => array(
+        'file' => NULL,
+        'external_download_link' => NULL,
+        'content' => NULL,
+        'attributes' => array(),
+      ),
+    ),
+  );
+}
+
+/**
+ * Implements hook_preprocess_paragraph().
+ */
+function tal_downloads_preprocess_paragraph(&$variables) {
+  // Add count of available filegroup languages.
+  $bundle = $variables['paragraph']->getType();
+  if ($bundle == 'related_downloads') {
+    $filegroups = $variables['elements']['#paragraph']->get('field_file_group');
+    $count = $filegroups->count();
+    if ($count > 1) {
+      $variables['content']['filegroup_count'] = [
+        '#markup' => t('Available in %count languages', array('%count' => $count)),
+        '#weight' => 2,
+        '#prefix' => '<span class="filegroup-count">',
+        '#suffix' => '</span>',
+      ];
+      $variables['#attached']['library'][] = 'tal_downloads/tal_downloads_link';
+    }
+  }
+}

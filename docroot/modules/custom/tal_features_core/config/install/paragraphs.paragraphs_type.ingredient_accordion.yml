@@ -1,0 +1,5 @@
+langcode: en
+status: true
+dependencies: {  }
+id: ingredient_accordion
+label: 'Ingredient Accordion'

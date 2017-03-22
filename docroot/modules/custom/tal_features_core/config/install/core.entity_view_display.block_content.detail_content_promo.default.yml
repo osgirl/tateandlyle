@@ -1,0 +1,51 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.detail_content_promo
+    - field.field.block_content.detail_content_promo.field_all_jobs_link
+    - field.field.block_content.detail_content_promo.field_banner_title
+    - field.field.block_content.detail_content_promo.field_bg_color
+    - field.field.block_content.detail_content_promo.field_dcp_content_section
+  module:
+    - entity_reference_revisions
+    - link
+    - options
+id: block_content.detail_content_promo.default
+targetEntityType: block_content
+bundle: detail_content_promo
+mode: default
+content:
+  field_all_jobs_link:
+    weight: 3
+    label: hidden
+    settings:
+      trim_length: 80
+      target: _blank
+      url_only: false
+      url_plain: false
+      rel: '0'
+    third_party_settings: {  }
+    type: link
+  field_banner_title:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_bg_color:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+  field_dcp_content_section:
+    type: entity_reference_revisions_entity_view
+    weight: 2
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+hidden: {  }

@@ -1,0 +1,71 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.articles_in_2_columns
+    - field.field.node.company_story.body
+    - field.field.node.company_story.field_author
+    - field.field.node.company_story.field_category
+    - field.field.node.company_story.field_date
+    - field.field.node.company_story.field_downloads
+    - field.field.node.company_story.field_downloads_border_title
+    - field.field.node.company_story.field_image
+    - field.field.node.company_story.field_image_size
+    - field.field.node.company_story.field_ingredient
+    - field.field.node.company_story.field_reusable_component
+    - field.field.node.company_story.field_story_description
+    - field.field.node.company_story.field_tags
+    - image.style.article_medium_397x210
+    - node.type.company_story
+  module:
+    - image
+    - panelizer
+    - smart_trim
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.company_story.articles_in_2_columns
+targetEntityType: node
+bundle: company_story
+mode: articles_in_2_columns
+content:
+  body:
+    type: smart_trim
+    weight: 1
+    label: hidden
+    settings:
+      trim_length: '55'
+      trim_type: words
+      trim_suffix: ...
+      more_link: '0'
+      more_text: More
+      summary_handler: full
+      trim_options:
+        text: text
+      more_class: more-link
+    third_party_settings: {  }
+  field_image:
+    type: image
+    weight: 0
+    label: hidden
+    settings:
+      image_style: article_medium_397x210
+      image_link: ''
+    third_party_settings: {  }
+hidden:
+  field_author: true
+  field_category: true
+  field_date: true
+  field_downloads: true
+  field_downloads_border_title: true
+  field_image_size: true
+  field_ingredient: true
+  field_reusable_component: true
+  field_story_description: true
+  field_tags: true
+  links: true
+  workbench_moderation_control: true

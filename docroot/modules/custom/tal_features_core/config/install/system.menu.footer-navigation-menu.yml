@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: footer-navigation-menu
+label: 'Footer Navigation Menu'
+description: 'Add Footer Menu links for navigation'
+locked: false

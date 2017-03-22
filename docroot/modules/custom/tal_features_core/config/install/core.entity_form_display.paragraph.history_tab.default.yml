@@ -1,0 +1,36 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.history_tab.field_tab_title
+    - field.field.paragraph.history_tab.field_timeline_content
+    - paragraphs.paragraphs_type.history_tab
+  module:
+    - paragraphs
+    - workbench_moderation
+id: paragraph.history_tab.default
+targetEntityType: paragraph
+bundle: history_tab
+mode: default
+content:
+  field_tab_title:
+    weight: 6
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_timeline_content:
+    type: entity_reference_paragraphs
+    weight: 7
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
+  uid: true

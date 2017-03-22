@@ -1,0 +1,538 @@
+.space {
+  margin: 0 2px;
+}
+
+.block--dynamic-posts {
+  width: 100%;
+  h2.block-title {
+    border-bottom: 1px solid $color-warm-gray;
+    padding-bottom: 0.5em;
+  }
+}
+
+.teaser-content {
+  display: inline-block;
+  width: 100%;
+  border-bottom: 1px solid $color-warm-gray;
+  margin-bottom: 23px;
+  padding-bottom: 26px;
+  position: relative;
+
+  .teaser-summary {
+    margin-top: 1em;
+    display: inline-block;
+    @media (min-width: $screen-sm) {
+      margin-top: 0;
+      display: block;
+    }
+  }
+  .teaser__icon,
+  .teaser__date--category {
+    display: inline-block;
+    @media (min-width: $screen-sm) {
+      width: 93%;
+    }
+  }
+  .teaser__date--category {
+    @media (min-width: $screen-md) {
+      width: 93%;
+    }
+  }
+  .teaser__icon {
+    position: absolute;
+    vertical-align: top;
+    left: 0;
+    top: -6px;
+    @media (min-width: $screen-sm) {
+      position: static;
+      max-width: 40px;
+      margin-right: 0;
+      float: left;
+    }
+  }
+  h3 {
+    font-size: $font-size-h5;
+    font-family: $font-family-sans-serif;
+    left: 50px;
+    margin-bottom: 23px;
+    margin-top: 0;
+    padding-left: 10px;
+    position: relative;
+    width: 84%;
+    @media (min-width: $screen-sm) {
+      padding-left: 0;
+      position: static;
+      margin-bottom: 3px;
+      margin-left: 20px;
+      width: auto;
+    }
+    @media (min-width: $screen-md) {
+      font-size: $font-size-h3;
+      margin-left: 28px;
+    }
+  }
+  .date--category {
+    position: relative;
+    margin-bottom: 16px;
+    @media (min-width: $screen-sm) {
+      position: static;
+      padding-left: 20px;
+      left: -44px;
+    }
+    @media (min-width: $screen-md) {
+      padding-left: 28px;
+    }
+    .field--name-field-ac-icon {
+      left: 0;
+      position: absolute;
+      top: 20px;
+      article {
+        margin: 0;
+        padding-left: 0;
+      }
+      img {
+        max-width: 40px;
+      }
+    }
+    div {
+      display: inline-block;
+    }
+    .tal--term-name {
+      color: $gray-dark;
+      display: inline-block;
+      font-family: $font-family-sans-serif;
+      font-size: $font-size-base;
+      margin: 0;
+      line-height: 1;
+    }
+
+    .tal--term-icon,
+    .tal--term-description {
+      display: none;
+    }
+  }
+
+  .field--name-body {
+    margin-bottom: 20px;
+  }
+
+  .field--name-field-ac-icon {
+    article {
+      margin: 0;
+      padding: 0;
+    }
+    img {
+      height: auto;
+      margin: auto;
+      max-height: 40px;
+      max-width: 40px;
+    }
+  }
+
+  .teaser-image {
+    @media (min-width: $screen-sm) {
+      float: left;
+      margin-right: 2em;
+    }
+    .field--label {
+      display: none;
+    }
+    img {
+      max-width: 314px;
+      width: 100%;
+      @media (min-width: $screen-sm) {
+        max-width: 880px;
+      }
+    }
+  }
+
+  .teaser-read-more a {
+    color: black;
+    &::after {
+      @extend %right-brand-arrow;
+    }
+    &:hover {
+      color: $brand-primary;
+    }
+  }
+}
+
+.view-article-list {
+
+  .views-row {
+    position: relative;
+  }
+
+  article,
+  .view-filters,
+  nav {
+    max-width: 882px;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    @media (min-width: $screen-md) {
+      margin: auto;
+    }
+  }
+
+  .view-filters {
+    margin-bottom: 0;
+    .form-actions {
+      display: none;
+    }
+  }
+
+  .form-type-select {
+    background-color: rgba(153, 153, 153, 0.05);
+    border-bottom: 1px solid $color-warm-gray;
+    border-top: 1px solid $color-warm-gray;
+    display: block;
+    margin-top: 22px;
+    margin-bottom: 32px;
+    padding: 22px 7px;
+    text-align: center;
+    @media (min-width: $screen-sm) {
+      margin-top: 40px;
+      margin-bottom: 26px;
+      padding: 30px;
+    }
+    @media (min-width: $screen-sm) {
+      margin-bottom: 32px;
+    }
+
+    .control-label,
+    .select-wrapper {
+      display: inline-block;
+    }
+
+    .control-label {
+      margin-right: 20px;
+    }
+
+    .select-wrapper {
+      background-color: $color-white;
+    }
+  }
+
+  select {
+    @extend %bordered-select;
+    min-width: 169px;
+
+    @media (min-width: $screen-sm) {
+      min-width: 309px;
+    }
+  }
+
+  .views-row:last-child {
+    .teaser-content {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+  }
+}
+
+.teaser.small__image {
+
+  .date--category {
+    @media (min-width: $screen-sm) {
+      margin-bottom: 26px;
+    }
+
+    @media (min-width: $screen-md) {
+      margin-bottom: 24px;
+    }
+  }
+
+  .teaser-image img {
+    @media (min-width: $screen-sm) {
+      max-width: 222px;
+    }
+
+    @media (min-width: $screen-md) {
+      max-width: none;
+    }
+  }
+}
+
+.teaser.large__image {
+
+  .date--category {
+    @media (min-width: $screen-sm) {
+      margin-bottom: 28px;
+    }
+
+    @media (min-width: $screen-md) {
+      margin-bottom: 16px;
+    }
+  }
+
+  .teaser-image {
+    @media (min-width: $screen-sm) {
+      margin-bottom: 20px;
+      margin-right: 0;
+    }
+  }
+}
+
+.view-article-categories {
+  @extend %inner-content-width-padding;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 60px;
+
+  .field--name-name {
+    font-size: $font-size-h4;
+    margin-bottom: 5px;
+    @media (min-width: $screen-sm) {
+      font-size: $font-size-h3;
+    }
+
+    @media (min-width: $screen-md) {
+      margin-bottom: 20px;
+    }
+  }
+
+  .views-row {
+    @extend .col-sm-6;
+    @extend .col-md-3;
+    margin-bottom: 26px;
+    @media (min-width: $screen-md) {
+      margin-bottom: 0;
+    }
+
+    @media (min-width: $screen-md) {
+      border-right: 1px solid $gray-base-light;
+      color: inherit;
+      display: table-cell;
+      float: none;
+      max-width: 288px;
+      padding: 10px 26px;
+      text-align: center;
+      vertical-align: top;
+    }
+
+    &:last-child {
+      border-right: 0;
+    }
+
+
+    .field--name-description {
+      display: none;
+      @media (min-width: $screen-sm) {
+        display: block;
+      }
+    }
+
+    &:hover {
+      cursor: pointer;
+      .tal--term-name,
+      .field--name-description {
+        color: $brand-primary;
+      }
+
+      .hover__icon {
+        background-color: $color-white;
+        z-index: 4;
+      }
+    }
+  }
+  .views-row.active-row {
+    .tal--term-name, .field--name-description, .default__icon {
+      color: $brand-primary;
+    }
+    .hover__icon {
+      background-color: $color-white;
+      z-index: 4;
+    }
+  }
+
+  @media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+
+    .views-row {
+      border-right: none;
+      display: inline-block;
+      float: none;
+      max-width: none;
+      padding: 0 49px;
+      padding-bottom: 36px;
+      text-align: center;
+      vertical-align: top;
+      width: 48%;
+    }
+  }
+
+  .tal--term-icon,
+  .tal--term-name {
+    display: inline-block;
+    vertical-align: text-bottom;
+
+    @media (min-width: $screen-sm) {
+      display: block;
+    }
+  }
+
+  .tal--term-icon {
+    max-height: 35px;
+    max-width: 35px;
+    @media (min-width: $screen-sm) {
+      max-height: 40px;
+      max-width: none;
+    }
+  }
+
+  .hover__icon {
+    position: relative;
+    top: -40px;
+    z-index: -1;
+  }
+
+  .default__icon {
+    background-color: $color-white;
+    position: relative;
+    z-index: 1;
+  }
+
+  .tal--term-name {
+    margin: 0;
+    margin-left: 9px;
+    @media (min-width: $screen-sm) {
+      margin-bottom: 7px;
+      margin-left: 0;
+      margin-top: 7px;
+    }
+
+    @media (min-width: $screen-md) {
+      margin-top: 21px;
+      margin-bottom: 20px;
+    }
+  }
+
+  .icon {
+    margin-bottom: 0;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+
+    img {
+      height: auto;
+      max-height: 35px;
+      width: auto;
+
+      @media (min-width: $screen-sm) {
+        height: auto;
+        margin: auto;
+        max-height: 40px;
+        max-width: 40px;
+        width: 100%;
+      }
+    }
+  }
+
+  .view-content {
+    overflow: hidden;
+    margin-bottom: 10px;
+
+    @media (min-width: $screen-sm) {
+      display: table;
+      margin-bottom: 0;
+    }
+
+    @media (min-width: $screen-md) {
+      margin-bottom: 40px;
+    }
+  }
+
+  .view-footer {
+    clear: both;
+    text-align: center;
+
+    .tal--all-articles a:first-child {
+      @extend .btn-primary;
+      display: block;
+      padding: 0.6em 1.9em;
+
+      &::after {
+        @extend %right-brand-arrow;
+        color: $color-white;
+      }
+
+      @media (min-width: $screen-sm) {
+        display: inline;
+      }
+    }
+  }
+}
+
+.tal-dynamic-post-wrapper {
+  .teaser {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .view {
+    .pager {
+      li a {
+        @extend .btn-primary;
+        border-radius: 0;
+      }
+    }
+  }
+
+  .view-header {
+    color: $gray-base;
+    font-size: $font-size-h4;
+    margin-bottom: 29px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid $color-warm-gray;
+    @media (min-width: $screen-sm) {
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+    @media (min-width: $screen-md) {
+      font-size: $font-size-h3;
+      margin-bottom: 32px;
+      margin-left: 0;
+      margin-right: 0;
+      padding-bottom: 43px;
+    }
+  }
+}
+
+.view-id-article_list, .tal--dynamic-post-list {
+  .pager {
+    background: $color-off-white;
+    padding: 34px 0.4em;
+    line-height: 5px;
+    margin-top: 0;
+    border-top: 1px solid $color-warm-gray;
+    border-bottom: 1px solid $color-warm-gray;
+    @media (min-width: $screen-sm) {
+      padding: 31px;
+    }
+    li {
+      &.previous a {
+        border-right: 1px solid $color-warm-gray;
+        padding-right: 15px;
+        @media (min-width: $screen-sm) {
+          padding-right: 40px;
+        }
+      }
+      &.next a {
+        padding-left: 15px;
+        @media (min-width: $screen-sm) {
+          padding-left: 35px;
+        }
+      }
+      a {
+        float: none;
+        background: none;
+        border: 0 none;
+        border-radius: 0;
+      }
+    }
+  }
+}
+
+.full .teaser-content {
+  border-bottom: 0;
+}

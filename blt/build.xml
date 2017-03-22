@@ -1,0 +1,20 @@
+<project name="custom" default="build">
+    <!-- Override setup:update task for config import. -->
+    <target name="setup:update" description="Update current database to reflect the state of the Drupal file system.">
+        <!-- enable_property and uninstall_property must be set at this time. -->
+        <phingcall target="setup:toggle-modules"/>
+        <!-- Execute db updates. -->
+        <drush command="updb" assume="yes" alias="${drush.alias}">
+            <option name="entity-updates"></option>
+        </drush>
+        <!-- Rebuild caches. -->
+        <drush command="cc drush" alias="${drush.alias}"/>
+        <!-- Add features-revert tal_features_core. -->
+        <drush command="fr" assume="yes" alias="${drush.alias}">
+            <param>tal_features_core</param>
+        </drush>
+        <!-- Rebuild caches. -->
+        <drush command="cr" alias="${drush.alias}"/>
+    </target>
+    <target name="tests:all" depends="tests:security-updates, tests:phpunit" hidden="true" />
+</project>

@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.passive_recruitment
+    - field.storage.block_content.field_description
+  module:
+    - text
+id: block_content.passive_recruitment.field_description
+field_name: field_description
+entity_type: block_content
+bundle: passive_recruitment
+label: Description
+description: 'Description for Passive Recruitment block.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

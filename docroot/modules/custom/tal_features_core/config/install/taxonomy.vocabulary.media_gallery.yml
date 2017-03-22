@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'Media Gallery'
+vid: media_gallery
+description: ''
+hierarchy: 0
+weight: 0

@@ -1,0 +1,5 @@
+langcode: en
+status: true
+dependencies: {  }
+id: wysiwyg_and_block_reference
+label: 'Wysiwyg and block reference'

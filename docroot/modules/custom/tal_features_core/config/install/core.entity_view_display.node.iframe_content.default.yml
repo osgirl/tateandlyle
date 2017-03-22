@@ -1,0 +1,28 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.iframe_content.field_iframe_code
+    - node.type.iframe_content
+  module:
+    - panelizer
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.iframe_content.default
+targetEntityType: node
+bundle: iframe_content
+mode: default
+content:
+  field_iframe_code:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+hidden:
+  links: true

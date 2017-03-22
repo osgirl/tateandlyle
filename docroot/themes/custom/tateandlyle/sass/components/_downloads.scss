@@ -1,0 +1,304 @@
+.file--downloads {
+  @extend %border__block;
+  margin: 94px auto 80px;
+  @media (max-width: $screen-sm-max) {
+    margin: 30px 0;
+    //margin-top: 75px;
+    max-width: none;
+  }
+
+  .field--name-field-downloads-border-title {
+    @extend %border__block--title;
+    font-size: $font-size-h3;
+
+    @media (min-width: $screen-md) {
+      font-size: $font-size-h2;
+    }
+
+    @media (max-width: $screen-xs-max) {
+      margin-bottom: 25px;
+    }
+  }
+
+  .paragraph--type--related-downloads {
+    border-bottom: 1px solid $color-warm-gray;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    @media (min-width: $screen-md) {
+      display: table;
+      width: 100%;
+    }
+  }
+
+  .inline-content {
+    padding-right: 10px;
+    vertical-align: top;
+    @media (min-width: $screen-md) {
+      display: table-cell;
+    }
+  }
+
+  .field--name-field-file-display-name {
+    color: $gray-base;
+    font-size: $font-size-h5;
+    @media (min-width: $screen-sm) {
+      font-size: $font-size-h3;
+    }
+  }
+
+  .field--name-field-file-description {
+    margin-top: 15px;
+  }
+
+  .filegroup-count em {
+    font-style: normal;
+  }
+
+  .filegroup-count + .field--name-field-file-description {
+    position: relative;
+    left: -20%;
+    @media (min-width: $screen-sm) {
+      left: -12%;
+    }
+    @media (min-width: $screen-md) {
+      position: static;
+    }
+  }
+
+  .download-inactive {
+    @extend .btn-primary-inactive;
+    display: block;
+    &::after {
+      @extend %download-icon;
+    }
+  }
+
+  .tal-downloads-language-selection,
+  .field--name-field-file-group {
+    margin-top: 20px;
+    text-align: right;
+    vertical-align: bottom;
+    @media (min-width: $screen-sm) {
+      font-size: 0;
+    }
+    @media (min-width: $screen-md) {
+      display: table-cell;
+      margin-top: 0;
+      width: 53%;
+    }
+  }
+
+  .field--name-field-file-group {
+    text-align: center;
+    @media (min-width: $screen-sm) {
+      text-align: right;
+    }
+  }
+
+  .form-item-change-language,
+  .form-item-change-language + div {
+    margin-bottom: 0;
+    text-align: center;
+    margin-top: 25px;
+    @media (min-width: $screen-sm) {
+      font-size: $font-size-base;
+      display: inline-block;
+      margin-top: 0;
+      text-align: right;
+    }
+  }
+
+  .form-item-change-language {
+    @media (min-width: $screen-sm) {
+      margin-right: 27px;
+    }
+    @media (min-width: $screen-md) {
+      margin-right: 0;
+      position: relative;
+      right: 96px;
+      top: 1px;
+    }
+
+    .input-group {
+      @media (max-width: $screen-xs-max) {
+        display: block;
+        overflow: hidden;
+      }
+    }
+  }
+
+  .inline-icon {
+    width: 15%;
+    @media (min-width: $screen-sm) {
+      width: 10%;
+    }
+
+    img {
+      padding-top: 7px;
+      max-width: 30px;
+      height: auto;
+
+      @media (min-width: $screen-sm) {
+        max-width: 41px;
+      }
+
+      @media (min-width: $screen-md) {
+        margin: auto;
+      }
+    }
+  }
+
+  .inline-description {
+    width: 83%;
+    text-align: left;
+    @media (min-width: $screen-sm) {
+      width: 88%;
+    }
+    @media (min-width: $screen-md) {
+      width: 37%;
+    }
+  }
+
+  .input-group-addon {
+    display: none;
+  }
+
+  select,
+  select:focus {
+    @extend %bordered-select;
+  }
+
+  .tal-file-download-link {
+    text-align: center;
+    @media (min-width: $screen-sm) {
+      text-align: right;
+    }
+  }
+}
+
+.press-release.full .file--downloads {
+  .inline-icon {
+    width: 15%;
+    @media (min-width: $screen-sm) {
+      width: 10%;
+    }
+
+    img {
+      padding-top: 7px;
+      max-width: 30px;
+      height: auto;
+
+      @media (min-width: $screen-sm) {
+        max-width: 41px;
+      }
+
+      @media (min-width: $screen-md) {
+        margin: auto;
+      }
+    }
+  }
+}
+
+.file--downloads .btn--download,
+.block--download .field--name-field-tal-link,
+.block--downloads-with-accordion .field--name-field-tal-link,
+.tal--download-external-link,
+.annual__reports .btn--download {
+  a {
+    @extend .btn;
+    @extend .btn-primary;
+    display: block;
+    padding-bottom: 9px;
+    padding-top: 9px;
+    width: 100%;
+    margin-top: 7px;
+
+    @media (min-width: $screen-sm) {
+      display: inline-block;
+      width: auto;
+      margin: 5px 0;
+    }
+
+    &::after {
+      @extend %download-icon;
+    }
+
+    &:hover {
+      background-color: $color-white;
+      border: 1px solid $brand-primary;
+      box-shadow: none;
+      color: $brand-primary;
+      padding: 8px 19px;
+
+      &::after {
+        background: url("../images/icons/buttoncta-arrow-blue.png") no-repeat;
+        background-size: contain;
+      }
+    }
+  }
+}
+
+.block--downloads-with-accordion,
+.block--download {
+  .block-title {
+    @extend %border__block--title;
+    font-size: $font-size-h3;
+
+    @media (min-width: $screen-md) {
+      font-size: $font-size-h2;
+    }
+
+    @media (max-width: $screen-xs-max) {
+      margin-bottom: 25px;
+    }
+  }
+
+  .field--name-field-tal-link {
+    margin-top: 11px;
+  }
+}
+
+.more-less {
+  float: right;
+  margin-top: -20px;
+  font-size: 12px;
+  font-weight: lighter;
+  border: 1px solid #14AAE2;
+  border-radius: 50% 50%;
+  padding: 3px 3px 4px 5px;
+  color: $brand-primary;
+}
+
+.block--downloads-with-accordion {
+  @extend .tabs__accordion;
+  margin: 50px 30px;
+  max-width: none;
+
+  @media (min-width: $screen-md) {
+    margin: 50px auto;
+    margin-top: 94px;
+    max-width: 1108px;
+    width: 100%;
+  }
+
+  .file--downloads {
+    margin: 0;
+    border: none;
+
+    .tal--download-external-link .field--name-field-tal-link::after {
+      content: none;
+    }
+  }
+}
+
+.paragraph--type--ingredient-downloads {
+  .file--downloads .paragraph--type--related-downloads {
+    @media (max-width: $screen-xs-max) {
+      padding-top: 0;
+    }
+  }
+  .field--in-border-title {
+    margin-bottom: 29px;
+  }
+}
