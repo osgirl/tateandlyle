@@ -5,6 +5,7 @@ namespace Drupal\tal_wrapper\Utility;
 use Drupal\node\Entity\Node;
 use Drupal\Core\Url;
 use Drupal\Component\Utility\Xss;
+use Drupal\Component\Utility\HTML;
 
 /**
  * Contains the common function used.
@@ -54,7 +55,7 @@ class Utility {
 
       return [
         'nid' => $node,
-        'title' => xSS::filter($title),
+        'title' => HTML::decodeEntities(Xss::filter($title)),
         'url'   => Url::fromUserInput('/node/' . $nid),
       ];
     }
