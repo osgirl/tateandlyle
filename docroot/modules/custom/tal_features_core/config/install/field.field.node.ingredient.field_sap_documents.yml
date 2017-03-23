@@ -1,0 +1,95 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sap_documents
+    - node.type.ingredient
+    - paragraphs.paragraphs_type.sap_documents
+  module:
+    - entity_reference_revisions
+id: node.ingredient.field_sap_documents
+field_name: field_sap_documents
+entity_type: node
+bundle: ingredient
+label: 'Sap Documents'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      sap_documents: sap_documents
+    target_bundles_drag_drop:
+      sap_documents:
+        enabled: true
+        weight: 24
+      block_reference:
+        weight: 25
+        enabled: false
+      component_accordion_body:
+        weight: 26
+        enabled: false
+      component_accordion_items:
+        weight: 27
+        enabled: false
+      content_promo_with_image:
+        weight: 28
+        enabled: false
+      detail_content_promo:
+        weight: 29
+        enabled: false
+      download_accordion_items:
+        weight: 30
+        enabled: false
+      downloads:
+        weight: 31
+        enabled: false
+      filegroup:
+        weight: 32
+        enabled: false
+      history_tab:
+        weight: 33
+        enabled: false
+      ingredient_accordion:
+        weight: 34
+        enabled: false
+      ingredient_accordion_items:
+        weight: 35
+        enabled: false
+      ingredient_downloads:
+        weight: 36
+        enabled: false
+      media_video_gallery:
+        weight: 37
+        enabled: false
+      passive_recruitment:
+        weight: 38
+        enabled: false
+      promo_body_with_link_url:
+        weight: 39
+        enabled: false
+      related_downloads:
+        weight: 40
+        enabled: false
+      talk_to_us:
+        weight: 41
+        enabled: false
+      timeline_content:
+        weight: 42
+        enabled: false
+      wysiwyg:
+        weight: 43
+        enabled: false
+      wysiwyg_and_block_reference:
+        weight: 44
+        enabled: false
+      wysiwyg_with_block_reference:
+        weight: 45
+        enabled: false
+      wysiwyg_with_country_and_region:
+        weight: 46
+        enabled: false
+field_type: entity_reference_revisions

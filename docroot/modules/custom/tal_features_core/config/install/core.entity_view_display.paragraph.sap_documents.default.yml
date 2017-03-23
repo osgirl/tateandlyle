@@ -1,0 +1,57 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.sap_documents.field_product_info_sheet
+    - field.field.paragraph.sap_documents.field_sap_material_code
+    - field.field.paragraph.sap_documents.field_sap_sds_file
+    - field.field.paragraph.sap_documents.field_sap_spec_sheet
+    - field.field.paragraph.sap_documents.field_sap_summary
+    - field.field.paragraph.sap_documents.field_sap_title
+    - paragraphs.paragraphs_type.sap_documents
+  module:
+    - file
+id: paragraph.sap_documents.default
+targetEntityType: paragraph
+bundle: sap_documents
+mode: default
+content:
+  field_product_info_sheet:
+    weight: 5
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: file_url_plain
+  field_sap_material_code:
+    weight: 2
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_sap_sds_file:
+    weight: 3
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: file_url_plain
+  field_sap_spec_sheet:
+    weight: 4
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: file_url_plain
+  field_sap_summary:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_sap_title:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+hidden: {  }
