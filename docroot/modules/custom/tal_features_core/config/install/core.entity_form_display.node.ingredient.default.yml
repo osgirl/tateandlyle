@@ -13,6 +13,7 @@ dependencies:
     - field.field.node.ingredient.field_in_trends_solutions
     - field.field.node.ingredient.field_in_types
     - field.field.node.ingredient.field_ingredients_content
+    - field.field.node.ingredient.field_sap_documents
     - image.style.thumbnail
     - node.type.ingredient
   module:
@@ -28,8 +29,8 @@ third_party_settings:
       children:
         - title
         - field_hide_title
-        - body
         - field_image
+        - body
       parent_name: ''
       weight: 0
       label: Basic
@@ -43,8 +44,8 @@ third_party_settings:
         direction: vertical
     group_ingredients_categories:
       children:
-        - field_in_applications
         - field_in_types
+        - field_in_applications
         - field_in_trends_solutions
         - field_in_common_names
         - field_in_misspellings
@@ -64,6 +65,7 @@ third_party_settings:
       children:
         - field_in_banner
         - field_ingredients_content
+        - field_sap_documents
       parent_name: ''
       weight: 3
       label: Content
@@ -151,13 +153,25 @@ content:
     type: options_select
   field_ingredients_content:
     type: entity_reference_paragraphs
-    weight: 13
+    weight: 3
     settings:
       title: Paragraph
       title_plural: Paragraphs
       edit_mode: open
       add_mode: dropdown
       form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+  field_sap_documents:
+    type: entity_reference_paragraphs
+    weight: 4
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
     third_party_settings: {  }
   path:
     type: path
