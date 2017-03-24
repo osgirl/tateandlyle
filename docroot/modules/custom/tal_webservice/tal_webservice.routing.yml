@@ -1,0 +1,5 @@
+tal_webservice.ingredient:
+  path: 'ws/documents'
+  defaults:
+    _controller: 'Drupal\tal_webservice\Controller\IngredientController::create'
+  methods:  [POST]
