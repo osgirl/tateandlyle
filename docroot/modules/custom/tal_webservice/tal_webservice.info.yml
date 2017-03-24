@@ -1,0 +1,5 @@
+name: 'TAL Webservice'
+description: 'Custom webservce controller.'
+type: module
+core: 8.x
+package: tal
