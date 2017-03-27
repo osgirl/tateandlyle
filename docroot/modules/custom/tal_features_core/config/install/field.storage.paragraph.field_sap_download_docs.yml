@@ -3,11 +3,10 @@ status: true
 dependencies:
   module:
     - entity_reference_revisions
-    - node
     - paragraphs
-id: node.field_sap_documents
-field_name: field_sap_documents
-entity_type: node
+id: paragraph.field_sap_download_docs
+field_name: field_sap_download_docs
+entity_type: paragraph
 type: entity_reference_revisions
 settings:
   target_type: paragraph

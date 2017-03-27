@@ -14,7 +14,6 @@ dependencies:
     - field.field.node.ingredient.field_in_trends_solutions
     - field.field.node.ingredient.field_in_types
     - field.field.node.ingredient.field_ingredients_content
-    - field.field.node.ingredient.field_sap_documents
     - node.type.ingredient
   module:
     - entity_reference_revisions
@@ -79,14 +78,6 @@ content:
   field_ingredients_content:
     type: entity_reference_revisions_entity_view
     weight: 7
-    label: hidden
-    settings:
-      view_mode: default
-      link: ''
-    third_party_settings: {  }
-  field_sap_documents:
-    type: entity_reference_revisions_entity_view
-    weight: 9
     label: hidden
     settings:
       view_mode: default

@@ -82,6 +82,24 @@ class TalAdminConfigForm extends ConfigFormBase {
       '#description' => $this->t('Redirect URL for Job search block.'),
       '#default_value' => $config->get('job_search_url'),
     ];
+    // Web service point.
+    $form['web_service'] = [
+      '#type' => 'details',
+      '#title' => $this->t('Web service configuration'),
+      '#open' => TRUE,
+    ];
+    $form['web_service']['web_service_on_off'] = [
+      '#type' => 'checkbox',
+      '#title' => $this->t('Web service on'),
+      '#description' => $this->t('Check to use the web service.'),
+      '#default_value' => $config->get('web_service_on_off'),
+    ];
+    $form['web_service']['web_service_file_size'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('File Size'),
+      '#description' => $this->t('Max file size that can be uploaded.'),
+      '#default_value' => $config->get('web_service_file_size'),
+    ];
 
     return parent::buildForm($form, $form_state);
   }
@@ -99,7 +117,9 @@ class TalAdminConfigForm extends ConfigFormBase {
     $config->set('tai_summary', $tai_summary);
     $config->set('tai_read_more', $form_state->getValue('tai_read_more'));
     $config->set('tai_link', $form_state->getValue('tai_link'));
-    $config->set('boilerplate_content', $boilerplate_content)
+    $config->set('boilerplate_content', $boilerplate_content)->save();
+    $config->set('web_service_on_off', $form_state->getValue('web_service_on_off'))->save();
+    $config->set('web_service_file_size', $form_state->getValue('web_service_file_size'))
       ->save();
 
     parent::submitForm($form, $form_state);
