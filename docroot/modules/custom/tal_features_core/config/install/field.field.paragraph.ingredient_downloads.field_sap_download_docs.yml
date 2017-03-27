@@ -2,16 +2,16 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_sap_documents
-    - node.type.ingredient
+    - field.storage.paragraph.field_sap_download_docs
+    - paragraphs.paragraphs_type.ingredient_downloads
     - paragraphs.paragraphs_type.sap_documents
   module:
     - entity_reference_revisions
-id: node.ingredient.field_sap_documents
-field_name: field_sap_documents
-entity_type: node
-bundle: ingredient
-label: 'Sap Documents'
+id: paragraph.ingredient_downloads.field_sap_download_docs
+field_name: field_sap_download_docs
+entity_type: paragraph
+bundle: ingredient_downloads
+label: 'SAP Download Docs'
 description: ''
 required: false
 translatable: false
@@ -23,57 +23,57 @@ settings:
     target_bundles:
       sap_documents: sap_documents
     target_bundles_drag_drop:
-      sap_documents:
-        enabled: true
-        weight: 24
       block_reference:
-        weight: 25
+        weight: 24
         enabled: false
       component_accordion_body:
-        weight: 26
+        weight: 25
         enabled: false
       component_accordion_items:
-        weight: 27
+        weight: 26
         enabled: false
       content_promo_with_image:
-        weight: 28
+        weight: 27
         enabled: false
       detail_content_promo:
+        weight: 28
+        enabled: false
+      downloads:
         weight: 29
         enabled: false
       download_accordion_items:
         weight: 30
         enabled: false
-      downloads:
+      filegroup:
         weight: 31
         enabled: false
-      filegroup:
+      history_tab:
         weight: 32
         enabled: false
-      history_tab:
+      ingredient_accordion:
         weight: 33
         enabled: false
-      ingredient_accordion:
+      ingredient_accordion_items:
         weight: 34
         enabled: false
-      ingredient_accordion_items:
+      ingredient_downloads:
         weight: 35
         enabled: false
-      ingredient_downloads:
+      media_video_gallery:
         weight: 36
         enabled: false
-      media_video_gallery:
+      passive_recruitment:
         weight: 37
         enabled: false
-      passive_recruitment:
+      promo_body_with_link_url:
         weight: 38
         enabled: false
-      promo_body_with_link_url:
+      related_downloads:
         weight: 39
         enabled: false
-      related_downloads:
+      sap_documents:
+        enabled: true
         weight: 40
-        enabled: false
       talk_to_us:
         weight: 41
         enabled: false

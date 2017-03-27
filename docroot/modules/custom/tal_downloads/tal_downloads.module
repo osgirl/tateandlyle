@@ -59,6 +59,54 @@ function template_preprocess_tal_download_link(array &$variables) {
 }
 
 /**
+ * Prepares variables for file link templates.
+ *
+ * Default template: tal-sap-download-link.html.twig.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - title: A file object to which the link will be created.
+ *   - summary: (optional) A path to a directory of icons to be used for
+ *     files. Defaults to the value of the "icon.directory" variable.
+ *   - type: A description to be displayed instead of the filename.
+ *   - specfile: An associative array of attributes to be placed in the a tag.
+ *   - sdsfile: An associative array of attributes to be placed in the a tag.
+ *   - productfile: A file object to which the link will be created.
+ */
+function template_preprocess_tal_sap_download_link(array &$variables) {
+  $variables['dln_details'] = array();
+  foreach ($variables['file_entity'] as $key => $file_entity) {
+    if (!empty($file_entity)) {
+      $file_size = $file_entity->getSize();
+      $url = file_create_url($file_entity->getFileUri());
+      $variables['#cache']['contexts'][] = 'url.site';
+
+      $mime_type = $file_entity->getMimeType();
+      // Set options as per anchor format described at
+      // http://microformats.org/wiki/file-format-examples
+      $options['attributes']['type'] = $mime_type . '; length=' . $file_entity->getSize();
+      $options['attributes']['target'] = '_blank';
+      // Use the description as the link text if available.
+      $link_text = t('Download');
+
+      $ext = pathinfo($file_entity->getFilename(), PATHINFO_EXTENSION);
+
+      $variables['dln_details'][$key]['dln_link'] = Link::fromTextAndUrl($link_text, Url::fromUri($url, $options));
+      $variables['dln_details'][$key]['file_size'] = $ext . ' | ' . format_size($file_size);
+    }
+  }
+  // Select list 'Select document types'.
+  $variables['file_count'] = count($variables['file_type']);
+  $variables['file_type'] = array(
+    '#theme' => 'select',
+    '#multiple' => FALSE,
+    '#input' => TRUE,
+    '#options' => $variables['file_type'],
+  );
+
+}
+
+/**
  * Implements hook_theme().
  */
 function tal_downloads_theme() {
@@ -69,6 +117,15 @@ function tal_downloads_theme() {
         'external_download_link' => NULL,
         'content' => NULL,
         'attributes' => array(),
+      ),
+    ),
+    'tal_sap_download_link' => array(
+      'variables' => array(
+        'title' => NULL,
+        'summary' => NULL,
+        'file_type' => array(),
+        'file_entity' => array(),
+        'para_id' => NULL,
       ),
     ),
   );
@@ -92,5 +149,22 @@ function tal_downloads_preprocess_paragraph(&$variables) {
       ];
       $variables['#attached']['library'][] = 'tal_downloads/tal_downloads_link';
     }
+  }
+  if ($bundle == 'ingredient_downloads') {
+    $paragraph = $variables['paragraph'];
+    $sap_docs_arr = $paragraph->get('field_sap_download_docs')->referencedEntities();
+    $variant_options = array();
+    if (!empty($sap_docs_arr)) {
+      foreach ($sap_docs_arr as $key => $sap_docs) {
+        $variant_options[$sap_docs->id()] = $sap_docs->get('field_sap_title')->value;
+      }
+    }
+    $variables['variant_count'] = count($variant_options);
+    $variables['variant_select'] = array(
+      '#theme' => 'select',
+      '#multiple' => FALSE,
+      '#input' => TRUE,
+      '#options' => $variant_options,
+    );
   }
 }

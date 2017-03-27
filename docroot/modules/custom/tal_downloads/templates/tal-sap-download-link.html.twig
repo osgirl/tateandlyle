@@ -1,0 +1,37 @@
+
+{#
+/**
+ * @file
+ * Default theme implementation for a link to a file.
+ *
+ * Available variables:
+ * - attributes: The HTML attributes for the containing element.
+ * - link: A link to the file.
+ * - link: A link to the file.
+ *
+ * @see template_preprocess_file_link()
+ *
+ * @ingroup themeable
+ */
+ @
+#}
+<div class="{{ para_id }}">
+    <div class="title">{{ title }}</div>
+    <div class="summary">{{ summary }}</div>
+    <div class="select doc-type">
+        {% if file_count > 1 %}
+            {{ file_type }}
+        {% endif %}
+        {% for key,value in dln_details %}
+            {% if value %}
+                {% set doc_class = [key, para_id]|join('_') %}
+            <div class="tal__download--button {{ doc_class }}" >
+                {% if value.dln_link %}
+                    <p class="file-size">{{ value.file_size }}</p>
+                    <span class="btn--download">{{ value.dln_link }}</span>
+                {% endif %}
+            </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
