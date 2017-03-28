@@ -19,7 +19,7 @@ class IngredientController {
    *   Run access checks for this account.
    */
   public function access(AccountInterface $account) {
-    return AccessResult::allowedIf($account->isAuthenticated());
+    return AccessResult::allowedIf($account->hasPermission('access_ingredient_webservice'));
   }
 
   /**
@@ -32,10 +32,10 @@ class IngredientController {
       return $res;
     }
 
-    if ($error = $this->validate($request) !== TRUE) {
-      $res = new JsonResponse();
-      $res->setStatusCode(400, $error);
-      return $res;
+    // Validate the request data.
+    $error = $this->validate($request);
+    if ($error !== TRUE) {
+      return new JsonResponse($error, 400);
     }
 
     // Initialize the file variable.
@@ -68,10 +68,7 @@ class IngredientController {
       $nids[] = $ingredient->id();
     }
 
-    $respon = new JsonResponse("Nodes updated: " . implode(',', $nids));
-    $respon->setStatusCode(200, 'Success.');
-
-    return $respon;
+    return new JsonResponse(implode(',', $nids), 200);
   }
 
   /**
@@ -123,11 +120,11 @@ class IngredientController {
         $paragraph->field_sap_sds_file->setValue(['target_id' => $id]);
         break;
 
-      case "SPECSHEET":
+      case "SPC":
         $paragraph->field_sap_spec_sheet->setValue(['target_id' => $id]);
         break;
 
-      case "PRODUCTINFOSHEET":
+      case "PIS":
         $paragraph->field_product_info_sheet->setValue(['target_id' => $id]);
         break;
 
@@ -143,7 +140,7 @@ class IngredientController {
    * Validate the POST data.
    */
   private function validate(Request $request) {
-    $error = TRUE;
+    $error = '';
 
     // Material Id is mandatory.
     if ($request->request->get('material_id') == '') {
@@ -153,7 +150,7 @@ class IngredientController {
 
     // Node does not exits of given material id.
     if (empty($this->getParagraphByMaterialId($request->request->get('material_id')))) {
-      $error = t('Invalid post data, No Matching material code found.');
+      $error = t('Invalid post data, No Matching content found.');
       return $error;
     }
 
@@ -173,18 +170,20 @@ class IngredientController {
     if ($request->request->get('document_type') == ''
       || !in_array(
         $request->request->get('document_type'),
-        ['SDS', 'SPECSHEET', 'PRODUCTINFOSHEET']
+        ['SDS', 'SPC', 'PIS']
       )
     ) {
       $error = t('Invalid post data, empty document_type or type not found.');
       return $error;
     }
 
-    // Check summary.
+    // Check File Name.
     if ($request->request->get('file_name') == '') {
       $error = t('Invalid post data, empty file name.');
       return $error;
     }
+
+    return TRUE;
   }
 
 }
