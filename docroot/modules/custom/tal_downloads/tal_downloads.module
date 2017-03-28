@@ -97,6 +97,7 @@ function template_preprocess_tal_sap_download_link(array &$variables) {
   }
   // Select list 'Select document types'.
   $variables['file_count'] = count($variables['file_type']);
+  $variables['file_type'] = array('empty_selector' => '-- Select Document Type --') + $variables['file_type'];
   $variables['file_type'] = array(
     '#theme' => 'select',
     '#multiple' => FALSE,
@@ -160,6 +161,7 @@ function tal_downloads_preprocess_paragraph(&$variables) {
       }
     }
     $variables['variant_count'] = count($variant_options);
+    $variant_options = array('empty_select' => 'Select') + $variant_options;
     $variables['variant_select'] = array(
       '#theme' => 'select',
       '#multiple' => FALSE,

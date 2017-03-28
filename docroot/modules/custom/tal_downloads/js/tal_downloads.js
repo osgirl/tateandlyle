@@ -10,6 +10,39 @@
                     jQuery('#download-link-' + wid).load("/downloads/file/" + wid + "/" + pid);
                 });
             });
+
+            $(".select-variant select").change(function () {
+                $(this).find("option:selected").each(function () {
+                    var optionValue = $(this).attr("value");
+                    if(optionValue){
+                        $(".paragraph--type--sap-downloads").not("." + optionValue).css("display", "none");
+                        $("." + optionValue).css("display", "table");
+                    }
+
+                    if($(this).attr("value") == "empty_select") {
+                        $(".paragraph--type--sap-downloads").css("display", "none");
+                    }
+                });
+
+                $(".sap__downloads--button").first().removeClass('hide-content');
+            }).change();
+
+            $(".sap__downloads select").change(function () {
+                $(this).find("option:selected").each(function () {
+                    var selectValue = $(this).attr("value");
+                    if(selectValue) {
+                        $(".sap__downloads--button, .inactive--download").addClass('hide-content');
+                        $("." + selectValue).removeClass('hide-content').addClass('show-inline');
+                    }
+
+                    if($(this).attr("value") == "empty_selector") {
+                        $(".sap__downloads--button").addClass('hide-content');
+                        $(".inactive--download").removeClass('hide-content').addClass('show-inline');
+                    }
+                });
+            }).change();
+
+            $(".sap__downloads--button").first().removeClass('hide-content');
         }
     };
 })(jQuery, Drupal);

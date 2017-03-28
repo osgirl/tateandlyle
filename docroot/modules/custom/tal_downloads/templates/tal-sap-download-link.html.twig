@@ -15,17 +15,40 @@
  */
  @
 #}
-<div class="{{ para_id }}">
-    <div class="title">{{ title }}</div>
-    <div class="summary">{{ summary }}</div>
-    <div class="select doc-type">
+
+{% if file_count > 1 %}
+  <div class="{{ para_id }} paragraph--type--sap-downloads">
+{% else %}
+  <div class="{{ para_id }} no__selector paragraph--type--sap-downloads">
+{% endif %}
+
+    <div class="inline-content inline-icon">
+    <img src="/{{ directory }}/images/icons/iconpdf.png">
+    </div>
+
+    <div class="inline-content inline-description">
+      <div class="sap__title">{{ title }}</div>
+      <div class="sap__summary">{{ summary }}</div>
+    </div>
+
+    <div class="field--name-field-file-group">
+
         {% if file_count > 1 %}
-            {{ file_type }}
+            <div class="select doc-type sap__downloads">
+                {{ file_type }}
+            </div>
         {% endif %}
+
+        {% if file_count > 1 %}
+          <div class="tal__download--button sap__downloads--button inactive--download">
+              <span class="download-inactive">Download</span>
+          </div>
+        {% endif %}
+
         {% for key,value in dln_details %}
             {% if value %}
                 {% set doc_class = [key, para_id]|join('_') %}
-            <div class="tal__download--button {{ doc_class }}" >
+            <div class="tal__download--button sap__downloads--button {{ doc_class }}" >
                 {% if value.dln_link %}
                     <p class="file-size">{{ value.file_size }}</p>
                     <span class="btn--download">{{ value.dln_link }}</span>
