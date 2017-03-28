@@ -47,6 +47,10 @@ view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
 <div{{ attributes.addClass(classes) }} id="paragraph-{{ paragraph.id.value }}">
     <div class="field--in-border-title">{{ content.field_in_border_title }}</div>
     <div class="file--downloads">{{ content.field_file_group }}</div>
-    <div calss="select-varinat">{{ variant_select }}</div>
+    {% if variant_select %}
+        <div class="select-variant">
+            <span class="variant--title">Select variant: </span> {{ variant_select }}
+        </div>
+    {% endif %}
     <div class="file--downloads">{{ content.field_sap_download_docs }}</div>
 </div>

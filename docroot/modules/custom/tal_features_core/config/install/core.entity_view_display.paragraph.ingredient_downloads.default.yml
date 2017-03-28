@@ -37,7 +37,7 @@ content:
     third_party_settings: {  }
     type: string
   field_sap_download_docs:
-    type: entity_reference_revisions_entity_view
+    type: tal_sap_downloads
     weight: 3
     label: hidden
     settings:
