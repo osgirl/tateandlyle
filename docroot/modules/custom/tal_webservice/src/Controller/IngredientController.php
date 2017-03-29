@@ -26,68 +26,76 @@ class IngredientController {
    * Process posted files.
    */
   public function create(Request $request) {
-    if (strpos($request->headers->get('Content-Type'), 'multipart/form-data;') !== 0) {
-      $res = new JsonResponse();
-      $res->setStatusCode(400, 'must submit multipart/form-data');
-      return $res;
+    try {
+      if (strpos($request->headers->get('Content-Type'), 'multipart/form-data;') !== 0) {
+        $res = new JsonResponse();
+        $res->setStatusCode(400, 'must submit multipart/form-data');
+        return $res;
+      }
+
+      // Validate the request data.
+      $error = $this->validate($request);
+      if ($error !== TRUE) {
+        return new JsonResponse($error, 400);
+      }
+
+      // Initialize the file variable.
+      $file = 'NOFILE';
+
+      // The attached file will only be processed, if it has an associated name.
+      if ($request->request->get('file_name') != 'NOFILE') {
+        $data = file_get_contents($_FILES['files']['tmp_name']);
+        $destination = 'public://' . $request->request->get('file_name');
+        $file = file_save_data($data, $destination, FILE_EXISTS_REPLACE);
+      }
+
+      $paragraphs = $this->getParagraphByMaterialId($request->request->get('material_id'));
+
+      // Material Id will be unique and it is expected to return single
+      // paragraph entity.
+      $paragraph = array_shift($paragraphs);
+      $paragraph->field_sap_summary->setValue(['value' => $request->request->get('summary')]);
+      $paragraph->field_sap_title->setValue(['value' => $request->request->get('title')]);
+
+      // Save the updated paragraph.
+      $paragraph->save();
+      // Get all parent ingredients node of this paragraph.
+      $ingredients = $this->getParentNode($paragraph->id());
+
+      $nids = [];
+
+      foreach ($ingredients as $ingredient) {
+        $nids[] = $ingredient->id();
+      }
+
+      return new JsonResponse(implode(',', $nids), 200);
     }
-
-    // Validate the request data.
-    $error = $this->validate($request);
-    if ($error !== TRUE) {
-      return new JsonResponse($error, 400);
+    catch (\Exception $error) {
+      return new JsonResponse($error->getMessage(), 400);
     }
-
-    // Initialize the file variable.
-    $file = 'NOFILE';
-
-    // The attached file will only be processed, if it has an associated name.
-    if ($request->request->get('file_name') != 'NOFILE') {
-      $data = file_get_contents($_FILES['files']['tmp_name']);
-      $destination = 'public://' . $request->request->get('file_name');
-      $file = file_save_data($data, $destination, FILE_EXISTS_REPLACE);
-    }
-
-    $paragraphs = $this->getParagraphByMaterialId($request->request->get('material_id'));
-
-    // Material Id will be unique and it is expected to return single
-    // paragraph entity.
-    $paragraph = array_shift($paragraphs);
-    $paragraph->field_sap_summary->setValue(['value' => $request->request->get('summary')]);
-    $paragraph->field_sap_title->setValue(['value' => $request->request->get('title')]);
-
-    $this->attachFile($paragraph, $file, $request->request->get('document_type'));
-    // Save the updated paragraph.
-    $paragraph->save();
-    // Get all parent ingredients node of this paragraph.
-    $ingredients = $this->getParentNode($paragraph->id());
-
-    $nids = [];
-
-    foreach ($ingredients as $ingredient) {
-      $nids[] = $ingredient->id();
-    }
-
-    return new JsonResponse(implode(',', $nids), 200);
   }
 
   /**
    * Returns the paragraph objects based on the material id.
    */
   private function getParagraphByMaterialId($material_id = NULL) {
-    $query = \Drupal::entityQuery('paragraph');
+    try {
+      $query = \Drupal::entityQuery('paragraph');
 
-    $query->condition('type', 'sap_documents', '=');
-    $query->condition('field_sap_material_code.value', $material_id, '=');
+      $query->condition('type', 'sap_documents', '=');
+      $query->condition('field_sap_material_code.value', $material_id, '=');
 
-    $ids = $query->execute();
-    $ids = array_values($ids);
+      $ids = $query->execute();
+      $ids = array_values($ids);
 
-    $entity_storage = \Drupal::entityTypeManager()->getStorage('paragraph');
+      $entity_storage = \Drupal::entityTypeManager()->getStorage('paragraph');
 
-    // Load multiple nodes.
-    $paragraphs = $entity_storage->loadMultiple($ids);
-
+      // Load multiple nodes.
+      $paragraphs = $entity_storage->loadMultiple($ids);
+    }
+    catch (\Exception $error) {
+      return new JsonResponse($error->getMessage(), 400);
+    }
     return $paragraphs;
   }
 
@@ -95,18 +103,24 @@ class IngredientController {
    * Returns the parent ingredient node of the given paragraph id.
    */
   private function getParentNode($pid) {
-    $query = \Drupal::entityQuery('node');
+    try {
+      $query = \Drupal::entityQuery('node');
 
-    $query->condition('type', 'ingredient', '=');
-    $query->condition('field_sap_documents.target_id', $pid, '=');
+      $query->condition('type', 'ingredient', '=');
+      $query->condition('field_sap_documents.target_id', $pid, '=');
 
-    $ids = $query->execute();
-    $ids = array_values($ids);
+      $ids = $query->execute();
+      $ids = array_values($ids);
 
-    $entity_storage = \Drupal::entityTypeManager()->getStorage('node');
+      $entity_storage = \Drupal::entityTypeManager()->getStorage('node');
 
-    // Load multiple nodes.
-    return $ingredients = $entity_storage->loadMultiple($ids);
+      // Load multiple nodes.
+      return $ingredients = $entity_storage->loadMultiple($ids);
+    }
+    catch (\Exception $error) {
+      return new JsonResponse($error->getMessage(), 400);
+    }
+
   }
 
   /**
@@ -114,25 +128,29 @@ class IngredientController {
    */
   private function attachFile(&$paragraph, $file, $doc_type) {
     $id = $file == 'NOFILE' ? '' : $file->id();
+    try {
+      switch ($doc_type) {
+        case "SDS":
+          $paragraph->field_sap_sds_file->setValue(['target_id' => $id]);
+          break;
 
-    switch ($doc_type) {
-      case "SDS":
-        $paragraph->field_sap_sds_file->setValue(['target_id' => $id]);
-        break;
+        case "SPC":
+          $paragraph->field_sap_spec_sheet->setValue(['target_id' => $id]);
+          break;
 
-      case "SPC":
-        $paragraph->field_sap_spec_sheet->setValue(['target_id' => $id]);
-        break;
+        case "PIS":
+          $paragraph->field_product_info_sheet->setValue(['target_id' => $id]);
+          break;
 
-      case "PIS":
-        $paragraph->field_product_info_sheet->setValue(['target_id' => $id]);
-        break;
-
-      default:
-        $paragraph->field_sap_sds_file->setValue(['target_id' => '']);
-        $paragraph->field_sap_spec_sheet->setValue(['target_id' => '']);
-        $paragraph->field_product_info_sheet->setValue(['target_id' => '']);
-        break;
+        default:
+          $paragraph->field_sap_sds_file->setValue(['target_id' => '']);
+          $paragraph->field_sap_spec_sheet->setValue(['target_id' => '']);
+          $paragraph->field_product_info_sheet->setValue(['target_id' => '']);
+          break;
+      }
+    }
+    catch (\Exception $error) {
+      return new JsonResponse($error->getMessage(), 400);
     }
   }
 
