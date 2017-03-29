@@ -138,9 +138,6 @@ function tal_downloads_theme() {
 function tal_downloads_preprocess_paragraph(&$variables) {
   // Add count of available filegroup languages.
   $bundle = $variables['paragraph']->getType();
-  if ($bundle == 'ingredient_downloads') {
-    $variables['#attached']['library'][] = 'tal_downloads/tal_downloads_link';
-  }
   if ($bundle == 'related_downloads') {
     $filegroups = $variables['elements']['#paragraph']->get('field_file_group');
     $count = $filegroups->count();
@@ -157,8 +154,12 @@ function tal_downloads_preprocess_paragraph(&$variables) {
     $paragraph = $variables['paragraph'];
     $sap_docs_arr = $paragraph->get('field_sap_download_docs')->referencedEntities();
     $variant_options = array();
+    $default_value = '';
     if (!empty($sap_docs_arr)) {
       foreach ($sap_docs_arr as $key => $sap_docs) {
+        if ($key == 0) {
+          $default_value = $sap_docs->id();
+        }
         $variant_options[$sap_docs->id()] = $sap_docs->get('field_sap_title')->value;
       }
     }
@@ -171,7 +172,9 @@ function tal_downloads_preprocess_paragraph(&$variables) {
         '#multiple' => FALSE,
         '#input' => TRUE,
         '#options' => $variant_options,
+        '#value' => $default_value,
       );
     }
+    $variables['#attached']['library'][] = 'tal_downloads/tal_downloads_link';
   }
 }
