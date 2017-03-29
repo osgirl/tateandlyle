@@ -65,6 +65,7 @@ class TalSAPDownloadsFormatter extends EntityReferenceRevisionsEntityFormatter {
       }
       return $elements;
     }
+    return array();
   }
 
 }
