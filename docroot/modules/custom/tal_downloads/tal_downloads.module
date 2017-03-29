@@ -138,6 +138,9 @@ function tal_downloads_theme() {
 function tal_downloads_preprocess_paragraph(&$variables) {
   // Add count of available filegroup languages.
   $bundle = $variables['paragraph']->getType();
+  if ($bundle == 'ingredient_downloads') {
+    $variables['#attached']['library'][] = 'tal_downloads/tal_downloads_link';
+  }
   if ($bundle == 'related_downloads') {
     $filegroups = $variables['elements']['#paragraph']->get('field_file_group');
     $count = $filegroups->count();
@@ -148,7 +151,6 @@ function tal_downloads_preprocess_paragraph(&$variables) {
         '#prefix' => '<span class="filegroup-count">',
         '#suffix' => '</span>',
       ];
-      $variables['#attached']['library'][] = 'tal_downloads/tal_downloads_link';
     }
   }
   if ($bundle == 'ingredient_downloads') {
@@ -161,12 +163,15 @@ function tal_downloads_preprocess_paragraph(&$variables) {
       }
     }
     $variables['variant_count'] = count($variant_options);
-    $variant_options = array('empty_select' => 'Select') + $variant_options;
-    $variables['variant_select'] = array(
-      '#theme' => 'select',
-      '#multiple' => FALSE,
-      '#input' => TRUE,
-      '#options' => $variant_options,
-    );
+    $variables['variant_select'] = '';
+    if ($variables['variant_count'] > 0) {
+      $variant_options = array('empty_select' => 'Select') + $variant_options;
+      $variables['variant_select'] = array(
+        '#theme' => 'select',
+        '#multiple' => FALSE,
+        '#input' => TRUE,
+        '#options' => $variant_options,
+      );
+    }
   }
 }
