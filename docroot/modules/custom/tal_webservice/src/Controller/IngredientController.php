@@ -6,7 +6,6 @@ use Drupal\Core\Session\AccountInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Drupal\Core\Access\AccessResult;
-use Drupal\Component\Utility\Html;
 
 /**
  * Process ingredient contents.
@@ -52,7 +51,7 @@ class IngredientController {
         $destination = 'public://' . $request->request->get('file_name');
         $file = file_save_data($data, $destination, FILE_EXISTS_REPLACE);
       }
-      $material_ids = explode(',', $this->filterMaterialCode(Html::escape($request->request->get('material_id'))));
+      $material_ids = explode(',', $this->filterMaterialCode($request->request->get('material_id')));
       $nids = [];
 
       foreach ($material_ids as $material_id) {
@@ -61,8 +60,8 @@ class IngredientController {
         // Material Id will be unique and it is expected to return single
         // paragraph entity.
         $paragraph = array_shift($paragraphs);
-        $paragraph->field_sap_summary->setValue(['value' => Html::escape($request->request->get('summary'))]);
-        $paragraph->field_sap_title->setValue(['value' => Html::escape($request->request->get('title'))]);
+        $paragraph->field_sap_summary->setValue(['value' => $request->request->get('summary')]);
+        $paragraph->field_sap_title->setValue(['value' => $request->request->get('title')]);
 
         $this->attachFile($paragraph, $file, $request->request->get('document_type'));
         // Save the updated paragraph.
@@ -141,25 +140,22 @@ class IngredientController {
    * This function attaches the uploaded file to the paragraph.
    */
   private function attachFile(&$paragraph, $file, $doc_type) {
-    $id = $file == 'NOFILE' ? '' : $file->id();
+    $id = $file == 'NOFILE' ? [] : ['target_id' => $file->id()];
+    $field = array(
+      'SDS' => 'field_sap_sds_file',
+      'SPC' => 'field_sap_spec_sheet',
+      'PIS' => 'field_product_info_sheet',
+    );
     try {
       switch ($doc_type) {
         case "SDS":
-          $paragraph->field_sap_sds_file->setValue(['target_id' => $id]);
-          break;
-
         case "SPC":
-          $paragraph->field_sap_spec_sheet->setValue(['target_id' => $id]);
-          break;
-
         case "PIS":
-          $paragraph->field_product_info_sheet->setValue(['target_id' => $id]);
-          break;
-
-        default:
-          $paragraph->field_sap_sds_file->setValue(['target_id' => '']);
-          $paragraph->field_sap_spec_sheet->setValue(['target_id' => '']);
-          $paragraph->field_product_info_sheet->setValue(['target_id' => '']);
+          $fileObj = $paragraph->field_sap_sds_file->entity;
+          if (!empty($fileObj)) {
+            $fileObj->delete();
+          }
+          $paragraph->{$field[$doc_type]}->setValue($id);
           break;
       }
     }
