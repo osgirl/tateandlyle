@@ -17,6 +17,9 @@ class IngredientController {
    *
    * @param \Drupal\Core\Session\AccountInterface $account
    *   Run access checks for this account.
+   *
+   * @return bool
+   *   Return true or false on the basis of criteria specified.
    */
   public function access(AccountInterface $account) {
     return AccessResult::allowedIf($account->hasPermission('access_ingredient_webservice'));
