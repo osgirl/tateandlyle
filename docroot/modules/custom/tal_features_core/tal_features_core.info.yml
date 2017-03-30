@@ -53,6 +53,7 @@ dependencies:
   - smart_trim
   - system
   - tal_admin_config
+  - tal_articles
   - tal_downloads
   - tal_image_gallery
   - tal_ingredient_search

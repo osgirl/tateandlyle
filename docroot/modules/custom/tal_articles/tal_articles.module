@@ -5,26 +5,8 @@
  * Contains tal_articles.
  */
 
-use Drupal\Core\Form\FormStateInterface;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\views\ViewExecutable;
-
-/**
- * Implements hook_form_alter().
- */
-function tal_articles_form_views_exposed_form_alter(&$form, FormStateInterface $form_state) {
-  if ($form['#id'] == 'views-exposed-form-article-list-page-1') {
-    $form['actions']['submit']['#attributes'] = array('class' => array('hide'));
-    $form['sort_by']['#attributes'] = array('onchange' => array('this.form.submit();'));
-    $form['sort_by']['#options'][''] = '';
-    $form['sort_by']['#default_value'] = 'field_date_value';
-
-    // The "Sort by" index is used on other views too which are also rendering
-    // on article list page, We need a unique index.
-    $form['article_sort_by'] = $form['sort_by'];
-    unset($form['sort_by']);
-  }
-}
 
 /**
  * Implements hook_views_pre_view().
@@ -93,4 +75,19 @@ function tal_articles_views_pre_view(ViewExecutable $view, $display_id, array &$
     // Set the header plugin.
     $view->setHandler('block_3', 'header', 'area_text_custom', $options);
   }
+}
+
+/**
+ * Implements hook_views_data().
+ */
+function tal_articles_views_data() {
+  $data['views']['article_list'] = array(
+    'title' => t('Tal Article Search Filter'),
+    'help' => t('Provides search textfield to filter the results.'),
+    'area' => array(
+      'id' => 'searchfilter',
+    ),
+  );
+
+  return $data;
 }
