@@ -8,7 +8,6 @@ dependencies:
   module:
     - datetime
     - node
-    - tal_articles
     - taxonomy
     - user
 id: article_list

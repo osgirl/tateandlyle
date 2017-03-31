@@ -235,3 +235,13 @@ function tateandlyle_preprocess_views_view_unformatted(&$variables) {
     }
   }
 }
+
+/**
+ * Implements hook_preprocess_html().
+ */
+function tateandlyle_preprocess_html(&$vars) {
+  $path = \Drupal::service('path.current')->getPath();
+  if ($path == '/articles/all') {
+    $vars['attributes']['class'][] = Html::getClass('article-all-list');
+  }
+}
