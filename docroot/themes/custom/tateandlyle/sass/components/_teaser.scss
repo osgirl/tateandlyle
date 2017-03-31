@@ -164,6 +164,7 @@
   }
 
   article,
+  .view-header,
   .view-filters,
   nav {
     max-width: 882px;
@@ -173,6 +174,86 @@
     padding-right: 0;
     @media (min-width: $screen-md) {
       margin: auto;
+    }
+  }
+
+  .view-header {
+    background-color: $color-off-white;
+    border-bottom: 1px solid $color-warm-gray;
+    border-top: 1px solid $color-warm-gray;
+    margin-bottom: 30px;
+    padding: 30px;
+
+    form {
+      background: transparent;
+      padding: 0;
+      position: relative;
+
+      .control-label {
+        color: $gray-base;
+        font-size: $font-size-base;
+        margin-bottom: 5px;
+        vertical-align: middle;
+        @media (min-width: $screen-sm) {
+          font-size: $font-size-h5;
+          margin-bottom: 0;
+        }
+      }
+
+      button {
+        position: absolute;
+        right: 0;
+        top: 27px;
+        font-size: 0;
+        padding: 8px 11px 9px;
+        @media (min-width: $screen-sm) {
+          position: static;
+        }
+      }
+    }
+
+    .input--wrapper {
+      color: $gray-base;
+      display: block;
+
+      @media (min-width: $screen-sm) {
+        display: inline-block;
+      }
+
+      .input--title {
+        display: none;
+      }
+
+      .form-control {
+        border: 1px solid $color-warm-gray;
+        border-radius: 0;
+        box-shadow: none;
+        min-height: 40px;
+        width: 100%;
+        @media (min-width: $screen-sm) {
+          max-width: 180px;
+        }
+      }
+    }
+
+    .control-label,
+    .form-type-textfield,
+    .form-submit {
+      display: inline-block;
+      margin-bottom: 0;
+      vertical-align: top;
+    }
+
+    .form-type-textfield {
+      display: block;
+      @media (min-width: $screen-sm) {
+        display: inline-block;
+      }
+    }
+
+    .control-label,
+    .input--wrapper {
+      vertical-align: middle;
     }
   }
 
