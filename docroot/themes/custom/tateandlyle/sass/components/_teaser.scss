@@ -182,7 +182,10 @@
     border-bottom: 1px solid $color-warm-gray;
     border-top: 1px solid $color-warm-gray;
     margin-bottom: 30px;
-    padding: 30px;
+    padding: 18px 12px;
+    @media (min-width: $screen-sm) {
+      padding: 30px;
+    }
 
     form {
       background: transparent;
@@ -193,10 +196,13 @@
         color: $gray-base;
         font-size: $font-size-base;
         margin-bottom: 5px;
+        margin-right: 12px;
         vertical-align: middle;
         @media (min-width: $screen-sm) {
-          font-size: $font-size-h5;
           margin-bottom: 0;
+        }
+        @media (min-width: $screen-md) {
+          font-size: $font-size-h5;
         }
       }
 
@@ -231,6 +237,9 @@
         min-height: 40px;
         width: 100%;
         @media (min-width: $screen-sm) {
+          max-width: 160px;
+        }
+        @media (min-width: $screen-md) {
           max-width: 180px;
         }
       }
@@ -265,21 +274,15 @@
   }
 
   .form-type-select {
-    background-color: rgba(153, 153, 153, 0.05);
-    border-bottom: 1px solid $color-warm-gray;
-    border-top: 1px solid $color-warm-gray;
     display: block;
-    margin-top: 22px;
-    margin-bottom: 32px;
-    padding: 22px 7px;
+    margin-top: 12px;
+    margin-bottom: 0;
+    padding: 4px 0;
     text-align: center;
     @media (min-width: $screen-sm) {
-      margin-top: 40px;
-      margin-bottom: 26px;
-      padding: 30px;
-    }
-    @media (min-width: $screen-sm) {
-      margin-bottom: 32px;
+      float: right;
+      margin-top: 0;
+      padding: 0;
     }
 
     .control-label,
@@ -288,7 +291,7 @@
     }
 
     .control-label {
-      margin-right: 20px;
+      margin-right: 12px;
     }
 
     .select-wrapper {
@@ -301,7 +304,11 @@
     min-width: 169px;
 
     @media (min-width: $screen-sm) {
-      min-width: 309px;
+      min-width: 180px;
+    }
+
+    @media (min-width: $screen-md) {
+      min-width: 240px;
     }
   }
 
@@ -616,4 +623,16 @@
 
 .full .teaser-content {
   border-bottom: 0;
+}
+
+.article-all-list .view-article-list {
+  .view-header {
+    display: none;
+  }
+
+  .view-content {
+    @media (min-width: $screen-md) {
+      margin-top: 30px;
+    }
+  }
 }
