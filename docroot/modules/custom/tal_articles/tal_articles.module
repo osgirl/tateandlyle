@@ -20,7 +20,7 @@ function tal_articles_views_pre_view(ViewExecutable $view, $display_id, array &$
       $tid = explode('+', $args[0])[0];
       // Load all terms from media gallery vocabulary.
       $term = Term::load($tid);
-      if ($term->getName() == 'Company Story') {
+      if ($term->getName() == 'Company Stories') {
         $terms = \Drupal::service('entity_type.manager')
           ->getStorage("taxonomy_term")
           ->loadTree('story_category');
