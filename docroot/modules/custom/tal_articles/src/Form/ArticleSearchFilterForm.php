@@ -21,6 +21,23 @@ class ArticleSearchFilterForm extends FormBase {
   }
 
   /**
+   * Get the "Publishing date" array for press release and news content.
+   *
+   * @return array
+   *   Returns the array for year from date 'field_date' field.
+   */
+  public function getOptionsYear() {
+    $query = \Drupal::database()->select('node__field_date', 'date');
+    $query->condition('date.bundle', ['company_story', 'press_release'], 'IN');
+    $query->distinct();
+    $query->addExpression("date_format(str_to_date(field_date_value, '%Y-%m-%d'), '%Y')", 'year');
+    $query->orderBy('year', 'DESC');
+    $result = $query->execute()->fetchAllKeyed(0, 0);
+
+    return $result;
+  }
+
+  /**
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
@@ -41,7 +58,18 @@ class ArticleSearchFilterForm extends FormBase {
       '#type' => 'submit',
       '#value' => $this->t('Search'),
     );
-
+    $form['search_filter']['year'] = array(
+      '#type' => 'select',
+      '#title' => t('Filter by year:'),
+      '#options' => $this->getOptionsYear(),
+      '#empty_option' => '-- Show All --',
+      '#default_value' => isset($parameters['query']['year']) ? $parameters['query']['year'] : '',
+      '#attributes' => array(
+        'id' => 'tal-search-year-filter',
+        'class' => array('select-year-press-article'),
+      ),
+    );
+    $form['#attached']['library'][] = 'tal_articles/tal_articles_search';
     return $form;
   }
 
@@ -57,6 +85,16 @@ class ArticleSearchFilterForm extends FormBase {
     if (!empty($form_state->getValue('keyword'))) {
       $parameters['query']['title'] = $form_state->getValue('keyword');
       $parameters['query']['body_value'] = $form_state->getValue('keyword');
+    }
+    else {
+      unset($parameters['query']['title']);
+      unset($parameters['query']['body_value']);
+    }
+    if (!empty($form_state->getValue('year'))) {
+      $parameters['query']['year'] = $form_state->getValue('year');
+    }
+    else {
+      unset($parameters['query']['year']);
     }
     $routing_name = \Drupal::routeMatch()->getRouteName();
     $parameters['query']['arg_0'] = \Drupal::routeMatch()->getParameter('arg_0');

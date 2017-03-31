@@ -88,6 +88,13 @@ function tal_articles_views_data() {
       'id' => 'searchfilter',
     ),
   );
-
+  $data['node__field_date']['date_year_filter'] = array(
+    'group' => t('Custom'),
+    'title' => t('Enhanced Date filter by year only'),
+    'filter' => array(
+      'field' => 'field_date_value',
+      'id' => 'string',
+    ),
+  );
   return $data;
 }
