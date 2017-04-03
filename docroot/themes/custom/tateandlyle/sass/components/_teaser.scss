@@ -163,6 +163,16 @@
     position: relative;
   }
 
+  .view-empty {
+    color: $gray-base;
+    font-size: $font-size-h5;
+    margin-bottom: 30px;
+    max-width: 882px;
+    @media (min-width: $screen-sm) {
+      text-align: center;
+    }
+  }
+
   article,
   .view-header,
   .view-filters,
@@ -278,11 +288,11 @@
     margin-top: 12px;
     margin-bottom: 0;
     padding: 4px 0;
-    text-align: center;
     @media (min-width: $screen-sm) {
       float: right;
       margin-top: 0;
       padding: 0;
+      text-align: center;
     }
 
     .control-label,
@@ -296,12 +306,13 @@
 
     .select-wrapper {
       background-color: $color-white;
+      vertical-align: middle;
     }
   }
 
   select {
     @extend %bordered-select;
-    min-width: 169px;
+    min-width: 174px;
 
     @media (min-width: $screen-sm) {
       min-width: 180px;
@@ -545,7 +556,7 @@
         color: $color-white;
       }
 
-      @media (min-width: $screen-sm) {
+      @media (min-width: $screen-sm-lsp) {
         display: inline;
       }
     }
