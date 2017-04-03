@@ -224,7 +224,7 @@ display:
             description: ''
             use_operator: false
             operator: body_value_op
-            identifier: body_value
+            identifier: news
             required: false
             remember: false
             multiple: false
@@ -361,7 +361,18 @@ display:
           empty: true
           plugin_id: searchfilter
       footer: {  }
-      empty: {  }
+      empty:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content: '<p> No result found. </p>'
+          plugin_id: text_custom
       relationships:
         field_category:
           id: field_category

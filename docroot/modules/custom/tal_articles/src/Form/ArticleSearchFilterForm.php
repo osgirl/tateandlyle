@@ -47,7 +47,7 @@ class ArticleSearchFilterForm extends FormBase {
 
     $form['search_filter']['keyword'] = array(
       '#type' => 'textfield',
-      '#title' => t('Search the news:'),
+      '#title' => t('Search for news:'),
       '#default_value' => isset($parameters['query']['title']) ? $parameters['query']['title'] : '',
       '#attributes' => array(
         'id' => 'tal-search-filter',
@@ -78,23 +78,26 @@ class ArticleSearchFilterForm extends FormBase {
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
     // Reset the query parameters based on the value selected
-    // and rediect to the serch result page.
+    // and redirect to the search result page.
     $path = \Drupal::request()->getUri();
     $parameters = UrlHelper::parse($path);
 
     if (!empty($form_state->getValue('keyword'))) {
       $parameters['query']['title'] = $form_state->getValue('keyword');
-      $parameters['query']['body_value'] = $form_state->getValue('keyword');
+      $parameters['query']['news'] = $form_state->getValue('keyword');
     }
     else {
       unset($parameters['query']['title']);
-      unset($parameters['query']['body_value']);
+      unset($parameters['query']['news']);
     }
     if (!empty($form_state->getValue('year'))) {
       $parameters['query']['year'] = $form_state->getValue('year');
     }
     else {
       unset($parameters['query']['year']);
+    }
+    if (isset($parameters['query']['page'])) {
+      unset($parameters['query']['page']);
     }
     $routing_name = \Drupal::routeMatch()->getRouteName();
     $parameters['query']['arg_0'] = \Drupal::routeMatch()->getParameter('arg_0');
