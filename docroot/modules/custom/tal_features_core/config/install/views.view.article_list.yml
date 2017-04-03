@@ -8,6 +8,7 @@ dependencies:
   module:
     - datetime
     - node
+    - tal_articles
     - taxonomy
     - user
 id: article_list
@@ -215,7 +216,7 @@ display:
           admin_label: ''
           operator: contains
           value: ''
-          group: 1
+          group: 2
           exposed: true
           expose:
             operator_id: body_value_op
@@ -289,6 +290,50 @@ display:
             group_items: {  }
           entity_type: node
           entity_field: title
+          plugin_id: string
+        date_year_filter:
+          id: date_year_filter
+          table: node__field_date
+          field: date_year_filter
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: contains
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: date_year_filter_op
+            label: 'Enhanced Date filter by year only'
+            description: ''
+            use_operator: false
+            operator: date_year_filter_op
+            identifier: year
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              layout_manager: '0'
+              editor: '0'
+              pr_editor: '0'
+              form_analyst: '0'
+              media_creator: '0'
+              media_manager: '0'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
           plugin_id: string
       sorts:
         field_date_value:
@@ -368,7 +413,7 @@ display:
           plugin_id: taxonomy
       display_extenders: {  }
       filter_groups:
-        operator: OR
+        operator: AND
         groups:
           1: AND
           2: OR
