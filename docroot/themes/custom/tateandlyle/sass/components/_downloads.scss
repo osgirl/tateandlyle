@@ -188,6 +188,10 @@
     @extend %bordered-select;
   }
 
+  select::-ms-expand {
+    display: none;
+  }
+
   .tal-file-download-link {
     text-align: center;
     @media (min-width: $screen-sm) {
@@ -364,6 +368,10 @@
   select,
   select:focus {
     @extend %bordered-select;
+  }
+
+  select::-ms-expand {
+    display: none;
   }
 
   .variant--title {
