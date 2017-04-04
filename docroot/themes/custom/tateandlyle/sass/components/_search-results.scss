@@ -192,6 +192,10 @@
   select {
     @extend %bordered-select;
   }
+
+  select::-ms-expand {
+    display: none;
+  }
 }
 
 .tal--sortorder {

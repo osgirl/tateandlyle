@@ -323,6 +323,10 @@
     }
   }
 
+  select::-ms-expand {
+    display: none;
+  }
+
   .views-row:last-child {
     .teaser-content {
       border-bottom: none;
