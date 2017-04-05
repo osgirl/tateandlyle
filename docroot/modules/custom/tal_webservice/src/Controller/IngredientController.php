@@ -71,7 +71,10 @@ class IngredientController {
         foreach ($ingredients as $ingredient) {
           // Invalidate the cache so that new changes could take place.
           Cache::invalidateTags(['node:' . $ingredient->id()]);
-          $nids[] = $ingredient->id();
+          $url = $ingredient->toUrl('edit-form');
+          $url->setAbsolute(TRUE);
+
+          $nids[] = $url->toString();
         }
       }
     }

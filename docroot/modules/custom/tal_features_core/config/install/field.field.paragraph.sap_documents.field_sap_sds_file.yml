@@ -10,7 +10,7 @@ id: paragraph.sap_documents.field_sap_sds_file
 field_name: field_sap_sds_file
 entity_type: paragraph
 bundle: sap_documents
-label: 'SDS File'
+label: 'Attach SDS'
 description: ''
 required: false
 translatable: false
