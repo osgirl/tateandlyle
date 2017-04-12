@@ -47,10 +47,11 @@ class ArticleSearchFilterForm extends FormBase {
 
     $form['search_filter']['keyword'] = array(
       '#type' => 'textfield',
-      '#title' => t('Search for news:'),
+      '#title' => t('Search for news'),
       '#default_value' => isset($parameters['query']['title']) ? $parameters['query']['title'] : '',
       '#attributes' => array(
         'id' => 'tal-search-filter',
+        'placeholder' => t('Enter keywords'),
       ),
     );
 
@@ -60,7 +61,7 @@ class ArticleSearchFilterForm extends FormBase {
     );
     $form['search_filter']['year'] = array(
       '#type' => 'select',
-      '#title' => t('Filter by year:'),
+      '#title' => t('Filter by year'),
       '#options' => $this->getOptionsYear(),
       '#empty_option' => '-- Show All --',
       '#default_value' => isset($parameters['query']['year']) ? $parameters['query']['year'] : '',
