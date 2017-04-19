@@ -163,7 +163,18 @@
     position: relative;
   }
 
+  .view-empty {
+    color: $gray-base;
+    font-size: $font-size-h5;
+    margin-bottom: 30px;
+    max-width: 882px;
+    @media (min-width: $screen-sm) {
+      text-align: center;
+    }
+  }
+
   article,
+  .view-header,
   .view-filters,
   nav {
     max-width: 882px;
@@ -176,6 +187,95 @@
     }
   }
 
+  .view-header {
+    background-color: $color-off-white;
+    border-bottom: 1px solid $color-warm-gray;
+    border-top: 1px solid $color-warm-gray;
+    margin-bottom: 30px;
+    padding: 18px 12px;
+    @media (min-width: $screen-sm) {
+      padding: 30px;
+    }
+
+    form {
+      background: transparent;
+      padding: 0;
+      position: relative;
+
+      .control-label {
+        color: $gray-base;
+        font-size: $font-size-base;
+        margin-bottom: 5px;
+        margin-right: 12px;
+        vertical-align: middle;
+        @media (min-width: $screen-sm) {
+          margin-bottom: 0;
+        }
+        @media (min-width: $screen-md) {
+          font-size: $font-size-h5;
+        }
+      }
+
+      button {
+        position: absolute;
+        right: 0;
+        top: 27px;
+        font-size: 0;
+        padding: 8px 11px 9px;
+        @media (min-width: $screen-sm) {
+          position: static;
+        }
+      }
+    }
+
+    .input--wrapper {
+      color: $gray-base;
+      display: block;
+
+      @media (min-width: $screen-sm) {
+        display: inline-block;
+      }
+
+      .input--title {
+        display: none;
+      }
+
+      .form-control {
+        border: 1px solid $color-warm-gray;
+        border-radius: 0;
+        box-shadow: none;
+        min-height: 40px;
+        width: 100%;
+        @media (min-width: $screen-sm) {
+          max-width: 160px;
+        }
+        @media (min-width: $screen-md) {
+          max-width: 180px;
+        }
+      }
+    }
+
+    .control-label,
+    .form-type-textfield,
+    .form-submit {
+      display: inline-block;
+      margin-bottom: 0;
+      vertical-align: top;
+    }
+
+    .form-type-textfield {
+      display: block;
+      @media (min-width: $screen-sm) {
+        display: inline-block;
+      }
+    }
+
+    .control-label,
+    .input--wrapper {
+      vertical-align: middle;
+    }
+  }
+
   .view-filters {
     margin-bottom: 0;
     .form-actions {
@@ -184,21 +284,15 @@
   }
 
   .form-type-select {
-    background-color: rgba(153, 153, 153, 0.05);
-    border-bottom: 1px solid $color-warm-gray;
-    border-top: 1px solid $color-warm-gray;
     display: block;
-    margin-top: 22px;
-    margin-bottom: 32px;
-    padding: 22px 7px;
-    text-align: center;
+    margin-top: 12px;
+    margin-bottom: 0;
+    padding: 4px 0;
     @media (min-width: $screen-sm) {
-      margin-top: 40px;
-      margin-bottom: 26px;
-      padding: 30px;
-    }
-    @media (min-width: $screen-sm) {
-      margin-bottom: 32px;
+      float: right;
+      margin-top: 0;
+      padding: 0;
+      text-align: center;
     }
 
     .control-label,
@@ -207,21 +301,30 @@
     }
 
     .control-label {
-      margin-right: 20px;
+      margin-right: 12px;
     }
 
     .select-wrapper {
       background-color: $color-white;
+      vertical-align: middle;
     }
   }
 
   select {
     @extend %bordered-select;
-    min-width: 169px;
+    min-width: 174px;
 
     @media (min-width: $screen-sm) {
-      min-width: 309px;
+      min-width: 180px;
     }
+
+    @media (min-width: $screen-md) {
+      min-width: 240px;
+    }
+  }
+
+  select::-ms-expand {
+    display: none;
   }
 
   .views-row:last-child {
@@ -457,7 +560,7 @@
         color: $color-white;
       }
 
-      @media (min-width: $screen-sm) {
+      @media (min-width: $screen-sm-lsp) {
         display: inline;
       }
     }
@@ -535,4 +638,16 @@
 
 .full .teaser-content {
   border-bottom: 0;
+}
+
+.article-all-list .view-article-list {
+  .view-header {
+    display: none;
+  }
+
+  .view-content {
+    @media (min-width: $screen-md) {
+      margin-top: 30px;
+    }
+  }
 }
