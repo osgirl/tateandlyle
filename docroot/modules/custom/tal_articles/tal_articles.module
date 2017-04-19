@@ -32,7 +32,7 @@ function tal_articles_views_pre_view(ViewExecutable $view, $display_id, array &$
           }
         }
       }
-      elseif ($term->getName() == 'Press Release') {
+      elseif ($term->getName() == 'Press Releases') {
         $terms = \Drupal::service('entity_type.manager')
           ->getStorage("taxonomy_term")
           ->loadTree('story_category');
