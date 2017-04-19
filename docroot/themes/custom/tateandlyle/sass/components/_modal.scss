@@ -83,6 +83,10 @@
     appearance: none;
     background: url("../images/icons/dropdown-black.svg") no-repeat 95%;
   }
+
+  select::-ms-expand {
+    display: none;
+  }
 }
 
 .modal-header .modal-title {
