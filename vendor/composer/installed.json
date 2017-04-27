@@ -4630,17 +4630,17 @@
     },
     {
         "name": "drupal/core",
-        "version": "8.2.7",
-        "version_normalized": "8.2.7.0",
+        "version": "8.2.8",
+        "version_normalized": "8.2.8.0",
         "source": {
             "type": "git",
             "url": "https://github.com/drupal-composer/drupal-core.git",
-            "reference": "5d3fb8a93514f23198ac6848b2679ef1026d2326"
+            "reference": "c63ef7a000bdfe2286cf2eeec6efdf4298dfc6a8"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/drupal-composer/drupal-core/zipball/5d3fb8a93514f23198ac6848b2679ef1026d2326",
-            "reference": "5d3fb8a93514f23198ac6848b2679ef1026d2326",
+            "url": "https://api.github.com/repos/drupal-composer/drupal-core/zipball/c63ef7a000bdfe2286cf2eeec6efdf4298dfc6a8",
+            "reference": "c63ef7a000bdfe2286cf2eeec6efdf4298dfc6a8",
             "shasum": ""
         },
         "require": {
@@ -4782,7 +4782,7 @@
             "phpunit/phpunit": ">=4.8.28 <5",
             "symfony/css-selector": "~2.8"
         },
-        "time": "2017-03-15T20:19:51+00:00",
+        "time": "2017-04-19T16:45:52+00:00",
         "type": "drupal-core",
         "extra": {
             "patches_applied": {
@@ -9723,7 +9723,7 @@
         "dist": {
             "type": "zip",
             "url": "https://ftp.drupal.org/files/projects/google_analytics-8.x-2.1.zip",
-            "reference": null,
+            "reference": "8.x-2.1",
             "shasum": "9b5c76802ca28d5072bb9bb552bbfeb660b0734a"
         },
         "require": {
