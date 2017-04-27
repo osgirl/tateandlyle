@@ -1,0 +1,5 @@
+langcode: en
+status: true
+dependencies: {  }
+id: promo_body_with_link_url
+label: 'Promo - Body with link URL'

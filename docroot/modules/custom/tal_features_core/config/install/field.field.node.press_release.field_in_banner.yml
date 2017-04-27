@@ -1,0 +1,27 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.banner
+    - field.storage.node.field_in_banner
+    - node.type.press_release
+id: node.press_release.field_in_banner
+field_name: field_in_banner
+entity_type: node
+bundle: press_release
+label: Banner
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:block_content'
+  handler_settings:
+    target_bundles:
+      banner: banner
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: banner
+field_type: entity_reference

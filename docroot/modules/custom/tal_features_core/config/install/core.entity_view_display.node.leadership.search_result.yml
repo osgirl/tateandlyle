@@ -1,0 +1,63 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.search_result
+    - field.field.node.leadership.field_bio
+    - field.field.node.leadership.field_designation
+    - field.field.node.leadership.field_in_banner
+    - field.field.node.leadership.field_profile_picture
+    - field.field.node.leadership.field_team_type
+    - image.style.quote_167_x_167
+    - node.type.leadership
+  module:
+    - image
+    - panelizer
+    - smart_trim
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.leadership.search_result
+targetEntityType: node
+bundle: leadership
+mode: search_result
+content:
+  field_bio:
+    weight: 2
+    label: hidden
+    settings:
+      trim_length: '50'
+      trim_type: words
+      trim_suffix: ''
+      more_link: '0'
+      more_text: More
+      trim_options:
+        text: text
+      more_class: more-link
+      summary_handler: full
+    third_party_settings: {  }
+    type: smart_trim
+  field_designation:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_profile_picture:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: quote_167_x_167
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+hidden:
+  field_in_banner: true
+  field_team_type: true
+  links: true
+  workbench_moderation_control: true

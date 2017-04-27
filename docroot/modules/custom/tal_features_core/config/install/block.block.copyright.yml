@@ -1,0 +1,29 @@
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:1fb6ccac-5b4e-49a6-b3ff-7801f6f3f248'
+  module:
+    - block_content
+    - facets
+id: copyright
+theme: tateandlyle
+region: footer
+weight: -9
+provider: null
+plugin: 'block_content:1fb6ccac-5b4e-49a6-b3ff-7801f6f3f248'
+settings:
+  id: 'block_content:1fb6ccac-5b4e-49a6-b3ff-7801f6f3f248'
+  label: Copyright
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  other_facet:
+    id: other_facet
+    facets: ''
+    facet_value: ''
+    negate: false
+    context_mapping: {  }

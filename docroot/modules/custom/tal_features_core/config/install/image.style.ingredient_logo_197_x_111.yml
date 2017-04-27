@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies: {  }
+name: ingredient_logo_197_x_111
+label: 'Ingredient : Logo 197 x 111'
+effects:
+  137bcde8-70d9-47bb-b4eb-a5f9237482b2:
+    uuid: 137bcde8-70d9-47bb-b4eb-a5f9237482b2
+    id: image_resize
+    weight: 1
+    data:
+      width: 197
+      height: 111

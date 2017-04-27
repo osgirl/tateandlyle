@@ -1,0 +1,7 @@
+name: 'TAL default content'
+description: 'Default content stored.'
+type: module
+core: 8.x
+package: tal
+dependencies:
+  - default_content

@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_tal_more
+    - paragraphs.paragraphs_type.content_promo_with_image
+  module:
+    - link
+id: paragraph.content_promo_with_image.field_tal_more
+field_name: field_tal_more
+entity_type: paragraph
+bundle: content_promo_with_image
+label: 'Read more'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

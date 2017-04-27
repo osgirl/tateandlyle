@@ -1,0 +1,111 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.talk_to_us
+    - entity_browser.browser.image_browser
+    - field.field.block_content.talk_to_us.field_bg_color
+    - field.field.block_content.talk_to_us.field_bg_image
+    - field.field.block_content.talk_to_us.field_connect_block
+    - field.field.block_content.talk_to_us.field_icon
+    - field.field.block_content.talk_to_us.field_short_summary
+    - field.field.block_content.talk_to_us.field_simple_text
+  module:
+    - entity_browser
+    - field_group
+    - paragraphs
+    - workbench_moderation
+third_party_settings:
+  field_group:
+    group_first_block:
+      children:
+        - info
+        - field_simple_text
+        - field_bg_image
+        - field_icon
+        - field_short_summary
+        - field_bg_color
+      parent_name: ''
+      weight: 1
+      label: 'Block details'
+      format_type: details
+      format_settings:
+        label: 'Block details'
+        open: true
+        id: ''
+        classes: ''
+        required_fields: false
+    group_second_block:
+      children:
+        - field_connect_block
+      parent_name: ''
+      weight: 2
+      label: 'Connect Block'
+      format_type: details
+      format_settings:
+        open: false
+        required_fields: true
+        classes: ''
+        id: ''
+id: block_content.talk_to_us.default
+targetEntityType: block_content
+bundle: talk_to_us
+mode: default
+content:
+  field_bg_color:
+    weight: 7
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+  field_bg_image:
+    type: entity_browser_file
+    weight: 4
+    settings:
+      entity_browser: image_browser
+      field_widget_edit: true
+      field_widget_remove: true
+      view_mode: default
+      preview_image_style: thumbnail
+      open: true
+      selection_mode: selection_append
+    third_party_settings: {  }
+  field_connect_block:
+    type: entity_reference_paragraphs
+    weight: 2
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+    third_party_settings: {  }
+  field_icon:
+    weight: 5
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+  field_short_summary:
+    weight: 6
+    settings:
+      rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+  field_simple_text:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  info:
+    type: string_textfield
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

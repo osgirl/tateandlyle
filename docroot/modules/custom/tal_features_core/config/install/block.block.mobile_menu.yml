@@ -1,0 +1,28 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.mobile-menu
+  module:
+    - facets
+    - system
+id: mobile_menu
+theme: tateandlyle
+region: header
+weight: 0
+provider: null
+plugin: 'system_menu_block:mobile-menu'
+settings:
+  id: 'system_menu_block:mobile-menu'
+  label: Mobile_menu
+  provider: system
+  label_display: visible
+  level: 1
+  depth: 0
+visibility:
+  other_facet:
+    id: other_facet
+    facets: ''
+    facet_value: ''
+    negate: false
+    context_mapping: {  }

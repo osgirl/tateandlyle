@@ -1,0 +1,100 @@
+<?php
+
+/**
+ * @file
+ * Contains tal_articles.
+ */
+
+use Drupal\taxonomy\Entity\Term;
+use Drupal\views\ViewExecutable;
+
+/**
+ * Implements hook_views_pre_view().
+ */
+function tal_articles_views_pre_view(ViewExecutable $view, $display_id, array &$args) {
+
+  // Modify contextual filters for article list if term name is "Company news"'.
+  if ($view->id() == 'article_list' &&  $display_id == 'page_1') {
+    if ($args[0] != 'all') {
+      // Clean argument for more than one term.
+      $tid = explode('+', $args[0])[0];
+      // Load all terms from media gallery vocabulary.
+      $term = Term::load($tid);
+      if ($term->getName() == 'Company Stories') {
+        $terms = \Drupal::service('entity_type.manager')
+          ->getStorage("taxonomy_term")
+          ->loadTree('story_category');
+
+        foreach ($terms as $trm) {
+          if ($trm->name == 'Case Study') {
+            $args[0] = $tid . '+' . $trm->tid;
+            break;
+          }
+        }
+      }
+      elseif ($term->getName() == 'Press Releases') {
+        $terms = \Drupal::service('entity_type.manager')
+          ->getStorage("taxonomy_term")
+          ->loadTree('story_category');
+
+        foreach ($terms as $trm) {
+          if ($trm->name == 'Press Packs') {
+            $args[0] = $tid . '+' . $trm->tid;
+            break;
+          }
+        }
+      }
+    }
+  }
+
+  if ($view->id() == 'articles_post' &&  $display_id == 'block_3') {
+    $header_text = '';
+
+    // Fetch the header text from the views argument and unset the argument.
+    foreach ($args as $id => $arg) {
+      if (is_array($arg) && isset($arg['text'])) {
+        $header_text = $arg['text'];
+        unset($args[$id]);
+        break;
+      }
+    }
+    // Prepare header plugin to display custom message.
+    $options = array(
+      'id' => 'area_text_custom',
+      'table' => 'views',
+      'field' => 'area_text_custom',
+      'relationship' => 'none',
+      'group_type' => 'none',
+      'admin_label' => '',
+      'empty' => TRUE,
+      'tokenize' => FALSE,
+      'content' => $header_text,
+      'plugin_id' => 'text_custom',
+    );
+
+    // Set the header plugin.
+    $view->setHandler('block_3', 'header', 'area_text_custom', $options);
+  }
+}
+
+/**
+ * Implements hook_views_data().
+ */
+function tal_articles_views_data() {
+  $data['views']['article_list'] = array(
+    'title' => t('Tal Article Search Filter'),
+    'help' => t('Provides search textfield to filter the results.'),
+    'area' => array(
+      'id' => 'searchfilter',
+    ),
+  );
+  $data['node__field_date']['date_year_filter'] = array(
+    'group' => t('Custom'),
+    'title' => t('Enhanced Date filter by year only'),
+    'filter' => array(
+      'field' => 'field_date_value',
+      'id' => 'string',
+    ),
+  );
+  return $data;
+}

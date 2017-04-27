@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: sip_with_background
+label: 'Single item promo with background'
+revision: 1
+description: 'Create new "Single Item promo with background" type custom components.'

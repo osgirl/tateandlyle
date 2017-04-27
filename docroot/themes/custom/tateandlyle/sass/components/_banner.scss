@@ -1,0 +1,157 @@
+.block-banner {
+  margin-top: 25px;
+  margin-bottom: 25px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  @media (max-width: $screen-sm-lsp-max) {
+    background: none !important;
+  }
+  @media (min-width: $screen-sm) {
+    margin-bottom: 50px;
+    margin-top: 50px;
+  }
+  @media (min-width: $screen-sm-lsp-min) {
+    margin-right: -30px;
+    margin-left: -30px;
+    background-position: 60%;
+  }
+  @media (min-width: $screen-md-lg) {
+    margin-left: -15.22%;
+    margin-right: -15.22%;
+  }
+
+  .block-banner {
+    margin: 0;
+  }
+}
+
+.tal--ingredient-banner {
+
+  @media (min-width: $screen-md-lg) {
+    margin-left: -19.22%;
+    margin-right: -19.22%;
+  }
+}
+
+.banner__overlay__block {
+  @media (min-width: $screen-sm-lsp) {
+    position: relative;
+    min-height: 262px;
+  }
+  @media (min-width: $screen-md) {
+    min-height: 350px;
+  }
+}
+
+.block-banner {
+  .banner__overlay--content {
+    max-width: 1169px;
+    margin: auto;
+    position: relative;
+    @media (min-width: $screen-sm-lsp) {
+      font-size: 0;
+    }
+  }
+
+  .banner__overlay--left,
+  .banner__overlay--right {
+    @media (min-width: $screen-sm-lsp) {
+      width: 50%;
+      display: inline-block;
+      vertical-align: middle;
+      font-size: $font-size-base;
+    }
+  }
+
+  .banner__background-overlay {
+    @media (min-width: $screen-sm-lsp) {
+      background: $color-white-translucent;
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      right: 50%;
+      top: 0;
+    }
+  }
+
+  .banner__overlay--left {
+    margin-bottom: 20px;
+    @media (min-width: $screen-sm-lsp) {
+      margin-bottom: 0;
+      padding-top: 40px;
+      padding-bottom: 10px;
+      vertical-align: top;
+    }
+
+    @media (min-width: $screen-md) {
+      padding-top: 34px;
+    }
+
+    @media (min-width: $screen-md-lg) {
+      padding-top: 64px;
+    }
+  }
+
+  .banner__overlay--right {
+    @media (min-width: $screen-md) {
+      padding-top: 40px;
+    }
+  }
+
+  .banner--inner {
+    @media (min-width: $screen-sm-lsp) {
+      margin: 0 40px;
+      max-width: 381px;
+    }
+  }
+
+  .field--name-field-banner-title {
+    @extend %title-border-bottom;
+    color: $gray-base;
+    font-size: $font-size-h2;
+    margin-bottom: 10px;
+    @media (min-width: $screen-sm-lsp) {
+      font-size: $font-size-h1-sm;
+    }
+    @media (min-width: $screen-sm) {
+      font-size: $font-size-h2-l;
+    }
+    @media (min-width: $screen-md) {
+      font-size: $font-size-h1;
+    }
+  }
+
+  .field--name-field-short-summary {
+    color: $gray-base;
+    display: none;
+    @media (min-width: $screen-sm-lsp) {
+      display: block;
+    }
+  }
+}
+
+// Important to override inline style.
+.banner__overlay--right {
+  .butoflashplayer,
+  .butohtml5player,
+  video {
+    display: none;
+    height: auto !important;
+    width: 100% !important;
+    padding: 0 !important;
+    max-width: 464px;
+    margin: auto;
+    @media (min-width: $screen-sm) {
+      display: block;
+    }
+    @media (min-width: $screen-sm-lsp) {
+      height: 261px !important;
+    }
+    object,
+    video {
+      width: 100% !important;
+      height: 100% !important;
+    }
+  }
+}

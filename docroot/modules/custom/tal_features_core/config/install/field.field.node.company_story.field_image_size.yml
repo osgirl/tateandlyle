@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_image_size
+    - node.type.company_story
+  module:
+    - options
+id: node.company_story.field_image_size
+field_name: field_image_size
+entity_type: node
+bundle: company_story
+label: 'Image size'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_integer

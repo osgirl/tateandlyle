@@ -1,0 +1,31 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.embedded
+    - field.field.media.tal_document.field_tal_document
+    - field.field.media.tal_document.field_tal_document_size
+    - field.field.media.tal_document.field_tal_media_in_library
+    - field.field.media.tal_document.field_tal_mime_type
+    - media_entity.bundle.tal_document
+  module:
+    - file
+id: media.tal_document.embedded
+targetEntityType: media
+bundle: tal_document
+mode: embedded
+content:
+  field_tal_document:
+    type: file_default
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  field_tal_document_size: true
+  field_tal_media_in_library: true
+  field_tal_mime_type: true
+  name: true
+  thumbnail: true
+  uid: true

@@ -1,0 +1,72 @@
+name: 'TAL Core Feature'
+description: 'Provides Ingredient content type and related configuration. Use ingredient to create your static ingredient contents.'
+type: module
+core: 8.x
+version: 8.x-1.0
+package: tal
+dependencies:
+  - access_unpublished
+  - acquia_connector
+  - acquia_search
+  - block
+  - block_content
+  - ckeditor
+  - colorbox
+  - country
+  - ctools
+  - datetime
+  - editor
+  - embed
+  - entity_browser
+  - entity_embed
+  - entity_reference_revisions
+  - facets
+  - features
+  - field
+  - field_group
+  - file
+  - filter
+  - help
+  - image
+  - improved_multi_select
+  - inline_entity_form
+  - lightning_core
+  - lightning_media
+  - lightning_media_image
+  - lightning_workflow
+  - link
+  - media_entity
+  - media_entity_document
+  - menu_ui
+  - metatag
+  - node
+  - options
+  - panelizer
+  - paragraphs
+  - path
+  - pathauto
+  - search_api
+  - search_api_solr
+  - simple_sitemap
+  - slick
+  - slick_views
+  - smart_trim
+  - system
+  - tal_admin_config
+  - tal_articles
+  - tal_downloads
+  - tal_image_gallery
+  - tal_ingredient_search
+  - tal_mega_menu
+  - tal_search
+  - tal_video_embed_buto
+  - tal_video_gallery
+  - tal_webform
+  - taxonomy
+  - text
+  - user
+  - video_embed_field
+  - views
+  - views_infinite_scroll
+  - workbench_email
+  - workbench_moderation

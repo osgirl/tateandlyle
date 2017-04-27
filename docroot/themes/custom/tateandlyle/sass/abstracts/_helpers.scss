@@ -1,0 +1,95 @@
+.max-content-width {
+  max-width: 587px;
+
+  @media (min-width: $screen-sm-lsp) and (orientation: landscape) {
+    max-width: 607px;
+  }
+
+  @media (min-width: $screen-sm) {
+    max-width: 798px;
+  }
+
+  @media (min-width: $screen-md) {
+    max-width: 1108px;
+  }
+}
+
+.max-content-width-sm-inner {
+  @media (min-width: $screen-sm) {
+    max-width: 708px;
+  }
+  @media (min-width: $screen-md) {
+    max-width: 971px;
+  }
+}
+
+.max-content-width-sm {
+  @media (min-width: $screen-md) {
+    max-width: 800px;
+  }
+  @media (min-width: $screen-md-lg) {
+    max-width: 1108px;
+  }
+}
+
+.max-width-summary {
+  max-width: 533px;
+}
+
+.modal-backdrop {
+  display: none;
+}
+
+.inline-content {
+  display: inline-block;
+}
+
+.view {
+  @media (max-width: $screen-xs-max) {
+    display: block !important;
+  }
+}
+
+.glyphicon-search {
+  &::before {
+    content: none;
+  }
+
+  &::after {
+    background: url("../images/icons/iconsearch-white.png") no-repeat center;
+    background-size: cover;
+    content: " ";
+    display: inline-block;
+    height: 23px;
+    width: 23px;
+  }
+}
+
+#block-mobile-menu {
+  .glyphicon-search::after {
+    background: url("../images/icons/iconsearch-black.svg") no-repeat;
+    background-size: cover;
+    height: 20px;
+    width: 20px;
+  }
+
+  .glyphicon-remove {
+    &::before {
+      content: none;
+    }
+
+    &::after {
+      background: url("../images/icons/iconclose-black.png") no-repeat center;
+      background-size: cover;
+      content: " ";
+      display: inline-block;
+      height: 15px;
+      width: 15px;
+    }
+  }
+}
+
+.ipe-actions-block {
+  width: 90%;
+  margin: auto;
+}

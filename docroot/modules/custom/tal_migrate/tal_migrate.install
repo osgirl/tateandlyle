@@ -1,0 +1,15 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the tal_wrapper module.
+ */
+
+/**
+ * Implements hook_uninstall().
+ */
+function tal_migrate_uninstall() {
+  db_query("DELETE FROM {config} WHERE name LIKE 'migrate_plus.migration.migrate_csv%'");
+  db_query("DELETE FROM {config} WHERE name LIKE 'migrate_plus.migration.paragraph_migration%'");
+  drupal_flush_all_caches();
+}

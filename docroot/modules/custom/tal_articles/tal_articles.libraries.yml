@@ -1,0 +1,10 @@
+tal_articles_post_list:
+  js:
+    js/tal_articles_post_list.js: {}
+  dependencies:
+    - core/jquery
+tal_articles_search:
+  js:
+    js/tal_articles_search.js: {}
+  dependencies:
+    - core/jquery

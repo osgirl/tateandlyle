@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.passive_recruitment
+    - field.storage.block_content.field_bg_color
+  module:
+    - options
+id: block_content.passive_recruitment.field_bg_color
+field_name: field_bg_color
+entity_type: block_content
+bundle: passive_recruitment
+label: 'First block Background color'
+description: 'Background colour for first box in Passive recruitment block.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

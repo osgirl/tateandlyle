@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for TAL admin config module.
+ */
+
+/**
+ * Set job search redirect url.
+ *
+ * Implements hook_update_N().
+ */
+function tal_admin_config_update_8201() {
+  \Drupal::service('config.factory')->getEditable('tal_admin_config.settings')
+    ->set('job_search_url', 'https://jobs.tateandlyle.com/search/')
+    ->save();
+}

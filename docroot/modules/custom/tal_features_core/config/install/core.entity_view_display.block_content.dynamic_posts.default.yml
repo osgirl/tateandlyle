@@ -1,0 +1,38 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.dynamic_posts
+    - field.field.block_content.dynamic_posts.field_artice
+    - field.field.block_content.dynamic_posts.field_choose_articles_display
+    - field.field.block_content.dynamic_posts.field_header_text
+    - field.field.block_content.dynamic_posts.field_tags
+  module:
+    - options
+id: block_content.dynamic_posts.default
+targetEntityType: block_content
+bundle: dynamic_posts
+mode: default
+content:
+  field_artice:
+    weight: 0
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+  field_choose_articles_display:
+    weight: 2
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+  field_tags:
+    weight: 1
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+hidden:
+  field_header_text: true

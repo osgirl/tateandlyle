@@ -1,0 +1,56 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.related_downloads.field_field_in_submenu_title
+    - field.field.paragraph.related_downloads.field_file_description
+    - field.field.paragraph.related_downloads.field_file_display_name
+    - field.field.paragraph.related_downloads.field_file_group
+    - field.field.paragraph.related_downloads.field_file_icon
+    - paragraphs.paragraphs_type.related_downloads
+  module:
+    - tal_downloads
+id: paragraph.related_downloads.default
+targetEntityType: paragraph
+bundle: related_downloads
+mode: default
+content:
+  field_field_in_submenu_title:
+    weight: 5
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_file_description:
+    weight: 3
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_file_display_name:
+    weight: 2
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_file_group:
+    type: tal_filegroup
+    weight: 4
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+  field_file_icon:
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: full
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+hidden:
+  created: true
+  uid: true

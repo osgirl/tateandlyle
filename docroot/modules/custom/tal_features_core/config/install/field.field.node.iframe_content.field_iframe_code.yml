@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_iframe_code
+    - node.type.iframe_content
+id: node.iframe_content.field_iframe_code
+field_name: field_iframe_code
+entity_type: node
+bundle: iframe_content
+label: 'Iframe Code'
+description: 'Add iframe code with ifram tag and attributes.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

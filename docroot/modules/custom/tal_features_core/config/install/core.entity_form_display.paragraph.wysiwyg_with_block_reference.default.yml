@@ -1,0 +1,58 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.wysiwyg_with_block_reference.field_block_component
+    - field.field.paragraph.wysiwyg_with_block_reference.field_field_in_submenu_title
+    - field.field.paragraph.wysiwyg_with_block_reference.field_in_border_title
+    - field.field.paragraph.wysiwyg_with_block_reference.field_in_wysiwyg1
+    - field.field.paragraph.wysiwyg_with_block_reference.field_in_wysiwyg2
+    - paragraphs.paragraphs_type.wysiwyg_with_block_reference
+  module:
+    - text
+    - workbench_moderation
+id: paragraph.wysiwyg_with_block_reference.default
+targetEntityType: paragraph
+bundle: wysiwyg_with_block_reference
+mode: default
+content:
+  field_block_component:
+    weight: 9
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+  field_field_in_submenu_title:
+    weight: 6
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_in_border_title:
+    weight: 7
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_in_wysiwyg1:
+    weight: 8
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+  field_in_wysiwyg2:
+    weight: 10
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+hidden:
+  created: true
+  status: true
+  uid: true

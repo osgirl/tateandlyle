@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: single_item_promo
+label: 'Single Item promo'
+revision: 1
+description: 'Create new "Single Item promo" type custom components.'

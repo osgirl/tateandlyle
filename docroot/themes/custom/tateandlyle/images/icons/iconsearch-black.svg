@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
+    <title>E88C4527-F225-4311-8F7B-430B79A63E8E</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <path d="M20.625,10.3125 C20.625,16.0075781 16.0075781,20.625 10.3125,20.625 C4.61742187,20.625 0,16.0075781 0,10.3125 C0,4.61742188 4.61742187,0 10.3125,0 C16.0075781,0 20.625,4.61742188 20.625,10.3125 L20.625,10.3125 Z" id="path-1"></path>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="20.625" height="20.625" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+    </defs>
+    <g id="Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linejoin="round">
+        <g transform="translate(-168.000000, -925.000000)" id="icons" stroke="#000000">
+            <g transform="translate(128.000000, 361.000000)">
+                <g id="icon/search" transform="translate(40.000000, 564.000000)">
+                    <g>
+                        <use id="Stroke-1417" mask="url(#mask-2)" stroke-width="2" xlink:href="#path-1"></use>
+                        <path d="M17.69525,17.695375 L29.37525,29.375375" id="Stroke-1418" stroke-linecap="round"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
