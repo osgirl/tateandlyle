@@ -5,6 +5,7 @@ dependencies:
     - field.field.node.leadership.field_bio
     - field.field.node.leadership.field_designation
     - field.field.node.leadership.field_in_banner
+    - field.field.node.leadership.field_order
     - field.field.node.leadership.field_profile_picture
     - field.field.node.leadership.field_team_type
     - image.style.quote_167_x_167
@@ -63,4 +64,5 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_order: true
   field_team_type: true
