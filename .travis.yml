@@ -64,13 +64,7 @@ deploy:
      script: "$BLT_DIR/scripts/travis/deploy_branch"
      skip_cleanup: true
      on:
-       branch: develop
-       php: 5.6
-   - provider: script
-     script: "$BLT_DIR/scripts/travis/deploy_branch"
-     skip_cleanup: true
-     on:
-       branch: master
+       branch: cr
        php: 5.6
    - provider: script
      script: "$BLT_DIR/scripts/travis/deploy_tag"

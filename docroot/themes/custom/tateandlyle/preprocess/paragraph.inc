@@ -96,7 +96,7 @@ function tal_preprocess_paragraph_wysiwyg_with_country_and_region($variables, $p
     }
   }
 
-  if ($i >= 2) {
+  if (isset($i) && $i >= 2) {
     $variables['list_country'][$i]['#suffix'] = '</div>';
   }
 
