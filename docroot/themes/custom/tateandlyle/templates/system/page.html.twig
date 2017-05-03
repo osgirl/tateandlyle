@@ -120,25 +120,6 @@
       {% endblock %}
 
       <main role="main-content">
-        {# Sidebar First #}
-        {% if page.sidebar_first %}
-          {% block sidebar_first %}
-            <aside class="col-md-3" role="complementary">
-              {{ page.sidebar_first }}
-            </aside>
-          {% endblock %}
-        {% endif %}
-
-        {# Sidebar Second #}
-        {% if page.sidebar_second or page.secondary_top %}
-          {% block sidebar_second %}
-            <aside class="col-md-3 right__sidebar" role="complementary">
-              {{ page.secondary_top}}
-              {{ page.sidebar_second }}
-            </aside>
-          {% endblock %}
-        {% endif %}
-
         {# Content #}
         {%
           set content_classes = [
@@ -187,6 +168,25 @@
             {{ page.content }}
           {% endblock %}
         </section>
+        
+        {# Sidebar First #}
+        {% if page.sidebar_first %}
+          {% block sidebar_first %}
+            <aside class="col-md-3" role="complementary">
+              {{ page.sidebar_first }}
+            </aside>
+          {% endblock %}
+        {% endif %}
+
+        {# Sidebar Second #}
+        {% if page.sidebar_second or page.secondary_top %}
+          {% block sidebar_second %}
+            <aside class="col-md-3 right__sidebar" role="complementary">
+              {{ page.secondary_top}}
+              {{ page.sidebar_second }}
+            </aside>
+          {% endblock %}
+        {% endif %}
       </main>
 
       {# Content Bottom #}

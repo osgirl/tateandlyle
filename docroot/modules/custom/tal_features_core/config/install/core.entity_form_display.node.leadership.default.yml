@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.leadership.field_bio
     - field.field.node.leadership.field_designation
     - field.field.node.leadership.field_in_banner
+    - field.field.node.leadership.field_order
     - field.field.node.leadership.field_profile_picture
     - field.field.node.leadership.field_team_type
     - node.type.leadership
@@ -46,6 +47,12 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
+  field_order:
+    weight: 26
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
   field_profile_picture:
     type: entity_browser_file
     weight: 7
