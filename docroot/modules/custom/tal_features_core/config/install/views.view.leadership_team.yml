@@ -364,21 +364,32 @@ display:
           reduce_duplicates: false
           plugin_id: list_field
       sorts:
-        created:
-          id: created
-          table: node_field_data
-          field: created
-          order: DESC
-          entity_type: node
-          entity_field: created
-          plugin_id: date
+        field_order_value:
+          id: field_order_value
+          table: node__field_order
+          field: field_order_value
           relationship: none
           group_type: group
           admin_label: ''
+          order: ASC
           exposed: false
           expose:
             label: ''
-          granularity: second
+          plugin_id: standard
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: false
+          expose:
+            label: ''
+          entity_type: node
+          entity_field: title
+          plugin_id: standard
       title: 'Our Leadership Team'
       header: {  }
       footer: {  }

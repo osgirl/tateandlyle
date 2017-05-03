@@ -482,7 +482,7 @@ display:
               leadership: teaser
               press_release: teaser
               tal_: default
-      use_ajax: false
+      use_ajax: true
       cache:
         type: none
         options: {  }
