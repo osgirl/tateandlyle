@@ -1,8 +1,11 @@
+uuid: 1ba4e914-7507-43bf-8d5f-20e6b1ae34e4
 langcode: en
 status: true
 dependencies:
   config:
     - views.view.ingredient_finder
+_core:
+  default_config_hash: 9WCpA-7DNs_-aKYF7GREHutZ7rXlIoUnR98tEWAlEEY
 id: applications
 name: Applications
 url_alias: applications
