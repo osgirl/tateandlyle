@@ -3,8 +3,6 @@ status: true
 dependencies:
   config:
     - views.view.ingredient_finder
-_core:
-  default_config_hash: 9WCpA-7DNs_-aKYF7GREHutZ7rXlIoUnR98tEWAlEEY
 id: applications
 name: Applications
 url_alias: applications

@@ -1,11 +1,8 @@
-uuid: d03805d2-5217-4fa3-81b2-3cebe91e1729
 langcode: en
 status: true
 dependencies:
   config:
     - views.view.ingredient_finder
-_core:
-  default_config_hash: KsxEs0MZw2yUtqwsMdPkm_iQaPBeAtHqyJ1gkz5fGIo
 id: trends_solutions
 name: 'Trends & Solutions'
 url_alias: trends_solutions

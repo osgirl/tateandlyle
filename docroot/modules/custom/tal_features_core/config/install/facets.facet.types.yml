@@ -3,8 +3,6 @@ status: true
 dependencies:
   config:
     - views.view.ingredient_finder
-_core:
-  default_config_hash: COozw5mSpDZ0BLteqkTcBCKIT9yUoc_B8giZ3B1iSYs
 id: types
 name: Types
 url_alias: types
