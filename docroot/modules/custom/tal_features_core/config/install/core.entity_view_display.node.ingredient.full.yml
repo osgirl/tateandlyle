@@ -32,14 +32,14 @@ bundle: ingredient
 mode: full
 content:
   body:
-    weight: 106
+    weight: 8
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: text_default
   field_hide_title:
     type: boolean
-    weight: 0
+    weight: 1
     label: hidden
     settings:
       format: default
@@ -47,7 +47,7 @@ content:
       format_custom_true: ''
     third_party_settings: {  }
   field_in_applications:
-    weight: 102
+    weight: 5
     label: hidden
     settings:
       link: true
@@ -55,21 +55,21 @@ content:
     type: entity_reference_label
   field_in_banner:
     type: entity_reference_entity_view
-    weight: 0
+    weight: 2
     label: hidden
     settings:
       view_mode: default
       link: false
     third_party_settings: {  }
   field_in_trends_solutions:
-    weight: 103
+    weight: 6
     label: hidden
     settings:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
   field_in_types:
-    weight: 101
+    weight: 4
     label: hidden
     settings:
       link: true
@@ -77,14 +77,18 @@ content:
     type: entity_reference_label
   field_ingredients_content:
     type: entity_reference_revisions_entity_view
-    weight: 104
+    weight: 7
     label: hidden
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
   links:
-    weight: 100
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+  workbench_moderation_control:
+    weight: 0
     settings: {  }
     third_party_settings: {  }
 hidden:

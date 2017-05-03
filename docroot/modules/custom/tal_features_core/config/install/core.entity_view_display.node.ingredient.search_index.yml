@@ -96,6 +96,8 @@ content:
     weight: 0
     settings: {  }
     third_party_settings: {  }
+  workbench_moderation_control:
+    weight: -20
 hidden:
   field_hide_title: true
   field_image: true
