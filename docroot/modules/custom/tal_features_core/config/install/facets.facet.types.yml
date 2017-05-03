@@ -1,8 +1,11 @@
+uuid: 17cf78ec-ad9e-4855-8ac8-7389f2d9762a
 langcode: en
 status: true
 dependencies:
   config:
     - views.view.ingredient_finder
+_core:
+  default_config_hash: COozw5mSpDZ0BLteqkTcBCKIT9yUoc_B8giZ3B1iSYs
 id: types
 name: Types
 url_alias: types
@@ -14,7 +17,7 @@ facet_source_id: 'views_page:ingredient_finder__page_1'
 widget:
   type: links
   config:
-    show_numbers: true
+    show_numbers: false
     soft_limit: 0
 query_operator: or
 exclude: false
