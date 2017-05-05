@@ -14,7 +14,7 @@ facet_source_id: 'views_page:ingredient_finder__page_1'
 widget:
   type: links
   config:
-    show_numbers: true
+    show_numbers: false
     soft_limit: 0
 query_operator: or
 exclude: false
