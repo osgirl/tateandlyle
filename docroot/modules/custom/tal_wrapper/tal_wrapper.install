@@ -287,6 +287,6 @@ function tal_wrapper_update_8221() {
  *
  * Implements hook_update_N().
  */
-function tal_wrapper_update_8222() {
-  \Drupal::service('module_installer')->install(['sitemap', 'pathauto']);
+function tal_wrapper_update_8223() {
+  \Drupal::service('module_installer')->install(['sitemap', 'url_redirect']);
 }
