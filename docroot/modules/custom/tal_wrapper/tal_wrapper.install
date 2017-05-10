@@ -288,5 +288,5 @@ function tal_wrapper_update_8221() {
  * Implements hook_update_N().
  */
 function tal_wrapper_update_8222() {
-  \Drupal::service('module_installer')->install(['menu_breadcrumb']);
+  \Drupal::service('module_installer')->install(['sitemap', 'url_redirect']);
 }
