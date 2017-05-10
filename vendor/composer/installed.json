@@ -4634,13 +4634,13 @@
         "version_normalized": "8.2.8.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/drupal-composer/drupal-core.git",
-            "reference": "c63ef7a000bdfe2286cf2eeec6efdf4298dfc6a8"
+            "url": "https://github.com/drupal/core.git",
+            "reference": "7ccc248f4058dd5985ad0c61c129243d0d2b58b8"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/drupal-composer/drupal-core/zipball/c63ef7a000bdfe2286cf2eeec6efdf4298dfc6a8",
-            "reference": "c63ef7a000bdfe2286cf2eeec6efdf4298dfc6a8",
+            "url": "https://api.github.com/repos/drupal/core/zipball/7ccc248f4058dd5985ad0c61c129243d0d2b58b8",
+            "reference": "7ccc248f4058dd5985ad0c61c129243d0d2b58b8",
             "shasum": ""
         },
         "require": {
@@ -4896,7 +4896,7 @@
             },
             "drupal": {
                 "version": "8.x-1.0-alpha1",
-                "datestamp": "1476873539"
+                "datestamp": "1490940184"
             }
         },
         "installation-source": "dist",
@@ -4920,6 +4920,10 @@
             {
                 "name": "dww",
                 "homepage": "https://www.drupal.org/user/46549"
+            },
+            {
+                "name": "hchonov",
+                "homepage": "https://www.drupal.org/user/2901211"
             },
             {
                 "name": "jeqq",
@@ -4960,7 +4964,7 @@
             },
             "drupal": {
                 "version": "8.x-1.0-alpha12",
-                "datestamp": "1477470543"
+                "datestamp": "1490869683"
             },
             "patches_applied": {
                 "2822915 - Migration source plugin makes bad assumptions that can lead to data loss": "https://www.drupal.org/files/issues/2822915-2.patch",
@@ -5019,7 +5023,7 @@
             },
             "drupal": {
                 "version": "8.x-1.0-alpha5",
-                "datestamp": "1477394943"
+                "datestamp": "1490878684"
             },
             "patches_applied": {
                 "2814055 - Allow modules to react to replication events": "https://www.drupal.org/files/issues/2814055-2.patch",
@@ -5081,7 +5085,7 @@
             },
             "drupal": {
                 "version": "8.x-1.0-alpha4",
-                "datestamp": "1477395239"
+                "datestamp": "1490869683"
             }
         },
         "installation-source": "dist",
@@ -5608,7 +5612,7 @@
             },
             "drupal": {
                 "version": "8.x-3.0-alpha27",
-                "datestamp": "1471723439"
+                "datestamp": "1490677984"
             }
         },
         "installation-source": "dist",
@@ -5948,7 +5952,7 @@
             },
             "drupal": {
                 "version": "8.x-3.0-alpha27",
-                "datestamp": "1471723439"
+                "datestamp": "1490677984"
             }
         },
         "notification-url": "https://packages.drupal.org/8/downloads",
@@ -6067,6 +6071,10 @@
             {
                 "name": "neclimdul",
                 "homepage": "https://www.drupal.org/user/48673"
+            },
+            {
+                "name": "tim.plunkett",
+                "homepage": "https://www.drupal.org/user/241634"
             }
         ],
         "description": "Allow any entity view mode to be rendered using a Panels display.",
@@ -6351,6 +6359,10 @@
             {
                 "name": "Berdir",
                 "homepage": "https://www.drupal.org/user/214652"
+            },
+            {
+                "name": "Dave Reid",
+                "homepage": "https://www.drupal.org/user/53892"
             },
             {
                 "name": "Drupal Media Team",
@@ -6821,7 +6833,7 @@
             },
             "drupal": {
                 "version": "8.x-1.0-rc3",
-                "datestamp": "1468176563"
+                "datestamp": "1490755685"
             }
         },
         "installation-source": "dist",
@@ -6962,7 +6974,7 @@
             },
             "drupal": {
                 "version": "8.x-1.0-rc2",
-                "datestamp": "1487581984"
+                "datestamp": "1492678144"
             },
             "patches_applied": {
                 "getDisplay() on null Entity Browser reference": "https://www.drupal.org/files/issues/ElementPatch_0.patch"
@@ -7445,7 +7457,7 @@
             },
             "drupal": {
                 "version": "8.x-1.7",
-                "datestamp": "1480953783"
+                "datestamp": "1490205485"
             },
             "patches_applied": {
                 "Acquia search custom multi core": "https://gist.githubusercontent.com/jayakrishnanj/efd2093a3f95b83cbc18aa12630102e6/raw/e9f08b786a9dafda7192297f075ed0e26c9f7e8f/custom-multi-core.patch"
@@ -7778,7 +7790,7 @@
             },
             "drupal": {
                 "version": "8.x-1.34",
-                "datestamp": "1482323883"
+                "datestamp": "1489664583"
             }
         },
         "installation-source": "dist",
@@ -7855,7 +7867,7 @@
             },
             "drupal": {
                 "version": "8.x-1.34",
-                "datestamp": "1482323883"
+                "datestamp": "1489664583"
             }
         },
         "notification-url": "https://packages.drupal.org/8/downloads",
@@ -7926,7 +7938,7 @@
             },
             "drupal": {
                 "version": "8.x-1.34",
-                "datestamp": "1482323883"
+                "datestamp": "1489664583"
             }
         },
         "notification-url": "https://packages.drupal.org/8/downloads",
@@ -7996,7 +8008,7 @@
             },
             "drupal": {
                 "version": "8.x-1.34",
-                "datestamp": "1482323883"
+                "datestamp": "1489664583"
             }
         },
         "notification-url": "https://packages.drupal.org/8/downloads",
@@ -8076,7 +8088,7 @@
             },
             "drupal": {
                 "version": "8.x-1.18",
-                "datestamp": "1480614184"
+                "datestamp": "1491487683"
             }
         },
         "installation-source": "dist",
@@ -8195,7 +8207,7 @@
             },
             "drupal": {
                 "version": "8.x-3.2",
-                "datestamp": "1487640876"
+                "datestamp": "1491860942"
             }
         },
         "installation-source": "dist",
@@ -8211,6 +8223,10 @@
             {
                 "name": "neardark",
                 "homepage": "https://www.drupal.org/user/661076"
+            },
+            {
+                "name": "sylus",
+                "homepage": "https://www.drupal.org/user/339714"
             },
             {
                 "name": "wundo",
@@ -8247,7 +8263,7 @@
             },
             "drupal": {
                 "version": "8.x-1.6",
-                "datestamp": "1489502883"
+                "datestamp": "1490994483"
             }
         },
         "installation-source": "dist",
@@ -8313,6 +8329,10 @@
         ],
         "authors": [
             {
+                "name": "RenatoG",
+                "homepage": "https://www.drupal.org/user/3326031"
+            },
+            {
                 "name": "Sam152",
                 "homepage": "https://www.drupal.org/user/1485048"
             },
@@ -8321,16 +8341,12 @@
                 "homepage": "https://www.drupal.org/user/5546"
             },
             {
-                "name": "grisendo",
-                "homepage": "https://www.drupal.org/user/848238"
-            },
-            {
                 "name": "jdwfly",
                 "homepage": "https://www.drupal.org/user/298179"
             },
             {
-                "name": "podarok",
-                "homepage": "https://www.drupal.org/user/116002"
+                "name": "rsmylski",
+                "homepage": "https://www.drupal.org/user/1324348"
             }
         ],
         "description": "A light-weight, customizable lightbox plugin for jQuery.",
@@ -8365,7 +8381,7 @@
             },
             "drupal": {
                 "version": "8.x-1.0-beta4",
-                "datestamp": "1487276282"
+                "datestamp": "1490912883"
             }
         },
         "installation-source": "dist",
@@ -9620,26 +9636,6 @@
             {
                 "name": "borisson_",
                 "homepage": "https://www.drupal.org/user/2393360"
-            },
-            {
-                "name": "drunken monkey",
-                "homepage": "https://www.drupal.org/user/205582"
-            },
-            {
-                "name": "jurcello",
-                "homepage": "https://www.drupal.org/user/774070"
-            },
-            {
-                "name": "marthinal",
-                "homepage": "https://www.drupal.org/user/387593"
-            },
-            {
-                "name": "mr.baileys",
-                "homepage": "https://www.drupal.org/user/383424"
-            },
-            {
-                "name": "swentel",
-                "homepage": "https://www.drupal.org/user/107403"
             }
         ],
         "description": "The Facet module allows site builders to easily create and manage faceted search interfaces.",
@@ -9790,7 +9786,7 @@
             },
             "drupal": {
                 "version": "8.x-1.23",
-                "datestamp": "1457671745"
+                "datestamp": "1490277183"
             }
         },
         "installation-source": "dist",
@@ -10563,8 +10559,16 @@
                 "homepage": "https://www.drupal.org/user/229048"
             },
             {
+                "name": "badjava",
+                "homepage": "https://www.drupal.org/user/83372"
+            },
+            {
                 "name": "chx",
                 "homepage": "https://www.drupal.org/user/9446"
+            },
+            {
+                "name": "japerry",
+                "homepage": "https://www.drupal.org/user/45640"
             },
             {
                 "name": "kalman.hosszu",
@@ -10674,7 +10678,7 @@
             },
             "drupal": {
                 "version": "8.x-2.8",
-                "datestamp": "1482783482"
+                "datestamp": "1490775483"
             }
         },
         "installation-source": "dist",
@@ -10940,7 +10944,7 @@
             },
             "drupal": {
                 "version": "8.x-1.0-alpha4",
-                "datestamp": "1474662540"
+                "datestamp": "1490096883"
             }
         },
         "installation-source": "dist",
@@ -10989,8 +10993,8 @@
                 "dev-3.x": "3.x-dev"
             },
             "drupal": {
-                "version": "8.x-3.0-alpha4+3-dev",
-                "datestamp": "1484902382"
+                "version": "8.x-3.0-rc1+3-dev",
+                "datestamp": "1490271184"
             }
         },
         "installation-source": "source",
@@ -11024,6 +11028,69 @@
         }
     },
     {
+        "name": "drupal/sitemap",
+        "version": "1.3.0",
+        "version_normalized": "1.3.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupal.org/project/sitemap",
+            "reference": "8.x-1.3"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://ftp.drupal.org/files/projects/sitemap-8.x-1.3.zip",
+            "reference": null,
+            "shasum": "c2a2bba65c51102aff004fc1a41b588185a326e7"
+        },
+        "require": {
+            "drupal/core": "~8.0"
+        },
+        "type": "drupal-module",
+        "extra": {
+            "branch-alias": {
+                "dev-1.x": "1.x-dev"
+            },
+            "drupal": {
+                "version": "8.x-1.3",
+                "datestamp": "1488325384"
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "license": [
+            "GPL-2.0+"
+        ],
+        "authors": [
+            {
+                "name": "Nik Alexandrov",
+                "homepage": "https://www.drupal.org/u/nafes",
+                "role": "Maintainer"
+            },
+            {
+                "name": "Anna Kalata",
+                "homepage": "https://www.drupal.org/u/akalata",
+                "role": "Co-maintainer"
+            },
+            {
+                "name": "killes@www.drop.org",
+                "homepage": "https://www.drupal.org/u/killeswww.drop.org",
+                "role": "Co-maintainer"
+            },
+            {
+                "name": "See other contributors",
+                "homepage": "https://www.drupal.org/node/3295/committers",
+                "role": "contributor"
+            }
+        ],
+        "description": "Display a sitemap.",
+        "homepage": "http://drupal.org/project/sitemap",
+        "support": {
+            "source": "http://cgit.drupalcode.org/sitemap",
+            "issues": "http://drupal.org/project/issues/sitemap",
+            "irc": "irc://irc.freenode.org/drupal-contribute"
+        }
+    },
+    {
         "name": "drupal/slick",
         "version": "1.0.0-rc2",
         "version_normalized": "1.0.0.0-RC2",
@@ -11049,7 +11116,7 @@
             },
             "drupal": {
                 "version": "8.x-1.0-rc2",
-                "datestamp": "1486728784"
+                "datestamp": "1490295783"
             }
         },
         "installation-source": "dist",
@@ -11191,6 +11258,55 @@
         }
     },
     {
+        "name": "drupal/url_redirect",
+        "version": "2.1.0",
+        "version_normalized": "2.1.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupal.org/project/url_redirect",
+            "reference": "8.x-2.1"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://ftp.drupal.org/files/projects/url_redirect-8.x-2.1.zip",
+            "reference": "8.x-2.1",
+            "shasum": "99f8e7124c6f63be53c47ca5e7a92a87fff8d76f"
+        },
+        "require": {
+            "drupal/core": "~8.0"
+        },
+        "type": "drupal-module",
+        "extra": {
+            "branch-alias": {
+                "dev-2.x": "2.x-dev"
+            },
+            "drupal": {
+                "version": "8.x-2.1",
+                "datestamp": "1479833040"
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "license": [
+            "GPL-2.0+"
+        ],
+        "authors": [
+            {
+                "name": "Nitesh Sethia",
+                "homepage": "https://www.drupal.org/user/2474982"
+            },
+            {
+                "name": "ajay_reddy",
+                "homepage": "https://www.drupal.org/user/3261994"
+            }
+        ],
+        "description": "Redirect User / Role for specific menu item.",
+        "homepage": "https://www.drupal.org/project/url_redirect",
+        "support": {
+            "source": "http://cgit.drupalcode.org/url_redirect"
+        }
+    },
+    {
         "name": "drupal/webform",
         "version": "5.0.0-beta9",
         "version_normalized": "5.0.0.0-beta9",
@@ -11215,7 +11331,7 @@
             },
             "drupal": {
                 "version": "8.x-5.0-beta9",
-                "datestamp": "1488753784"
+                "datestamp": "1491362286"
             },
             "patches_applied": {
                 "Entity select: Gives error when conditional state is added again.": "https://www.drupal.org/files/issues/entity_select_gives-2858636-4.patch"
