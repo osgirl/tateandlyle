@@ -283,10 +283,19 @@ function tal_wrapper_update_8221() {
 }
 
 /**
- * Enable sitemap and url_redirect modules.
+ * Enable  module.
  *
  * Implements hook_update_N().
  */
 function tal_wrapper_update_8222() {
+  \Drupal::service('module_installer')->install(['menu_breadcrumb']);
+}
+
+/**
+ * Enable sitemap and url_redirect modules.
+ *
+ * Implements hook_update_N().
+ */
+function tal_wrapper_update_8223() {
   \Drupal::service('module_installer')->install(['sitemap', 'url_redirect']);
 }
