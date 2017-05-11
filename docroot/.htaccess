@@ -76,10 +76,16 @@ AddEncoding gzip svgz
   # RewriteCond %{HTTPS} on
   RewriteRule ^ - [E=protossl:s]
 
-  # Redirect HTTP to HTTPS
+  # Redirect HTTP to HTTPS and ensure www.
   RewriteCond %{HTTPS} off
+  # ensure www.
+  RewriteCond %{HTTP_HOST} !prod\.acquia-sites\.com [NC]  # exclude Acquia domains
+  RewriteCond %{HTTP_HOST} !^www\. [NC]
+  RewriteRule ^ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # ensure https
   RewriteCond %{HTTP:X-Forwarded-Proto} !https
-  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
   # Make sure Authorization HTTP header is available to PHP
   # even when running as CGI or FastCGI.
