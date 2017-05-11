@@ -84,6 +84,7 @@ AddEncoding gzip svgz
   RewriteRule ^ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
   # ensure https
+  RewriteCond %{HTTP_HOST} !prod\.acquia-sites\.com [NC]  # exclude Acquia domains
   RewriteCond %{HTTP:X-Forwarded-Proto} !https
   RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
