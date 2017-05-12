@@ -76,9 +76,6 @@ AddEncoding gzip svgz
   # RewriteCond %{HTTPS} on
   RewriteRule ^ - [E=protossl:s]
 
-  tatelylecomdev.prod.acquia-sites.com
-  comstg.prod.cloud.tateandlyle.com
-
   # Redirect HTTP to HTTPS and ensure www.
   RewriteCond %{HTTPS} off
   # ensure www.
