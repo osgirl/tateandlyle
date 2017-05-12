@@ -84,9 +84,12 @@ AddEncoding gzip svgz
 
   # Below two blocks should be merged.
   # ensure www. for com[ENV].prod.cloud.tateandlyle.com/
-  RewriteCond %{HTTP_HOST} ^tateandlyle.com$
-  RewriteCond %{HTTP_HOST} !^www\. [NC]
-  RewriteRule ^ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+   RewriteCond %{ENV:AH_SITE_ENVIRONMENT} !test [NC] # not prod
+   RewriteCond %{ENV:AH_SITE_ENVIRONMENT} !dev [NC] # not prod
+   RewriteCond %{HTTP_HOST} !\.cloud\.tateandlyle\.com [NC]  # exclude Acquia domains
+   RewriteCond %{HTTP_HOST} !^www\. [NC]
+   RewriteRule ^ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
 
   # Make sure Authorization HTTP header is available to PHP
   # even when running as CGI or FastCGI.
