@@ -171,7 +171,9 @@
                 "search_api_node_grants is a reserved value and cannot be used as the machine name of a normal field": "https://www.drupal.org/files/issues/2761749-12--db_defaults_node_access_field_id.patch"
             },
             "drupal/facets": {
-                "Call to undefined method NodeType::hasTranslation inTranslateEntityProcessor": "https://www.drupal.org/files/issues/2823545-3.patch"
+                "Call to undefined method NodeType::hasTranslation inTranslateEntityProcessor": "https://www.drupal.org/files/issues/2823545-3.patch",
+                "Sort taxonomy facets by weight": "https://www.drupal.org/files/issues/sort_facets_by_weight-2833340-4.patch",
+                "Sort taxonomy facets by weight yml file": "https://www.drupal.org/files/issues/sort_facets_by_weight-2833340-18.patch"
             },
             "drupal/webform": {
                 "Entity select: Gives error when conditional state is added again.": "https://www.drupal.org/files/issues/entity_select_gives-2858636-4.patch"
