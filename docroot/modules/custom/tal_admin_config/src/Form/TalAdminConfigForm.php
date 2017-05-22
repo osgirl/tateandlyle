@@ -35,7 +35,7 @@ class TalAdminConfigForm extends ConfigFormBase {
     $form['tai_settings'] = [
       '#type' => 'details',
       '#title' => $this->t('Trends and Insight settings'),
-      '#open' => TRUE,
+      '#open' => FALSE,
     ];
     $form['tai_settings']['tai_title'] = array(
       '#type' => 'textfield',
@@ -62,7 +62,7 @@ class TalAdminConfigForm extends ConfigFormBase {
     $form['tal_pr_boilerplate_settings'] = [
       '#type' => 'details',
       '#title' => $this->t('Press Release Boilerplate Settings'),
-      '#open' => TRUE,
+      '#open' => FALSE,
     ];
     $form['tal_pr_boilerplate_settings']['boilerplate_content'] = array(
       '#type' => 'text_format',
@@ -74,7 +74,7 @@ class TalAdminConfigForm extends ConfigFormBase {
     $form['job_search'] = [
       '#type' => 'details',
       '#title' => $this->t('Careers settings.'),
-      '#open' => TRUE,
+      '#open' => FALSE,
     ];
     $form['job_search']['job_search_url'] = [
       '#type' => 'textfield',
@@ -82,7 +82,18 @@ class TalAdminConfigForm extends ConfigFormBase {
       '#description' => $this->t('Redirect URL for Job search block.'),
       '#default_value' => $config->get('job_search_url'),
     ];
-
+    // Web service point.
+    $form['web_service'] = [
+      '#type' => 'details',
+      '#title' => $this->t('Web service configuration'),
+      '#open' => FALSE,
+    ];
+    $form['web_service']['web_service_on_off'] = [
+      '#type' => 'checkbox',
+      '#title' => $this->t('Web service on'),
+      '#description' => $this->t('Check to use the web service.'),
+      '#default_value' => $config->get('web_service_on_off'),
+    ];
     return parent::buildForm($form, $form_state);
   }
 
@@ -99,8 +110,8 @@ class TalAdminConfigForm extends ConfigFormBase {
     $config->set('tai_summary', $tai_summary);
     $config->set('tai_read_more', $form_state->getValue('tai_read_more'));
     $config->set('tai_link', $form_state->getValue('tai_link'));
-    $config->set('boilerplate_content', $boilerplate_content)
-      ->save();
+    $config->set('boilerplate_content', $boilerplate_content)->save();
+    $config->set('web_service_on_off', $form_state->getValue('web_service_on_off'))->save();
 
     parent::submitForm($form, $form_state);
   }
