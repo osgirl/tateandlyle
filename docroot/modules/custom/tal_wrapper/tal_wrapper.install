@@ -299,3 +299,4 @@ function tal_wrapper_update_8222() {
 function tal_wrapper_update_8223() {
   \Drupal::service('module_installer')->install(['sitemap', 'url_redirect']);
 }
+
