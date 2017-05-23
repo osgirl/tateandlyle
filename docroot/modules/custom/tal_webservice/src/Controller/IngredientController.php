@@ -6,6 +6,7 @@ use Drupal\Core\Session\AccountInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Drupal\Core\Access\AccessResult;
+use Drupal\Core\Cache\Cache;
 
 /**
  * Process ingredient contents.
@@ -60,7 +61,6 @@ class IngredientController {
         // Material Id will be unique and it is expected to return single
         // paragraph entity.
         $paragraph = array_shift($paragraphs);
-        $paragraph->field_sap_summary->setValue(['value' => $request->request->get('summary')]);
         $paragraph->field_sap_title->setValue(['value' => $request->request->get('title')]);
 
         $this->attachFile($paragraph, $file, $request->request->get('document_type'));
@@ -69,7 +69,12 @@ class IngredientController {
         // Get all parent ingredients node of this paragraph.
         $ingredients = $this->getParentNodeFromIngredientDownloads($paragraph->id());
         foreach ($ingredients as $ingredient) {
-          $nids[] = $ingredient->id();
+          // Invalidate the cache so that new changes could take place.
+          Cache::invalidateTags(['node:' . $ingredient->id()]);
+          $url = $ingredient->toUrl('edit-form');
+          $url->setAbsolute(TRUE);
+
+          $nids[] = $url->toString();
         }
       }
     }
@@ -188,18 +193,12 @@ class IngredientController {
       return $error;
     }
 
-    // Check summary.
-    if ($request->request->get('summary') == '') {
-      $error = t('Invalid post data, empty summary.');
-      return $error;
-    }
-
     // Check document type.
     if ($request->request->get('document_type') == ''
-      || !in_array(
-        $request->request->get('document_type'),
-        ['SDS', 'SPC', 'PIS']
-      )
+    || !in_array(
+                $request->request->get('document_type'),
+                ['SDS', 'SPC', 'PIS']
+    )
     ) {
       $error = t('Invalid post data, empty document_type or type not found.');
       return $error;
