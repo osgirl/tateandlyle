@@ -9,7 +9,7 @@ dependencies:
     - field.field.paragraph.related_downloads.field_file_icon
     - paragraphs.paragraphs_type.related_downloads
   module:
-    - paragraphs
+    - tal_articles
     - workbench_moderation
 id: paragraph.related_downloads.default
 targetEntityType: paragraph
@@ -17,38 +17,39 @@ bundle: related_downloads
 mode: default
 content:
   field_field_in_submenu_title:
-    weight: 0
+    weight: 1
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
   field_file_description:
-    weight: 3
+    weight: 4
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
     type: string_textarea
   field_file_display_name:
-    weight: 2
+    weight: 3
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
   field_file_group:
-    type: entity_reference_paragraphs
-    weight: 4
+    type: gated_hidden_widget
+    weight: 5
     settings:
       title: Paragraph
       title_plural: Paragraphs
       edit_mode: open
       add_mode: dropdown
       form_display_mode: default
+      default_paragraph_type: ''
     third_party_settings: {  }
   field_file_icon:
-    weight: 1
+    weight: 2
     settings:
       match_operator: CONTAINS
       size: 60
