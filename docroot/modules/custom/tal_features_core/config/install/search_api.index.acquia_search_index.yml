@@ -1,0 +1,593 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - field.storage.node.field_in_applications
+    - field.storage.node.field_in_trends_solutions
+    - field.storage.node.field_in_aliases
+    - field.storage.node.field_in_common_names
+    - field.storage.node.field_in_misspellings
+    - field.storage.node.field_in_types
+    - field.storage.node.field_ingredients_content
+    - field.storage.paragraph.field_in_wysiwyg2
+    - field.storage.paragraph.field_in_wysiwyg1
+    - field.storage.paragraph.field_field_in_submenu_title
+    - field.storage.paragraph.field_in_border_title
+    - field.storage.paragraph.field_content_summary
+    - field.storage.paragraph.field_simple_text
+    - field.storage.paragraph.field_in_region
+    - field.storage.paragraph.field_in_country
+    - field.storage.paragraph.field_headline
+    - field.storage.paragraph.field_ttu_link_text
+    - field.storage.paragraph.field_file_display_name
+    - field.storage.paragraph.field_block_body
+    - field.storage.paragraph.field_file_description
+    - field.storage.paragraph.field_pr_title
+    - field.storage.paragraph.field_pr_description
+    - field.storage.paragraph.field_pr_link
+    - field.storage.paragraph.field_in_accordion_body
+    - field.storage.paragraph.field_in_accordion_header
+    - field.storage.paragraph.field_simple_summary
+    - field.storage.paragraph.field_file_group
+    - field.storage.paragraph.field_in_accordion_items
+    - field.storage.paragraph.field_at_accordion_header
+    - field.storage.paragraph.field_dcp_link
+    - field.storage.paragraph.field_block_component
+    - search_api.server.acquia_search_server
+  module:
+    - paragraphs
+    - block_content
+    - search_api
+    - node
+id: acquia_search_index
+name: 'Acquia Search Solr Index'
+description: ''
+read_only: false
+field_settings:
+  node_grants:
+    label: 'Node access information'
+    property_path: node_grants
+    type: string
+    indexed_locked: true
+    type_locked: true
+    hidden: true
+  body:
+    label: Body
+    datasource_id: 'entity:node'
+    property_path: body
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.body
+  title:
+    label: Title
+    datasource_id: 'entity:node'
+    property_path: title
+    type: string
+  field_in_applications:
+    label: Applications
+    datasource_id: 'entity:node'
+    property_path: field_in_applications
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_in_applications
+  field_in_trends_solutions:
+    label: 'Trends & solutions'
+    datasource_id: 'entity:node'
+    property_path: field_in_trends_solutions
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_in_trends_solutions
+  status:
+    label: 'Publishing status'
+    datasource_id: 'entity:node'
+    property_path: status
+    type: boolean
+    indexed_locked: true
+    type_locked: true
+  uid:
+    label: 'Authored by'
+    datasource_id: 'entity:node'
+    property_path: uid
+    type: integer
+    indexed_locked: true
+    type_locked: true
+  created:
+    label: 'Authored on'
+    datasource_id: 'entity:node'
+    property_path: created
+    type: date
+  field_in_aliases:
+    label: Aliases
+    datasource_id: 'entity:node'
+    property_path: field_in_aliases
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_in_aliases
+  field_in_common_names:
+    label: 'Common names'
+    datasource_id: 'entity:node'
+    property_path: field_in_common_names
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_in_common_names
+  field_in_misspellings:
+    label: Misspellings
+    datasource_id: 'entity:node'
+    property_path: field_in_misspellings
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_in_misspellings
+  changed:
+    label: Changed
+    datasource_id: 'entity:node'
+    property_path: changed
+    type: date
+  type:
+    label: 'Content type'
+    datasource_id: 'entity:node'
+    property_path: type
+    type: string
+  title_1:
+    label: Title
+    datasource_id: 'entity:node'
+    property_path: title
+    type: text
+  field_in_types:
+    label: 'Types of Ingredients'
+    datasource_id: 'entity:node'
+    property_path: field_in_types
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_in_types
+  field_in_wysiwyg2_1:
+    label: 'Ingredients content » Paragraph » WYSIWYG'
+    datasource_id: 'entity:node'
+    property_path: 'field_ingredients_content:entity:field_in_wysiwyg2'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_ingredients_content
+        - field.storage.paragraph.field_in_wysiwyg2
+      module:
+        - paragraphs
+  field_in_wysiwyg1_1:
+    label: 'Ingredients content » Paragraph » WYSIWYG'
+    datasource_id: 'entity:node'
+    property_path: 'field_ingredients_content:entity:field_in_wysiwyg1'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_ingredients_content
+        - field.storage.paragraph.field_in_wysiwyg1
+      module:
+        - paragraphs
+  field_field_in_submenu_title:
+    label: 'Ingredients content » Paragraph » Add submenu title'
+    datasource_id: 'entity:node'
+    property_path: 'field_ingredients_content:entity:field_field_in_submenu_title'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_ingredients_content
+        - field.storage.paragraph.field_field_in_submenu_title
+      module:
+        - paragraphs
+  field_in_border_title:
+    label: 'Ingredients content » Paragraph » Add border title'
+    datasource_id: 'entity:node'
+    property_path: 'field_ingredients_content:entity:field_in_border_title'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_ingredients_content
+        - field.storage.paragraph.field_in_border_title
+      module:
+        - paragraphs
+  field_content_summary:
+    label: 'Ingredients content » Paragraph » Content summary'
+    datasource_id: 'entity:node'
+    property_path: 'field_ingredients_content:entity:field_content_summary'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_ingredients_content
+        - field.storage.paragraph.field_content_summary
+      module:
+        - paragraphs
+  field_simple_text:
+    label: 'Ingredients content » Paragraph » Content title'
+    datasource_id: 'entity:node'
+    property_path: 'field_ingredients_content:entity:field_simple_text'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_ingredients_content
+        - field.storage.paragraph.field_simple_text
+      module:
+        - paragraphs
+  field_in_region:
+    label: 'Ingredients content » Paragraph » Add region'
+    datasource_id: 'entity:node'
+    property_path: 'field_ingredients_content:entity:field_in_region'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_ingredients_content
+        - field.storage.paragraph.field_in_region
+      module:
+        - paragraphs
+  field_in_country:
+    label: 'Ingredients content » Paragraph » Add Country'
+    datasource_id: 'entity:node'
+    property_path: 'field_ingredients_content:entity:field_in_country'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_ingredients_content
+        - field.storage.paragraph.field_in_country
+      module:
+        - paragraphs
+  field_headline:
+    label: 'Ingredients content » Paragraph » Headline'
+    datasource_id: 'entity:node'
+    property_path: 'field_ingredients_content:entity:field_headline'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_ingredients_content
+        - field.storage.paragraph.field_headline
+      module:
+        - paragraphs
+  field_ttu_link_text:
+    label: 'Ingredients content » Paragraph » Link text'
+    datasource_id: 'entity:node'
+    property_path: 'field_ingredients_content:entity:field_ttu_link_text'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_ingredients_content
+        - field.storage.paragraph.field_ttu_link_text
+      module:
+        - paragraphs
+  field_file_display_name:
+    label: 'Ingredients content » Paragraph » File display name'
+    datasource_id: 'entity:node'
+    property_path: 'field_ingredients_content:entity:field_file_display_name'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_ingredients_content
+        - field.storage.paragraph.field_file_display_name
+      module:
+        - paragraphs
+  field_block_body:
+    label: 'Ingredients content » Paragraph » Body'
+    datasource_id: 'entity:node'
+    property_path: 'field_ingredients_content:entity:field_block_body'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_ingredients_content
+        - field.storage.paragraph.field_block_body
+      module:
+        - paragraphs
+  field_file_description:
+    label: 'Ingredients content » Paragraph » File description'
+    datasource_id: 'entity:node'
+    property_path: 'field_ingredients_content:entity:field_file_description'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_ingredients_content
+        - field.storage.paragraph.field_file_description
+      module:
+        - paragraphs
+  field_pr_title:
+    label: 'Ingredients content » Paragraph » Job Title'
+    datasource_id: 'entity:node'
+    property_path: 'field_ingredients_content:entity:field_pr_title'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_ingredients_content
+        - field.storage.paragraph.field_pr_title
+      module:
+        - paragraphs
+  field_pr_description:
+    label: 'Ingredients content » Paragraph » Job Description'
+    datasource_id: 'entity:node'
+    property_path: 'field_ingredients_content:entity:field_pr_description'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_ingredients_content
+        - field.storage.paragraph.field_pr_description
+      module:
+        - paragraphs
+  field_pr_link:
+    label: 'Ingredients content » Paragraph » Link'
+    datasource_id: 'entity:node'
+    property_path: 'field_ingredients_content:entity:field_pr_link'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_ingredients_content
+        - field.storage.paragraph.field_pr_link
+      module:
+        - paragraphs
+  field_pr_description_1:
+    label: 'Ingredients content » Paragraph » Job Description'
+    datasource_id: 'entity:node'
+    property_path: 'field_ingredients_content:entity:field_pr_description'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_ingredients_content
+        - field.storage.paragraph.field_pr_description
+      module:
+        - paragraphs
+  field_in_accordion_body:
+    label: 'Ingredients content » Paragraph » Accordion body'
+    datasource_id: 'entity:node'
+    property_path: 'field_ingredients_content:entity:field_in_accordion_body'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_ingredients_content
+        - field.storage.paragraph.field_in_accordion_body
+      module:
+        - paragraphs
+  field_in_accordion_header:
+    label: 'Ingredients content » Paragraph » Accordion Header'
+    datasource_id: 'entity:node'
+    property_path: 'field_ingredients_content:entity:field_in_accordion_header'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_ingredients_content
+        - field.storage.paragraph.field_in_accordion_header
+      module:
+        - paragraphs
+  field_simple_summary:
+    label: 'Ingredients content » Paragraph » Content summary'
+    datasource_id: 'entity:node'
+    property_path: 'field_ingredients_content:entity:field_simple_summary'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_ingredients_content
+        - field.storage.paragraph.field_simple_summary
+      module:
+        - paragraphs
+  field_file_description_1:
+    label: 'Ingredients content » Paragraph » Downloads » Paragraph » File description'
+    datasource_id: 'entity:node'
+    property_path: 'field_ingredients_content:entity:field_file_group:entity:field_file_description'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_ingredients_content
+        - field.storage.paragraph.field_file_group
+        - field.storage.paragraph.field_file_description
+      module:
+        - paragraphs
+        - paragraphs
+  field_file_display_name_1:
+    label: 'Ingredients content » Paragraph » Downloads » Paragraph » File display name'
+    datasource_id: 'entity:node'
+    property_path: 'field_ingredients_content:entity:field_file_group:entity:field_file_display_name'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_ingredients_content
+        - field.storage.paragraph.field_file_group
+        - field.storage.paragraph.field_file_display_name
+      module:
+        - paragraphs
+        - paragraphs
+  field_at_accordion_header:
+    label: 'Ingredients content » Paragraph » Ingredient accordion items » Paragraph » Component Accordion Header'
+    datasource_id: 'entity:node'
+    property_path: 'field_ingredients_content:entity:field_in_accordion_items:entity:field_at_accordion_header'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_ingredients_content
+        - field.storage.paragraph.field_in_accordion_items
+        - field.storage.paragraph.field_at_accordion_header
+      module:
+        - paragraphs
+        - paragraphs
+  field_dcp_link:
+    label: 'Ingredients content » Paragraph » Ingredient accordion items » Paragraph » Content Link'
+    datasource_id: 'entity:node'
+    property_path: 'field_ingredients_content:entity:field_in_accordion_items:entity:field_dcp_link'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_ingredients_content
+        - field.storage.paragraph.field_in_accordion_items
+        - field.storage.paragraph.field_dcp_link
+      module:
+        - paragraphs
+        - paragraphs
+  field_in_accordion_header_1:
+    label: 'Ingredients content » Paragraph » Accordion Header'
+    datasource_id: 'entity:node'
+    property_path: 'field_ingredients_content:entity:field_in_accordion_header'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_ingredients_content
+        - field.storage.paragraph.field_in_accordion_header
+      module:
+        - paragraphs
+  field_in_accordion_body_1:
+    label: 'Ingredients content » Paragraph » Ingredient accordion items » Paragraph » Accordion body'
+    datasource_id: 'entity:node'
+    property_path: 'field_ingredients_content:entity:field_in_accordion_items:entity:field_in_accordion_body'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_ingredients_content
+        - field.storage.paragraph.field_in_accordion_items
+        - field.storage.paragraph.field_in_accordion_body
+      module:
+        - paragraphs
+        - paragraphs
+  info:
+    label: 'Ingredients content » Paragraph » Component » Custom block » Block description'
+    datasource_id: 'entity:node'
+    property_path: 'field_ingredients_content:entity:field_block_component:entity:info'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_ingredients_content
+        - field.storage.paragraph.field_block_component
+      module:
+        - paragraphs
+        - block_content
+processor_settings:
+  add_url:
+    plugin_id: add_url
+    settings:
+      weights:
+        preprocess_index: -30
+  aggregated_field:
+    plugin_id: aggregated_field
+    settings:
+      fields: {  }
+      weights:
+        preprocess_index: -10
+  content_access:
+    plugin_id: content_access
+    settings:
+      weights:
+        preprocess_index: -10
+        preprocess_query: -10
+  html_filter:
+    plugin_id: html_filter
+    settings:
+      fields:
+        - body
+        - title
+        - field_in_aliases
+        - field_in_common_names
+        - field_in_misspellings
+        - type
+        - title_1
+        - field_in_wysiwyg2_1
+        - field_in_wysiwyg1_1
+        - field_field_in_submenu_title
+        - field_in_border_title
+        - field_content_summary
+        - field_simple_text
+        - field_in_region
+        - field_in_country
+        - field_headline
+        - field_ttu_link_text
+        - field_file_display_name
+        - field_block_body
+        - field_file_description
+        - field_pr_title
+        - field_pr_description
+        - field_pr_link
+        - field_pr_description_1
+        - field_in_accordion_body
+        - field_in_accordion_header
+        - field_simple_summary
+      title: true
+      alt: true
+      tags:
+        h1: 5
+        h2: 3
+        h3: 2
+        strong: 2
+        b: 2
+      weights:
+        preprocess_index: -10
+        preprocess_query: -10
+  ignorecase:
+    plugin_id: ignorecase
+    settings:
+      fields:
+        - body
+        - title
+      weights:
+        preprocess_index: -10
+        preprocess_query: -10
+  ignore_character:
+    plugin_id: ignore_character
+    settings:
+      fields:
+        - body
+        - title
+      ignorable: '[''¿¡!?,.:;]'
+      strip:
+        character_sets:
+          Pc: Pc
+          Pd: Pd
+          Pe: Pe
+          Pf: Pf
+          Pi: Pi
+          Po: Po
+          Ps: Ps
+          Cc: 0
+          Cf: 0
+          Co: 0
+          Mc: 0
+          Me: 0
+          Mn: 0
+          Sc: 0
+          Sk: 0
+          Sm: 0
+          So: 0
+          Zl: 0
+          Zp: 0
+          Zs: 0
+      weights:
+        preprocess_index: -10
+        preprocess_query: -10
+  node_status:
+    plugin_id: node_status
+    settings:
+      weights:
+        preprocess_index: -10
+  rendered_item:
+    plugin_id: rendered_item
+    settings: {  }
+options:
+  index_directly: false
+  cron_limit: 50
+  processors:
+    language:
+      status: '1'
+      weight: -50
+      settings: {  }
+      processorPluginId: language
+datasource_settings:
+  'entity:node':
+    plugin_id: 'entity:node'
+    settings:
+      bundles:
+        default: false
+        selected:
+          - company_story
+          - ingredient
+      languages:
+        default: false
+        selected:
+          - en
+tracker_settings:
+  default:
+    plugin_id: default
+    settings: {  }
+server: acquia_search_server

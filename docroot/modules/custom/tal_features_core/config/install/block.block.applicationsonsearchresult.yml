@@ -1,0 +1,31 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.applications_on_search_result
+  module:
+    - facets
+    - system
+id: applicationsonsearchresult
+theme: tateandlyle
+region: secondary_top
+weight: 0
+provider: null
+plugin: 'facet_block:applications_on_search_result'
+settings:
+  id: 'facet_block:applications_on_search_result'
+  label: Applications
+  provider: facets
+  label_display: visible
+visibility:
+  other_facet:
+    id: other_facet
+    facets: ''
+    facet_value: ''
+    negate: false
+    context_mapping: {  }
+  request_path:
+    id: request_path
+    pages: /search/ingredients/results
+    negate: false
+    context_mapping: {  }

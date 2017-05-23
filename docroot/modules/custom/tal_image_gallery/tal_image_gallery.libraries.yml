@@ -1,0 +1,5 @@
+tal_image_gallery_download_image:
+  js:
+    js/tal_image_gallery_download_image.js: {}
+  dependencies:
+    - core/jquery

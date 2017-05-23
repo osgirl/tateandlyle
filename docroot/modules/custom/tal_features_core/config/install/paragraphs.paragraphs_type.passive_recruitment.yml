@@ -1,0 +1,5 @@
+langcode: en
+status: true
+dependencies: {  }
+id: passive_recruitment
+label: 'Passive Recruitment'

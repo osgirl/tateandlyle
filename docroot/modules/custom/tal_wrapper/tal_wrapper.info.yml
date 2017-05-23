@@ -1,0 +1,14 @@
+name: 'TAL Wrapper'
+description: 'Parent Wrapper module for managing customisations for TAL'
+type: module
+core: 8.x
+package: tal
+dependencies:
+  - tal_articles
+  - tal_downloads
+  - tal_ingredient_search
+  - tal_search
+  - admin_toolbar
+  - tal_admin_config
+  - tal_breadcrumbs
+  - tal_webservice

@@ -1,0 +1,43 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.filegroup.field_download_attach_file
+    - field.field.paragraph.filegroup.field_file_language
+    - field.field.paragraph.filegroup.field_tal_link
+    - paragraphs.paragraphs_type.filegroup
+  module:
+    - file
+    - link
+id: paragraph.filegroup.default
+targetEntityType: paragraph
+bundle: filegroup
+mode: default
+content:
+  field_download_attach_file:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: file_default
+  field_file_language:
+    weight: 0
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+  field_tal_link:
+    type: link
+    weight: 2
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  uid: true

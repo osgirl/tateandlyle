@@ -1,0 +1,166 @@
+html,
+body {
+  font-size: 100%;
+  height: 100%;
+}
+
+body {
+  overflow-x: hidden;
+  @media (min-width: $screen-sm) {
+    margin-top: 12px;
+  }
+  @media (min-width: $screen-md-lg) {
+    margin-top: 40px;
+  }
+}
+
+figure .img-responsive {
+  width: 100%;
+}
+
+img {
+  max-width: 100%;
+}
+
+h2,
+li.h2,
+h3,
+li.h3,
+h4,
+li.h4,
+h5,
+li.h5 {
+  font-family: $font-family-sans-serif-Med;
+}
+
+.container {
+  width: 100%;
+  padding: 0;
+}
+
+.main-container {
+  padding: 0 30px;
+  margin-top: 89px;
+  @media (min-width: $screen-sm) {
+    margin-top: 0;
+  }
+  @media (min-width: $screen-lg) {
+    max-width: 81.47%;
+    margin: auto;
+    padding: 0;
+  }
+  .region-content {
+    overflow: visible;
+  }
+}
+
+.page-header {
+  @extend %title-border-bottom;
+  border-bottom: none;
+  margin-top: 36px;
+  font-size: $font-size-h2;
+  margin-top: 0;
+  @media (min-width: $screen-sm) {
+    font-size: $font-size-h2-l;
+    margin-top: 10px;
+  }
+  @media (min-width: $screen-md) {
+    font-size: $font-size-h1;
+    margin: 10px 0;
+    max-width: 885px;
+    padding-left: 0;
+  }
+}
+
+.region-content {
+  clear: both;
+  overflow: visible;
+}
+
+.right__sidebar {
+  @media (min-width: $screen-md) {
+    float: right;
+  }
+}
+
+.feed-icons,
+.path-user .region-content,
+.view-empty {
+  @extend %inner-content-width-padding;
+  margin: 0 auto;
+}
+
+.region-content article {
+  margin: 0 auto;
+  overflow: visible;
+}
+
+.page-node-type-ingredient  article,
+.field--name-field-icon article {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.breadcrumb {
+  clear: both;
+  display: none;
+  background: transparent;
+  padding-top: 0;
+  padding-left: 0;
+  @media (min-width: $screen-sm) {
+    display: block;
+  }
+
+  a {
+    color: $gray-dark;
+    &:hover {
+      color: $brand-primary;
+    }
+  }
+
+  .active {
+    color: $gray-base;
+  }
+}
+
+.block-title,
+.region-highlighted .alert {
+  max-width: 1109px;
+  margin: auto;
+}
+
+.region-content-top,
+.breadcrumb {
+  clear: both;
+  float: none;
+  max-width: 1132px;
+  margin: auto;
+}
+
+.view-frontpage,
+.iframe-content,
+iframe,
+nav.tabs .tabs--primary {
+  float: none;
+  max-width: 1169px;
+  margin: auto;
+}
+
+.black__overlay .body__inner {
+  position: relative;
+  background: rgba(0, 0, 0, 0.2);
+  .logo.navbar-btn::after {
+    background: rgba(0, 0, 0, 0.2);
+    content: " ";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 998;
+  }
+}
+
+td {
+  padding: 10px;
+}

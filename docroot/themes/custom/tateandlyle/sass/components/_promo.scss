@@ -1,0 +1,445 @@
+.block-detail-content-promo {
+  color: $color-white;
+  padding-bottom: 30px;
+  padding-top: 30px;
+  max-width: 1108px;
+  margin: 50px auto;
+
+  @media (min-width: $screen-sm) {
+    padding: 58px 10px;
+    padding-bottom: 100px;
+  }
+
+  .field--name-field-banner-title,
+  .block-title {
+    @extend %title-border-top;
+    font-size: $font-size-h3;
+    font-family: $font-family-sans-serif-Med;
+    margin-bottom: 35px;
+    padding-left: 0;
+
+    @media (min-width: $screen-sm) {
+      font-size: $font-size-h2;
+      text-align: center;
+    }
+
+    &::before {
+      background-color: $color-white;
+      opacity: 0.5;
+    }
+  }
+
+  .field--name-field-simple-text {
+    color: inherit;
+    margin-bottom: 16px;
+    margin-top: 0;
+
+    @media (max-width: $screen-sm-max) {
+      font-size: $font-size-h4;
+    }
+
+    a {
+      color: inherit;
+      display: block;
+
+      &:hover {
+        color: inherit;
+        opacity: 0.5;
+      }
+
+      &::after {
+        @extend %right-brand-arrow;
+        color: inherit;
+        vertical-align: middle;
+      }
+    }
+  }
+
+  .field--name-field-file-icon {
+    margin-bottom: 20px;
+
+    img {
+      max-width: 38px;
+
+      @media (min-width: $screen-sm) {
+        margin: auto;
+      }
+    }
+  }
+
+  .field--name-field-all-jobs-link {
+    margin-top: 35px;
+    margin-left: 20px;
+    @media (min-width: $screen-sm) {
+      margin-left: 0;
+      text-align: center;
+    }
+
+    a {
+      @extend .btn-primary;
+      background: transparent;
+      border: 1px solid;
+      color: $color-white;
+      display: inline;
+      padding: 8px 20px;
+
+      &::after {
+        content: $fa-var-angle-right;
+        font-family: $font-family-icon;
+        padding-left: 10px;
+      }
+
+      &:hover {
+        background: transparent;
+        border: 2px solid;
+        box-shadow: none;
+        color: inherit;
+        padding: 7px 18px;
+      }
+    }
+  }
+
+  .field--name-field-dcp-content-section {
+    @media (min-width: $screen-sm) {
+      display: table;
+      max-width: 1108px;
+      margin: auto;
+    }
+
+    & > .field--item {
+      padding: 10px 0;
+
+      @media (min-width: $screen-sm) {
+        border-right: 1px solid;
+        color: inherit;
+        display: table-cell;
+        max-width: 288px;
+        padding: 10px 20px;
+        text-align: center;
+        vertical-align: top;
+      }
+
+      &:last-child {
+        border-right: 0;
+      }
+    }
+  }
+
+  .field--name-field-dcp-link {
+    font-family: $font-family-sans-serif-Med;
+    margin-top: 10px;
+
+    @media (min-width: $screen-sm) {
+      margin-top: 20px;
+    }
+
+    a {
+      color: inherit;
+
+      &::after {
+        @extend %right-brand-arrow;
+        color: inherit;
+      }
+
+      &:hover {
+        color: inherit;
+        opacity: 0.5;
+      }
+    }
+  }
+}
+
+.dcp-content-4 {
+
+  @media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+    padding: 15px 63px 15px 63px;
+
+    .field--name-field-dcp-content-section > .field--item {
+      border-right: none;
+      display: inline-block;
+      float: none;
+      max-width: none;
+      padding: 10px 44px;
+      padding-bottom: 53px;
+      width: 48%;
+    }
+
+    .field--name-field-simple-text {
+      margin-bottom: 7px;
+    }
+  }
+
+  .field--name-field-banner-title,
+  .block-title {
+    margin-bottom: 10px;
+    @media (min-width: $screen-sm) {
+      margin-bottom: 30px;
+    }
+    @media (min-width: $screen-md) {
+      margin-bottom: 77px;
+    }
+  }
+
+  .field--name-field-simple-text {
+    margin-bottom: 5px;
+
+    @media (min-width: $screen-md) {
+      margin-bottom: 16px;
+      min-height: 52px;
+    }
+  }
+
+  .field--name-field-dcp-content-section > .field--item {
+    @media (min-width: $screen-md) {
+      padding: 10px 38px;
+    }
+  }
+
+  .field--name-field-dcp-link {
+    margin-top: 5px;
+    @media (min-width: $screen-sm) {
+      margin-top: 22px;
+    }
+  }
+
+  @media (max-width: $screen-xs-max) {
+    padding-left: 40px;
+    padding-right: 40px;
+
+    .field--name-field-dcp-content-section > .field--item {
+      border-bottom: 1px solid;
+      padding: 28px 0 25px 0;
+      text-align: center;
+
+      &:last-child {
+        border-bottom: 0;
+      }
+
+      img {
+        margin: auto;
+      }
+    }
+
+    .field--name-field-simple-text {
+      margin-bottom: 16px;
+      margin-top: 0;
+    }
+
+    .field--name-field-dcp-link {
+      margin-top: 10px;
+    }
+  }
+}
+
+.dcp-content-2,
+.dcp-content-3 {
+  padding-left: 40px;
+  padding-right: 40px;
+
+  @media (min-width: $screen-sm) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .field--name-field-dcp-content-section > .field--item {
+    border-bottom: 1px solid;
+    padding: 28px 0 25px 0;
+    text-align: center;
+
+    img {
+      margin: auto;
+    }
+
+    @media (min-width: $screen-sm) {
+      border-bottom: none;
+      width: 33.33%;
+      max-width: none;
+      padding: 10px 15px;
+    }
+
+    @media (min-width: $screen-sm) {
+      padding: 10px 40px;
+    }
+
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+}
+
+//Content Promo.
+
+.block__promo--main {
+  color: $gray-base;
+  margin: 24px auto;
+
+  @media (min-width: $screen-sm-lsp) {
+    border: 1px solid $color-warm-gray;
+    padding: 0 50px 48px 50px;
+  }
+
+  @media (min-width: $screen-sm) {
+    margin: 50px 30px;
+    padding: 0 60px 33px 60px;
+  }
+
+  @media (min-width: $screen-md) {
+    margin: auto;
+    margin-bottom: 78px;
+    margin-top: 68px;
+    max-width: 800px;
+    padding: 0 10px 54px 10px;
+  }
+
+  @media (min-width: $screen-md-lg) {
+    padding: 0 42px 50px 42px;
+    max-width: 1108px;
+  }
+
+  .field--name-field-block-title {
+    @extend %border--title--less-space;
+  }
+
+  .field--name-field-promo-content {
+
+    @media (min-width: $screen-md) {
+      display: table;
+      width: 100%;
+    }
+
+    & > .field--item {
+      @extend .col-md-4;
+      border-bottom: 1px solid $color-warm-gray;
+      padding-bottom: 16px;
+      padding-left: 21px;
+      padding-top: 27px;
+
+      @media (min-width: $screen-sm-lsp) {
+        padding-bottom: 18px;
+        padding-left: 28px;
+        padding-top: 18px;
+      }
+
+      @media (min-width: $screen-sm) {
+        padding-left: 0;
+      }
+
+      @media (min-width: $screen-md) {
+        border-bottom: 0;
+        border-right: 1px solid $color-warm-gray;
+        display: table-cell;
+        float: none;
+        padding: 0 30px 40px 30px;
+        position: relative;
+
+        &:last-child {
+          border-right: 0;
+        }
+      }
+
+      &:first-child {
+        padding-top: 0;
+      }
+
+      &:last-child {
+        padding-bottom: 0;
+        border-bottom: 0;
+      }
+
+      @media (min-width: $screen-md-lg) {
+        padding-top: 20px;
+        padding-left: 40px;
+        padding-right: 50px;
+      }
+    }
+  }
+
+  blockquote {
+    padding: 0;
+    margin-bottom: 0;
+    font-size: $font-size-h5;
+
+    @media (min-width: $screen-md) {
+      font-size: $font-size-h3;
+    }
+  }
+
+  .field--name-field-block-body {
+    font-family: $font-family-sans-serif-light;
+    font-size: $font-size-h5;
+    margin-bottom: 9px;
+
+    @media (min-width: $screen-md) {
+      font-size: $font-size-h3;
+      margin-bottom: 18px;
+    }
+
+    blockquote p {
+      line-height: 1.3;
+      text-indent: -9px;
+      display: inline;
+      @media (min-width: $screen-md) {
+        text-indent: -10px;
+      }
+
+      &::before {
+        content: open-quote;
+      }
+
+      &::after {
+        content: close-quote;
+        padding-left: 9px;
+      }
+
+      &::before,
+      &::after {
+        display: inline-block;
+        line-height: 0;
+      }
+    }
+  }
+
+  .field--name-field-tal-link {
+    max-width: 80%;
+    @media (min-width: $screen-sm) {
+      max-width: none;
+    }
+
+    @media (min-width: $screen-md) {
+      padding-right: 40px;
+      position: absolute;
+      bottom: 0;
+    }
+
+    a::after {
+      @extend %right-brand-arrow;
+    }
+  }
+
+  @media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+    .field--name-field-block-body,
+    .field--name-field-tal-link {
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    .field--name-field-block-body {
+      margin-bottom: 0;
+      padding-left: 12px;
+      padding-right: 73px;
+      width: 60%;
+    }
+
+    .field--name-field-tal-link {
+      width: 38%;
+      padding-right: 35px;
+    }
+  }
+}
+
+.recruitment__block .field--name-field-all-jobs-link a {
+  padding: 8px 7px;
+  @media (min-width: $screen-md) {
+    padding: 8px 15px;
+  }
+}

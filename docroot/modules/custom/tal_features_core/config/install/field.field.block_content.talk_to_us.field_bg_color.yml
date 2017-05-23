@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.talk_to_us
+    - field.storage.block_content.field_bg_color
+  module:
+    - options
+id: block_content.talk_to_us.field_bg_color
+field_name: field_bg_color
+entity_type: block_content
+bundle: talk_to_us
+label: 'Background color'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

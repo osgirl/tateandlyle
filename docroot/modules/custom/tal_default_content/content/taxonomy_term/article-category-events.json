@@ -1,0 +1,54 @@
+{
+  "_links": {
+    "self": {
+      "href": "http:\/\/tal.local\/taxonomy\/term\/5?_format=hal_json"
+    },
+    "type": {
+      "href": "http:\/\/drupal.org\/rest\/type\/taxonomy_term\/story_category"
+    }
+  },
+  "tid": [
+    {
+      "value": "5"
+    }
+  ],
+  "uuid": [
+    {
+      "value": "e20aa26a-05ef-45f6-93f2-b65106167d61"
+    }
+  ],
+  "langcode": [
+    {
+      "value": "en",
+      "lang": "en"
+    }
+  ],
+  "vid": [
+    {
+      "target_id": "story_category"
+    }
+  ],
+  "name": [
+    {
+      "value": "Events",
+      "lang": "en"
+    }
+  ],
+  "weight": [
+    {
+      "value": "0"
+    }
+  ],
+  "changed": [
+    {
+      "value": "1484215791",
+      "lang": "en"
+    }
+  ],
+  "default_langcode": [
+    {
+      "value": "1",
+      "lang": "en"
+    }
+  ]
+}

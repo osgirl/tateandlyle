@@ -1,0 +1,32 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.history
+    - field.field.block_content.history.field_history_tab
+  module:
+    - paragraphs
+    - workbench_moderation
+id: block_content.history.default
+targetEntityType: block_content
+bundle: history
+mode: default
+content:
+  field_history_tab:
+    type: entity_reference_paragraphs
+    weight: 6
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+    third_party_settings: {  }
+  info:
+    type: string_textfield
+    weight: -5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

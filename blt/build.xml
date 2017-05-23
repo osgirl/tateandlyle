@@ -1,0 +1,65 @@
+<project name="custom" default="build">
+    <!-- Override setup:update task for config import. -->
+    <target name="setup:update" description="Update current database to reflect the state of the Drupal file system.">
+        <!-- enable_property and uninstall_property must be set at this time. -->
+        <phingcall target="setup:toggle-modules"/>
+        <!-- Execute db updates. -->
+        <drush command="updb" assume="yes" alias="${drush.alias}">
+            <option name="entity-updates"></option>
+        </drush>
+        <!-- Rebuild caches. -->
+        <drush command="cc drush" alias="${drush.alias}"/>
+        <!-- Add features-revert tal_features_core. -->
+        <drush command="fr" assume="yes" alias="${drush.alias}">
+            <param>tal_features_core</param>
+        </drush>
+        <!-- Rebuild caches. -->
+        <drush command="cr" alias="${drush.alias}"/>
+    </target>
+    <target name="tests:all" depends="tests:security-updates, tests:phpunit" hidden="true" />
+    <target name="tests:security-updates"
+            description="Check local Drupal installation for security updates.">
+        <!-- Skip the core security check if current drupal version is 8.2.8. There
+            are some issues with drupal latest security release which says
+            8.3.1 version is required and we cannot update to 8.3.1.
+            Refer : https://www.drupal.org/psa-2017-001 -->
+        <exec dir="${docroot}"
+              command="! ${drush.cmd} core-status version | grep 'Drupal version' | awk '{print $4}'"
+              outputProperty="drupalVersion"/>
+        <if>
+            <equals arg1="${drupalVersion}" arg2="8.2.8"/>
+            <then>
+                <exec dir="${docroot}"
+                      command="! ${drush.cmd} -n ups --no-core --check-disabled --security-only 2>/dev/null | grep 'SECURITY UPDATE'"
+                      checkreturn="true" level="${blt.exec_level}"
+                      logoutput="true"
+                      returnProperty="securityPass"
+                      passthru="true"/>
+
+                <!-- Output message on failure. -->
+                <if>
+                    <not><equals arg1="${securityPass}" arg2="0"/></not>
+                    <then>
+                        <echo>One or more of your dependency has an outstanding security update. Please apply update(s) immediately. Failing build.</echo>
+                    </then>
+                </if>
+            </then>
+            <else>
+                <exec dir="${docroot}"
+                      command="! ${drush.cmd} -n ups --check-disabled --security-only 2>/dev/null | grep 'SECURITY UPDATE'"
+                      checkreturn="true" level="${blt.exec_level}"
+                      logoutput="true"
+                      returnProperty="securityPass"
+                      passthru="true"/>
+
+                <!-- Output message on failure. -->
+                <if>
+                    <not><equals arg1="${securityPass}" arg2="0"/></not>
+                    <then>
+                        <echo>One or more of your dependency has an outstanding security update. Please apply update(s) immediately. Failing build.</echo>
+                    </then>
+                </if>
+            </else>
+        </if>
+    </target>
+</project>

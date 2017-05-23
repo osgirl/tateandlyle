@@ -1,0 +1,56 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+    - options
+id: block_content.field_bg_color
+field_name: field_bg_color
+entity_type: block_content
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: white
+      label: White
+    -
+      value: cool-grey
+      label: 'Cool Grey'
+    -
+      value: black
+      label: Black
+    -
+      value: purple
+      label: Purple
+    -
+      value: blue
+      label: Blue
+    -
+      value: pink
+      label: Pink
+    -
+      value: off-white
+      label: Off-white
+    -
+      value: mid-grey
+      label: Mid-grey
+    -
+      value: yellow
+      label: Yellow
+    -
+      value: warm-grey
+      label: 'Warm Grey'
+    -
+      value: silver
+      label: Silver
+    -
+      value: light-grey
+      label: light-grey
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

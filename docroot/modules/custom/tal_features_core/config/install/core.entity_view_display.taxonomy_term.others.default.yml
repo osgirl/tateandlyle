@@ -1,0 +1,26 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.others.field_email
+    - taxonomy.vocabulary.others
+  module:
+    - text
+id: taxonomy_term.others.default
+targetEntityType: taxonomy_term
+bundle: others
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+  field_email:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+hidden: {  }

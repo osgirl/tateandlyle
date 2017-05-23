@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: content_promo_with_image
+label: 'Content promo with Image'
+revision: 1
+description: 'Use this block type to create custom "Content promo with Image" type blocks'

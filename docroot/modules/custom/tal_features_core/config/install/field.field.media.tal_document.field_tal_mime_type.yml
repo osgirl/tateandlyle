@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_tal_mime_type
+    - media_entity.bundle.tal_document
+id: media.tal_document.field_tal_mime_type
+field_name: field_tal_mime_type
+entity_type: media
+bundle: tal_document
+label: 'TAL MIME Type'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,301 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the tal_wrapper module.
+ */
+
+use Drupal\taxonomy\Entity\Term;
+use Drupal\taxonomy\Entity\Vocabulary;
+use Drupal\node\Entity\Node;
+use Drupal\menu_link_content\Entity\MenuLinkContent;
+
+/**
+ * Implements hook_install().
+ *
+ * Perform actions to further customize the site after Lightning has been
+ * installed. This module is automatically enabled via the lightning.extend.yml
+ * file.
+ *
+ * @see system_install()
+ */
+
+/**
+ * Install custom tateandlyle theme.
+ */
+function tal_wrapper_install() {
+
+  // Enable and set tateandlyle as default theme.
+  \Drupal::service('theme_installer')->install(array('tateandlyle'), TRUE);
+  \Drupal::configFactory()->getEditable('system.theme')->set('default', 'tateandlyle')->save(TRUE);
+  tal_wrapper_update_8203();
+  tal_wrapper_update_8204();
+  tal_wrapper_update_8205();
+  tal_wrapper_update_8206();
+  tal_wrapper_update_8207();
+  tal_wrapper_update_8208();
+  tal_wrapper_update_8209();
+  tal_wrapper_update_8210();
+  tal_wrapper_update_8212();
+  tal_wrapper_update_8213();
+  tal_wrapper_update_8216();
+  tal_wrapper_update_8217();
+  tal_wrapper_update_8218();
+}
+
+/**
+ * Enable simple_menu_icons module.
+ *
+ * Implements hook_update_N().
+ */
+function tal_wrapper_update_8203() {
+  \Drupal::service('module_installer')->install(['simple_menu_icons']);
+}
+
+/**
+ * Installs some required modules.
+ */
+function tal_wrapper_update_8204() {
+  \Drupal::service('module_installer')->install(
+    ['tal_webform']
+  );
+}
+
+/**
+ * Create a term "SFI, BI and Other" under Type of Content vocabulary.
+ */
+function tal_wrapper_update_8205() {
+  $vid = 'type_of_content';
+  $name = 'Type of Content';
+  $vocab = Vocabulary::load($vid);
+  if (empty($vocab)) {
+    $vocabulary = Vocabulary::create(array(
+      'vid' => $vid,
+      'machine_name' => $vid,
+      'name' => $name,
+    ));
+    $vocabulary->save();
+  }
+  $terms = [
+    '0' => ['name' => 'Commercial/Sales for SFI', 'machine_name' => 'commercial_sales_sfi'],
+    '1' => ['name' => 'Commercial/Sales for BI', 'machine_name' => 'commercial_sales_bi'],
+  ];
+  foreach ($terms as $key => $val) {
+    Term::create(array(
+      'name' => $val['name'],
+      'vid' => 'type_of_content',
+      'field_tc_machine_name' => $val['machine_name'],
+    ))->save();
+  }
+
+  // Creating a industry term 'Food & Beverage'.
+  Term::create(array(
+    'name' => 'Food & Beverage',
+    'vid' => 'industry',
+  ))->save();
+}
+
+/**
+ * Create a term under Others category for contact us form vocabulary.
+ */
+function tal_wrapper_update_8206() {
+  $vid = 'others';
+  $name = 'Others';
+  $vocab = Vocabulary::load($vid);
+  if (empty($vocab)) {
+    $vocabulary = Vocabulary::create(array(
+      'vid' => $vid,
+      'machine_name' => $vid,
+      'name' => $name,
+    ));
+    $vocabulary->save();
+  }
+  $terms = [
+    '0' => ['name' => 'Community'],
+    '1' => ['name' => 'Media/Investor Relations'],
+    '2' => ['name' => 'Open Innovation'],
+    '3' => ['name' => 'Suppliers'],
+    '4' => ['name' => 'T&L Ventures'],
+  ];
+  foreach ($terms as $key => $val) {
+    Term::create(array(
+      'name' => $val['name'],
+      'vid' => 'others',
+    ))->save();
+  }
+
+}
+
+/**
+ * Create landing pages for History, Leadership, Annual Reports.
+ *
+ * Implements hook_update_N().
+ */
+function tal_wrapper_update_8207() {
+  $nodes['history'] = [
+    'type'        => 'landing_page',
+    'title'       => 'History',
+    'uid' => 1,
+  ];
+  $nodes['leadership'] = [
+    'type'        => 'landing_page',
+    'title'       => 'Leadership',
+    'uid' => 1,
+  ];
+  $nodes['annual_reports'] = [
+    'type'        => 'landing_page',
+    'title'       => 'Annual Reports',
+    'uid' => 1,
+  ];
+  foreach ($nodes as $node) {
+    $entity = Node::create($node);
+    $entity->save();
+  }
+}
+
+/**
+ * Installs tal_admin_config module.
+ */
+function tal_wrapper_update_8208() {
+  \Drupal::service('module_installer')->install(['tal_admin_config']);
+}
+
+/**
+ * Create menu link in main menu.
+ */
+function tal_wrapper_update_8209() {
+  // Delete Article link.
+  $storage = \Drupal::entityTypeManager()->getStorage('menu_link_content');
+  $menuLink = $storage->load(8);
+
+  if (!empty($menuLink)) {
+    $menuLink->delete();
+  }
+
+  // Create News link.
+  $menu_link = MenuLinkContent::create([
+    'title' => 'News',
+    'link' => ['uri' => 'internal:/articles/all'],
+    'menu_name' => 'main',
+    'expanded' => TRUE,
+  ]);
+  $menu_link->save();
+}
+
+/**
+ * Installs workbench_email module.
+ */
+function tal_wrapper_update_8210() {
+  \Drupal::service('module_installer')->install(['workbench_email']);
+}
+
+/**
+ * Create a term 'press packs' for vocab 'article category/story_category'.
+ */
+function tal_wrapper_update_8212() {
+  Term::create([
+    'name' => 'Press Packs',
+    'vid' => 'story_category',
+  ])->save();
+}
+
+/**
+ * Enable simple_menu_icons module.
+ *
+ * Implements hook_update_N().
+ */
+function tal_wrapper_update_8213() {
+  \Drupal::service('module_installer')->install(['simple_sitemap', 'pathauto']);
+}
+
+/**
+ * Enable tal_breadcrumbs module.
+ *
+ * Implements hook_update_N().
+ */
+function tal_wrapper_update_8214() {
+  \Drupal::service('module_installer')->install(['tal_breadcrumbs']);
+}
+
+/**
+ * Enable tal_breadcrumbs module.
+ *
+ * Implements hook_update_N().
+ */
+function tal_wrapper_update_8216() {
+  \Drupal::service('module_installer')->install(['tal_breadcrumbs']);
+}
+
+/**
+ * Simple Sitemap settings import.
+ *
+ * Implements hook_update_N().
+ */
+function tal_wrapper_update_8217() {
+  // Enable simple xml csitemap for these menus.
+  $entity_type_id = 'menu_link_content';
+  $bundles = [
+    'main-menu',
+    'footer-customer-and-supplie',
+    'footer-navigation-menu',
+    'footer-sitemap-and-policies',
+  ];
+
+  foreach ($bundles as $bundle) {
+    $config_factory = \Drupal::configFactory();
+    $config = $config_factory->getEditable("simple_sitemap.bundle_settings.$entity_type_id.$bundle");
+    $config->setData(['index' => 1, 'priority' => '0.5'])->save();
+  }
+}
+
+/**
+ * Enable tal_breadcrumbs module.
+ *
+ * Implements hook_update_N().
+ */
+function tal_wrapper_update_8218() {
+  \Drupal::service('module_installer')->install(['smart_trim']);
+}
+
+/**
+ * Update config variable for bootstrap.
+ */
+function tal_wrapper_update_8219() {
+  \Drupal::service('config.factory')->getEditable('tateandlyle.settings')->set('modal_enabled', 0)->save();
+}
+
+/**
+ * Enable  module.
+ *
+ * Implements hook_update_N().
+ */
+function tal_wrapper_update_8220() {
+  \Drupal::service('module_installer')->install(['slick', 'slick_views']);
+}
+
+/**
+ * Enable  module.
+ *
+ * Implements hook_update_N().
+ */
+function tal_wrapper_update_8221() {
+  \Drupal::service('module_installer')->install(['honeypot']);
+}
+
+/**
+ * Enable  module.
+ *
+ * Implements hook_update_N().
+ */
+function tal_wrapper_update_8222() {
+  \Drupal::service('module_installer')->install(['menu_breadcrumb']);
+}
+
+/**
+ * Enable sitemap and url_redirect modules.
+ *
+ * Implements hook_update_N().
+ */
+function tal_wrapper_update_8223() {
+  \Drupal::service('module_installer')->install(['sitemap', 'url_redirect']);
+}

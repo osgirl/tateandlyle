@@ -1,0 +1,428 @@
+<?php
+
+/**
+ * @file
+ * Enables site-wide keyword searching.
+ */
+
+use Drupal\Component\Utility\Html;
+use Drupal\Component\Utility\Unicode;
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Matches all 'N' Unicode character classes (numbers)
+ */
+define('TAL_SEARCH_PREG_CLASS_NUMBERS',
+  '\x{30}-\x{39}\x{b2}\x{b3}\x{b9}\x{bc}-\x{be}\x{660}-\x{669}\x{6f0}-\x{6f9}' .
+  '\x{966}-\x{96f}\x{9e6}-\x{9ef}\x{9f4}-\x{9f9}\x{a66}-\x{a6f}\x{ae6}-\x{aef}' .
+  '\x{b66}-\x{b6f}\x{be7}-\x{bf2}\x{c66}-\x{c6f}\x{ce6}-\x{cef}\x{d66}-\x{d6f}' .
+  '\x{e50}-\x{e59}\x{ed0}-\x{ed9}\x{f20}-\x{f33}\x{1040}-\x{1049}\x{1369}-' .
+  '\x{137c}\x{16ee}-\x{16f0}\x{17e0}-\x{17e9}\x{17f0}-\x{17f9}\x{1810}-\x{1819}' .
+  '\x{1946}-\x{194f}\x{2070}\x{2074}-\x{2079}\x{2080}-\x{2089}\x{2153}-\x{2183}' .
+  '\x{2460}-\x{249b}\x{24ea}-\x{24ff}\x{2776}-\x{2793}\x{3007}\x{3021}-\x{3029}' .
+  '\x{3038}-\x{303a}\x{3192}-\x{3195}\x{3220}-\x{3229}\x{3251}-\x{325f}\x{3280}-' .
+  '\x{3289}\x{32b1}-\x{32bf}\x{ff10}-\x{ff19}');
+
+/**
+ * Matches all 'P' Unicode character classes (punctuation)
+ */
+define('TAL_SEARCH_PREG_CLASS_PUNCTUATION',
+  '\x{21}-\x{23}\x{25}-\x{2a}\x{2c}-\x{2f}\x{3a}\x{3b}\x{3f}\x{40}\x{5b}-\x{5d}' .
+  '\x{5f}\x{7b}\x{7d}\x{a1}\x{ab}\x{b7}\x{bb}\x{bf}\x{37e}\x{387}\x{55a}-\x{55f}' .
+  '\x{589}\x{58a}\x{5be}\x{5c0}\x{5c3}\x{5f3}\x{5f4}\x{60c}\x{60d}\x{61b}\x{61f}' .
+  '\x{66a}-\x{66d}\x{6d4}\x{700}-\x{70d}\x{964}\x{965}\x{970}\x{df4}\x{e4f}' .
+  '\x{e5a}\x{e5b}\x{f04}-\x{f12}\x{f3a}-\x{f3d}\x{f85}\x{104a}-\x{104f}\x{10fb}' .
+  '\x{1361}-\x{1368}\x{166d}\x{166e}\x{169b}\x{169c}\x{16eb}-\x{16ed}\x{1735}' .
+  '\x{1736}\x{17d4}-\x{17d6}\x{17d8}-\x{17da}\x{1800}-\x{180a}\x{1944}\x{1945}' .
+  '\x{2010}-\x{2027}\x{2030}-\x{2043}\x{2045}-\x{2051}\x{2053}\x{2054}\x{2057}' .
+  '\x{207d}\x{207e}\x{208d}\x{208e}\x{2329}\x{232a}\x{23b4}-\x{23b6}\x{2768}-' .
+  '\x{2775}\x{27e6}-\x{27eb}\x{2983}-\x{2998}\x{29d8}-\x{29db}\x{29fc}\x{29fd}' .
+  '\x{3001}-\x{3003}\x{3008}-\x{3011}\x{3014}-\x{301f}\x{3030}\x{303d}\x{30a0}' .
+  '\x{30fb}\x{fd3e}\x{fd3f}\x{fe30}-\x{fe52}\x{fe54}-\x{fe61}\x{fe63}\x{fe68}' .
+  '\x{fe6a}\x{fe6b}\x{ff01}-\x{ff03}\x{ff05}-\x{ff0a}\x{ff0c}-\x{ff0f}\x{ff1a}' .
+  '\x{ff1b}\x{ff1f}\x{ff20}\x{ff3b}-\x{ff3d}\x{ff3f}\x{ff5b}\x{ff5d}\x{ff5f}-' .
+  '\x{ff65}');
+
+/**
+ * Simplifies and preprocesses text for searching.
+ *
+ * Processing steps:
+ * - Entities are decoded.
+ * - Text is lower-cased and diacritics (accents) are removed.
+ *   the search settings.
+ * - Punctuation is processed (removed or replaced with spaces, depending on
+ *   where it is; see code for details).
+ * - Words are truncated to 50 characters maximum.
+ *
+ * @param string $text
+ *   Text to simplify.
+ * @param string|null $langcode
+ *   Language code for the language of $text, if known.
+ *
+ * @return string
+ *   Simplified and processed text.
+ *
+ * @see hook_search_preprocess()
+ */
+function tal_search_simplify($text, $langcode = NULL) {
+  // Decode entities to UTF-8.
+  $text = Html::decodeEntities($text);
+
+  // Lowercase.
+  $text = Unicode::strtolower($text);
+
+  // Remove diacritics.
+  $text = \Drupal::service('transliteration')->removeDiacritics($text);
+
+  // To improve searching for numerical data such as dates, IP addresses
+  // or version numbers, we consider a group of numerical characters
+  // separated only by punctuation characters to be one piece.
+  // This also means that searching for e.g. '20/03/1984' also returns
+  // results with '20-03-1984' in them.
+  // Readable regexp: ([number]+)[punctuation]+(?=[number])
+  $text = preg_replace('/([' . TAL_SEARCH_PREG_CLASS_NUMBERS . ']+)[' . TAL_SEARCH_PREG_CLASS_PUNCTUATION . ']+(?=[' . TAL_SEARCH_PREG_CLASS_NUMBERS . '])/u', '\1', $text);
+
+  // Multiple dot and dash groups are word boundaries and replaced with space.
+  // No need to use the unicode modifier here because 0-127 ASCII characters
+  // can't match higher UTF-8 characters as the leftmost bit of those are 1.
+  $text = preg_replace('/[.-]{2,}/', ' ', $text);
+
+  // The dot, underscore and dash are simply removed. This allows meaningful
+  // search behavior with acronyms and URLs. See unicode note directly above.
+  $text = preg_replace('/[._-]+/', '', $text);
+
+  // With the exception of the rules above, we consider all punctuation,
+  // marks, spacers, etc, to be a word boundary.
+  $text = preg_replace('/[' . Unicode::PREG_CLASS_WORD_BOUNDARY . ']+/u', ' ', $text);
+
+  // Truncate everything to 50 characters.
+  $words = explode(' ', $text);
+  array_walk($words, '_tal_search_index_truncate');
+  $text = implode(' ', $words);
+
+  return $text;
+}
+
+/**
+ * Returns snippets from a piece of text, with search keywords highlighted.
+ *
+ * Used for formatting search results. All HTML tags will be stripped from
+ * $text.
+ *
+ * @param string $keys
+ *   A string containing a search query.
+ * @param string $text
+ *   The text to extract fragments from.
+ * @param string|null $langcode
+ *   Language code for the language of $text, if known.
+ *
+ * @return array
+ *   A render array containing HTML for the excerpt.
+ */
+function tal_search_excerpt($keys, $text, $langcode = NULL) {
+  // We highlight around non-indexable or CJK characters.
+  $boundary_character = '[' . Unicode::PREG_CLASS_WORD_BOUNDARY . ']';
+  $preceded_by_boundary = '(?<=' . $boundary_character . ')';
+  $followed_by_boundary = '(?=' . $boundary_character . ')';
+
+  // Extract positive keywords and phrases.
+  preg_match_all('/ ("([^"]+)"|(?!OR)([^" ]+))/', ' ' . $keys, $matches);
+  $keys = array_merge($matches[2], $matches[3]);
+
+  // Prepare text by stripping HTML tags and decoding HTML entities.
+  $text = strip_tags(str_replace(array('<', '>'), array(' <', '> '), $text));
+  $text = Html::decodeEntities($text);
+  $text_length = strlen($text);
+
+  // Make a list of unique keywords that are actually found in the text,
+  // which could be items in $keys or replacements that are equivalent through
+  // tal_search_simplify().
+  $temp_keys = array();
+  foreach ($keys as $key) {
+    $key = _tal_search_find_match_with_simplify($key, $text, $boundary_character, $langcode);
+    if (isset($key)) {
+      // Quote slashes so they can be used in regular expressions.
+      $temp_keys[] = preg_quote($key, '/');
+    }
+  }
+  // Several keywords could have simplified down to the same thing, so pick
+  // out the unique ones.
+  $keys = array_unique($temp_keys);
+
+  // Extract fragments of about 60 characters around keywords, bounded by word
+  // boundary characters. Try to reach 256 characters, using second occurrences
+  // if necessary.
+  $ranges = array();
+  $length = 0;
+  $look_start = array();
+  $remaining_keys = $keys;
+
+  while ($length < 256 && !empty($remaining_keys)) {
+    $found_keys = array();
+    foreach ($remaining_keys as $key) {
+      if ($length >= 256) {
+        break;
+      }
+
+      // Remember where we last found $key, in case we are coming through a
+      // second time.
+      if (!isset($look_start[$key])) {
+        $look_start[$key] = 0;
+      }
+
+      // See if we can find $key after where we found it the last time. Since
+      // we are requiring a match on a word boundary, make sure $text starts
+      // and ends with a space.
+      $matches = array();
+      if (preg_match('/' . $preceded_by_boundary . $key . $followed_by_boundary . '/iu', ' ' . $text . ' ', $matches, PREG_OFFSET_CAPTURE, $look_start[$key])) {
+        $found_position = $matches[0][1];
+        $look_start[$key] = $found_position + 1;
+        // Keep track of which keys we found this time, in case we need to
+        // pass through again to find more text.
+        $found_keys[] = $key;
+
+        // Locate a space before and after this match, leaving about 60
+        // characters of context on each end.
+        $before = strpos(' ' . $text, ' ', max(0, $found_position - 61));
+        if ($before !== FALSE && $before <= $found_position) {
+          if ($text_length > $found_position + 60) {
+            $after = strrpos(substr($text, 0, $found_position + 60), ' ', $found_position);
+          }
+          else {
+            $after = $text_length;
+          }
+          if ($after !== FALSE && $after > $found_position) {
+            // Account for the spaces we added.
+            $before = max($before - 1, 0);
+            if ($before < $after) {
+              // Save this range.
+              $ranges[$before] = $after;
+              $length += $after - $before;
+            }
+          }
+        }
+      }
+    }
+    // Next time through this loop, only look for keys we found this time,
+    // if any.
+    $remaining_keys = $found_keys;
+  }
+
+  if (empty($ranges)) {
+    // We didn't find any keyword matches, so just return the first part of the
+    // text. We also need to re-encode any HTML special characters that we
+    // entity-decoded above.
+    return [
+      '#plain_text' => Unicode::truncate($text, 256, TRUE, TRUE),
+    ];
+  }
+
+  // Sort the text ranges by starting position.
+  ksort($ranges);
+
+  // Collapse overlapping text ranges into one. The sorting makes it O(n).
+  $new_ranges = array();
+  $max_end = 0;
+  foreach ($ranges as $this_from => $this_to) {
+    $max_end = max($max_end, $this_to);
+    if (!isset($working_from)) {
+      // This is the first time through this loop: initialize.
+      $working_from = $this_from;
+      $working_to = $this_to;
+      continue;
+    }
+    if ($this_from <= $working_to) {
+      // The ranges overlap: combine them.
+      $working_to = max($working_to, $this_to);
+    }
+    else {
+      // The ranges do not overlap: save the working range and start a new one.
+      $new_ranges[$working_from] = $working_to;
+      $working_from = $this_from;
+      $working_to = $this_to;
+    }
+  }
+  // Save the remaining working range.
+  $new_ranges[$working_from] = $working_to;
+
+  // Fetch text within the combined ranges we found.
+  $out = array();
+  foreach ($new_ranges as $from => $to) {
+    $out[] = substr($text, $from, $to - $from);
+  }
+
+  // Combine the text chunks with "…" separators. The "…" needs to be
+  // translated. Let translators have the … separator text as one chunk.
+  $ellipses = explode('@excerpt', t('… @excerpt … @excerpt …'));
+  $text = (isset($new_ranges[0]) ? '' : $ellipses[0]) . implode($ellipses[1], $out) . (($max_end < strlen($text) - 1) ? $ellipses[2] : '');
+  $text = Html::escape($text);
+
+  // Highlight keywords. Must be done at once to prevent conflicts ('strong'
+  // and '<strong>').
+  $text = trim(preg_replace('/' . $preceded_by_boundary . '(?:' . implode('|', $keys) . ')' . $followed_by_boundary . '/iu', '<strong>\0</strong>', ' ' . $text . ' '));
+  return [
+    '#markup' => $text,
+    '#allowed_tags' => ['strong'],
+  ];
+}
+
+/**
+ * @} End of "defgroup search".
+ */
+
+/**
+ * Finds an appropriate keyword in text.
+ *
+ * @param string $key
+ *   The keyword to find.
+ * @param string $text
+ *   The text to search for the keyword.
+ * @param string $boundary
+ *   Regular expression for the boundary character class (characters that
+ *   indicate spaces between words).
+ * @param string|null $langcode
+ *   Language code for the language of $text, if known.
+ *
+ * @return string|null
+ *   A segment of $text that is between word boundary characters that either
+ *   matches $key directly, or matches $key when both this text segment and
+ *   $key are processed by tal_search_simplify(). If a matching text segment is
+ *   not located, NULL is returned.
+ */
+function _tal_search_find_match_with_simplify($key, $text, $boundary, $langcode = NULL) {
+  $preceded_by_boundary = '(?<=' . $boundary . ')';
+  $followed_by_boundary = '(?=' . $boundary . ')';
+
+  // See if $key appears as-is. When testing, make sure $text starts/ends with
+  // a space, because we require $key to be surrounded by word boundary
+  // characters.
+  $temp = trim($key);
+  if ($temp == '') {
+    return NULL;
+  }
+  if (preg_match('/' . $preceded_by_boundary . preg_quote($temp, '/') . $followed_by_boundary . '/iu', ' ' . $text . ' ')) {
+    return $temp;
+  }
+
+  // See if there is a match after lower-casing and removing diacritics in
+  // both, which should preserve the string length.
+  $new_text = Unicode::strtolower($text);
+  $new_text = \Drupal::service('transliteration')->removeDiacritics($new_text);
+  $new_key = Unicode::strtolower($temp);
+  $new_key = \Drupal::service('transliteration')->removeDiacritics($new_key);
+  if (preg_match('/' . $preceded_by_boundary . preg_quote($new_key, '/') . $followed_by_boundary . '/u', ' ' . $new_text . ' ')) {
+    $position = Unicode::strpos($new_text, $new_key);
+    return Unicode::substr($text, $position, Unicode::strlen($new_key));
+  }
+
+  // Run both text and key through tal_search_simplify.
+  $simplified_key = trim(tal_search_simplify($key, $langcode));
+  $simplified_text = trim(tal_search_simplify($text, $langcode));
+  if ($simplified_key == '' || $simplified_text == '' || strpos($simplified_text, $simplified_key) === FALSE) {
+    // The simplified keyword and text do not match at all, or are empty.
+    return NULL;
+  }
+
+  // Split $text into words, keeping track of where the word boundaries are.
+  $words = preg_split('/' . $boundary . '+/u', $text, NULL, PREG_SPLIT_OFFSET_CAPTURE);
+  // Add an entry pointing to the end of the string, for the loop below.
+  $words[] = array('', strlen($text));
+
+  // Using a binary search, find the earliest possible ending position in
+  // $text where it will still match the keyword after applying
+  // tal_search_simplify().
+  $start_index = 0;
+  $start_pos = $words[$start_index][1];
+  $min_end_index = 1;
+  $max_end_index = count($words) - 1;
+  while ($max_end_index > $min_end_index) {
+    // Check the index half way between min and max. See if we ended there,
+    // if we would still have a match.
+    $proposed_end_index = floor(($max_end_index + $min_end_index) / 2);
+    $proposed_end_pos = $words[$proposed_end_index][1];
+    // Since the split was done with preg_split(), the positions are byte counts
+    // not character counts, so use substr() not Unicode::substr() here.
+    $trial_text = trim(tal_search_simplify(substr($text, $start_pos, $proposed_end_pos - $start_pos), $langcode));
+    if (strpos($trial_text, $simplified_key) !== FALSE) {
+      // The proposed endpoint is fine, text still matches.
+      $max_end_index = $proposed_end_index;
+    }
+    else {
+      // The proposed endpoint index is too early, so the earliest possible
+      // OK ending point would be the next index.
+      $min_end_index = $proposed_end_index + 1;
+    }
+  }
+
+  // Now do the same for the starting position: using a binary search, find the
+  // latest possible starting position in $text where it will still match the
+  // keyword after applying tal_search_simplify().
+  $end_index = $min_end_index;
+  $end_pos = $words[$end_index][1];
+  $min_start_index = 0;
+  $max_start_index = $end_index - 1;
+  while ($max_start_index > $min_start_index) {
+    // Check the index half way between min and max. See if we started there,
+    // if we would still have a match.
+    $proposed_start_index = ceil(($max_start_index + $min_start_index) / 2);
+    $proposed_start_pos = $words[$proposed_start_index][1];
+    // Since the split was done with preg_split(), the positions are byte counts
+    // not character counts, so use substr() not Unicode::substr() here.
+    $trial_text = trim(tal_search_simplify(substr($text, $proposed_start_pos, $end_pos - $proposed_start_pos), $langcode));
+    if (strpos($trial_text, $simplified_key) !== FALSE) {
+      // The proposed start point is fine, text still matches.
+      $min_start_index = $proposed_start_index;
+    }
+    else {
+      // The proposed start point index is too late, so the latest possible
+      // OK starting point would be the previous index.
+      $max_start_index = $proposed_start_index - 1;
+    }
+  }
+  $start_index = $max_start_index;
+
+  // Return the matching text. We need to use substr() here and not the
+  // Unicode::substr() function, because the indices in $words came from
+  // preg_split(), so they are Unicode-safe byte positions, not character
+  // positions.
+  return trim(substr($text, $words[$start_index][1], $words[$end_index][1] - $words[$start_index][1]));
+}
+
+/**
+ * Helper function for array_walk in search_index_split.
+ */
+function _tal_search_index_truncate(&$text) {
+  // Use a static array to avoid re-truncating text we've done before.
+  // The same words may often be passed in during excerpt generation.
+  static $truncated = array();
+  if (isset($truncated[$text])) {
+    $text = $truncated[$text];
+    return;
+  }
+
+  // If we didn't find it in the static array, perform the operation.
+  $original = $text;
+  if (is_numeric($text)) {
+    $text = ltrim($text, '0');
+  }
+  $text = Unicode::truncate($text, 50);
+  // Save it for the next time.
+  $truncated[$original] = $text;
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function tal_search_form_views_exposed_form_alter(&$form, FormStateInterface $form_state) {
+  if ($form['#id'] == 'views-exposed-form-search-search-page') {
+    // Add a placeholder text to the search text field.
+    $form['s']['#attributes'] = array('placeholder' => t('Search...'));
+    $form['sort_by']['#prefix'] = '<div class="hide">';
+    $form['sort_by']['#suffix'] = '</div>';
+  }
+  if ($form['#id'] == 'views-exposed-form-search-top-ingredient-results-block') {
+    // Add a placeholder text to the search text field.
+    $form['#prefix'] = '<div class="hide">';
+    $form['#suffix'] = '</div>';
+  }
+}

@@ -1,0 +1,35 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.promo_body_with_link_url.field_block_body
+    - field.field.paragraph.promo_body_with_link_url.field_tal_link
+    - paragraphs.paragraphs_type.promo_body_with_link_url
+  module:
+    - link
+    - text
+id: paragraph.promo_body_with_link_url.default
+targetEntityType: paragraph
+bundle: promo_body_with_link_url
+mode: default
+content:
+  field_block_body:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+  field_tal_link:
+    weight: 1
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+hidden:
+  created: true
+  uid: true

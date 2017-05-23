@@ -1,0 +1,56 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+    - options
+id: block_content.field_qt_bg_color
+field_name: field_qt_bg_color
+entity_type: block_content
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: '#ffffff'
+      label: White
+    -
+      value: '#999999'
+      label: 'Cool Grey'
+    -
+      value: '#000000'
+      label: Black
+    -
+      value: '#7373a8'
+      label: Purple
+    -
+      value: '#14aae2'
+      label: Blue
+    -
+      value: '#e64054'
+      label: Pink
+    -
+      value: '#fafafa'
+      label: Off-white
+    -
+      value: '#666666'
+      label: Mid-grey
+    -
+      value: '#f99f1f'
+      label: Yellow
+    -
+      value: '#948671'
+      label: 'Warm Grey'
+    -
+      value: '#949ca1'
+      label: Silver
+    -
+      value: '#eaeaea'
+      label: light-grey
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

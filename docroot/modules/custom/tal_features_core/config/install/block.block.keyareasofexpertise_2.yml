@@ -1,0 +1,28 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.key-areas-of-expertise
+  module:
+    - facets
+    - system
+id: keyareasofexpertise_2
+theme: tateandlyle
+region: footer_top
+weight: -16
+provider: null
+plugin: 'system_menu_block:key-areas-of-expertise'
+settings:
+  id: 'system_menu_block:key-areas-of-expertise'
+  label: 'Key areas of expertise'
+  provider: system
+  label_display: visible
+  level: 1
+  depth: 0
+visibility:
+  other_facet:
+    id: other_facet
+    facets: ''
+    facet_value: ''
+    negate: false
+    context_mapping: {  }

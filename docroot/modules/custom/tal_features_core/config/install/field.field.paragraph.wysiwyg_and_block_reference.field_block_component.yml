@@ -1,0 +1,39 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.accordion_with_tabs
+    - block_content.type.banner
+    - block_content.type.detail_content_promo
+    - block_content.type.passive_recruitment
+    - block_content.type.quote
+    - block_content.type.single_item_promo
+    - block_content.type.talk_to_us
+    - field.storage.paragraph.field_block_component
+    - paragraphs.paragraphs_type.wysiwyg_and_block_reference
+id: paragraph.wysiwyg_and_block_reference.field_block_component
+field_name: field_block_component
+entity_type: paragraph
+bundle: wysiwyg_and_block_reference
+label: Component
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:block_content'
+  handler_settings:
+    target_bundles:
+      accordion_with_tabs: accordion_with_tabs
+      banner: banner
+      detail_content_promo: detail_content_promo
+      passive_recruitment: passive_recruitment
+      quote: quote
+      single_item_promo: single_item_promo
+      talk_to_us: talk_to_us
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: accordion_with_tabs
+field_type: entity_reference

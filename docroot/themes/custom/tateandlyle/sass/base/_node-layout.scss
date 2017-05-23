@@ -1,0 +1,98 @@
+.page-node-type-press-release {
+  .teaser-content .date--category {
+    padding-left: 0;
+  }
+  .teaser-content .field--type-text-long,
+  .teaser-content .field--type-text-with-summary,
+  .teaser-content .date--category {
+    @media (min-width: $screen-md) {
+      max-width: 880px;
+    }
+  }
+}
+
+figure {
+  display: table;
+  position: relative;
+  margin: 30px 0;
+
+  &.align-center {
+    display: table;
+    margin: 20px auto 0;
+    @media (min-width: $screen-sm) {
+      margin: 30px auto 0;
+    }
+  }
+
+  &.align-left {
+    display: table;
+    margin: 30px 0;
+    margin-right: 0;
+    float: left;
+    @media (min-width: $screen-sm) {
+      margin-right: 30px;
+    }
+  }
+
+  &.align-right {
+    display: table;
+    margin: 30px 0;
+    margin-left: 0;
+    float: right;
+    @media (min-width: $screen-sm) {
+      margin-left: 30px;
+    }
+  }
+
+  figcaption {
+    background-color: rgba(0, 0, 0, 0.9);
+    bottom: 0;
+    color: $color-white;
+    padding: 14px 28px;
+    position: absolute;
+    width: 100%;
+  }
+}
+
+article {
+  &.align-center {
+    display: table;
+    margin: 20px auto 0;
+    @media (min-width: $screen-sm) {
+      margin: 30px auto 0;
+    }
+  }
+
+  &.align-left {
+    display: table;
+    float: none;
+    margin: 30px auto;
+    @media (min-width: $screen-sm) {
+      float: left;
+      margin: 0;
+      margin-right: 30px;
+    }
+  }
+
+  &.align-right {
+    display: table;
+    float: none;
+    margin: 30px auto;
+    @media (min-width: $screen-sm) {
+      float: right;
+      margin: 0;
+      margin-left: 30px;
+    }
+  }
+}
+
+.press__release--boilerplate {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.path-frontpage {
+  .region-content-top .page-header {
+    display: none;
+  }
+}

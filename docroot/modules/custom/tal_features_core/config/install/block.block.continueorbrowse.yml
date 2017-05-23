@@ -1,0 +1,33 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - facets
+    - system
+    - tal_search
+id: continueorbrowse
+theme: tateandlyle
+region: sidebar_second
+weight: -9
+provider: null
+plugin: continue_or_browse
+settings:
+  id: continue_or_browse
+  label: 'Continue search'
+  provider: tal_search
+  label_display: visible
+  block_description: 'View the full ingredient results in our ingredient finder.'
+  link_text: 'All matching ingredients'
+  link_url: 0
+visibility:
+  other_facet:
+    id: other_facet
+    facets: ''
+    facet_value: ''
+    negate: false
+    context_mapping: {  }
+  request_path:
+    id: request_path
+    pages: /search
+    negate: false
+    context_mapping: {  }

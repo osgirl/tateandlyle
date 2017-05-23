@@ -1,0 +1,82 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.homepage_banner
+    - field.field.block_content.homepage_banner.field_bg_image
+    - field.field.block_content.homepage_banner.field_description
+    - field.field.block_content.homepage_banner.field_icon
+    - field.field.block_content.homepage_banner.field_left_link
+    - field.field.block_content.homepage_banner.field_right_icon
+    - field.field.block_content.homepage_banner.field_right_link
+    - field.field.block_content.homepage_banner.field_title
+    - image.style.hero_banner_1109_x_500
+  module:
+    - image
+    - link
+    - text
+id: block_content.homepage_banner.default
+targetEntityType: block_content
+bundle: homepage_banner
+mode: default
+content:
+  field_bg_image:
+    weight: 2
+    label: hidden
+    settings:
+      image_style: hero_banner_1109_x_500
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+  field_description:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+  field_icon:
+    weight: 3
+    label: hidden
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+  field_left_link:
+    weight: 4
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+  field_right_icon:
+    weight: 5
+    label: hidden
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+  field_right_link:
+    weight: 6
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+  field_title:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+hidden: {  }

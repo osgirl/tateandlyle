@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.iframe_content.field_iframe_code
+    - node.type.iframe_content
+  module:
+    - user
+id: node.iframe_content.teaser
+targetEntityType: node
+bundle: iframe_content
+mode: teaser
+content:
+  links:
+    weight: 100
+hidden:
+  field_iframe_code: true

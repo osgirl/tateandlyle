@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.dynamic_posts
+    - field.storage.block_content.field_header_text
+  module:
+    - text
+id: block_content.dynamic_posts.field_header_text
+field_name: field_header_text
+entity_type: block_content
+bundle: dynamic_posts
+label: 'Header text'
+description: 'Use this filed to put some message on the header part of the "Latest Publication" block. The field has no effect on other blocks.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long
