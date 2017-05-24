@@ -1,0 +1,37 @@
+<?php
+
+/**
+ * @file
+ * Module files contains generic functionality for the site.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_alter().
+ */
+function tal_wrapper_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if (in_array($form_id, array(
+    'taxonomy_term_ttu_routing_form',
+    'taxonomy_term_ttu_documents_form',
+    'taxonomy_term_others_form',
+  ))) {
+    $form['#validate'][] = 'salesforce_and_email_field_form_validate';
+  }
+}
+
+/**
+ * Validate function for sales force and email field.
+ */
+function salesforce_and_email_field_form_validate(&$form, FormStateInterface $form_state) {
+  $values = $form_state->getValues();
+  if (isset($values['field_saleforce_routing_on']['value'])) {
+    $saleforce_on = $values['field_saleforce_routing_on']['value'];
+  }
+  if (isset($values['field_email']['value'])) {
+    $field_email = $values['field_email']['value'];
+  }
+  if ($saleforce_on == 'Off' && empty($field_email)) {
+    $form_state->setErrorByName('field_email', 'Email field is required if sales force option is not selected.');
+  }
+}

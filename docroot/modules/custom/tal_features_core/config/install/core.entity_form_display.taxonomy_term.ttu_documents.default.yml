@@ -2,15 +2,15 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.taxonomy_term.others.field_email
-    - field.field.taxonomy_term.others.field_saleforce_routing_on
-    - taxonomy.vocabulary.others
+    - field.field.taxonomy_term.ttu_documents.field_email
+    - field.field.taxonomy_term.ttu_documents.field_saleforce_routing_on
+    - taxonomy.vocabulary.ttu_documents
   module:
     - path
     - text
-id: taxonomy_term.others.default
+id: taxonomy_term.ttu_documents.default
 targetEntityType: taxonomy_term
-bundle: others
+bundle: ttu_documents
 mode: default
 content:
   description:
