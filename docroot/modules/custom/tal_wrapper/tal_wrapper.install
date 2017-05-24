@@ -299,3 +299,20 @@ function tal_wrapper_update_8222() {
 function tal_wrapper_update_8223() {
   \Drupal::service('module_installer')->install(['sitemap', 'url_redirect']);
 }
+
+/**
+ * Create a taxonomy "TTU Documents".
+ */
+function tal_wrapper_update_8224() {
+  $vid = 'ttu_documents';
+  $name = 'TTU Documents';
+  $vocab = Vocabulary::load($vid);
+  if (empty($vocab)) {
+    $vocabulary = Vocabulary::create(array(
+      'vid' => $vid,
+      'machine_name' => $vid,
+      'name' => $name,
+    ));
+    $vocabulary->save();
+  }
+}
