@@ -110,7 +110,8 @@ class TalRemotePostWebformHandler extends RemotePostWebformHandler {
     $data = $this->getPostData($operation, $webform_submission);
     $validated = $this->validateSalesForcePostRules($data);
     $request_post_data = $data['post_data'];
-    $request_post_data['oid'] = '00DP000000037No';
+    $config = \Drupal::config('tal_admin_config.settings');
+    $request_post_data['oid'] = $config->get('salesforce_oid');
     $request_post_data['retURL'] = $data['url'];
 
     // Message has unique id to post.
