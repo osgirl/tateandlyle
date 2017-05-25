@@ -130,6 +130,7 @@ class TalRemotePostWebformHandler extends RemotePostWebformHandler {
       }
     }
     $request_post_data['industry'] = $this->getTermName($request_post_data['industry']);
+    $request_post_data['page_title'] = $this->t("File Downloaded From @page_title", array('@page_title' => $request_post_data['page_title']));
 
     // Debug parameters.
     if ($this->configuration['debug']) {
