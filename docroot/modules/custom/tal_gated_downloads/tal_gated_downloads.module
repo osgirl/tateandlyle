@@ -1,0 +1,31 @@
+<?php
+
+/**
+ * @file
+ * Contains all hooks related to  TAL Downloads functionality.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_alter().
+ */
+function tal_gated_downloads_form_alter(&$form, FormStateInterface $form_state) {
+  if ($form['#id'] == 'webform-submission-contact-form-form') {
+    // Add a placeholder text to the search text field.
+    $form['elements']['file_id'] = array(
+      '#type' => 'hidden',
+      '#default_value' => '0',
+    );
+    // Custom submit callback.
+    $form['actions']['submit']['#submit'][] = 'tal_gated_downloads_form_redirect';
+  }
+}
+
+/**
+ * Custom submit handler function.
+ */
+function tal_gated_downloads_form_redirect(array $form, FormStateInterface $form_state) {
+  $fid = $form_state->getValue('file_id');
+  $form_state->setRedirect('gateddownloadsredirect', array('fid' => $fid));
+}
