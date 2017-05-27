@@ -45,4 +45,17 @@
             $(".sap__downloads--button").first().removeClass('hide-content');
         }
     };
+
+    Drupal.behaviors.gateddownloads = {
+        attach: function (context, settings) {
+            $('.btn--download').each(function () {
+                $(this).on('click', function(e){
+                   e.preventDefault();
+                    var fid = '';
+                    fid = $(this).attr('data-file');
+                    $('#edit-file-id').val(fid);
+                });
+            });
+        }
+    };
 })(jQuery, Drupal);

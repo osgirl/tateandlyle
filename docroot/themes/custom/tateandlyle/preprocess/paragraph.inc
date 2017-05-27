@@ -42,7 +42,6 @@ function tal_preprocess_paragraph_talk_to_us($variables, $paragraph) {
   $variables['contact_form'] = [
     '#type' => 'webform',
     '#webform' => 'contact_form',
-    // '#default_data' => ['send_mail' => $email, 'tc' => $tc_machin_name].
   ];
 
   return $variables;
@@ -215,5 +214,27 @@ function tal_preprocess_paragraph_ingredient_accordion_items($variables, $paragr
   $parent_field_name = $paragraph->toArray();
   $field_name = $parent_field_name['parent_field_name'][0]['value'];
   $variables['field_unique_id'] = $parent->getEntityTypeId() . $parent->id() . $field_name;
+  return $variables;
+}
+
+/**
+ * Preprocessor function for "ingredient downloads" paragraph type.
+ */
+function tal_preprocess_paragraph_ingredient_downloads($variables, $paragraph) {
+  // Contact salesforce form added.
+  $variables['contact_form'] = [
+    '#type' => 'webform',
+    '#webform' => 'contact_form',
+  ];
+
+  return $variables;
+}
+
+/**
+ * Preprocessor function for "ingredient downloads" paragraph type.
+ */
+function tal_preprocess_paragraph_related_downloads($variables, $paragraph) {
+  $variables = tal_preprocess_paragraph_ingredient_downloads($variables, $paragraph);
+
   return $variables;
 }
