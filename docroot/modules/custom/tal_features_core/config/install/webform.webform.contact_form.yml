@@ -155,7 +155,6 @@ handlers:
         entity_id: entity_id
         sticky: sticky
         notes: notes
-        others: others
       custom_data: ''
       insert_custom_data: ''
       update_custom_data: ''
