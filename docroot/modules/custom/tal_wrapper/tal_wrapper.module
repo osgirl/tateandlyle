@@ -30,13 +30,15 @@ function tal_wrapper_form_alter(&$form, FormStateInterface $form_state, $form_id
  */
 function salesforce_and_email_field_form_validate(&$form, FormStateInterface $form_state) {
   $values = $form_state->getValues();
+  $saleforce_on = '';
   if (isset($values['field_saleforce_routing_on']['value'])) {
     $saleforce_on = $values['field_saleforce_routing_on']['value'];
   }
+  $field_email = '';
   if (isset($values['field_email']['value'])) {
     $field_email = $values['field_email']['value'];
   }
-  if ($saleforce_on == 'Off' && empty($field_email)) {
+  if ($saleforce_on && empty($field_email)) {
     $form_state->setErrorByName('field_email', 'An Email address is required if the Salesforce option is not selected.');
   }
 }

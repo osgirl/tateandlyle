@@ -1,0 +1,20 @@
+<?php
+
+/**
+ * @file
+ * Tal webform module.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_alter().
+ */
+function tal_webform_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if ($form_id == 'webform_submission_contact_form_form') {
+    $request = \Drupal::request();
+    $route_match = \Drupal::routeMatch();
+    $title = \Drupal::service('title_resolver')->getTitle($request, $route_match->getRouteObject());
+    $form['elements']['page_title']['#default_value'] = $title;
+  }
+}
