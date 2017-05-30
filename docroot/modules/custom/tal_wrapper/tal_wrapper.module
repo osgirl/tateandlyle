@@ -35,10 +35,10 @@ function salesforce_and_email_field_form_validate(&$form, FormStateInterface $fo
     $saleforce_on = $values['field_saleforce_routing_on']['value'];
   }
   $field_email = '';
-  if (isset($values['field_email']['value'])) {
-    $field_email = $values['field_email']['value'];
+  if (isset($values['field_email'][0]['value'])) {
+    $field_email = $values['field_email'][0]['value'];
   }
-  if ($saleforce_on && empty($field_email)) {
+  if (!$saleforce_on && empty($field_email)) {
     $form_state->setErrorByName('field_email', 'An Email address is required if the Salesforce option is not selected.');
   }
 }
