@@ -18,11 +18,13 @@ class TalGatedDownloads extends ControllerBase {
    *
    * Our router maps this method to the path '/downloads/gated/file/{fid}'.
    */
-  public function getFile($fid) {
+  public function getFile() {
     $output = array(
       '#type' => 'marker',
       '#marker' => '<div class="error">' . $this->t('File not found on the server.') . '</div>',
     );
+    $tempstore = \Drupal::service('user.private_tempstore')->get('tal_gated_downlods');
+    $fid = $tempstore->get('fid');
 
     $response = new Response(render($output));
 
@@ -41,6 +43,7 @@ class TalGatedDownloads extends ControllerBase {
       $response->setContentDisposition(
         ResponseHeaderBag::DISPOSITION_ATTACHMENT, $file->getFilename()
       );
+      $tempstore->set('fid', '');
     }
 
     return $response;
@@ -49,7 +52,7 @@ class TalGatedDownloads extends ControllerBase {
   /**
    * Returns a renderable array as response.
    */
-  public function getMessagePage($fid) {
+  public function getMessagePage() {
     return array(
       '#markup' => t('Your download will start automatically.'),
       '#attached' => array(

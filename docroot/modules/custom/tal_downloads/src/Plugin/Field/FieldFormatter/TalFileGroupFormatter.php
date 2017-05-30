@@ -35,6 +35,7 @@ class TalFileGroupFormatter extends EntityReferenceRevisionsEntityFormatter {
           '#file' => $file,
           '#external_download_link' => $link,
           '#gated' => $gated,
+          '#id' => $entity->id(),
           '#attributes' => array(
             'class' => 'tal-file-download-link',
           ),

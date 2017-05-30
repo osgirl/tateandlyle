@@ -316,3 +316,12 @@ function tal_wrapper_update_8224() {
     $vocabulary->save();
   }
 }
+
+/**
+ * Enable tal_gated_downloads modules.
+ *
+ * Implements hook_update_N().
+ */
+function tal_wrapper_update_8225() {
+  \Drupal::service('module_installer')->install(['tal_gated_downloads']);
+}
