@@ -231,7 +231,7 @@ function tal_preprocess_paragraph_ingredient_downloads($variables, $paragraph) {
 }
 
 /**
- * Preprocessor function for "ingredient downloads" paragraph type.
+ * Preprocessor function for "related downloads" paragraph type.
  */
 function tal_preprocess_paragraph_related_downloads($variables, $paragraph) {
   $variables = tal_preprocess_paragraph_ingredient_downloads($variables, $paragraph);

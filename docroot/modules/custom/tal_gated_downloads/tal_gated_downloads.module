@@ -27,5 +27,9 @@ function tal_gated_downloads_form_alter(&$form, FormStateInterface $form_state) 
  */
 function tal_gated_downloads_form_redirect(array $form, FormStateInterface $form_state) {
   $fid = $form_state->getValue('file_id');
-  $form_state->setRedirect('gateddownloadsredirect', array('fid' => $fid));
+  if ($fid > 0) {
+    $tempstore = \Drupal::service('user.private_tempstore')->get('tal_gated_downlods');
+    $tempstore->set('fid', $fid);
+    $form_state->setRedirect('gateddownloadsredirect');
+  }
 }

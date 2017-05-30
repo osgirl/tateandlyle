@@ -1,5 +1,5 @@
 gateddownloads:
-  path: '/downloads/gated/file/{fid}'
+  path: '/downloads/gated/file'
   defaults:
     _controller: 'Drupal\tal_gated_downloads\Controller\TalGatedDownloads::getFile'
     _title: 'Gated download.'
@@ -7,7 +7,7 @@ gateddownloads:
     _permission: 'access content'
 
 gateddownloadsredirect:
-  path: '/downloads/gated/message/{fid}'
+  path: '/downloads/gated/message'
   defaults:
     _controller: 'Drupal\tal_gated_downloads\Controller\TalGatedDownloads::getMessagePage'
     _title: 'Your download will start.'
