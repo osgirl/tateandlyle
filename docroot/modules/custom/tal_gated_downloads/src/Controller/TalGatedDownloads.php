@@ -27,15 +27,16 @@ class TalGatedDownloads extends ControllerBase {
     $fid = $tempstore->get('fid');
 
     $response = new Response(render($output));
-
     if ($fid) {
       $file = File::load($fid);
       $uri = $file->getFileUri();
+
       // This should return the file to the browser as response.
       $response = new BinaryFileResponse($uri);
 
       // To generate a file download, you need the mimetype of the file.
       $mimeTypeGuesser = \Drupal::service('file.mime_type.guesser');
+
       // Guess the mimetype of the file according to the extension of the file.
       $response->headers->set('Content-Type', $mimeTypeGuesser->guess($uri));
 
