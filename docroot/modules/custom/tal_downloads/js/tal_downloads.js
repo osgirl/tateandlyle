@@ -1,13 +1,15 @@
 (function ($, Drupal) {
     Drupal.behaviors.ShowDownloadLink = {
         attach: function (context, settings) {
-            $('[id^=edit-language-]').each(function () {
+            $('[id^=edit-language-]', context).each(function () {
                 $(this).change(function(){
                     var wid, str, pid;
                     str = $(this).attr('id');
                     wid = str.replace('edit-language-', '');
                     pid = $(this).val();
-                    jQuery('#download-link-' + wid).load("/downloads/file/" + wid + "/" + pid);
+                    jQuery('#download-link-' + wid).load("/downloads/file/" + wid + "/" + pid, function (){
+                       Drupal.attachBehaviors($('#download-link-' + wid)); 
+                    });
                 });
             });
 
@@ -48,7 +50,7 @@
 
     Drupal.behaviors.gateddownloads = {
         attach: function (context, settings) {
-            $('.btn--download').each(function () {
+            $('.btn--download', context).each(function () {
                 $(this).on('click', function(e){
                    e.preventDefault();
                     var fid = '';
