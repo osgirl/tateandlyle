@@ -25,7 +25,7 @@
   @media (min-width: $screen-sm) {
     margin-left: auto;
     margin-right: auto;
-    padding: 31px 97px 35px;
+    padding: 31px 40px 35px;
   }
 
   .control-label,
@@ -38,7 +38,7 @@
   form {
 
     .form-item {
-      margin-bottom: 33px;
+      margin-bottom: 20px;
     }
 
     fieldset {
@@ -86,6 +86,18 @@
 
   select::-ms-expand {
     display: none;
+  }
+  .webform-submission-contact-form-form {
+    .webform-options-display-two-columns {
+      display: block;
+      -webkit-column-count: auto;
+      -moz-column-count: auto;
+      column-count: auto;
+    }
+    .js-form-type-radio.radio {
+      float: none;
+      padding-right: 0;
+    }
   }
 }
 

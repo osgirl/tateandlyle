@@ -51,12 +51,14 @@
     Drupal.behaviors.gateddownloads = {
         attach: function (context, settings) {
             $('.btn--download', context).each(function () {
-                $(this).on('click', function(e){
-                   e.preventDefault();
-                    var fid = '';
-                    fid = $(this).attr('data-file');
-                    $('#edit-file-id').val(fid);
-                });
+                var fid = '';
+                fid = $(this).attr('data-file');
+                if (typeof(fid) != 'undefined') {
+                    $(this).on('click', function(e){
+                        e.preventDefault();
+                        $('#edit-file-id').val(fid);
+                    });
+                }
             });
         }
     };
