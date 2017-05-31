@@ -45,6 +45,7 @@ class TalGatedDownloads extends ControllerBase {
         ResponseHeaderBag::DISPOSITION_ATTACHMENT, $file->getFilename()
       );
       $tempstore->set('fid', '');
+      $tempstore->set('current_uri', '');
     }
 
     return $response;
@@ -54,8 +55,13 @@ class TalGatedDownloads extends ControllerBase {
    * Returns a renderable array as response.
    */
   public function getMessagePage() {
+    $tempstore = \Drupal::service('user.private_tempstore')->get('tal_gated_downlods');
+    $uri = $tempstore->get('current_uri');
+    $output = '<div class="message">'
+      . $this->t('Your download will start automatically.')
+      . '<span class="back-url"><a href="' . $uri . '">' . $this->t('< Go Back') . '</a></span>';
     return array(
-      '#markup' => t('Your download will start automatically.'),
+      '#markup' => $output,
       '#attached' => array(
         'library' => array(
           'tal_gated_downloads/tal_gated_downloads_redirect',
