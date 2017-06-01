@@ -51,7 +51,11 @@
             <div class="tal__download--button sap__downloads--button {{ doc_class }}" >
                 {% if value.dln_link %}
                     <p class="file-size">{{ value.file_size }}</p>
+                    {% if gated %}
                     <span class="btn--download" data-toggle="modal" data-target="#myModal" data-file="{{ value.fid }}">{{ value.dln_link }}</span>
+                    {% else %}
+                        <span class="btn--download">{{ value.dln_link }}</span>
+                    {% endif %}
                 {% endif %}
             </div>
             {% endif %}
