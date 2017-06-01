@@ -232,7 +232,8 @@
 .block--download .field--name-field-tal-link,
 .block--downloads-with-accordion .field--name-field-tal-link,
 .tal--download-external-link,
-.annual__reports .btn--download {
+.annual__reports .btn--download,
+.back-url {
   a {
     @extend .btn;
     @extend .btn-primary;
@@ -247,21 +248,47 @@
       width: auto;
       margin: 5px 0;
     }
-
-    &::after {
-      @extend %download-icon;
-    }
-
     &:hover {
       background-color: $color-white;
       border: 1px solid $brand-primary;
       box-shadow: none;
       color: $brand-primary;
       padding: 8px 19px;
+    }
+  }
+}
 
+.file--downloads .btn--download,
+.block--download .field--name-field-tal-link,
+.block--downloads-with-accordion .field--name-field-tal-link,
+.tal--download-external-link,
+.annual__reports .btn--download {
+  a {
+    &::after {
+      @extend %download-icon;
+    }
+
+    &:hover {
       &::after {
         background: url("../images/icons/buttoncta-arrow-blue.png") no-repeat;
         background-size: contain;
+      }
+    }
+  }
+}
+
+.back-url {
+  a {
+    &::before {
+      @extend %right-brand-arrow;
+      content: $fa-var-angle-left;
+      padding-right: 10px;
+      padding-left: 0;
+      color: white;
+    }
+    &:hover {
+      &::before {
+        color: $brand-primary;
       }
     }
   }
@@ -373,7 +400,7 @@
   select::-ms-expand {
     display: none;
   }
-  
+
   .variant--title {
     color: $gray-base;
     display: block;

@@ -57,9 +57,8 @@ class TalGatedDownloads extends ControllerBase {
   public function getMessagePage() {
     $tempstore = \Drupal::service('user.private_tempstore')->get('tal_gated_downlods');
     $uri = $tempstore->get('current_uri');
-    $output = '<div class="message">'
-      . $this->t('Your download will start automatically.')
-      . '<span class="back-url"><a href="' . $uri . '">' . $this->t('< Go Back') . '</a></span>';
+    $output = '<div class="message"><span class="back-url"><a href="'
+      . $uri . '" class="btn">' . $this->t('Go Back') . '</a></span>';
     return array(
       '#markup' => $output,
       '#attached' => array(
