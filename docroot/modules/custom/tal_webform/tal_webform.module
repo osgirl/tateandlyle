@@ -6,6 +6,7 @@
  */
 
 use Drupal\Core\Form\FormStateInterface;
+use Symfony\Cmf\Component\Routing\RouteObjectInterface;
 
 /**
  * Implements hook_form_alter().
@@ -13,8 +14,14 @@ use Drupal\Core\Form\FormStateInterface;
 function tal_webform_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   if ($form_id == 'webform_submission_contact_form_form') {
     $request = \Drupal::request();
-    $route_match = \Drupal::routeMatch();
-    $title = \Drupal::service('title_resolver')->getTitle($request, $route_match->getRouteObject());
-    $form['elements']['page_title']['#default_value'] = $title;
+    // Check if current path is admin.
+    $route_match = \Drupal::service('router.no_access_checks')->matchRequest($request);
+    $route = $route_match[RouteObjectInterface::ROUTE_OBJECT];
+    $is_admin = \Drupal::service('router.admin_context')->isAdminRoute($route);
+    if (!$is_admin) {
+      $route_match = \Drupal::routeMatch();
+      $title = \Drupal::service('title_resolver')->getTitle($request, $route_match->getRouteObject());
+      $form['elements']['page_title']['#default_value'] = $title;
+    }
   }
 }
