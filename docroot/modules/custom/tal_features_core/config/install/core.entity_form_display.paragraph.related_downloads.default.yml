@@ -9,7 +9,7 @@ dependencies:
     - field.field.paragraph.related_downloads.field_file_icon
     - paragraphs.paragraphs_type.related_downloads
   module:
-    - tal_articles
+    - paragraphs
     - workbench_moderation
 id: paragraph.related_downloads.default
 targetEntityType: paragraph
@@ -38,7 +38,7 @@ content:
     third_party_settings: {  }
     type: string_textfield
   field_file_group:
-    type: gated_hidden_widget
+    type: entity_reference_paragraphs
     weight: 5
     settings:
       title: Paragraph
