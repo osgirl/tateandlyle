@@ -6,6 +6,8 @@ dependencies:
     - block_content.type.banner
     - block_content.type.basic
     - block_content.type.detail_content_promo
+    - block_content.type.download
+    - block_content.type.downloads_with_accordion
     - block_content.type.passive_recruitment
     - block_content.type.quote
     - block_content.type.single_item_promo
@@ -30,6 +32,8 @@ settings:
       banner: banner
       basic: basic
       detail_content_promo: detail_content_promo
+      download: download
+      downloads_with_accordion: downloads_with_accordion
       passive_recruitment: passive_recruitment
       quote: quote
       single_item_promo: single_item_promo
