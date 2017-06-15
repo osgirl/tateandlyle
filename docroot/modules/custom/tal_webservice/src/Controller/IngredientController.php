@@ -220,7 +220,7 @@ class IngredientController {
     try {
       $material_ids = explode(',', $material_codes);
       $filtered_ids = [];
-      // Filter invalide material codes.
+      // Filter invalid material codes.
       foreach ($material_ids as $material_id) {
         if (!empty($this->getParagraphByMaterialId($material_id))) {
           $filtered_ids[] = $material_id;
