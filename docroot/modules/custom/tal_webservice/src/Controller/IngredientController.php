@@ -148,13 +148,13 @@ class IngredientController {
     $id = $file == 'NOFILE' ? [] : ['target_id' => $file->id()];
     $field = array(
       'SDS' => 'field_sap_sds_file',
-      'CPC' => 'field_sap_spec_sheet',
+      'SPC' => 'field_sap_spec_sheet',
       'PIS' => 'field_product_info_sheet',
     );
     try {
       switch ($doc_type) {
         case "SDS":
-        case "CPC":
+        case "SPC":
         case "PIS":
           $fileObj = $paragraph->field_sap_sds_file->entity;
           if (!empty($fileObj)) {
@@ -197,7 +197,7 @@ class IngredientController {
     if ($request->request->get('document_type') == ''
     || !in_array(
                 $request->request->get('document_type'),
-                ['SDS', 'CPC', 'PIS']
+                ['SDS', 'SPC', 'PIS']
     )
     ) {
       $error = t('Invalid post data, empty document_type or type not found.');
@@ -220,7 +220,7 @@ class IngredientController {
     try {
       $material_ids = explode(',', $material_codes);
       $filtered_ids = [];
-      // Filter invalide material codes.
+      // Filter invalid material codes.
       foreach ($material_ids as $material_id) {
         if (!empty($this->getParagraphByMaterialId($material_id))) {
           $filtered_ids[] = $material_id;
