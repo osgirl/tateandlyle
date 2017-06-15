@@ -1,0 +1,163 @@
+langcode: en
+status: open
+dependencies:
+  enforced:
+    module:
+      - webform
+  module:
+    - tal_webform
+open: null
+close: null
+uid: null
+template: false
+id: contact_form
+title: 'Salesforce Contact Form'
+description: 'Basic email contact webform.'
+elements: "type_of_enquiry:\n  '#type': radios\n  '#title': 'Type of Enquiry'\n  '#default_value': commercial_sales\n  '#options':\n    commercial_sales: Commercial/Sales\n    ttu_documents: 'Technical Documents/Sample'\n    other: Other\n  '#options_display': two_columns\n  '#required': true\nrouting:\n  '#type': webform_entity_select\n  '#title': 'I''m Interested in...'\n  '#states':\n    visible:\n      ':input[name=\"type_of_enquiry\"]':\n        value: commercial_sales\n    required:\n      ':input[name=\"type_of_enquiry\"]':\n        value: commercial_sales\n  '#format': value\n  '#target_type': taxonomy_term\n  '#selection_handler': 'default:taxonomy_term'\n  '#selection_settings':\n    target_bundles:\n      ttu_routing: ttu_routing\nothers:\n  '#type': webform_entity_select\n  '#title': 'My enquiry is about...'\n  '#description': 'I&#39;m enquiring about...'\n  '#states':\n    visible:\n      ':input[name=\"type_of_enquiry\"]':\n        value: other\n    required:\n      ':input[name=\"type_of_enquiry\"]':\n        value: other\n  '#format': value\n  '#target_type': taxonomy_term\n  '#selection_handler': 'default:taxonomy_term'\n  '#selection_settings':\n    target_bundles:\n      others: others\nttu_documents:\n  '#type': webform_entity_select\n  '#title': 'I would like to request...'\n  '#states':\n    visible:\n      ':input[name=\"type_of_enquiry\"]':\n        value: ttu_documents\n    required:\n      ':input[name=\"type_of_enquiry\"]':\n        value: ttu_documents\n  '#format': value\n  '#target_type': taxonomy_term\n  '#selection_handler': 'default:taxonomy_term'\n  '#selection_settings':\n    target_bundles:\n      ttu_documents: ttu_documents\ntitle:\n  '#type': textfield\n  '#title': Title\n  '#required': true\nfirst_name:\n  '#type': textfield\n  '#title': 'First Name'\n  '#required': true\nlast_name:\n  '#type': textfield\n  '#title': 'Last Name'\n  '#required': true\nemail:\n  '#type': email\n  '#title': Email\n  '#required': true\ncompany:\n  '#type': textfield\n  '#title': Company\n  '#required': true\nindustry:\n  '#type': webform_entity_select\n  '#title': Industry\n  '#required': true\n  '#format': value\n  '#target_type': taxonomy_term\n  '#selection_handler': 'default:taxonomy_term'\n  '#selection_settings':\n    target_bundles:\n      industry: industry\ncategory:\n  '#type': webform_entity_select\n  '#title': Category\n  '#states':\n    visible:\n      ':input[name=\"type_of_enquiry\"]':\n        value: commercial_sales\n  '#format': value\n  '#target_type': taxonomy_term\n  '#selection_handler': 'default:taxonomy_term'\n  '#selection_settings':\n    target_bundles:\n      category: category\ncountry:\n  '#type': select\n  '#title': Country\n  '#options': salesforce_country_code\n  '#required': true\nphone:\n  '#type': tel\n  '#title': Phone\n  '#description': 'Phone: use number without spaces.'\n  '#required': true\n  '#pattern': '^[0-9]*$'\n  '#format': value\nmessage:\n  '#title': Message\n  '#type': textarea\n  '#required': true\n  '#test': 'Please ignore this email.'\nlead_source:\n  '#type': textfield\n  '#title': 'Lead Source'\n  '#default_value': 'T&L Website'\n  '#wrapper_attributes':\n    class:\n      - hide\npage_title:\n  '#type': textfield\n  '#title': 'Page Title'\n  '#wrapper_attributes':\n    class:\n      - hide\n"
+css: ''
+javascript: ''
+settings:
+  page: false
+  page_submit_path: ''
+  page_confirm_path: ''
+  form_submit_label: ''
+  form_submit_once: false
+  form_submit_attributes: {  }
+  form_exception_message: ''
+  form_closed_message: ''
+  form_previous_submissions: true
+  form_confidential: false
+  form_confidential_message: ''
+  form_prepopulate: false
+  form_prepopulate_source_entity: false
+  form_disable_autocomplete: false
+  form_novalidate: false
+  form_unsaved: false
+  form_disable_back: false
+  form_autofocus: false
+  form_details_toggle: false
+  wizard_progress_bar: true
+  wizard_progress_pages: false
+  wizard_progress_percentage: false
+  wizard_next_button_label: ''
+  wizard_next_button_attributes: {  }
+  wizard_prev_button_label: ''
+  wizard_prev_button_attributes: {  }
+  wizard_start_label: ''
+  wizard_complete: true
+  wizard_complete_label: ''
+  preview: 0
+  preview_next_button_label: ''
+  preview_next_button_attributes: {  }
+  preview_prev_button_label: ''
+  preview_prev_button_attributes: {  }
+  preview_message: ''
+  draft: false
+  draft_auto_save: false
+  draft_button_label: ''
+  draft_button_attributes: {  }
+  draft_saved_message: ''
+  draft_loaded_message: ''
+  confirmation_type: message
+  confirmation_title: ''
+  confirmation_message: 'Your message has been sent.'
+  confirmation_url: '<front>'
+  confirmation_attributes: {  }
+  confirmation_back: true
+  confirmation_back_label: ''
+  confirmation_back_attributes: {  }
+  limit_total: null
+  limit_total_message: ''
+  limit_user: null
+  limit_user_message: ''
+  purge: none
+  purge_days: null
+  entity_limit_total: null
+  entity_limit_user: null
+  results_disabled: false
+  results_disabled_ignore: false
+  token_update: false
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+  view_any:
+    roles: {  }
+    users: {  }
+  update_any:
+    roles: {  }
+    users: {  }
+  delete_any:
+    roles: {  }
+    users: {  }
+  purge_any:
+    roles: {  }
+    users: {  }
+  view_own:
+    roles: {  }
+    users: {  }
+  update_own:
+    roles: {  }
+    users: {  }
+  delete_own:
+    roles: {  }
+    users: {  }
+handlers:
+  contact_form_email_handler:
+    id: tal_email
+    label: 'Contact form Email'
+    handler_id: contact_form_email_handler
+    status: true
+    weight: 3
+    settings:
+      to_mail: default
+      cc_mail: ''
+      bcc_mail: ''
+      from_mail: default
+      from_name: default
+      subject: 'File Downloaded from [webform_submission:values:page_title]'
+      body: default
+      excluded_elements:
+        send_mail: send_mail
+        tc: tc
+      html: true
+      attachments: false
+      debug: 0
+  tal_salesforce_handler:
+    id: tal_remote_post
+    label: 'Post data to Salesforce'
+    handler_id: tal_salesforce_handler
+    status: true
+    weight: 2
+    settings:
+      type: x-www-form-urlencoded
+      insert_url: 'https://devsys--TNLDSYS.cs4.my.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8'
+      update_url: ''
+      delete_url: ''
+      excluded_data:
+        serial: serial
+        sid: sid
+        uuid: uuid
+        token: token
+        uri: uri
+        created: created
+        completed: completed
+        changed: changed
+        in_draft: in_draft
+        current_page: current_page
+        remote_addr: remote_addr
+        uid: uid
+        langcode: langcode
+        webform_id: webform_id
+        entity_type: entity_type
+        entity_id: entity_id
+        sticky: sticky
+        notes: notes
+      custom_data: ''
+      insert_custom_data: ''
+      update_custom_data: ''
+      delete_custom_data: ''
+      debug: 0
+      debugEmail: ''

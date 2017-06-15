@@ -1,13 +1,15 @@
 (function ($, Drupal) {
     Drupal.behaviors.ShowDownloadLink = {
         attach: function (context, settings) {
-            $('[id^=edit-language-]').each(function () {
+            $('[id^=edit-language-]', context).each(function () {
                 $(this).change(function(){
                     var wid, str, pid;
                     str = $(this).attr('id');
                     wid = str.replace('edit-language-', '');
                     pid = $(this).val();
-                    jQuery('#download-link-' + wid).load("/downloads/file/" + wid + "/" + pid);
+                    jQuery('#download-link-' + wid).load("/downloads/file/" + wid + "/" + pid, function (){
+                       Drupal.attachBehaviors($('#download-link-' + wid)); 
+                    });
                 });
             });
 
@@ -43,6 +45,21 @@
             }).change();
 
             $(".sap__downloads--button").first().removeClass('hide-content');
+        }
+    };
+
+    Drupal.behaviors.gateddownloads = {
+        attach: function (context, settings) {
+            $('.btn--download', context).each(function () {
+                var fid = '';
+                fid = $(this).attr('data-file');
+                if (typeof(fid) != 'undefined') {
+                    $(this).on('click', function(e){
+                        e.preventDefault();
+                        $('#edit-file-id').val(fid);
+                    });
+                }
+            });
         }
     };
 })(jQuery, Drupal);

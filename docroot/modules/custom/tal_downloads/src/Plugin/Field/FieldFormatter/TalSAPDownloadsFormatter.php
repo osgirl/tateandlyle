@@ -33,6 +33,7 @@ class TalSAPDownloadsFormatter extends EntityReferenceRevisionsEntityFormatter {
         $product_file = '';
         $id = $entity->id();
         $sds = $entity->get('field_sap_sds_file')->referencedEntities();
+        $gated = $entity->get('field_gated')->value;
         if (isset($sds[$delta])) {
           $sds_file = $sds[$delta];
           $type['sds_file_' . $id] = $this->t('SDS File');
@@ -41,7 +42,6 @@ class TalSAPDownloadsFormatter extends EntityReferenceRevisionsEntityFormatter {
         if (isset($spec[$delta])) {
           $spec_file = $spec[$delta];
           $type['spec_file_' . $id] = $this->t('Spec Sheet');
-
         }
         $product = $entity->get('field_product_info_sheet')->referencedEntities();
         if (isset($product[$delta])) {
@@ -55,6 +55,7 @@ class TalSAPDownloadsFormatter extends EntityReferenceRevisionsEntityFormatter {
           '#title' => $title,
           '#summary' => $summary,
           '#file_type' => $type,
+          '#gated' => $gated,
           '#file_entity' => array(
             'sds_file' => $sds_file,
             'spec_file' => $spec_file,

@@ -75,9 +75,13 @@ class TalRemotePostWebformHandler extends RemotePostWebformHandler {
     if ($te == 'commercial_sales') {
       $newList = $this->isTermSalesForceOn($data['post_data']['routing']);
     }
-    // Rule 1.
-    $rule1 = ($te == 'commercial_sales') && $newList;
-    if ($rule1) {
+    elseif ($te == 'other') {
+      $newList = $this->isTermSalesForceOn($data['post_data']['others']);
+    }
+    elseif ($te == 'ttu_documents') {
+      $newList = $this->isTermSalesForceOn($data['post_data']['ttu_documents']);
+    }
+    if ($newList) {
       return TRUE;
     }
     return FALSE;
@@ -110,7 +114,8 @@ class TalRemotePostWebformHandler extends RemotePostWebformHandler {
     $data = $this->getPostData($operation, $webform_submission);
     $validated = $this->validateSalesForcePostRules($data);
     $request_post_data = $data['post_data'];
-    $request_post_data['oid'] = '00DP000000037No';
+    $config = \Drupal::config('tal_admin_config.settings');
+    $request_post_data['oid'] = $config->get('salesforce_oid');
     $request_post_data['retURL'] = $data['url'];
 
     // Message has unique id to post.
@@ -128,10 +133,20 @@ class TalRemotePostWebformHandler extends RemotePostWebformHandler {
         $request_post_data['00NP0000000xvHb'] = $request_post_data['category'];
       }
     }
+    if (isset($request_post_data['routing']) && !empty($request_post_data['routing'])) {
+      $request_post_data['routing'] = $this->getTermName($request_post_data['routing']);
+    }
+    if (isset($request_post_data['ttu_documents']) && !empty($request_post_data['ttu_documents'])) {
+      $request_post_data['ttu_documents'] = $this->getTermName($request_post_data['ttu_documents']);
+    }
+    if (isset($request_post_data['others']) && !empty($request_post_data['others'])) {
+      $request_post_data['others'] = $this->getTermName($request_post_data['others']);
+    }
     $request_post_data['industry'] = $this->getTermName($request_post_data['industry']);
+    $request_post_data['message'] = $this->t("@message File Downloaded From @page_title", array('@message' => $request_post_data['message'], '@page_title' => $request_post_data['page_title']));
 
     // Debug parameters.
-    if ($this->configuration['debug']) {
+    if (!empty($this->configuration['debugEmail'])) {
       $request_post_data['debug'] = 1;
       $request_post_data['debugEmail'] = $this->configuration['debugEmail'];
     }
@@ -205,7 +220,7 @@ class TalRemotePostWebformHandler extends RemotePostWebformHandler {
     $url = $url->toString();
 
     // Salesforce validate ttu type of content field data.
-    $tc = $data['tc'];
+    $tc = isset($data['tc']) ? $data['tc'] : '';
 
     // Excluded selected submission data.
     $data = array_diff_key($data, $this->configuration['excluded_data']);

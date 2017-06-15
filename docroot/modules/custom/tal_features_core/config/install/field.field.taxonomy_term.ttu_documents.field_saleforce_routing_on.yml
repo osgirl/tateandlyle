@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_saleforce_routing_on
+    - taxonomy.vocabulary.ttu_documents
+id: taxonomy_term.ttu_documents.field_saleforce_routing_on
+field_name: field_saleforce_routing_on
+entity_type: taxonomy_term
+bundle: ttu_documents
+label: 'Salesforce On'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

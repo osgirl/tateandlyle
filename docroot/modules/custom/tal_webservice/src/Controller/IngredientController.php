@@ -148,13 +148,13 @@ class IngredientController {
     $id = $file == 'NOFILE' ? [] : ['target_id' => $file->id()];
     $field = array(
       'SDS' => 'field_sap_sds_file',
-      'SPC' => 'field_sap_spec_sheet',
+      'CPC' => 'field_sap_spec_sheet',
       'PIS' => 'field_product_info_sheet',
     );
     try {
       switch ($doc_type) {
         case "SDS":
-        case "SPC":
+        case "CPC":
         case "PIS":
           $fileObj = $paragraph->field_sap_sds_file->entity;
           if (!empty($fileObj)) {
@@ -197,7 +197,7 @@ class IngredientController {
     if ($request->request->get('document_type') == ''
     || !in_array(
                 $request->request->get('document_type'),
-                ['SDS', 'SPC', 'PIS']
+                ['SDS', 'CPC', 'PIS']
     )
     ) {
       $error = t('Invalid post data, empty document_type or type not found.');
