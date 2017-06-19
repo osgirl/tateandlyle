@@ -50,7 +50,7 @@ class IngredientController {
       if ($request->request->get('file_name') != 'NOFILE') {
         $data = file_get_contents($_FILES['files']['tmp_name']);
         $destination = 'public://' . $request->request->get('file_name');
-        $file = file_save_data($data, $destination, FILE_EXISTS_REPLACE);
+        $file = file_save_data($data, $destination, FILE_EXISTS_RENAME);
       }
       $material_ids = explode(',', $this->filterMaterialCode($request->request->get('material_id')));
       $nids = [];
@@ -152,16 +152,12 @@ class IngredientController {
       'PIS' => 'field_product_info_sheet',
     );
     try {
-      switch ($doc_type) {
-        case "SDS":
-        case "SPC":
-        case "PIS":
-          $fileObj = $paragraph->field_sap_sds_file->entity;
-          if (!empty($fileObj)) {
-            $fileObj->delete();
-          }
-          $paragraph->{$field[$doc_type]}->setValue($id);
-          break;
+      if (!empty($doc_type)) {
+        $fileObj = $paragraph->{$field[$doc_type]}->entity;
+        if (!empty($fileObj)) {
+          $fileObj->delete();
+        }
+        $paragraph->{$field[$doc_type]}->setValue($id);
       }
     }
     catch (\Exception $error) {
