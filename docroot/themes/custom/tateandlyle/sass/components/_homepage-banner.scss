@@ -268,13 +268,15 @@
 }
 
 .no__icon--banner {
-
   .tal__banner--content {
     @media (min-width: $screen-sm) {
       padding: 34px 39px 25px 37px;
     }
     @media (min-width: $screen-md) {
       padding: 40px 51px 20px 51px;
+    }
+    .dropdown-menu {
+      z-index: 996;
     }
   }
 
