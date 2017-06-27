@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "1d3878e8eee317d68ac415fc7c1c3f3b",
-    "content-hash": "026e129df13fa6b4ff5151d0b8c5805e",
+    "hash": "00f725f4c13a445486e02379a2cd8f29",
+    "content-hash": "c334d05dea45d8cb382564bcf05208e3",
     "packages": [
         {
             "name": "acquia/blt",
@@ -4126,7 +4126,7 @@
                 },
                 "drupal": {
                     "version": "8.x-1.0",
-                    "datestamp": "1493569142"
+                    "datestamp": "1450370339"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -4442,7 +4442,7 @@
                 },
                 "drupal": {
                     "version": "8.x-1.2",
-                    "datestamp": "1494333185"
+                    "datestamp": "1470169139"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -4457,10 +4457,6 @@
                 {
                     "name": "Primsi",
                     "homepage": "https://www.drupal.org/user/282629"
-                },
-                {
-                    "name": "chr.fritsch",
-                    "homepage": "https://www.drupal.org/user/2103716"
                 },
                 {
                     "name": "designesse",
@@ -4608,7 +4604,7 @@
                 },
                 "drupal": {
                     "version": "8.x-1.0",
-                    "datestamp": "1493982485"
+                    "datestamp": "1485387784"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -4736,7 +4732,7 @@
                 },
                 "drupal": {
                     "version": "8.x-3.0-beta1",
-                    "datestamp": "1494450485"
+                    "datestamp": "1476307739"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -4748,10 +4744,6 @@
                     "name": "Mike Ryan",
                     "homepage": "https://www.drupal.org/u/mikeryan",
                     "role": "Maintainer"
-                },
-                {
-                    "name": "mikeryan",
-                    "homepage": "https://www.drupal.org/user/4420"
                 }
             ],
             "description": "Enhancements to core migration support.",
@@ -4841,7 +4833,7 @@
                 },
                 "drupal": {
                     "version": "8.x-3.0-beta1",
-                    "datestamp": "1494450485"
+                    "datestamp": "1476313439"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -5296,7 +5288,7 @@
                 },
                 "drupal": {
                     "version": "8.x-1.0-rc1",
-                    "datestamp": "1493468044"
+                    "datestamp": "1485702484"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -5325,6 +5317,53 @@
             "homepage": "https://www.drupal.org/project/pathauto",
             "support": {
                 "source": "http://cgit.drupalcode.org/pathauto"
+            }
+        },
+        {
+            "name": "drupal/redirect",
+            "version": "1.0.0-alpha5",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/redirect",
+                "reference": "8.x-1.0-alpha5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/redirect-8.x-1.0-alpha5.zip",
+                "reference": null,
+                "shasum": "927aa4c8d8b40b0cd2442bee86f2f386d25e53ca"
+            },
+            "require": {
+                "drupal/core": "~8"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0-alpha5",
+                    "datestamp": "1492182542"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Berdir",
+                    "homepage": "https://www.drupal.org/user/214652"
+                },
+                {
+                    "name": "Dave Reid",
+                    "homepage": "https://www.drupal.org/user/53892"
+                }
+            ],
+            "description": "Allows users to redirect from old URLs to new URLs.",
+            "homepage": "https://www.drupal.org/project/redirect",
+            "support": {
+                "source": "http://cgit.drupalcode.org/redirect"
             }
         },
         {
@@ -5524,7 +5563,7 @@
                 },
                 "drupal": {
                     "version": "8.x-1.0-beta1",
-                    "datestamp": "1492189143"
+                    "datestamp": "1477470239"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -5866,8 +5905,8 @@
                     "dev-3.x": "3.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-3.0-rc2+1-dev",
-                    "datestamp": "1494519486"
+                    "version": "8.x-3.0-rc1+3-dev",
+                    "datestamp": "1490271184"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -6146,7 +6185,7 @@
                 },
                 "drupal": {
                     "version": "8.x-1.0-rc1",
-                    "datestamp": "1493466843"
+                    "datestamp": "1483290542"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -6262,7 +6301,7 @@
                 },
                 "drupal": {
                     "version": "8.x-1.x",
-                    "datestamp": "1493246342",
+                    "datestamp": "1484253183",
                     "package": "Field types"
                 }
             },
@@ -12085,7 +12124,7 @@
                 },
                 "drupal": {
                     "version": "8.x-1.0-rc1",
-                    "datestamp": "1492989244"
+                    "datestamp": "1484837884"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -12120,12 +12159,24 @@
                     "homepage": "https://www.drupal.org/node/3236/committers"
                 },
                 {
+                    "name": "moshe weitzman",
+                    "homepage": "https://www.drupal.org/user/23"
+                },
+                {
+                    "name": "pcambra",
+                    "homepage": "https://www.drupal.org/user/122101"
+                },
+                {
                     "name": "salvis",
                     "homepage": "https://www.drupal.org/user/82964"
                 },
                 {
                     "name": "willzyx",
                     "homepage": "https://www.drupal.org/user/1043862"
+                },
+                {
+                    "name": "yched",
+                    "homepage": "https://www.drupal.org/user/39567"
                 }
             ],
             "description": "Various blocks, pages, and functions for developers.",
@@ -12348,7 +12399,7 @@
                 {
                     "name": "Anthon Pang",
                     "email": "apang@softwaredevelopment.ca",
-                    "role": "Fork maintainer"
+                    "role": "Fork Maintainer"
                 }
             ],
             "description": "PHP WebDriver for Selenium 2",
@@ -12558,7 +12609,8 @@
         "drupal/diff": 5,
         "drupal/contact_storage": 10,
         "drupal/slick_views": 5,
-        "drupal/slick": 5
+        "drupal/slick": 5,
+        "drupal/redirect": 15
     },
     "prefer-stable": true,
     "prefer-lowest": false,
