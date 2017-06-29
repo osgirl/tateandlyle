@@ -120,8 +120,8 @@ class TalRemotePostWebformHandler extends RemotePostWebformHandler {
 
     // Type of enquiry.
     if (isset($request_post_data['type_of_enquiry']) && !empty($request_post_data['type_of_enquiry'])) {
-      $request_post_data['00NP0000001EnM3'] = $this->getTermName($request_post_data['type_of_enquiry']);
-      $request_post_data['type_of_enquiry'] = $this->getTermName($request_post_data['type_of_enquiry']);
+      $request_post_data['00NP0000001EnM3'] = $request_post_data['type_of_enquiry'];
+      $request_post_data['type_of_enquiry'] = $request_post_data['type_of_enquiry'];
     }
 
     // Update the term name for Industry and Category.
