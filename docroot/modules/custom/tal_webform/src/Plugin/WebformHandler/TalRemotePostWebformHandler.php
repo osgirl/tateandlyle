@@ -137,7 +137,7 @@ class TalRemotePostWebformHandler extends RemotePostWebformHandler {
       }
     }
     if (isset($request_post_data['routing']) && !empty($request_post_data['routing'])) {
-      $request_post_data['00NP0000001EpJB'] = $this->getTermName($request_post_data['00NP0000001EpJB']);
+      $request_post_data['00NP0000001EpJB'] = $this->getTermName($request_post_data['routing']);
       $request_post_data['routing'] = $this->getTermName($request_post_data['routing']);
 
     }
