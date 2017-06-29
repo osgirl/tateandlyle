@@ -149,7 +149,7 @@ class TalRemotePostWebformHandler extends RemotePostWebformHandler {
       $request_post_data['others'] = $this->getTermName($request_post_data['others']);
     }
     if (isset($request_post_data['page_title']) && !empty($request_post_data['page_title'])) {
-      $request_post_data['00NP0000001EpJp'] = $this->getTermName($request_post_data['page_title']);
+      $request_post_data['00NP0000001EpJp'] = $request_post_data['page_title'];
     }
     $request_post_data['industry'] = $this->getTermName($request_post_data['industry']);
 

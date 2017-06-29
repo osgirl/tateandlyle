@@ -133,7 +133,7 @@ handlers:
     weight: 2
     settings:
       type: x-www-form-urlencoded
-      insert_url: 'https://devsys--TNLDSYS.cs4.my.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8'
+      insert_url: 'https://devsys--tnldsys.cs4.my.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8'
       update_url: ''
       delete_url: ''
       excluded_data:
