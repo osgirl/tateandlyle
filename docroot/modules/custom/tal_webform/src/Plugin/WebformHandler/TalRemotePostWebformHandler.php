@@ -154,7 +154,7 @@ class TalRemotePostWebformHandler extends RemotePostWebformHandler {
     $request_post_data['industry'] = $this->getTermName($request_post_data['industry']);
 
     // Message has unique id to post.
-    $request_post_data['00NP0000001FiDS'] = $this->t("@message File Downloaded From @page_title", array('@message' => $request_post_data['message'], '@page_title' => $request_post_data['page_title']));
+    $request_post_data['00NP0000001FiDS'] = $request_post_data['message'];
 
     // Debug parameters.
     if (!empty($this->configuration['debugEmail'])) {
