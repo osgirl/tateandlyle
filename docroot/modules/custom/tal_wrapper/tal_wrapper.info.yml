@@ -11,3 +11,5 @@ dependencies:
   - admin_toolbar
   - tal_admin_config
   - tal_breadcrumbs
+  - tal_webservice
+  - tal_gated_downloads

@@ -1,0 +1,5 @@
+services:
+  tal_webservice.route_subscriber:
+    class: 'Drupal\tal_webservice\Routing\RouteSubscriber'
+    tags:
+      - { name: event_subscriber }

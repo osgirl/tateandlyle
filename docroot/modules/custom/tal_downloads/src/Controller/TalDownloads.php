@@ -24,9 +24,11 @@ class TalDownloads extends ControllerBase {
       $item = Paragraph::load($pid);
       $file = $item->get('field_download_attach_file')->referencedEntities()[0];
       $link = $item->get('field_tal_link')->view('default');
+      $gated = $item->get('field_gated')->value;
       $element = array(
         '#theme' => 'tal_download_link',
         '#file' => $file,
+        '#gated' => $gated,
         '#external_download_link' => $link,
         '#attributes' => array(
           'class' => 'tal-file-download-link',
