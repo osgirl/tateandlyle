@@ -5,6 +5,7 @@ dependencies:
     - field.field.paragraph.ingredient_downloads.field_field_in_submenu_title
     - field.field.paragraph.ingredient_downloads.field_file_group
     - field.field.paragraph.ingredient_downloads.field_in_border_title
+    - field.field.paragraph.ingredient_downloads.field_sap_download_docs
     - paragraphs.paragraphs_type.ingredient_downloads
   module:
     - paragraphs
@@ -29,6 +30,7 @@ content:
       edit_mode: open
       add_mode: dropdown
       form_display_mode: default
+      default_paragraph_type: related_downloads
     third_party_settings: {  }
     type: entity_reference_paragraphs
   field_in_border_title:
@@ -38,6 +40,17 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+  field_sap_download_docs:
+    type: entity_reference_paragraphs
+    weight: 9
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: sap_documents
+    third_party_settings: {  }
 hidden:
   created: true
   status: true
