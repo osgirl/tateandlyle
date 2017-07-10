@@ -6,6 +6,7 @@ use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\ReplaceCommand;
 use Drupal\block_content\Entity\BlockContent;
+use Drupal\taxonomy\Entity\Term;
 
 /**
  * Class ArticlesController.
@@ -29,6 +30,8 @@ class ArticlesController extends ControllerBase {
     }
 
     $terms = implode('+', $terms);
+    $term = Term::load($tid);
+
     $render['dynamic_posts'] = array(
       '#type' => 'view',
       '#name' => 'articles_post',
@@ -37,7 +40,15 @@ class ArticlesController extends ControllerBase {
       '#prefix' => '<div class="tal--dynamic-post-list" id="dynamic-post-list">',
       '#suffix' => '</div>',
     );
-
+    if ($term->getName() == 'All') {
+      $render['dynamic_posts'] = array(
+        '#type' => 'view',
+        '#name' => 'articles_post',
+        '#display_id' => 'block_5',
+        '#prefix' => '<div class="tal--dynamic-post-list" id="dynamic-post-list">',
+        '#suffix' => '</div>',
+      );
+    }
     $response->addCommand(new ReplaceCommand('#dynamic-post-list', $render));
 
     return $response;

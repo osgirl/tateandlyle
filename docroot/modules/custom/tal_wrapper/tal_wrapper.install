@@ -299,3 +299,22 @@ function tal_wrapper_update_8223() {
 function tal_wrapper_update_8224() {
   \Drupal::service('module_installer')->install(['redirect']);
 }
+
+/**
+ * Create a taxonomy terms.
+ */
+function tal_wrapper_update_8225() {
+  $vocab = [
+    '0' => ['vid' => 'tags'],
+    '1' => ['vid' => 'story_category'],
+  ];
+  foreach ($vocab as $key => $val) {
+    Term::create([
+      'vid' => $val['vid'],
+      'langcode' => 'en',
+      'name' => 'All',
+      'field_show_on_post' => TRUE,
+      'parent' => array(0),
+    ])->save();
+  }
+}
