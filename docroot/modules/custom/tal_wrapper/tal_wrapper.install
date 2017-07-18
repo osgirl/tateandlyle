@@ -301,9 +301,9 @@ function tal_wrapper_update_8224() {
 }
 
 /**
- * Create a taxonomy terms.
+ * Create a taxonomy terms. Changing schema version as per the database.
  */
-function tal_wrapper_update_8225() {
+function tal_wrapper_update_8227() {
   $vocab = [
     '0' => ['vid' => 'tags'],
     '1' => ['vid' => 'story_category'],
