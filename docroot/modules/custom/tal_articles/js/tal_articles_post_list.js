@@ -24,6 +24,9 @@
                     }, 'slow');
                 });
             });
+            jQuery(window).bind("mousewheel", function() {
+                jQuery("html, body").stop();
+            });
         },
     };
 })(Drupal, drupalSettings);
