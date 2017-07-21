@@ -21,8 +21,11 @@
                 jQuery( document ).ajaxComplete(function() {
                     jQuery('html,body').animate({
                         scrollTop: jQuery(".tal-dynamic-post-wrapper #dynamic-post-list").offset().top - 140
-                    }, 'slow', 'linear', stop());
+                    }, 'slow');
                 });
+            });
+            jQuery(window).bind("mousewheel", function() {
+                jQuery("html, body").stop();
             });
         },
     };
