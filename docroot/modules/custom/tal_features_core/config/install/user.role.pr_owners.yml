@@ -49,3 +49,4 @@ permissions:
   - 'use needs_review_published transition'
   - 'use published_published transition'
   - 'use draft_published transition'
+  - 'use published_draft transition'
