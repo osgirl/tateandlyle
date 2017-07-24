@@ -118,3 +118,4 @@ permissions:
   - 'access_content'
   - 'use needs_review_needs_review transition'
   - 'use needs_review_draft transition'
+  - 'use published_draft transition'
