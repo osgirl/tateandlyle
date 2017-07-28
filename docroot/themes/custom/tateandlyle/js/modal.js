@@ -101,7 +101,7 @@
     }
 
     var modalTitle = 'Title';
-    var modalButtonOk = 'Okey';
+    var modalButtonOk = 'Okay';
     var modalButtonCancel = 'Cancel';
     var modalPreloaderTitle = 'Loading';
     $.extend({
@@ -221,8 +221,6 @@
         },
         closeModal: closeModal
     });
-})(jQuery, window, document);
-
 
 $.extend({
     device: (function () {
@@ -407,3 +405,4 @@ $.fn.animationEnd = function (callback) {
     }
     return this;
 };
+})(jQuery, window, document);
