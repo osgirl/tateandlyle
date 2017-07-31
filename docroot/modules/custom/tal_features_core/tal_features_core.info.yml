@@ -25,6 +25,7 @@ dependencies:
   - field
   - field_group
   - file
+  - filefield_paths
   - filter
   - help
   - image
