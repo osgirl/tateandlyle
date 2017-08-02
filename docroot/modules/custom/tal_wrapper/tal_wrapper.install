@@ -318,3 +318,12 @@ function tal_wrapper_update_8227() {
     ])->save();
   }
 }
+
+/**
+ * Enable Filefield_path module.
+ *
+ * Implements hook_update_N().
+ */
+function tal_wrapper_update_8228() {
+  \Drupal::service('module_installer')->install(['filefield_paths']);
+}
