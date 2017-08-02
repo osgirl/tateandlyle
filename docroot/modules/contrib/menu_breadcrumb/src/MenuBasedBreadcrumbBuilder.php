@@ -9,6 +9,8 @@ use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Controller\TitleResolverInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Entity\FieldableEntityInterface;
+use Drupal\Core\Language\Language;
+use Drupal\Core\Language\LanguageInterface;
 use Drupal\Core\Language\LanguageManagerInterface;
 use Drupal\Core\Link;
 use Drupal\Core\Menu\MenuActiveTrailInterface;
@@ -109,6 +111,13 @@ class MenuBasedBreadcrumbBuilder implements BreadcrumbBuilderInterface {
   private $taxonomyAttachment;
 
   /**
+   * Content language code (used in both applies() and build()).
+   *
+   * @var string
+   */
+  private $contentLanguage;
+
+  /**
    * {@inheritdoc}
    */
   public function __construct(
@@ -159,6 +168,11 @@ class MenuBasedBreadcrumbBuilder implements BreadcrumbBuilderInterface {
     $node_object = $route_match->getParameters()->get('node');
     $node_is_fieldable = $node_object instanceof FieldableEntityInterface;
 
+    // Make sure menus are selected, and breadcrumb text strings, are displayed
+    // in the content rather than the (default) interface language:
+    $this->contentLanguage = $this->languageManager
+      ->getCurrentLanguage(LanguageInterface::TYPE_CONTENT)->getId();
+
     // Check each selected menu, in turn, until a menu or taxonomy match found:
     // then cache its state for building & caching in build() and exit.
     $menus = $this->config->get('menu_breadcrumb_menus');
@@ -170,6 +184,22 @@ class MenuBasedBreadcrumbBuilder implements BreadcrumbBuilderInterface {
       // Look for current path on any enabled menu.
       if (!empty($params['enabled'])) {
 
+        // Skip over any menu that's not in the current content language,
+        //   if and only if the "language handling" option set for that menu.
+        // NOTE this menu option is added late, so we check its existence first.
+        if (array_key_exists('langhandle', $params) && $params['langhandle']) {
+          $menu_objects = $this->entityTypeManager->getStorage('menu')
+            ->loadByProperties(['id' => $menu_name]);
+          if ($menu_objects) {
+            $menu_language = reset($menu_objects)->language()->getId();
+            if ($menu_language != $this->contentLanguage &&
+              $menu_language !== Language::LANGCODE_NOT_SPECIFIED &&
+              $menu_language !== Language::LANGCODE_NOT_APPLICABLE) {
+              continue;
+            }
+          }
+        }
+
         $trail_ids = $this->menuActiveTrail->getActiveTrailIds($menu_name);
         $trail_ids = array_filter($trail_ids);
         if ($trail_ids) {
@@ -180,7 +210,7 @@ class MenuBasedBreadcrumbBuilder implements BreadcrumbBuilderInterface {
         }
       }
 
-      // Look for a "taxonomy attachment" by node field.
+      // Look for a "taxonomy attachment" by node field, regardless of language.
       if (!empty($params['taxattach']) && $node_is_fieldable) {
 
         // Check all taxonomy terms applying to the current page.
@@ -243,13 +273,23 @@ class MenuBasedBreadcrumbBuilder implements BreadcrumbBuilderInterface {
       $plugin = $this->menuLinkManager->createInstance($id);
       $links[] = Link::fromTextAndUrl($plugin->getTitle(), $plugin->getUrlObject());
       $breadcrumb->addCacheableDependency($plugin);
+      // In the last line the MenuLinkContent plugin is not providing cache tags.
+      // Until this is fixed in core add the tags here:
+      if ($plugin instanceof \Drupal\menu_link_content\Plugin\Menu\MenuLinkContent) {
+        $uuid = $plugin->getDerivativeId();
+        $entities = $this->entityTypeManager->getStorage('menu_link_content')->loadByProperties(['uuid' => $uuid]);
+        if ($entity = reset($entities)) {
+          $breadcrumb->addCacheableDependency($entity);
+        }
+      }
     }
     $this->addMissingCurrentPage($links, $route_match);
 
     // Create a breadcrumb for <front> which may be either added or replaced:
+    $langcode = $this->contentLanguage;
     $label = $this->config->get('home_as_site_name') ?
       $this->configFactory->get('system.site')->get('name') :
-      $this->t('Home');
+      $this->t('Home', array(), array('langcode' => $langcode));
     $home_link = Link::createFromRoute($label, '<front>');
 
     // The first link from the menu trail, being the root, may be the
