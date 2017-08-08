@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * @file
+ * Custom webform alterations.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_alter().
+ *
+ * Add Honeypot features to webforms.
+ */
+function tal_webform_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if (strpos($form_id, 'webform_submission_') !== FALSE) {
+    honeypot_add_form_protection($form, $form_state, ['honeypot', 'time_restriction']);
+  }
+}
