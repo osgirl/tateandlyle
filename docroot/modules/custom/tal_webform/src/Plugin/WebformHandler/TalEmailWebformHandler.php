@@ -51,7 +51,7 @@ class TalEmailWebformHandler extends EmailWebformHandler {
       $validated = $this->validateEmailRules($message);
       if ($validated['salesforce_on']) {
         $message['send_email'] = $validated['email'];
-        $this->sendMessage($message);
+        $this->sendMessage($webform_submission, $message);
       }
     }
   }
@@ -59,7 +59,7 @@ class TalEmailWebformHandler extends EmailWebformHandler {
   /**
    * {@inheritdoc}
    */
-  public function sendMessage(array $message) {
+  public function sendMessage(WebformSubmissionInterface $webform_submission, array $message) {
     // Send mail.
     $message['to_mail'] = !empty($message['send_email']) ? $message['send_email'] : $message['to_mail'];
     $to = $message['to_mail'];
