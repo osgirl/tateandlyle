@@ -94,6 +94,17 @@ class TalAdminConfigForm extends ConfigFormBase {
       '#description' => $this->t('Check to use the web service.'),
       '#default_value' => $config->get('web_service_on_off'),
     ];
+    // Salesforce OID.
+    $form['webform_config_values'] = [
+      '#type' => 'details',
+      '#title' => $this->t('Webform configuration values'),
+      '#open' => FALSE,
+    ];
+    $form['webform_config_values']['salesforce_oid'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Salesforce OID'),
+      '#default_value' => $config->get('salesforce_oid'),
+    ];
     return parent::buildForm($form, $form_state);
   }
 
@@ -112,6 +123,7 @@ class TalAdminConfigForm extends ConfigFormBase {
     $config->set('tai_link', $form_state->getValue('tai_link'));
     $config->set('boilerplate_content', $boilerplate_content)->save();
     $config->set('web_service_on_off', $form_state->getValue('web_service_on_off'))->save();
+    $config->set('salesforce_oid', $form_state->getValue('salesforce_oid'))->save();
 
     parent::submitForm($form, $form_state);
   }

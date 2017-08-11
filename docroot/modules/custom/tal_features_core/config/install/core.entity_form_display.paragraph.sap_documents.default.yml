@@ -2,6 +2,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.sap_documents.field_gated
     - field.field.paragraph.sap_documents.field_product_info_sheet
     - field.field.paragraph.sap_documents.field_sap_material_code
     - field.field.paragraph.sap_documents.field_sap_sds_file
@@ -17,40 +18,46 @@ targetEntityType: paragraph
 bundle: sap_documents
 mode: default
 content:
+  field_gated:
+    weight: 3
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
   field_product_info_sheet:
-    weight: 11
+    weight: 6
     settings:
       progress_indicator: throbber
     third_party_settings: {  }
     type: file_generic
   field_sap_material_code:
-    weight: 8
+    weight: 2
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
   field_sap_sds_file:
-    weight: 9
+    weight: 4
     settings:
       progress_indicator: throbber
     third_party_settings: {  }
     type: file_generic
   field_sap_spec_sheet:
-    weight: 10
+    weight: 5
     settings:
       progress_indicator: throbber
     third_party_settings: {  }
     type: file_generic
   field_sap_summary:
-    weight: 7
+    weight: 1
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
     type: string_textarea
   field_sap_title:
-    weight: 6
+    weight: 0
     settings:
       size: 60
       placeholder: ''

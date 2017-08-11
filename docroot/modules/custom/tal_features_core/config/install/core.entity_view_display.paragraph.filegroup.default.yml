@@ -4,6 +4,7 @@ dependencies:
   config:
     - field.field.paragraph.filegroup.field_download_attach_file
     - field.field.paragraph.filegroup.field_file_language
+    - field.field.paragraph.filegroup.field_gated
     - field.field.paragraph.filegroup.field_tal_link
     - paragraphs.paragraphs_type.filegroup
   module:
@@ -40,4 +41,5 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
+  field_gated: true
   uid: true

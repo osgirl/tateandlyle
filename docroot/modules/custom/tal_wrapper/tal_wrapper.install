@@ -292,15 +292,6 @@ function tal_wrapper_update_8223() {
 }
 
 /**
- * Enable  module.
- *
- * Implements hook_update_N().
- */
-function tal_wrapper_update_8224() {
-  \Drupal::service('module_installer')->install(['redirect']);
-}
-
-/**
  * Create a taxonomy terms. Changing schema version as per the database.
  */
 function tal_wrapper_update_8227() {
@@ -326,4 +317,40 @@ function tal_wrapper_update_8227() {
  */
 function tal_wrapper_update_8228() {
   \Drupal::service('module_installer')->install(['filefield_paths']);
+}
+
+/**
+ * Create a taxonomy "TTU Documents".
+ */
+function tal_wrapper_update_8224() {
+  $vid = 'ttu_documents';
+  $name = 'TTU Documents';
+  $vocab = Vocabulary::load($vid);
+  if (empty($vocab)) {
+    $vocabulary = Vocabulary::create(array(
+      'vid' => $vid,
+      'machine_name' => $vid,
+      'name' => $name,
+    ));
+    $vocabulary->save();
+  }
+  \Drupal::service('module_installer')->install(['redirect']);
+}
+
+/**
+ * Enable tal_gated_downloads modules.
+ *
+ * Implements hook_update_N().
+ */
+function tal_wrapper_update_8225() {
+  \Drupal::service('module_installer')->install(['tal_gated_downloads']);
+}
+
+/**
+ * Enable tal_webservice modules.
+ *
+ * Implements hook_update_N().
+ */
+function tal_wrapper_update_8226() {
+  \Drupal::service('module_installer')->install(['tal_webservice']);
 }

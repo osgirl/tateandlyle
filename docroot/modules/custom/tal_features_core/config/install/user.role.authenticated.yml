@@ -10,4 +10,4 @@ permissions:
   - 'access shortcuts'
   - 'access site-wide contact form'
   - 'view media'
-  - 'access_content'
+  - 'access sitemap'

@@ -1,0 +1,5 @@
+tal_gated_downloads_redirect:
+  js:
+    js/tal_gated_downloads.js: {preprocess: false}
+  dependencies:
+    - core/jquery
