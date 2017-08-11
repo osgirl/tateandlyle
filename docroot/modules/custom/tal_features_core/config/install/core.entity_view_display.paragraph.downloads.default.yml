@@ -4,6 +4,7 @@ dependencies:
   config:
     - field.field.paragraph.downloads.field_download_attach_file
     - field.field.paragraph.downloads.field_field_in_submenu_title
+    - field.field.paragraph.downloads.field_gated
     - field.field.paragraph.downloads.field_in_border_title
     - paragraphs.paragraphs_type.downloads
   module:
@@ -29,4 +30,5 @@ content:
 hidden:
   created: true
   field_field_in_submenu_title: true
+  field_gated: true
   uid: true

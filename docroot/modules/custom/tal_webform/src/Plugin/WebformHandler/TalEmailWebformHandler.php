@@ -31,11 +31,16 @@ class TalEmailWebformHandler extends EmailWebformHandler {
     $webform_submission = $message['webform_submission'];
     $te = $webform_submission->getData('type_of_enquiry');
     if ($te == 'other') {
-      return $this->getOtherTermEmail($webform_submission->getData('others'));
+      $others = $this->isTermSalesForceOnEmail($webform_submission->getData('others'));
+      return $others;
     }
     elseif ($te == 'commercial_sales') {
       $routing = $this->isTermSalesForceOnEmail($webform_submission->getData('routing'));
       return $routing;
+    }
+    elseif ($te == 'ttu_documents') {
+      $ttu_docs = $this->isTermSalesForceOnEmail($webform_submission->getData('ttu_documents'));
+      return $ttu_docs;
     }
     return FALSE;
   }

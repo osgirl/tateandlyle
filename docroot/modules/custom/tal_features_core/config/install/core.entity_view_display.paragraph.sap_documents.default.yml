@@ -2,6 +2,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.sap_documents.field_gated
     - field.field.paragraph.sap_documents.field_product_info_sheet
     - field.field.paragraph.sap_documents.field_sap_material_code
     - field.field.paragraph.sap_documents.field_sap_sds_file
@@ -54,4 +55,5 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
-hidden: {  }
+hidden:
+  field_gated: true

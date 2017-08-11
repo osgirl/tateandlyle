@@ -249,9 +249,18 @@ function tateandlyle_preprocess_html(&$vars) {
 /**
  * Implements hook_preprocess_page().
  */
-function tateandlyle_preprocess_page(&$vars) {
+function tateandlyle_preprocess_page(&$variables) {
+  // Insert contact us webform marker.
+  // Contact salesforce form added.
+  $variables['contact_form'] = [
+    '#type' => 'webform',
+    '#webform' => 'contact_form',
+  ];
+  
   $current_uri = \Drupal::request()->getRequestUri();
   if ($current_uri == '/contact-us') {
-    $vars['#attached']['library'][] = 'tateandlyle/browser_popup';
+    $variables['#attached']['library'][] = 'tateandlyle/browser_popup';
   }
+
+  return $variables;
 }

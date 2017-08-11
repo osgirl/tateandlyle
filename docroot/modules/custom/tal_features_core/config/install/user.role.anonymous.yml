@@ -13,4 +13,4 @@ permissions:
   - 'access_unpublished node iframe_content'
   - 'access_unpublished node ingredient'
   - 'access_unpublished node landing_page'
-  - 'access_content'
+  - 'access sitemap'

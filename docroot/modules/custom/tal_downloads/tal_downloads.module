@@ -50,6 +50,11 @@ function template_preprocess_tal_download_link(array &$variables) {
     $ext = pathinfo($file_entity->getFilename(), PATHINFO_EXTENSION);
 
     $variables['link'] = Link::fromTextAndUrl($link_text, Url::fromUri($url, $options));
+    if ($variables['gated']) {
+      unset($options['attributes']['target']);
+      $variables['link'] = Link::fromTextAndUrl($link_text, Url::fromUserInput('#gated', $options));
+      $variables['fid'] = $file_entity->id();
+    }
     $variables['file_size'] = $ext . ' | ' . format_size($file_size);
     $variables['content'] = $variables['content']['#markup'];
   }
@@ -93,6 +98,11 @@ function template_preprocess_tal_sap_download_link(array &$variables) {
 
       $variables['dln_details'][$key]['dln_link'] = Link::fromTextAndUrl($link_text, Url::fromUri($url, $options));
       $variables['dln_details'][$key]['file_size'] = $ext . ' | ' . format_size($file_size);
+      if ($variables['gated']) {
+        unset($options['attributes']['target']);
+        $variables['dln_details'][$key]['dln_link'] = Link::fromTextAndUrl($link_text, Url::fromUserInput('#gated', $options));
+        $variables['dln_details'][$key]['fid'] = $file_entity->id();
+      }
     }
   }
   // Select list 'Select document types'.
@@ -117,6 +127,7 @@ function tal_downloads_theme() {
         'file' => NULL,
         'external_download_link' => NULL,
         'content' => NULL,
+        'gated' => NULL,
         'attributes' => array(),
       ),
     ),
@@ -124,6 +135,7 @@ function tal_downloads_theme() {
       'variables' => array(
         'title' => NULL,
         'summary' => NULL,
+        'gated' => NULL,
         'file_type' => array(),
         'file_entity' => array(),
         'para_id' => NULL,
@@ -175,6 +187,6 @@ function tal_downloads_preprocess_paragraph(&$variables) {
         '#value' => $default_value,
       );
     }
-    $variables['#attached']['library'][] = 'tal_downloads/tal_downloads_link';
   }
+  $variables['#attached']['library'][] = 'tal_downloads/tal_downloads_link';
 }

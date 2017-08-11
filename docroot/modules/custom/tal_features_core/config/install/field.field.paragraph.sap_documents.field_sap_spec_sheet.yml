@@ -10,7 +10,7 @@ id: paragraph.sap_documents.field_sap_spec_sheet
 field_name: field_sap_spec_sheet
 entity_type: paragraph
 bundle: sap_documents
-label: 'Attach Commercial Spec'
+label: 'Spec Sheet'
 description: ''
 required: false
 translatable: false

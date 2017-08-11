@@ -4,6 +4,7 @@ dependencies:
   config:
     - field.field.paragraph.filegroup.field_download_attach_file
     - field.field.paragraph.filegroup.field_file_language
+    - field.field.paragraph.filegroup.field_gated
     - field.field.paragraph.filegroup.field_tal_link
     - paragraphs.paragraphs_type.filegroup
   module:
@@ -26,9 +27,15 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: options_select
+  field_gated:
+    weight: 2
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
   field_tal_link:
     type: link_default
-    weight: 2
+    weight: 3
     settings:
       placeholder_url: ''
       placeholder_title: ''

@@ -3,6 +3,7 @@ status: true
 dependencies:
   config:
     - field.field.taxonomy_term.others.field_email
+    - field.field.taxonomy_term.others.field_saleforce_routing_on
     - taxonomy.vocabulary.others
   module:
     - text
@@ -23,4 +24,13 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: basic_string
+  field_saleforce_routing_on:
+    weight: 2
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
 hidden: {  }
