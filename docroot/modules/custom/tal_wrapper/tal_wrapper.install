@@ -292,15 +292,6 @@ function tal_wrapper_update_8223() {
 }
 
 /**
- * Enable  module.
- *
- * Implements hook_update_N().
- */
-function tal_wrapper_update_8224() {
-  \Drupal::service('module_installer')->install(['redirect']);
-}
-
-/**
  * Create a taxonomy terms. Changing schema version as per the database.
  */
 function tal_wrapper_update_8227() {
@@ -329,15 +320,6 @@ function tal_wrapper_update_8228() {
 }
 
 /**
- * Enable sitemap and url_redirect modules.
- *
- * Implements hook_update_N().
- */
-function tal_wrapper_update_8223() {
-  \Drupal::service('module_installer')->install(['sitemap', 'url_redirect']);
-}
-
-/**
  * Create a taxonomy "TTU Documents".
  */
 function tal_wrapper_update_8224() {
@@ -352,6 +334,7 @@ function tal_wrapper_update_8224() {
     ));
     $vocabulary->save();
   }
+  \Drupal::service('module_installer')->install(['redirect']);
 }
 
 /**
