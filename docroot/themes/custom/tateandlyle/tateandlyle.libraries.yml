@@ -54,3 +54,13 @@ addthis-share:
     //s7.addthis.com/js/300/addthis_widget.js#pubid=ra-583ffa2e2d1c4f9a: {}
   dependencies:
     - core/jquery
+
+# Browser popup.
+browser_popup:
+  version: 1.0
+  css:
+    component:
+      css/modal.css: {}
+  js:
+    js/modal.js: {}
+    js/browser-popup-init.js: {}

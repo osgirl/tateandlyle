@@ -58,4 +58,7 @@ behat:
   paths:
     - '${repo.root}/tests/behat'
 simplesamlphp: 'true'
-
+phpcs:
+  filesets:
+    - files.php.custom.modules
+    - files.php.tests

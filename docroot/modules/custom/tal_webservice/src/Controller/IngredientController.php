@@ -191,10 +191,10 @@ class IngredientController {
 
     // Check document type.
     if ($request->request->get('document_type') == ''
-    || !in_array(
-                $request->request->get('document_type'),
-                ['SDS', 'SPC', 'PIS']
-    )
+      || !in_array(
+        $request->request->get('document_type'),
+        ['SDS', 'SPC', 'PIS']
+      )
     ) {
       $error = t('Invalid post data, empty document_type or type not found.');
       return $error;

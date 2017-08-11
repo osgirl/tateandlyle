@@ -24,4 +24,7 @@ function tal_webform_form_alter(&$form, FormStateInterface $form_state, $form_id
       $form['elements']['page_title']['#default_value'] = $title;
     }
   }
+  if (strpos($form_id, 'webform_submission_') !== FALSE) {
+    honeypot_add_form_protection($form, $form_state, ['honeypot', 'time_restriction']);
+  }
 }
