@@ -98,15 +98,3 @@ function tal_articles_views_data() {
   );
   return $data;
 }
-
-/**
- * Implements hook_entity_base_field_info_alter().
- */
-function tal_articles_entity_base_field_info_alter(&$fields, $entity_type) {
-  foreach ($fields as $definition) {
-    // Set configurable form display for language fields with display options.
-    if ($definition->toArray()['field_name'] == 'moderation_state') {
-      $definition->setDisplayConfigurable('form', TRUE);
-    }
-  }
-}
