@@ -72,3 +72,5 @@ dependencies:
   - views_infinite_scroll
   - workbench_email
   - workbench_moderation
+  - captcha
+  - recaptcha
