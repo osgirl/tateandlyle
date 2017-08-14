@@ -2,7 +2,8 @@
 
 namespace Drupal\webform\Plugin\WebformElement;
 
-use Drupal\webform\WebformSubmissionInterface;
+use Drupal\Core\Form\FormState;
+use Drupal\webform\Element\WebformContact as WebformContactElement;
 
 /**
  * Provides a 'contact' element.
@@ -22,36 +23,23 @@ class WebformContact extends WebformAddress {
   /**
    * {@inheritdoc}
    */
-  protected function formatHtmlItemValue(array $element, WebformSubmissionInterface $webform_submission, array $options = []) {
-    $value = $this->getValue($element, $webform_submission, $options);
-
-    $lines = [];
-    if (!empty($value['name'])) {
-      $lines['name'] = $value['name'];
-    }
-    if (!empty($value['company'])) {
-      $lines['company'] = $value['company'];
-    }
-    $lines += parent::formatHtmlItemValue($element, $webform_submission, $options);
-    if (!empty($value['email'])) {
-      $lines['email'] = [
-        '#type' => 'link',
-        '#title' => $value['email'],
-        '#url' => \Drupal::pathValidator()->getUrlIfValid('mailto:' . $value['email']),
-      ];
-    }
-    if (!empty($value['phone'])) {
-      $lines['phone'] = $value['phone'];
-    }
-    return $lines;
+  protected function getCompositeElements() {
+    return WebformContactElement::getCompositeElements();
   }
 
   /**
    * {@inheritdoc}
    */
-  protected function formatTextItemValue(array $element, WebformSubmissionInterface $webform_submission, array $options = []) {
-    $value = $this->getValue($element, $webform_submission, $options);
+  protected function getInitializedCompositeElement(array &$element) {
+    $form_state = new FormState();
+    $form_completed = [];
+    return WebformContactElement::processWebformComposite($element, $form_state, $form_completed);
+  }
 
+  /**
+   * {@inheritdoc}
+   */
+  protected function formatTextItemValue(array $element, array $value) {
     $lines = [];
     if (!empty($value['name'])) {
       $lines['name'] = $value['name'];
@@ -59,7 +47,7 @@ class WebformContact extends WebformAddress {
     if (!empty($value['company'])) {
       $lines['company'] = $value['company'];
     }
-    $lines += parent::formatTextItemValue($element, $webform_submission, $options);
+    $lines += parent::formatTextItemValue($element, $value);
     if (!empty($value['email'])) {
       $lines['email'] = $value['email'];
     }

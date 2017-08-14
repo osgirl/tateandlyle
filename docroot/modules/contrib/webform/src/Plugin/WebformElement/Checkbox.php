@@ -21,8 +21,6 @@ class Checkbox extends BooleanBase {
   public function getDefaultProperties() {
     return [
       'title_display' => 'after',
-      // iCheck settings.
-      'icheck' => '',
     ] + parent::getDefaultProperties();
   }
 

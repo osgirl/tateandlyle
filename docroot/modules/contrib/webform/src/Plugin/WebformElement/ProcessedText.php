@@ -4,7 +4,6 @@ namespace Drupal\webform\Plugin\WebformElement;
 
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Mail\MailFormatHelper;
-use Drupal\webform\WebformSubmissionInterface;
 
 /**
  * Provides a 'processed_text' element.
@@ -23,21 +22,10 @@ class ProcessedText extends WebformMarkupBase {
    * {@inheritdoc}
    */
   public function getDefaultProperties() {
-    if (function_exists('filter_formats')) {
-      // Works around filter_default_format() throwing fatal error when
-      // user is not allowed to use any filter formats.
-      // @see filter_default_format.
-      $formats = filter_formats(\Drupal::currentUser());
-      $format = reset($formats);
-      $default_format = $format ? $format->id() : filter_fallback_format();
-    }
-    else {
-      $default_format = '';
-    }
     return parent::getDefaultProperties() + [
       // Markup settings.
       'text' => '',
-      'format' => $default_format ,
+      'format' => (function_exists('filter_default_format')) ? filter_default_format(\Drupal::currentUser()) : '',
     ];
   }
 
@@ -51,7 +39,7 @@ class ProcessedText extends WebformMarkupBase {
   /**
    * {@inheritdoc}
    */
-  public function buildText(array $element, WebformSubmissionInterface $webform_submission, array $options = []) {
+  public function buildText(array &$element, $value, array $options = []) {
     // Copy to element so that we can render it without altering the actual
     // $element.
     $render_element = $element;
@@ -61,7 +49,7 @@ class ProcessedText extends WebformMarkupBase {
     // Must remove #type, #text, and #format.
     unset($element['#type'], $element['#text'], $element['#format']);
 
-    return parent::buildText($element, $webform_submission, $options);
+    return parent::buildText($element, $value, $options);
   }
 
   /**

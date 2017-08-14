@@ -81,6 +81,13 @@
 }
 
 /**
+ * Hide AJAX throbber.
+ */
+.form-type-webform-multiple .ajax-progress-throbber {
+  display: none;
+}
+
+/**
  * Suppress table drag warnings.
  */
 .webform-multiple-table .tabledrag-changed-warning,
@@ -93,11 +100,4 @@
  */
 .webform-multiple-tabledrag-toggle-weight {
   float: right;
-}
-
-/**
- * IMCE tweaks
- */
-.webform-multiple-table .imce-url-button {
-  display: block;
 }

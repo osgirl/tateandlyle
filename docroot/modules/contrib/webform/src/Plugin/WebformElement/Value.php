@@ -21,7 +21,6 @@ class Value extends TextBase {
   public function getDefaultProperties() {
     return [
       // Element settings.
-      'title' => '',
       'value' => '',
     ];
   }

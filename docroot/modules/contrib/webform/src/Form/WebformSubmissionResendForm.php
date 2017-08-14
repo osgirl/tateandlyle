@@ -69,7 +69,7 @@ class WebformSubmissionResendForm extends FormBase {
 
     $handlers = $webform_submission->getWebform()->getHandlers();
 
-    /** @var \Drupal\webform\Plugin\WebformHandlerMessageInterface[] $message_handlers */
+    /** @var \Drupal\webform\WebformHandlerMessageInterface[] $message_handlers */
     $message_handlers = [];
     foreach ($handlers as $handler_id => $handler) {
       if ($handler instanceof EmailWebformHandler) {
@@ -206,7 +206,7 @@ class WebformSubmissionResendForm extends FormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $params = $form_state->getValue('message');
     $message_handler = $this->getMessageHandler($form_state);
-    $message_handler->sendMessage($this->webformSubmission, $params);
+    $message_handler->sendMessage($params);
 
     $t_args = [
       '%label' => $message_handler->label(),
@@ -220,7 +220,7 @@ class WebformSubmissionResendForm extends FormBase {
    * @param \Drupal\Core\Form\FormStateInterface $form_state
    *   The current state of the form.
    *
-   * @return \Drupal\webform\Plugin\WebformHandlerMessageInterface
+   * @return \Drupal\webform\WebformHandlerMessageInterface
    *   The current message handler.
    */
   protected function getMessageHandler(FormStateInterface $form_state) {

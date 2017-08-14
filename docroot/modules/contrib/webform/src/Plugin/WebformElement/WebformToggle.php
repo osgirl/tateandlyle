@@ -2,8 +2,6 @@
 
 namespace Drupal\webform\Plugin\WebformElement;
 
-use Drupal\webform\WebformSubmissionInterface;
-
 /**
  * Provides a 'toggle' element.
  *
@@ -29,16 +27,13 @@ class WebformToggle extends Checkbox {
       'off_text' => '',
     ];
     $properties['title_display'] = 'after';
-    unset($properties['icheck'], $properties['required']);
     return $properties;
   }
 
   /**
    * {@inheritdoc}
    */
-  public function formatTextItem(array $element, WebformSubmissionInterface $webform_submission, array $options = []) {
-    $value = $this->getValue($element, $webform_submission, $options);
-
+  public function formatTextItem(array &$element, $value, array $options = []) {
     $format = $this->getItemFormat($element);
 
     switch ($format) {

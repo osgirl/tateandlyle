@@ -16,14 +16,9 @@ entity.webform_submission.manage:
   route_name: entity.webform_submission.collection
   parent_id: entity.webform_submission.collection
 
-entity.webform_submission.results_purge:
+entity.webform_submission.purge:
   title: 'Purge'
-  route_name: entity.webform_submission.results_purge
-  parent_id: entity.webform_submission.collection
-
-entity.webform_submission.results_log:
-  title: 'Log'
-  route_name: entity.webform_submission.results_log
+  route_name: entity.webform_submission.purge
   parent_id: entity.webform_submission.collection
 
 webform.settings:
@@ -32,7 +27,7 @@ webform.settings:
   base_route: entity.webform.collection
 
 webform.settings.default:
-  title: 'General'
+  title: 'Defaults'
   route_name: webform.settings
   parent_id: webform.settings
 
@@ -54,6 +49,11 @@ webform.settings.handlers:
 webform.settings.exporters:
   title: 'Exporters'
   route_name: webform.exporter_plugins
+  parent_id: webform.settings
+
+webform.admin_settings.third_party:
+  title: 'Third Party'
+  route_name: webform.admin_settings.third_party
   parent_id: webform.settings
 
 webform.addons:
@@ -109,6 +109,12 @@ entity.webform.edit_form_handlers:
   parent_id: entity.webform.edit_form
   weight: 13
 
+entity.webform.edit_form_third_party_settings:
+  title: 'Third party'
+  route_name: entity.webform.third_party_settings_form
+  parent_id: entity.webform.edit_form
+  weight: 14
+
 entity.webform.results:
   title: 'Results'
   route_name: entity.webform.results_submissions
@@ -119,6 +125,11 @@ entity.webform.results_submissions:
   route_name: entity.webform.results_submissions
   parent_id: entity.webform.results
 
+entity.webform.results_table:
+  title: 'Table'
+  route_name: entity.webform.results_table
+  parent_id: entity.webform.results
+
 entity.webform.results_export:
   title: 'Download'
   route_name: entity.webform.results_export
@@ -127,11 +138,6 @@ entity.webform.results_export:
 entity.webform.results_clear:
   title: 'Clear'
   route_name: entity.webform.results_clear
-  parent_id: entity.webform.results
-
-entity.webform.results_log:
-  title: 'Log'
-  route_name: entity.webform.results_log
   parent_id: entity.webform.results
 
 # Submission
@@ -191,11 +197,6 @@ entity.webform_submission.delete_form:
   route_name: entity.webform_submission.delete_form
   base_route: entity.webform_submission.canonical
 
-entity.webform_submission.log:
-  title: 'Log'
-  route_name: entity.webform_submission.log
-  base_route: entity.webform_submission.canonical
-
 # User Submission
 
 entity.webform.user.submission:
@@ -206,9 +207,4 @@ entity.webform.user.submission:
 entity.webform.user.submission.edit:
   title: 'Edit'
   route_name: entity.webform.user.submission.edit
-  base_route: entity.webform.user.submission
-
-entity.webform.user.submission.delete:
-  title: 'Delete'
-  route_name: entity.webform.user.submission.delete
   base_route: entity.webform.user.submission

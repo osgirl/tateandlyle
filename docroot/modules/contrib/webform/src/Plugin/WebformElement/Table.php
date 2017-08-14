@@ -4,7 +4,7 @@ namespace Drupal\webform\Plugin\WebformElement;
 
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
-use Drupal\webform\Plugin\WebformElementBase;
+use Drupal\webform\WebformElementBase;
 use Drupal\webform\WebformInterface;
 use Drupal\Component\Utility\Unicode;
 use Drupal\webform\WebformSubmissionInterface;
@@ -57,7 +57,7 @@ class Table extends WebformElementBase {
   /**
    * {@inheritdoc}
    */
-  public function prepare(array &$element, WebformSubmissionInterface $webform_submission = NULL) {
+  public function prepare(array &$element, WebformSubmissionInterface $webform_submission) {
     parent::prepare($element, $webform_submission);
 
     // Add .js-form.wrapper to fix #states handling.
@@ -94,9 +94,7 @@ class Table extends WebformElementBase {
   /**
    * {@inheritdoc}
    */
-  public function formatHtmlItem(array $element, WebformSubmissionInterface $webform_submission, array $options = []) {
-    $value = $this->getValue($element, $webform_submission, $options);
-
+  public function formatHtmlItem(array &$element, $value, array $options = []) {
     // Undo webform submission elements and convert rows back into a simple
     // render array.
     $rows = [];
@@ -126,9 +124,9 @@ class Table extends WebformElementBase {
   /**
    * {@inheritdoc}
    */
-  public function formatTextItem(array $element, WebformSubmissionInterface $webform_submission, array $options = []) {
+  public function formatTextItem(array &$element, $value, array $options = []) {
     // Render the HTML table.
-    $build = $this->formatHtml($element, $webform_submission, $options);
+    $build = $this->formatHtml($element, $value, $options);
     $html = \Drupal::service('renderer')->renderPlain($build);
 
     // Convert table in pipe delimited plain text.

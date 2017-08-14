@@ -6,7 +6,6 @@ dependencies:
       - webform
 id: creditcard_codes
 label: 'Credit card codes'
-category: Payment
 options: |
   VI: 'Visa'
   MC: 'Mastercard'

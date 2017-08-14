@@ -1,56 +1,33 @@
 /**
  * @file
- * JavaScript behaviors for Geocomplete location integration.
+ * Javascript behaviors for Geocomplete location integration.
  */
 
 (function ($, Drupal, drupalSettings) {
 
   'use strict';
 
-  // @see https://ubilabs.github.io/geocomplete/
-  // @see https://developers.google.com/maps/documentation/javascript/reference?csw=1#MapOptions
-  Drupal.webform = Drupal.webform || {};
-  Drupal.webform.locationGeocomplete = Drupal.webform.locationGeocomplete || {};
-  Drupal.webform.locationGeocomplete.options = Drupal.webform.locationGeocomplete.options || {};
-
   /**
    * Initialize location Geocompletion.
    *
    * @type {Drupal~behavior}
    */
-  Drupal.behaviors.webformLocationGeocomplete = {
+  Drupal.behaviors.webformLocation = {
     attach: function (context) {
-      if (!$.fn.geocomplete) {
-        return;
-      }
-
       $(context).find('div.js-webform-location').once('webform-location').each(function () {
         var $element = $(this);
-        var $input = $element.find('.webform-location-geocomplete');
-        var $map = null;
-        if ($input.attr('data-webform-location-map')) {
-          $map = $('<div class="webform-location-map"><div class="webform-location-map--container"></div></div>').insertAfter($input).find('.webform-location-map--container');
-        }
-
-        var options = $.extend({
+        var $geocomplete = $element.find('.webform-location-geocomplete').geocomplete({
           details: $element,
           detailsAttribute: 'data-webform-location-attribute',
-          types: ['geocode'],
-          map: $map,
-          mapOptions: {
-            disableDefaultUI: true,
-            zoomControl: true
-          }
-        }, Drupal.webform.locationGeocomplete.options);
-
-        var $geocomplete = $input.geocomplete(options);
+          types: ['geocode']
+        });
 
         $geocomplete.on('input', function () {
           // Reset attributes on input.
           $element.find('[data-webform-location-attribute]').val('');
         }).on('blur', function () {
           // Make sure to get attributes on blur.
-          if ($element.find('[data-webform-location-attribute="location"]').val() === '') {
+          if ($element.find('[data-webform-location-attribute="location"]').val() == '') {
             var value = $geocomplete.val();
             if (value) {
               $geocomplete.geocomplete('find', value);
@@ -69,7 +46,7 @@
             $geocomplete.geocomplete('find', position.coords.latitude + ', ' + position.coords.longitude);
           });
         }
-      });
+      })
     }
   };
 

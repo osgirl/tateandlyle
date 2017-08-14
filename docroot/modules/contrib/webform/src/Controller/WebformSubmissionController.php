@@ -102,7 +102,7 @@ class WebformSubmissionController extends ControllerBase implements ContainerInj
    *   A webform submission.
    *
    * @return \Drupal\Core\Ajax\AjaxResponse
-   *   An Ajax response that toggle the sticky icon.
+   *   An AJAX response that toggle the sticky icon.
    */
   public function sticky(WebformSubmissionInterface $webform_submission) {
     // Toggle sticky.
@@ -131,7 +131,13 @@ class WebformSubmissionController extends ControllerBase implements ContainerInj
    *   The webform submission as a render array.
    */
   public function title(WebformSubmissionInterface $webform_submission, $duplicate = FALSE) {
-    $title = $webform_submission->label();
+    $source_entity = $this->requestHandler->getCurrentSourceEntity('webform_submission');
+    $t_args = [
+      '@form' => ($source_entity) ? $source_entity->label() : $webform_submission->getWebform()->label(),
+      '@id' => $webform_submission->serial(),
+    ];
+
+    $title = $this->t('@form: Submission #@id', $t_args);
     return ($duplicate) ? $this->t('Duplicate @title', ['@title' => $title]) : $title;
   }
 

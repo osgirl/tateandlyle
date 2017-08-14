@@ -1,6 +1,6 @@
 /**
  * @file
- * JavaScript behaviors for range element integration.
+ * Javascript behaviors for range element integration.
  */
 
 (function ($, Drupal) {
@@ -55,7 +55,7 @@
         $output.on('input', function () {
           $element[0].value = $output[0].value;
         });
-      });
+      })
     }
   };
 

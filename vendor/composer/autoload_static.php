@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit23f9a1ef1125814058a14828df6d2030
+class ComposerStaticInit11d5625d7ae0e282b784dc141fa78019
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -811,6 +811,7 @@ class ComposerStaticInit23f9a1ef1125814058a14828df6d2030
         'Composer\\Installers\\ElggInstaller' => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers/ElggInstaller.php',
         'Composer\\Installers\\EliasisInstaller' => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers/EliasisInstaller.php',
         'Composer\\Installers\\ExpressionEngineInstaller' => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers/ExpressionEngineInstaller.php',
+        'Composer\\Installers\\EzPlatformInstaller' => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers/EzPlatformInstaller.php',
         'Composer\\Installers\\FuelInstaller' => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers/FuelInstaller.php',
         'Composer\\Installers\\FuelphpInstaller' => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers/FuelphpInstaller.php',
         'Composer\\Installers\\GravInstaller' => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers/GravInstaller.php',
@@ -823,6 +824,7 @@ class ComposerStaticInit23f9a1ef1125814058a14828df6d2030
         'Composer\\Installers\\KirbyInstaller' => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers/KirbyInstaller.php',
         'Composer\\Installers\\KodiCMSInstaller' => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers/KodiCMSInstaller.php',
         'Composer\\Installers\\KohanaInstaller' => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers/KohanaInstaller.php',
+        'Composer\\Installers\\LanManagementSystemInstaller' => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers/LanManagementSystemInstaller.php',
         'Composer\\Installers\\LaravelInstaller' => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers/LaravelInstaller.php',
         'Composer\\Installers\\LavaLiteInstaller' => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers/LavaLiteInstaller.php',
         'Composer\\Installers\\LithiumInstaller' => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers/LithiumInstaller.php',
@@ -837,6 +839,7 @@ class ComposerStaticInit23f9a1ef1125814058a14828df6d2030
         'Composer\\Installers\\MoodleInstaller' => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers/MoodleInstaller.php',
         'Composer\\Installers\\OctoberInstaller' => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers/OctoberInstaller.php',
         'Composer\\Installers\\OntoWikiInstaller' => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers/OntoWikiInstaller.php',
+        'Composer\\Installers\\OsclassInstaller' => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers/OsclassInstaller.php',
         'Composer\\Installers\\OxidInstaller' => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers/OxidInstaller.php',
         'Composer\\Installers\\PPIInstaller' => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers/PPIInstaller.php',
         'Composer\\Installers\\PhiftyInstaller' => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers/PhiftyInstaller.php',
@@ -861,6 +864,7 @@ class ComposerStaticInit23f9a1ef1125814058a14828df6d2030
         'Composer\\Installers\\TYPO3FlowInstaller' => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers/TYPO3FlowInstaller.php',
         'Composer\\Installers\\TheliaInstaller' => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers/TheliaInstaller.php',
         'Composer\\Installers\\TuskInstaller' => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers/TuskInstaller.php',
+        'Composer\\Installers\\UserFrostingInstaller' => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers/UserFrostingInstaller.php',
         'Composer\\Installers\\VanillaInstaller' => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers/VanillaInstaller.php',
         'Composer\\Installers\\VgmcpInstaller' => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers/VgmcpInstaller.php',
         'Composer\\Installers\\WHMCSInstaller' => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers/WHMCSInstaller.php',
@@ -5091,6 +5095,7 @@ class ComposerStaticInit23f9a1ef1125814058a14828df6d2030
         'Service_Amazon_S3' => __DIR__ . '/..' . '/phing/phing/classes/phing/tasks/ext/Service/Amazon/S3.php',
         'SessionHandlerInterface' => __DIR__ . '/..' . '/symfony/polyfill-php54/Resources/stubs/SessionHandlerInterface.php',
         'SilentLogger' => __DIR__ . '/..' . '/phing/phing/classes/phing/listener/SilentLogger.php',
+        'SimpleSAML\\Auth\\TimeLimitedToken' => __DIR__ . '/..' . '/simplesamlphp/simplesamlphp/lib/SimpleSAML/Auth/TimeLimitedToken.php',
         'SimpleSAML\\Database' => __DIR__ . '/..' . '/simplesamlphp/simplesamlphp/lib/SimpleSAML/Database.php',
         'SimpleSAML\\Error\\CannotSetCookie' => __DIR__ . '/..' . '/simplesamlphp/simplesamlphp/lib/SimpleSAML/Error/CannotSetCookie.php',
         'SimpleSAML\\Utils\\Arrays' => __DIR__ . '/..' . '/simplesamlphp/simplesamlphp/lib/SimpleSAML/Utils/Arrays.php',
@@ -5113,7 +5118,6 @@ class ComposerStaticInit23f9a1ef1125814058a14828df6d2030
         'SimpleSAML_Auth_Simple' => __DIR__ . '/..' . '/simplesamlphp/simplesamlphp/lib/SimpleSAML/Auth/Simple.php',
         'SimpleSAML_Auth_Source' => __DIR__ . '/..' . '/simplesamlphp/simplesamlphp/lib/SimpleSAML/Auth/Source.php',
         'SimpleSAML_Auth_State' => __DIR__ . '/..' . '/simplesamlphp/simplesamlphp/lib/SimpleSAML/Auth/State.php',
-        'SimpleSAML_Auth_TimeLimitedToken' => __DIR__ . '/..' . '/simplesamlphp/simplesamlphp/lib/SimpleSAML/Auth/TimeLimitedToken.php',
         'SimpleSAML_Bindings_Shib13_Artifact' => __DIR__ . '/..' . '/simplesamlphp/simplesamlphp/lib/SimpleSAML/Bindings/Shib13/Artifact.php',
         'SimpleSAML_Bindings_Shib13_HTTPPost' => __DIR__ . '/..' . '/simplesamlphp/simplesamlphp/lib/SimpleSAML/Bindings/Shib13/HTTPPost.php',
         'SimpleSAML_Configuration' => __DIR__ . '/..' . '/simplesamlphp/simplesamlphp/lib/SimpleSAML/Configuration.php',
@@ -7285,10 +7289,10 @@ class ComposerStaticInit23f9a1ef1125814058a14828df6d2030
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit23f9a1ef1125814058a14828df6d2030::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit23f9a1ef1125814058a14828df6d2030::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit23f9a1ef1125814058a14828df6d2030::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit23f9a1ef1125814058a14828df6d2030::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit11d5625d7ae0e282b784dc141fa78019::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit11d5625d7ae0e282b784dc141fa78019::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit11d5625d7ae0e282b784dc141fa78019::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit11d5625d7ae0e282b784dc141fa78019::$classMap;
 
         }, null, ClassLoader::class);
     }

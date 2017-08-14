@@ -13,15 +13,11 @@
  */
 #}
 {% if options.email %}
-  <h3>{{ title }}</h3>
-  {{ value }}
-{% elseif title %}
-  <details data-webform-element-id="{{ id }}" open="open">
-    <summary role="button" aria-expanded="true" aria-pressed="true">{{ title }}</summary>
-    <div class="details-wrapper">{{ value }}</div>
-  </details>
+<h3>{{ title }}</h3>
+{{ value }}
 {% else %}
-  <fieldset data-webform-element-id="{{ id }}">
-  {{ value }}
-  </fieldset>
+<details data-webform-element-id="{{ id }}" open="open">
+<summary role="button" aria-expanded="true" aria-pressed="true">{{ title }}</summary>
+<div class="details-wrapper">{{ value }}</div>
+</details>
 {% endif %}

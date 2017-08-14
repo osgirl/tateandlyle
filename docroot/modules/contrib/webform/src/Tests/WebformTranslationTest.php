@@ -17,7 +17,7 @@ class WebformTranslationTest extends WebformTestBase {
    *
    * @var array
    */
-  public static $modules = ['block', 'webform', 'webform_test_translation'];
+  protected static $modules = ['block', 'webform', 'webform_test_translation'];
 
   /**
    * {@inheritdoc}
@@ -27,15 +27,18 @@ class WebformTranslationTest extends WebformTestBase {
 
     // Place blocks.
     $this->placeBlocks();
+
+    // Create users.
+    $this->createUsers();
+
+    // Login admin user.
+    $this->drupalLogin($this->adminWebformUser);
   }
 
   /**
    * Tests webform translate.
    */
   public function testTranslate() {
-    // Login admin user.
-    $this->drupalLogin($this->rootUser);
-
     /** @var \Drupal\webform\WebformTranslationManagerInterface $translation_manager */
     $translation_manager = \Drupal::service('webform.translation_manager');
 

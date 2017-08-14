@@ -5,12 +5,11 @@ namespace Drupal\webform_ui\Form;
 use Drupal\Core\Entity\EntityFieldManagerInterface;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\Core\Form\SubformState;
 use Drupal\Core\Render\RendererInterface;
 use Drupal\Core\Url;
 use Drupal\webform\Utility\WebformDialogHelper;
-use Drupal\webform\Form\WebformDialogFormTrait;
-use Drupal\webform\Plugin\WebformElementManagerInterface;
+use Drupal\webform\WebformDialogTrait;
+use Drupal\webform\WebformElementManagerInterface;
 use Drupal\webform\WebformEntityElementsValidator;
 use Drupal\webform\WebformInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -33,7 +32,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  */
 abstract class WebformUiElementFormBase extends FormBase implements WebformUiElementFormInterface {
 
-  use WebformDialogFormTrait;
+  use WebformDialogTrait;
 
   /**
    * The renderer.
@@ -52,7 +51,7 @@ abstract class WebformUiElementFormBase extends FormBase implements WebformUiEle
   /**
    * Webform element manager.
    *
-   * @var \Drupal\webform\Plugin\WebformElementManagerInterface
+   * @var \Drupal\webform\WebformElementManagerInterface
    */
   protected $elementManager;
 
@@ -89,7 +88,7 @@ abstract class WebformUiElementFormBase extends FormBase implements WebformUiEle
    *
    * @var string
    */
-  protected $parentKey;
+  protected $parent_key;
 
   /**
    * The webform element's original element type.
@@ -119,7 +118,7 @@ abstract class WebformUiElementFormBase extends FormBase implements WebformUiEle
    *   The renderer.
    * @param \Drupal\Core\Entity\EntityFieldManagerInterface $entity_field_manager
    *   The entity field manager.
-   * @param \Drupal\webform\Plugin\WebformElementManagerInterface $element_manager
+   * @param \Drupal\webform\WebformElementManagerInterface $element_manager
    *   The webform element manager.
    * @param \Drupal\webform\WebformEntityElementsValidator $elements_validator
    *   Webform element validator.
@@ -149,14 +148,11 @@ abstract class WebformUiElementFormBase extends FormBase implements WebformUiEle
   public function buildForm(array $form, FormStateInterface $form_state, WebformInterface $webform = NULL, $key = NULL, $parent_key = '') {
     $this->webform = $webform;
     $this->key = $key;
-    $this->parentKey = $parent_key;
+    $this->parent_key = $parent_key;
 
     $webform_element = $this->getWebformElement();
 
-    $form['#parents'] = [];
-    $form['properties'] = ['#parents' => ['properties']];
-    $subform_state = SubformState::createForSubform($form['properties'], $form, $form_state);
-    $form['properties'] = $webform_element->buildConfigurationForm($form['properties'], $subform_state);
+    $form['properties'] = $webform_element->buildConfigurationForm([], $form_state);
 
     // Move messages to the top of the webform.
     if (isset($form['properties']['messages'])) {
@@ -233,10 +229,7 @@ abstract class WebformUiElementFormBase extends FormBase implements WebformUiEle
       '#required' => TRUE,
       '#parents' => ['key'],
       '#disabled' => ($key) ? TRUE : FALSE,
-      // Allow key to populated using query string parameter.
-      // Use by 'Edit submit button(s)'.
-      // @see \Drupal\webform_ui\WebformUiEntityForm::editForm
-      '#default_value' => ($this->getRequest()->get('key')) ? $this->getRequest()->get('key') : $key,
+      '#default_value' => $key,
       '#weight' => -98,
     ];
     // Remove the key's help text (aka description) once it has been set.
@@ -264,7 +257,9 @@ abstract class WebformUiElementFormBase extends FormBase implements WebformUiEle
       '#_validate_form' => TRUE,
     ];
 
-    return $this->buildDialogForm($form, $form_state);
+    $form = $this->buildFormDialog($form, $form_state);
+
+    return $form;
   }
 
   /**
@@ -277,38 +272,31 @@ abstract class WebformUiElementFormBase extends FormBase implements WebformUiEle
       return;
     }
 
-    $subform_state = SubformState::createForSubform($form['properties'], $form, $form_state);
+    // The webform element configuration is stored in the 'properties' key in
+    // the webform, pass that through for validation.
+    $element_form_state = clone $form_state;
+    $element_form_state->setValues($form_state->getValue('properties'));
 
     // Validate configuration webform.
     $webform_element = $this->getWebformElement();
-    $webform_element->validateConfigurationForm($form, $subform_state);
+    $webform_element->validateConfigurationForm($form, $element_form_state);
 
     // Get errors for element validation.
-    $element_errors = $subform_state->getErrors();
+    $element_errors = $element_form_state->getErrors();
     foreach ($element_errors as $element_error) {
       $form_state->setErrorByName(NULL, $element_error);
     }
 
-    // Stop validation if the element properties has any errors.
-    if ($subform_state->hasAnyErrors()) {
+    // Stop validation is the element properties has any errors.
+    if ($form_state->hasAnyErrors()) {
       return;
     }
 
+    // Set element properties.
+    $properties = $webform_element->getConfigurationFormProperties($form, $element_form_state);
     $parent_key = $form_state->getValue('parent_key');
     $key = $form_state->getValue('key');
-
-    // Make sure element key is unique for new elements.
-    if ($this instanceof WebformUiElementAddForm || $this instanceof WebformUiElementDuplicateForm) {
-      $element_flattened = $this->getWebform()->getElementsDecodedAndFlattened();
-      if (isset($element_flattened[$key])) {
-        $form_state->setErrorByName('key', $this->t('The element key is already in use. It must be unique.'));
-      }
-    }
-
-    // Set element properties.
-    $properties = $webform_element->getConfigurationFormProperties($form, $subform_state);
     if ($key) {
-      $this->key = $key;
       $this->webform->setElementProperties($key, $properties, $parent_key);
 
       // Validate elements.
@@ -328,15 +316,20 @@ abstract class WebformUiElementFormBase extends FormBase implements WebformUiEle
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $webform_element = $this->getWebformElement();
 
+    if ($response = $this->validateDialog($form, $form_state)) {
+      return $response;
+    }
+
     // The webform element configuration is stored in the 'properties' key in
     // the webform, pass that through for submission.
-    $subform_state = SubformState::createForSubform($form['properties'], $form, $form_state);
+    $element_form_state = clone $form_state;
+    $element_form_state->setValues($form_state->getValue('properties'));
 
     // Submit element configuration.
     // Generally, elements will not be processing any submitted properties.
     // It is possible that a custom element might need to call a third-party API
     // to 'register' the element.
-    $webform_element->submitConfigurationForm($form, $subform_state);
+    $webform_element->submitConfigurationForm($form, $element_form_state);
 
     // Save the webform with its updated element.
     $this->webform->save();
@@ -349,18 +342,9 @@ abstract class WebformUiElementFormBase extends FormBase implements WebformUiEle
     ];
     drupal_set_message($this->t('%title has been @action.', $t_args));
 
-    // Append ?update= to (redirect) destination.
-    if ($this->requestStack->getCurrentRequest()->query->get('destination')) {
-      $redirect_destination = $this->getRedirectDestination();
-      $destination = $redirect_destination->get();
-      $destination .= (strpos($destination, '?') !== FALSE ? '&' : '?') . 'update=' . $this->key;
-      $redirect_destination->set($destination);
-    }
-
-    // Still set the redirect URL just to be safe.
-    $form_state->setRedirectUrl($this->webform->toUrl('edit-form', ['query' => ['update' => $this->key]]));
+    // Redirect.
+    return $this->redirectForm($form, $form_state, $this->webform->toUrl('edit-form', ['query' => ['element-update' => $form_state->getValue('key')]]));
   }
-
 
   /**
    * Determines if the webform element key already exists.
@@ -415,7 +399,7 @@ abstract class WebformUiElementFormBase extends FormBase implements WebformUiEle
    * {@inheritdoc}
    */
   public function getParentKey() {
-    return $this->parentKey;
+    return $this->parent_key;
   }
 
   /**

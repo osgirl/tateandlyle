@@ -65,12 +65,7 @@ class WebformEntityAssetsForm extends EntityForm {
     $webform->setJavaScript($form_state->getValue('javascript'));
     $webform->save();
 
-    $context = [
-      '@label' => $webform->label(),
-      'link' => $webform->toLink($this->t('Edit'), 'assets-form')->toString(),
-    ];
-    $this->logger('webform')->notice('Webform assets for @label saved.', $context);
-
+    $this->logger('webform')->notice('Webform assets for @label saved.', ['@label' => $webform->label()]);
     drupal_set_message($this->t('Webform assets for %label saved.', ['%label' => $webform->label()]));
   }
 

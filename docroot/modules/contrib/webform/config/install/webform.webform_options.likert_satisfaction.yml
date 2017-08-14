@@ -6,7 +6,6 @@ dependencies:
       - webform
 id: likert_satisfaction
 label: 'Likert: Satisfaction'
-category: Likert
 options: |
   1: Very Unsatisfied
   2: Unsatisfied

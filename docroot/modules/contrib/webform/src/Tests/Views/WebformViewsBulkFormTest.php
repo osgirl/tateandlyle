@@ -18,7 +18,7 @@ class WebformViewsBulkFormTest extends WebformTestBase {
    *
    * @var array
    */
-  public static $modules = ['webform', 'webform_test_views'];
+  protected static $modules = ['webform', 'webform_test_views'];
 
   /**
    * {@inheritdoc}
@@ -41,7 +41,7 @@ class WebformViewsBulkFormTest extends WebformTestBase {
     $this->assertRaw('No submissions available.');
 
     // Create a test submission.
-    $this->drupalLogin($this->rootUser);
+    $this->drupalLogin($this->adminWebformUser);
     $webform = Webform::load('contact');
     $sid = $this->postSubmissionTest($webform);
     $webform_submission = $this->loadSubmission($sid);

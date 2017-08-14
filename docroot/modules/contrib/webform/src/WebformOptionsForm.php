@@ -11,36 +11,9 @@ use Drupal\webform\Utility\WebformArrayHelper;
 use Drupal\webform\Utility\WebformOptionsHelper;
 
 /**
- * Provides a form to set options.
+ * Provides a webform to set options.
  */
 class WebformOptionsForm extends EntityForm {
-
-  /**
-   * {@inheritdoc}
-   */
-  protected function prepareEntity() {
-    if ($this->operation == 'duplicate') {
-      $this->setEntity($this->getEntity()->createDuplicate());
-    }
-
-    parent::prepareEntity();
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function buildForm(array $form, FormStateInterface $form_state) {
-    /** @var \Drupal\webform\WebformOptionsInterface $webform */
-    $webform_options = $this->getEntity();
-
-    // Customize title for duplicate webform options.
-    if ($this->operation == 'duplicate') {
-      // Display custom title.
-      $form['#title'] = $this->t("Duplicate '@label' options", ['@label' => $webform_options->label()]);
-    }
-
-    return parent::buildForm($form, $form_state);
-  }
 
   /**
    * {@inheritdoc}
@@ -48,9 +21,6 @@ class WebformOptionsForm extends EntityForm {
   public function form(array $form, FormStateInterface $form_state) {
     /** @var \Drupal\webform\WebformOptionsInterface $webform_options */
     $webform_options = $this->entity;
-
-    /** @var \Drupal\webform\WebformOptionsStorageInterface $webform_options_storage */
-    $webform_options_storage = $this->entityTypeManager->getStorage('webform_options');
 
     $form['label'] = [
       '#type' => 'textfield',
@@ -68,13 +38,6 @@ class WebformOptionsForm extends EntityForm {
       '#required' => TRUE,
       '#disabled' => !$webform_options->isNew(),
       '#default_value' => $webform_options->id(),
-    ];
-    $form['category'] = [
-      '#type' => 'webform_select_other',
-      '#title' => $this->t('Category'),
-      '#options' => $webform_options_storage->getCategories(),
-      '#empty_option' => '<' . $this->t('None') . '>',
-      '#default_value' => $webform_options->get('category'),
     ];
 
     // Call the isolated edit webform that can be overridden by the
@@ -203,12 +166,7 @@ class WebformOptionsForm extends EntityForm {
     $webform_options->set('options', '');
     $webform_options->save();
 
-    $context = [
-      '@label' => $webform_options->label(),
-      'link' => $webform_options->toLink($this->t('Edit'), 'edit-form')->toString(),
-    ];
-    $this->logger('webform')->notice('Options @label have been reset.', $context);
-
+    $this->logger('webform')->notice('Options @label have been reset.', ['@label' => $webform_options->label()]);
     drupal_set_message($this->t('Options %label have been reset.', ['%label' => $webform_options->label()]));
 
     $form_state->setRedirect('entity.webform_options.collection');
@@ -222,12 +180,7 @@ class WebformOptionsForm extends EntityForm {
     $webform_options = $this->getEntity();
     $webform_options->save();
 
-    $context = [
-      '@label' => $webform_options->label(),
-      'link' => $webform_options->toLink($this->t('Edit'), 'edit-form')->toString(),
-    ];
-    $this->logger('webform')->notice('Options @label saved.', $context);
-
+    $this->logger('webform')->notice('Options @label saved.', ['@label' => $webform_options->label()]);
     drupal_set_message($this->t('Options %label saved.', ['%label' => $webform_options->label()]));
 
     $form_state->setRedirect('entity.webform_options.collection');

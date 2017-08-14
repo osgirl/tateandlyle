@@ -58,23 +58,18 @@ Tidy YAML files
 [SimpleTest](https://www.drupal.org/node/645286)
 
     # Run all tests
-    cd /var/www/sites/d8_webform
-    php core/scripts/run-tests.sh --url http://localhost/wf --module webform --dburl mysql://drupal_d8_webform:drupal.@dm1n@localhost/drupal_d8_webform
-
-    # Run single tests
-    cd /var/www/sites/d8_webform
-    php core/scripts/run-tests.sh --verbose --class "Drupal\webform_templates\Tests\WebformTemplatesTest"
+    php core/scripts/run-tests.sh --url http://localhost/d8_dev --module webform
 
 [PHPUnit](https://www.drupal.org/node/2116263)
 
     # Execute all Webform PHPUnit tests.
-    cd /var/www/sites/d8_webform/core
+    cd core
     php ../vendor/phpunit/phpunit/phpunit --group webform
 
-    cd /var/www/sites/d8_webform/core
+    cd core
 
     # Execute individual PHPUnit tests.
-    export SIMPLETEST_DB=mysql://drupal_d8_webform:drupal.@dm1n@localhost/drupal_d8_webform;
+    export SIMPLETEST_DB=mysql://drupal_d8_dev:drupal.@dm1n@localhost/drupal_d8_dev;
 
     # Functional test.    
     php ../vendor/phpunit/phpunit/phpunit ../modules/sandbox/webform/tests/src/Functional/WebformExampleFunctionalTest.php

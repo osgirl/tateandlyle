@@ -4,8 +4,7 @@ namespace Drupal\webform_ui\Form;
 
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\webform\Form\WebformDialogFormTrait;
-use Drupal\webform\Plugin\WebformElementManagerInterface;
+use Drupal\webform\WebformElementManagerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -13,19 +12,17 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  */
 abstract class WebformUiElementTypeFormBase extends FormBase {
 
-  use WebformDialogFormTrait;
-
   /**
    * The webform element manager.
    *
-   * @var \Drupal\webform\Plugin\WebformElementManagerInterface
+   * @var \Drupal\webform\WebformElementManagerInterface
    */
   protected $elementManager;
 
   /**
    * Constructs a WebformUiElementTypeFormBase object.
    *
-   * @param \Drupal\webform\Plugin\WebformElementManagerInterface $element_manager
+   * @param \Drupal\webform\WebformElementManagerInterface $element_manager
    *   The webform element manager.
    */
   public function __construct(WebformElementManagerInterface $element_manager) {
@@ -57,7 +54,6 @@ abstract class WebformUiElementTypeFormBase extends FormBase {
   protected function getDefinitions() {
     $definitions = $this->elementManager->getDefinitions();
     $definitions = $this->elementManager->getSortedDefinitions($definitions, 'category');
-    $definitions = $this->elementManager->removeExcludeDefinitions($definitions);
     $grouped_definitions = $this->elementManager->getGroupedDefinitions($definitions);
 
     $sorted_definitions = [];

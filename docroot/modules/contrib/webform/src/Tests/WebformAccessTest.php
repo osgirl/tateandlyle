@@ -17,7 +17,7 @@ class WebformAccessTest extends WebformTestBase {
    *
    * @var array
    */
-  public static $modules = ['node', 'webform'];
+  protected static $modules = ['node', 'webform'];
 
   /**
    * {@inheritdoc}
@@ -122,6 +122,7 @@ class WebformAccessTest extends WebformTestBase {
     $any_tests = [
       'webform/{webform}' => 'create',
       'admin/structure/webform/manage/{webform}/results/submissions' => 'view_any',
+      'admin/structure/webform/manage/{webform}/results/table' => 'view_any',
       'admin/structure/webform/manage/{webform}/results/download' => 'view_any',
       'admin/structure/webform/manage/{webform}/results/clear' => 'purge_any',
       'admin/structure/webform/manage/{webform}/submission/{webform_submission}' => 'view_any',
@@ -196,12 +197,6 @@ class WebformAccessTest extends WebformTestBase {
     ] + Webform::getDefaultAccessRules();
     $webform->setAccessRules($access_rules)->save();
 
-    // Must delete all existing anonymous submission to prevent them from
-    // getting transferred to authenticated user.
-    foreach ($submissions as $submission) {
-      $submission->delete();
-    }
-
     // Login and post a submission as a user.
     $this->drupalLogin($account);
 
@@ -233,6 +228,7 @@ class WebformAccessTest extends WebformTestBase {
     // Check the new submission's view, update, and delete access for the user.
     $test_own = [
       'admin/structure/webform/manage/{webform}/results/submissions' => 403,
+      'admin/structure/webform/manage/{webform}/results/table' => 403,
       'admin/structure/webform/manage/{webform}/results/download' => 403,
       'admin/structure/webform/manage/{webform}/results/clear' => 403,
       'admin/structure/webform/manage/{webform}/submission/{webform_submission}' => 200,

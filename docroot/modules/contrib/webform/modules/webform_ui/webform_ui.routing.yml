@@ -1,5 +1,3 @@
-# Elements.
-
 entity.webform.source_form:
   path: '/admin/structure/webform/manage/{webform}/source'
   defaults:
@@ -8,8 +6,6 @@ entity.webform.source_form:
   requirements:
     _custom_access: '\Drupal\webform_ui\Access\WebformUiAccess::checkWebformSourceAccess'
 
-# Options.
-
 entity.webform_options.source_form:
   path: '/admin/structure/webform/settings/options/manage/{webform_options}/source'
   defaults:
@@ -17,8 +13,6 @@ entity.webform_options.source_form:
     _entity_form: 'webform_options.source'
   requirements:
     _custom_access: '\Drupal\webform_ui\Access\WebformUiAccess::checkWebformOptionSourceAccess'
-
-# Element.
 
 entity.webform_ui.element:
   path: '/admin/structure/webform/manage/{webform}/element/add'

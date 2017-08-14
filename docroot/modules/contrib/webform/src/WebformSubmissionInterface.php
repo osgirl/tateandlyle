@@ -4,7 +4,6 @@ namespace Drupal\webform;
 
 use Drupal\user\EntityOwnerInterface;
 use Drupal\Core\Entity\ContentEntityInterface;
-use Drupal\user\UserInterface;
 
 /**
  * Provides an interface defining a webform submission entity.
@@ -30,16 +29,6 @@ interface WebformSubmissionInterface extends ContentEntityInterface, EntityOwner
    * Return status for submission that has been updated.
    */
   const STATE_UPDATED = 'updated';
-
-  /**
-   * Return status for submission that has been deleted.
-   */
-  const STATE_DELETED = 'deleted';
-
-  /**
-   * Return status for submission that has been converted from anonymous to authenticated.
-   */
-  const STATE_CONVERTED = 'converted';
 
   /**
    * Gets the serial number.
@@ -192,15 +181,6 @@ interface WebformSubmissionInterface extends ContentEntityInterface, EntityOwner
   public function isDraft();
 
   /**
-   * Is the current submission being converted from anonymous to authenticated.
-   *
-   * @return bool
-   *   TRUE if the current submission being converted from anonymous to
-   *   authenticated.
-   */
-  public function isConverting();
-
-  /**
    * Is the current submission completed.
    *
    * @return bool
@@ -254,7 +234,7 @@ interface WebformSubmissionInterface extends ContentEntityInterface, EntityOwner
   public function setData(array $data);
 
   /**
-   * Gets the webform submission's original data before any changes.
+   * Gets the webform submission's original data before any changes..
    *
    * @param string $key
    *   A string that maps to a key in the submission's original data.
@@ -330,14 +310,6 @@ interface WebformSubmissionInterface extends ContentEntityInterface, EntityOwner
    *   The webform element method to be invoked.
    */
   public function invokeWebformElements($method);
-
-  /**
-   * Convert anonymous submission to authenicated.
-   *
-   * @param \Drupal\user\UserInterface $account
-   *   An authenticated user account.
-   */
-  public function convert(UserInterface $account);
 
   /**
    * Gets an array of all property values.

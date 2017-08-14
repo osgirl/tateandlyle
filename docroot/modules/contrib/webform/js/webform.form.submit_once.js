@@ -1,6 +1,6 @@
 /**
  * @file
- * JavaScript behaviors for preventing duplicate webform submissions.
+ * Javascript behaviors for preventing duplicate webform submissions.
  */
 
 (function ($, Drupal) {
@@ -30,11 +30,6 @@
         });
 
         $(this).submit(function () {
-          // Don't submit if client-side validation has failed.
-          if ($.isFunction(jQuery.fn.valid) && !($form.valid())) {
-            return false;
-          }
-
           // Track webform submitted.
           if ($form.attr('webform-submitted')) {
             return false;
@@ -51,7 +46,7 @@
           var $progress = $('<div class="ajax-progress ajax-progress-throbber"><div class="throbber">&nbsp;</div></div>');
           $clickedButton.after($progress);
         });
-      });
+      })
     }
   };
 

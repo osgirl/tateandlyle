@@ -1,14 +1,11 @@
 /**
  * @file
- * JavaScript behaviors for RateIt integration.
+ * Javascript behaviors for RateIt integration.
  */
 
 (function ($, Drupal) {
 
   'use strict';
-
-  // All options can be override using custom data-* attributes.
-  // @see https://github.com/gjunge/rateit.js/wiki#options.
 
   /**
    * Initialize rating element using RateIt.
@@ -17,10 +14,6 @@
    */
   Drupal.behaviors.webformRating = {
     attach: function (context) {
-      if (!$.fn.rateit) {
-        return;
-      }
-
       $(context)
         .find('[data-rateit-backingfld]')
         .once('webform-rating')
