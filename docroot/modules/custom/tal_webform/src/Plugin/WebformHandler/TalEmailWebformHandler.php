@@ -15,8 +15,8 @@ use Drupal\Taxonomy\Entity\Term;
  *   label = @Translation("TAL Email"),
  *   category = @Translation("Notification"),
  *   description = @Translation("Sends a TAL webform submission via an email."),
- *   cardinality=\Drupal\webform\Plugin\WebformHandlerInterface::CARDINALITY_UNLIMITED,
- *   results =\Drupal\webform\Plugin\WebformHandlerInterface::RESULTS_PROCESSED,
+ *   cardinality=\Drupal\webform\WebformHandlerInterface::CARDINALITY_UNLIMITED,
+ *   results =\Drupal\webform\WebformHandlerInterface::RESULTS_PROCESSED,
  * )
  */
 class TalEmailWebformHandler extends EmailWebformHandler {
@@ -56,7 +56,7 @@ class TalEmailWebformHandler extends EmailWebformHandler {
       $validated = $this->validateEmailRules($message);
       if ($validated['salesforce_on']) {
         $message['send_email'] = $validated['email'];
-        $this->sendMessage($webform_submission, $message);
+        $this->sendMessage($message);
       }
     }
   }
@@ -64,7 +64,7 @@ class TalEmailWebformHandler extends EmailWebformHandler {
   /**
    * {@inheritdoc}
    */
-  public function sendMessage(WebformSubmissionInterface $webform_submission, array $message) {
+  public function sendMessage(array $message) {
     // Send mail.
     $message['to_mail'] = !empty($message['send_email']) ? $message['send_email'] : $message['to_mail'];
     $to = $message['to_mail'];
