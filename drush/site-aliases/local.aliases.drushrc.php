@@ -4,7 +4,7 @@
 
 $aliases['tatelylecom.local'] = array(
   'uri' => 'tatelylecom.local',
-  'root' => '/var/www/vm/tateandlyle/docroot',
+  'root' => '/var/www/tatelylecom/docroot',
   'path-aliases' => array(
     '%dump-dir' => '/tmp',
   ),
