@@ -11,3 +11,4 @@ permissions:
   - 'access site-wide contact form'
   - 'view media'
   - 'access sitemap'
+  - 'access_content'
