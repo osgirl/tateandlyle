@@ -11,8 +11,7 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Command\Command;
-use Drupal\Console\Core\Command\Shared\CommandTrait;
+use Drupal\Console\Core\Command\Command;
 use Drupal\Core\Config\ConfigFactory;
 use Drupal\Core\Extension\ThemeHandler;
 use Drupal\Core\Config\UnmetDependenciesException;
@@ -21,8 +20,6 @@ use Drupal\Console\Core\Utils\ChainQueue;
 
 class InstallCommand extends Command
 {
-    use CommandTrait;
-
     /**
      * @var ConfigFactory
      */
@@ -61,13 +58,17 @@ class InstallCommand extends Command
         $this
             ->setName('theme:install')
             ->setDescription($this->trans('commands.theme.install.description'))
-            ->addArgument('theme', InputArgument::IS_ARRAY, $this->trans('commands.theme.install.options.module'))
+            ->addArgument(
+                'theme',
+                InputArgument::IS_ARRAY,
+                $this->trans('commands.theme.install.options.theme')
+            )
             ->addOption(
                 'set-default',
-                '',
+                null,
                 InputOption::VALUE_NONE,
                 $this->trans('commands.theme.install.options.set-default')
-            );
+            )->setAliases(['thi']);
     }
 
     /**
@@ -101,7 +102,9 @@ class InstallCommand extends Command
             while (true) {
                 $theme_name = $io->choiceNoList(
                     $this->trans('commands.theme.install.questions.theme'),
-                    array_keys($theme_list)
+                    array_keys($theme_list),
+                    null,
+                    true
                 );
 
                 if (empty($theme_name)) {
@@ -132,7 +135,7 @@ class InstallCommand extends Command
         if ($default && count($theme) > 1) {
             $io->error($this->trans('commands.theme.install.messages.invalid-theme-default'));
 
-            return;
+            return 1;
         }
 
         $themes  = $this->themeHandler->rebuildThemeData();
@@ -188,6 +191,8 @@ class InstallCommand extends Command
                     )
                 );
                 drupal_set_message($e->getTranslatedMessage($this->getStringTranslation(), $theme), 'error');
+
+                return 1;
             }
         } elseif (empty($themesAvailable) && count($themesInstalled) > 0) {
             if (count($themesInstalled) > 1) {
@@ -225,5 +230,7 @@ class InstallCommand extends Command
 
         // Run cache rebuild to see changes in Web UI
         $this->chainQueue->addCommand('cache:rebuild', ['cache' => 'all']);
+
+        return 0;
     }
 }

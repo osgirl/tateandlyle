@@ -7,14 +7,13 @@
 
 namespace Drupal\Console\Command\Database;
 
-use Drupal\Console\Core\Command\Shared\CommandTrait;
 use Drupal\Core\Database\Connection;
 use Drupal\Core\Datetime\DateFormatterInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\Core\StringTranslation\TranslationInterface;
 use Drupal\user\UserStorageInterface;
-use Symfony\Component\Console\Command\Command;
+use Drupal\Console\Core\Command\Command;
 use Drupal\Core\Logger\RfcLogLevel;
 use Drupal\user\Entity\User;
 use Drupal\Component\Utility\Unicode;
@@ -30,8 +29,6 @@ use Drupal\Console\Core\Style\DrupalStyle;
  */
 abstract class DatabaseLogBase extends Command
 {
-    use CommandTrait;
-
     /**
      * @var Connection
      */
@@ -108,19 +105,19 @@ abstract class DatabaseLogBase extends Command
         $this
             ->addOption(
                 'type',
-                '',
+                null,
                 InputOption::VALUE_OPTIONAL,
                 $this->trans('commands.database.log.common.options.type')
             )
             ->addOption(
                 'severity',
-                '',
+                null,
                 InputOption::VALUE_OPTIONAL,
                 $this->trans('commands.database.log.common.options.severity')
             )
             ->addOption(
                 'user-id',
-                '',
+                null,
                 InputOption::VALUE_OPTIONAL,
                 $this->trans('commands.database.log.common.options.user-id')
             );

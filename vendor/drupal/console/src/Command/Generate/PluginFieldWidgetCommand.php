@@ -13,10 +13,9 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Drupal\Console\Generator\PluginFieldWidgetGenerator;
 use Drupal\Console\Command\Shared\ModuleTrait;
 use Drupal\Console\Command\Shared\ConfirmationTrait;
-use Symfony\Component\Console\Command\Command;
+use Drupal\Console\Core\Command\Command;
 use Drupal\Console\Core\Style\DrupalStyle;
 use Drupal\Console\Extension\Manager;
-use Drupal\Console\Core\Command\Shared\CommandTrait;
 use Drupal\Console\Core\Utils\StringConverter;
 use Drupal\Console\Core\Utils\ChainQueue;
 use Drupal\Core\Field\FieldTypePluginManager;
@@ -30,7 +29,6 @@ class PluginFieldWidgetCommand extends Command
 {
     use ModuleTrait;
     use ConfirmationTrait;
-    use CommandTrait;
 
     /**
  * @var Manager
@@ -93,31 +91,32 @@ class PluginFieldWidgetCommand extends Command
             ->setName('generate:plugin:fieldwidget')
             ->setDescription($this->trans('commands.generate.plugin.fieldwidget.description'))
             ->setHelp($this->trans('commands.generate.plugin.fieldwidget.help'))
-            ->addOption('module', '', InputOption::VALUE_REQUIRED, $this->trans('commands.common.options.module'))
+            ->addOption('module', null, InputOption::VALUE_REQUIRED, $this->trans('commands.common.options.module'))
             ->addOption(
                 'class',
-                '',
+                null,
                 InputOption::VALUE_REQUIRED,
                 $this->trans('commands.generate.plugin.fieldwidget.options.class')
             )
             ->addOption(
                 'label',
-                '',
+                null,
                 InputOption::VALUE_OPTIONAL,
                 $this->trans('commands.generate.plugin.fieldwidget.options.label')
             )
             ->addOption(
                 'plugin-id',
-                '',
+                null,
                 InputOption::VALUE_OPTIONAL,
                 $this->trans('commands.generate.plugin.fieldwidget.options.plugin-id')
             )
             ->addOption(
                 'field-type',
-                '',
+                null,
                 InputOption::VALUE_OPTIONAL,
                 $this->trans('commands.generate.plugin.fieldwidget.options.field-type')
-            );
+            )
+            ->setAliases(['gpfw']);
     }
 
     /**
@@ -129,7 +128,7 @@ class PluginFieldWidgetCommand extends Command
 
         // @see use Drupal\Console\Command\Shared\ConfirmationTrait::confirmGeneration
         if (!$this->confirmGeneration($io)) {
-            return;
+            return 1;
         }
 
         $module = $input->getOption('module');
@@ -141,6 +140,8 @@ class PluginFieldWidgetCommand extends Command
         $this->generator->generate($module, $class_name, $label, $plugin_id, $field_type);
 
         $this->chainQueue->addCommand('cache:rebuild', ['cache' => 'discovery']);
+
+        return 0;
     }
 
     protected function interact(InputInterface $input, OutputInterface $output)

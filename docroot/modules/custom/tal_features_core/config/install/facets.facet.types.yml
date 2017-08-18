@@ -20,12 +20,6 @@ query_operator: or
 exclude: false
 only_visible_when_facet_source_is_visible: false
 processor_configs:
-  active_widget_order:
-    processor_id: active_widget_order
-    weights:
-      sort: -10
-    settings:
-      sort: DESC
   count_limit:
     processor_id: count_limit
     weights:
@@ -33,23 +27,17 @@ processor_configs:
     settings:
       minimum_items: 1
       maximum_items: null
-  count_widget_order:
-    processor_id: count_widget_order
-    weights:
-      sort: -10
-    settings:
-      sort: DESC
-  display_value_widget_order:
-    processor_id: display_value_widget_order
-    weights:
-      sort: -10
-    settings:
-      sort: ASC
   list_item:
     processor_id: list_item
     weights:
       build: 5
     settings: {  }
+  term_weight_widget_order:
+    processor_id: term_weight_widget_order
+    weights:
+      sort: -10
+    settings:
+      sort: ASC
   translate_entity:
     processor_id: translate_entity
     weights:

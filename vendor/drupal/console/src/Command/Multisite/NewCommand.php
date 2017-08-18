@@ -7,9 +7,8 @@
 
 namespace Drupal\Console\Command\Multisite;
 
-use Drupal\Console\Core\Command\Shared\CommandTrait;
 use Drupal\Console\Core\Style\DrupalStyle;
-use Symfony\Component\Console\Command\Command;
+use Drupal\Console\Core\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
@@ -25,8 +24,6 @@ use Symfony\Component\Filesystem\Exception\FileNotFoundException;
  */
 class NewCommand extends Command
 {
-    use CommandTrait;
-
     protected $appRoot;
 
     /**
@@ -70,10 +67,11 @@ class NewCommand extends Command
             )
             ->addOption(
                 'copy-default',
-                '',
+                null,
                 InputOption::VALUE_NONE,
                 $this->trans('commands.multisite.new.options.copy-default')
-            );
+            )
+            ->setAliases(['mun']);
     }
 
     /**
@@ -159,7 +157,7 @@ class NewCommand extends Command
             throw new FileNotFoundException($this->trans('commands.multisite.new.errors.sites-missing'));
         }
 
-        $sites_file_contents .= "\n\$sites['$uri'] = '$this->directory';";
+        $sites_file_contents .= "\n\$sites['$this->directory'] = '$this->directory';";
 
         try {
             $this->fs->dumpFile($this->appRoot . '/sites/sites.php', $sites_file_contents);
@@ -183,7 +181,7 @@ class NewCommand extends Command
                     'sites/default/settings.php'
                 )
             );
-            return;
+            return 1;
         }
 
         if ($this->fs->exists($this->appRoot . '/sites/default/files')) {
@@ -200,7 +198,7 @@ class NewCommand extends Command
                         'sites/' . $this->directory . '/files'
                     )
                 );
-                return;
+                return 1;
             }
         } else {
             $io->warning($this->trans('commands.multisite.new.warnings.missing-files'));
@@ -221,7 +219,7 @@ class NewCommand extends Command
                     'sites/' . $this->directory . '/settings.php'
                 )
             );
-            return;
+            return 1;
         }
 
         $this->chmodSettings($io);
@@ -255,7 +253,7 @@ class NewCommand extends Command
                         $this->appRoot . '/sites/' . $this->directory . '/settings.php'
                     )
                 );
-                return;
+                return 1;
             }
         } else {
             $io->error(
@@ -264,7 +262,7 @@ class NewCommand extends Command
                     'sites/default/default.settings.php'
                 )
             );
-            return;
+            return 1;
         }
 
         $this->chmodSettings($io);
@@ -275,6 +273,8 @@ class NewCommand extends Command
                 $this->directory
             )
         );
+
+        return 0;
     }
 
     /**
@@ -297,6 +297,8 @@ class NewCommand extends Command
                     $this->appRoot . '/sites/' . $this->directory . '/settings.php'
                 )
             );
+
+            return 1;
         }
     }
 }

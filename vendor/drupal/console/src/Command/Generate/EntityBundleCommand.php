@@ -7,15 +7,13 @@
 
 namespace Drupal\Console\Command\Generate;
 
-use Symfony\Component\Console\Command\Command;
+use Drupal\Console\Core\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Drupal\Console\Command\Shared\ConfirmationTrait;
 use Drupal\Console\Command\Shared\ModuleTrait;
 use Drupal\Console\Command\Shared\ServicesTrait;
-use Drupal\Console\Core\Command\Shared\CommandTrait;
-use Drupal\Console\Generator\ContentTypeGenerator;
 use Drupal\Console\Generator\EntityBundleGenerator;
 use Drupal\Console\Core\Style\DrupalStyle;
 use Drupal\Console\Extension\Manager;
@@ -23,11 +21,9 @@ use Drupal\Console\Utils\Validator;
 
 class EntityBundleCommand extends Command
 {
-    use CommandTrait;
     use ModuleTrait;
     use ServicesTrait;
     use ConfirmationTrait;
-
 
     /**
      * @var Validator
@@ -69,19 +65,20 @@ class EntityBundleCommand extends Command
             ->setName('generate:entity:bundle')
             ->setDescription($this->trans('commands.generate.entity.bundle.description'))
             ->setHelp($this->trans('commands.generate.entity.bundle.help'))
-            ->addOption('module', '', InputOption::VALUE_REQUIRED, $this->trans('commands.common.options.module'))
+            ->addOption('module', null, InputOption::VALUE_REQUIRED, $this->trans('commands.common.options.module'))
             ->addOption(
                 'bundle-name',
-                '',
+                null,
                 InputOption::VALUE_OPTIONAL,
                 $this->trans('commands.generate.entity.bundle.options.bundle-name')
             )
             ->addOption(
                 'bundle-title',
-                '',
+                null,
                 InputOption::VALUE_OPTIONAL,
                 $this->trans('commands.generate.entity.bundle.options.bundle-title')
-            );
+            )
+            ->setAliases(['geb']);
     }
 
     /**
@@ -93,18 +90,19 @@ class EntityBundleCommand extends Command
 
         // @see use Drupal\Console\Command\Shared\ConfirmationTrait::confirmGeneration
         if (!$this->confirmGeneration($io)) {
-            return;
+            return 1;
         }
 
         $module = $input->getOption('module');
         $bundleName = $input->getOption('bundle-name');
         $bundleTitle = $input->getOption('bundle-title');
-        $learning = $input->hasOption('learning')?$input->getOption('learning'):false;
 
         $generator = $this->generator;
         //TODO:
-        //$generator->setLearning($learning);
+        //        $generator->setLearning($learning);
         $generator->generate($module, $bundleName, $bundleTitle);
+
+        return 0;
     }
 
     /**

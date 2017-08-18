@@ -15,10 +15,9 @@ use Drupal\Console\Command\Shared\ModuleTrait;
 use Drupal\Console\Command\Shared\FormTrait;
 use Drupal\Console\Generator\PluginRestResourceGenerator;
 use Drupal\Console\Command\Shared\ConfirmationTrait;
-use Symfony\Component\Console\Command\Command;
+use Drupal\Console\Core\Command\Command;
 use Drupal\Console\Core\Style\DrupalStyle;
 use Drupal\Console\Extension\Manager;
-use Drupal\Console\Core\Command\Shared\CommandTrait;
 use Drupal\Console\Core\Utils\StringConverter;
 use Drupal\Console\Core\Utils\ChainQueue;
 
@@ -33,7 +32,6 @@ class PluginRestResourceCommand extends Command
     use ModuleTrait;
     use FormTrait;
     use ConfirmationTrait;
-    use CommandTrait;
 
     /**
  * @var Manager
@@ -83,10 +81,10 @@ class PluginRestResourceCommand extends Command
             ->setName('generate:plugin:rest:resource')
             ->setDescription($this->trans('commands.generate.plugin.rest.resource.description'))
             ->setHelp($this->trans('commands.generate.plugin.rest.resource.help'))
-            ->addOption('module', '', InputOption::VALUE_REQUIRED, $this->trans('commands.common.options.module'))
+            ->addOption('module', null, InputOption::VALUE_REQUIRED, $this->trans('commands.common.options.module'))
             ->addOption(
                 'class',
-                '',
+                null,
                 InputOption::VALUE_OPTIONAL,
                 $this->trans('commands.generate.plugin.rest.resource.options.class')
             )
@@ -94,32 +92,33 @@ class PluginRestResourceCommand extends Command
                 'name',
                 null,
                 InputOption::VALUE_OPTIONAL,
-                $this->trans('commands.generate.service.options.name')
+                $this->trans('commands.generate.service.options.service-name')
             )
             ->addOption(
                 'plugin-id',
-                '',
+                null,
                 InputOption::VALUE_OPTIONAL,
                 $this->trans('commands.generate.plugin.rest.resource.options.plugin-id')
             )
             ->addOption(
                 'plugin-label',
-                '',
+                null,
                 InputOption::VALUE_OPTIONAL,
                 $this->trans('commands.generate.plugin.rest.resource.options.plugin-label')
             )
             ->addOption(
                 'plugin-url',
-                '',
+                null,
                 InputOption::VALUE_OPTIONAL | InputOption::VALUE_IS_ARRAY,
                 $this->trans('commands.generate.plugin.rest.resource.options.plugin-url')
             )
             ->addOption(
                 'plugin-states',
-                '',
+                null,
                 InputOption::VALUE_OPTIONAL | InputOption::VALUE_IS_ARRAY,
                 $this->trans('commands.generate.plugin.rest.resource.options.plugin-states')
-            );
+            )
+            ->setAliases(['gprr']);
     }
 
     /**
@@ -131,7 +130,7 @@ class PluginRestResourceCommand extends Command
 
         // @see use Drupal\Console\Command\Shared\ConfirmationTrait::confirmGeneration
         if (!$this->confirmGeneration($io)) {
-            return;
+            return 1;
         }
 
         $module = $input->getOption('module');
@@ -144,6 +143,8 @@ class PluginRestResourceCommand extends Command
         $this->generator->generate($module, $class_name, $plugin_label, $plugin_id, $plugin_url, $plugin_states);
 
         $this->chainQueue->addCommand('cache:rebuild', ['cache' => 'discovery']);
+
+        return 0;
     }
 
     protected function interact(InputInterface $input, OutputInterface $output)

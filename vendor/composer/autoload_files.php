@@ -21,8 +21,6 @@ return array(
     '96f8d8288528d52059397cad6ec61f17' => $vendorDir . '/mkalkbrenner/php-htmldiff-advanced/src/HtmlDiffAdvanced.php',
     '667aeda72477189d0494fecd327c3641' => $vendorDir . '/symfony/var-dumper/Resources/functions/dump.php',
     'e7223560d890eab89cda23685e711e2c' => $vendorDir . '/psy/psysh/src/Psy/functions.php',
-    'aca594cec0c196659a3b7d4dc2665c0b' => $vendorDir . '/j7mbo/twitter-api-php/TwitterAPIExchange.php',
-    '15a4f52ecde7234868b7009f6257de9a' => $vendorDir . '/drupal/console-core/src/constants.php',
     '5a12a5271c58108e0aa33355e6ac54ea' => $vendorDir . '/drupal/console-core/src/functions.php',
     '5abda994d126976858eb25d2546ee3c9' => $vendorDir . '/simplesamlphp/simplesamlphp/lib/_autoload_modules.php',
 );

@@ -16,7 +16,7 @@ use Drupal\Taxonomy\Entity\Term;
  *   category = @Translation("Notification"),
  *   description = @Translation("Sends a TAL webform submission via an email."),
  *   cardinality=\Drupal\webform\WebformHandlerInterface::CARDINALITY_UNLIMITED,
- *   results = \Drupal\webform\WebformHandlerInterface::RESULTS_PROCESSED,
+ *   results =\Drupal\webform\WebformHandlerInterface::RESULTS_PROCESSED,
  * )
  */
 class TalEmailWebformHandler extends EmailWebformHandler {

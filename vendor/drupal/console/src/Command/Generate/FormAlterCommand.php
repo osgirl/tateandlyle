@@ -16,9 +16,8 @@ use Drupal\Console\Command\Shared\ModuleTrait;
 use Drupal\Console\Command\Shared\MenuTrait;
 use Drupal\Console\Command\Shared\FormTrait;
 use Drupal\Console\Command\Shared\ConfirmationTrait;
-use Symfony\Component\Console\Command\Command;
+use Drupal\Console\Core\Command\Command;
 use Drupal\Console\Core\Style\DrupalStyle;
-use Drupal\Console\Core\Command\Shared\CommandTrait;
 use Drupal\Console\Core\Utils\StringConverter;
 use Drupal\Console\Extension\Manager;
 use Drupal\Core\Extension\ModuleHandlerInterface;
@@ -35,7 +34,6 @@ class FormAlterCommand extends Command
     use FormTrait;
     use MenuTrait;
     use ConfirmationTrait;
-    use CommandTrait;
 
     /**
  * @var Manager
@@ -138,22 +136,23 @@ class FormAlterCommand extends Command
             ->setHelp($this->trans('commands.generate.form.alter.help'))
             ->addOption(
                 'module',
-                '',
+                null,
                 InputOption::VALUE_REQUIRED,
                 $this->trans('commands.common.options.module')
             )
             ->addOption(
                 'form-id',
-                '',
+                null,
                 InputOption::VALUE_OPTIONAL,
                 $this->trans('commands.generate.form.alter.options.form-id')
             )
             ->addOption(
                 'inputs',
-                '',
+                null,
                 InputOption::VALUE_OPTIONAL | InputOption::VALUE_IS_ARRAY,
                 $this->trans('commands.common.options.inputs')
-            );
+            )
+            ->setAliases(['gfa']);
     }
 
     /**
@@ -165,7 +164,7 @@ class FormAlterCommand extends Command
 
         // @see use Drupal\Console\Command\Shared\ConfirmationTrait::confirmGeneration
         if (!$this->confirmGeneration($io)) {
-            return;
+            return 1;
         }
 
         $module = $input->getOption('module');
@@ -193,6 +192,8 @@ class FormAlterCommand extends Command
             ->generate($module, $formId, $inputs, $this->metadata);
 
         $this->chainQueue->addCommand('cache:rebuild', ['cache' => 'discovery']);
+
+        return 0;
     }
 
     protected function interact(InputInterface $input, OutputInterface $output)

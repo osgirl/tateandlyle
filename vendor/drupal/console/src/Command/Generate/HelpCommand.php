@@ -10,11 +10,10 @@ namespace Drupal\Console\Command\Generate;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Command\Command;
+use Drupal\Console\Core\Command\Command;
 use Drupal\Console\Generator\HelpGenerator;
 use Drupal\Console\Command\Shared\ModuleTrait;
 use Drupal\Console\Command\Shared\ConfirmationTrait;
-use Drupal\Console\Core\Command\Shared\CommandTrait;
 use Drupal\Console\Extension\Manager;
 use Drupal\Console\Core\Style\DrupalStyle;
 use Drupal\Console\Utils\Site;
@@ -22,7 +21,6 @@ use Drupal\Console\Core\Utils\ChainQueue;
 
 class HelpCommand extends Command
 {
-    use CommandTrait;
     use ModuleTrait;
     use ConfirmationTrait;
 
@@ -76,16 +74,16 @@ class HelpCommand extends Command
             ->setHelp($this->trans('commands.generate.help.help'))
             ->addOption(
                 'module',
-                '',
+                null,
                 InputOption::VALUE_REQUIRED,
                 $this->trans('commands.common.options.module')
             )
             ->addOption(
                 'description',
-                '',
+                null,
                 InputOption::VALUE_OPTIONAL,
                 $this->trans('commands.generate.module.options.description')
-            );
+            )->setAliases(['gh']);
     }
 
     /**
@@ -97,7 +95,7 @@ class HelpCommand extends Command
 
         // @see use Drupal\Console\Command\ConfirmationTrait::confirmGeneration
         if (!$this->confirmGeneration($io)) {
-            return;
+            return 1;
         }
 
         $module = $input->getOption('module');
@@ -118,6 +116,8 @@ class HelpCommand extends Command
             ->generate($module, $description);
 
         $this->chainQueue->addCommand('cache:rebuild', ['cache' => 'discovery']);
+
+        return 0;
     }
 
     protected function interact(InputInterface $input, OutputInterface $output)
@@ -138,7 +138,7 @@ class HelpCommand extends Command
         if (!$description) {
             $description = $io->ask(
                 $this->trans('commands.generate.module.questions.description'),
-                'My Awesome Module'
+                $this->trans('commands.generate.module.suggestions.my-awesome-module')
             );
         }
         $input->setOption('description', $description);

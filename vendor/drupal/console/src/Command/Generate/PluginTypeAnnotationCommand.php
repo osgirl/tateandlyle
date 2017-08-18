@@ -15,9 +15,8 @@ use Drupal\Console\Command\Shared\ServicesTrait;
 use Drupal\Console\Command\Shared\ModuleTrait;
 use Drupal\Console\Command\Shared\FormTrait;
 use Drupal\Console\Command\Shared\ConfirmationTrait;
-use Symfony\Component\Console\Command\Command;
+use Drupal\Console\Core\Command\Command;
 use Drupal\Console\Core\Style\DrupalStyle;
-use Drupal\Console\Core\Command\Shared\CommandTrait;
 use Drupal\Console\Extension\Manager;
 use Drupal\Console\Core\Utils\StringConverter;
 
@@ -32,7 +31,6 @@ class PluginTypeAnnotationCommand extends Command
     use ModuleTrait;
     use FormTrait;
     use ConfirmationTrait;
-    use CommandTrait;
 
     /**
  * @var Manager
@@ -73,25 +71,26 @@ class PluginTypeAnnotationCommand extends Command
             ->setName('generate:plugin:type:annotation')
             ->setDescription($this->trans('commands.generate.plugin.type.annotation.description'))
             ->setHelp($this->trans('commands.generate.plugin.type.annotation.help'))
-            ->addOption('module', '', InputOption::VALUE_REQUIRED, $this->trans('commands.common.options.module'))
+            ->addOption('module', null, InputOption::VALUE_REQUIRED, $this->trans('commands.common.options.module'))
             ->addOption(
                 'class',
-                '',
+                null,
                 InputOption::VALUE_OPTIONAL,
                 $this->trans('commands.generate.plugin.type.annotation.options.class')
             )
             ->addOption(
                 'machine-name',
-                '',
+                null,
                 InputOption::VALUE_OPTIONAL,
                 $this->trans('commands.generate.plugin.type.annotation.options.plugin-id')
             )
             ->addOption(
                 'label',
-                '',
+                null,
                 InputOption::VALUE_OPTIONAL,
                 $this->trans('commands.generate.plugin.type.annotation.options.label')
-            );
+            )
+            ->setAliases(['gpta']);
     }
 
     /**

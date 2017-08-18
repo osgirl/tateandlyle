@@ -7,11 +7,11 @@
     "require": {
         "composer/installers": "^1.0.20",
         "cweagans/composer-patches": "^1.6.0",
-        "drupal/acquia_connector": "^1.5.0",
+        "drupal/acquia_connector": "1.7.0",
         "drupal/acsf": "^1.32.0",
         "drupal/cog": "^1.0.0",
         "drupal/console": "^1.0.0-rc14",
-        "drupal/core": "^8.2",
+        "drupal/core": "8.2.8",
         "drupal/memcache": "2.x-dev",
         "drupal/search_api": "1.0.0-beta3",
         "drupal/search_api_solr": "1.0.0-beta1",
@@ -28,7 +28,7 @@
         "drupal/facets": "1.0.0-alpha6",
         "acquia/lightning": "2.0.3",
         "drupal/improved_multi_select": "^1.3",
-        "drupal/webform": "^5.0@beta",
+        "drupal/webform": "5.0.0-beta9",
         "drupal/access_unpublished": "1.0-alpha2",
         "drupal/colorbox": "1.*",
         "jackmoore/colorbox": "1.6.4",
@@ -54,7 +54,10 @@
         "drupal/menu_breadcrumb": "^1.0",
         "drupal/google_analytics": "^2.1",
         "drupal/url_redirect": "^2.1",
-        "drupal/sitemap": "^1.3"
+        "drupal/sitemap": "^1.3",
+        "drupal/redirect": "^1.0@alpha",
+        "drupal/filefield_paths": "^1.0@beta",
+        "drupal/recaptcha": "^2.2"
     },
     "require-dev": {
         "behat/behat": "^3.1",
@@ -171,16 +174,18 @@
                 "search_api_node_grants is a reserved value and cannot be used as the machine name of a normal field": "https://www.drupal.org/files/issues/2761749-12--db_defaults_node_access_field_id.patch"
             },
             "drupal/facets": {
-                "Call to undefined method NodeType::hasTranslation inTranslateEntityProcessor": "https://www.drupal.org/files/issues/2823545-3.patch"
+                "Call to undefined method NodeType::hasTranslation inTranslateEntityProcessor": "https://www.drupal.org/files/issues/2823545-3.patch",
+                "Sort taxonomy facets by weight": "https://www.drupal.org/files/issues/sort_facets_by_weight-2833340-4.patch",
+                "Sort taxonomy facets by weight yml file": "https://www.drupal.org/files/issues/sort_facets_by_weight-2833340-18.patch"
             },
             "drupal/webform": {
                 "Entity select: Gives error when conditional state is added again.": "https://www.drupal.org/files/issues/entity_select_gives-2858636-4.patch"
             },
-            "drupal/entity_reference_revisions": {
-                "EntityReference migrate destination": "https://www.drupal.org/files/issues/entityreference_migrate-2809793-56.patch"
-            },
             "drupal/entity_browser": {
-                "getDisplay() on null Entity Browser reference": "https://www.drupal.org/files/issues/ElementPatch_0.patch"
+                "getDisplay() on null Entity Browser reference": "https://www.drupal.org/files/issues/2820132-19.patch"
+            },
+                "drupal/entity_reference_revisions": {
+                "EntityReference add rest dependency": "patches/entity_reference_revision_add_rest_dependency.patch"
             },
             "drupal/acquia_connector": {
                 "Acquia search custom multi core": "https://gist.githubusercontent.com/jayakrishnanj/efd2093a3f95b83cbc18aa12630102e6/raw/e9f08b786a9dafda7192297f075ed0e26c9f7e8f/custom-multi-core.patch"
@@ -190,6 +195,9 @@
             },
             "drupal/simple_menu_icons": {
                 "warning: mb_strlen() expects parameter 1 to be string": "https://www.drupal.org/files/issues/simple_menu_icons_mb_strlen_fix_2762711.patch"
+            },
+            "drupal/filefield_paths": {
+                "Fatal error: Call to undefined method getThirdPartySettings() ": "https://www.drupal.org/files/issues/filefield_paths-ignore_base_fields-2662420-5.patch"
             }
         },
         "drupal-scaffold": {

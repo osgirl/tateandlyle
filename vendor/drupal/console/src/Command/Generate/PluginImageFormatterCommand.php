@@ -13,10 +13,9 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Drupal\Console\Generator\PluginImageFormatterGenerator;
 use Drupal\Console\Command\Shared\ModuleTrait;
 use Drupal\Console\Command\Shared\ConfirmationTrait;
-use Symfony\Component\Console\Command\Command;
+use Drupal\Console\Core\Command\Command;
 use Drupal\Console\Core\Style\DrupalStyle;
 use Drupal\Console\Extension\Manager;
-use Drupal\Console\Core\Command\Shared\CommandTrait;
 use Drupal\Console\Core\Utils\StringConverter;
 use Drupal\Console\Utils\Validator;
 use Drupal\Console\Core\Utils\ChainQueue;
@@ -25,7 +24,6 @@ class PluginImageFormatterCommand extends Command
 {
     use ModuleTrait;
     use ConfirmationTrait;
-    use CommandTrait;
 
     /**
  * @var Manager
@@ -83,25 +81,26 @@ class PluginImageFormatterCommand extends Command
             ->setName('generate:plugin:imageformatter')
             ->setDescription($this->trans('commands.generate.plugin.imageformatter.description'))
             ->setHelp($this->trans('commands.generate.plugin.imageformatter.help'))
-            ->addOption('module', '', InputOption::VALUE_REQUIRED, $this->trans('commands.common.options.module'))
+            ->addOption('module', null, InputOption::VALUE_REQUIRED, $this->trans('commands.common.options.module'))
             ->addOption(
                 'class',
-                '',
+                null,
                 InputOption::VALUE_REQUIRED,
                 $this->trans('commands.generate.plugin.imageformatter.options.class')
             )
             ->addOption(
                 'label',
-                '',
+                null,
                 InputOption::VALUE_OPTIONAL,
                 $this->trans('commands.generate.plugin.imageformatter.options.label')
             )
             ->addOption(
                 'plugin-id',
-                '',
+                null,
                 InputOption::VALUE_OPTIONAL,
                 $this->trans('commands.generate.plugin.imageformatter.options.plugin-id')
-            );
+            )
+            ->setAliases(['gpif']);
     }
 
     /**
@@ -113,7 +112,7 @@ class PluginImageFormatterCommand extends Command
 
         // @see use Drupal\Console\Command\Shared\ConfirmationTrait::confirmGeneration
         if (!$this->confirmGeneration($io)) {
-            return;
+            return 1;
         }
 
         $module = $input->getOption('module');

@@ -13,10 +13,9 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Drupal\Console\Generator\PluginImageEffectGenerator;
 use Drupal\Console\Command\Shared\ModuleTrait;
 use Drupal\Console\Command\Shared\ConfirmationTrait;
-use Symfony\Component\Console\Command\Command;
+use Drupal\Console\Core\Command\Command;
 use Drupal\Console\Core\Style\DrupalStyle;
 use Drupal\Console\Extension\Manager;
-use Drupal\Console\Core\Command\Shared\CommandTrait;
 use Drupal\Console\Core\Utils\StringConverter;
 use Drupal\Console\Core\Utils\ChainQueue;
 
@@ -29,7 +28,6 @@ class PluginImageEffectCommand extends Command
 {
     use ModuleTrait;
     use ConfirmationTrait;
-    use CommandTrait;
 
     /**
  * @var Manager
@@ -79,31 +77,32 @@ class PluginImageEffectCommand extends Command
             ->setName('generate:plugin:imageeffect')
             ->setDescription($this->trans('commands.generate.plugin.imageeffect.description'))
             ->setHelp($this->trans('commands.generate.plugin.imageeffect.help'))
-            ->addOption('module', '', InputOption::VALUE_REQUIRED, $this->trans('commands.common.options.module'))
+            ->addOption('module', null, InputOption::VALUE_REQUIRED, $this->trans('commands.common.options.module'))
             ->addOption(
                 'class',
-                '',
+                null,
                 InputOption::VALUE_REQUIRED,
                 $this->trans('commands.generate.plugin.imageeffect.options.class')
             )
             ->addOption(
                 'label',
-                '',
+                null,
                 InputOption::VALUE_OPTIONAL,
                 $this->trans('commands.generate.plugin.imageeffect.options.label')
             )
             ->addOption(
                 'plugin-id',
-                '',
+                null,
                 InputOption::VALUE_OPTIONAL,
                 $this->trans('commands.generate.plugin.imageeffect.options.plugin-id')
             )
             ->addOption(
                 'description',
-                '',
+                null,
                 InputOption::VALUE_OPTIONAL,
                 $this->trans('commands.generate.plugin.imageeffect.options.description')
-            );
+            )
+            ->setAliases(['gpie']);
     }
 
     /**
@@ -115,7 +114,7 @@ class PluginImageEffectCommand extends Command
 
         // @see use Drupal\Console\Command\Shared\ConfirmationTrait::confirmGeneration
         if (!$this->confirmGeneration($io)) {
-            return;
+            return 1;
         }
 
         $module = $input->getOption('module');
@@ -176,7 +175,7 @@ class PluginImageEffectCommand extends Command
         if (!$description) {
             $description = $io->ask(
                 $this->trans('commands.generate.plugin.imageeffect.questions.description'),
-                'My Image Effect'
+                $this->trans('commands.generate.plugin.imageeffect.suggestions.my-image-effect')
             );
             $input->setOption('description', $description);
         }

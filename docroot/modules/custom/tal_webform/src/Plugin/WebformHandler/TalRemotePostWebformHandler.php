@@ -19,7 +19,7 @@ use \Drupal\Taxonomy\Entity\Term;
  *   category = @Translation("External"),
  *   description = @Translation("Posts TAL webform submissions to a URL."),
  *   cardinality=\Drupal\webform\WebformHandlerInterface::CARDINALITY_UNLIMITED,
- *   results = \Drupal\webform\WebformHandlerInterface::RESULTS_PROCESSED,
+ *   results =\Drupal\webform\WebformHandlerInterface::RESULTS_PROCESSED,
  * )
  */
 class TalRemotePostWebformHandler extends RemotePostWebformHandler {

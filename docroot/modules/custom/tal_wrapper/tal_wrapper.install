@@ -287,15 +287,6 @@ function tal_wrapper_update_8221() {
  *
  * Implements hook_update_N().
  */
-function tal_wrapper_update_8222() {
-  \Drupal::service('module_installer')->install(['menu_breadcrumb']);
-}
-
-/**
- * Enable sitemap and url_redirect modules.
- *
- * Implements hook_update_N().
- */
 function tal_wrapper_update_8223() {
   \Drupal::service('module_installer')->install(['sitemap', 'url_redirect']);
 }
@@ -315,6 +306,7 @@ function tal_wrapper_update_8224() {
     ));
     $vocabulary->save();
   }
+  \Drupal::service('module_installer')->install(['redirect']);
 }
 
 /**
@@ -333,4 +325,42 @@ function tal_wrapper_update_8225() {
  */
 function tal_wrapper_update_8226() {
   \Drupal::service('module_installer')->install(['tal_webservice']);
+}
+
+/**
+ * Create a taxonomy terms. Changing schema version as per the database.
+ */
+function tal_wrapper_update_8227() {
+  $vocab = [
+    '0' => ['vid' => 'tags'],
+    '1' => ['vid' => 'story_category'],
+  ];
+  foreach ($vocab as $key => $val) {
+    Term::create([
+      'vid' => $val['vid'],
+      'langcode' => 'en',
+      'name' => 'All',
+      'field_show_on_post' => TRUE,
+      'parent' => array(0),
+    ])->save();
+  }
+}
+
+/**
+ * Enable Filefield_path module.
+ *
+ * Implements hook_update_N().
+ */
+function tal_wrapper_update_8228() {
+  \Drupal::service('module_installer')->install(['filefield_paths']);
+}
+
+/**
+ * Enable recaptcha modules.
+ *
+ * Implements hook_update_N().
+ */
+function tal_wrapper_update_8229() {
+  \Drupal::service('module_installer')->install(['captcha']);
+  \Drupal::service('module_installer')->install(['recaptcha']);
 }

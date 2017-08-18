@@ -14,12 +14,11 @@ use Drupal\Console\Command\Shared\ThemeRegionTrait;
 use Drupal\Console\Command\Shared\ThemeBreakpointTrait;
 use Drupal\Console\Generator\ThemeGenerator;
 use Drupal\Console\Command\Shared\ConfirmationTrait;
-use Symfony\Component\Console\Command\Command;
+use Drupal\Console\Core\Command\Command;
 use Drupal\Console\Core\Style\DrupalStyle;
 use Drupal\Console\Extension\Manager;
 use Drupal\Console\Utils\Site;
 use Drupal\Console\Core\Utils\StringConverter;
-use Drupal\Console\Core\Command\Shared\CommandTrait;
 use Drupal\Console\Utils\Validator;
 use Drupal\Core\Extension\ThemeHandler;
 
@@ -33,7 +32,6 @@ class ThemeCommand extends Command
     use ConfirmationTrait;
     use ThemeRegionTrait;
     use ThemeBreakpointTrait;
-    use CommandTrait;
 
     /**
  * @var Manager
@@ -112,59 +110,66 @@ class ThemeCommand extends Command
             ->setHelp($this->trans('commands.generate.theme.help'))
             ->addOption(
                 'theme',
-                '',
+                null,
                 InputOption::VALUE_REQUIRED,
-                $this->trans('commands.generate.theme.options.module')
+                $this->trans('commands.generate.theme.options.theme')
             )
             ->addOption(
                 'machine-name',
-                '',
+                null,
                 InputOption::VALUE_REQUIRED,
                 $this->trans('commands.generate.theme.options.machine-name')
             )
             ->addOption(
                 'theme-path',
-                '',
+                null,
                 InputOption::VALUE_REQUIRED,
-                $this->trans('commands.generate.theme.options.module-path')
+                $this->trans('commands.generate.theme.options.theme-path')
             )
             ->addOption(
                 'description',
-                '',
+                null,
                 InputOption::VALUE_OPTIONAL,
                 $this->trans('commands.generate.theme.options.description')
             )
-            ->addOption('core', '', InputOption::VALUE_OPTIONAL, $this->trans('commands.generate.theme.options.core'))
+            ->addOption('core', null, InputOption::VALUE_OPTIONAL, $this->trans('commands.generate.theme.options.core'))
             ->addOption(
                 'package',
-                '',
+                null,
                 InputOption::VALUE_OPTIONAL,
                 $this->trans('commands.generate.theme.options.package')
             )
             ->addOption(
                 'global-library',
-                '',
+                null,
                 InputOption::VALUE_OPTIONAL,
                 $this->trans('commands.generate.theme.options.global-library')
             )
             ->addOption(
+                'libraries',
+                null,
+                InputOption::VALUE_OPTIONAL,
+                $this->trans('commands.generate.theme.options.libraries')
+            )
+            ->addOption(
                 'base-theme',
-                '',
+                null,
                 InputOption::VALUE_OPTIONAL,
                 $this->trans('commands.generate.theme.options.base-theme')
             )
             ->addOption(
                 'regions',
-                '',
+                null,
                 InputOption::VALUE_OPTIONAL,
                 $this->trans('commands.generate.theme.options.regions')
             )
             ->addOption(
                 'breakpoints',
-                '',
+                null,
                 InputOption::VALUE_OPTIONAL,
                 $this->trans('commands.generate.theme.options.breakpoints')
-            );
+            )
+            ->setAliases(['gt']);
     }
 
     /**
@@ -176,7 +181,7 @@ class ThemeCommand extends Command
 
         // @see use Drupal\Console\Command\Shared\ConfirmationTrait::confirmGeneration
         if (!$this->confirmGeneration($io)) {
-            return;
+            return 1;
         }
 
         $theme = $this->validator->validateModuleName($input->getOption('theme'));
@@ -189,6 +194,7 @@ class ThemeCommand extends Command
         $package = $input->getOption('package');
         $base_theme = $input->getOption('base-theme');
         $global_library = $input->getOption('global-library');
+        $libraries = $input->getOption('libraries');
         $regions = $input->getOption('regions');
         $breakpoints = $input->getOption('breakpoints');
 
@@ -201,9 +207,12 @@ class ThemeCommand extends Command
             $package,
             $base_theme,
             $global_library,
+            $libraries,
             $regions,
             $breakpoints
         );
+
+        return 0;
     }
 
     /**
@@ -218,7 +227,7 @@ class ThemeCommand extends Command
         } catch (\Exception $error) {
             $io->error($error->getMessage());
 
-            return;
+            return 1;
         }
 
         if (!$theme) {
@@ -238,12 +247,12 @@ class ThemeCommand extends Command
         } catch (\Exception $error) {
             $io->error($error->getMessage());
 
-            return;
+            return 1;
         }
 
         if (!$machine_name) {
             $machine_name = $io->ask(
-                $this->trans('commands.generate.module.questions.machine-name'),
+                $this->trans('commands.generate.theme.questions.machine-name'),
                 $this->stringConverter->createMachineName($theme),
                 function ($machine_name) use ($validators) {
                     return $validators->validateMachineName($machine_name);
@@ -280,7 +289,7 @@ class ThemeCommand extends Command
         if (!$description) {
             $description = $io->ask(
                 $this->trans('commands.generate.theme.questions.description'),
-                'My Awesome theme'
+                $this->trans('commands.generate.theme.suggestions.my-awesome-theme')
             );
             $input->setOption('description', $description);
         }
@@ -289,7 +298,7 @@ class ThemeCommand extends Command
         if (!$package) {
             $package = $io->ask(
                 $this->trans('commands.generate.theme.questions.package'),
-                'Other'
+                $this->trans('commands.generate.theme.suggestions.other')
             );
             $input->setOption('package', $package);
         }
@@ -324,6 +333,21 @@ class ThemeCommand extends Command
                 'global-styling'
             );
             $input->setOption('global-library', $global_library);
+        }
+
+
+        // --libraries option.
+        $libraries = $input->getOption('libraries');
+        if (!$libraries) {
+            if ($io->confirm(
+                $this->trans('commands.generate.theme.questions.library-add'),
+                true
+            )
+            ) {
+                // @see \Drupal\Console\Command\Shared\ThemeRegionTrait::libraryQuestion
+                $libraries = $this->libraryQuestion($io);
+                $input->setOption('libraries', $libraries);
+            }
         }
 
         // --regions option.

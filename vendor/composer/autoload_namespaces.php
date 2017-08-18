@@ -18,7 +18,6 @@ return array(
     'Prophecy\\' => array($vendorDir . '/phpspec/prophecy/src'),
     'JakubOnderka\\PhpConsoleHighlighter' => array($vendorDir . '/jakub-onderka/php-console-highlighter/src'),
     'JakubOnderka\\PhpConsoleColor' => array($vendorDir . '/jakub-onderka/php-console-color/src'),
-    'Instagram' => array($vendorDir . '/php-instagram-api/php-instagram-api'),
     'HTMLPurifier' => array($vendorDir . '/ezyang/htmlpurifier/library'),
     'Egulias\\' => array($vendorDir . '/egulias/email-validator/src'),
     'EasyRdf_' => array($vendorDir . '/easyrdf/easyrdf/lib'),
@@ -34,5 +33,4 @@ return array(
     'Consolidation' => array($vendorDir . '/drush/drush/lib'),
     'Caxy\\HtmlDiff' => array($vendorDir . '/caxy/php-htmldiff/lib'),
     'Asm89\\Twig\\Lint\\' => array($vendorDir . '/asm89/twig-lint/src'),
-    'Asm89\\Stack' => array($vendorDir . '/asm89/stack-cors/src'),
 );

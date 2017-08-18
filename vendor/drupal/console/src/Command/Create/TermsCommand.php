@@ -11,8 +11,7 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Command\Command;
-use Drupal\Console\Core\Command\Shared\CommandTrait;
+use Drupal\Console\Core\Command\Command;
 use Drupal\Console\Annotations\DrupalCommand;
 use Drupal\Console\Utils\Create\TermData;
 use Drupal\Console\Utils\DrupalApi;
@@ -24,15 +23,12 @@ use Drupal\Console\Core\Style\DrupalStyle;
  * @package Drupal\Console\Command\Generate
  *
  * @DrupalCommand(
- *     extension = "features",
- *     extensionType = "module",
- *     dependencies={"taxonomy"}
+ *     extension = "taxonomy",
+ *     extensionType = "module"
  * )
  */
 class TermsCommand extends Command
 {
-    use CommandTrait;
-
     /**
      * @var DrupalApi
      */
@@ -81,7 +77,7 @@ class TermsCommand extends Command
                 null,
                 InputOption::VALUE_OPTIONAL,
                 $this->trans('commands.create.terms.options.name-words')
-            );
+            )->setAliases(['crt']);
     }
 
     /**
