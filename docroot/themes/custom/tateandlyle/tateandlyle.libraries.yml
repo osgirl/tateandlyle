@@ -60,7 +60,7 @@ browser_popup:
   version: 1.0
   css:
     component:
-      css/modal.css: {}
+      libraries/browser_popup/modal.css: {}
   js:
-    js/modal.js: {}
-    js/browser-popup-init.js: {}
+    libraries/browser_popup/modal.js: {}
+    libraries/browser_popup/browser-popup-init.js: {}
