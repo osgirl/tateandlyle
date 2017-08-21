@@ -121,3 +121,5 @@ permissions:
   - 'use published_draft transition'
   - 'access contextual links'
   - 'access in-place editing'
+  - 'view latest version'
+  - 'view all revisions'
