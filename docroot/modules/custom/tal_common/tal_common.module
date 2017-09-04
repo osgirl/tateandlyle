@@ -1,0 +1,40 @@
+<?php
+
+/**
+ * @file
+ * Contains tal_common.
+ */
+
+/**
+ * Implements hook_module_implements_alter().
+ */
+function tal_common_module_implements_alter(&$implementations, $hook) {
+  if ($hook == 'entity_build_defaults_alter') {
+    $group = $implementations['tal_common'];
+    unset($implementations['tal_common']);
+    $implementations['tal_common'] = $group;
+  }
+}
+
+/**
+ * Implements hook_entity_build_defaults_alter().
+ */
+function tal_common_entity_build_defaults_alter(array &$build, $entity, $view_mode) {
+  $route_match = \Drupal::routeMatch();
+  if ($route_match->getRouteName() == 'entity.node.draft' || $route_match->getRouteName() == 'entity.node.latest_version') {
+    $type = $entity->getEntityTypeId();
+    $bid = $entity->id();
+    if ($type == 'block_content') {
+      $query = \Drupal::database()->select('block_content_field_revision', 'b');
+      $query->addField('b', 'revision_id');
+      $query->condition('b.id', $bid);
+      $query->condition('b.moderation_state', 'draft');
+      $query->orderBy('b.revision_id', 'DESC');
+      $query->range(0, 1);
+      $revision_id = $query->execute()->fetchField();
+      if (isset($revision_id) && !empty($revision_id)) {
+        $build['#block_content'] = render(entity_revision_load('block_content', $revision_id));
+      }
+    }
+  }
+}
