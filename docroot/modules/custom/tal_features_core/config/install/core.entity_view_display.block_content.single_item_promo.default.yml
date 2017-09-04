@@ -76,4 +76,5 @@ content:
       target: ''
     third_party_settings: {  }
     type: link
-hidden: {  }
+hidden:
+  workbench_moderation_control: true

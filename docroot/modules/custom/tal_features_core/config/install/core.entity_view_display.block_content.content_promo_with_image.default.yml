@@ -86,4 +86,5 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: basic_string
-hidden: {  }
+hidden:
+  workbench_moderation_control: true

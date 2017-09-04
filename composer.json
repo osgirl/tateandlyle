@@ -168,7 +168,8 @@
                 "Duplicate AJAX wrapper around a file field": "https://www.drupal.org/files/issues/duplicate_ajax_wrapper-2346893-176.patch",
                 "Exposed date filter leads to a notice": "https://www.drupal.org/files/issues/2811887-19-fix-tests.patch",
                 "Views replacement token for fields shows encoded htmlentities": "https://www.drupal.org/files/issues/2856598-4--views-field-replacement-token-shows-encoded-html-entities.patch",
-                "Reverting a revision causes validation error on edit form submit": "https://www.drupal.org/files/issues/content_moderation-revert-validation-changed-2848508-23.patch"
+                "Reverting a revision causes validation error on edit form submit": "https://www.drupal.org/files/issues/content_moderation-revert-validation-changed-2848508-23.patch",
+                "Block revision history": "https://gist.githubusercontent.com/alex-bukach/75c13b674ea1a22bae43788d51326265/raw/c6a2df3d26661c9050d746402a6359bc0a116f2f/drupal8-block_content-revisions.patch"
             },
             "drupal/search_api": {
                 "search_api_node_grants is a reserved value and cannot be used as the machine name of a normal field": "https://www.drupal.org/files/issues/2761749-12--db_defaults_node_access_field_id.patch"
