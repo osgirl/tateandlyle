@@ -364,3 +364,12 @@ function tal_wrapper_update_8229() {
   \Drupal::service('module_installer')->install(['captcha']);
   \Drupal::service('module_installer')->install(['recaptcha']);
 }
+
+/**
+ * Enable shield module.
+ *
+ * Implements hook_update_N().
+ */
+function tal_wrapper_update_8231() {
+  \Drupal::service('module_installer')->install(['shield']);
+}
