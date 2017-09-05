@@ -198,6 +198,9 @@
             },
             "drupal/filefield_paths": {
                 "Fatal error: Call to undefined method getThirdPartySettings() ": "https://www.drupal.org/files/issues/filefield_paths-ignore_base_fields-2662420-5.patch"
+            },
+            "drupal/url_redirect": {
+                "URL Redirect 301": "patches/url_redirect_301.patch"
             }
         },
         "drupal-scaffold": {
