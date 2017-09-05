@@ -734,7 +734,7 @@ if (isset($_ENV['AH_SITE_ENVIRONMENT'])) {
    break;
   default:
    $config['shield.settings']['user'] = 'tal_user';
-   $config['shield.settings']['pass'] = 'tal_pass';
+   $config['shield.settings']['pass'] = 'jmbJ,Id:';
    break;
  }
 }
