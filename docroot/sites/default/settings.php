@@ -725,16 +725,3 @@ $settings['install_profile'] = 'lightning';
 $config['lightning_core.settings']['content_roles']['creator']['enabled'] = false;
 $config['lightning_core.settings']['content_roles']['reviewer']['enabled'] = false;
 
-
-if (isset($_ENV['AH_SITE_ENVIRONMENT'])) {
- switch ($_ENV['AH_SITE_ENVIRONMENT']) {
-  case 'prod':
-   // Disable Shield on prod by setting the shield_user variable to NULL
-   $config['shield.settings']['user'] = '';
-   break;
-  default:
-   $config['shield.settings']['user'] = 'tal_user';
-   $config['shield.settings']['pass'] = 'jmbJ,Id:';
-   break;
- }
-}

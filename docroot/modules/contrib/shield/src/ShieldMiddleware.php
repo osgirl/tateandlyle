@@ -69,6 +69,8 @@ class ShieldMiddleware implements HttpKernelInterface {
       }
 
       if (isset($input_user) && $input_user === $user && Crypt::hashEquals($pass, $input_pass)) {
+        $request->headers->set('PHP_AUTH_USER', NULL);
+        $request->headers->set('PHP_AUTH_PW', NULL);
         return $this->httpKernel->handle($request, $type, $catch);
       }
     }

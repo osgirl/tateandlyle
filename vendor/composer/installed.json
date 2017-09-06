@@ -11164,7 +11164,14 @@
             },
             "drupal": {
                 "version": "8.x-1.1",
-                "datestamp": "1498511042"
+                "datestamp": "1498511042",
+                "security-coverage": {
+                    "status": "covered",
+                    "message": "Covered by Drupal's security advisory policy"
+                }
+            },
+            "patches_applied": {
+                "Shield and D8 core basic_auth": "https://www.drupal.org/files/issues/shield.patch"
             }
         },
         "installation-source": "dist",
