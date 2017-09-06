@@ -9,6 +9,7 @@ third_party_settings:
     allowed_moderation_states:
       - published
       - draft
+      - needs_review
     default_moderation_state: draft
 id: single_item_promo
 label: 'Single Item promo'
