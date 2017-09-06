@@ -201,6 +201,9 @@
             },
             "drupal/url_redirect": {
                 "URL Redirect 301": "patches/url_redirect_301.patch"
+            },
+            "drupal/shield": {
+                "Shield and D8 core basic_auth": "https://www.drupal.org/files/issues/shield.patch"
             }
         },
         "drupal-scaffold": {
