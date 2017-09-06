@@ -1,0 +1,22 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the tal_common module.
+ */
+
+/**
+ * Implements hook_update_N().
+ */
+function tal_wrapper_update_8201() {
+  db_update('block_content_field_data')
+    ->fields(array(
+      'moderation_state' => 'published',
+    ))
+    ->execute();
+  db_update('block_content_field_revision')
+    ->fields(array(
+      'moderation_state' => 'published',
+    ))
+    ->execute();
+}

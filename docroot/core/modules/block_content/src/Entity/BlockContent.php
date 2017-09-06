@@ -9,6 +9,8 @@ use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Field\BaseFieldDefinition;
 use Drupal\block_content\BlockContentInterface;
 use Drupal\user\UserInterface;
+use Drupal\entity\Revision\RevisionableContentEntityBase;
+
 
 /**
  * Defines the custom block entity class.
@@ -29,6 +31,9 @@ use Drupal\user\UserInterface;
  *       "delete" = "Drupal\block_content\Form\BlockContentDeleteForm",
  *       "default" = "Drupal\block_content\BlockContentForm"
  *     },
+ *     "route_provider" = {
+ *       "revision" = "\Drupal\entity\Routing\RevisionRouteProvider",
+ *     },
  *     "translation" = "Drupal\block_content\BlockContentTranslationHandler"
  *   },
  *   admin_permission = "administer blocks",
@@ -40,6 +45,9 @@ use Drupal\user\UserInterface;
  *     "delete-form" = "/block/{block_content}/delete",
  *     "edit-form" = "/block/{block_content}",
  *     "collection" = "/admin/structure/block/block-content",
+ *     "revision" = "/block/{block_content}/revisions/{block_content_revision}/view",
+ *     "revision-revert-form" = "/block/{block_content}/revisions/{block_content_revision}/revert",
+ *     "version-history" = "/block/{block_content}/revisions",
  *   },
  *   translatable = TRUE,
  *   entity_keys = {
@@ -50,6 +58,7 @@ use Drupal\user\UserInterface;
  *     "langcode" = "langcode",
  *     "uuid" = "uuid"
  *   },
+ *
  *   bundle_entity_type = "block_content_type",
  *   field_ui_base_route = "entity.block_content_type.edit_form",
  *   render_cache = FALSE,
@@ -60,7 +69,7 @@ use Drupal\user\UserInterface;
  * caching.
  * See https://www.drupal.org/node/2284917#comment-9132521 for more information.
  */
-class BlockContent extends ContentEntityBase implements BlockContentInterface {
+class BlockContent extends RevisionableContentEntityBase implements BlockContentInterface {
 
   use EntityChangedTrait;
 
@@ -237,7 +246,8 @@ class BlockContent extends ContentEntityBase implements BlockContentInterface {
    * {@inheritdoc}
    */
   public function getRevisionCreationTime() {
-    return $this->get('revision_created')->value;
+    $timestamp = $this->get('revision_created')->value;
+    return $timestamp ?: 0;
   }
 
   /**

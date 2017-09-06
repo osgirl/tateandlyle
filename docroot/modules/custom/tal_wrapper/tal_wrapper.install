@@ -364,3 +364,12 @@ function tal_wrapper_update_8229() {
   \Drupal::service('module_installer')->install(['captcha']);
   \Drupal::service('module_installer')->install(['recaptcha']);
 }
+
+/**
+ * Enable tal_common module.
+ *
+ * Implements hook_update_N().
+ */
+function tal_wrapper_update_8230() {
+  \Drupal::service('module_installer')->install(['tal_common']);
+}

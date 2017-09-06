@@ -61,3 +61,24 @@ function block_content_update_8003() {
   \Drupal::entityDefinitionUpdateManager()
     ->installFieldStorageDefinition('revision_user', 'block_content', 'block_content', $revision_user);
 }
+
+/**
+ * Add 'revision_log_message' field to 'block_content' entities.
+ */
+function block_content_update_8004() {
+  $revision_log_message = BaseFieldDefinition::create('string_long')
+    ->setLabel(t('Revision log message'))
+    ->setDescription(t('Briefly describe the changes you have made.'))
+    ->setRevisionable(TRUE)
+    ->setDefaultValue('')
+    ->setDisplayOptions('form', [
+      'type' => 'string_textarea',
+      'weight' => 25,
+      'settings' => [
+        'rows' => 4,
+      ],
+    ]);
+
+  \Drupal::entityDefinitionUpdateManager()
+    ->installFieldStorageDefinition('revision_log_message', 'block_content', 'block_content', $revision_log_message);
+}

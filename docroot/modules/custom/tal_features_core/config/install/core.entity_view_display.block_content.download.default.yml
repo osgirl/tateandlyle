@@ -13,10 +13,11 @@ mode: default
 content:
   field_download:
     type: entity_reference_revisions_entity_view
-    weight: 1
+    weight: 0
     label: hidden
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  workbench_moderation_control: true
