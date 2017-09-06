@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit6a673b503bb9895a5ad0b280c83d9214
+class ComposerStaticInitecf9e0cd18f3225178c6f8a8dead6c55
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -969,6 +969,7 @@ class ComposerStaticInit6a673b503bb9895a5ad0b280c83d9214
         'Consolidation\\OutputFormatters\\StructuredData\\AssociativeList' => __DIR__ . '/..' . '/consolidation/output-formatters/src/StructuredData/AssociativeList.php',
         'Consolidation\\OutputFormatters\\StructuredData\\CallableRenderer' => __DIR__ . '/..' . '/consolidation/output-formatters/src/StructuredData/CallableRenderer.php',
         'Consolidation\\OutputFormatters\\StructuredData\\HelpDocument' => __DIR__ . '/..' . '/consolidation/output-formatters/src/StructuredData/HelpDocument.php',
+        'Consolidation\\OutputFormatters\\StructuredData\\ListDataFromKeys' => __DIR__ . '/..' . '/consolidation/output-formatters/src/StructuredData/ListDataFromKeys.php',
         'Consolidation\\OutputFormatters\\StructuredData\\ListDataInterface' => __DIR__ . '/..' . '/consolidation/output-formatters/src/StructuredData/ListDataInterface.php',
         'Consolidation\\OutputFormatters\\StructuredData\\OriginalDataInterface' => __DIR__ . '/..' . '/consolidation/output-formatters/src/StructuredData/OriginalDataInterface.php',
         'Consolidation\\OutputFormatters\\StructuredData\\PropertyList' => __DIR__ . '/..' . '/consolidation/output-formatters/src/StructuredData/PropertyList.php',
@@ -1350,6 +1351,7 @@ class ComposerStaticInit6a673b503bb9895a5ad0b280c83d9214
         'Drupal\\Console\\Bootstrap\\Drupal' => __DIR__ . '/..' . '/drupal/console/src/Bootstrap/Drupal.php',
         'Drupal\\Console\\Bootstrap\\DrupalKernel' => __DIR__ . '/..' . '/drupal/console/src/Bootstrap/DrupalKernel.php',
         'Drupal\\Console\\Bootstrap\\DrupalServiceModifier' => __DIR__ . '/..' . '/drupal/console/src/Bootstrap/DrupalServiceModifier.php',
+        'Drupal\\Console\\Bootstrap\\DrupalUpdateKernel' => __DIR__ . '/..' . '/drupal/console/src/Bootstrap/DrupalUpdateKernel.php',
         'Drupal\\Console\\Bootstrap\\FindCommandsCompilerPass' => __DIR__ . '/..' . '/drupal/console/src/Bootstrap/FindCommandsCompilerPass.php',
         'Drupal\\Console\\Bootstrap\\FindGeneratorsCompilerPass' => __DIR__ . '/..' . '/drupal/console/src/Bootstrap/FindGeneratorsCompilerPass.php',
         'Drupal\\Console\\Command\\Cache\\RebuildCommand' => __DIR__ . '/..' . '/drupal/console/src/Command/Cache/RebuildCommand.php',
@@ -7289,10 +7291,10 @@ class ComposerStaticInit6a673b503bb9895a5ad0b280c83d9214
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit6a673b503bb9895a5ad0b280c83d9214::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit6a673b503bb9895a5ad0b280c83d9214::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit6a673b503bb9895a5ad0b280c83d9214::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit6a673b503bb9895a5ad0b280c83d9214::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitecf9e0cd18f3225178c6f8a8dead6c55::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitecf9e0cd18f3225178c6f8a8dead6c55::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitecf9e0cd18f3225178c6f8a8dead6c55::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInitecf9e0cd18f3225178c6f8a8dead6c55::$classMap;
 
         }, null, ClassLoader::class);
     }

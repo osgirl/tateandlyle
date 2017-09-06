@@ -132,7 +132,7 @@ function url_redirect_path_edit($path) {
  * Redirect path.
  */
 function url_redirect_redirect($path) {
-  $response = new RedirectResponse($path);
+  $response = new RedirectResponse($path, 301);
   $response->send();
   exit;
 }
