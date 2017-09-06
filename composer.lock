@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "8fca79debac3c0610291f13318cba283",
-    "content-hash": "02f09a899168ff0e5ce1a384757bf4a3",
+    "hash": "88e596366335911ae99ff20cbfa5c663",
+    "content-hash": "31a2bb14d7152d5a75e36dd61ddd6a8d",
     "packages": [
         {
             "name": "acquia/blt",
@@ -3025,6 +3025,7 @@
                     "Exposed date filter leads to a notice": "https://www.drupal.org/files/issues/2811887-19-fix-tests.patch",
                     "Views replacement token for fields shows encoded htmlentities": "https://www.drupal.org/files/issues/2856598-4--views-field-replacement-token-shows-encoded-html-entities.patch",
                     "Reverting a revision causes validation error on edit form submit": "https://www.drupal.org/files/issues/content_moderation-revert-validation-changed-2848508-23.patch",
+                    "Block revision history": "https://gist.githubusercontent.com/alex-bukach/75c13b674ea1a22bae43788d51326265/raw/c6a2df3d26661c9050d746402a6359bc0a116f2f/drupal8-block_content-revisions.patch",
                     "2652138 - ImageFormatter does not support SVGs": "https://www.drupal.org/files/issues/2652138-28.patch",
                     "2765525 - Add AJAX command to add style sheets to CKEditor instances": "https://www.drupal.org/files/issues/2765525-30-8.2.x.patch"
                 }
