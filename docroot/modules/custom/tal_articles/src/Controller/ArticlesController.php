@@ -31,20 +31,26 @@ class ArticlesController extends ControllerBase {
 
     $terms = implode('+', $terms);
     $term = Term::load($tid);
-    $display_id = 'block_1';
-    if ($term->getName() == 'All') {
-      $display_id = 'block_5';
-    }
+
     $render['dynamic_posts'] = array(
       '#type' => 'view',
       '#name' => 'articles_post',
-      '#display_id' => $display_id,
+      '#display_id' => 'block_1',
       '#arguments' => [$terms, $tid],
       '#prefix' => '<div class="tal--dynamic-post-list" id="dynamic-post-list">',
       '#suffix' => '</div>',
     );
-
+    if ($term->getName() == 'All') {
+      $render['dynamic_posts'] = array(
+        '#type' => 'view',
+        '#name' => 'articles_post',
+        '#display_id' => 'block_5',
+        '#prefix' => '<div class="tal--dynamic-post-list" id="dynamic-post-list">',
+        '#suffix' => '</div>',
+      );
+    }
     $response->addCommand(new ReplaceCommand('#dynamic-post-list', $render));
+
     return $response;
   }
 

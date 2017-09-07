@@ -76,7 +76,7 @@ display:
         type: 'entity:node'
         options:
           relationship: none
-          view_mode: teaser
+          view_mode: articles_in_3_columns
       fields:
         title:
           id: title
