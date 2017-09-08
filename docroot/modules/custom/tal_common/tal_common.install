@@ -8,7 +8,7 @@
 /**
  * Implements hook_update_N().
  */
-function tal_wrapper_update_8201() {
+function tal_common_update_8201() {
   db_update('block_content_field_data')
     ->fields(array(
       'moderation_state' => 'published',
