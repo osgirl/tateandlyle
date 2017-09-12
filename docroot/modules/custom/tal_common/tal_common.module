@@ -28,7 +28,6 @@ function tal_common_entity_build_defaults_alter(array &$build, $entity, $view_mo
       $query = \Drupal::database()->select('block_content_field_revision', 'b');
       $query->addField('b', 'revision_id');
       $query->condition('b.id', $bid);
-      $query->condition('b.moderation_state', 'draft');
       $query->orderBy('b.revision_id', 'DESC');
       $query->range(0, 1);
       $revision_id = $query->execute()->fetchField();
