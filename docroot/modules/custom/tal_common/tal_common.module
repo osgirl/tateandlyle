@@ -21,7 +21,7 @@ function tal_common_module_implements_alter(&$implementations, $hook) {
  */
 function tal_common_entity_build_defaults_alter(array &$build, $entity, $view_mode) {
   $route_match = \Drupal::routeMatch();
-  if ($route_match->getRouteName() == 'entity.node.draft' || $route_match->getRouteName() == 'entity.node.latest_version') {
+  if ($route_match->getRouteName() == 'entity.node.latest_version') {
     $type = $entity->getEntityTypeId();
     $bid = $entity->id();
     if ($type == 'block_content') {
