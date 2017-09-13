@@ -1,5 +1,0 @@
-entity.node.draft:
-  title: 'Draft Version'
-  route_name: entity.node.draft
-  base_route: entity.node.canonical
-  weight: 50
