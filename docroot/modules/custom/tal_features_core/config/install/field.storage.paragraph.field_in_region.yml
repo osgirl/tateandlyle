@@ -1,0 +1,35 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_in_region
+field_name: field_in_region
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: All
+      label: Global
+    -
+      value: 'North America'
+      label: 'North America'
+    -
+      value: 'Latin America'
+      label: 'Latin America'
+    -
+      value: Europe
+      label: 'Europe, Middle East and Africa'
+    -
+      value: 'Asia Pacific'
+      label: 'Asia Pacific'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

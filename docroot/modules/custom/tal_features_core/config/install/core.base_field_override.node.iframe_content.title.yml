@@ -1,0 +1,17 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.iframe_content
+id: node.iframe_content.title
+field_name: title
+entity_type: node
+bundle: iframe_content
+label: 'Page title'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

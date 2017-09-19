@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies: {  }
+name: article_small_312_x_169
+label: 'Article Small 312 x 169'
+effects:
+  88e77303-4c5b-4e36-b612-6b31471ebee8:
+    uuid: 88e77303-4c5b-4e36-b612-6b31471ebee8
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 312
+      height: 169

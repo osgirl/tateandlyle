@@ -1,0 +1,47 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.downloads.field_download_attach_file
+    - field.field.paragraph.downloads.field_field_in_submenu_title
+    - field.field.paragraph.downloads.field_gated
+    - field.field.paragraph.downloads.field_in_border_title
+    - paragraphs.paragraphs_type.downloads
+  module:
+    - file
+    - workbench_moderation
+id: paragraph.downloads.default
+targetEntityType: paragraph
+bundle: downloads
+mode: default
+content:
+  field_download_attach_file:
+    weight: 2
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+    type: file_generic
+  field_field_in_submenu_title:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_gated:
+    weight: 3
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+  field_in_border_title:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+hidden:
+  created: true
+  status: true
+  uid: true

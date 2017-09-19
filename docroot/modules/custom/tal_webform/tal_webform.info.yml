@@ -1,0 +1,8 @@
+name: 'TAL Webform'
+description: 'Contains the custom specific functionality for Salesforce/mail'
+type: module
+core: 8.x
+package: tal
+dependencies:
+  - webform
+  - webform_ui

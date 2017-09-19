@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.ingredient
+  module:
+    - text
+id: node.ingredient.body
+field_name: body
+entity_type: node
+bundle: ingredient
+label: 'Ingredient Summary'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+field_type: text_with_summary

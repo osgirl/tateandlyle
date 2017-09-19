@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: footer-customer-and-supplie
+label: 'Footer Customer and Supplier Menu'
+description: 'Add links for Customer and Supplier Menu in Footer'
+locked: false

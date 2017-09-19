@@ -1,0 +1,170 @@
+.tabs__accordion {
+  @extend .max-content-width-sm;
+  margin: 50px 0;
+  padding-top: 0;
+
+  @media (min-width: $screen-sm) {
+    border: 1px solid $color-warm-gray;
+    margin: auto;
+    margin-top: 60px;
+    padding: 60px;
+    padding-top: 0;
+  }
+
+  @media (min-width: $screen-md) {
+    padding: 100px 80px;
+    padding-top: 0;
+  }
+
+  @media (min-width: $screen-md-lg) {
+    padding: 100px;
+    padding-top: 0;
+  }
+
+  article {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .block-title,
+  .field--in-border-title {
+    @extend %title-border-top;
+    font-size: $font-size-h3;
+    margin-bottom: 40px;
+
+    @media (min-width: $screen-sm) {
+      background: $color-white;
+      display: table;
+      margin-bottom: 65px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: -20px;
+      padding-left: 10px;
+      padding-right: 10px;
+      text-align: center;
+    }
+
+    @media (min-width: $screen-md) {
+      font-size: $font-size-h2;
+    }
+  }
+
+  .nav-tabs {
+    @extend %navigation-tabs;
+  }
+
+  .panel-group {
+    margin-bottom: 0;
+
+    .panel {
+      border-radius: 0;
+      border: none;
+      border-bottom: 1px solid $color-warm-gray;
+      box-shadow: none;
+      margin-top: 0;
+
+      .panel-collapse .panel-body {
+        border-top: none;
+      }
+    }
+
+    .panel-heading {
+      background: transparent;
+      color: $gray-base;
+      font-family: $font-family-sans-serif-Med;
+      font-size: $font-size-h4;
+      padding: 0;
+      overflow: hidden;
+      @media (min-width: $screen-md) {
+        font-size: $font-size-h3;
+      }
+    }
+
+    .panel-body {
+      background-color: $color-off-white;
+      padding-left: 25px;
+      padding-right: 25px;
+      @media (min-width: $screen-sm) {
+        padding-bottom: 60px;
+      }
+
+      .field--name-field-simple-text {
+        color: $gray-base;
+        font-size: $font-size-h4;
+        margin-bottom: 10px;
+        @media (min-width: $screen-md) {
+          font-size: $font-size-h3;
+        }
+      }
+
+      .field--name-field-component-accordion-body > .field--item {
+        border-bottom: 1px solid $color-warm-gray;
+        padding-top: 20px;
+        padding-bottom: 25px;
+        @media (min-width: $screen-sm) {
+          padding-bottom: 30px;
+        }
+
+        &:first-child {
+          padding-top: 0;
+        }
+
+        &:last-child {
+          border-bottom: 0;
+          padding-bottom: 0;
+          @media (min-width: $screen-md) {
+            padding-bottom: 30px;
+          }
+        }
+      }
+
+      .field--name-field-tal-link,
+      .field--name-field-tal-more {
+        margin-top: 10px;
+        margin-bottom: 0;
+        &::after {
+          @extend %svg-icon-small;
+          background: url("../images/icons/cta-arrow-blue.svg") no-repeat;
+          background-size: cover;
+        }
+      }
+    }
+
+    .panel-title {
+      font-size: $font-size-h4;
+      padding: 0;
+      @media (min-width: $screen-sm) {
+        font-size: $font-size-h3;
+      }
+      a {
+        background-color: $color-off-white;
+        color: $brand-primary;
+        display: block;
+        padding: 20px;
+        padding-right: 60px;
+        position: relative;
+
+        &::after {
+          @extend %svg-icon-small;
+          background: url("../images/icons/accordian-close-blue.svg") no-repeat;
+          background-size: cover;
+          height: 20px;
+          position: absolute;
+          right: 25px;
+          top: 23px;
+          width: 20px;
+        }
+
+        &.collapsed {
+          background-color: $color-white;
+          color: $gray-base;
+
+          &::after {
+            background: url("../images/icons/accordian-open-blue.svg") no-repeat;
+            background-size: cover;
+          }
+        }
+      }
+    }
+  }
+}

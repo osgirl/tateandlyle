@@ -1,0 +1,32 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.passive_recruitment
+    - field.storage.block_content.field_pr_recruitements
+    - paragraphs.paragraphs_type.passive_recruitment
+  module:
+    - entity_reference_revisions
+id: block_content.passive_recruitment.field_pr_recruitements
+field_name: field_pr_recruitements
+entity_type: block_content
+bundle: passive_recruitment
+label: Recruitments
+description: 'Enter Recruitment Details.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      passive_recruitment: passive_recruitment
+    target_bundles_drag_drop:
+      passive_recruitment:
+        enabled: true
+        weight: 3
+      talk_to_us:
+        weight: 4
+        enabled: false
+field_type: entity_reference_revisions

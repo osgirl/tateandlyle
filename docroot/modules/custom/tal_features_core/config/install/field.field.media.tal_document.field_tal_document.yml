@@ -1,0 +1,45 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_tal_document
+    - media_entity.bundle.tal_document
+  module:
+    - file
+    - filefield_paths
+third_party_settings:
+  filefield_paths:
+    enabled: true
+    file_path:
+      value: '[date:custom:Y]-[date:custom:m]'
+      options:
+        slashes: false
+        pathauto: false
+        transliterate: false
+    redirect: false
+    retroactive_update: false
+    active_updating: false
+    file_name:
+      value: '[file:ffp-name-only-original].[file:ffp-extension-original]'
+      options:
+        slashes: true
+        pathauto: true
+        transliterate: false
+id: media.tal_document.field_tal_document
+field_name: field_tal_document
+entity_type: media
+bundle: tal_document
+label: 'TAL Document'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'xls xlsx pps ppsx ppt pptx rtf'
+  max_filesize: ''
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

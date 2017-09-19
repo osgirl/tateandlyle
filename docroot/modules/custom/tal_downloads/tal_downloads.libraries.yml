@@ -1,0 +1,5 @@
+tal_downloads_link:
+  js:
+    js/tal_downloads.js: {preprocess: false}
+  dependencies:
+    - core/jquery

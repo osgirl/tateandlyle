@@ -1,0 +1,70 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.advanced_rich_text
+  module:
+    - ckeditor
+format: advanced_rich_text
+editor: ckeditor
+settings:
+  toolbar:
+    rows:
+      -
+        -
+          name: Formatting
+          items:
+            - Bold
+            - Italic
+            - Underline
+            - Strike
+            - Superscript
+            - Subscript
+            - RemoveFormat
+        -
+          name: Linking
+          items:
+            - DrupalLink
+            - DrupalUnlink
+        -
+          name: Lists
+          items:
+            - BulletedList
+            - NumberedList
+        -
+          name: Media
+          items:
+            - Blockquote
+            - Table
+            - HorizontalRule
+            - tal_embed
+        -
+          name: 'Block Formatting'
+          items:
+            - Styles
+            - Format
+        -
+          name: Tools
+          items:
+            - ShowBlocks
+            - Source
+        -
+          name: Justification
+          items:
+            - JustifyLeft
+            - JustifyCenter
+            - JustifyRight
+            - JustifyBlock
+  plugins:
+    language:
+      language_list: un
+    stylescombo:
+      styles: "li.h1|List Heading 1\r\nli.h2|List Heading 2\r\nli.h3|List Heading 3\r\nli.h4|List Heading 4\r\nli.h5|List Heading 5\r\nli.h6|List Heading 6\r\nli.strong|List Strong"
+image_upload:
+  status: false
+  scheme: public
+  directory: inline-images
+  max_size: ''
+  max_dimensions:
+    width: null
+    height: null

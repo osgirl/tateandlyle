@@ -1,0 +1,63 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.detail_content_promo.field_dcp_link
+    - field.field.paragraph.detail_content_promo.field_file_icon
+    - field.field.paragraph.detail_content_promo.field_simple_summary
+    - field.field.paragraph.detail_content_promo.field_simple_text
+    - field.field.paragraph.detail_content_promo.field_tal_link
+    - paragraphs.paragraphs_type.detail_content_promo
+  module:
+    - link
+id: paragraph.detail_content_promo.default
+targetEntityType: paragraph
+bundle: detail_content_promo
+mode: default
+content:
+  field_dcp_link:
+    weight: 4
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+  field_file_icon:
+    weight: 0
+    label: hidden
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+  field_simple_summary:
+    weight: 3
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_simple_text:
+    weight: 5
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_tal_link:
+    weight: 6
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+hidden:
+  created: true
+  uid: true

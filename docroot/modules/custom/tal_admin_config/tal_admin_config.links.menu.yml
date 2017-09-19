@@ -1,0 +1,24 @@
+tal_admin_config.tal_settings:
+  title: 'Administer Tate & Lyle'
+  route_name: tal_admin_config.tal_settings
+  description: 'Configure Tate & Lyle Settings.'
+  parent: system.admin_config
+  weight: 99
+tal_admin_config.tal_admin_trendsandinsight:
+  title: 'Tate & Lyle Settings'
+  route_name: tal_admin_config.tal_admin_trendsandinsight
+  description: 'Configure Tate & Lyle Settings.'
+  parent: tal_admin_config.tal_settings
+  weight: 99
+tal_admin_config.webform.collection:
+  title: 'Webforms'
+  description: 'Create webforms and manage submissions.'
+  parent: system.admin
+  route_name: entity.webform.collection
+
+tal_admin_config.admin.block:
+  title: 'Manage blocks'
+  description: 'Manage blocks'
+  parent: system.admin
+  route_name: block.admin_display
+

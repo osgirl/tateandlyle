@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies: {  }
+name: article_large_880_x_477
+label: 'Article Large 880 x 477'
+effects:
+  14b42f5c-3ffd-4866-887a-ec3ea8f9cb58:
+    uuid: 14b42f5c-3ffd-4866-887a-ec3ea8f9cb58
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 880
+      height: 477

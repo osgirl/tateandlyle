@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: article_and_press_release_url
+label: 'Article and Press Release URL'
+type: 'canonical_entities:node'
+pattern: '/news/[node:title]'
+selection_criteria:
+  ac8c5385-029e-451b-8779-6b8e45eea8be:
+    id: node_type
+    bundles:
+      company_story: company_story
+      press_release: press_release
+    negate: false
+    context_mapping:
+      node: node
+    uuid: ac8c5385-029e-451b-8779-6b8e45eea8be
+selection_logic: and
+weight: -9
+relationships: {  }

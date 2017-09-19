@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: homepage_banner
+label: 'Homepage Banner'
+revision: 1
+description: 'Use this block to create banner for homepage and Annual report pages.'

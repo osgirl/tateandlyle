@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - workbench_moderation.moderation_state.draft
+    - workbench_moderation.moderation_state.needs_review
+  module:
+    - workbench_email
+  enforced:
+    config:
+      - workbench_email.workbench_email_template.needs_review_to_draft
+third_party_settings:
+  workbench_email:
+    workbench_email_templates:
+      needs_review_to_draft: needs_review_to_draft
+id: needs_review_draft
+label: 'Send Back to Draft'
+stateFrom: needs_review
+stateTo: draft
+weight: -6

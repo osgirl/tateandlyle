@@ -1,0 +1,73 @@
+<?php
+
+/**
+ * @file
+ * Contains tal_ingredient_search.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_help().
+ */
+function tal_ingredient_search_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the tal_ingredient_search module.
+    case 'help.page.tal_ingredient_search':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Ingredieant search page and search filer form modifications.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function tal_ingredient_search_form_views_exposed_form_alter(&$form, FormStateInterface $form_state) {
+  if ($form['#id'] == 'views-exposed-form-ingredient-finder-page-1') {
+    // Add a placeholder text to the search text field.
+    $form['s']['#attributes'] = array('placeholder' => t('Ingredient name here…'));
+    $form['sort_by']['#prefix'] = '<div class="hidden">';
+    $form['sort_by']['#suffix'] = '</div>';
+
+  }
+}
+
+/**
+ * Implements hook_views_data().
+ */
+function tal_ingredient_search_views_data() {
+  $data['views']['tal_ingredient_search_area'] = array(
+    'title' => t('Tal Search Sort Options'),
+    'help' => t('Provide sort options to the search results.'),
+    'area' => array(
+      'id' => 'sortorder',
+    ),
+  );
+  $data['views']['tal_ingredient_overlay'] = array(
+    'title' => t('Tal overlay button'),
+    'help' => t('Provide overlay button to the search results.'),
+    'area' => array(
+      'id' => 'Overlay_button',
+    ),
+  );
+
+  return $data;
+}
+
+/**
+ * Implements hook_theme().
+ */
+function tal_ingredient_search_theme() {
+  return array(
+    'tal_search_result_overlay' => array(
+      'variables' => array(
+        'blocks' => array(),
+      ),
+    ),
+  );
+}
