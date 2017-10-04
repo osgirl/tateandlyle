@@ -45,6 +45,11 @@
   }
 }
 
+.paragraph--type--block-reference {
+  @extend .max-content-width;
+  margin: auto;
+}
+
 .paragraph--show-border {
   @extend %border__block;
   .title,
