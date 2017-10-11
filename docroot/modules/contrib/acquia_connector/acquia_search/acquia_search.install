@@ -30,6 +30,7 @@ function acquia_search_requirements($phase) {
   // Skip install checks if install.php is running. The weak install profile
   // API means install.php calls hook_requirements for every module in
   // a profile.
+  /*
   if ($phase == 'install' && (!defined('MAINTENANCE_MODE') || MAINTENANCE_MODE != 'install')) {
     if (class_exists('Drupal\acquia_connector\Subscription')) {
       if (Subscription::hasCredentials()) {
@@ -54,6 +55,7 @@ function acquia_search_requirements($phase) {
     }
 
   }
+  */
   if ($phase == 'runtime') {
     // Check SSL support.
     if (in_array('ssl', stream_get_transports(), TRUE)) {

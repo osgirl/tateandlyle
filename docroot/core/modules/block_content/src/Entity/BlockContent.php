@@ -40,6 +40,8 @@ use Drupal\entity\Revision\RevisionableContentEntityBase;
  *   base_table = "block_content",
  *   revision_table = "block_content_revision",
  *   data_table = "block_content_field_data",
+ *   revision_data_table = "block_content_field_revision",
+ *   show_revision_ui = TRUE,
  *   links = {
  *     "canonical" = "/block/{block_content}",
  *     "delete-form" = "/block/{block_content}/delete",
@@ -129,7 +131,7 @@ class BlockContent extends RevisionableContentEntityBase implements BlockContent
    * {@inheritdoc}
    */
   public function getInstances() {
-    return \Drupal::entityTypeManager()->getStorage('block')->loadByProperties(array('plugin' => 'block_content:' . $this->uuid()));
+    return \Drupal::entityTypeManager()->getStorage('block')->loadByProperties(['plugin' => 'block_content:' . $this->uuid()]);
   }
 
   /**
@@ -181,17 +183,24 @@ class BlockContent extends RevisionableContentEntityBase implements BlockContent
       ->setRevisionable(TRUE)
       ->setTranslatable(TRUE)
       ->setRequired(TRUE)
-      ->setDisplayOptions('form', array(
+      ->setDisplayOptions('form', [
         'type' => 'string_textfield',
         'weight' => -5,
-      ))
+      ])
       ->setDisplayConfigurable('form', TRUE)
       ->addConstraint('UniqueField', []);
 
     $fields['revision_log'] = BaseFieldDefinition::create('string_long')
       ->setLabel(t('Revision log message'))
       ->setDescription(t('The log entry explaining the changes in this revision.'))
-      ->setRevisionable(TRUE);
+      ->setRevisionable(TRUE)
+      ->setDisplayOptions('form', [
+        'type' => 'string_textarea',
+        'weight' => 25,
+        'settings' => [
+          'rows' => 4,
+        ],
+      ]);
 
     $fields['changed'] = BaseFieldDefinition::create('changed')
       ->setLabel(t('Changed'))

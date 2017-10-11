@@ -21,7 +21,9 @@ If you've installed Lightning using our [Composer-based project template](https:
 
 * ```cd /path/to/YOUR_PROJECT```
 * ```composer update```
-* Run ```drush updatedb``` or visit ```update.php``` to perform automatic database updates.
+* Run ```drush updatedb && drush cache-rebuild```, or visit ```update.php```,
+  to perform automatic database updates. You can also use Drupal Console's
+  ```update:execute``` command.
 * Perform any necessary manual updates (see below).
 
 ### Tarball
@@ -53,6 +55,143 @@ Follow the instructions starting from the version of Lightning you currently
 use. For example, if you are currently running Beta 1 and are trying to update
 to Beta 3, you will need to follow the instructions for updating from Beta 1 to
 Beta 2, then from Beta 2 to Beta 3, in that order.
+
+## 2.1.6. to 2.1.7
+* **IMPORTANT!** Page Manager is no longer a dependency of Lightning Layout,
+  and it will no longer ship with Lightning as of the next release. Therefore,
+  if you are actively using Page Manager, you must add it to your project as an
+  explicit dependency in order to continue to using it. Otherwise, **you must
+  uninstall it before updating to the next version of Lightning, or your site
+  may break.**
+* **IMPORTANT!** Lightning has added support for pulling front-end JavaScript
+  libraries into your project using Composer, via [Asset Packagist](https://asset-packagist.org).
+  This requires a few simple, one-time changes to your project's root
+  composer.json. Note that, **without these changes, some functionality in
+  future Lightning releases will not work.** The required changes, and
+  instructions on how to make them (either manually, or automatically using a
+  Lightning-provided script) are [documented here](http://lightning.acquia.com/blog/round-your-front-end-javascript-libraries-composer).
+* Lightning now supports exposing all Drupal entities as JSON, in the standard
+  JSON API format. To enable this feature, install the Content API module from
+  the Lightning package.
+* If Lightning's content role functionality is available, grant all "creator"
+  content roles the following permissions, as desired:
+  * **Toolbar**: Use the administration toolbar
+  * **Quick Edit**: Access in-place editing
+  * **Contextual Links**: Use contextual links
+
+## 2.1.5 to 2.1.6
+This version of Lightning adds the ability to choose an image style, alt text,
+and other settings each time you embed an image in a WYSIWYG editor, rather
+that needing to rely on view modes. To enable this functionality:
+
+1. As always, visit ```update.php``` or run ```drush updatedb``` to perform
+   database updates.
+1. Clear all caches.
+1. Under *Configuration > Content Authoring > Text formats and editors*,
+   configure the **Rich Text** filter format. Under "Filter settings", open the
+   tab labeled "Limit allowed HTML tags and correct faulty HTML".
+1. In the "Allowed HTML tags" text field, you should see a tag like
+   `<drupal-entity data-*>`. Change it to `<drupal-entity data-* alt title>`.
+1. Save the filter format.
+1. Under *Configuration > Content Authoring > Text editor embed buttons*,  edit
+   the "Media browser" embed button.
+1. Under "Allowed Entity Embed Display plugins", ensure that the "Media Image"
+   checkbox is checked.
+1. Save the embed button.
+1. If you would like to allow authors to choose how embedded media should be
+   displayed, go to *Configuration > System > Lightning > Media*, ensure that
+   the box labeled "Allow users to choose how to display embedded media" is
+   checked, then submit the form. If the box is not checked, Lightning will
+   automatically choose a preferred display method (the recommended, default
+   behavior).
+
+## 2.1.4 to 2.1.5
+There are no manual update steps for this version.
+
+## 2.1.3 to 2.1.4
+There are no manual update steps for this version.
+
+**Note:**  
+There is a known issue with Metatag version 8.x-1.1 where you might need to
+clear your site's cache after updating. See [Metatag 8.x-1.1 Release notes][metatag8.x-1.1]
+and this [related issue][2882954].
+
+As per our Dependency Constraint Policy, Lightning doesn't pin to a specific
+version of Metatag, so depending on your your setup, Metatag is likely to be
+updated when you update to Lightning 2.1.4. For Composer users, we recommend
+pinning to Metatag version 1.0.0. Alternatively, you can be prepared to clear
+your site's cache immediately after running `update.php`.
+
+[metatag8.x-1.1]: https://www.drupal.org/project/metatag/releases/8.x-1.1 "Metatag 8.x-1.1 Release notes"
+[2882954]: https://www.drupal.org/node/2882954 "Error when updating to 8.x-1.1"
+
+## 2.1.2 to 2.1.3
+There are no manual update steps for this version.
+
+## 2.1.1 to 2.1.2
+There are no manual update steps for this version.
+
+## 2.1.0 to 2.1.1
+* To allow fields that use the media browser to filter to only the media types
+  accepted by the field, do the following:
+    * Edit the **Browser** display of the **Media** view.
+    * Add the **Bundle** contextual filter, to the current display only, with
+      the following settings:
+      * When the filter value is NOT available, provide a default value:
+        * Type: Entity Browser Context
+        * Context key: ```target_bundles```
+        * Fallback value: ```all```
+        * Multiple values: OR
+      * When the filter value IS available or a default is provided:
+        * Specify validation criteria: Yes
+        * Validator: Media bundle
+        * Multiple arguments: One or more IDs separated by , or +
+        * Action to take if filter value does not validate: Display all results
+          for the specified field
+      * Under the "More" section, "Allow multiple values" should be checked.
+    * If the view has the media bundle as an exposed filter (most likely named
+      "Media: Bundle"), edit it and set the "Yield to argument" select box to
+      the name of the argument you just created (which will probably be "Media:
+      Bundle"). If you don't see the "Yield to argument" select box, clear all
+      caches and try again.
+    * Save the view.
+
+## 2.0.6 to 2.1.0
+There are no manual update steps for this version.
+
+## 2.0.5 to 2.0.6
+There are no manual update steps for this version.
+
+## 2.0.4 to 2.0.5
+There are no manual update steps for this version.
+
+If you previously used the lightning.extend.yml file to customize your
+installation and you have a need to continuously install your application (for
+example, in an Acquia Cloud Site Factory instance) you will need to convert your
+extend file into a sub-profile of Lightning. See the
+[Lightning as a base profile][sub-profile documentation] documentation for more
+information.
+
+## 2.0.3 to 2.0.4
+* Edit the **Scheduled update** field on any content type that has it. Click
+  **Field settings*, set "Allowed number of values" to "Unlimited" and save.
+  Then click **Edit**, rename the field to "Scheduled updates", and save.
+* If you have the Image Browser entity browser available:
+  * Go to *Configuration > Content authoring > Entity browsers* and edit the
+    **Image Browser** entity browser.
+  * Click **Next**.
+  * Empty the "Width of the modal" and "Height of the modal" text fields.
+  * Click **Next**, then proceed through the rest of the wizard without changing
+    anything else. Then click **Finish** to save the entity browser.
+* If you have Lightning Workflow installed, add the *View moderation states*
+  permission to all content reviewer roles.
+* If you have Lightning Workflow installed, Go to *Structure > Views* and edit
+  the **Content** view.
+  * Expand the **Advanced** section and under **Relationships** click on 'latest
+    revision'.
+  * Un-check the "Require this relationship" checkbox and click **Apply (all
+    displays)**.
+  * Save the view.
 
 ## 2.0.2 to 2.0.3
 * If you have the Landing Page content type installed, there are several manual
@@ -224,3 +363,5 @@ There are no manual update steps for this version.
 * Enable the ```view media``` permission for the ```anonymous``` and
   ```authenticated``` user roles.
 * Install the Lightning Workflow module.
+
+[sub-profile documentation]: https://github.com/acquia/lightning/wiki/Lightning-as-a-Base-Profile "Lightning sub-profile documentation"

@@ -5,3 +5,7 @@ Acquia search custom multi core
 Source: https://gist.githubusercontent.com/jayakrishnanj/efd2093a3f95b83cbc18aa12630102e6/raw/e9f08b786a9dafda7192297f075ed0e26c9f7e8f/custom-multi-core.patch
 
 
+Skip Acquia search requirement on install
+Source: patches/acquia_search_skip_requirement.patch
+
+

@@ -481,7 +481,6 @@ class EntityReferenceBrowserWidget extends WidgetBase implements ContainerFactor
    *   The render array for the current selection.
    */
   protected function displayCurrentSelection($details_id, $field_parents, $entities) {
-
     $field_widget_display = $this->fieldDisplayManager->createInstance(
       $this->getSetting('field_widget_display'),
       $this->getSetting('field_widget_display_settings') + ['entity_type' => $this->fieldDefinition->getFieldStorageDefinition()->getSetting('target_type')]
@@ -495,6 +494,7 @@ class EntityReferenceBrowserWidget extends WidgetBase implements ContainerFactor
     return [
       '#theme_wrappers' => ['container'],
       '#attributes' => ['class' => $classes],
+      '#prefix' => '<p>' . $this->getCardinalityMessage($entities) . '</p>',
       'items' => array_map(
         function (ContentEntityInterface $entity, $row_id) use ($field_widget_display, $details_id, $field_parents) {
           $display = $field_widget_display->view($entity);
@@ -559,17 +559,57 @@ class EntityReferenceBrowserWidget extends WidgetBase implements ContainerFactor
   }
 
   /**
+   * Generates a message informing the user how many more items they can choose.
+   *
+   * @param array|int $selected
+   *   The current selections, or how many items are selected.
+   *
+   * @return string
+   *   A message informing the user who many more items they can select.
+   */
+  protected function getCardinalityMessage($selected) {
+    $message = NULL;
+
+    $storage = $this->fieldDefinition->getFieldStorageDefinition();
+    $cardinality = $storage->getCardinality();
+    $target_type = $storage->getSetting('target_type');
+    $target_type = $this->entityTypeManager->getDefinition($target_type);
+
+    if (is_array($selected)) {
+      $selected = count($selected);
+    }
+
+    if ($cardinality === 1 && $selected === 0) {
+      $message = t('You can select one @entity_type.', [
+        '@entity_type' => $target_type->getSingularLabel(),
+      ]);
+    }
+    elseif ($cardinality >= $selected) {
+      $message = t('You can select up to @maximum @entity_type (@remaining left).', [
+        '@maximum' => $cardinality,
+        '@entity_type' => $target_type->getPluralLabel(),
+        '@remaining' => $cardinality - $selected,
+      ]);
+    }
+    return (string) $message;
+  }
+
+  /**
    * Gets data that should persist across Entity Browser renders.
    *
    * @return array
    *   Data that should persist after the Entity Browser is rendered.
    */
   protected function getPersistentData() {
+    $settings = $this->fieldDefinition->getSettings();
+    $handler = $settings['handler_settings'];
     return [
       'validators' => [
-        'entity_type' => ['type' => $this->fieldDefinition->getFieldStorageDefinition()->getSetting('target_type')],
+        'entity_type' => ['type' => $settings['target_type']],
       ],
-      'widget_context' => [],
+      'widget_context' => [
+        'target_bundles' => !empty($handler['target_bundles']) ? $handler['target_bundles'] : [],
+      ],
     ];
   }
 
