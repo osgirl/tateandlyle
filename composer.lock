@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "a9b3f18a6b6bebf9dea9882854dbb870",
+    "content-hash": "30b1a4112f7509114929b93eb3fb260b",
     "packages": [
         {
             "name": "acquia/blt",
@@ -952,7 +952,7 @@
                 "dot",
                 "notation"
             ],
-            "time": "2017-01-20 21:14:22"
+            "time": "2017-01-20T21:14:22+00:00"
         },
         {
             "name": "dflydev/placeholder-resolver",
@@ -4872,7 +4872,7 @@
                 "source": "http://cgit.drupalcode.org/memcache",
                 "issues": "https://www.drupal.org/project/issues/memcache"
             },
-            "time": "2017-09-25 07:47:51"
+            "time": "2017-09-25T07:47:51+00:00"
         },
         {
             "name": "drupal/menu_breadcrumb",
@@ -6223,7 +6223,7 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/security_review"
             },
-            "time": "2016-10-20 15:43:48"
+            "time": "2016-10-20T15:43:48+00:00"
         },
         {
             "name": "drupal/shield",
@@ -6532,7 +6532,7 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/simplesamlphp_auth"
             },
-            "time": "2016-07-21 10:13:01"
+            "time": "2016-07-21T10:13:01+00:00"
         },
         {
             "name": "drupal/sitemap",
