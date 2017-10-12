@@ -120,6 +120,10 @@
                     "type": "zip"
                 }
             }
+        },
+        "asset-packagist": {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
         }
     },
     "autoload-dev": {
@@ -148,7 +152,9 @@
                 "type:drupal-drush"
             ],
             "docroot/libraries/{$name}": [
-                "type:drupal-library"
+                "type:drupal-library",
+                "type:bower-asset",
+                "type:npm-asset"
             ],
             "docroot/modules/custom/{$name}": [
                 "type:drupal-custom-module"
@@ -183,7 +189,7 @@
             "drupal/entity_browser": {
                 "getDisplay() on null Entity Browser reference": "https://www.drupal.org/files/issues/2820132-19.patch"
             },
-                "drupal/entity_reference_revisions": {
+            "drupal/entity_reference_revisions": {
                 "EntityReference add rest dependency": "patches/entity_reference_revision_add_rest_dependency.patch"
             },
             "drupal/acquia_connector": {
@@ -215,6 +221,10 @@
                 "sites/development.services.yml"
             ]
         },
-        "enable-patching": true
+        "enable-patching": true,
+        "installer-types": [
+            "bower-asset",
+            "npm-asset"
+        ]
     }
 }
