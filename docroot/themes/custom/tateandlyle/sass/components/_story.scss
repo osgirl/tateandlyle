@@ -188,6 +188,9 @@
   }
 
   .next--articles {
+    a {
+      padding-right: 30px;
+    }
     text-align: left;
     &::after {
       right: 33px;
@@ -208,6 +211,7 @@
       position: absolute;
       right: 0;
       top: 27px;
+      height: 45%;
       width: 1px;
       @media (min-width: $screen-sm) {
         content: none;
