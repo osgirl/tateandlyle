@@ -24,6 +24,13 @@
                     return false;
                 });
             });
+            jQuery('.panel-accordion .panel-heading a').on('click', function(e) {
+                var self = jQuery(this);
+                setTimeout(function() {
+                    var targetOffset = self.offset();
+                    jQuery('body, html').animate({ scrollTop: targetOffset.top -140 }, 1000);
+                }, 350);
+            });
             jQuery(window).bind("wheel", function() {
                 jQuery("html, body").stop();
             });
