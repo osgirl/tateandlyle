@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit0668bac792946ae6d3c804f60c4750eb
+class ComposerStaticInit16abaf6b55df4852ab2ab4f122378703
 {
     public static $files = array (
         '32dcc8afd4335739640db7d200c1971d' => __DIR__ . '/..' . '/symfony/polyfill-apcu/bootstrap.php',
@@ -62,6 +62,7 @@ class ComposerStaticInit0668bac792946ae6d3c804f60c4750eb
             'Symfony\\Polyfill\\Php54\\' => 23,
             'Symfony\\Polyfill\\Mbstring\\' => 26,
             'Symfony\\Polyfill\\Iconv\\' => 23,
+            'Symfony\\Polyfill\\Apcu\\' => 22,
             'Symfony\\Component\\Yaml\\' => 23,
             'Symfony\\Component\\VarDumper\\' => 28,
             'Symfony\\Component\\Validator\\' => 28,
@@ -216,6 +217,10 @@ class ComposerStaticInit0668bac792946ae6d3c804f60c4750eb
         'Symfony\\Polyfill\\Iconv\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-iconv',
+        ),
+        'Symfony\\Polyfill\\Apcu\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-apcu',
         ),
         'Symfony\\Component\\Yaml\\' => 
         array (
@@ -964,11 +969,12 @@ class ComposerStaticInit0668bac792946ae6d3c804f60c4750eb
         'Consolidation\\AnnotatedCommand\\Parser\\CommandInfoDeserializer' => __DIR__ . '/..' . '/consolidation/annotated-command/src/Parser/CommandInfoDeserializer.php',
         'Consolidation\\AnnotatedCommand\\Parser\\CommandInfoSerializer' => __DIR__ . '/..' . '/consolidation/annotated-command/src/Parser/CommandInfoSerializer.php',
         'Consolidation\\AnnotatedCommand\\Parser\\DefaultsWithDescriptions' => __DIR__ . '/..' . '/consolidation/annotated-command/src/Parser/DefaultsWithDescriptions.php',
-        'Consolidation\\AnnotatedCommand\\Parser\\Internal\\AbstractCommandDocBlockParser' => __DIR__ . '/..' . '/consolidation/annotated-command/src/Parser/Internal/AbstractCommandDocBlockParser.php',
-        'Consolidation\\AnnotatedCommand\\Parser\\Internal\\CommandDocBlockParser2' => __DIR__ . '/..' . '/consolidation/annotated-command/src/Parser/Internal/CommandDocBlockParser2.php',
-        'Consolidation\\AnnotatedCommand\\Parser\\Internal\\CommandDocBlockParser3' => __DIR__ . '/..' . '/consolidation/annotated-command/src/Parser/Internal/CommandDocBlockParser3.php',
+        'Consolidation\\AnnotatedCommand\\Parser\\Internal\\BespokeDocBlockParser' => __DIR__ . '/..' . '/consolidation/annotated-command/src/Parser/Internal/BespokeDocBlockParser.php',
         'Consolidation\\AnnotatedCommand\\Parser\\Internal\\CommandDocBlockParserFactory' => __DIR__ . '/..' . '/consolidation/annotated-command/src/Parser/Internal/CommandDocBlockParserFactory.php',
         'Consolidation\\AnnotatedCommand\\Parser\\Internal\\CsvUtils' => __DIR__ . '/..' . '/consolidation/annotated-command/src/Parser/Internal/CsvUtils.php',
+        'Consolidation\\AnnotatedCommand\\Parser\\Internal\\DocblockTag' => __DIR__ . '/..' . '/consolidation/annotated-command/src/Parser/Internal/DocblockTag.php',
+        'Consolidation\\AnnotatedCommand\\Parser\\Internal\\FullyQualifiedClassCache' => __DIR__ . '/..' . '/consolidation/annotated-command/src/Parser/Internal/FullyQualifiedClassCache.php',
+        'Consolidation\\AnnotatedCommand\\Parser\\Internal\\TagFactory' => __DIR__ . '/..' . '/consolidation/annotated-command/src/Parser/Internal/TagFactory.php',
         'Consolidation\\OutputFormatters\\Exception\\AbstractDataFormatException' => __DIR__ . '/..' . '/consolidation/output-formatters/src/Exception/AbstractDataFormatException.php',
         'Consolidation\\OutputFormatters\\Exception\\IncompatibleDataException' => __DIR__ . '/..' . '/consolidation/output-formatters/src/Exception/IncompatibleDataException.php',
         'Consolidation\\OutputFormatters\\Exception\\InvalidFormatException' => __DIR__ . '/..' . '/consolidation/output-formatters/src/Exception/InvalidFormatException.php',
@@ -4835,6 +4841,7 @@ class ComposerStaticInit0668bac792946ae6d3c804f60c4750eb
         'Psy\\Command\\Command' => __DIR__ . '/..' . '/psy/psysh/src/Psy/Command/Command.php',
         'Psy\\Command\\DocCommand' => __DIR__ . '/..' . '/psy/psysh/src/Psy/Command/DocCommand.php',
         'Psy\\Command\\DumpCommand' => __DIR__ . '/..' . '/psy/psysh/src/Psy/Command/DumpCommand.php',
+        'Psy\\Command\\EditCommand' => __DIR__ . '/..' . '/psy/psysh/src/Psy/Command/EditCommand.php',
         'Psy\\Command\\ExitCommand' => __DIR__ . '/..' . '/psy/psysh/src/Psy/Command/ExitCommand.php',
         'Psy\\Command\\HelpCommand' => __DIR__ . '/..' . '/psy/psysh/src/Psy/Command/HelpCommand.php',
         'Psy\\Command\\HistoryCommand' => __DIR__ . '/..' . '/psy/psysh/src/Psy/Command/HistoryCommand.php',
@@ -4902,17 +4909,21 @@ class ComposerStaticInit0668bac792946ae6d3c804f60c4750eb
         'Psy\\Sudo\\SudoVisitor' => __DIR__ . '/..' . '/psy/psysh/src/Psy/Sudo/SudoVisitor.php',
         'Psy\\TabCompletion\\AutoCompleter' => __DIR__ . '/..' . '/psy/psysh/src/Psy/TabCompletion/AutoCompleter.php',
         'Psy\\TabCompletion\\Matcher\\AbstractContextAwareMatcher' => __DIR__ . '/..' . '/psy/psysh/src/Psy/TabCompletion/Matcher/AbstractContextAwareMatcher.php',
+        'Psy\\TabCompletion\\Matcher\\AbstractDefaultParametersMatcher' => __DIR__ . '/..' . '/psy/psysh/src/Psy/TabCompletion/Matcher/AbstractDefaultParametersMatcher.php',
         'Psy\\TabCompletion\\Matcher\\AbstractMatcher' => __DIR__ . '/..' . '/psy/psysh/src/Psy/TabCompletion/Matcher/AbstractMatcher.php',
         'Psy\\TabCompletion\\Matcher\\ClassAttributesMatcher' => __DIR__ . '/..' . '/psy/psysh/src/Psy/TabCompletion/Matcher/ClassAttributesMatcher.php',
+        'Psy\\TabCompletion\\Matcher\\ClassMethodDefaultParametersMatcher' => __DIR__ . '/..' . '/psy/psysh/src/Psy/TabCompletion/Matcher/ClassMethodDefaultParametersMatcher.php',
         'Psy\\TabCompletion\\Matcher\\ClassMethodsMatcher' => __DIR__ . '/..' . '/psy/psysh/src/Psy/TabCompletion/Matcher/ClassMethodsMatcher.php',
         'Psy\\TabCompletion\\Matcher\\ClassNamesMatcher' => __DIR__ . '/..' . '/psy/psysh/src/Psy/TabCompletion/Matcher/ClassNamesMatcher.php',
         'Psy\\TabCompletion\\Matcher\\CommandsMatcher' => __DIR__ . '/..' . '/psy/psysh/src/Psy/TabCompletion/Matcher/CommandsMatcher.php',
         'Psy\\TabCompletion\\Matcher\\ConstantsMatcher' => __DIR__ . '/..' . '/psy/psysh/src/Psy/TabCompletion/Matcher/ConstantsMatcher.php',
+        'Psy\\TabCompletion\\Matcher\\FunctionDefaultParametersMatcher' => __DIR__ . '/..' . '/psy/psysh/src/Psy/TabCompletion/Matcher/FunctionDefaultParametersMatcher.php',
         'Psy\\TabCompletion\\Matcher\\FunctionsMatcher' => __DIR__ . '/..' . '/psy/psysh/src/Psy/TabCompletion/Matcher/FunctionsMatcher.php',
         'Psy\\TabCompletion\\Matcher\\KeywordsMatcher' => __DIR__ . '/..' . '/psy/psysh/src/Psy/TabCompletion/Matcher/KeywordsMatcher.php',
         'Psy\\TabCompletion\\Matcher\\MongoClientMatcher' => __DIR__ . '/..' . '/psy/psysh/src/Psy/TabCompletion/Matcher/MongoClientMatcher.php',
         'Psy\\TabCompletion\\Matcher\\MongoDatabaseMatcher' => __DIR__ . '/..' . '/psy/psysh/src/Psy/TabCompletion/Matcher/MongoDatabaseMatcher.php',
         'Psy\\TabCompletion\\Matcher\\ObjectAttributesMatcher' => __DIR__ . '/..' . '/psy/psysh/src/Psy/TabCompletion/Matcher/ObjectAttributesMatcher.php',
+        'Psy\\TabCompletion\\Matcher\\ObjectMethodDefaultParametersMatcher' => __DIR__ . '/..' . '/psy/psysh/src/Psy/TabCompletion/Matcher/ObjectMethodDefaultParametersMatcher.php',
         'Psy\\TabCompletion\\Matcher\\ObjectMethodsMatcher' => __DIR__ . '/..' . '/psy/psysh/src/Psy/TabCompletion/Matcher/ObjectMethodsMatcher.php',
         'Psy\\TabCompletion\\Matcher\\VariablesMatcher' => __DIR__ . '/..' . '/psy/psysh/src/Psy/TabCompletion/Matcher/VariablesMatcher.php',
         'Psy\\Util\\Docblock' => __DIR__ . '/..' . '/psy/psysh/src/Psy/Util/Docblock.php',
@@ -6724,6 +6735,7 @@ class ComposerStaticInit0668bac792946ae6d3c804f60c4750eb
         'Symfony\\Component\\Yaml\\Parser' => __DIR__ . '/..' . '/symfony/yaml/Parser.php',
         'Symfony\\Component\\Yaml\\Unescaper' => __DIR__ . '/..' . '/symfony/yaml/Unescaper.php',
         'Symfony\\Component\\Yaml\\Yaml' => __DIR__ . '/..' . '/symfony/yaml/Yaml.php',
+        'Symfony\\Polyfill\\Apcu\\Apcu' => __DIR__ . '/..' . '/symfony/polyfill-apcu/Apcu.php',
         'Symfony\\Polyfill\\Iconv\\Iconv' => __DIR__ . '/..' . '/symfony/polyfill-iconv/Iconv.php',
         'Symfony\\Polyfill\\Mbstring\\Mbstring' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/Mbstring.php',
         'Symfony\\Polyfill\\Php54\\Php54' => __DIR__ . '/..' . '/symfony/polyfill-php54/Php54.php',
@@ -7413,10 +7425,10 @@ class ComposerStaticInit0668bac792946ae6d3c804f60c4750eb
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit0668bac792946ae6d3c804f60c4750eb::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit0668bac792946ae6d3c804f60c4750eb::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit0668bac792946ae6d3c804f60c4750eb::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit0668bac792946ae6d3c804f60c4750eb::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit16abaf6b55df4852ab2ab4f122378703::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit16abaf6b55df4852ab2ab4f122378703::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit16abaf6b55df4852ab2ab4f122378703::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit16abaf6b55df4852ab2ab4f122378703::$classMap;
 
         }, null, ClassLoader::class);
     }
