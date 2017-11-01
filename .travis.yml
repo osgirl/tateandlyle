@@ -47,6 +47,7 @@ notifications:
 
 before_install:
   # Disable xdebug.
+  - phpenv config-add travis.php.ini
   - phpenv config-rm xdebug.ini
   - composer self-update
   - composer validate --no-check-all --ansi

@@ -20,13 +20,13 @@ bundle: talk_to_us
 mode: default
 content:
   field_bg_color:
-    weight: 5
+    weight: 4
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: list_key
   field_bg_image:
-    weight: 4
+    weight: 3
     label: hidden
     settings:
       image_style: talk_to_us
@@ -35,7 +35,7 @@ content:
     type: image
   field_connect_block:
     type: entity_reference_revisions_entity_view
-    weight: 6
+    weight: 5
     label: hidden
     settings:
       view_mode: default
@@ -62,4 +62,5 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
-hidden: {  }
+hidden:
+  workbench_moderation_control: true

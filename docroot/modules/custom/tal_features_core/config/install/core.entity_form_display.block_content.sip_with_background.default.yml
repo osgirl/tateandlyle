@@ -15,7 +15,6 @@ dependencies:
     - entity_browser
     - link
     - text
-    - workbench_moderation
 id: block_content.sip_with_background.default
 targetEntityType: block_content
 bundle: sip_with_background
@@ -86,4 +85,5 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  moderation_state: true

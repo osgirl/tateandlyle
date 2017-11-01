@@ -22,13 +22,13 @@ bundle: quote
 mode: default
 content:
   field_bg_color:
-    weight: 12
+    weight: 8
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: list_default
   field_bg_image:
-    weight: 5
+    weight: 2
     label: hidden
     settings:
       image_style: quote_167_x_167
@@ -36,40 +36,40 @@ content:
     third_party_settings: {  }
     type: image
   field_qt_bg_color:
-    weight: 11
+    weight: 7
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: list_default
   field_qt_person_role:
-    weight: 8
+    weight: 5
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
   field_qt_quote_person:
-    weight: 7
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-  field_short_summary:
-    weight: 6
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
-  field_simple_text:
     weight: 4
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+  field_short_summary:
+    weight: 3
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_simple_text:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
   field_tal_image:
-    weight: 2
+    weight: 0
     label: hidden
     settings:
       image_style: ''
@@ -77,7 +77,7 @@ content:
     third_party_settings: {  }
     type: image
   field_tal_link:
-    weight: 9
+    weight: 6
     label: hidden
     settings:
       trim_length: 80
@@ -87,4 +87,5 @@ content:
       target: ''
     third_party_settings: {  }
     type: link
-hidden: {  }
+hidden:
+  workbench_moderation_control: true

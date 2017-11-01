@@ -724,3 +724,4 @@ $settings['install_profile'] = 'lightning';
 // Lightning configuration.
 $config['lightning_core.settings']['content_roles']['creator']['enabled'] = false;
 $config['lightning_core.settings']['content_roles']['reviewer']['enabled'] = false;
+

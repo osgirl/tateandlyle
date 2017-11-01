@@ -32,7 +32,7 @@ content:
     type: image
   field_short_summary:
     type: basic_string
-    weight: 0
+    weight: 1
     label: hidden
     settings: {  }
     third_party_settings: {  }
@@ -43,4 +43,5 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
-hidden: {  }
+hidden:
+  workbench_moderation_control: true
