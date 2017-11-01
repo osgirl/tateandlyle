@@ -46,7 +46,7 @@ class LightningSubContext extends DrupalSubContextBase {
   /**
    * Store current time.
    *
-   * @BeforeScenario ~@errors
+   * @BeforeScenario
    */
   public function setStartTime() {
     $this->startTime = time();
@@ -58,14 +58,23 @@ class LightningSubContext extends DrupalSubContextBase {
    * @AfterScenario ~@errors
    */
   public function checkWatchdog(AfterScenarioScope $scope) {
-    if (db_table_exists('watchdog')) {
-      $log = db_select('watchdog', 'w')
+    // Bypass the error checking if the scenario has the @errors tag.
+    if (in_array('errors', $scope->getScenario()->getTags())) {
+      return;
+    }
+
+    $db = \Drupal::database();
+    if ($db->schema()->tableExists('watchdog')) {
+      $log = $db->select('watchdog', 'w')
         ->fields('w')
         ->condition('w.type', 'php', '=')
         ->condition('w.timestamp', $this->startTime, '>=')
         ->execute()
         ->fetchAll();
+
       if (!empty($log)) {
+        // TODO: Move this stuff to its own exception class in Lightning
+        // Extension for greater clarity.
         foreach ($log as $error) {
           // Make the substitutions easier to read in the log.
           $error->variables = unserialize($error->variables);
@@ -273,7 +282,7 @@ class LightningSubContext extends DrupalSubContextBase {
    * @param int $seconds
    *   How long to wait.
    *
-   * @When I wait :seconds seconds
+   * @When I wait :seconds second(s)
    */
   public function wait($seconds) {
     sleep($seconds);
@@ -300,6 +309,23 @@ class LightningSubContext extends DrupalSubContextBase {
     $screenshot = $this->getSession()->getDriver()->getScreenshot();
     // If this file is in tests/features/bootstrap, the screenshot be in tests.
     file_put_contents(__DIR__ . '../../' . $filename . '.png', $screenshot);
+  }
+
+  /**
+   *  Dumps the HTML directly to stdout and a file.
+   *
+   * @When I view the HTML
+   */
+  public function viewTheHtml() {
+
+    $html_data = $this->getSession()->getDriver()->getContent();
+    echo $html_data;
+    $file_and_path = '/tmp/behat_page.html';
+    file_put_contents($file_and_path, $html_data);
+
+    if (PHP_OS === "Darwin" && PHP_SAPI === "cli") {
+      exec('open -a "Safari.app" ' . $file_and_path);
+    };
   }
 
   /**
@@ -351,7 +377,7 @@ class LightningSubContext extends DrupalSubContextBase {
    * @param string $locator
    *   The field ID, name, label, or value.
    *
-   * @Then I should see a :locator field
+   * @Then I should see a(n) :locator field
    */
   public function assertFieldExists($locator) {
     $this->assertSession()->fieldExists($locator);
@@ -379,7 +405,11 @@ class LightningSubContext extends DrupalSubContextBase {
    * @BeforeScenario
    */
   public function setFilePath() {
-    $this->minkContext->setMinkParameter('files_path', __DIR__ . '/../../files');
+
+    $existing = $this->minkContext->getMinkParameter('files_path');
+    if (empty($existing)) {
+      $this->minkContext->setMinkParameter('files_path', __DIR__ . '/../../files');
+    }
   }
 
   /**
@@ -439,16 +469,6 @@ class LightningSubContext extends DrupalSubContextBase {
   }
 
   /**
-   * Submits the image browser.
-   *
-   * @When I submit the entity browser
-   */
-  public function submitEntityBrowser() {
-    $this->getSession()
-      ->executeScript('window.frames["entity_browser_iframe_image_browser"].document.forms[0].op.click()');
-  }
-
-  /**
    * Switches to an iframe.
    *
    * @param string $name
@@ -474,8 +494,10 @@ class LightningSubContext extends DrupalSubContextBase {
     $this->minkContext->iWaitForAjaxToFinish();
 
     list ($date, $time) = explode(' ', $when, 2);
-    $this->minkContext->fillField('scheduled_update[form][inline_entity_form][update_timestamp][0][value][date]', $date);
-    $this->minkContext->fillField('scheduled_update[form][inline_entity_form][update_timestamp][0][value][time]', $time);
+
+    $this->minkContext->getSession()->executeScript('document.querySelector("[data-drupal-selector=\"edit-scheduled-update-form-inline-entity-form-update-timestamp-0-value-date\"]").value="' . $date . '"');
+    $this->minkContext->getSession()->executeScript('document.querySelector("[data-drupal-selector=\"edit-scheduled-update-form-inline-entity-form-update-timestamp-0-value-time\"]").value="' . $time . '"');
+
     $this->minkContext->selectOption('scheduled_update[form][inline_entity_form][field_moderation_state]', 'published');
 
     $this->minkContext->pressButton('Create scheduled update');

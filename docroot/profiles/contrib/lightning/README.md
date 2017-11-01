@@ -20,11 +20,13 @@ $ composer create-project acquia/lightning-project MY_PROJECT
 
 If you don't want to use Composer, you can install Lightning the traditional way
 by downloading a tarball from our
-[drupal.org project page](https://www.drupal.org/project/lightning).
+[drupal.org project page](https://www.drupal.org/project/lightning). (Please
+note that the tarball does not contain any experimental features.)
 
-You can customize your installation using [lightning.extend.yml](https://github.com/acquia/lightning/blob/8.x-1.x/lightning.extend.yml).
-Using this file, you can choose which Lightning features to install or install
-your own custom features.
+You can customize your installation by creating a [sub-profile which uses
+Lightning as its base profile][sub-profile documentation]. Lightning includes a
+Drupal Console command (`lightning:subprofile`) which will generate a
+sub-profile for you.
 
 ## What Lightning Does
 Through custom modules and configuration, Lightning aims to target four
@@ -47,6 +49,18 @@ The current version of media includes the following functionality:
 * Ability to create new media through the media library (/media/add)
 * Ability to embed tweets, Instagrams, and YouTube/Vimeo videos directly into
   CKEditor by pasting the video URL
+
+#### Extending Lightning Media (Contributed Modules)
+Drupal community members have contributed several modules which integrate Lightning Media with additional third-party media services. These modules are not packaged with Lightning or maintained by Acquia, but they are stable and you can use them in your Lightning site:
+
+  * [Facebook](https://www.drupal.org/project/lightning_media_facebook)
+  * [Imgur](https://www.drupal.org/project/lightning_media_imgur)
+  * [Flickr](https://www.drupal.org/project/lightning_media_flickr)
+  * [500px](https://www.drupal.org/project/lightning_media_d500px)
+  * [SoundCloud](https://www.drupal.org/project/lightning_media_soundcloud)
+  * [Tumblr](https://www.drupal.org/project/lightning_media_tumblr)
+  * [Spotify](https://www.drupal.org/project/lightning_media_spotify)
+  * [Pinterest](https://www.drupal.org/project/lightning_media_pinterest)  
 
 ### Layout
 Lightning includes the Panelizer module, which allows you to configure the
@@ -71,12 +85,20 @@ as many additional states as you like and define transitions between them. It's
 also possible to schedule content (either a single node or many at once) to be
 transitioned between states at a specific future date and time.
 
-### Preview (Experimental)
-The Workspace Preview System (WPS) gives site builders, editors, authors, and
-reviews the ability to send collections of content through an editorial workflow
-and preview that content within the context of the current live site. WPS is a
-collection of contributed Drupal modules with additional configuration UX
-improvements that all just works out of the box.
+### API-First
+Lightning ships with several modules which, together, quickly set up Drupal to
+deliver data to decoupled applications via a standardized API. By default,
+Lightning installs the OpenAPI and JSON API modules, plus the Simple OAuth
+module, as a toolkit for authentication, authorization, and delivery of data
+to API consumers. Currently, Lightning includes no default configuration for
+any of these modules, because it does not make any assumptions about how the
+API data will be consumed, but we might add support for standard use cases as
+they present themselves.
+
+If you have PHP's OpenSSL extension enabled, Lightning will attempt to create
+an asymmetric key pair for use with OAuth. You should generate a new key pair
+before putting your site into production; instructions for that can be found
+[here](https://www.drupal.org/project/simple_oauth).
 
 ## Project Roadmap
 We publish sprint plans for each patch release. You can find a link to the
@@ -93,49 +115,35 @@ Please use the [Drupal.org issue queue][issue_queue] for latest information and
 to request features or bug fixes.
 
 ## Running Tests
-These instructions assume you have used Composer to install Lightning.
+These instructions assume you have used Composer to install Lightning. Once you
+have it up and running, follow these steps to execute all of Lightning's Behat
+tests:
 
 ### Behat
-    $ cd MYPROJECT/docroot/profiles/lightning
-    $ /path/to/MYPROJECT/bin/behat
+    $ cd MYPROJECT
+    $ ./bin/drupal behat:init http://YOUR.LIGHTNING.SITE --merge=../tests/behat.yml
+    $ ./bin/drupal behat:include ../tests/features --with-subcontexts=../tests/features/bootstrap --with-subcontexts=../src/LightningExtension/Context
+    $ ./bin/behat --config ./docroot/sites/default/files/behat.yml
 
-If necessary, edit behat.local.yml to match your environment. Generally you
-will not need to do this.
+If necessary, you can edit ```docroot/sites/default/files/behat.yml``` to match
+your environment, but generally you will not need to do this.
 
 ## Known Issues
 
 ### Media
-
 * If you upload an image into an image field using the new image browser, you
   can set the image's alt text at upload time, but that text will not be
   replicated to the image field. This is due to a limitation of Entity Browser's
   API.
 
-### Preview
-
-* This functionality relies on Multiversion, which:
-  * Does not yet have a stable release
-  * Modifies internal data structures
-  * Leaves permanent changes in the database after being uninstalled
-  * Introduces the concept of a trash bin. Deleted content is hidden, but not
-    immediately removed from the database anymore. It needs to be deleted and
-    then "purged" to be completely wiped from the database. However, the user
-    interface to purge deleted content is provided by the Trash module, which
-    is not yet ready. This makes it impossible to truly delete content from the
-    UI. (Lightning provides a shim for this, but it only works for nodes at this
-    time.)
-* There are a few scenarios where URL aliases might produce unexpected results,
-  including:
-  * Overriding aliases generated by Pathauto
-  * Aliases for any non-node entities
-* Blocks on the block listing page(s) are not properly filtered by workspace
-  under certain circumstances.
-* The Workspace listing page will display a PHP warning caused by the Workspace
-  module which is effectively harmless but may look alarming.
-* There is no way yet to properly resolve conflicts between workspaces. Users
-  can delete conflicting entities from one of the two workspaces to remove
-  conflicts, but there is no interface yet for picking the winner and keeping
-  both versions.
+### Workflow
+* Lightning Workflow is based on Workbench Moderation, which is incompatible
+  with the experimental Content Moderation module included with Drupal core
+  8.3.0 and later and serves the same purpose as Workbench Moderation. We plan
+  to seamlessly migrate Lightning Workflow to Content Moderation once it is
+  stable, most likely in Drupal 8.4.0. But for now, installing Content
+  Moderation alongside Lightning Workflow may have unpredictable and dangerous
+  effects, and is best avoided.
 
 [issue_queue]: https://www.drupal.org/project/issues/lightning "Lightning Issue Queue"
 [meta_release]: https://www.drupal.org/node/2670686 "Lightning Meta Releases Issue"
@@ -143,3 +151,4 @@ will not need to do this.
 [d.o_semver]: https://www.drupal.org/node/1612910
 [lightning_composer_project]: https://github.com/acquia/lightning-project
 [demo_videos]: http://lightning.acquia.com/blog/lightning-user-stories-demonstrations "Lightning user story demonstration videos"
+[sub-profile documentation]: https://github.com/acquia/lightning/wiki/Lightning-as-a-Base-Profile "Lightning sub-profile documentation"

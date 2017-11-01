@@ -17,7 +17,7 @@ mode: default
 content:
   field_at_tab_content1:
     type: entity_reference_revisions_entity_view
-    weight: 3
+    weight: 2
     label: hidden
     settings:
       view_mode: default
@@ -25,7 +25,7 @@ content:
     third_party_settings: {  }
   field_at_tab_content2:
     type: entity_reference_revisions_entity_view
-    weight: 5
+    weight: 4
     label: hidden
     settings:
       view_mode: default
@@ -39,7 +39,7 @@ content:
     third_party_settings: {  }
     type: string
   field_at_tab_title2:
-    weight: 4
+    weight: 3
     label: hidden
     settings:
       link_to_entity: false
@@ -52,4 +52,5 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
-hidden: {  }
+hidden:
+  workbench_moderation_control: true

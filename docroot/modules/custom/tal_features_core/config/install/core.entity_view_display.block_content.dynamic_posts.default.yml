@@ -36,3 +36,4 @@ content:
     type: entity_reference_label
 hidden:
   field_header_text: true
+  workbench_moderation_control: true

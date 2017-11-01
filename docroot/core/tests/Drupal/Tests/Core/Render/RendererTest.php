@@ -151,7 +151,7 @@ class RendererTest extends RendererTestBase {
     // Test #allowed_tags in combination with #markup and #pre_render.
     $data[] = [[
       '#markup' => 'foo',
-      '#allowed_tags' => array('script'),
+      '#allowed_tags' => ['script'],
       '#pre_render' => [function($elements) {
         $elements['#markup'] .= '<script>alert("bar");</script>';
         return $elements;
@@ -427,17 +427,17 @@ class RendererTest extends RendererTestBase {
     $first = $this->randomMachineName();
     $second = $this->randomMachineName();
     // The same array structure again, but with #sorted set to TRUE.
-    $elements = array(
-      'second' => array(
+    $elements = [
+      'second' => [
         '#weight' => 10,
         '#markup' => $second,
-      ),
-      'first' => array(
+      ],
+      'first' => [
         '#weight' => 0,
         '#markup' => $first,
-      ),
+      ],
       '#sorted' => TRUE,
-    );
+    ];
     $output = $this->renderer->renderRoot($elements);
 
     // The elements should appear in output in the same order as the array.
@@ -541,33 +541,78 @@ class RendererTest extends RendererTestBase {
   }
 
   /**
-   * Tests that a first render returns the rendered output and a second doesn't.
+   * Tests rendering same render array twice.
    *
-   * (Because of the #printed property.)
+   * Tests that a first render returns the rendered output and a second doesn't
+   * because of the #printed property. Also tests that correct metadata has been
+   * set for re-rendering.
    *
    * @covers ::render
    * @covers ::doRender
+   *
+   * @dataProvider providerRenderTwice
    */
-  public function testRenderTwice() {
-    $build = [
-      '#markup' => 'test',
-    ];
-
-    $this->assertEquals('test', $this->renderer->renderRoot($build));
+  public function testRenderTwice($build) {
+    $this->assertEquals('kittens', $this->renderer->renderRoot($build));
+    $this->assertEquals('kittens', $build['#markup']);
+    $this->assertEquals(['kittens-147'], $build['#cache']['tags']);
     $this->assertTrue($build['#printed']);
 
     // We don't want to reprint already printed render arrays.
     $this->assertEquals('', $this->renderer->renderRoot($build));
+  }
 
+  /**
+   * Provides a list of render array iterations.
+   *
+   * @return array
+   */
+  public function providerRenderTwice() {
+    return [
+      [
+        [
+          '#markup' => 'kittens',
+          '#cache' => [
+            'tags' => ['kittens-147']
+          ],
+        ],
+      ],
+      [
+        [
+          'child' => [
+            '#markup' => 'kittens',
+            '#cache' => [
+              'tags' => ['kittens-147'],
+            ],
+          ],
+        ],
+      ],
+      [
+        [
+          '#render_children' => TRUE,
+          'child' => [
+            '#markup' => 'kittens',
+            '#cache' => [
+              'tags' => ['kittens-147'],
+            ],
+          ],
+        ],
+      ],
+    ];
+  }
+
+  /**
+   * Ensures that #access is taken in account when rendering #render_children.
+   */
+  public function testRenderChildrenAccess() {
     $build = [
+      '#access' => FALSE,
+      '#render_children' => TRUE,
       'child' => [
         '#markup' => 'kittens',
       ],
     ];
-    $this->assertEquals('kittens', $this->renderer->renderRoot($build));
-    $this->assertTrue($build['#printed']);
 
-    // We don't want to reprint already printed render arrays.
     $this->assertEquals('', $this->renderer->renderRoot($build));
   }
 
@@ -627,9 +672,9 @@ class RendererTest extends RendererTestBase {
    * @covers ::doRender
    */
   public function testRenderWithoutThemeArguments() {
-    $element = array(
+    $element = [
       '#theme' => 'common_test_foo',
-    );
+    ];
 
     $this->themeManager->expects($this->once())
       ->method('render')
@@ -645,11 +690,11 @@ class RendererTest extends RendererTestBase {
    * @covers ::doRender
    */
   public function testRenderWithThemeArguments() {
-    $element = array(
+    $element = [
       '#theme' => 'common_test_foo',
       '#foo' => $this->randomMachineName(),
       '#bar' => $this->randomMachineName(),
-    );
+    ];
 
     $this->themeManager->expects($this->once())
       ->method('render')

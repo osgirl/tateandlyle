@@ -54,17 +54,11 @@ class ModerationRevisionRevertTest extends BrowserTestBase {
    * Test that reverting a revision works.
    */
   public function testEditingAfterRevertRevision() {
-    // Create a draft
-    $edit = array(
-      'title[0][value]' => 'First draft node',
-    );
-    $this->drupalPostForm('node/add/moderated_bundle', $edit, t('Save and Create New Draft'));
+    // Create a draft.
+    $this->drupalPostForm('node/add/moderated_bundle', ['title[0][value]' => 'First draft node'], t('Save and Create New Draft'));
 
-    // Now make it published
-    $edit = array(
-      'title[0][value]' => 'Published node',
-    );
-    $this->drupalPostForm('node/1/edit', $edit, t('Save and Publish'));
+    // Now make it published.
+    $this->drupalPostForm('node/1/edit', ['title[0][value]' => 'Published node'], t('Save and Publish'));
 
     // Check the editing form that show the published title.
     $this->drupalGet('node/1/edit');
@@ -92,4 +86,5 @@ class ModerationRevisionRevertTest extends BrowserTestBase {
     $this->assertSession()
       ->pageTextContains('moderated_bundle First draft node has been updated');
   }
+
 }
