@@ -1,0 +1,7 @@
+tal_ingredient_search:
+  path: 'search/ingredients'
+  defaults:
+    _controller: 'Drupal\tal_ingredient_search\Controller\IngredientSearchController::page'
+    _title: 'Ingredient finder'
+  requirements:
+    _permission: 'access content'

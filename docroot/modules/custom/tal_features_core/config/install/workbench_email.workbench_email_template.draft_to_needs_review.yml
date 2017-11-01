@@ -1,0 +1,30 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.company_story
+    - node.type.contact
+    - node.type.icon
+    - node.type.iframe_content
+    - node.type.image
+    - node.type.ingredient
+    - node.type.landing_page
+    - node.type.leadership
+    - node.type.press_release
+    - user.role.administrator
+id: draft_to_needs_review
+label: 'Draft to Needs review'
+roles:
+  administrator: administrator
+bundles:
+  'node:company_story': 'node:company_story'
+  'node:contact': 'node:contact'
+  'node:icon': 'node:icon'
+  'node:iframe_content': 'node:iframe_content'
+  'node:image': 'node:image'
+  'node:ingredient': 'node:ingredient'
+  'node:landing_page': 'node:landing_page'
+  'node:leadership': 'node:leadership'
+  'node:press_release': 'node:press_release'
+fields: {  }
+author: false

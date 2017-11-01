@@ -1,0 +1,36 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.download_accordion_items.field_dl_accordion_body
+    - field.field.paragraph.download_accordion_items.field_in_accordion_header
+    - paragraphs.paragraphs_type.download_accordion_items
+  module:
+    - paragraphs
+    - workbench_moderation
+id: paragraph.download_accordion_items.default
+targetEntityType: paragraph
+bundle: download_accordion_items
+mode: default
+content:
+  field_dl_accordion_body:
+    type: entity_reference_paragraphs
+    weight: 1
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+    third_party_settings: {  }
+  field_in_accordion_header:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+hidden:
+  created: true
+  status: true
+  uid: true

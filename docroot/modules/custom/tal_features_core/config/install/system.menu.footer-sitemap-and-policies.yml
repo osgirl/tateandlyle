@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: footer-sitemap-and-policies
+label: 'Footer Sitemap and Policies Menu'
+description: 'Add links for Footer Sitemap and Policies Menu'
+locked: false

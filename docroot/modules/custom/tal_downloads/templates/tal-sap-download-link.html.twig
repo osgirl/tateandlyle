@@ -1,0 +1,64 @@
+
+{#
+/**
+ * @file
+ * Default theme implementation for a link to a file.
+ *
+ * Available variables:
+ * - attributes: The HTML attributes for the containing element.
+ * - link: A link to the file.
+ * - link: A link to the file.
+ *
+ * @see template_preprocess_file_link()
+ *
+ * @ingroup themeable
+ */
+ @
+#}
+
+{% if file_count > 1 %}
+  <div class="{{ para_id }} paragraph--type--sap-downloads">
+{% else %}
+  <div class="{{ para_id }} no__selector paragraph--type--sap-downloads">
+{% endif %}
+
+    <div class="inline-content inline-icon">
+    <img src="/{{ directory }}/images/icons/iconpdf.png">
+    </div>
+
+    <div class="inline-content inline-description">
+      <div class="sap__title">{{ title }}</div>
+      <div class="sap__summary">{{ summary }}</div>
+    </div>
+
+    <div class="field--name-field-file-group">
+
+        {% if file_count > 1 %}
+            <div class="select doc-type sap__downloads">
+                {{ file_type }}
+            </div>
+        {% endif %}
+
+        {% if file_count > 1 %}
+          <div class="tal__download--button sap__downloads--button inactive--download">
+              <span class="download-inactive">Download</span>
+          </div>
+        {% endif %}
+
+        {% for key,value in dln_details %}
+            {% if value %}
+                {% set doc_class = [key, para_id]|join('_') %}
+            <div class="tal__download--button sap__downloads--button {{ doc_class }}" >
+                {% if value.dln_link %}
+                    <p class="file-size">{{ value.file_size }}</p>
+                    {% if gated %}
+                    <span class="btn--download" data-toggle="modal" data-target="#myModal" data-file="{{ value.fid }}">{{ value.dln_link }}</span>
+                    {% else %}
+                        <span class="btn--download">{{ value.dln_link }}</span>
+                    {% endif %}
+                {% endif %}
+            </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>

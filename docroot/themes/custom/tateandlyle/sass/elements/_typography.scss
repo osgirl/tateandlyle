@@ -1,0 +1,41 @@
+blockquote {
+  border-left: 0;
+  p {
+    &::before {
+      content: open-quote;
+    }
+
+    &::after {
+      content: close-quote;
+    }
+
+    &::before,
+    &::after {
+      display: inline-block;
+      line-height: 0;
+      font-size: 24px;
+    }
+  }
+}
+
+li.strong,
+strong {
+  font-family: $font-family-sans-serif-bold;
+}
+
+label {
+  font-weight: normal;
+}
+
+.block--freefrom-wysiwyg .field--type-text-with-summary a,
+.field--type-text-with-summary a {
+  font-size: inherit;
+  &::after {
+    content: none;
+  }
+
+  &.brand--arrow::after {
+    @extend %right-brand-arrow;
+    vertical-align: middle;
+  }
+}

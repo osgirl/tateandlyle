@@ -1,0 +1,29 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.banner
+    - block_content.type.homepage_banner
+    - field.storage.node.field_in_banner
+    - node.type.leadership
+id: node.leadership.field_in_banner
+field_name: field_in_banner
+entity_type: node
+bundle: leadership
+label: Banner
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:block_content'
+  handler_settings:
+    target_bundles:
+      banner: banner
+      homepage_banner: homepage_banner
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: banner
+field_type: entity_reference

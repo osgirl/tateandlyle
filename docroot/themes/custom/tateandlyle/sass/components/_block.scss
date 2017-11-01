@@ -1,0 +1,216 @@
+.block-bg.white,
+.block-bg.off-white,
+.block-bg.light-grey,
+.block-bg.no__bg {
+  color: $gray-base;
+  a:hover {
+    color: $brand-primary;
+    opacity: 1;
+  }
+
+  .field--name-field-dcp-content-section > .field--item {
+    border-color: $gray-dark;
+    .field--name-field-simple-summary {
+      color: $gray-dark;
+    }
+
+    .field--name-field-simple-text a:hover,
+    .field--name-field-dcp-link a:hover {
+      color: $brand-primary;
+      opacity: 1;
+    }
+  }
+
+  .field--name-field-banner-title,
+  .block-title {
+
+    &::before {
+      background-color: $gray-base;
+    }
+  }
+
+  .field--name-field-all-jobs-link {
+    a {
+      background: $brand-primary;
+      border: none;
+    }
+
+    a:hover {
+      background: $brand-primary;
+      border: none;
+      box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
+      color: $color-white;
+      padding: 8px 20px;
+    }
+  }
+}
+
+.block-bg.cool-grey,
+.annual__reports .icon.cool-grey {
+  background-color: $color-warm-gray;
+}
+
+.block-bg.black,
+.annual__reports .icon.black {
+  background-color: $gray-base;
+}
+
+.block-bg.purple,
+.annual__reports .icon.purple {
+  background-color: $color-purple;
+}
+
+.block-bg.blue,
+.annual__reports .icon.blue {
+  background-color: $brand-primary;
+
+  .field--name-field-all-jobs-link a {
+    border: 1px solid $color-white;
+  }
+
+  .field--name-field-tal-link a:hover {
+    color: $gray-base;
+  }
+}
+
+.block-bg.pink,
+.annual__reports .icon.pink {
+  background-color: $color-red;
+}
+
+.block-bg.off-white,
+.annual__reports .icon.off-white {
+  background-color: $color-off-white;
+}
+
+.block-bg.mid-grey,
+.annual__reports .icon.mid-grey {
+  background-color: $gray-dark;
+}
+
+.block-bg.yellow,
+.annual__reports .icon.yellow {
+  background-color: $color-yellow;
+}
+
+.block-bg.warm-grey,
+.annual__reports .icon.warm-grey {
+  background-color: $color-gold;
+}
+
+.block-bg.silver,
+.annual__reports .icon.silver {
+  background-color: $color-silver;
+}
+
+.block-bg.light-grey,
+.annual__reports .icon.light-grey {
+  background-color: $color-light-gray;
+}
+
+
+.noblock--bg.cool-grey {
+  color: $color-warm-gray;
+}
+
+.noblock--bg,
+.noblock--bg.black {
+  color: $gray-base;
+}
+
+.noblock--bg.purple {
+  color: $color-purple;
+}
+
+.noblock--bg.blue {
+  color: $brand-primary;
+}
+
+.noblock--bg.pink {
+  color: $color-red;
+}
+
+.noblock--bg.white {
+  color: $color-white;
+}
+
+.noblock--bg.off-white {
+  color: $color-off-white;
+}
+
+.noblock--bg.mid-grey {
+  color: $gray-dark;
+}
+
+.noblock--bg.yellow {
+  color: $color-yellow;
+}
+
+.noblock--bg.warm-grey {
+  color: $color-gold;
+}
+
+.noblock--bg.silver {
+  color: $color-silver;
+}
+
+.noblock--bg.light-grey {
+  color: $color-light-gray;
+}
+
+// Block Reference custom blocks.
+
+.paragraph--type--block-reference {
+  & > .block {
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+
+  & > .block--connect {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    @media (min-width: $screen-xs) {
+      margin-top: 50px;
+      margin-bottom: 50px;
+    }
+  }
+
+  & > .block--accordion-with-tabs {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .block--single-item-promo {
+    .field--name-body {
+      padding-left: 0;
+    }
+  }
+}
+
+.paragraph--show-border {
+  .file--downloads {
+    margin: auto;
+    border: 0;
+    padding: 0;
+  }
+}
+
+.block--banner,
+.block--connect,
+.block--single-item-promo-background,
+.block--content-promo-images,
+.block--quote,
+.trends-solutions,
+.block--dynamic-posts {
+  position: relative;
+  clear: both;
+  .contextual {
+    @media(min-width: $screen-md-lg) {
+      right: 11%;
+    }
+  }
+}
+
+section.block {
+  clear: both;
+}
