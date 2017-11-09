@@ -99,12 +99,18 @@ class TemplateForm extends EntityForm {
       '#disabled' => !$workbench_email_template->isNew(),
     ];
 
-    $form['subject'] = [
+    $form['contents'] = [
+      '#type' => 'details',
+      '#title' => $this->t('Email contents'),
+      '#open' => TRUE,
+    ];
+
+    $form['contents']['subject'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Subject'),
       '#maxlength' => 255,
       '#default_value' => $workbench_email_template->getSubject(),
-      '#description' => $this->t("Email subject - you can use tokens like [node:title] depending on the entity-type being updated."),
+      '#description' => $this->t('Email subject. You can use tokens like [node:title] depending on the entity type being updated.'),
       '#required' => TRUE,
     ];
 
@@ -112,14 +118,23 @@ class TemplateForm extends EntityForm {
         'value' => '',
         'format' => 'plain_text',
       ];
-    $form['body'] = [
+    $form['contents']['body'] = [
       '#type' => 'text_format',
       '#title' => $this->t('Body'),
-      '#description' => $this->t('Email body, you may use tokens like [node:title] depending on the entity-type being updated.'),
+      '#description' => $this->t('Email body. You can use tokens like [node:title] depending on the entity type being updated.'),
       '#required' => TRUE,
       '#format' => $default_body['format'],
       '#default_value' => $default_body['value'],
     ];
+
+    // Display a token browser if the Token module is available.
+    if (\Drupal::moduleHandler()->moduleExists('token')) {
+      $form['contents']['tokens'] = array(
+        '#theme' => 'token_tree_link',
+        '#token_types' => ['node'],
+      );
+    }
+
     // Add the roles.
     $roles = array_filter($this->entityTypeManager->getStorage('user_role')
       ->loadMultiple(), function (RoleInterface $role) {

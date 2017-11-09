@@ -1931,7 +1931,7 @@
         "version_normalized": "8.2.10.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/klausi/coder.git",
+            "url": "https://git.drupal.org/project/coder.git",
             "reference": "c835ff5c1733676fe0d3f3b861e814d570baaa6f"
         },
         "dist": {
@@ -4815,6 +4815,7 @@
                 }
             },
             "patches_applied": {
+                "Provide tokens for the latest revision": "https://www.drupal.org/files/issues/provide_tokens_for_the-2865289-5.patch",
                 "2668006 - Provide logical access control for when IPE should be applied to moderated nodes": "https://www.drupal.org/files/issues/2668006-2.patch",
                 "2847078 - Revision tracker's dynamic table creation can break Views": "https://www.drupal.org/files/issues/2847078-6.patch",
                 "2749503 - Add basic support for Quick Edit": "https://www.drupal.org/files/issues/workbench_moderation-quickedit-support-2749503-6.patch"
@@ -4977,10 +4978,6 @@
             "drupal": {
                 "version": "8.x-1.x",
                 "datestamp": "1493246342",
-                "security-coverage": {
-                    "status": "covered",
-                    "message": "Covered by Drupal's security advisory policy"
-                },
                 "package": "Field types"
             }
         },
@@ -5034,11 +5031,7 @@
             },
             "drupal": {
                 "version": "8.x-1.0",
-                "datestamp": "1493466843",
-                "security-coverage": {
-                    "status": "covered",
-                    "message": "Covered by Drupal's security advisory policy"
-                }
+                "datestamp": "1493466843"
             }
         },
         "installation-source": "dist",
@@ -5486,11 +5479,7 @@
             },
             "drupal": {
                 "version": "8.x-1.0-beta1",
-                "datestamp": "1477868343",
-                "security-coverage": {
-                    "status": "not-covered",
-                    "message": "Beta releases are not covered by Drupal security advisories."
-                }
+                "datestamp": "1477868343"
             }
         },
         "installation-source": "dist",
@@ -5694,11 +5683,7 @@
             },
             "drupal": {
                 "version": "8.x-1.0",
-                "datestamp": "1493468044",
-                "security-coverage": {
-                    "status": "covered",
-                    "message": "Covered by Drupal's security advisory policy"
-                }
+                "datestamp": "1493468044"
             }
         },
         "installation-source": "dist",
@@ -6523,11 +6508,7 @@
             },
             "drupal": {
                 "version": "8.x-1.6",
-                "datestamp": "1480363983",
-                "security-coverage": {
-                    "status": "covered",
-                    "message": "Covered by Drupal's security advisory policy"
-                }
+                "datestamp": "1480363983"
             }
         },
         "installation-source": "dist",
@@ -6571,10 +6552,6 @@
             {
                 "name": "katzilla",
                 "homepage": "https://www.drupal.org/user/260398"
-            },
-            {
-                "name": "marcoscano",
-                "homepage": "https://www.drupal.org/user/1288796"
             },
             {
                 "name": "phenaproxima",
@@ -6626,11 +6603,7 @@
             },
             "drupal": {
                 "version": "8.x-1.3",
-                "datestamp": "1478549339",
-                "security-coverage": {
-                    "status": "covered",
-                    "message": "Covered by Drupal's security advisory policy"
-                }
+                "datestamp": "1478549339"
             }
         },
         "installation-source": "dist",
@@ -6684,11 +6657,7 @@
             },
             "drupal": {
                 "version": "8.x-1.4",
-                "datestamp": "1495556283",
-                "security-coverage": {
-                    "status": "covered",
-                    "message": "Covered by Drupal's security advisory policy"
-                }
+                "datestamp": "1495556283"
             }
         },
         "installation-source": "dist",
@@ -6753,11 +6722,7 @@
             },
             "drupal": {
                 "version": "8.x-1.2",
-                "datestamp": "1470170939",
-                "security-coverage": {
-                    "status": "covered",
-                    "message": "Covered by Drupal's security advisory policy"
-                }
+                "datestamp": "1470170939"
             }
         },
         "installation-source": "dist",
@@ -6817,11 +6782,7 @@
             },
             "drupal": {
                 "version": "8.x-1.1",
-                "datestamp": "1470211995",
-                "security-coverage": {
-                    "status": "covered",
-                    "message": "Covered by Drupal's security advisory policy"
-                }
+                "datestamp": "1470211995"
             }
         },
         "installation-source": "dist",
@@ -6991,11 +6952,7 @@
             },
             "drupal": {
                 "version": "8.x-3.5",
-                "datestamp": "1488908583",
-                "security-coverage": {
-                    "status": "covered",
-                    "message": "Covered by Drupal's security advisory policy"
-                }
+                "datestamp": "1488908583"
             }
         },
         "installation-source": "dist",
@@ -7064,11 +7021,7 @@
             },
             "drupal": {
                 "version": "8.x-1.0",
-                "datestamp": "1490755685",
-                "security-coverage": {
-                    "status": "covered",
-                    "message": "Covered by Drupal's security advisory policy"
-                }
+                "datestamp": "1490755685"
             }
         },
         "installation-source": "dist",
@@ -7135,11 +7088,7 @@
             },
             "drupal": {
                 "version": "8.x-1.0-beta2",
-                "datestamp": "1476698339",
-                "security-coverage": {
-                    "status": "not-covered",
-                    "message": "Beta releases are not covered by Drupal security advisories."
-                }
+                "datestamp": "1476698339"
             },
             "patches_applied": {
                 "2832504 - Send the CKEditor instance ID to the embed.preview route": "https://www.drupal.org/files/issues/2832504-2.patch"
@@ -7296,11 +7245,7 @@
             },
             "drupal": {
                 "version": "8.x-1.0-alpha2",
-                "datestamp": "1484641084",
-                "security-coverage": {
-                    "status": "not-covered",
-                    "message": "Alpha releases are not covered by Drupal security advisories."
-                }
+                "datestamp": "1484641084"
             },
             "patches_applied": {
                 "2844068 - Create derivatives for any viewable entity.": "https://www.drupal.org/files/issues/entity_block-view-builder-class.patch",
@@ -7558,11 +7503,7 @@
             },
             "drupal": {
                 "version": "8.x-1.0-rc1",
-                "datestamp": "1484566683",
-                "security-coverage": {
-                    "status": "not-covered",
-                    "message": "RC releases are not covered by Drupal security advisories."
-                }
+                "datestamp": "1484566683"
             }
         },
         "installation-source": "dist",
@@ -7646,11 +7587,7 @@
             },
             "drupal": {
                 "version": "8.x-1.0-beta9",
-                "datestamp": "1497478742",
-                "security-coverage": {
-                    "status": "not-covered",
-                    "message": "Beta releases are not covered by Drupal security advisories."
-                }
+                "datestamp": "1497478742"
             }
         },
         "installation-source": "dist",
@@ -8002,11 +7939,7 @@
             },
             "drupal": {
                 "version": "8.x-1.0-alpha2",
-                "datestamp": "1495550883",
-                "security-coverage": {
-                    "status": "not-covered",
-                    "message": "Alpha releases are not covered by Drupal security advisories."
-                }
+                "datestamp": "1480949282"
             }
         },
         "installation-source": "dist",
@@ -8452,11 +8385,7 @@
             },
             "drupal": {
                 "version": "8.x-1.0-rc2",
-                "datestamp": "1495745283",
-                "security-coverage": {
-                    "status": "not-covered",
-                    "message": "Project has not opted into security advisory coverage!"
-                }
+                "datestamp": "1495745283"
             }
         },
         "installation-source": "dist",
@@ -8641,11 +8570,7 @@
             },
             "drupal": {
                 "version": "8.x-1.4",
-                "datestamp": "1493051344",
-                "security-coverage": {
-                    "status": "covered",
-                    "message": "Covered by Drupal's security advisory policy"
-                }
+                "datestamp": "1493051344"
             }
         },
         "installation-source": "dist",
@@ -8707,11 +8632,7 @@
             },
             "drupal": {
                 "version": "8.x-1.1",
-                "datestamp": "1495478283",
-                "security-coverage": {
-                    "status": "covered",
-                    "message": "Covered by Drupal's security advisory policy"
-                }
+                "datestamp": "1495478283"
             }
         },
         "installation-source": "dist",
@@ -10143,11 +10064,7 @@
             },
             "drupal": {
                 "version": "8.x-1.0-beta3",
-                "datestamp": "1467193139",
-                "security-coverage": {
-                    "status": "not-covered",
-                    "message": "Project has not opted into security advisory coverage!"
-                }
+                "datestamp": "1467193139"
             }
         },
         "installation-source": "dist",
@@ -10195,11 +10112,7 @@
             },
             "drupal": {
                 "version": "8.x-1.0-alpha3",
-                "datestamp": "1487293084",
-                "security-coverage": {
-                    "status": "not-covered",
-                    "message": "Alpha releases are not covered by Drupal security advisories."
-                }
+                "datestamp": "1487293084"
             }
         },
         "installation-source": "dist",
@@ -10339,11 +10252,7 @@
             },
             "drupal": {
                 "version": "8.x-1.0-rc4",
-                "datestamp": "1480288380",
-                "security-coverage": {
-                    "status": "not-covered",
-                    "message": "RC releases are not covered by Drupal security advisories."
-                }
+                "datestamp": "1480288380"
             }
         },
         "installation-source": "dist",
@@ -10514,11 +10423,7 @@
             },
             "drupal": {
                 "version": "8.x-1.27",
-                "datestamp": "1499867343",
-                "security-coverage": {
-                    "status": "covered",
-                    "message": "Covered by Drupal's security advisory policy"
-                }
+                "datestamp": "1499867343"
             }
         },
         "installation-source": "dist",
@@ -10778,11 +10683,7 @@
             },
             "drupal": {
                 "version": "8.x-2.0",
-                "datestamp": "1479750843",
-                "security-coverage": {
-                    "status": "covered",
-                    "message": "Covered by Drupal's security advisory policy"
-                }
+                "datestamp": "1479750843"
             }
         },
         "installation-source": "dist",
@@ -11229,11 +11130,7 @@
             },
             "drupal": {
                 "version": "8.x-1.0-beta1",
-                "datestamp": "1501443542",
-                "security-coverage": {
-                    "status": "not-covered",
-                    "message": "Project has not opted into security advisory coverage!"
-                }
+                "datestamp": "1501443542"
             }
         },
         "installation-source": "dist",
@@ -11425,11 +11322,7 @@
             },
             "drupal": {
                 "version": "8.x-1.0-alpha2",
-                "datestamp": "1470853439",
-                "security-coverage": {
-                    "status": "not-covered",
-                    "message": "Alpha releases are not covered by Drupal security advisories."
-                }
+                "datestamp": "1470853439"
             }
         },
         "installation-source": "dist",
@@ -11477,11 +11370,7 @@
             },
             "drupal": {
                 "version": "8.x-1.x-dev",
-                "datestamp": "1476978839",
-                "security-coverage": {
-                    "status": "not-covered",
-                    "message": "Dev releases are not covered by Drupal security advisories."
-                }
+                "datestamp": "1476978839"
             }
         },
         "installation-source": "source",
@@ -11682,11 +11571,7 @@
             },
             "drupal": {
                 "version": "8.x-2.8",
-                "datestamp": "1490775483",
-                "security-coverage": {
-                    "status": "covered",
-                    "message": "Covered by Drupal's security advisory policy"
-                }
+                "datestamp": "1490775483"
             }
         },
         "installation-source": "dist",
@@ -11953,11 +11838,7 @@
             },
             "drupal": {
                 "version": "8.x-1.0",
-                "datestamp": "1490096883",
-                "security-coverage": {
-                    "status": "covered",
-                    "message": "Covered by Drupal's security advisory policy"
-                }
+                "datestamp": "1490096883"
             }
         },
         "installation-source": "dist",
@@ -12069,11 +11950,7 @@
             },
             "drupal": {
                 "version": "8.x-1.3",
-                "datestamp": "1488325384",
-                "security-coverage": {
-                    "status": "covered",
-                    "message": "Covered by Drupal's security advisory policy"
-                }
+                "datestamp": "1488325384"
             }
         },
         "installation-source": "dist",
@@ -12137,11 +12014,7 @@
             },
             "drupal": {
                 "version": "8.x-1.0",
-                "datestamp": "1495746183",
-                "security-coverage": {
-                    "status": "covered",
-                    "message": "Covered by Drupal's security advisory policy"
-                }
+                "datestamp": "1495746183"
             }
         },
         "installation-source": "dist",
@@ -12197,11 +12070,7 @@
             },
             "drupal": {
                 "version": "8.x-1.0-rc2",
-                "datestamp": "1486728183",
-                "security-coverage": {
-                    "status": "not-covered",
-                    "message": "RC releases are not covered by Drupal security advisories."
-                }
+                "datestamp": "1486728183"
             }
         },
         "installation-source": "dist",
@@ -12246,11 +12115,7 @@
             },
             "drupal": {
                 "version": "8.x-1.0",
-                "datestamp": "1463158739",
-                "security-coverage": {
-                    "status": "covered",
-                    "message": "Covered by Drupal's security advisory policy"
-                }
+                "datestamp": "1463158739"
             }
         },
         "installation-source": "dist",
@@ -12441,18 +12306,18 @@
     },
     {
         "name": "drupal/workbench_email",
-        "version": "1.0.0-alpha3",
-        "version_normalized": "1.0.0.0-alpha3",
+        "version": "1.0.0-alpha6",
+        "version_normalized": "1.0.0.0-alpha6",
         "source": {
             "type": "git",
             "url": "https://git.drupal.org/project/workbench_email",
-            "reference": "8.x-1.0-alpha3"
+            "reference": "8.x-1.0-alpha6"
         },
         "dist": {
             "type": "zip",
-            "url": "https://ftp.drupal.org/files/projects/workbench_email-8.x-1.0-alpha3.zip",
-            "reference": "8.x-1.0-alpha3",
-            "shasum": "2ffa413112a0a04894b7541b271c4f1ea5bc9cce"
+            "url": "https://ftp.drupal.org/files/projects/workbench_email-8.x-1.0-alpha6.zip",
+            "reference": "8.x-1.0-alpha6",
+            "shasum": "2493c6a368d322545705cfdb7a12ee39df0ecbc4"
         },
         "require": {
             "drupal/core": "*",
@@ -12464,12 +12329,15 @@
                 "dev-1.x": "1.x-dev"
             },
             "drupal": {
-                "version": "8.x-1.0-alpha3",
-                "datestamp": "1487197684",
+                "version": "8.x-1.0-alpha6",
+                "datestamp": "1501632844",
                 "security-coverage": {
                     "status": "not-covered",
                     "message": "Alpha releases are not covered by Drupal security advisories."
                 }
+            },
+            "patches_applied": {
+                "Link to available tokens on email template page": "https://www.drupal.org/files/issues/2782635-display-token-browser.patch"
             }
         },
         "installation-source": "dist",

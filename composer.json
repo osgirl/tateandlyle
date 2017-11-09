@@ -35,7 +35,7 @@
         "drupal/default_content": "1.0-alpha3",
         "dflydev/dot-access-data": "dev-master",
         "drupal/simple_menu_icons": "1.0-beta5",
-        "drupal/workbench_email": "1.0-alpha3",
+        "drupal/workbench_email": "1.0-alpha6",
         "drupal/simple_sitemap": "2.8.0",
         "drupal/migrate_plus": "^3.0",
         "drupal/migrate_tools": "^3.0",
@@ -213,6 +213,12 @@
             },
             "drupal/shield": {
                 "Shield and D8 core basic_auth": "https://www.drupal.org/files/issues/shield.patch"
+            },
+            "drupal/workbench_moderation": {
+              "Provide tokens for the latest revision": "https://www.drupal.org/files/issues/provide_tokens_for_the-2865289-5.patch"
+            },
+            "drupal/workbench_email": {
+                "Link to available tokens on email template page": "https://www.drupal.org/files/issues/2782635-display-token-browser.patch"
             }
         },
         "drupal-scaffold": {
