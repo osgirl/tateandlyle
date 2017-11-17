@@ -11,7 +11,8 @@
             $(context).bind('cbox_complete', function () {
                 // Add download link and move title.
                 if ($('#cboxLoadedContent > img').attr('src')) {
-                    var fullHref = $('#cboxLoadedContent > img').attr('src').replace(/styles\/large\/public\//,'');
+                    var fullHref = $('#cboxLoadedContent > img').attr('src').split('?')[0];
+                    fullHref = fullHref.replace(/\/styles(.+?)\/public/,'');
                     var fullLink = $('<a/>');
                     var filename =  fullHref.substr(fullHref.lastIndexOf("/")+1);
                     fullLink.attr('href', fullHref);
