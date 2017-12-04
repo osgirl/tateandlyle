@@ -181,12 +181,12 @@ class WorkbenchTransitionEmailTest extends BrowserTestBase {
       'entity_type' => 'node',
     ])->save();
     if (!$entity_form_display = EntityFormDisplay::load('node.test.default')) {
-      $entity_form_display = EntityFormDisplay::create(array(
+      $entity_form_display = EntityFormDisplay::create([
         'targetEntityType' => 'node',
         'bundle' => 'test',
         'mode' => 'default',
         'status' => TRUE,
-      ));
+      ]);
     }
     $entity_form_display->setComponent('field_email', ['type' => 'email_default'])->save();
   }

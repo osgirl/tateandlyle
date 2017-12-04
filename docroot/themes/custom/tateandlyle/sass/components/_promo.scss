@@ -69,7 +69,6 @@
 
   .field--name-field-all-jobs-link {
     margin-top: 35px;
-    margin-left: 20px;
     @media (min-width: $screen-sm) {
       margin-left: 0;
       text-align: center;
@@ -80,8 +79,9 @@
       background: transparent;
       border: 1px solid;
       color: $color-white;
-      display: inline;
       padding: 8px 20px;
+      display: inline-block;
+      text-align: center;
 
       &::after {
         content: $fa-var-angle-right;

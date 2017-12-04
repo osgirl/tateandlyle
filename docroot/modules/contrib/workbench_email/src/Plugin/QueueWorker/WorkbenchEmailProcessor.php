@@ -10,6 +10,7 @@ use Drupal\Core\Queue\QueueWorkerBase;
 use Drupal\Core\Render\RendererInterface;
 use Drupal\Core\Utility\Token;
 use Drupal\workbench_email\QueuedEmail;
+use Drupal\workbench_moderation\ModerationInformationInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -60,6 +61,13 @@ class WorkbenchEmailProcessor extends QueueWorkerBase implements ContainerFactor
   protected $entityRepository;
 
   /**
+   * Moderation information service.
+   *
+   * @var \Drupal\workbench_moderation\ModerationInformationInterface
+   */
+  protected $moderationInformation;
+
+  /**
    * Constructs a new WorkbenchEmailProcessor object.
    *
    * @param array $configuration
@@ -76,14 +84,17 @@ class WorkbenchEmailProcessor extends QueueWorkerBase implements ContainerFactor
    *   Token service.
    * @param \Drupal\Core\Render\RendererInterface $renderer
    *   Renderer service.
+   * @param \Drupal\workbench_moderation\ModerationInformationInterface $renderer
+   *   Renderer service.
    */
-  public function __construct(array $configuration, $plugin_id, $plugin_definition, MailManagerInterface $mail_manager, EntityRepositoryInterface $entity_repository, Token $token, RendererInterface $renderer) {
+  public function __construct(array $configuration, $plugin_id, $plugin_definition, MailManagerInterface $mail_manager, EntityRepositoryInterface $entity_repository, Token $token, RendererInterface $renderer, ModerationInformationInterface $moderation_information) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
     $this->mailManager = $mail_manager;
     $this->targetEntityType = $plugin_definition['entity_type'];
     $this->entityRepository = $entity_repository;
     $this->token = $token;
     $this->renderer = $renderer;
+    $this->moderationInformation = $moderation_information;
   }
 
   /**
@@ -97,7 +108,8 @@ class WorkbenchEmailProcessor extends QueueWorkerBase implements ContainerFactor
       $container->get('plugin.manager.mail'),
       $container->get('entity.repository'),
       $container->get('token'),
-      $container->get('renderer')
+      $container->get('renderer'),
+      $container->get('workbench_moderation.moderation_information')
     );
   }
 
@@ -110,6 +122,7 @@ class WorkbenchEmailProcessor extends QueueWorkerBase implements ContainerFactor
       $uuid = $data->getUuid();
       if ($entity = $this->entityRepository->loadEntityByUuid($this->targetEntityType, $uuid)) {
         $body = $template->getBody();
+        $entity = $this->moderationInformation->getLatestRevision($this->targetEntityType, $entity->id());
         $subject = $this->token->replace($template->getSubject(), [$entity->getEntityTypeId() => $entity]);
         $body['value'] = $this->token->replace($body['value'], [$entity->getEntityTypeId() => $entity]);
         $body = $this->checkMarkup($body['value'], $body['format']);

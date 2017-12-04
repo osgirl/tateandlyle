@@ -7,8 +7,8 @@ dependencies:
   - workbench_moderation
   - filter
 
-# Information added by Drupal.org packaging script on 2016-10-07
-version: '8.x-1.0-alpha3'
+# Information added by Drupal.org packaging script on 2017-08-02
+version: '8.x-1.0-alpha6'
 core: '8.x'
 project: 'workbench_email'
-datestamp: 1475800445
+datestamp: 1501632851
