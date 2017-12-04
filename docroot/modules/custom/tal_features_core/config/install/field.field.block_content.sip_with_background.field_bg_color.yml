@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.sip_with_background
+    - field.storage.block_content.field_bg_color
+  module:
+    - options
+id: block_content.sip_with_background.field_bg_color
+field_name: field_bg_color
+entity_type: block_content
+bundle: sip_with_background
+label: 'Background color'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

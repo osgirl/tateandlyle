@@ -1,0 +1,26 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: content
+label: Content
+type: 'canonical_entities:node'
+pattern: '/content/[node:title]'
+selection_criteria:
+  05ce305e-ca5f-4d59-9e98-56240ff82807:
+    id: node_type
+    bundles:
+      contact: contact
+      icon: icon
+      iframe_content: iframe_content
+      image: image
+      leadership: leadership
+      media_gallery_video: media_gallery_video
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 05ce305e-ca5f-4d59-9e98-56240ff82807
+selection_logic: and
+weight: -10
+relationships: {  }

@@ -1,0 +1,513 @@
+.path-search main,
+.path-search .region-content-bottom,
+.block-views-exposed-filter-blocksearch-search-page,
+.block-views-exposed-filter-blockingredient-finder-page-1 {
+  @extend %inner-content-width-padding;
+  margin: auto;
+  clear: both;
+  overflow: hidden;
+}
+
+.path-search .right__sidebar,
+.path-search .left__content {
+  padding-top: 10px;
+  @media (min-width: $screen-sm) {
+    padding-top: 40px;
+  }
+}
+
+.path-search .page-header {
+  margin-bottom: 30px;
+}
+
+.path-search .region-secondary-top {
+  display: table;
+  width: 100%;
+  @media (min-width: $screen-md) {
+    display: block;
+  }
+}
+
+.path-search main {
+  .col-md-9 {
+    @media (min-width: $screen-md) {
+      padding-right: 30px;
+      width: 70%;
+    }
+  }
+
+  .col-md-3 {
+    @media (min-width: $screen-md) {
+      width: 30%;
+    }
+  }
+}
+
+.tal-ingredient-finder-wrapper,
+.block-views-exposed-filter-blocksearch-search-page,
+.block-views-exposed-filter-blockingredient-finder-page-1 {
+
+  form,
+  .views-exposed-form {
+    background: $brand-primary;
+    padding: 20px 22px;
+
+    @media (min-width: $screen-sm) {
+      padding: 30px 28px;
+    }
+
+    .control-label {
+      color: $color-white;
+      font-size: $font-size-h3;
+      font-family: $font-family-sans-serif-Med;
+      margin-bottom: 14px;
+      vertical-align: top;
+
+      @media (min-width: $screen-sm) {
+        margin-bottom: 0;
+        max-width: 170px;
+        padding-right: 44px;
+      }
+
+      @media (min-width: $screen-md) {
+        max-width: none;
+      }
+    }
+
+    @media (max-width: $screen-xs-max) {
+      position: relative;
+
+      .form-control {
+        margin-right: 45px;
+        padding-right: 45px;
+      }
+
+      .form-actions {
+        bottom: 20px;
+        display: inline-block;
+        position: absolute;
+        right: 22px;
+      }
+    }
+  }
+
+  .page--tal-ingredient-finder-summary {
+    @extend .max-width-summary;
+    display: none;
+    margin-bottom: 30px;
+    @media (min-width: $screen-sm) {
+      display: block;
+    }
+  }
+
+  .tal-category-facet-title {
+    font-size: $font-size-h3;
+    margin-bottom: 13px;
+    margin-top: 28px;
+
+    @media (min-width: $screen-sm) {
+      margin-bottom: 50px;
+      margin-top: 38px;
+    }
+
+    @media (min-width: $screen-md) {
+      font-size: $font-size-h2;
+    }
+  }
+
+  .form-inline {
+
+    .input--wrapper {
+      color: $color-white;
+      @media (min-width: $screen-sm) {
+        display: inline-block;
+        vertical-align: middle;
+      }
+
+      .input--title {
+        display: none;
+        margin-bottom: 0;
+        margin-top: 6px;
+        @media (min-width: $screen-sm) {
+          display: block;
+        }
+      }
+    }
+
+    .description {
+      color: $color-white;
+      display: none;
+      margin-bottom: 0;
+      margin-top: 6px;
+      @media (min-width: $screen-sm) {
+        display: block;
+      }
+    }
+
+    .form-control {
+      height: 40px;
+      border: none;
+      border-radius: 0;
+      @media (min-width: $screen-sm) {
+        min-width: 425px;
+      }
+    }
+  }
+
+  .form-submit {
+    @extend .btn-white;
+    color: $color-white;
+    padding: 7px;
+    font-size: 0;
+    margin-left: 10px;
+    @media (min-width: $screen-sm) {
+      position: relative;
+      top: -14px;
+    }
+
+    .glyphicon {
+      font-size: $font-size-h3;
+    }
+
+    &:hover {
+      box-shadow: none;
+      color: $color-white;
+      padding: 6px;
+    }
+  }
+}
+
+.path-search .region-content-bottom {
+  margin-bottom: 60px;
+
+  @media (min-width: $screen-sm) {
+    width: 100%;
+    display: table;
+  }
+}
+
+.dropdown-menu,
+.path-search {
+  .block-facets {
+    @extend .col-sm-4;
+    @media (min-width: $screen-sm) {
+      border-right: 1px solid #181818;
+      display: table-cell;
+      float: none;
+      padding-left: 19px;
+      padding-right: 19px;
+    }
+
+    @media (min-width: $screen-md) {
+      padding-left: 47px;
+      padding-right: 47px;
+    }
+
+    .block-title {
+      margin-top: 37px;
+      margin-bottom: 28px;
+      font-size: $font-size-h3;
+      font-family: $font-family-sans-serif-Med;
+      @media (min-width: $screen-sm) {
+        margin-top: 0;
+      }
+    }
+
+    ul {
+      list-style: none;
+      margin-bottom: 0;
+      padding-left: 0;
+
+      .facet-item {
+        line-height: 1.7;
+      }
+
+      a {
+        text-decoration: underline;
+      }
+    }
+
+    &:nth-of-type(1) {
+      @media (min-width: $screen-sm) {
+        padding-left: 0;
+      }
+    }
+
+    &:last-child {
+      border-right: 0;
+    }
+  }
+}
+
+// Continue Search Block.
+.block-continue-search {
+  background-color: $color-red;
+  color: $color-white;
+  margin-bottom: 20px;
+  padding: 27px;
+  padding-bottom: 30px;
+
+  @media (min-width: $screen-sm) {
+    text-align: center;
+  }
+
+  @media (min-width: $screen-md) {
+    padding-right: 57px;
+    text-align: left;
+  }
+
+  .continue__search {
+    @media (min-width: $screen-sm) {
+      max-width: 250px;
+      margin: auto;
+    }
+
+    @media (min-width: $screen-md) {
+      max-width: none;
+    }
+  }
+
+  .block-title {
+    color: $color-white;
+    font-family: $font-family-serif;
+    margin-bottom: 19px;
+    margin-top: 0;
+    @media (min-width: $screen-md) {
+      margin-bottom: 16px;
+    }
+  }
+
+  .continue__search--description {
+    margin-bottom: 24px;
+
+    @media (min-width: $screen-md) {
+      margin-bottom: 40px;
+    }
+  }
+
+  .continue-search-link {
+    @extend .btn-white-extra-padding;
+
+    &::after {
+      @extend %right-brand-arrow;
+      color: $color-white;
+    }
+  }
+}
+
+.tal-job-search {
+  @extend %inner-content-width;
+  background: $brand-primary;
+  margin: 30px auto;
+  padding: 36px 22px;
+  padding-bottom: 30px;
+  @media (min-width: $screen-sm) {
+    padding: 28px 30px 87px 28px;
+    position: relative;
+  }
+  @media (min-width: $screen-md-lg) {
+    padding: 28px 30px 60px 28px;
+    margin: 50px auto;
+  }
+
+  .block-title {
+    color: $color-white;
+    font-size: $font-size-h3;
+    margin: 0;
+    margin-bottom: 20px;
+
+    @media (min-width: $screen-sm) {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    @media (min-width: $screen-md-lg) {
+      display: inline-table;
+      margin: 0;
+      text-align: left;
+      width: 11%;
+      vertical-align: middle;
+    }
+  }
+
+  .job__search--description {
+    @media (min-width: $screen-sm) {
+      display: table;
+      margin: auto;
+    }
+    @media (min-width: $screen-md-lg) {
+      display: inline-table;
+      margin: 0;
+      padding-left: 25px;
+      width: 88.5%;
+    }
+
+    form {
+      color: $color-white;
+      @media (min-width: $screen-sm-lsp) {
+        text-align: center;
+      }
+      @media (min-width: $screen-sm) {
+        display: table;
+        text-align: left;
+        vertical-align: middle;
+        width: 100%;
+      }
+
+      @media (max-width: $screen-xs-max) {
+        font-size: 0;
+      }
+
+      .form-item,
+      .form-group {
+        display: inline-block;
+        vertical-align: top;
+        @media (min-width: $screen-sm) {
+          display: table-cell;
+        }
+      }
+
+      .form-actions:last-child {
+        display: block;
+
+        @media (min-width: $screen-sm) {
+          position: absolute;
+          bottom: 30px;
+          margin-bottom: 0;
+          text-align: center;
+          left: 0;
+          right: 0;
+          margin-left: auto;
+          margin-right: auto;
+        }
+
+        @media (min-width: $screen-md-lg) {
+          display: table-cell;
+          position: static;
+        }
+      }
+    }
+  }
+
+  .input--wrapper input {
+    border: none;
+    border-radius: 0;
+    height: 40px;
+  }
+
+  .js-form-type-textfield {
+    width: 222px;
+    display: inline-block;
+
+    @media (min-width: $screen-sm) {
+      width: 243px;
+    }
+
+    @media (min-width: $screen-md-lg) {
+      width: 273px;
+    }
+  }
+
+  .input--title {
+    display: none;
+    margin-bottom: 0;
+    margin-top: 6px;
+
+    .description {
+      color: $color-white;
+    }
+
+    @media (min-width: $screen-sm) {
+      display: block;
+    }
+
+    @media (min-width: $screen-md-lg) {
+      display: block;
+      position: absolute;
+      width: 340px;
+    }
+  }
+
+  .in__label {
+    display: block;
+    font-family: $font-family-sans-serif-Med;
+    font-size: $font-size-h3;
+    line-height: 1;
+    margin-top: 3px;
+    margin-bottom: 14px;
+    padding-left: 19px;
+    padding-right: 18px;
+    text-align: center;
+    @media (min-width: $screen-sm) {
+      display: inline-block;
+      margin: 0;
+      text-align: left;
+      vertical-align: middle;
+    }
+
+    @media (min-width: $screen-md-lg) {
+      padding-left: 26px;
+      padding-right: 26px;
+    }
+  }
+
+  .form-submit {
+    @extend .btn-white;
+    color: $color-white;
+    padding: 7px;
+    font-size: 0;
+    margin-left: 9px;
+    @media (min-width: $screen-sm) {
+      margin-left: 10px;
+    }
+
+    .glyphicon {
+      font-size: $font-size-h3;
+    }
+
+    &:hover {
+      box-shadow: none;
+      color: $color-white;
+      padding: 6px;
+    }
+  }
+
+  .btn-default {
+    @extend .btn-white;
+    background: transparent;
+    color: $color-white;
+    display: block;
+    font-size: $font-size-base;
+    margin-left: 0;
+    margin-top: 15px;
+    padding: 8px 34px;
+    text-shadow: none;
+    width: 100%;
+
+    @media (min-width: $screen-sm) {
+      display: inline;
+      margin-top: 18px;
+      width: auto;
+    }
+
+    @media (min-width: $screen-md-lg) {
+      display: table-cell;
+      line-height: 1.25;
+    }
+
+    @media (min-width: $screen-md-lg) {
+      margin-left: 30px;
+      margin-top: 0;
+    }
+
+    &:hover {
+      padding: 7px 33px;
+    }
+
+    &::after {
+      @extend %right-brand-arrow;
+      color: $color-white;
+      padding-left: 6px;
+    }
+  }
+}

@@ -1,0 +1,29 @@
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:1d84a4ee-02a3-4532-8020-37b70a151f63'
+  module:
+    - block_content
+    - facets
+id: headoffice
+theme: tateandlyle
+region: footer
+weight: -10
+provider: null
+plugin: 'block_content:1d84a4ee-02a3-4532-8020-37b70a151f63'
+settings:
+  id: 'block_content:1d84a4ee-02a3-4532-8020-37b70a151f63'
+  label: 'Head Office Address'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  other_facet:
+    id: other_facet
+    facets: ''
+    facet_value: ''
+    negate: false
+    context_mapping: {  }

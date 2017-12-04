@@ -1,0 +1,532 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - search_api.index.content
+    - user.role.anonymous
+    - user.role.authenticated
+  module:
+    - search_api
+    - tal_ingredient_search
+    - user
+id: search
+label: Search
+module: views
+description: ''
+tag: ''
+base_table: search_api_index_content
+base_field: search_api_id
+core: 8.x
+display:
+  default:
+    display_plugin: default
+    id: default
+    display_title: Master
+    position: 0
+    display_options:
+      access:
+        type: role
+        options:
+          role:
+            anonymous: anonymous
+            authenticated: authenticated
+      cache:
+        type: none
+        options: {  }
+      query:
+        type: views_query
+        options:
+          bypass_access: false
+          skip_access: false
+          parse_mode: terms
+      exposed_form:
+        type: basic
+        options:
+          submit_button: Search
+          reset_button: false
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
+          expose_sort_order: false
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      pager:
+        type: mini
+        options:
+          items_per_page: 10
+          offset: 0
+          id: 0
+          total_pages: null
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          tags:
+            previous: ‹‹
+            next: ››
+      style:
+        type: default
+      row:
+        type: search_api
+        options:
+          view_modes:
+            'entity:node':
+              company_story: search_result
+              ingredient: search_result
+              landing_page: search_result
+              leadership: search_result
+              press_release: search_result
+              tal_: default
+      fields:
+        search_api_language:
+          table: search_api_index_content
+          field: search_api_language
+          id: search_api_language
+          entity_type: null
+          entity_field: null
+          plugin_id: search_api
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          link_to_item: false
+          multi_type: separator
+          multi_separator: ', '
+      filters:
+        search_api_fulltext:
+          id: search_api_fulltext
+          table: search_api_index_content
+          field: search_api_fulltext
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            use_operator: false
+            operator: search_api_fulltext_op
+            identifier: search_api_fulltext
+            label: 'Fulltext search'
+            description: null
+            remember: false
+            multiple: false
+            required: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          parse_mode: terms
+          min_length: null
+          fields: null
+          plugin_id: search_api_fulltext
+      sorts:
+        search_api_relevance:
+          id: search_api_relevance
+          table: search_api_index_content
+          field: search_api_relevance
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: DESC
+          exposed: true
+          expose:
+            label: 'Best match'
+          plugin_id: search_api
+      title: 'Search the site'
+      header:
+        result:
+          id: result
+          table: views
+          field: result
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          content: "<div class=\"tal--search-total-results\"><div class=\"tal--ingredient-search-results-total-page\"><b>@total search results</b></div>\n<div class=\"tal--ingredient-search-results-current-page-number\">Showing @start to @end</div></div>"
+          plugin_id: result
+        tal_ingredient_search_area:
+          id: tal_ingredient_search_area
+          table: views
+          field: tal_ingredient_search_area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          plugin_id: sortorder
+      footer: {  }
+      empty: {  }
+      relationships: {  }
+      arguments: {  }
+      display_extenders: {  }
+      use_ajax: false
+    cache_metadata:
+      max-age: 0
+      contexts:
+        - 'languages:language_interface'
+        - url.query_args
+        - user.roles
+      tags: {  }
+  search_page:
+    display_plugin: page
+    id: search_page
+    display_title: Page
+    position: 1
+    display_options:
+      display_extenders: {  }
+      path: search
+      exposed_block: true
+      pager:
+        type: full
+        options:
+          items_per_page: 10
+          offset: 0
+          id: 0
+          total_pages: null
+          tags:
+            previous: ‹‹
+            next: ››
+            first: '« First'
+            last: 'Last »'
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          quantity: 9
+      defaults:
+        pager: false
+        filters: false
+        filter_groups: false
+        sorts: false
+      filters:
+        search_api_fulltext:
+          id: search_api_fulltext
+          table: search_api_index_content
+          field: search_api_fulltext
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: search_api_fulltext_op
+            label: 'Search for'
+            description: 'Use ingredient names, brands, types, scientific names etc.'
+            use_operator: false
+            operator: search_api_fulltext_op
+            identifier: s
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              editor: '0'
+              pr_editor: '0'
+              form_analyst: '0'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          parse_mode: terms
+          min_length: 3
+          fields:
+            rendered: rendered
+            field_lp_keywords: field_lp_keywords
+            field_lp_summary: field_lp_summary
+            title_1: title_1
+          plugin_id: search_api_fulltext
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      sorts:
+        search_api_relevance:
+          id: search_api_relevance
+          table: search_api_index_content
+          field: search_api_relevance
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: DESC
+          exposed: true
+          expose:
+            label: Relevance
+          plugin_id: search_api
+        changed:
+          id: changed
+          table: search_api_index_content
+          field: changed
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: DESC
+          exposed: true
+          expose:
+            label: Changed
+          plugin_id: search_api
+        title:
+          id: title
+          table: search_api_index_content
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: true
+          expose:
+            label: Title
+          plugin_id: search_api
+    cache_metadata:
+      max-age: 0
+      contexts:
+        - 'languages:language_interface'
+        - url.query_args
+        - user.roles
+      tags: {  }
+  top_ingredient_results_block:
+    display_plugin: block
+    id: top_ingredient_results_block
+    display_title: Block
+    position: 2
+    display_options:
+      display_extenders: {  }
+      header: {  }
+      defaults:
+        header: false
+        filters: false
+        filter_groups: false
+        title: false
+        pager: false
+        use_ajax: false
+        style: false
+        row: false
+        cache: false
+        sorts: false
+      filters:
+        search_api_fulltext:
+          id: search_api_fulltext
+          table: search_api_index_content
+          field: search_api_fulltext
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: search_api_fulltext_op
+            label: 'Search for:'
+            description: 'Use ingredient names, brands, types, scientific names etc.'
+            use_operator: false
+            operator: search_api_fulltext_op
+            identifier: s
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              editor: '0'
+              pr_editor: '0'
+              form_analyst: '0'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          parse_mode: terms
+          min_length: null
+          fields:
+            rendered: rendered
+          plugin_id: search_api_fulltext
+        type:
+          id: type
+          table: search_api_index_content
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value:
+            ingredient: ingredient
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          plugin_id: search_api_options
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      title: 'Top ingredient results'
+      pager:
+        type: some
+        options:
+          items_per_page: 3
+          offset: 0
+      block_description: 'Top ingredient results'
+      allow:
+        items_per_page: false
+      style:
+        type: default
+        options: {  }
+      row:
+        type: search_api
+        options:
+          view_modes:
+            'entity:node':
+              company_story: teaser
+              ingredient: teaser
+              landing_page: search_result
+              leadership: teaser
+              press_release: teaser
+              tal_: default
+      use_ajax: true
+      cache:
+        type: none
+        options: {  }
+      block_hide_empty: true
+      sorts:
+        search_api_relevance:
+          id: search_api_relevance
+          table: search_api_index_content
+          field: search_api_relevance
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: DESC
+          exposed: true
+          expose:
+            label: 'Best match'
+          plugin_id: search_api
+        changed:
+          id: changed
+          table: search_api_index_content
+          field: changed
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: DESC
+          exposed: true
+          expose:
+            label: Changed
+          plugin_id: search_api
+        title:
+          id: title
+          table: search_api_index_content
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: true
+          expose:
+            label: Title
+          plugin_id: search_api
+    cache_metadata:
+      max-age: 0
+      contexts:
+        - 'languages:language_interface'
+        - user.roles
+      tags: {  }

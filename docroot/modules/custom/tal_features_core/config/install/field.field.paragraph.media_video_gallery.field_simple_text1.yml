@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_simple_text1
+    - paragraphs.paragraphs_type.media_video_gallery
+id: paragraph.media_video_gallery.field_simple_text1
+field_name: field_simple_text1
+entity_type: paragraph
+bundle: media_video_gallery
+label: Caption
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,41 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.media.tal_document.field_tal_document
+    - field.field.media.tal_document.field_tal_document_size
+    - field.field.media.tal_document.field_tal_media_in_library
+    - field.field.media.tal_document.field_tal_mime_type
+    - media_entity.bundle.tal_document
+  module:
+    - file
+    - workbench_moderation
+id: media.tal_document.default
+targetEntityType: media
+bundle: tal_document
+mode: default
+content:
+  field_tal_document:
+    type: file_generic
+    weight: 0
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+  field_tal_media_in_library:
+    weight: 2
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+  name:
+    type: string_textfield
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  field_tal_document_size: true
+  field_tal_mime_type: true
+  uid: true

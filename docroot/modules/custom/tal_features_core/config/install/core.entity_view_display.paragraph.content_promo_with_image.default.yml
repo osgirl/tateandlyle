@@ -1,0 +1,62 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.content_promo_with_image.field_icon
+    - field.field.paragraph.content_promo_with_image.field_image
+    - field.field.paragraph.content_promo_with_image.field_simple_summary
+    - field.field.paragraph.content_promo_with_image.field_tal_more
+    - field.field.paragraph.content_promo_with_image.field_title
+    - image.style.content_promo_277x150
+    - paragraphs.paragraphs_type.content_promo_with_image
+  module:
+    - image
+    - link
+id: paragraph.content_promo_with_image.default
+targetEntityType: paragraph
+bundle: content_promo_with_image
+mode: default
+content:
+  field_icon:
+    weight: 1
+    label: hidden
+    settings:
+      image_style: icon_48px_width
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+  field_image:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: content_promo_277x150
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+  field_simple_summary:
+    weight: 3
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_tal_more:
+    weight: 4
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+  field_title:
+    weight: 2
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+hidden:
+  created: true
+  uid: true

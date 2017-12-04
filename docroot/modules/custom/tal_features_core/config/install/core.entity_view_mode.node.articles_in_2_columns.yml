@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - lightning_core
+    - node
+third_party_settings:
+  lightning_core:
+    description: 'Use this view mode to show articles in 2 columns.'
+id: node.articles_in_2_columns
+label: 'Articles in 2 columns'
+targetEntityType: node
+cache: true

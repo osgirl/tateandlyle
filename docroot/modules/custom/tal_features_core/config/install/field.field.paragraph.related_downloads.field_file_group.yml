@@ -1,0 +1,65 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_file_group
+    - paragraphs.paragraphs_type.filegroup
+    - paragraphs.paragraphs_type.related_downloads
+  module:
+    - entity_reference_revisions
+id: paragraph.related_downloads.field_file_group
+field_name: field_file_group
+entity_type: paragraph
+bundle: related_downloads
+label: 'File Group'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      filegroup: filegroup
+    target_bundles_drag_drop:
+      block_reference:
+        weight: 14
+        enabled: false
+      component_accordion_body:
+        weight: 15
+        enabled: false
+      component_accordion_items:
+        weight: 16
+        enabled: false
+      downloads:
+        weight: 17
+        enabled: false
+      filegroup:
+        enabled: true
+        weight: 18
+      ingredient_accordion:
+        weight: 19
+        enabled: false
+      ingredient_accordion_items:
+        weight: 20
+        enabled: false
+      passive_recruitment:
+        weight: 21
+        enabled: false
+      related_downloads:
+        weight: 22
+        enabled: false
+      talk_to_us:
+        weight: 23
+        enabled: false
+      wysiwyg:
+        weight: 24
+        enabled: false
+      wysiwyg_with_block_reference:
+        weight: 25
+        enabled: false
+      wysiwyg_with_country_and_region:
+        weight: 26
+        enabled: false
+field_type: entity_reference_revisions

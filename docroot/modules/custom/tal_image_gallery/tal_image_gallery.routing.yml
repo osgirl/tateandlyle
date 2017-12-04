@@ -1,0 +1,7 @@
+tal_image_gallery:
+  path: 'media/gallery/image'
+  defaults:
+    _controller: 'Drupal\tal_image_gallery\Controller\ImageGalleryController::page'
+    _title: 'Image Gallery'
+  requirements:
+    _permission: 'access content'

@@ -1,0 +1,80 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.downloads_with_accordion
+    - field.storage.block_content.field_at_tab_content1
+    - paragraphs.paragraphs_type.download_accordion_items
+  module:
+    - entity_reference_revisions
+id: block_content.downloads_with_accordion.field_at_tab_content1
+field_name: field_at_tab_content1
+entity_type: block_content
+bundle: downloads_with_accordion
+label: 'Add Download Item'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      download_accordion_items: download_accordion_items
+    target_bundles_drag_drop:
+      block_reference:
+        weight: 18
+        enabled: false
+      download_accordion_items:
+        enabled: true
+        weight: 19
+      component_accordion_body:
+        weight: 19
+        enabled: false
+      component_accordion_items:
+        weight: 20
+        enabled: false
+      detail_content_promo:
+        weight: 21
+        enabled: false
+      downloads:
+        weight: 22
+        enabled: false
+      filegroup:
+        weight: 23
+        enabled: false
+      ingredient_accordion:
+        weight: 24
+        enabled: false
+      ingredient_accordion_items:
+        weight: 25
+        enabled: false
+      media_video_gallery:
+        weight: 26
+        enabled: false
+      passive_recruitment:
+        weight: 27
+        enabled: false
+      promo_body_with_link_url:
+        weight: 28
+        enabled: false
+      related_downloads:
+        weight: 29
+        enabled: false
+      talk_to_us:
+        weight: 30
+        enabled: false
+      wysiwyg:
+        weight: 31
+        enabled: false
+      wysiwyg_and_block_reference:
+        weight: 32
+        enabled: false
+      wysiwyg_with_block_reference:
+        weight: 33
+        enabled: false
+      wysiwyg_with_country_and_region:
+        weight: 34
+        enabled: false
+field_type: entity_reference_revisions

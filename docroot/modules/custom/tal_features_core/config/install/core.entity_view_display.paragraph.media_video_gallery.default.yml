@@ -1,0 +1,33 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.media_video_gallery.field_buto_video
+    - field.field.paragraph.media_video_gallery.field_simple_text1
+    - image.style.image_gallery_273_x_190
+    - paragraphs.paragraphs_type.media_video_gallery
+  module:
+    - video_embed_field
+id: paragraph.media_video_gallery.default
+targetEntityType: paragraph
+bundle: media_video_gallery
+mode: default
+content:
+  field_buto_video:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: image_gallery_273_x_190
+      link_image_to: ''
+    third_party_settings: {  }
+    type: video_embed_field_thumbnail
+  field_simple_text1:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+hidden:
+  created: true
+  uid: true

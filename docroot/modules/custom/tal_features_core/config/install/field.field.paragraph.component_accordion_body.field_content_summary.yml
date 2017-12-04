@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_content_summary
+    - paragraphs.paragraphs_type.component_accordion_body
+  module:
+    - text
+id: paragraph.component_accordion_body.field_content_summary
+field_name: field_content_summary
+entity_type: paragraph
+bundle: component_accordion_body
+label: 'Content summary'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

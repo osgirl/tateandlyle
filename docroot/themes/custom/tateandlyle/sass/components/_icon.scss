@@ -1,0 +1,10 @@
+.page-node-type-icon .icon img {
+  background-color: $color-silver;
+}
+
+.bottom_link {
+  &::after {
+    @extend %right-brand-arrow;
+    padding-left: 5px;
+  }
+}

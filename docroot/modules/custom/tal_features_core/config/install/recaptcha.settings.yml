@@ -1,0 +1,8 @@
+site_key: 6LdtyywUAAAAALlTUF-NaiwF3-XTo6FUJKIVvcij
+secret_key: 6LdtyywUAAAAAEgoXKSPRmfsZkpaLD0VOg4tLrLj
+widget:
+  theme: light
+  type: image
+  size: ''
+  tabindex: 0
+  noscript: true

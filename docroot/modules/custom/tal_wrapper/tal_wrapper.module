@@ -1,0 +1,44 @@
+<?php
+
+/**
+ * @file
+ * Module files contains generic functionality for the site.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_alter().
+ */
+function tal_wrapper_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if (in_array($form_id, array(
+    'taxonomy_term_ttu_routing_form',
+    'taxonomy_term_ttu_documents_form',
+    'taxonomy_term_others_form',
+  ))) {
+    $form['field_email']['#states'] = array(
+      'invisible' => array(
+        ':input[name="field_saleforce_routing_on[value]"]' => array('checked' => TRUE),
+      ),
+    );
+    $form['#validate'][] = 'salesforce_and_email_field_form_validate';
+  }
+}
+
+/**
+ * Validate function for sales force and email field.
+ */
+function salesforce_and_email_field_form_validate(&$form, FormStateInterface $form_state) {
+  $values = $form_state->getValues();
+  $saleforce_on = '';
+  if (isset($values['field_saleforce_routing_on']['value'])) {
+    $saleforce_on = $values['field_saleforce_routing_on']['value'];
+  }
+  $field_email = '';
+  if (isset($values['field_email'][0]['value'])) {
+    $field_email = $values['field_email'][0]['value'];
+  }
+  if (!$saleforce_on && empty($field_email)) {
+    $form_state->setErrorByName('field_email', 'An Email address is required if the Salesforce option is not selected.');
+  }
+}

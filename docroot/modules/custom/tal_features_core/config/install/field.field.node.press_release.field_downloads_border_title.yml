@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_downloads_border_title
+    - node.type.press_release
+id: node.press_release.field_downloads_border_title
+field_name: field_downloads_border_title
+entity_type: node
+bundle: press_release
+label: 'Related Downloads Border Title'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,31 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.content_promo
+    - field.field.block_content.content_promo.field_block_title
+    - field.field.block_content.content_promo.field_promo_content
+  module:
+    - entity_reference_revisions
+id: block_content.content_promo.default
+targetEntityType: block_content
+bundle: content_promo
+mode: default
+content:
+  field_block_title:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_promo_content:
+    type: entity_reference_revisions_entity_view
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+hidden:
+  workbench_moderation_control: true
