@@ -114,12 +114,9 @@
           scrollTop: $(id).offset().top },
             "slow");
       });
-
-
-
     }
-
   };
+
   Drupal.behaviors.toggleaccordion = {
     attach: function () {
       function toggleIcon(e) {
@@ -290,6 +287,5 @@
       });
     }
   };
-
 
 })(jQuery, Drupal, this);
