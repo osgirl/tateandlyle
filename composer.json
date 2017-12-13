@@ -187,7 +187,8 @@
                 "Entity select: Gives error when conditional state is added again.": "https://www.drupal.org/files/issues/entity_select_gives-2858636-4.patch"
             },
             "drupal/entity_browser": {
-                "getDisplay() on null Entity Browser reference": "https://www.drupal.org/files/issues/2820132-19.patch"
+                "getDisplay() on null Entity Browser reference": "https://www.drupal.org/files/issues/2820132-19.patch",
+                "Enabled use_ajax explicitly": "https://www.drupal.org/files/issues/d8_entity_browser-2902831.patch"
             },
             "drupal/entity_reference_revisions": {
                 "EntityReference add rest dependency": "patches/entity_reference_revision_add_rest_dependency.patch"
