@@ -903,3 +903,9 @@ header.navbar-default {
     color: $brand-primary;
   }
 }
+
+@media print {
+  .logo.navbar-btn {
+    position: relative;
+  }
+}
