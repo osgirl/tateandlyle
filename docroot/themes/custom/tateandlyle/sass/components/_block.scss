@@ -214,3 +214,9 @@
 section.block {
   clear: both;
 }
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active){
+  .field--name-image .img-responsive {
+    width: 100%;
+  }
+}
