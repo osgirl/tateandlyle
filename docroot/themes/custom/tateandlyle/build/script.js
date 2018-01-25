@@ -293,16 +293,7 @@
     attach: function (context) {
 
       var beforePrint = function() {
-      /*
-        $('.accordion-toggle').each(function(){
-          if($(this).hasClass("collapsed")) {
-            $(this).removeClass('collapsed');
-          }
-          else {
-            $(this).addClass('collapsed-accordion-print');
-          }
-        });
-*/
+
         $('.panel-collapse').each(function(){
           if($(this).hasClass("in")) {
             $(this).addClass('panel-accordion-print')
@@ -313,16 +304,6 @@
         });
       };
       var afterPrint = function() {
-        /*
-        $('.accordion-toggle').each(function(){
-          if($(this).hasClass("collapsed-accordion-print")) {
-            $(this).removeClass('collapsed-accordion-print');
-          }
-          else {
-            $(this).addClass('collapsed');
-          }
-        });
-          */
         $('.panel-collapse').each(function(){
 
           if($(this).hasClass("panel-accordion-print")) {
