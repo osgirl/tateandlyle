@@ -287,5 +287,49 @@
       });
     }
   };
+  
+  Drupal.behaviors.accordianPrintMedia = {
+    
+    attach: function (context) {
+
+      var beforePrint = function() {
+
+        $('.panel-collapse').each(function(){
+          if($(this).hasClass("in")) {
+            $(this).addClass('panel-accordion-print')
+          }
+          else {
+            $(this).removeClass('collapse').css('height', 'auto');
+          }
+        });
+      };
+      var afterPrint = function() {
+        $('.panel-collapse').each(function(){
+
+          if($(this).hasClass("panel-accordion-print")) {
+            $(this).removeClass('panel-accordion-print');
+          }
+          else {
+            $(this).addClass('collapse').css('height', 'auto');
+          }
+        });
+      };
+
+      if (window.matchMedia) {
+        var mediaQueryList = window.matchMedia('print');
+        mediaQueryList.addListener(function(mql) {
+          if (mql.matches) {
+            beforePrint();
+          } else {
+            afterPrint();
+          }
+        });
+      }
+      window.onbeforeprint = beforePrint;
+      window.onafterprint = afterPrint;
+    }
+    
+  }
 
 })(jQuery, Drupal, this);
+
