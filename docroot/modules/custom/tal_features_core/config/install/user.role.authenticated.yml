@@ -12,3 +12,4 @@ permissions:
   - 'view media'
   - 'access sitemap'
   - 'access_content'
+  - 'never autoplay videos'
