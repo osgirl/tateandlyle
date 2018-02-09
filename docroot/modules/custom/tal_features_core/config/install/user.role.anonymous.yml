@@ -15,3 +15,4 @@ permissions:
   - 'access_unpublished node landing_page'
   - 'access sitemap'
   - 'access_content'
+  - 'never autoplay videos'
