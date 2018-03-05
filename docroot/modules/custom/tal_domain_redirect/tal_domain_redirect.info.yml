@@ -1,0 +1,7 @@
+name: 'TAL Domain Redirect'
+description:  'Redirects micro site pages to Tate and Lyle main site.'
+type: module
+core: 8.x
+package: tal
+dependencies:
+  - redirect_domain
