@@ -150,7 +150,7 @@ display:
           expose:
             use_operator: false
             operator: search_api_fulltext_op
-            identifier: s
+            identifier: search_api_fulltext
             label: 'Fulltext search'
             description: null
             remember: false
