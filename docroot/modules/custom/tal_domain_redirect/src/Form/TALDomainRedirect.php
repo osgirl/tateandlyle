@@ -184,13 +184,13 @@ class TALDomainRedirect extends FormBase {
     $config->save();
 
     if ($updatedRedirectsCount > 0) {
-      $message =  \Drupal::translation()->formatPlural($updatedRedirectsCount,
+      $message = \Drupal::translation()->formatPlural($updatedRedirectsCount,
         'One Domain redirect URL is updated.',
         '@count Domain redirect URL are updated.');
       drupal_set_message($message);
     }
     if ($newRedirectCount > 0) {
-      $message =  \Drupal::translation()->formatPlural($newRedirectCount,
+      $message = \Drupal::translation()->formatPlural($newRedirectCount,
         'One Domain redirect URL is added.',
         '@count Domain redirect URL are added.');
       drupal_set_message($message);
