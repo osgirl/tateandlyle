@@ -101,6 +101,16 @@ field_settings:
         - field.storage.block_content.body
       module:
         - block_content
+processor_settings:
+  add_url:
+    plugin_id: add_url
+    settings: {  }
+  aggregated_field:
+    plugin_id: aggregated_field
+    settings: {  }
+  rendered_item:
+    plugin_id: rendered_item
+    settings: {  }
 datasource_settings:
   'entity:node':
     settings: {  }
