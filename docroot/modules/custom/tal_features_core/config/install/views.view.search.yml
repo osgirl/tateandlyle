@@ -302,6 +302,8 @@ display:
             field_lp_keywords: field_lp_keywords
             field_lp_summary: field_lp_summary
             title_1: title_1
+            field_simple_text: field_simple_text
+            body_1: body_1
           plugin_id: search_api_fulltext
       filter_groups:
         operator: AND
