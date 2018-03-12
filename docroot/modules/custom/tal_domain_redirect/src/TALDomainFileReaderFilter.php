@@ -7,7 +7,6 @@ use PhpOffice\PhpSpreadsheet\Reader\IReadFilter;
 /**
  * Provides filter fo phpspreadsheet.
  */
-
 class TALDomainFileReaderFilter implements IReadFilter {
 
   /**
