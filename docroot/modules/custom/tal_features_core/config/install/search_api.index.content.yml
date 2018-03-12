@@ -113,7 +113,12 @@ processor_settings:
     settings: {  }
 datasource_settings:
   'entity:node':
-    settings: {  }
+    bundles:
+      default: true
+      selected: {  }
+    languages:
+      default: true
+      selected: {  }
 options:
   index_directly: true
   cron_limit: 50
