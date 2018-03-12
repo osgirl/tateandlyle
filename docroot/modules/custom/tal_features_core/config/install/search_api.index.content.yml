@@ -119,6 +119,10 @@ datasource_settings:
     languages:
       default: true
       selected: {  }
+tracker_settings:
+  default:
+    plugin_id: default
+    settings: {  }
 options:
   index_directly: true
   cron_limit: 50
