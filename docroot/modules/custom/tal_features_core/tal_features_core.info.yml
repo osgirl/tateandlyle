@@ -56,6 +56,7 @@ dependencies:
   - system
   - tal_admin_config
   - tal_articles
+  - tal_domain_redirect
   - tal_downloads
   - tal_image_gallery
   - tal_ingredient_search
