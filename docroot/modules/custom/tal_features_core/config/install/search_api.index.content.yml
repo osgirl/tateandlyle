@@ -5,9 +5,13 @@ dependencies:
     - field.storage.node.field_lp_keywords
     - field.storage.node.field_lp_summary
     - field.storage.node.body
+    - field.storage.node.field_referred_block
+    - field.storage.block_content.field_simple_text
+    - field.storage.block_content.body
     - search_api.server.acquia_search_server
     - core.entity_view_mode.node.full
   module:
+    - block_content
     - search_api
     - node
 id: content
@@ -75,6 +79,28 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.body
+  field_simple_text:
+    label: 'Referred Block » Custom block » Title'
+    datasource_id: 'entity:node'
+    property_path: 'field_referred_block:entity:field_simple_text'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_referred_block
+        - field.storage.block_content.field_simple_text
+      module:
+        - block_content
+  body_1:
+    label: 'Referred Block » Custom block » Body'
+    datasource_id: 'entity:node'
+    property_path: 'field_referred_block:entity:body'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_referred_block
+        - field.storage.block_content.body
+      module:
+        - block_content
 processor_settings:
   add_url:
     plugin_id: add_url
@@ -85,28 +111,19 @@ processor_settings:
   rendered_item:
     plugin_id: rendered_item
     settings: {  }
-options:
-  index_directly: true
-  cron_limit: 50
 datasource_settings:
   'entity:node':
-    plugin_id: 'entity:node'
-    settings:
-      bundles:
-        default: true
-        selected:
-          - contact
-          - icon
-          - iframe_content
-          - image
-          - media_gallery_video
-          - page
-          - tal_
-      languages:
-        default: true
-        selected: {  }
+    bundles:
+      default: true
+      selected: {  }
+    languages:
+      default: true
+      selected: {  }
 tracker_settings:
   default:
     plugin_id: default
     settings: {  }
+options:
+  index_directly: true
+  cron_limit: 50
 server: acquia_search_server

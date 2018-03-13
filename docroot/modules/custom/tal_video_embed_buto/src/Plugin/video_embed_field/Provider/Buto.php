@@ -75,7 +75,8 @@ class Buto extends ProviderPluginBase {
    * {@inheritdoc}
    */
   public static function getIdFromInput($input) {
-    return isset($input) ? $input : FALSE;
+    preg_match('/^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?/', $input, $matches);
+    return isset($input) && empty($matches[0]) ? $input : FALSE;
   }
 
   /**
