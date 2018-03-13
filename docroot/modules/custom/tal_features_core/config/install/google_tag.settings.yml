@@ -1,0 +1,53 @@
+container_id: GTM-T7K298N
+path_toggle: 'exclude listed'
+path_list: "/admin*\n/batch*\n/node/add*\n/node/*/edit\n/node/*/delete\n/user/*/edit*\n/user/*/cancel*"
+role_toggle: 'exclude listed'
+role_list:
+  administrator: administrator
+  layout_manager: layout_manager
+  editor: editor
+  pr_editor: pr_editor
+  form_analyst: form_analyst
+  media_creator: media_creator
+  media_manager: media_manager
+  webservice: webservice
+  pr_owners: pr_owners
+  company_story_creator: company_story_creator
+  company_story_reviewer: company_story_reviewer
+  contact_creator: contact_creator
+  contact_reviewer: contact_reviewer
+  icon_creator: icon_creator
+  icon_reviewer: icon_reviewer
+  iframe_content_creator: iframe_content_creator
+  iframe_content_reviewer: iframe_content_reviewer
+  image_creator: image_creator
+  image_reviewer: image_reviewer
+  ingredient_creator: ingredient_creator
+  ingredient_reviewer: ingredient_reviewer
+  landing_page_creator: landing_page_creator
+  landing_page_reviewer: landing_page_reviewer
+  leadership_creator: leadership_creator
+  leadership_reviewer: leadership_reviewer
+  media_gallery_video_creator: media_gallery_video_creator
+  media_gallery_video_reviewer: media_gallery_video_reviewer
+  page_creator: page_creator
+  page_reviewer: page_reviewer
+  press_release_creator: press_release_creator
+  press_release_reviewer: press_release_reviewer
+  webinar_creator: webinar_creator
+  webinar_reviewer: webinar_reviewer
+  anonymous: '0'
+  authenticated: '0'
+status_toggle: 'exclude listed'
+status_list: "403\n404"
+compact_snippet: true
+include_file: true
+rebuild_snippets: true
+debug_output: false
+data_layer: dataLayer
+include_classes: false
+whitelist_classes: "google\nnonGooglePixels\nnonGoogleScripts\nnonGoogleIframes"
+blacklist_classes: "customScripts\ncustomPixels"
+include_environment: false
+environment_id: ''
+environment_token: ''

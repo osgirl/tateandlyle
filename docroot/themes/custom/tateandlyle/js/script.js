@@ -116,6 +116,7 @@
       });
     }
   };
+
   Drupal.behaviors.toggleaccordion = {
     attach: function () {
       function toggleIcon(e) {
@@ -269,4 +270,66 @@
       Drupal.ajax(element_settings);
     });
   };
+
+  Drupal.behaviors.newsletterSubscription = {
+    attach: function (context) {
+
+      $('#webform-submission-newsletter-subsciption-form', context).once('scroll-subscription').each(function () {
+        var query_string = window.location.search.substr(1).split("&");
+        if(query_string.length == 2) {
+          var token = query_string[0].split("=");
+          var webform = query_string[1].split("=");
+          if(token[0] == 'token' && token[1] != "" && webform[0] == 'webform_id' && webform[1] == 'newsletter_subsciption') {
+            $("html,body").animate({
+                  scrollTop: $("#webform-submission-newsletter-subsciption-form").offset().top - 100 }, "slow");
+          }
+        }
+      });
+    }
+  };
+  
+  Drupal.behaviors.accordianPrintMedia = {
+    
+    attach: function (context) {
+
+      var beforePrint = function() {
+
+        $('.panel-collapse').each(function(){
+          if($(this).hasClass("in")) {
+            $(this).addClass('panel-accordion-print')
+          }
+          else {
+            $(this).removeClass('collapse').css('height', 'auto');
+          }
+        });
+      };
+      var afterPrint = function() {
+        $('.panel-collapse').each(function(){
+
+          if($(this).hasClass("panel-accordion-print")) {
+            $(this).removeClass('panel-accordion-print');
+          }
+          else {
+            $(this).addClass('collapse').css('height', 'auto');
+          }
+        });
+      };
+
+      if (window.matchMedia) {
+        var mediaQueryList = window.matchMedia('print');
+        mediaQueryList.addListener(function(mql) {
+          if (mql.matches) {
+            beforePrint();
+          } else {
+            afterPrint();
+          }
+        });
+      }
+      window.onbeforeprint = beforePrint;
+      window.onafterprint = afterPrint;
+    }
+    
+  }
+
 })(jQuery, Drupal, this);
+
