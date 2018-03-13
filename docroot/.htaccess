@@ -89,7 +89,6 @@ AddEncoding gzip svgz
   RewriteRule ^ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
   RewriteCond %{HTTPS} off
-  RewriteCond %{HTTP_HOST} ^(.*).prod.cloud.tateandlyle.com*
   RewriteCond %{HTTP:X-Forwarded-Proto} !https
   RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
