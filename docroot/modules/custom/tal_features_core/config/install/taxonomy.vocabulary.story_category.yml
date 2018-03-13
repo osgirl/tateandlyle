@@ -1,0 +1,6 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'Article Category'
+vid: story_category
+hierarchy: 0

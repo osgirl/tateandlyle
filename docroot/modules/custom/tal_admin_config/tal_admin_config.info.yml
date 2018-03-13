@@ -1,0 +1,6 @@
+name: 'TAL Admin Config Forms'
+description: 'Used for keeping admin backend forms and functionality.'
+type: module
+core: 8.x
+package: tal
+

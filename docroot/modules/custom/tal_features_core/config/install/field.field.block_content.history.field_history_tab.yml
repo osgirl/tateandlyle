@@ -1,0 +1,86 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.history
+    - field.storage.block_content.field_history_tab
+    - paragraphs.paragraphs_type.history_tab
+  module:
+    - entity_reference_revisions
+id: block_content.history.field_history_tab
+field_name: field_history_tab
+entity_type: block_content
+bundle: history
+label: 'History Tab Content'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      history_tab: history_tab
+    target_bundles_drag_drop:
+      history_tab:
+        enabled: true
+        weight: 21
+      block_reference:
+        weight: 22
+        enabled: false
+      component_accordion_body:
+        weight: 23
+        enabled: false
+      component_accordion_items:
+        weight: 24
+        enabled: false
+      detail_content_promo:
+        weight: 25
+        enabled: false
+      download_accordion_items:
+        weight: 26
+        enabled: false
+      downloads:
+        weight: 27
+        enabled: false
+      filegroup:
+        weight: 28
+        enabled: false
+      ingredient_accordion:
+        weight: 29
+        enabled: false
+      ingredient_accordion_items:
+        weight: 30
+        enabled: false
+      ingredient_downloads:
+        weight: 31
+        enabled: false
+      media_video_gallery:
+        weight: 32
+        enabled: false
+      passive_recruitment:
+        weight: 33
+        enabled: false
+      promo_body_with_link_url:
+        weight: 34
+        enabled: false
+      related_downloads:
+        weight: 35
+        enabled: false
+      talk_to_us:
+        weight: 36
+        enabled: false
+      wysiwyg:
+        weight: 37
+        enabled: false
+      wysiwyg_and_block_reference:
+        weight: 38
+        enabled: false
+      wysiwyg_with_block_reference:
+        weight: 39
+        enabled: false
+      wysiwyg_with_country_and_region:
+        weight: 40
+        enabled: false
+field_type: entity_reference_revisions

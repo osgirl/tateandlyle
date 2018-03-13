@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - workbench_moderation.moderation_state.needs_review
+    - workbench_moderation.moderation_state.published
+  module:
+    - workbench_email
+  enforced:
+    config:
+      - workbench_email.workbench_email_template.needs_review_to_published
+third_party_settings:
+  workbench_email:
+    workbench_email_templates:
+      needs_review_to_published: needs_review_to_published
+id: needs_review_published
+label: Publish
+stateFrom: needs_review
+stateTo: published
+weight: -7

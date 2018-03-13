@@ -1,0 +1,185 @@
+.block__history {
+  .block__history--content {
+    max-width: 881px;
+    margin: 25px 10px;
+
+    @media (min-width: $screen-sm) {
+      padding-left: 30px;
+      padding-right: 30px;
+      margin: 25px auto;
+    }
+
+    @media (min-width: $screen-md) {
+      margin: 50px auto;
+    }
+  }
+
+  .nav-tabs {
+    @extend %navigation-tabs;
+    li {
+      width: 25%;
+    }
+  }
+
+  .panel-group {
+    margin-bottom: -1px;
+  }
+
+  .back-to-top {
+    border-bottom: 1px solid $color-warm-gray;
+    border-top: 1px solid $color-warm-gray;
+    background: $color-off-white;
+    color: $gray-base;
+    display: block;
+    font-size: $font-size-base;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    text-shadow: none;
+    display: inline-block;
+    width: 100%;
+    @media (min-width: $screen-sm) {
+      padding-top: 28px;
+      padding-bottom: 27px;
+    }
+
+    &::after {
+      color: $brand-primary;
+      content: $fa-var-angle-up;
+      font-family: "fontawesome";
+      padding-left: 5px;
+    }
+  }
+
+  .paragraph--type--history-tab {
+    display: inline-block;
+    width: 100%;
+    padding-bottom: 1em;
+    .field--type-image {
+      margin-bottom: 15px;
+
+      @media (min-width: $screen-sm) {
+        float: left;
+        margin-right: 20px;
+      }
+
+      @media (min-width: $screen-md) {
+        margin-bottom: 0;
+        margin-right: 30px;
+      }
+    }
+
+    background-color: $color-off-white;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 0;
+
+    .field--name-field-simple-text {
+      color: $gray-base;
+      font-size: $font-size-h4;
+      margin-bottom: 10px;
+      @media (min-width: $screen-md) {
+        font-size: $font-size-h3;
+      }
+    }
+
+    .field--name-field-headline {
+      margin-bottom: 26px;
+    }
+
+    .field--name-field-timeline-content > .field--item {
+      border-bottom: 1px solid $color-warm-gray;
+      padding-top: 20px;
+      padding-bottom: 45px;
+      overflow: hidden;
+
+      &:last-child {
+        border-bottom: 0;
+      }
+    }
+
+    .field--name-field-tal-more a {
+      margin-top: 10px;
+      margin-bottom: 0;
+      &::after {
+        @extend %svg-icon-small;
+        background: url("../images/icons/cta-arrow-blue.svg") no-repeat;
+        background-size: cover;
+      }
+    }
+  }
+
+  @media (max-width: $screen-xs-max) {
+    .panel {
+      border-radius: 0;
+      & + .panel {
+        border-radius: 0;
+        margin-top: 0;
+      }
+
+      .panel-heading {
+        border-radius: 0;
+        padding: 0;
+      }
+    }
+
+
+    .panel-heading + .panel-collapse > .panel-body {
+      border: 0;
+      padding: 0;
+    }
+
+    .panel-title {
+      font-size: $font-size-h4;
+      padding: 0;
+      a {
+        background-color: $color-off-white;
+        color: $brand-primary;
+        display: block;
+        padding: 19px;
+        padding-right: 60px;
+        position: relative;
+
+        &::after {
+          content: " ";
+          display: inline-block;
+          background: url("../images/icons/accordian-close-blue.svg") no-repeat;
+          background-size: cover;
+          height: 20px;
+          margin-left: 5px;
+          position: absolute;
+          right: 25px;
+          top: 23px;
+          width: 20px;
+        }
+
+        &.collapsed {
+          background-color: $color-white;
+          color: $gray-base;
+
+          &::after {
+            background: url("../images/icons/accordian-open-blue.svg") no-repeat;
+            background-size: cover;
+          }
+        }
+      }
+    }
+  }
+}
+
+.more__tabs {
+  .history--tabs {
+    @media (min-width: $screen-sm) {
+      font-size: 0;
+    }
+  }
+
+  .nav-tabs li {
+    display: inline-block;
+    float: none;
+    width: 16.66%;
+    a {
+      padding: 20px 10px;
+      text-align: center;
+    }
+  }
+}

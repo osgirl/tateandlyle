@@ -1,0 +1,17 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - workbench_moderation
+third_party_settings:
+  workbench_moderation:
+    enabled: true
+    allowed_moderation_states:
+      - published
+      - draft
+      - needs_review
+    default_moderation_state: draft
+id: dynamic_posts
+label: 'Dynamic Posts'
+revision: 1
+description: 'Use this block type to create dynamic article posts blocks on landing pages.'

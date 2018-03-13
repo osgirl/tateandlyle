@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: company_date_format
+label: 'Company date format'
+locked: false
+pattern: 'd M Y'

@@ -1,0 +1,17 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - workbench_moderation
+third_party_settings:
+  workbench_moderation:
+    enabled: true
+    allowed_moderation_states:
+      - published
+      - draft
+      - needs_review
+    default_moderation_state: draft
+id: passive_recruitment
+label: 'Passive Recruitment'
+revision: 1
+description: 'Block type for Passive Recruitment blocks.'

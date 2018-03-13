@@ -1,0 +1,54 @@
+{
+  "_links": {
+    "self": {
+      "href": "http:\/\/tatelylecom.local\/taxonomy\/term\/4?_format=hal_json"
+    },
+    "type": {
+      "href": "http:\/\/drupal.org\/rest\/type\/taxonomy_term\/story_category"
+    }
+  },
+  "tid": [
+    {
+      "value": "4"
+    }
+  ],
+  "uuid": [
+    {
+      "value": "6da79ad1-fa26-4a7f-b20a-a4d9fa5f5709"
+    }
+  ],
+  "langcode": [
+    {
+      "value": "en",
+      "lang": "en"
+    }
+  ],
+  "vid": [
+    {
+      "target_id": "story_category"
+    }
+  ],
+  "name": [
+    {
+      "value": "Press Release",
+      "lang": "en"
+    }
+  ],
+  "weight": [
+    {
+      "value": "0"
+    }
+  ],
+  "changed": [
+    {
+      "value": "1484148553",
+      "lang": "en"
+    }
+  ],
+  "default_langcode": [
+    {
+      "value": "1",
+      "lang": "en"
+    }
+  ]
+}

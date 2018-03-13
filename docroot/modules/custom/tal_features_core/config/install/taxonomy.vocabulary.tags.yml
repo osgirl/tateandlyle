@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+name: Tags
+vid: tags
+description: 'Tags can be added here and it will be used to filter the content.'
+hierarchy: 0
+weight: 0

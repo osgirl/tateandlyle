@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'Types of ingredients'
+vid: types_of_ingredients
+description: ''
+hierarchy: 0
+weight: 0

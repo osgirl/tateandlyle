@@ -1,0 +1,26 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.history_tab.field_tab_title
+    - field.field.paragraph.history_tab.field_timeline_content
+    - paragraphs.paragraphs_type.history_tab
+  module:
+    - entity_reference_revisions
+id: paragraph.history_tab.default
+targetEntityType: paragraph
+bundle: history_tab
+mode: default
+content:
+  field_timeline_content:
+    type: entity_reference_revisions_entity_view
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  field_tab_title: true
+  uid: true

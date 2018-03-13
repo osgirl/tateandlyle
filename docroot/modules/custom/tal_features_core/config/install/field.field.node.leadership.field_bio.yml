@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_bio
+    - node.type.leadership
+  module:
+    - text
+id: node.leadership.field_bio
+field_name: field_bio
+entity_type: node
+bundle: leadership
+label: Bio
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

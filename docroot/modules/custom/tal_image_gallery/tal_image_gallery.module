@@ -1,0 +1,20 @@
+<?php
+
+/**
+ * @file
+ * Contains tal_image_gallery.module.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function tal_image_gallery_theme() {
+  return array(
+    'tal_image_gallery' => array(
+      'variables' => array(
+        'featured' => NULL,
+        'categories' => NULL,
+      ),
+    ),
+  );
+}

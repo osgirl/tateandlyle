@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies: {  }
+name: content_promo_277x150
+label: 'Content promo 277x150'
+effects:
+  c2241cbf-c518-4bb7-a7be-7632dab08aad:
+    uuid: c2241cbf-c518-4bb7-a7be-7632dab08aad
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 277
+      height: 150

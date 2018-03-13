@@ -1,0 +1,5 @@
+name: 'TAL Breadcrumbs'
+description: 'Breadcrumbs customisations for TAL.'
+type: module
+core: 8.x
+package: tal

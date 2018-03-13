@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies: {  }
+name: colorbox_600_x_399
+label: 'Colorbox 600 x 399'
+effects:
+  b559723c-83fc-4713-83d6-c8df146f8708:
+    uuid: b559723c-83fc-4713-83d6-c8df146f8708
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 600
+      height: 399

@@ -1,0 +1,33 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.icon.field_image
+    - image.style.icon_48px_width
+    - node.type.icon
+  module:
+    - image
+    - panelizer
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.icon.default
+targetEntityType: node
+bundle: icon
+mode: default
+content:
+  field_image:
+    weight: 101
+    label: hidden
+    settings:
+      image_style: icon_48px_width
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+hidden:
+  links: true
+  workbench_moderation_control: true

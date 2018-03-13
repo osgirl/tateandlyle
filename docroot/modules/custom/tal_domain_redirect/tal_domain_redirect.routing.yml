@@ -1,0 +1,8 @@
+tal_domain_redirect.file_upload:
+  path: '/admin/config/search/redirect/tal-redirect'
+  defaults:
+    _form: '\Drupal\tal_domain_redirect\Form\TALDomainRedirect'
+    _title: 'TAL Domain redirect'
+  requirements:
+    _permission: 'administer redirects'
+

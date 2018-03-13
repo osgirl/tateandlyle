@@ -1,0 +1,77 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.search_result
+    - field.field.node.ingredient.body
+    - field.field.node.ingredient.field_hide_title
+    - field.field.node.ingredient.field_image
+    - field.field.node.ingredient.field_in_aliases
+    - field.field.node.ingredient.field_in_applications
+    - field.field.node.ingredient.field_in_banner
+    - field.field.node.ingredient.field_in_common_names
+    - field.field.node.ingredient.field_in_misspellings
+    - field.field.node.ingredient.field_in_trends_solutions
+    - field.field.node.ingredient.field_in_types
+    - field.field.node.ingredient.field_ingredients_content
+    - image.style.ingredient_logo_197_x_111
+    - node.type.ingredient
+  module:
+    - image
+    - panelizer
+    - smart_trim
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.ingredient.search_result
+targetEntityType: node
+bundle: ingredient
+mode: search_result
+content:
+  body:
+    type: smart_trim
+    weight: 1
+    label: hidden
+    settings:
+      trim_length: '50'
+      trim_type: words
+      trim_suffix: ''
+      more_link: '0'
+      more_text: More
+      summary_handler: full
+      trim_options:
+        text: text
+      more_class: more-link
+    third_party_settings: {  }
+  field_image:
+    type: image
+    weight: 2
+    label: hidden
+    settings:
+      image_style: ingredient_logo_197_x_111
+      image_link: ''
+    third_party_settings: {  }
+  field_in_common_names:
+    type: basic_string
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  workbench_moderation_control:
+    weight: -20
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_hide_title: true
+  field_in_aliases: true
+  field_in_applications: true
+  field_in_banner: true
+  field_in_misspellings: true
+  field_in_trends_solutions: true
+  field_in_types: true
+  field_ingredients_content: true
+  links: true
