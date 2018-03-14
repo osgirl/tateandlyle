@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies: {  }
+name: content_promo_background_1366x936
+label: 'Content promo background 1366x936'
+effects:
+  77c4c03f-6538-442a-ae75-ebf5c8f158c2:
+    uuid: 77c4c03f-6538-442a-ae75-ebf5c8f158c2
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1366
+      height: 936

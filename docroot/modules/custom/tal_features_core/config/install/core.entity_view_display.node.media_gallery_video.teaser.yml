@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.media_gallery_video.field_category
+    - field.field.node.media_gallery_video.field_media_video_gallery
+    - node.type.media_gallery_video
+  module:
+    - user
+id: node.media_gallery_video.teaser
+targetEntityType: node
+bundle: media_gallery_video
+mode: teaser
+content:
+  links:
+    weight: 100
+hidden:
+  field_category: true
+  field_media_video_gallery: true

@@ -1,0 +1,66 @@
+global-styling:
+  css:
+    theme:
+      build/main.css: {}
+
+  js:
+    build/script.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery.once
+    - core/jquery.ui
+    - core/jquery.cookie
+    - core/drupal.ajax
+    - core/modernizr
+
+bootstrap-scripts:
+  js:
+    bootstrap/assets/javascripts/bootstrap.min.js: {}
+    bootstrap/assets/javascripts/bootstrap/tooltip.js: {}
+    bootstrap/assets/javascripts/bootstrap/popover.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupalSettings
+
+buto-tv-script:
+  js:
+    build/buto-tv.js: {}
+  dependencies:
+    - core/jquery
+
+dotdotdot:
+  js:
+    build/jquery.dotdotdot.min.js: {}
+  dependencies:
+    - core/jquery
+
+frame-manager:
+  js:
+    build/frame-manager.js: {}
+  dependencies:
+    - core/jquery
+
+accordion-tabs:
+  js:
+    build/bootstrap-tabcollapse.js: {}
+  dependencies:
+    - core/jquery
+
+addthis-share:
+  js:
+    //s7.addthis.com/js/300/addthis_widget.js#pubid=ra-583ffa2e2d1c4f9a: {}
+  dependencies:
+    - core/jquery
+
+# Browser popup.
+browser_popup:
+  version: 1.0
+  css:
+    component:
+      libraries/browser_popup/modal.css: {}
+  js:
+    libraries/browser_popup/modal.js: {}
+    libraries/browser_popup/browser-popup-init.js: {}

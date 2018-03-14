@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: key-areas-of-expertise
+label: 'Key areas of expertise'
+description: 'Key areas of expertise'
+locked: false

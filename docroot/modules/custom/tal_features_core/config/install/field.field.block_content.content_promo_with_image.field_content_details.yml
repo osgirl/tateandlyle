@@ -1,0 +1,92 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.content_promo_with_image
+    - field.storage.block_content.field_content_details
+    - paragraphs.paragraphs_type.content_promo_with_image
+  module:
+    - entity_reference_revisions
+id: block_content.content_promo_with_image.field_content_details
+field_name: field_content_details
+entity_type: block_content
+bundle: content_promo_with_image
+label: 'Content Details'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      content_promo_with_image: content_promo_with_image
+    target_bundles_drag_drop:
+      content_promo_with_image:
+        enabled: true
+        weight: 23
+      block_reference:
+        weight: 24
+        enabled: false
+      component_accordion_body:
+        weight: 25
+        enabled: false
+      component_accordion_items:
+        weight: 26
+        enabled: false
+      detail_content_promo:
+        weight: 27
+        enabled: false
+      download_accordion_items:
+        weight: 28
+        enabled: false
+      downloads:
+        weight: 29
+        enabled: false
+      filegroup:
+        weight: 30
+        enabled: false
+      history_tab:
+        weight: 31
+        enabled: false
+      ingredient_accordion:
+        weight: 32
+        enabled: false
+      ingredient_accordion_items:
+        weight: 33
+        enabled: false
+      ingredient_downloads:
+        weight: 34
+        enabled: false
+      media_video_gallery:
+        weight: 35
+        enabled: false
+      passive_recruitment:
+        weight: 36
+        enabled: false
+      promo_body_with_link_url:
+        weight: 37
+        enabled: false
+      related_downloads:
+        weight: 38
+        enabled: false
+      talk_to_us:
+        weight: 39
+        enabled: false
+      timeline_content:
+        weight: 40
+        enabled: false
+      wysiwyg:
+        weight: 41
+        enabled: false
+      wysiwyg_and_block_reference:
+        weight: 42
+        enabled: false
+      wysiwyg_with_block_reference:
+        weight: 43
+        enabled: false
+      wysiwyg_with_country_and_region:
+        weight: 44
+        enabled: false
+field_type: entity_reference_revisions

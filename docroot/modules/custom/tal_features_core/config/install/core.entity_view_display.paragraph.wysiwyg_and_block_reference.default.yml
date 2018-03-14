@@ -1,0 +1,31 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.wysiwyg_and_block_reference.field_block_component
+    - field.field.paragraph.wysiwyg_and_block_reference.field_in_wysiwyg2
+    - paragraphs.paragraphs_type.wysiwyg_and_block_reference
+  module:
+    - text
+id: paragraph.wysiwyg_and_block_reference.default
+targetEntityType: paragraph
+bundle: wysiwyg_and_block_reference
+mode: default
+content:
+  field_block_component:
+    type: entity_reference_entity_view
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+  field_in_wysiwyg2:
+    type: text_default
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  uid: true

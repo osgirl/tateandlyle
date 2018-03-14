@@ -1,0 +1,27 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_in_applications
+    - node.type.ingredient
+    - taxonomy.vocabulary.applications
+id: node.ingredient.field_in_applications
+field_name: field_in_applications
+entity_type: node
+bundle: ingredient
+label: Applications
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      applications: applications
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

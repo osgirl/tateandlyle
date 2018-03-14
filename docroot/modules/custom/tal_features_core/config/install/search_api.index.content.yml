@@ -1,0 +1,129 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_lp_keywords
+    - field.storage.node.field_lp_summary
+    - field.storage.node.body
+    - field.storage.node.field_referred_block
+    - field.storage.block_content.field_simple_text
+    - field.storage.block_content.body
+    - search_api.server.acquia_search_server
+    - core.entity_view_mode.node.full
+  module:
+    - block_content
+    - search_api
+    - node
+id: content
+name: Content
+description: ''
+read_only: false
+field_settings:
+  rendered:
+    label: Rendered
+    property_path: rendered_item
+    type: text
+    configuration:
+      roles:
+        anonymous: anonymous
+        authenticated: authenticated
+      view_mode:
+        'entity:node':
+          company_story: default
+          ingredient: full
+          landing_page: ''
+          leadership: default
+          press_release: default
+          tal_: ''
+  field_lp_keywords:
+    label: Keywords
+    datasource_id: 'entity:node'
+    property_path: field_lp_keywords
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_lp_keywords
+  field_lp_summary:
+    label: Summary
+    datasource_id: 'entity:node'
+    property_path: field_lp_summary
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_lp_summary
+  changed:
+    label: Changed
+    datasource_id: 'entity:node'
+    property_path: changed
+    type: date
+  type:
+    label: 'Content type'
+    datasource_id: 'entity:node'
+    property_path: type
+    type: string
+  title:
+    label: Title
+    datasource_id: 'entity:node'
+    property_path: title
+    type: string
+  title_1:
+    label: Title
+    datasource_id: 'entity:node'
+    property_path: title
+    type: text
+  body:
+    label: Description
+    datasource_id: 'entity:node'
+    property_path: body
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.body
+  field_simple_text:
+    label: 'Referred Block » Custom block » Title'
+    datasource_id: 'entity:node'
+    property_path: 'field_referred_block:entity:field_simple_text'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_referred_block
+        - field.storage.block_content.field_simple_text
+      module:
+        - block_content
+  body_1:
+    label: 'Referred Block » Custom block » Body'
+    datasource_id: 'entity:node'
+    property_path: 'field_referred_block:entity:body'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_referred_block
+        - field.storage.block_content.body
+      module:
+        - block_content
+processor_settings:
+  add_url:
+    plugin_id: add_url
+    settings: {  }
+  aggregated_field:
+    plugin_id: aggregated_field
+    settings: {  }
+  rendered_item:
+    plugin_id: rendered_item
+    settings: {  }
+datasource_settings:
+  'entity:node':
+    bundles:
+      default: true
+      selected: {  }
+    languages:
+      default: true
+      selected: {  }
+tracker_settings:
+  default:
+    plugin_id: default
+    settings: {  }
+options:
+  index_directly: true
+  cron_limit: 50
+server: acquia_search_server

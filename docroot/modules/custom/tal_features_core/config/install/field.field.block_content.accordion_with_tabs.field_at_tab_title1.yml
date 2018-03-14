@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.accordion_with_tabs
+    - field.storage.block_content.field_at_tab_title1
+id: block_content.accordion_with_tabs.field_at_tab_title1
+field_name: field_at_tab_title1
+entity_type: block_content
+bundle: accordion_with_tabs
+label: 'Tab title 1'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

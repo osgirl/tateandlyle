@@ -1,0 +1,9 @@
+name: Video Embed Buto
+type: module
+description: 'Provides Buto handler for Video Embed Fields'
+package: Video Embed Field
+core: '8.x'
+dependencies:
+  - field
+  - video_embed_field
+

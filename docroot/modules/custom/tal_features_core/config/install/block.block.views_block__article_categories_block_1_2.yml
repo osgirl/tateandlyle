@@ -1,0 +1,34 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.article_categories
+  module:
+    - facets
+    - system
+    - views
+id: views_block__article_categories_block_1_2
+theme: tateandlyle
+region: content
+weight: -12
+provider: null
+plugin: 'views_block:article_categories-block_1'
+settings:
+  id: 'views_block:article_categories-block_1'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility:
+  other_facet:
+    id: other_facet
+    facets: ''
+    facet_value: ''
+    negate: false
+    context_mapping: {  }
+  request_path:
+    id: request_path
+    pages: '/articles*'
+    negate: false
+    context_mapping: {  }

@@ -1,0 +1,36 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the tal_image_gallery module.
+ */
+
+use Drupal\taxonomy\Entity\Term;
+
+/**
+ * Implements hook_install().
+ *
+ * Perform actions to further customize the site after Lightning has been
+ * installed. This module is automatically enabled via the lightning.extend.yml
+ * file.
+ *
+ * @see system_install()
+ */
+function tal_image_gallery_install() {
+  // Create a term "Featured" under media gallery vocabulary.
+  Term::create(array(
+    'name' => 'Featured',
+    'vid' => 'media_gallery',
+  ))->save();
+}
+
+/**
+ * Creates a term "Featured" under media gallery vocabulary.
+ */
+function tal_image_gallery_update_8001() {
+  // Create a term "Featured" under media gallery vocabulary.
+  Term::create(array(
+    'name' => 'Featured',
+    'vid' => 'media_gallery',
+  ))->save();
+}

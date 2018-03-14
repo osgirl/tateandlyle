@@ -1,0 +1,5 @@
+tal_domain_redirect.file_upload:
+  title: 'TAL Domain Redirect'
+  base_route: redirect.list
+  route_name: tal_domain_redirect.file_upload
+  weight: 60

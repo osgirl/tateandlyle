@@ -1,0 +1,103 @@
+langcode: en
+status: false
+dependencies:
+  config:
+    - core.entity_view_mode.node.search_index
+    - field.field.node.ingredient.body
+    - field.field.node.ingredient.field_hide_title
+    - field.field.node.ingredient.field_image
+    - field.field.node.ingredient.field_in_aliases
+    - field.field.node.ingredient.field_in_applications
+    - field.field.node.ingredient.field_in_banner
+    - field.field.node.ingredient.field_in_common_names
+    - field.field.node.ingredient.field_in_misspellings
+    - field.field.node.ingredient.field_in_trends_solutions
+    - field.field.node.ingredient.field_in_types
+    - field.field.node.ingredient.field_ingredients_content
+    - node.type.ingredient
+  module:
+    - entity_reference_revisions
+    - panelizer
+    - text
+    - user
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.ingredient.search_index
+targetEntityType: node
+bundle: ingredient
+mode: search_index
+content:
+  body:
+    weight: 5
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+  field_in_aliases:
+    weight: 8
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_in_applications:
+    weight: 2
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+  field_in_banner:
+    type: entity_reference_entity_view
+    weight: 0
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+  field_in_common_names:
+    weight: 6
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_in_misspellings:
+    weight: 7
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_in_trends_solutions:
+    weight: 3
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+  field_in_types:
+    weight: 1
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+  field_ingredients_content:
+    type: entity_reference_revisions_entity_view
+    weight: 4
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+  links:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+  workbench_moderation_control:
+    weight: -20
+hidden:
+  field_hide_title: true
+  field_image: true
