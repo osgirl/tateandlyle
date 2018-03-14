@@ -130,9 +130,7 @@ class TALDomainRedirect extends FormBase {
         }
 
       }
-      else {
-        drupal_set_message("Row " . $count . " from spreadsheet is invalid. Domain or Redirect path can not be empty.", 'error');
-      }
+      $count++;
     }
 
     return $data;
