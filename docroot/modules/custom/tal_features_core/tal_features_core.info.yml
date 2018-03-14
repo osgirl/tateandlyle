@@ -74,3 +74,4 @@ dependencies:
   - workbench_moderation
   - captcha
   - recaptcha
+  - google_tag
