@@ -14,7 +14,7 @@ class TALDomainFileReaderFilter implements IReadFilter {
    */
   public function readCell($column, $row, $worksheetName = '') {
 
-    if (in_array($column, range('A', 'C'))) {
+    if (in_array($column, range('A', 'B'))) {
       return TRUE;
     }
     return FALSE;

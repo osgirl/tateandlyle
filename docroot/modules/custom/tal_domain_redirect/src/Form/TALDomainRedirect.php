@@ -63,6 +63,7 @@ class TALDomainRedirect extends FormBase {
     if (!empty($fileData)) {
       // Remove invalid/empty rows.
       $fileData = $this->removeEmptyOrInvalidRows($fileData);
+      $fileData = $this->convertDataFormat($fileData);
       $configData = $this->getDomainRedirectConfigData();
       if (!empty($fileData)) {
         $this->mergeFileAndConfigData($fileData, $configData);
@@ -92,7 +93,7 @@ class TALDomainRedirect extends FormBase {
     $file_path = $stream_wrapper_manager->realpath();
 
     $reader = IOFactory::createReader("Xlsx");
-    // Add filter to remove data after 3rd column.
+    // Add filter to remove data after 2nd column.
     $reader->setReadFilter(new TALDomainFileReaderFilter());
     $spreadsheet = $reader->load($file_path);
     if (isset($spreadsheet)) {
@@ -120,19 +121,16 @@ class TALDomainRedirect extends FormBase {
     $data = [];
     $count = 2;
     foreach ($rows as $row) {
-      array_splice($row, 3);
-      if (!empty($row['A']) && !empty($row['C'])) {
-        if (strpos($row['A'], '://') !== FALSE) {
-          drupal_set_message("Row " . $count . " from spreadsheet is invalid. No protocol should be included in the redirect domain.", 'error');
+      array_splice($row, 2);
+      if (!empty($row['A']) && !empty($row['B'])) {
+        if (preg_match('/\s/', $row['A']) ||  preg_match('/\s/', $row['B'])) {
+          drupal_set_message("Row " . $count . " from spreadsheet is invalid. Space is not allowed in Source/Destination.", 'error');
         }
         else {
           $data[] = $row;
         }
-
       }
-      else {
-        drupal_set_message("Row " . $count . " from spreadsheet is invalid. Domain or Redirect path can not be empty.", 'error');
-      }
+      $count++;
     }
 
     return $data;
@@ -195,6 +193,81 @@ class TALDomainRedirect extends FormBase {
         '@count Domain redirect URL are added.');
       drupal_set_message($message);
     }
+
+  }
+
+  /**
+   * Convert rows into the format needed for Domain redirect.
+   */
+  public function convertDataFormat($rows) {
+
+    $data = [];
+    $count = 0;
+    foreach ($rows as $row) {
+
+      $destination = $this->getDestination($row['A']);
+      $source = $this->getSource($row['B']);
+
+      $data[$count]['A'] = $source[0];
+      $data[$count]['B'] = $source[1];
+      $data[$count]['C'] = $destination;
+      $count++;
+
+    }
+
+    return $data;
+  }
+
+  /**
+   * Get the destination URL.
+   */
+  public function getDestination($url) {
+
+    $destination = $this->removeProtocol($url);
+
+    return $destination;
+  }
+
+  /**
+   * Get the source domain and subpath.
+   */
+  public function getSource($url) {
+
+    $url = $this->removeProtocol($url);
+    $source = $this->seperateDomainAndSubpath($url);
+    return $source;
+
+  }
+
+  /**
+   * Removes protocol from the url.
+   */
+  public function removeProtocol($url) {
+
+    $protocols = array('http://', 'https://');
+    foreach ($protocols as $protocol) {
+      if (strpos($url, $protocol) === 0) {
+        $url = str_replace($protocol, '', $url);
+      }
+    }
+    return $url;
+  }
+
+  /**
+   * Separates domain and subpath.
+   */
+  public function seperateDomainAndSubpath($source) {
+    $sourceExplode = [];
+    $position = strpos($source, '/');
+    if ($position !== FALSE) {
+      $sourceExplode[0] = substr($source, 0, $position);
+      $sourceExplode[1] = substr($source, $position);
+    }
+    else {
+      $sourceExplode[0] = $source;
+      $sourceExplode[1] = '/';
+    }
+    return $sourceExplode;
 
   }
 
