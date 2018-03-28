@@ -2952,17 +2952,17 @@
     },
     {
         "name": "drupal/core",
-        "version": "8.3.7",
-        "version_normalized": "8.3.7.0",
+        "version": "8.3.8",
+        "version_normalized": "8.3.8.0",
         "source": {
             "type": "git",
             "url": "https://github.com/drupal/core.git",
-            "reference": "32f66ed9cc593f8e9ab0eaaaeff4cadbd859d5ff"
+            "reference": "5d991a86fc445ebe71a63eed8804c4209f8794c4"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/drupal/core/zipball/32f66ed9cc593f8e9ab0eaaaeff4cadbd859d5ff",
-            "reference": "32f66ed9cc593f8e9ab0eaaaeff4cadbd859d5ff",
+            "url": "https://api.github.com/repos/drupal/core/zipball/5d991a86fc445ebe71a63eed8804c4209f8794c4",
+            "reference": "5d991a86fc445ebe71a63eed8804c4209f8794c4",
             "shasum": ""
         },
         "require": {
@@ -3112,7 +3112,7 @@
             "symfony/browser-kit": ">=2.8.13 <3.0",
             "symfony/css-selector": "~2.8"
         },
-        "time": "2017-08-16T17:10:35+00:00",
+        "time": "2018-03-12T19:09:32+00:00",
         "type": "drupal-core",
         "extra": {
             "patches_applied": {
@@ -4606,7 +4606,7 @@
             },
             "drupal": {
                 "version": "8.x-1.3",
-                "datestamp": "1505680144",
+                "datestamp": "1520456007",
                 "security-coverage": {
                     "status": "covered",
                     "message": "Covered by Drupal's security advisory policy"

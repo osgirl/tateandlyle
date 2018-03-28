@@ -11,7 +11,7 @@
         "drupal/acsf": "^1.32.0",
         "drupal/cog": "^1.0.0",
         "drupal/console": "^1.0.0-rc14",
-        "drupal/core": "8.3.7",
+        "drupal/core": "8.3.8",
         "drupal/memcache": "2.x-dev",
         "drupal/search_api": "^1.0.0",
         "drupal/search_api_solr": "^1.0.0",
