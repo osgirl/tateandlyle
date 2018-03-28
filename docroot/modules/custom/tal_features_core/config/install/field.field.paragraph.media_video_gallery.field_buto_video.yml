@@ -1,0 +1,25 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_buto_video
+    - paragraphs.paragraphs_type.media_video_gallery
+  module:
+    - video_embed_field
+id: paragraph.media_video_gallery.field_buto_video
+field_name: field_buto_video
+entity_type: paragraph
+bundle: media_video_gallery
+label: 'Video Id'
+description: 'Add Buto video id or Youtube video id (i.e. URL of Youtube video).'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_providers:
+    buto: buto
+    youtube: youtube
+    youtube_playlist: youtube_playlist
+    vimeo: '0'
+field_type: video_embed_field

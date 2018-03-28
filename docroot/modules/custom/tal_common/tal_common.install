@@ -1,0 +1,38 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the tal_common module.
+ */
+
+use Drupal\workbench_email\Entity\Template;
+
+/**
+ * Implements hook_update_N().
+ */
+function tal_common_update_8201() {
+  db_update('block_content_field_data')
+    ->fields(array(
+      'moderation_state' => 'published',
+    ))
+    ->execute();
+  db_update('block_content_field_revision')
+    ->fields(array(
+      'moderation_state' => 'published',
+    ))
+    ->execute();
+
+}
+
+/**
+ * Update draft_to_needs_review workbench_email template.
+ */
+function tal_common_update_8202() {
+  $template = Template::load('draft_to_needs_review');
+  $body = [
+    'value' => 'The page entitled: "[node:title]" has been edited by [node:latest_revision_author:account-name]. Click here to review it: [node:edit-url].',
+    'format' => 'plain_text',
+  ];
+  $template->setBody($body);
+  $template->save();
+}

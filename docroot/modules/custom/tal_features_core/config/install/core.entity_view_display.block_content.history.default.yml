@@ -1,0 +1,23 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.history
+    - field.field.block_content.history.field_history_tab
+  module:
+    - entity_reference_revisions
+id: block_content.history.default
+targetEntityType: block_content
+bundle: history
+mode: default
+content:
+  field_history_tab:
+    type: entity_reference_revisions_entity_view
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+hidden:
+  workbench_moderation_control: true

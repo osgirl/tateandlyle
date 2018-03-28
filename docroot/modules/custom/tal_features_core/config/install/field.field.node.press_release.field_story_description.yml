@@ -1,0 +1,89 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_story_description
+    - node.type.press_release
+    - paragraphs.paragraphs_type.wysiwyg_and_block_reference
+  module:
+    - entity_reference_revisions
+id: node.press_release.field_story_description
+field_name: field_story_description
+entity_type: node
+bundle: press_release
+label: 'Story Description'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      wysiwyg_and_block_reference: wysiwyg_and_block_reference
+    target_bundles_drag_drop:
+      block_reference:
+        weight: 20
+        enabled: false
+      component_accordion_body:
+        weight: 21
+        enabled: false
+      component_accordion_items:
+        weight: 22
+        enabled: false
+      detail_content_promo:
+        weight: 23
+        enabled: false
+      download_accordion_items:
+        weight: 24
+        enabled: false
+      downloads:
+        weight: 25
+        enabled: false
+      filegroup:
+        weight: 26
+        enabled: false
+      ingredient_accordion:
+        weight: 27
+        enabled: false
+      ingredient_accordion_items:
+        weight: 28
+        enabled: false
+      ingredient_downloads:
+        weight: 29
+        enabled: false
+      history_tab:
+        weight: 29
+        enabled: false
+      media_video_gallery:
+        weight: 30
+        enabled: false
+      passive_recruitment:
+        weight: 31
+        enabled: false
+      promo_body_with_link_url:
+        weight: 32
+        enabled: false
+      related_downloads:
+        weight: 33
+        enabled: false
+      talk_to_us:
+        weight: 34
+        enabled: false
+      wysiwyg:
+        weight: 35
+        enabled: false
+      wysiwyg_and_block_reference:
+        enabled: true
+        weight: 36
+      wysiwyg_with_block_reference:
+        weight: 37
+        enabled: false
+      timeline_content:
+        weight: 38
+        enabled: false
+      wysiwyg_with_country_and_region:
+        weight: 38
+        enabled: false
+field_type: entity_reference_revisions

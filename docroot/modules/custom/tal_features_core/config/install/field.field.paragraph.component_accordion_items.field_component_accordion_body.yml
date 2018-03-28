@@ -1,0 +1,62 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_component_accordion_body
+    - paragraphs.paragraphs_type.component_accordion_body
+    - paragraphs.paragraphs_type.component_accordion_items
+  module:
+    - entity_reference_revisions
+id: paragraph.component_accordion_items.field_component_accordion_body
+field_name: field_component_accordion_body
+entity_type: paragraph
+bundle: component_accordion_items
+label: 'Component Accordion Body'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      component_accordion_body: component_accordion_body
+    target_bundles_drag_drop:
+      block_reference:
+        weight: 12
+        enabled: false
+      component_accordion_body:
+        enabled: true
+        weight: 13
+      component_accordion:
+        weight: 14
+        enabled: false
+      component_accordion_items:
+        weight: 14
+        enabled: false
+      downloads:
+        weight: 15
+        enabled: false
+      ingredient_accordion:
+        weight: 16
+        enabled: false
+      ingredient_accordion_items:
+        weight: 17
+        enabled: false
+      passive_recruitment:
+        weight: 18
+        enabled: false
+      talk_to_us:
+        weight: 19
+        enabled: false
+      wysiwyg:
+        weight: 20
+        enabled: false
+      wysiwyg_with_block_reference:
+        weight: 21
+        enabled: false
+      wysiwyg_with_country_and_region:
+        weight: 22
+        enabled: false
+field_type: entity_reference_revisions

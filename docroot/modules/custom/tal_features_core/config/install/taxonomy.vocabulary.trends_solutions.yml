@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'Trends & solutions'
+vid: trends_solutions
+description: ''
+hierarchy: 1
+weight: 0

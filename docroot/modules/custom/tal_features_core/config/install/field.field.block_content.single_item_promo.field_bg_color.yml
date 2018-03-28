@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.single_item_promo
+    - field.storage.block_content.field_bg_color
+  module:
+    - options
+id: block_content.single_item_promo.field_bg_color
+field_name: field_bg_color
+entity_type: block_content
+bundle: single_item_promo
+label: 'Background colour'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

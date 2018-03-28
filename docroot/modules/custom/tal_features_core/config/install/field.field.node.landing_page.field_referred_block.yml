@@ -1,0 +1,27 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.single_item_promo
+    - field.storage.node.field_referred_block
+    - node.type.landing_page
+id: node.landing_page.field_referred_block
+field_name: field_referred_block
+entity_type: node
+bundle: landing_page
+label: 'Referred Block'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:block_content'
+  handler_settings:
+    target_bundles:
+      single_item_promo: single_item_promo
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

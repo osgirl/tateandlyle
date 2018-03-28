@@ -1,0 +1,61 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.detail_content_promo
+    - field.field.block_content.detail_content_promo.field_all_jobs_link
+    - field.field.block_content.detail_content_promo.field_banner_title
+    - field.field.block_content.detail_content_promo.field_bg_color
+    - field.field.block_content.detail_content_promo.field_dcp_content_section
+  module:
+    - link
+    - paragraphs
+    - workbench_moderation
+id: block_content.detail_content_promo.default
+targetEntityType: block_content
+bundle: detail_content_promo
+mode: default
+content:
+  field_all_jobs_link:
+    weight: 4
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+  field_banner_title:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_bg_color:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+  field_dcp_content_section:
+    type: entity_reference_paragraphs
+    weight: 3
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+  info:
+    type: string_textfield
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  moderation_state:
+    type: moderation_state_default
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

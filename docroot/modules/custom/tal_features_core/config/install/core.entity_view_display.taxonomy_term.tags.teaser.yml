@@ -1,0 +1,24 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.taxonomy_term.teaser
+    - field.field.taxonomy_term.tags.field_ac_icon
+    - field.field.taxonomy_term.tags.field_show_on_post
+    - taxonomy.vocabulary.tags
+id: taxonomy_term.tags.teaser
+targetEntityType: taxonomy_term
+bundle: tags
+mode: teaser
+content:
+  field_ac_icon:
+    weight: 0
+    label: hidden
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+hidden:
+  description: true
+  field_show_on_post: true

@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies: {  }
+id: anonymous
+label: 'Anonymous user'
+weight: 0
+is_admin: false
+permissions:
+  - 'access content'
+  - 'view media'
+  - 'access_unpublished node page'
+  - 'access_unpublished node company_story'
+  - 'access_unpublished node iframe_content'
+  - 'access_unpublished node ingredient'
+  - 'access_unpublished node landing_page'
+  - 'access sitemap'
+  - 'access_content'
+  - 'never autoplay videos'

@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: basic_page_url
+label: 'Basic Page URL'
+type: 'canonical_entities:node'
+pattern: '/[node:title]'
+selection_criteria:
+  7a627fd6-abb6-4a48-84ac-1f8b18b8dfa6:
+    id: node_type
+    bundles:
+      page: page
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 7a627fd6-abb6-4a48-84ac-1f8b18b8dfa6
+selection_logic: and
+weight: -8
+relationships: {  }

@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.single_item_promo
+    - field.storage.block_content.field_simple_text
+id: block_content.single_item_promo.field_simple_text
+field_name: field_simple_text
+entity_type: block_content
+bundle: single_item_promo
+label: Title
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

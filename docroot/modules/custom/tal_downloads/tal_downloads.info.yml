@@ -1,0 +1,4 @@
+name: TAL Downloads
+type: module
+description: 'Module for customisation of downloads section in T&L.'
+core: 8.x

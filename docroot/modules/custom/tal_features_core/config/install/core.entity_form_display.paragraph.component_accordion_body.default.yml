@@ -1,0 +1,50 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.component_accordion_body.field_content_summary
+    - field.field.paragraph.component_accordion_body.field_simple_text
+    - field.field.paragraph.component_accordion_body.field_tal_link
+    - field.field.paragraph.component_accordion_body.field_tal_more
+    - paragraphs.paragraphs_type.component_accordion_body
+  module:
+    - link
+    - text
+    - workbench_moderation
+id: paragraph.component_accordion_body.default
+targetEntityType: paragraph
+bundle: component_accordion_body
+mode: default
+content:
+  field_content_summary:
+    weight: 2
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+  field_simple_text:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_tal_link:
+    weight: 3
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+  field_tal_more:
+    weight: 4
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+hidden:
+  created: true
+  status: true
+  uid: true

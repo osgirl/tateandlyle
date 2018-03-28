@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies: {  }
+name: talk_to_us
+label: 'Talk to us 1366 x 425'
+effects:
+  008668e4-c9af-43b6-ae17-ce2b27b2e1cb:
+    uuid: 008668e4-c9af-43b6-ae17-ce2b27b2e1cb
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1366
+      height: 425
