@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit2bd0af7e9bcadaf911227c6d54a75a32
+class ComposerStaticInit64461001b675c1a0d17d93959863ca79
 {
     public static $files = array (
         '32dcc8afd4335739640db7d200c1971d' => __DIR__ . '/..' . '/symfony/polyfill-apcu/bootstrap.php',
@@ -2911,6 +2911,7 @@ class ComposerStaticInit2bd0af7e9bcadaf911227c6d54a75a32
         'Drupal\\Core\\Routing\\UrlGeneratorInterface' => __DIR__ . '/../..' . '/docroot/core/lib/Drupal/Core/Routing/UrlGeneratorInterface.php',
         'Drupal\\Core\\Routing\\UrlGeneratorTrait' => __DIR__ . '/../..' . '/docroot/core/lib/Drupal/Core/Routing/UrlGeneratorTrait.php',
         'Drupal\\Core\\Routing\\UrlMatcher' => __DIR__ . '/../..' . '/docroot/core/lib/Drupal/Core/Routing/UrlMatcher.php',
+        'Drupal\\Core\\Security\\RequestSanitizer' => __DIR__ . '/../..' . '/docroot/core/lib/Drupal/Core/Security/RequestSanitizer.php',
         'Drupal\\Core\\Serialization\\Yaml' => __DIR__ . '/../..' . '/docroot/core/lib/Drupal/Core/Serialization/Yaml.php',
         'Drupal\\Core\\Session\\AccountInterface' => __DIR__ . '/../..' . '/docroot/core/lib/Drupal/Core/Session/AccountInterface.php',
         'Drupal\\Core\\Session\\AccountProxy' => __DIR__ . '/../..' . '/docroot/core/lib/Drupal/Core/Session/AccountProxy.php',
@@ -7632,10 +7633,10 @@ class ComposerStaticInit2bd0af7e9bcadaf911227c6d54a75a32
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit2bd0af7e9bcadaf911227c6d54a75a32::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit2bd0af7e9bcadaf911227c6d54a75a32::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit2bd0af7e9bcadaf911227c6d54a75a32::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit2bd0af7e9bcadaf911227c6d54a75a32::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit64461001b675c1a0d17d93959863ca79::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit64461001b675c1a0d17d93959863ca79::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit64461001b675c1a0d17d93959863ca79::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit64461001b675c1a0d17d93959863ca79::$classMap;
 
         }, null, ClassLoader::class);
     }
