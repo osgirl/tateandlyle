@@ -203,6 +203,26 @@
   }
 }
 
+.page-node-type-webinar {
+  .field--name-body {
+    color: black;
+    margin-top: 30px;
+  }
+  .field--name-field-video {
+    margin-top: 30px;
+    .video-js {
+      margin: 0 auto;
+    }
+  }
+  .field--name-field-webinar-category {
+    color: black;
+    .field__items {
+      display: inline-block;
+    }
+  }
+
+}
+
 .block--vertical {
   text-align: center;
 

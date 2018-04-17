@@ -1,0 +1,5 @@
+name: Webinar Gallery
+description: Webinar Gallery created by marketing team
+type: module
+core: 8.x
+package: tal

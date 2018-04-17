@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * @file
+ * Contains webinar gallery related codes.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function tal_webinar_gallery_theme() {
+  return array(
+    'tal_webinar_gallery' => [
+      'variables' => [
+        'categories' => NULL,
+      ],
+    ],
+  );
+}

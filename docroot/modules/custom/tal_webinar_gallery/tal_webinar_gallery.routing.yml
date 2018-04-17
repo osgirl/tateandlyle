@@ -1,0 +1,8 @@
+tal_webinar_gallery:
+  path: '/media/gallery/webinar'
+  defaults:
+    _title: 'Webinars'
+    _controller: '\Drupal\tal_webinar_gallery\Controller\WebinarGalleryController::content'
+  requirements:
+    _permission: 'access content'
+

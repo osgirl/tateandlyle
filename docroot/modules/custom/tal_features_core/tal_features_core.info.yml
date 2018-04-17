@@ -10,6 +10,7 @@ dependencies:
   - acquia_search
   - block
   - block_content
+  - captcha
   - ckeditor
   - colorbox
   - country
@@ -27,6 +28,7 @@ dependencies:
   - file
   - filefield_paths
   - filter
+  - google_tag
   - help
   - image
   - improved_multi_select
@@ -46,6 +48,7 @@ dependencies:
   - paragraphs
   - path
   - pathauto
+  - recaptcha
   - search_api
   - search_api_solr
   - simple_sitemap
@@ -64,15 +67,14 @@ dependencies:
   - tal_search
   - tal_video_embed_buto
   - tal_video_gallery
+  - tal_webinar_gallary
   - tal_webform
   - taxonomy
   - text
   - user
   - video_embed_field
+  - videojs
   - views
   - views_infinite_scroll
   - workbench_email
   - workbench_moderation
-  - captcha
-  - recaptcha
-  - google_tag
