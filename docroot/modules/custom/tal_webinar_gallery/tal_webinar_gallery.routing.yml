@@ -5,4 +5,3 @@ tal_webinar_gallery:
     _controller: '\Drupal\tal_webinar_gallery\Controller\WebinarGalleryController::content'
   requirements:
     _permission: 'access content'
-

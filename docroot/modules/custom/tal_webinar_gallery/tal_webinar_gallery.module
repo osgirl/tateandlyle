@@ -9,11 +9,11 @@
  * Implements hook_theme().
  */
 function tal_webinar_gallery_theme() {
-  return array(
+  return [
     'tal_webinar_gallery' => [
       'variables' => [
         'categories' => NULL,
       ],
     ],
-  );
+  ];
 }
