@@ -11,6 +11,11 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  */
 class WebinarGalleryController extends ControllerBase {
 
+  /**
+   * The Entity Type Manager service.
+   *
+   * @var \Drupal\Core\Entity\EntityTypeManager
+   */
   protected $entityTypeManager;
 
   /**
