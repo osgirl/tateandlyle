@@ -1,0 +1,18 @@
+{#
+/**
+* @file
+* Default theme implementation for webinar gallery.
+*
+* @ingroup themeable
+*/
+#}
+<div class="tal--webinar-gallery">
+  <div class="tal--webinar-gallery-categories">
+    {% for category in categories %}
+      {%  if (category.carousel|render|striptags|trim != '') %}
+        <h3 class="tal--carousel-title">{{ category.name }}</h3>
+        <div class="carousel">{{ category.carousel }}</div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>

@@ -59,7 +59,8 @@
         "drupal/filefield_paths": "^1.0@beta",
         "drupal/recaptcha": "^2.2",
         "drupal/google_tag": "^1.0",
-        "phpoffice/phpspreadsheet": "^1.1"
+        "phpoffice/phpspreadsheet": "^1.1",
+        "drupal/videojs": "^1.0"
     },
     "require-dev": {
         "behat/behat": "^3.1",
