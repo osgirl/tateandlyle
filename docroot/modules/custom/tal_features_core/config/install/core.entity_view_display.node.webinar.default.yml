@@ -1,0 +1,61 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.webinar.body
+    - field.field.node.webinar.field_video
+    - field.field.node.webinar.field_webinar_category
+    - field.field.node.webinar.field_webinar_image
+    - node.type.webinar
+  module:
+    - panelizer
+    - text
+    - user
+    - videojs
+third_party_settings:
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.webinar.default
+targetEntityType: node
+bundle: webinar
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_video:
+    weight: 1
+    label: hidden
+    settings:
+      width: '854'
+      height: '480'
+      controls: '1'
+      preload: none
+      autoplay: 0
+      loop: 0
+      muted: 0
+    third_party_settings: {  }
+    type: videojs_player_list
+    region: content
+  field_webinar_category:
+    weight: 3
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  links:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_webinar_image: true

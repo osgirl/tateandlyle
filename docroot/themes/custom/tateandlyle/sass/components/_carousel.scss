@@ -91,3 +91,78 @@
     right: 0;
   }
 }
+
+.tal--webinar-gallery {
+  padding: 0;
+  max-width: 1169px;
+  margin: 0 auto;
+}
+
+.slick--view--webinar-gallery {
+  .slick__arrow {
+    position: static !important;
+  }
+  .slick-arrow {
+    position: absolute;
+    top: 45%;
+    left: 0;
+    width: 20px;
+    opacity: 0.75;
+    filter: alpha(opacity=50);
+    color: #FFFFFF;
+    text-align: center;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+    background-color: #111111;
+    height: 20px;
+    border-radius: 50%;
+    padding: 0;
+    border: none;
+    outline: none;
+    .glyphicon-chevron-left, .glyphicon-chevron-right {
+      font-size: 12px;
+      height: auto;
+      top: -2px;
+    }
+  }
+  .slick-arrow.slick-disabled {
+    opacity: 0.25;
+  }
+  .slick-arrow.slick-prev, .slick-arrow.slick-next {
+    margin-right: -21px;
+    margin-left: -21px;
+  }
+  .slick-arrow.slick-next {
+    left: auto;
+    right: 0;
+  }
+  .slick__slide {
+    position: relative;
+    display: block;
+    padding: 0 10px;
+    img {
+      display: block;
+      width: 100%;
+      object-fit: cover;
+      max-height: 170px;
+      max-width: none;
+    }
+    .views-field-title {
+      .field-content {
+        font-family: "DINOT-Bold", sans-serif;
+        position: absolute;
+        bottom: 0;
+        left: 10px;
+        right: 10px;
+        padding: 10px 0 10px 10px;
+        font-size: 14px;
+        font-weight: bold;
+        background-color: rgba(17, 17, 17, 0.7);
+      }
+      .field-content {
+        a {
+          color: white;
+        }
+      }
+    }
+  }
+}
