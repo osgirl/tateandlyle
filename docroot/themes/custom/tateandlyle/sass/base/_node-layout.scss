@@ -98,3 +98,14 @@ article {
     display: none;
   }
 }
+
+.page-node-type-webinar {
+  .region-content {
+    max-width: 1132px;
+    @media (min-width: $screen-sm) {
+      margin: 0 auto;
+    }
+  }
+}
+
+
