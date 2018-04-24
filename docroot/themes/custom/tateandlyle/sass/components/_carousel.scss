@@ -139,6 +139,9 @@
     position: relative;
     display: block;
     padding: 0 10px;
+    @media (min-width: $screen-sm) {
+      max-width: 293px;
+    }
     img {
       display: block;
       width: 100%;
