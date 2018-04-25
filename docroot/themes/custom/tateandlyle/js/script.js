@@ -287,9 +287,8 @@
       });
     }
   };
-  
+
   Drupal.behaviors.accordianPrintMedia = {
-    
     attach: function (context) {
 
       var beforePrint = function() {
@@ -329,6 +328,30 @@
       window.onafterprint = afterPrint;
     }
     
+  }
+  Drupal.behaviors.responsiveVideoJS = {
+    attach: function (context) {
+        $( window).load(function() {
+          var left_distance = $('.video-js ').width() / 2 - 45;
+          var top_distance = $('.video-js ').outerHeight() / 2 - 20;
+          $('.vjs-big-play-button').css({"top" : top_distance, 'left': left_distance});
+          $('.video-js').removeClass('hide-play-button');
+        });
+      if ($('body').hasClass('page-node-type-webinar')) {
+        $('.video-js').addClass('hide-play-button');
+        $( window ).resize(function() {
+          if ($(window).width() <= 768) {
+            $('.video-js ').addClass('vjs-fluid');
+          }
+          else {
+            $('.video-js ').removeClass('vjs-fluid');
+          }
+          var left_distance = $('.video-js ').width() / 2 - 45;
+          var top_distance = $('.video-js ').outerHeight() / 2 - 20;
+          $('.vjs-big-play-button').css({"top" : top_distance, 'left': left_distance});
+        }).resize();
+      }
+    }
   }
 
 })(jQuery, Drupal, this);
