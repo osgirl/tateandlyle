@@ -1,0 +1,43 @@
+.page-node-type-webinar {
+  .video-js {
+    @media (max-width: $screen-sm) {
+      // !important is added to override inline CSS
+      width: 100% !important;
+      height: 100% !important;
+    }
+    @media (max-width: $screen-md) {
+      width: 100% !important;
+    }
+    .vjs-tech {
+      @media (max-width: $screen-sm) {
+        // !important is added to override inline CSS
+        width: 100% !important;
+        height: 100% !important;
+      }
+      @media (max-width: $screen-md) {
+        width: 100% !important;
+      }
+    }
+  }
+  .hide-play-button {
+    .vjs-big-play-button {
+      display: none;
+    }
+  }
+  .vjs-fullscreen {
+    .vjs-tech {
+      //!important is added to override inline CSS
+      width: 100% !important;
+      height: 100% !important;
+    }
+  }
+
+}
+
+.tal--webinar-gallery {
+  .tal--carousel-title {
+    margin-bottom: 20px;
+    margin-top: 30px;
+    margin-left: 10px;
+  }
+}
