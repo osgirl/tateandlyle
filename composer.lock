@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "6887dfdd426c53c5b2ec9262022b6332",
+    "content-hash": "12a675c2b9c763716ce0cab9feaccbf2",
     "packages": [
         {
             "name": "acquia/blt",
@@ -2999,6 +2999,7 @@
                     "Duplicate AJAX wrapper around a file field": "https://www.drupal.org/files/issues/duplicate_ajax_wrapper-2346893-205.patch",
                     "Views replacement token for fields shows encoded htmlentities": "https://www.drupal.org/files/issues/views_replacement_token-2856598-6.patch",
                     "Block revision history": "https://gist.githubusercontent.com/alex-bukach/75c13b674ea1a22bae43788d51326265/raw/c6a2df3d26661c9050d746402a6359bc0a116f2f/drupal8-block_content-revisions.patch",
+                    "SA-CORE-2018-004": "https://cgit.drupalcode.org/drupal/patch/?id=2e23b19c6e8d4536ca959d5a26d509f115e0c969",
                     "2652138 - ImageFormatter does not support SVGs": "https://www.drupal.org/files/issues/2652138-41.patch",
                     "1356276 - Allow profiles to provide a base/parent profile and load them in the correct order": "https://www.drupal.org/files/issues/1356276-360.patch",
                     "2880374 - Experimental modules should not have warnings after being installed": "https://www.drupal.org/files/issues/2880374-remove-experimental-warnings-6.patch",
