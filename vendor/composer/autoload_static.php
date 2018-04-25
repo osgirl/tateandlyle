@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit53b4e8c19315d9f5e41366219c02be29
+class ComposerStaticInit7245c33a19e46cfdacd3a882052ecabe
 {
     public static $files = array (
         '32dcc8afd4335739640db7d200c1971d' => __DIR__ . '/..' . '/symfony/polyfill-apcu/bootstrap.php',
@@ -2911,6 +2911,7 @@ class ComposerStaticInit53b4e8c19315d9f5e41366219c02be29
         'Drupal\\Core\\Routing\\UrlGeneratorInterface' => __DIR__ . '/../..' . '/docroot/core/lib/Drupal/Core/Routing/UrlGeneratorInterface.php',
         'Drupal\\Core\\Routing\\UrlGeneratorTrait' => __DIR__ . '/../..' . '/docroot/core/lib/Drupal/Core/Routing/UrlGeneratorTrait.php',
         'Drupal\\Core\\Routing\\UrlMatcher' => __DIR__ . '/../..' . '/docroot/core/lib/Drupal/Core/Routing/UrlMatcher.php',
+        'Drupal\\Core\\Security\\RequestSanitizer' => __DIR__ . '/../..' . '/docroot/core/lib/Drupal/Core/Security/RequestSanitizer.php',
         'Drupal\\Core\\Serialization\\Yaml' => __DIR__ . '/../..' . '/docroot/core/lib/Drupal/Core/Serialization/Yaml.php',
         'Drupal\\Core\\Session\\AccountInterface' => __DIR__ . '/../..' . '/docroot/core/lib/Drupal/Core/Session/AccountInterface.php',
         'Drupal\\Core\\Session\\AccountProxy' => __DIR__ . '/../..' . '/docroot/core/lib/Drupal/Core/Session/AccountProxy.php',
@@ -7632,10 +7633,10 @@ class ComposerStaticInit53b4e8c19315d9f5e41366219c02be29
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit53b4e8c19315d9f5e41366219c02be29::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit53b4e8c19315d9f5e41366219c02be29::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit53b4e8c19315d9f5e41366219c02be29::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit53b4e8c19315d9f5e41366219c02be29::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit7245c33a19e46cfdacd3a882052ecabe::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit7245c33a19e46cfdacd3a882052ecabe::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit7245c33a19e46cfdacd3a882052ecabe::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit7245c33a19e46cfdacd3a882052ecabe::$classMap;
 
         }, null, ClassLoader::class);
     }
