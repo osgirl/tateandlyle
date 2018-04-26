@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies: {  }
+name: quote_167_x_167
+label: 'Quote 167 x 167'
+effects:
+  04a68c6f-2bf0-4d67-9ef9-45184341dfbc:
+    uuid: 04a68c6f-2bf0-4d67-9ef9-45184341dfbc
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 167
+      height: 167

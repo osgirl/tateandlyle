@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: ingredient_path_url
+label: 'Ingredient Path URL'
+type: 'canonical_entities:node'
+pattern: '/ingredient/[node:title]'
+selection_criteria:
+  64f4c079-5e66-484e-916c-2b7a0c2c5f66:
+    id: node_type
+    bundles:
+      ingredient: ingredient
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 64f4c079-5e66-484e-916c-2b7a0c2c5f66
+selection_logic: and
+weight: -7
+relationships: {  }

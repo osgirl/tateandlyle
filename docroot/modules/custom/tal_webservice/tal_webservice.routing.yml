@@ -1,0 +1,10 @@
+tal_webservice.ingredient:
+  path: 'ws/documents'
+  defaults:
+    _controller: 'Drupal\tal_webservice\Controller\IngredientController::create'
+  methods:  [POST]
+  options:
+    _auth: [ 'basic_auth' ]
+  requirements:
+      _user_is_logged_in: 'TRUE'
+      _custom_access: '\Drupal\tal_webservice\Controller\IngredientController::access'

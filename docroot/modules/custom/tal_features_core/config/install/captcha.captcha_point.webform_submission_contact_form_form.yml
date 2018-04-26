@@ -1,0 +1,6 @@
+langcode: en
+status: true
+dependencies: {  }
+formId: webform_submission_contact_form_form
+captchaType: recaptcha/reCAPTCHA
+label: webform-submission-contact-form-form

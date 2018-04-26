@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - lightning_core
+    - node
+third_party_settings:
+  lightning_core:
+    description: 'Use this view mode show articles in 3 columns.'
+id: node.articles_in_3_columns
+label: 'Articles in 3 columns'
+targetEntityType: node
+cache: true

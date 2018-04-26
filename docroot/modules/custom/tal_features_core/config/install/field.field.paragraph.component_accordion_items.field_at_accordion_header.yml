@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_at_accordion_header
+    - paragraphs.paragraphs_type.component_accordion_items
+id: paragraph.component_accordion_items.field_at_accordion_header
+field_name: field_at_accordion_header
+entity_type: paragraph
+bundle: component_accordion_items
+label: 'Component Accordion Header'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,28 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.footer-navigation-menu
+  module:
+    - facets
+    - system
+id: footernavigationmenu
+theme: tateandlyle
+region: footer
+weight: -13
+provider: null
+plugin: 'system_menu_block:footer-navigation-menu'
+settings:
+  id: 'system_menu_block:footer-navigation-menu'
+  label: 'Footer Navigation Menu'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+visibility:
+  other_facet:
+    id: other_facet
+    facets: ''
+    facet_value: ''
+    negate: false
+    context_mapping: {  }

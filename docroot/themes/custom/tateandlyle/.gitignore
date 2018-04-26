@@ -1,0 +1,16 @@
+# OS
+.DS_Store
+
+# Applications & Tools
+.idea
+bower_components
+config.codekit
+node_modules
+npm-debug.log
+.sass-cache
+.sass-cache/*
+
+# Project Specific
+.libraries
+lib
+starterkits/*/bootstrap

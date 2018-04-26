@@ -1,0 +1,21 @@
+.view-video-details-page {
+  @extend %inner-content-width-padding;
+  margin: auto;
+  margin-bottom: 50px;
+
+  .views-field-field-simple-text1 .field-content {
+    @extend %title-border-bottom;
+    border-bottom: none;
+    color: $gray-base-light;
+    font-size: $font-size-h2;
+    margin-bottom: 22px;
+
+    @media (min-width: $screen-sm) {
+      font-size: $font-size-h1-sm;
+    }
+
+    @media (min-width: $screen-md) {
+      font-size: $font-size-h1;
+    }
+  }
+}

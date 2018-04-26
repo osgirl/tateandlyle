@@ -1,0 +1,93 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ingredients_content
+    - node.type.ingredient
+    - paragraphs.paragraphs_type.block_reference
+    - paragraphs.paragraphs_type.ingredient_accordion
+    - paragraphs.paragraphs_type.ingredient_downloads
+    - paragraphs.paragraphs_type.wysiwyg
+    - paragraphs.paragraphs_type.wysiwyg_with_block_reference
+    - paragraphs.paragraphs_type.wysiwyg_with_country_and_region
+  module:
+    - entity_reference_revisions
+id: node.ingredient.field_ingredients_content
+field_name: field_ingredients_content
+entity_type: node
+bundle: ingredient
+label: 'Ingredients content'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      block_reference: block_reference
+      ingredient_accordion: ingredient_accordion
+      wysiwyg: wysiwyg
+      wysiwyg_with_block_reference: wysiwyg_with_block_reference
+      wysiwyg_with_country_and_region: wysiwyg_with_country_and_region
+      ingredient_downloads: ingredient_downloads
+    target_bundles_drag_drop:
+      block_reference:
+        enabled: true
+        weight: 7
+      downloads:
+        weight: 8
+        enabled: false
+      ingredient_accordion:
+        enabled: true
+        weight: 9
+      wysiwyg:
+        enabled: true
+        weight: 10
+      wysiwyg_with_block_reference:
+        enabled: true
+        weight: 11
+      wysiwyg_with_country_and_region:
+        enabled: true
+        weight: 12
+      component_accordion_body:
+        weight: 17
+        enabled: false
+      component_accordion_items:
+        weight: 18
+        enabled: false
+      detail_content_promo:
+        weight: 19
+        enabled: false
+      filegroup:
+        weight: 21
+        enabled: false
+      download_accordion_items:
+        weight: 23
+        enabled: false
+      ingredient_accordion_items:
+        weight: 23
+        enabled: false
+      passive_recruitment:
+        weight: 24
+        enabled: false
+      related_downloads:
+        weight: 25
+        enabled: false
+      talk_to_us:
+        weight: 26
+        enabled: false
+      media_video_gallery:
+        weight: 28
+        enabled: false
+      wysiwyg_and_block_reference:
+        weight: 28
+        enabled: false
+      ingredient_downloads:
+        enabled: true
+        weight: 29
+      promo_body_with_link_url:
+        weight: 30
+        enabled: false
+field_type: entity_reference_revisions

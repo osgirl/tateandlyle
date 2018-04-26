@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.single_item_promo
+    - field.storage.block_content.field_sip_vertical
+id: block_content.single_item_promo.field_sip_vertical
+field_name: field_sip_vertical
+entity_type: block_content
+bundle: single_item_promo
+label: Vertical
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

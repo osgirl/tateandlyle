@@ -1,0 +1,9 @@
+{
+  "name": "drupal/tal_ingredient_search",
+  "type": "drupal-module",
+  "description": "Ingredieant search page and search filer form modifications.",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "minimum-stability": "dev",
+  "require": { }
+}

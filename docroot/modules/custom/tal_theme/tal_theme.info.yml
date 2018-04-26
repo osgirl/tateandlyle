@@ -1,0 +1,5 @@
+name: 'TAL Theme'
+description: 'Install tateandlyle theme configurations'
+type: module
+core: 8.x
+package: tal

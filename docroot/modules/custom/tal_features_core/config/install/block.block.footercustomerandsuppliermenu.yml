@@ -1,0 +1,28 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.footer-customer-and-supplie
+  module:
+    - facets
+    - system
+id: footercustomerandsuppliermenu
+theme: tateandlyle
+region: footer
+weight: -12
+provider: null
+plugin: 'system_menu_block:footer-customer-and-supplie'
+settings:
+  id: 'system_menu_block:footer-customer-and-supplie'
+  label: 'Footer Customer and Supplier Menu'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+visibility:
+  other_facet:
+    id: other_facet
+    facets: ''
+    facet_value: ''
+    negate: false
+    context_mapping: {  }

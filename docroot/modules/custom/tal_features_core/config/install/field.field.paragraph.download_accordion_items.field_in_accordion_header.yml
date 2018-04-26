@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_in_accordion_header
+    - paragraphs.paragraphs_type.download_accordion_items
+id: paragraph.download_accordion_items.field_in_accordion_header
+field_name: field_in_accordion_header
+entity_type: paragraph
+bundle: download_accordion_items
+label: 'Accordion Header'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

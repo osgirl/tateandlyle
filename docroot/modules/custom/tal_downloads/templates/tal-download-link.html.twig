@@ -1,0 +1,33 @@
+
+{#
+/**
+ * @file
+ * Default theme implementation for a link to a file.
+ *
+ * Available variables:
+ * - attributes: The HTML attributes for the containing element.
+ * - link: A link to the file.
+ * - link: A link to the file.
+ *
+ * @see template_preprocess_file_link()
+ *
+ * @ingroup themeable
+ */
+#}
+<div class="tal__download--button" {{ attributes }}>
+    {% if link %}
+        <p class="file-size">{{ file_size }}</p>
+        {% if gated %}
+          <span class="btn--download" data-toggle="modal" data-target="#myModal" data-file="{{ fid }}">{{ link }}</span>
+        {% else %}
+            <span class="btn--download">{{ link }}</span>
+        {% endif %}
+    {% endif %}
+    {% if content %}
+        {{ content }}
+    {% endif %}
+
+    <div class="tal--download-external-link">
+        {{ external_download_link }}
+    </div>
+</div>
