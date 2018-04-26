@@ -1,4 +1,4 @@
-.tal--image-gallery {
+.tal--image-gallery, .tal--webinar-gallery {
   padding: 0;
   max-width: 1169px;
   margin: 0 auto;
@@ -115,7 +115,7 @@
   }
 }
 
-.tal--image-gallery-categories {
+.tal--image-gallery-categories, .tal--webinar-gallery-categories {
   float: left;
   width: 100%;
   .views-row {
