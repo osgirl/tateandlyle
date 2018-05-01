@@ -1,0 +1,5 @@
+name: TAL Image Field Widget
+type: module
+description: Propagate default alt and title value of image media enity to Image field.
+core: 8.x
+package: tal

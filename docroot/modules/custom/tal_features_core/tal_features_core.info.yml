@@ -62,6 +62,7 @@ dependencies:
   - tal_domain_redirect
   - tal_downloads
   - tal_image_gallery
+  - tal_image_widget
   - tal_ingredient_search
   - tal_mega_menu
   - tal_search
