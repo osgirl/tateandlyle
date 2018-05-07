@@ -224,6 +224,9 @@
             },
             "drupal/workbench_email": {
                 "Link to available tokens on email template page": "https://www.drupal.org/files/issues/2782635-display-token-browser.patch"
+            },
+            "drupal/videojs": {
+                "Preventing the use of the entity_embed module if videojs is installed": "https://www.drupal.org/files/issues/videojs-missing-entitydisplay-properties-2704155.patch"
             }
         },
         "drupal-scaffold": {
