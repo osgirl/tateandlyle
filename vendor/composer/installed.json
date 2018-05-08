@@ -5588,7 +5588,7 @@
             },
             "drupal": {
                 "version": "8.x-4.2",
-                "datestamp": "1500497642",
+                "datestamp": "1523670784",
                 "security-coverage": {
                     "status": "covered",
                     "message": "Covered by Drupal's security advisory policy"
@@ -5665,7 +5665,7 @@
             },
             "drupal": {
                 "version": "8.x-4.2",
-                "datestamp": "1500497642",
+                "datestamp": "1523670784",
                 "security-coverage": {
                     "status": "covered",
                     "message": "Covered by Drupal's security advisory policy"
@@ -6004,7 +6004,7 @@
             },
             "drupal": {
                 "version": "8.x-1.0-alpha6",
-                "datestamp": "1489190883",
+                "datestamp": "1524485284",
                 "security-coverage": {
                     "status": "not-covered",
                     "message": "Project has not opted into security advisory coverage!"
@@ -6357,6 +6357,10 @@
             {
                 "name": "jweowu",
                 "homepage": "https://www.drupal.org/user/152788"
+            },
+            {
+                "name": "mcdruid",
+                "homepage": "https://www.drupal.org/user/255969"
             },
             {
                 "name": "p0deje",
@@ -7215,6 +7219,9 @@
                     "status": "covered",
                     "message": "Covered by Drupal's security advisory policy"
                 }
+            },
+            "patches_applied": {
+                "Preventing the use of the entity_embed module if videojs is installed": "https://www.drupal.org/files/issues/videojs-missing-entitydisplay-properties-2704155.patch"
             }
         },
         "installation-source": "dist",
@@ -8435,7 +8442,7 @@
             {
                 "name": "Luís Otávio Cobucci Oblonczyk",
                 "email": "lcobucci@gmail.com",
-                "role": "Developer"
+                "role": "developer"
             }
         ],
         "description": "A simple library to work with JSON Web Token and JSON Web Signature",
